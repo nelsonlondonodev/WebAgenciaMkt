@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nelson Londoño Agencia - Desarrollo Web y Tours Virtuales</title>
+    <meta
+      name="description"
+      content="Agencia de desarrollo web, SEO, branding y tours virtuales 360° en Madrid. Liderada por Nelson Londoño, desarrollador con experiencia."
+    />
+    <meta
+      name="keywords"
+      content="desarrollo web, seo, branding, tours virtuales, Nelson Londoño, agencia digital, madrid, diseño web, wordpress, código nativo"
+    />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <script>
+      // Script para modo oscuro y configuración de Tailwind (opcional, si necesitas extender colores)
+      tailwind.config = {
+        darkMode: "class", // Habilita el modo oscuro basado en una clase en el <html>
+        theme: {
+          extend: {
+            colors: {
+              "primary-green": "#10B981", // Un verde esmeralda (ejemplo)
+              "primary-blue": "#3B82F6", // Un azul estándar (ejemplo)
+              "dark-bg": "#111827", // Fondo oscuro principal
+              "light-bg": "#F9FAFB", // Fondo claro principal
+              "dark-card": "#1F2937", // Fondo de tarjetas en modo oscuro
+              "light-card": "#FFFFFF", // Fondo de tarjetas en modo claro
+            },
+          },
+        },
+      };
+      // Aplica el modo oscuro guardado o el preferido por el sistema al cargar
+      if (
+        localStorage.getItem("darkMode") === "true" ||
+        (!("darkMode" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .paused-animation {
+          animation-play-state: paused;
+        }
+        /* Estilos para animaciones sutiles (ejemplo) */
+        .fade-in-up {
+          opacity: 0;
+          transform: translateY(20px);
+          animation: fadeInUp 0.5s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+      body {
+        @apply bg-light-bg text-gray-800 dark:bg-dark-bg dark:text-gray-200 transition-colors duration-300;
+      }
+      .sticky-header {
+        @apply fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md shadow-lg transition-all duration-300;
+      }
+      .nav-link {
+        @apply px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-primary-blue dark:hover:text-primary-green transition-colors;
+      }
+      .nav-link-mobile {
+        @apply block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-primary-blue dark:hover:text-primary-green transition-colors;
+      }
+      .cta-button {
+        @apply inline-block bg-primary-green hover:bg-emerald-600 dark:bg-primary-blue dark:hover:bg-sky-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out;
+      }
+      .section-title {
+        @apply text-3xl sm:text-4xl font-bold text-center mb-4 text-gray-800 dark:text-white;
+      }
+      .section-subtitle {
+        @apply text-lg text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto;
+      }
+      .service-card {
+        @apply bg-light-card dark:bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300;
+      }
+      .portfolio-item {
+        @apply bg-light-card dark:bg-dark-card rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300;
+      }
+    </style>
+  </head>
+  <body data-lang="es">
+    <header id="mainHeader" class="sticky-header">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center">
+            <a
+              href="#inicio"
+              class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+              data-translate-key="agencyName"
+            >
+              Nelson Londoño Agencia
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <nav class="ml-10 flex items-baseline space-x-4">
+              <a href="#inicio" class="nav-link" data-translate-key="navHome"
+                >Inicio</a
+              >
+              <a
+                href="#servicios"
+                class="nav-link"
+                data-translate-key="navServices"
+                >Servicios</a
+              >
+              <a
+                href="#proyectos"
+                class="nav-link"
+                data-translate-key="navProjects"
+                >Proyectos</a
+              >
+              <a href="#sobre-mi" class="nav-link" data-translate-key="navAbout"
+                >Sobre Mí</a
+              >
+              <a
+                href="#contacto"
+                class="nav-link"
+                data-translate-key="navContact"
+                >Contacto</a
+              >
+            </nav>
+          </div>
+          <div class="flex items-center">
+            <button
+              id="languageSwitcher"
+              class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors mr-2"
+            >
+              <span id="langIndicator">EN</span>
+            </button>
+            <button
+              id="darkModeToggle"
+              class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors"
+            >
+              <i class="fas fa-moon"></i>
+            </button>
+            <div class="md:hidden ml-2">
+              <button
+                id="mobileMenuButton"
+                type="button"
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-primary-blue dark:hover:text-primary-green hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-blue"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span class="sr-only" data-translate-key="openMenu"
+                  >Abrir menú principal</span
+                >
+                <i class="fas fa-bars fa-lg"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="md:hidden hidden" id="mobileMenu">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a href="#inicio" class="nav-link-mobile" data-translate-key="navHome"
+            >Inicio</a
+          >
+          <a
+            href="#servicios"
+            class="nav-link-mobile"
+            data-translate-key="navServices"
+            >Servicios</a
+          >
+          <a
+            href="#proyectos"
+            class="nav-link-mobile"
+            data-translate-key="navProjects"
+            >Proyectos</a
+          >
+          <a
+            href="#sobre-mi"
+            class="nav-link-mobile"
+            data-translate-key="navAbout"
+            >Sobre Mí</a
+          >
+          <a
+            href="#contacto"
+            class="nav-link-mobile"
+            data-translate-key="navContact"
+            >Contacto</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section
+        id="inicio"
+        class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-sky-50 dark:from-sky-900 via-white dark:via-dark-bg to-emerald-50 dark:to-emerald-900"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">
+            <span
+              class="block text-gray-800 dark:text-white"
+              data-translate-key="heroTitle1"
+              >Transformamos Ideas en</span
+            >
+            <span
+              class="block text-primary-blue dark:text-primary-green"
+              data-translate-key="heroTitle2"
+              >Experiencias Digitales Impactantes</span
+            >
+          </h1>
+          <p
+            class="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-10"
+            data-translate-key="heroSubtitle"
+          >
+            Desde Madrid, con pasión colombiana y visión global. Creamos
+            soluciones web innovadoras, SEO estratégico y los revolucionarios
+            Tours Virtuales 360° para llevar tu negocio al siguiente nivel.
+          </p>
+          <a href="#servicios" class="cta-button" data-translate-key="heroCTA"
+            >Descubre Nuestros Servicios</a
+          >
+        </div>
+      </section>
+
+      <section id="servicios" class="py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="section-title" data-translate-key="servicesTitle">
+            Nuestros Servicios
+          </h2>
+          <p class="section-subtitle" data-translate-key="servicesSubtitle">
+            Soluciones a medida para impulsar tu presencia online y alcanzar tus
+            objetivos. Precios transparentes y posibilidad de modelos de
+            suscripción mensual.
+          </p>
+          <div
+            class="mt-12 grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          >
+            <div class="service-card">
+              <div
+                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue"
+              >
+                <i class="fas fa-vr-cardboard fa-2x"></i>
+              </div>
+              <h3
+                class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
+                data-translate-key="serviceTourTitle"
+              >
+                Tours Virtuales de Negocios 360°
+              </h3>
+              <p
+                class="text-gray-600 dark:text-gray-400 mb-4"
+                data-translate-key="serviceTourDesc"
+              >
+                Nuevo Servicio Estrella. Experiencias inmersivas compatibles con
+                Google Street View. Ideal para inmobiliarias, restaurantes,
+                hoteles y más.
+              </p>
+              <p
+                class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
+                data-translate-key="serviceTourPrice"
+              >
+                Desde 499€
+              </p>
+              <p
+                class="text-sm text-gray-500 dark:text-gray-500"
+                data-translate-key="serviceSubscriptionInfo"
+              >
+                (Consulta planes de suscripción para actualizaciones)
+              </p>
+              <a
+                href="#contacto"
+                class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
+                data-translate-key="serviceTourCTA"
+                >Solicita tu Tour Virtual <i class="fas fa-arrow-right ml-1"></i
+              ></a>
+            </div>
+
+            <div class="service-card">
+              <div
+                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue"
+              >
+                <i class="fas fa-code fa-2x"></i>
+              </div>
+              <h3
+                class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
+                data-translate-key="serviceCustomWebTitle"
+              >
+                Desarrollo Web a Medida
+              </h3>
+              <p
+                class="text-gray-600 dark:text-gray-400 mb-4"
+                data-translate-key="serviceCustomWebDesc"
+              >
+                Soluciones únicas con código nativo (HTML, CSS, JavaScript, y
+                más) para un rendimiento y personalización máximos.
+              </p>
+              <p
+                class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
+                data-translate-key="serviceCustomWebPrice"
+              >
+                Desde 1200€
+              </p>
+              <p
+                class="text-sm text-gray-500 dark:text-gray-500"
+                data-translate-key="serviceSubscriptionInfo"
+              >
+                (Consulta planes de suscripción para mantenimiento y
+                actualizaciones)
+              </p>
+              <a
+                href="#contacto"
+                class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
+                data-translate-key="serviceContactCTA"
+                >Pide Presupuesto Web <i class="fas fa-arrow-right ml-1"></i
+              ></a>
+            </div>
+
+            <div class="service-card">
+              <div
+                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue"
+              >
+                <i class="fab fa-wordpress fa-2x"></i>
+              </div>
+              <h3
+                class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
+                data-translate-key="serviceWordPressTitle"
+              >
+                Desarrollo Web con WordPress
+              </h3>
+              <p
+                class="text-gray-600 dark:text-gray-400 mb-4"
+                data-translate-key="serviceWordPressDesc"
+              >
+                Sitios web profesionales y autogestionables con el CMS más
+                popular del mundo. Flexibilidad y potencia.
+              </p>
+              <p
+                class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
+                data-translate-key="serviceWordPressPrice"
+              >
+                Desde 800€
+              </p>
+              <p
+                class="text-sm text-gray-500 dark:text-gray-500"
+                data-translate-key="serviceSubscriptionInfo"
+              >
+                (Consulta planes de suscripción para mantenimiento y
+                actualizaciones)
+              </p>
+              <a
+                href="#contacto"
+                class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
+                data-translate-key="serviceContactCTA"
+                >Pide Presupuesto Web <i class="fas fa-arrow-right ml-1"></i
+              ></a>
+            </div>
+
+            <div class="service-card">
+              <div
+                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue"
+              >
+                <i class="fas fa-search-dollar fa-2x"></i>
+              </div>
+              <h3
+                class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
+                data-translate-key="serviceSeoTitle"
+              >
+                SEO (Optimización para Buscadores)
+              </h3>
+              <p
+                class="text-gray-600 dark:text-gray-400 mb-4"
+                data-translate-key="serviceSeoDesc"
+              >
+                Mejora la visibilidad de tu web en Google y otros buscadores.
+                Atraer tráfico orgánico cualificado es clave.
+              </p>
+              <p
+                class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
+                data-translate-key="serviceSeoPrice"
+              >
+                Desde 300€/mes
+              </p>
+              <a
+                href="#contacto"
+                class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
+                data-translate-key="serviceSeoCTA"
+                >Consultar Plan SEO <i class="fas fa-arrow-right ml-1"></i
+              ></a>
+            </div>
+
+            <div class="service-card">
+              <div
+                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue"
+              >
+                <i class="fas fa-palette fa-2x"></i>
+              </div>
+              <h3
+                class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
+                data-translate-key="serviceBrandingTitle"
+              >
+                Creación de Marca (Branding)
+              </h3>
+              <p
+                class="text-gray-600 dark:text-gray-400 mb-4"
+                data-translate-key="serviceBrandingDesc"
+              >
+                Definimos y diseñamos la identidad visual de tu negocio para que
+                conecte con tu audiencia y transmita tus valores.
+              </p>
+              <p
+                class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
+                data-translate-key="serviceBrandingPrice"
+              >
+                Desde 600€
+              </p>
+              <a
+                href="#contacto"
+                class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
+                data-translate-key="serviceBrandingCTA"
+                >Descubre tu Identidad <i class="fas fa-arrow-right ml-1"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="proyectos"
+        class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-800/50"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="section-title" data-translate-key="projectsTitle">
+            Nuestro Portafolio
+          </h2>
+          <p class="section-subtitle" data-translate-key="projectsSubtitle">
+            Una muestra de la calidad y diversidad de nuestros trabajos.
+            Clientes satisfechos son nuestra mejor carta de presentación.
+          </p>
+          <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div class="portfolio-item">
+              <img
+                class="w-full h-56 object-cover"
+                src="https://via.placeholder.com/600x400.png?text=Proyecto+Innovador+1"
+                alt="Proyecto 1"
+              />
+              <div class="p-6">
+                <h3
+                  class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
+                  data-translate-key="project1Title"
+                >
+                  Cliente Actual Importante
+                </h3>
+                <p
+                  class="text-sm text-primary-blue dark:text-primary-green mb-2"
+                  data-translate-key="project1Category"
+                >
+                  Desarrollo Web y Tour Virtual 360°
+                </p>
+                <p
+                  class="text-gray-600 dark:text-gray-400 text-sm"
+                  data-translate-key="project1Desc"
+                >
+                  Descripción breve del proyecto destacando el impacto y la
+                  solución aportada.
+                </p>
+              </div>
+            </div>
+            <div class="portfolio-item">
+              <img
+                class="w-full h-56 object-cover"
+                src="https://via.placeholder.com/600x400.png?text=Solución+Creativa+2"
+                alt="Proyecto 2"
+              />
+              <div class="p-6">
+                <h3
+                  class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
+                  data-translate-key="project2Title"
+                >
+                  Startup Tecnológica
+                </h3>
+                <p
+                  class="text-sm text-primary-blue dark:text-primary-green mb-2"
+                  data-translate-key="project2Category"
+                >
+                  Branding y Desarrollo WordPress
+                </p>
+                <p
+                  class="text-gray-600 dark:text-gray-400 text-sm"
+                  data-translate-key="project2Desc"
+                >
+                  Diseño de identidad de marca y web corporativa enfocada en la
+                  conversión.
+                </p>
+              </div>
+            </div>
+            <div class="portfolio-item">
+              <img
+                class="w-full h-56 object-cover"
+                src="https://via.placeholder.com/600x400.png?text=Experiencia+Digital+3"
+                alt="Proyecto 3"
+              />
+              <div class="p-6">
+                <h3
+                  class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
+                  data-translate-key="project3Title"
+                >
+                  Consultoría SEO Local
+                </h3>
+                <p
+                  class="text-sm text-primary-blue dark:text-primary-green mb-2"
+                  data-translate-key="project3Category"
+                >
+                  Optimización SEO y Contenido
+                </p>
+                <p
+                  class="text-gray-600 dark:text-gray-400 text-sm"
+                  data-translate-key="project3Desc"
+                >
+                  Estrategia SEO que duplicó la visibilidad online del cliente
+                  en 6 meses.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-12">
+            <a
+              href="#contacto"
+              class="cta-button"
+              data-translate-key="projectsCTA"
+              >Ver Más Proyectos (o Contactar)</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre-mi" class="py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+            <div>
+              <h2
+                class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-6"
+                data-translate-key="aboutTitle"
+              >
+                Conoce a Nelson Londoño
+              </h2>
+              <p
+                class="text-gray-600 dark:text-gray-300 text-lg mb-4"
+                data-translate-key="aboutIntro"
+              >
+                Soy Nelson Londoño, un desarrollador de 43 años originario de
+                Colombia y afincado en Madrid. Mi pasión por la tecnología y el
+                desarrollo de software no es solo mi profesión, es mi vocación.
+              </p>
+              <p
+                class="text-gray-600 dark:text-gray-300 mb-4"
+                data-translate-key="aboutExperience"
+              >
+                Con años de experiencia en el sector, he fundado "Nelson Londoño
+                Agencia" con la misión de ofrecer soluciones digitales que no
+                solo cumplan, sino que superen las expectativas. Creemos en la
+                cercanía, la transparencia y en construir relaciones de
+                confianza a largo plazo con nuestros clientes.
+              </p>
+              <p
+                class="text-gray-600 dark:text-gray-300 mb-6"
+                data-translate-key="aboutPhilosophy"
+              >
+                Nuestra filosofía se basa en la profesionalidad, la modernidad y
+                una constante adaptación a las nuevas tendencias, como nuestros
+                innovadores Tours Virtuales 360°. Queremos ser tu socio
+                tecnológico en Madrid y más allá.
+              </p>
+              <a
+                href="#contacto"
+                class="cta-button"
+                data-translate-key="aboutCTA"
+                >Hablemos de tu Proyecto</a
+              >
+            </div>
+            <div class="mt-10 lg:mt-0 flex justify-center">
+              <img
+                class="rounded-lg shadow-xl w-full max-w-md object-cover h-96 lg:h-auto"
+                src="https://via.placeholder.com/500x600.png?text=Nelson+Londoño"
+                alt="Nelson Londoño"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="contacto"
+        class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-800/50"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="section-title" data-translate-key="contactTitle">
+            Contacta Ahora
+          </h2>
+          <p class="section-subtitle" data-translate-key="contactSubtitle">
+            ¿Listo para iniciar tu próximo proyecto o tienes alguna pregunta?
+            Estamos aquí para ayudarte.
+          </p>
+          <div class="mt-12 max-w-3xl mx-auto">
+            <form
+              action="#"
+              method="POST"
+              class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+            >
+              <div>
+                <label
+                  for="first-name"
+                  class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  data-translate-key="formFirstName"
+                  >Nombre</label
+                >
+                <div class="mt-1">
+                  <input
+                    type="text"
+                    name="first-name"
+                    id="first-name"
+                    autocomplete="given-name"
+                    class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  for="last-name"
+                  class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  data-translate-key="formLastName"
+                  >Apellidos</label
+                >
+                <div class="mt-1">
+                  <input
+                    type="text"
+                    name="last-name"
+                    id="last-name"
+                    autocomplete="family-name"
+                    class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
+                  />
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  data-translate-key="formEmail"
+                  >Email</label
+                >
+                <div class="mt-1">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
+                  />
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label
+                  for="phone-number"
+                  class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  data-translate-key="formPhone"
+                  >Teléfono (Opcional)</label
+                >
+                <div class="mt-1">
+                  <input
+                    type="text"
+                    name="phone-number"
+                    id="phone-number"
+                    autocomplete="tel"
+                    class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
+                  />
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label
+                  for="service-interest"
+                  class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  data-translate-key="formServiceInterest"
+                  >Servicio de Interés</label
+                >
+                <div class="mt-1">
+                  <select
+                    id="service-interest"
+                    name="service-interest"
+                    class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
+                  >
+                    <option data-translate-key="optionSelectService">
+                      Selecciona un servicio...
+                    </option>
+                    <option
+                      value="tour_virtual"
+                      data-translate-key="optionTourVirtual"
+                    >
+                      Tour Virtual 360°
+                    </option>
+                    <option
+                      value="web_medida"
+                      data-translate-key="optionWebMedida"
+                    >
+                      Desarrollo Web a Medida
+                    </option>
+                    <option
+                      value="wordpress"
+                      data-translate-key="optionWordPress"
+                    >
+                      Desarrollo Web con WordPress
+                    </option>
+                    <option value="seo" data-translate-key="optionSEO">
+                      SEO
+                    </option>
+                    <option
+                      value="branding"
+                      data-translate-key="optionBranding"
+                    >
+                      Branding
+                    </option>
+                    <option value="otro" data-translate-key="optionOtro">
+                      Otro
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  data-translate-key="formMessage"
+                  >Mensaje</label
+                >
+                <div class="mt-1">
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="sm:col-span-2 text-center">
+                <button
+                  type="submit"
+                  class="cta-button w-full sm:w-auto"
+                  data-translate-key="formSubmit"
+                >
+                  Enviar Mensaje
+                </button>
+              </div>
+            </form>
+            <div class="mt-10 text-center text-gray-600 dark:text-gray-300">
+              <p class="text-lg" data-translate-key="contactOrCall">
+                O si lo prefieres:
+              </p>
+              <p class="mt-2">
+                <i
+                  class="fas fa-envelope mr-2 text-primary-blue dark:text-primary-green"
+                ></i>
+                <a
+                  href="mailto:info@nelsonlondonoagencia.com"
+                  class="hover:underline"
+                  >info@nelsonlondonoagencia.com</a
+                >
+              </p>
+              <p class="mt-1">
+                <i
+                  class="fas fa-phone mr-2 text-primary-blue dark:text-primary-green"
+                ></i>
+                <a
+                  href="tel:+34000000000"
+                  class="hover:underline"
+                  data-translate-key="contactPhone"
+                  >+34 (000) 000-000</a
+                >
+                (Tu Teléfono)
+              </p>
+              <p class="mt-1">
+                <i
+                  class="fas fa-map-marker-alt mr-2 text-primary-blue dark:text-primary-green"
+                ></i>
+                Madrid, España
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-800 dark:bg-black">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-gray-400" data-translate-key="footerText">
+          &copy; <span id="currentYear"></span> Nelson Londoño Agencia. Todos
+          los derechos reservados.
+        </p>
+        <p
+          class="text-xs text-gray-500 mt-1"
+          data-translate-key="footerMadeWith"
+        >
+          Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.
+        </p>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/34000000000?text=Hola%2C%20estoy%20interesado%20en%20sus%20servicios."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-40 transition-transform hover:scale-110"
+    >
+      <i class="fab fa-whatsapp fa-2x"></i>
+      <span class="sr-only">Contactar por WhatsApp</span>
+    </a>
+
+    <script>
+      // --- Textos para traducción ---
+      const translations = {
+        es: {
+          agencyName: "Nelson Londoño Agencia",
+          navHome: "Inicio",
+          navServices: "Servicios",
+          navProjects: "Proyectos",
+          navAbout: "Sobre Mí",
+          navContact: "Contacto",
+          openMenu: "Abrir menú principal",
+          heroTitle1: "Transformamos Ideas en",
+          heroTitle2: "Experiencias Digitales Impactantes",
+          heroSubtitle:
+            "Desde Madrid, con pasión colombiana y visión global. Creamos soluciones web innovadoras, SEO estratégico y los revolucionarios Tours Virtuales 360° para llevar tu negocio al siguiente nivel.",
+          heroCTA: "Descubre Nuestros Servicios",
+          servicesTitle: "Nuestros Servicios",
+          servicesSubtitle:
+            "Soluciones a medida para impulsar tu presencia online y alcanzar tus objetivos. Precios transparentes y posibilidad de modelos de suscripción mensual.",
+          serviceTourTitle: "Tours Virtuales de Negocios 360°",
+          serviceTourDesc:
+            "Nuevo Servicio Estrella. Experiencias inmersivas compatibles con Google Street View. Ideal para inmobiliarias, restaurantes, hoteles y más.",
+          serviceTourPrice: "Desde 499€",
+          serviceSubscriptionInfo:
+            "(Consulta planes de suscripción para mantenimiento y actualizaciones)",
+          serviceTourCTA: "Solicita tu Tour Virtual",
+          serviceCustomWebTitle: "Desarrollo Web a Medida",
+          serviceCustomWebDesc:
+            "Soluciones únicas con código nativo (HTML, CSS, JavaScript, y más) para un rendimiento y personalización máximos.",
+          serviceCustomWebPrice: "Desde 1200€",
+          serviceContactCTA: "Pide Presupuesto Web",
+          serviceWordPressTitle: "Desarrollo Web con WordPress",
+          serviceWordPressDesc:
+            "Sitios web profesionales y autogestionables con el CMS más popular del mundo. Flexibilidad y potencia.",
+          serviceWordPressPrice: "Desde 800€",
+          serviceSeoTitle: "SEO (Optimización para Buscadores)",
+          serviceSeoDesc:
+            "Mejora la visibilidad de tu web en Google y otros buscadores. Atraer tráfico orgánico cualificado es clave.",
+          serviceSeoPrice: "Desde 300€/mes",
+          serviceSeoCTA: "Consultar Plan SEO",
+          serviceBrandingTitle: "Creación de Marca (Branding)",
+          serviceBrandingDesc:
+            "Definimos y diseñamos la identidad visual de tu negocio para que conecte con tu audiencia y transmita tus valores.",
+          serviceBrandingPrice: "Desde 600€",
+          serviceBrandingCTA: "Descubre tu Identidad",
+          projectsTitle: "Nuestro Portafolio",
+          projectsSubtitle:
+            "Una muestra de la calidad y diversidad de nuestros trabajos. Clientes satisfechos son nuestra mejor carta de presentación.",
+          project1Title: "Cliente Actual Importante",
+          project1Category: "Desarrollo Web y Tour Virtual 360°",
+          project1Desc:
+            "Descripción breve del proyecto destacando el impacto y la solución aportada.",
+          project2Title: "Startup Tecnológica",
+          project2Category: "Branding y Desarrollo WordPress",
+          project2Desc:
+            "Diseño de identidad de marca y web corporativa enfocada en la conversión.",
+          project3Title: "Consultoría SEO Local",
+          project3Category: "Optimización SEO y Contenido",
+          project3Desc:
+            "Estrategia SEO que duplicó la visibilidad online del cliente en 6 meses.",
+          projectsCTA: "Ver Más Proyectos",
+          aboutTitle: "Conoce a Nelson Londoño",
+          aboutIntro:
+            "Soy Nelson Londoño, un desarrollador de 43 años originario de Colombia y afincado en Madrid. Mi pasión por la tecnología y el desarrollo de software no es solo mi profesión, es mi vocación.",
+          aboutExperience:
+            'Con años de experiencia en el sector, he fundado "Nelson Londoño Agencia" con la misión de ofrecer soluciones digitales que no solo cumplan, sino que superen las expectativas. Creemos en la cercanía, la transparencia y en construir relaciones de confianza a largo plazo con nuestros clientes.',
+          aboutPhilosophy:
+            "Nuestra filosofía se basa en la profesionalidad, la modernidad y una constante adaptación a las nuevas tendencias, como nuestros innovadores Tours Virtuales 360°. Queremos ser tu socio tecnológico en Madrid y más allá.",
+          aboutCTA: "Hablemos de tu Proyecto",
+          contactTitle: "Contacta Ahora",
+          contactSubtitle:
+            "¿Listo para iniciar tu próximo proyecto o tienes alguna pregunta? Estamos aquí para ayudarte.",
+          formFirstName: "Nombre",
+          formLastName: "Apellidos",
+          formEmail: "Email",
+          formPhone: "Teléfono (Opcional)",
+          formServiceInterest: "Servicio de Interés",
+          optionSelectService: "Selecciona un servicio...",
+          optionTourVirtual: "Tour Virtual 360°",
+          optionWebMedida: "Desarrollo Web a Medida",
+          optionWordPress: "Desarrollo Web con WordPress",
+          optionSEO: "SEO",
+          optionBranding: "Branding",
+          optionOtro: "Otro",
+          formMessage: "Mensaje",
+          formSubmit: "Enviar Mensaje",
+          contactOrCall: "O si lo prefieres:",
+          contactPhone: "+34 (000) 000-000",
+          footerText: `&copy; ${new Date().getFullYear()} Nelson Londoño Agencia. Todos los derechos reservados.`,
+          footerMadeWith:
+            'Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.',
+        },
+        en: {
+          agencyName: "Nelson Londoño Agency",
+          navHome: "Home",
+          navServices: "Services",
+          navProjects: "Projects",
+          navAbout: "About Me",
+          navContact: "Contact",
+          openMenu: "Open main menu",
+          heroTitle1: "We Transform Ideas Into",
+          heroTitle2: "Impactful Digital Experiences",
+          heroSubtitle:
+            "From Madrid, with Colombian passion and global vision. We create innovative web solutions, strategic SEO, and revolutionary 360° Virtual Tours to take your business to the next level.",
+          heroCTA: "Discover Our Services",
+          servicesTitle: "Our Services",
+          servicesSubtitle:
+            "Tailored solutions to boost your online presence and achieve your goals. Transparent pricing and monthly subscription models available.",
+          serviceTourTitle: "360° Business Virtual Tours",
+          serviceTourDesc:
+            "New Star Service. Immersive experiences compatible with Google Street View. Ideal for real estate, restaurants, hotels, and more.",
+          serviceTourPrice: "From €499",
+          serviceSubscriptionInfo:
+            "(Check subscription plans for maintenance and updates)",
+          serviceTourCTA: "Request Your Virtual Tour",
+          serviceCustomWebTitle: "Custom Web Development",
+          serviceCustomWebDesc:
+            "Unique solutions with native code (HTML, CSS, JavaScript, and more) for maximum performance and customization.",
+          serviceCustomWebPrice: "From €1200",
+          serviceContactCTA: "Request Web Quote",
+          serviceWordPressTitle: "WordPress Web Development",
+          serviceWordPressDesc:
+            "Professional, self-manageable websites with the world's most popular CMS. Flexibility and power.",
+          serviceWordPressPrice: "From €800",
+          serviceSeoTitle: "SEO (Search Engine Optimization)",
+          serviceSeoDesc:
+            "Improve your website's visibility on Google and other search engines. Attracting qualified organic traffic is key.",
+          serviceSeoPrice: "From €300/month",
+          serviceSeoCTA: "Consult SEO Plan",
+          serviceBrandingTitle: "Branding (Brand Creation)",
+          serviceBrandingDesc:
+            "We define and design your business's visual identity to connect with your audience and convey your values.",
+          serviceBrandingPrice: "From €600",
+          serviceBrandingCTA: "Discover Your Identity",
+          projectsTitle: "Our Portfolio",
+          projectsSubtitle:
+            "A showcase of the quality and diversity of our work. Satisfied clients are our best introduction.",
+          project1Title: "Key Current Client",
+          project1Category: "Web Development & 360° Virtual Tour",
+          project1Desc:
+            "Brief project description highlighting the impact and solution provided.",
+          project2Title: "Tech Startup",
+          project2Category: "Branding & WordPress Development",
+          project2Desc:
+            "Brand identity design and corporate website focused on conversion.",
+          project3Title: "Local SEO Consultancy",
+          project3Category: "SEO Optimization & Content",
+          project3Desc:
+            "SEO strategy that doubled the client's online visibility in 6 months.",
+          projectsCTA: "View More Projects",
+          aboutTitle: "Meet Nelson Londoño",
+          aboutIntro:
+            "I'm Nelson Londoño, a 43-year-old developer originally from Colombia and based in Madrid. My passion for technology and software development is not just my profession, it's my calling.",
+          aboutExperience:
+            'With years of experience in the sector, I founded "Nelson Londoño Agency" with the mission to offer digital solutions that not only meet but exceed expectations. We believe in closeness, transparency, and building long-term trusting relationships with our clients.',
+          aboutPhilosophy:
+            "Our philosophy is based on professionalism, modernity, and constant adaptation to new trends, like our innovative 360° Virtual Tours. We want to be your technological partner in Madrid and beyond.",
+          aboutCTA: "Let's Talk About Your Project",
+          contactTitle: "Contact Now",
+          contactSubtitle:
+            "Ready to start your next project or have any questions? We're here to help.",
+          formFirstName: "First Name",
+          formLastName: "Last Name",
+          formEmail: "Email",
+          formPhone: "Phone (Optional)",
+          formServiceInterest: "Service of Interest",
+          optionSelectService: "Select a service...",
+          optionTourVirtual: "360° Virtual Tour",
+          optionWebMedida: "Custom Web Development",
+          optionWordPress: "WordPress Web Development",
+          optionSEO: "SEO",
+          optionBranding: "Branding",
+          optionOtro: "Other",
+          formMessage: "Message",
+          formSubmit: "Send Message",
+          contactOrCall: "Or if you prefer:",
+          contactPhone: "+34 (000) 000-000",
+          footerText: `&copy; ${new Date().getFullYear()} Nelson Londoño Agency. All rights reserved.`,
+          footerMadeWith:
+            'Designed with <i class="fas fa-heart text-red-500"></i> in Madrid.',
+        },
+      };
+
+      // --- Funcionalidad del Sitio ---
+      document.addEventListener("DOMContentLoaded", () => {
+        const mobileMenuButton = document.getElementById("mobileMenuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const htmlElement = document.documentElement;
+        const languageSwitcher = document.getElementById("languageSwitcher");
+        const langIndicator = document.getElementById("langIndicator");
+        const currentYearSpan = document.getElementById("currentYear");
+
+        // Año actual en el footer
+        if (currentYearSpan) {
+          currentYearSpan.textContent = new Date().getFullYear();
+        }
+
+        // --- Menú Móvil ---
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener("click", () => {
+            const isExpanded =
+              mobileMenuButton.getAttribute("aria-expanded") === "true" ||
+              false;
+            mobileMenuButton.setAttribute("aria-expanded", !isExpanded);
+            mobileMenu.classList.toggle("hidden");
+            const icon = mobileMenuButton.querySelector("i");
+            if (icon) {
+              icon.classList.toggle("fa-bars");
+              icon.classList.toggle("fa-times");
+            }
+          });
+          // Cerrar menú móvil al hacer clic en un enlace
+          mobileMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+              mobileMenuButton.setAttribute("aria-expanded", "false");
+              mobileMenu.classList.add("hidden");
+              mobileMenuButton.querySelector("i")?.classList.remove("fa-times");
+              mobileMenuButton.querySelector("i")?.classList.add("fa-bars");
+            });
+          });
+        }
+
+        // --- Modo Oscuro ---
+        function updateDarkModeIcon() {
+          const icon = darkModeToggle.querySelector("i");
+          if (htmlElement.classList.contains("dark")) {
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
+          } else {
+            icon.classList.remove("fa-sun");
+            icon.classList.add("fa-moon");
+          }
+        }
+        if (darkModeToggle) {
+          darkModeToggle.addEventListener("click", () => {
+            htmlElement.classList.toggle("dark");
+            localStorage.setItem(
+              "darkMode",
+              htmlElement.classList.contains("dark")
+            );
+            updateDarkModeIcon();
+          });
+          updateDarkModeIcon(); // Inicializar icono
+        }
+
+        // --- Cambio de Idioma (Básico) ---
+        let currentLang = localStorage.getItem("language") || "es";
+        document.body.setAttribute("data-lang", currentLang);
+
+        function setLanguage(lang) {
+          currentLang = lang;
+          localStorage.setItem("language", lang);
+          document.body.setAttribute("data-lang", lang);
+          langIndicator.textContent = lang === "es" ? "EN" : "ES";
+
+          document.querySelectorAll("[data-translate-key]").forEach((el) => {
+            const key = el.getAttribute("data-translate-key");
+            if (translations[lang] && translations[lang][key]) {
+              // Usar innerHTML para que los iconos en el footer funcionen
+              if (key === "footerMadeWith" || key === "footerText") {
+                el.innerHTML = translations[lang][key];
+              } else {
+                el.textContent = translations[lang][key];
+              }
+            }
+          });
+          // Actualizar el año en el footer después de cambiar el idioma, si es necesario
+          if (
+            currentYearSpan &&
+            translations[lang] &&
+            translations[lang]["footerText"]
+          ) {
+            const footerTextTemplate = translations[lang]["footerText"];
+            currentYearSpan.parentElement.innerHTML =
+              footerTextTemplate.replace(
+                `${new Date().getFullYear()}`,
+                `<span id="currentYear">${new Date().getFullYear()}</span>`
+              );
+          } else if (currentYearSpan) {
+            // Asegurarse que el span exista para reasignar si no hay traduccion
+            currentYearSpan.textContent = new Date().getFullYear();
+          }
+        }
+
+        if (languageSwitcher) {
+          languageSwitcher.addEventListener("click", () => {
+            setLanguage(currentLang === "es" ? "en" : "es");
+          });
+          setLanguage(currentLang); // Aplicar idioma al cargar
+        }
+
+        // --- Scroll Suave para anclas ---
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              // Ajuste para la altura del header fijo
+              const headerOffset =
+                document.getElementById("mainHeader")?.offsetHeight || 80;
+              const elementPosition = targetElement.getBoundingClientRect().top;
+              const offsetPosition =
+                elementPosition + window.pageYOffset - headerOffset;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+
+        // --- Animaciones sutiles al hacer scroll (ejemplo básico) ---
+        const animatedElements = document.querySelectorAll(
+          ".service-card, .portfolio-item, #sobre-mi > div > div:first-child > h2, #sobre-mi > div > div:first-child > p, #sobre-mi > div > div:last-child > img"
+        );
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("fade-in-up");
+                entry.target.classList.remove("paused-animation"); // Reanudar si estaba pausada
+                // observer.unobserve(entry.target); // Descomentar si solo quieres que la animación ocurra una vez
+              } else {
+                // Opcional: resetear animación si sale de la vista para que se repita
+                // entry.target.classList.remove('fade-in-up');
+                // entry.target.style.opacity = '0'; // Forzar reinicio de opacidad
+                // entry.target.style.transform = 'translateY(20px)'; // Forzar reinicio de posición
+              }
+            });
+          },
+          { threshold: 0.1 }
+        ); // El umbral indica qué porcentaje del elemento debe estar visible
+
+        animatedElements.forEach((el) => {
+          el.classList.add("paused-animation"); // Iniciar con animación pausada
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>
