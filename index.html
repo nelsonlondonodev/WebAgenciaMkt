@@ -65,6 +65,11 @@
             transform: translateY(0);
           }
         }
+        /* === CLASE AÑADIDA PARA EL LOGO EN MODO OSCURO === */
+        .logo-invert-on-dark {
+          @apply dark:invert dark:brightness-200; /* Invierte y aclara para que se vea blanco en modo oscuro */
+        }
+        /* =============================================== */
       }
       body {
         @apply bg-light-bg text-gray-800 dark:bg-dark-bg dark:text-gray-200 transition-colors duration-300;
@@ -102,10 +107,14 @@
           <div class="flex items-center">
             <a
               href="#inicio"
-              class="text-2xl font-bold text-primary-blue dark:text-primary-green"
-              data-translate-key="agencyName"
+              class="block"
+              aria-label="Nelson Londoño Agencia - Página de Inicio"
             >
-              <img src="./image/logo-nelson.png" alt="Logo nelson londono" />
+              <img
+                src="./image/logo-nelson.png"
+                alt="Nelson Londoño Agencia Logo"
+                class="h-10 sm:h-12 w-auto logo-invert-on-dark"
+              />
             </a>
           </div>
           <div class="hidden md:block">
@@ -825,7 +834,7 @@
       // --- Textos para traducción ---
       const translations = {
         es: {
-          agencyName: "Nelson Londoño Agencia",
+          // agencyName: "Nelson Londoño Agencia", // Ya no se usa para la traducción directa del nombre si es un logo
           navHome: "Inicio",
           navServices: "Servicios",
           navProjects: "Proyectos",
@@ -914,7 +923,7 @@
             'Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.',
         },
         en: {
-          agencyName: "Nelson Londoño Agency",
+          // agencyName: "Nelson Londoño Agency", // Ya no se usa para la traducción directa del nombre si es un logo
           navHome: "Home",
           navServices: "Services",
           navProjects: "Projects",
@@ -1145,12 +1154,6 @@
               if (entry.isIntersecting) {
                 entry.target.classList.add("fade-in-up");
                 entry.target.classList.remove("paused-animation"); // Reanudar si estaba pausada
-                // observer.unobserve(entry.target); // Descomentar si solo quieres que la animación ocurra una vez
-              } else {
-                // Opcional: resetear animación si sale de la vista para que se repita
-                // entry.target.classList.remove('fade-in-up');
-                // entry.target.style.opacity = '0'; // Forzar reinicio de opacidad
-                // entry.target.style.transform = 'translateY(20px)'; // Forzar reinicio de posición
               }
             });
           },
