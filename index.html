@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,39 +21,37 @@
     />
 
     <script>
-      // Script para modo oscuro y configuración de Tailwind (opcional, si necesitas extender colores)
+      // Script para modo oscuro y configuración de Tailwind
       tailwind.config = {
-        darkMode: "class", // Habilita el modo oscuro basado en una clase en el <html>
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
-              "primary-green": "#10B981", // Un verde esmeralda (ejemplo)
-              "primary-blue": "#3B82F6", // Un azul estándar (ejemplo)
-              "dark-bg": "#111827", // Fondo oscuro principal
-              "light-bg": "#F9FAFB", // Fondo claro principal
-              "dark-card": "#1F2937", // Fondo de tarjetas en modo oscuro
-              "light-card": "#FFFFFF", // Fondo de tarjetas en modo claro
+              "primary-green": "#10B981",
+              "primary-blue": "#3B82F6",
+              "dark-bg": "#111827",
+              "light-bg": "#F9FAFB",
+              "dark-card": "#1F2937",
+              "light-card": "#FFFFFF",
             },
           },
         },
       };
-      // Aplica el modo oscuro guardado o el preferido por el sistema al cargar
-      if (
-        localStorage.getItem("darkMode") === "true" ||
-        (!("darkMode" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      } else {
+
+      // PASO 2: Modificar lógica de inicialización del tema
+      // La etiqueta HTML ahora tiene la clase 'dark' por defecto.
+      // Solo cambiamos a modo claro si el usuario lo ha guardado explícitamente.
+      if (localStorage.getItem("darkMode") === "false") {
         document.documentElement.classList.remove("dark");
       }
+      // No es necesario un 'else' para añadir 'dark', ya que es el valor por defecto en <html>.
+      // El botón de cambio de tema se encargará de añadir/quitar la clase y guardarlo en localStorage.
     </script>
     <style type="text/tailwindcss">
       @layer utilities {
         .paused-animation {
           animation-play-state: paused;
         }
-        /* Estilos para animaciones sutiles (ejemplo) */
         .fade-in-up {
           opacity: 0;
           transform: translateY(20px);
@@ -65,11 +63,9 @@
             transform: translateY(0);
           }
         }
-        /* === CLASE AÑADIDA PARA EL LOGO EN MODO OSCURO === */
         .logo-invert-on-dark {
-          @apply dark:invert dark:brightness-200; /* Invierte y aclara para que se vea blanco en modo oscuro */
+          @apply dark:invert dark:brightness-200;
         }
-        /* =============================================== */
       }
       body {
         @apply bg-light-bg text-gray-800 dark:bg-dark-bg dark:text-gray-200 transition-colors duration-300;
@@ -834,7 +830,6 @@
       // --- Textos para traducción ---
       const translations = {
         es: {
-          // agencyName: "Nelson Londoño Agencia", // Ya no se usa para la traducción directa del nombre si es un logo
           navHome: "Inicio",
           navServices: "Servicios",
           navProjects: "Proyectos",
@@ -923,7 +918,6 @@
             'Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.',
         },
         en: {
-          // agencyName: "Nelson Londoño Agency", // Ya no se usa para la traducción directa del nombre si es un logo
           navHome: "Home",
           navServices: "Services",
           navProjects: "Projects",
@@ -1018,17 +1012,15 @@
         const mobileMenuButton = document.getElementById("mobileMenuButton");
         const mobileMenu = document.getElementById("mobileMenu");
         const darkModeToggle = document.getElementById("darkModeToggle");
-        const htmlElement = document.documentElement;
+        const htmlElement = document.documentElement; // Ya no es necesario modificarlo aquí por defecto, se hace en la etiqueta <html>
         const languageSwitcher = document.getElementById("languageSwitcher");
         const langIndicator = document.getElementById("langIndicator");
         const currentYearSpan = document.getElementById("currentYear");
 
-        // Año actual en el footer
         if (currentYearSpan) {
           currentYearSpan.textContent = new Date().getFullYear();
         }
 
-        // --- Menú Móvil ---
         if (mobileMenuButton && mobileMenu) {
           mobileMenuButton.addEventListener("click", () => {
             const isExpanded =
@@ -1042,7 +1034,6 @@
               icon.classList.toggle("fa-times");
             }
           });
-          // Cerrar menú móvil al hacer clic en un enlace
           mobileMenu.querySelectorAll("a").forEach((link) => {
             link.addEventListener("click", () => {
               mobileMenuButton.setAttribute("aria-expanded", "false");
@@ -1053,10 +1044,10 @@
           });
         }
 
-        // --- Modo Oscuro ---
         function updateDarkModeIcon() {
           const icon = darkModeToggle.querySelector("i");
-          if (htmlElement.classList.contains("dark")) {
+          if (document.documentElement.classList.contains("dark")) {
+            // Comprobamos la clase en <html> directamente
             icon.classList.remove("fa-moon");
             icon.classList.add("fa-sun");
           } else {
@@ -1066,17 +1057,17 @@
         }
         if (darkModeToggle) {
           darkModeToggle.addEventListener("click", () => {
-            htmlElement.classList.toggle("dark");
+            document.documentElement.classList.toggle("dark");
             localStorage.setItem(
               "darkMode",
-              htmlElement.classList.contains("dark")
+              document.documentElement.classList.contains("dark")
             );
             updateDarkModeIcon();
           });
-          updateDarkModeIcon(); // Inicializar icono
+          // Actualizar el icono al cargar la página según el estado actual (que ahora incluye el default en <html>)
+          updateDarkModeIcon();
         }
 
-        // --- Cambio de Idioma (Básico) ---
         let currentLang = localStorage.getItem("language") || "es";
         document.body.setAttribute("data-lang", currentLang);
 
@@ -1089,7 +1080,6 @@
           document.querySelectorAll("[data-translate-key]").forEach((el) => {
             const key = el.getAttribute("data-translate-key");
             if (translations[lang] && translations[lang][key]) {
-              // Usar innerHTML para que los iconos en el footer funcionen
               if (key === "footerMadeWith" || key === "footerText") {
                 el.innerHTML = translations[lang][key];
               } else {
@@ -1097,7 +1087,6 @@
               }
             }
           });
-          // Actualizar el año en el footer después de cambiar el idioma, si es necesario
           if (
             currentYearSpan &&
             translations[lang] &&
@@ -1110,7 +1099,6 @@
                 `<span id="currentYear">${new Date().getFullYear()}</span>`
               );
           } else if (currentYearSpan) {
-            // Asegurarse que el span exista para reasignar si no hay traduccion
             currentYearSpan.textContent = new Date().getFullYear();
           }
         }
@@ -1119,17 +1107,15 @@
           languageSwitcher.addEventListener("click", () => {
             setLanguage(currentLang === "es" ? "en" : "es");
           });
-          setLanguage(currentLang); // Aplicar idioma al cargar
+          setLanguage(currentLang);
         }
 
-        // --- Scroll Suave para anclas ---
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
           anchor.addEventListener("click", function (e) {
             e.preventDefault();
             const targetId = this.getAttribute("href");
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-              // Ajuste para la altura del header fijo
               const headerOffset =
                 document.getElementById("mainHeader")?.offsetHeight || 80;
               const elementPosition = targetElement.getBoundingClientRect().top;
@@ -1144,7 +1130,6 @@
           });
         });
 
-        // --- Animaciones sutiles al hacer scroll (ejemplo básico) ---
         const animatedElements = document.querySelectorAll(
           ".service-card, .portfolio-item, #sobre-mi > div > div:first-child > h2, #sobre-mi > div > div:first-child > p, #sobre-mi > div > div:last-child > img"
         );
@@ -1153,15 +1138,15 @@
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 entry.target.classList.add("fade-in-up");
-                entry.target.classList.remove("paused-animation"); // Reanudar si estaba pausada
+                entry.target.classList.remove("paused-animation");
               }
             });
           },
           { threshold: 0.1 }
-        ); // El umbral indica qué porcentaje del elemento debe estar visible
+        );
 
         animatedElements.forEach((el) => {
-          el.classList.add("paused-animation"); // Iniciar con animación pausada
+          el.classList.add("paused-animation");
           observer.observe(el);
         });
       });
