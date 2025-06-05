@@ -78,6 +78,11 @@
           animation-delay: 0.5s;
         }
       }
+      @layer components {
+        .header-scrolled {
+          @apply bg-white dark:bg-dark-bg shadow-xl;
+        }
+      }
       body {
         @apply bg-light-bg text-gray-800 dark:bg-dark-bg dark:text-gray-200 transition-colors duration-300;
       }
@@ -158,6 +163,7 @@
               class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors mr-2"
             >
               <span id="langIndicator" class="flex items-center space-x-1">
+                {/* */}
               </span>
             </button>
             <button
@@ -1025,8 +1031,22 @@
         const mobileMenu = document.getElementById("mobileMenu");
         const darkModeToggle = document.getElementById("darkModeToggle");
         const languageSwitcher = document.getElementById("languageSwitcher");
-        const langIndicator = document.getElementById("langIndicator");
+        const langIndicator = document.getElementById("langIndicator"); // Definido aquí
         const currentYearSpan = document.getElementById("currentYear");
+
+        const mainHeader = document.getElementById("mainHeader");
+        const scrollThreshold = 50;
+
+        function handleHeaderScroll() {
+          if (mainHeader) {
+            if (window.scrollY > scrollThreshold) {
+              mainHeader.classList.add("header-scrolled");
+            } else {
+              mainHeader.classList.remove("header-scrolled");
+            }
+          }
+        }
+        window.addEventListener("scroll", handleHeaderScroll);
 
         if (currentYearSpan) {
           currentYearSpan.textContent = new Date().getFullYear();
@@ -1056,15 +1076,16 @@
         }
 
         function updateDarkModeIcon() {
-          // Las clases de animación ahora están directamente en el tag <i> en el HTML
-          // por lo que esta función solo necesita cambiar la clase del icono (fa-moon / fa-sun)
           const iconElement = darkModeToggle.querySelector("i");
-          if (document.documentElement.classList.contains("dark")) {
-            iconElement.classList.remove("fa-moon");
-            iconElement.classList.add("fa-sun");
-          } else {
-            iconElement.classList.remove("fa-sun");
-            iconElement.classList.add("fa-moon");
+          // Asegurarse que darkModeToggle y su icono existan antes de manipular clases
+          if (darkModeToggle && iconElement) {
+            if (document.documentElement.classList.contains("dark")) {
+              iconElement.classList.remove("fa-moon");
+              iconElement.classList.add("fa-sun");
+            } else {
+              iconElement.classList.remove("fa-sun");
+              iconElement.classList.add("fa-moon");
+            }
           }
         }
         if (darkModeToggle) {
@@ -1091,13 +1112,23 @@
           document.body.setAttribute("data-lang", lang);
           document.documentElement.setAttribute("lang", lang);
 
-          if (lang === "es") {
-            langIndicator.innerHTML =
-              '<span role="img" aria-label="Bandera de Reino Unido">🇬🇧</span> EN';
+          // === VERIFICACIÓN AÑADIDA PARA langIndicator ===
+          if (langIndicator) {
+            if (lang === "es") {
+              langIndicator.innerHTML =
+                '<span role="img" aria-label="Bandera de Reino Unido">🇬🇧</span> EN';
+            } else {
+              langIndicator.innerHTML =
+                '<span role="img" aria-label="Bandera de España">🇪🇸</span> ES';
+            }
           } else {
-            langIndicator.innerHTML =
-              '<span role="img" aria-label="Bandera de España">🇪🇸</span> ES';
+            // Si langIndicator no se encuentra, muestra un error en la consola.
+            // Esto ayuda a identificar si el ID del span es incorrecto o si el elemento no existe.
+            console.error(
+              "Error: El elemento con ID 'langIndicator' no fue encontrado. No se puede actualizar el indicador de idioma."
+            );
           }
+          // ===========================================
 
           document.querySelectorAll("[data-translate-key]").forEach((el) => {
             const key = el.getAttribute("data-translate-key");
@@ -1129,7 +1160,15 @@
           languageSwitcher.addEventListener("click", () => {
             setLanguage(currentLang === "es" ? "en" : "es");
           });
-          setLanguage(currentLang);
+          // === VERIFICACIÓN AÑADIDA ANTES DE LA LLAMADA INICIAL a setLanguage ===
+          if (langIndicator) {
+            setLanguage(currentLang);
+          } else {
+            console.error(
+              "Error: No se pudo inicializar el indicador de idioma porque el elemento 'langIndicator' no fue encontrado."
+            );
+          }
+          // ================================================================
         }
 
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
