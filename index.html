@@ -21,7 +21,6 @@
     />
 
     <script>
-      // Script para modo oscuro y configuración de Tailwind
       tailwind.config = {
         darkMode: "class",
         theme: {
@@ -38,14 +37,9 @@
         },
       };
 
-      // PASO 2: Modificar lógica de inicialización del tema
-      // La etiqueta HTML ahora tiene la clase 'dark' por defecto.
-      // Solo cambiamos a modo claro si el usuario lo ha guardado explícitamente.
       if (localStorage.getItem("darkMode") === "false") {
         document.documentElement.classList.remove("dark");
       }
-      // No es necesario un 'else' para añadir 'dark', ya que es el valor por defecto en <html>.
-      // El botón de cambio de tema se encargará de añadir/quitar la clase y guardarlo en localStorage.
     </script>
     <style type="text/tailwindcss">
       @layer utilities {
@@ -66,6 +60,27 @@
         .logo-invert-on-dark {
           @apply dark:invert dark:brightness-200;
         }
+
+        /* === ANIMACIONES PARA EL H1 DEL HERO === */
+        .animate-hero-line {
+          opacity: 0; /* Estado inicial antes de la animación */
+          transform: translateY(
+            20px
+          ); /* Estado inicial antes de la animación */
+          animation-name: fadeInUp; /* Reutilizamos los keyframes existentes */
+          animation-duration: 0.7s; /* Duración de la animación */
+          animation-timing-function: ease-out; /* Curva de aceleración */
+          animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
+        }
+        .hero-line1-animate {
+          @apply animate-hero-line;
+          animation-delay: 0.2s; /* Retardo para la primera línea */
+        }
+        .hero-line2-animate {
+          @apply animate-hero-line;
+          animation-delay: 0.5s; /* Retardo para la segunda línea (0.2s + 0.3s de la anterior) */
+        }
+        /* ===================================== */
       }
       body {
         @apply bg-light-bg text-gray-800 dark:bg-dark-bg dark:text-gray-200 transition-colors duration-300;
@@ -146,7 +161,8 @@
               id="languageSwitcher"
               class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors mr-2"
             >
-              <span id="langIndicator">EN</span>
+              <span id="langIndicator" class="flex items-center space-x-1">
+              </span>
             </button>
             <button
               id="darkModeToggle"
@@ -212,12 +228,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16">
           <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">
             <span
-              class="block text-gray-800 dark:text-white"
+              class="block text-gray-800 dark:text-white hero-line1-animate"
               data-translate-key="heroTitle1"
               >Transformamos Ideas en</span
             >
             <span
-              class="block text-primary-blue dark:text-primary-green"
+              class="block text-primary-blue dark:text-primary-green hero-line2-animate"
               data-translate-key="heroTitle2"
               >Experiencias Digitales Impactantes</span
             >
@@ -827,7 +843,6 @@
     </a>
 
     <script>
-      // --- Textos para traducción ---
       const translations = {
         es: {
           navHome: "Inicio",
@@ -1007,12 +1022,10 @@
         },
       };
 
-      // --- Funcionalidad del Sitio ---
       document.addEventListener("DOMContentLoaded", () => {
         const mobileMenuButton = document.getElementById("mobileMenuButton");
         const mobileMenu = document.getElementById("mobileMenu");
         const darkModeToggle = document.getElementById("darkModeToggle");
-        const htmlElement = document.documentElement; // Ya no es necesario modificarlo aquí por defecto, se hace en la etiqueta <html>
         const languageSwitcher = document.getElementById("languageSwitcher");
         const langIndicator = document.getElementById("langIndicator");
         const currentYearSpan = document.getElementById("currentYear");
@@ -1047,7 +1060,6 @@
         function updateDarkModeIcon() {
           const icon = darkModeToggle.querySelector("i");
           if (document.documentElement.classList.contains("dark")) {
-            // Comprobamos la clase en <html> directamente
             icon.classList.remove("fa-moon");
             icon.classList.add("fa-sun");
           } else {
@@ -1064,18 +1076,28 @@
             );
             updateDarkModeIcon();
           });
-          // Actualizar el icono al cargar la página según el estado actual (que ahora incluye el default en <html>)
           updateDarkModeIcon();
         }
 
-        let currentLang = localStorage.getItem("language") || "es";
+        let currentLang =
+          localStorage.getItem("language") ||
+          document.documentElement.lang ||
+          "es";
         document.body.setAttribute("data-lang", currentLang);
 
         function setLanguage(lang) {
           currentLang = lang;
           localStorage.setItem("language", lang);
           document.body.setAttribute("data-lang", lang);
-          langIndicator.textContent = lang === "es" ? "EN" : "ES";
+          document.documentElement.setAttribute("lang", lang);
+
+          if (lang === "es") {
+            langIndicator.innerHTML =
+              '<span role="img" aria-label="Bandera de Reino Unido">🇬🇧</span> EN';
+          } else {
+            langIndicator.innerHTML =
+              '<span role="img" aria-label="Bandera de España">🇪🇸</span> ES';
+          }
 
           document.querySelectorAll("[data-translate-key]").forEach((el) => {
             const key = el.getAttribute("data-translate-key");
