@@ -61,26 +61,22 @@
           @apply dark:invert dark:brightness-200;
         }
 
-        /* === ANIMACIONES PARA EL H1 DEL HERO === */
         .animate-hero-line {
-          opacity: 0; /* Estado inicial antes de la animación */
-          transform: translateY(
-            20px
-          ); /* Estado inicial antes de la animación */
-          animation-name: fadeInUp; /* Reutilizamos los keyframes existentes */
-          animation-duration: 0.7s; /* Duración de la animación */
-          animation-timing-function: ease-out; /* Curva de aceleración */
-          animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
+          opacity: 0;
+          transform: translateY(20px);
+          animation-name: fadeInUp;
+          animation-duration: 0.7s;
+          animation-timing-function: ease-out;
+          animation-fill-mode: forwards;
         }
         .hero-line1-animate {
           @apply animate-hero-line;
-          animation-delay: 0.2s; /* Retardo para la primera línea */
+          animation-delay: 0.2s;
         }
         .hero-line2-animate {
           @apply animate-hero-line;
-          animation-delay: 0.5s; /* Retardo para la segunda línea (0.2s + 0.3s de la anterior) */
+          animation-delay: 0.5s;
         }
-        /* ===================================== */
       }
       body {
         @apply bg-light-bg text-gray-800 dark:bg-dark-bg dark:text-gray-200 transition-colors duration-300;
@@ -166,9 +162,11 @@
             </button>
             <button
               id="darkModeToggle"
-              class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors"
+              class="group p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors"
             >
-              <i class="fas fa-moon"></i>
+              <i
+                class="fas fa-moon transition-transform duration-300 ease-in-out group-hover:scale-125 group-hover:rotate-[20deg]"
+              ></i>
             </button>
             <div class="md:hidden ml-2">
               <button
@@ -1058,13 +1056,15 @@
         }
 
         function updateDarkModeIcon() {
-          const icon = darkModeToggle.querySelector("i");
+          // Las clases de animación ahora están directamente en el tag <i> en el HTML
+          // por lo que esta función solo necesita cambiar la clase del icono (fa-moon / fa-sun)
+          const iconElement = darkModeToggle.querySelector("i");
           if (document.documentElement.classList.contains("dark")) {
-            icon.classList.remove("fa-moon");
-            icon.classList.add("fa-sun");
+            iconElement.classList.remove("fa-moon");
+            iconElement.classList.add("fa-sun");
           } else {
-            icon.classList.remove("fa-sun");
-            icon.classList.add("fa-moon");
+            iconElement.classList.remove("fa-sun");
+            iconElement.classList.add("fa-moon");
           }
         }
         if (darkModeToggle) {
