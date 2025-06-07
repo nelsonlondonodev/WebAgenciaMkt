@@ -95,7 +95,6 @@
           background-position: 0% 50%;
         }
       }
-
       .animated-gradient-bg {
         background-size: 200% 200%;
         background-image: linear-gradient(
@@ -108,7 +107,6 @@
         );
         animation: moveGradient 15s ease infinite;
       }
-
       .dark .animated-gradient-bg {
         background-image: linear-gradient(
           to right,
@@ -128,8 +126,13 @@
         @apply fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md shadow-lg transition-all duration-300;
       }
       .nav-link {
-        @apply px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-primary-blue dark:hover:text-primary-green transition-colors;
+        @apply px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-blue dark:hover:text-primary-green transition-colors;
       }
+      /* === ESTILO PARA EL ENLACE DE NAVEGACIÓN ACTIVO (SCROLLSPY) === */
+      .nav-active {
+        @apply text-primary-green dark:text-primary-blue font-bold;
+      }
+      /* ========================================================== */
       .nav-link-mobile {
         @apply block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-primary-blue dark:hover:text-primary-green transition-colors;
       }
@@ -1168,7 +1171,6 @@
         const currentYearSpan = document.getElementById("currentYear");
         if (currentYearSpan) {
           // El año es parte de un texto más grande, manejado por la traducción
-          // No es necesario establecerlo aquí si se usa data-translate-key="footerText"
         }
 
         // --- MANEJO DE SCROLL SUAVE ---
