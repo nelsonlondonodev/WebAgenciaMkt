@@ -82,6 +82,45 @@
           @apply bg-white dark:bg-dark-bg shadow-xl;
         }
       }
+
+      /* === ANIMACIÓN DE GRADIENTE PARA EL FONDO === */
+      @keyframes moveGradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .animated-gradient-bg {
+        background-size: 200% 200%;
+        background-image: linear-gradient(
+          to right,
+          #f0f9ff,
+          #ecfdf5,
+          #dbeafe,
+          #ecfdf5,
+          #f0f9ff
+        );
+        animation: moveGradient 15s ease infinite;
+      }
+
+      .dark .animated-gradient-bg {
+        background-image: linear-gradient(
+          to right,
+          #0c4a6e,
+          #064e3b,
+          #1e3a8a,
+          #064e3b,
+          #0c4a6e
+        );
+      }
+      /* ========================================= */
+
       body {
         @apply bg-light-bg text-gray-800 dark:bg-dark-bg dark:text-gray-200 transition-colors duration-300;
       }
@@ -227,7 +266,7 @@
     <main>
       <section
         id="inicio"
-        class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-sky-50 dark:from-sky-900 via-white dark:via-dark-bg to-emerald-50 dark:to-emerald-900"
+        class="min-h-screen flex items-center pt-20 animated-gradient-bg"
       >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16">
           <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">
@@ -1092,7 +1131,7 @@
               console.error(
                 "CRITICAL: El elemento #langIndicator no existe en el HTML."
               );
-              return; // Detiene la función si el elemento no existe
+              return;
             }
 
             currentLang = lang;
@@ -1109,7 +1148,11 @@
               const key = el.getAttribute("data-translate-key");
               const translation = translations[lang]?.[key];
               if (translation) {
-                el.innerHTML = translation; // Usar innerHTML para todo para simplificar y permitir iconos
+                if (key === "footerMadeWith" || key === "footerText") {
+                  el.innerHTML = translation;
+                } else {
+                  el.textContent = translation;
+                }
               }
             });
           }
@@ -1124,7 +1167,8 @@
         // --- MANEJO DEL AÑO EN FOOTER ---
         const currentYearSpan = document.getElementById("currentYear");
         if (currentYearSpan) {
-          currentYearSpan.textContent = new Date().getFullYear();
+          // El año es parte de un texto más grande, manejado por la traducción
+          // No es necesario establecerlo aquí si se usa data-translate-key="footerText"
         }
 
         // --- MANEJO DE SCROLL SUAVE ---
