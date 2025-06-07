@@ -60,7 +60,6 @@
         .logo-invert-on-dark {
           @apply dark:invert dark:brightness-200;
         }
-
         .animate-hero-line {
           opacity: 0;
           transform: translateY(20px);
@@ -162,9 +161,10 @@
               id="languageSwitcher"
               class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors mr-2"
             >
-              <span id="langIndicator" class="flex items-center space-x-1">
-                {/* */}
-              </span>
+              <span
+                id="langIndicator"
+                class="flex items-center space-x-1"
+              ></span>
             </button>
             <button
               id="darkModeToggle"
@@ -308,7 +308,6 @@
                 >Solicita tu Tour Virtual <i class="fas fa-arrow-right ml-1"></i
               ></a>
             </div>
-
             <div class="service-card">
               <div
                 class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue"
@@ -348,7 +347,6 @@
                 >Pide Presupuesto Web <i class="fas fa-arrow-right ml-1"></i
               ></a>
             </div>
-
             <div class="service-card">
               <div
                 class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue"
@@ -388,7 +386,6 @@
                 >Pide Presupuesto Web <i class="fas fa-arrow-right ml-1"></i
               ></a>
             </div>
-
             <div class="service-card">
               <div
                 class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue"
@@ -421,7 +418,6 @@
                 >Consultar Plan SEO <i class="fas fa-arrow-right ml-1"></i
               ></a>
             </div>
-
             <div class="service-card">
               <div
                 class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue"
@@ -474,7 +470,7 @@
             <div class="portfolio-item">
               <img
                 class="w-full h-56 object-cover"
-                src="https://via.placeholder.com/600x400.png?text=Proyecto+Innovador+1"
+                src="https://placehold.co/600x400/1F2937/FFFFFF?text=Proyecto+1"
                 alt="Proyecto 1"
               />
               <div class="p-6">
@@ -502,7 +498,7 @@
             <div class="portfolio-item">
               <img
                 class="w-full h-56 object-cover"
-                src="https://via.placeholder.com/600x400.png?text=Solución+Creativa+2"
+                src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Proyecto+2"
                 alt="Proyecto 2"
               />
               <div class="p-6">
@@ -530,7 +526,7 @@
             <div class="portfolio-item">
               <img
                 class="w-full h-56 object-cover"
-                src="https://via.placeholder.com/600x400.png?text=Experiencia+Digital+3"
+                src="https://placehold.co/600x400/10B981/FFFFFF?text=Proyecto+3"
                 alt="Proyecto 3"
               />
               <div class="p-6">
@@ -614,7 +610,7 @@
             <div class="mt-10 lg:mt-0 flex justify-center">
               <img
                 class="rounded-lg shadow-xl w-full max-w-md object-cover h-96 lg:h-auto"
-                src="https://via.placeholder.com/500x600.png?text=Nelson+Londoño"
+                src="https://placehold.co/500x600/111827/FFFFFF?text=Nelson+Londoño"
                 alt="Nelson Londoño"
               />
             </div>
@@ -1027,37 +1023,24 @@
       };
 
       document.addEventListener("DOMContentLoaded", () => {
-        const mobileMenuButton = document.getElementById("mobileMenuButton");
-        const mobileMenu = document.getElementById("mobileMenu");
-        const darkModeToggle = document.getElementById("darkModeToggle");
-        const languageSwitcher = document.getElementById("languageSwitcher");
-        const langIndicator = document.getElementById("langIndicator"); // Definido aquí
-        const currentYearSpan = document.getElementById("currentYear");
-
+        // --- MANEJO DEL HEADER CON SCROLL ---
         const mainHeader = document.getElementById("mainHeader");
-        const scrollThreshold = 50;
-
-        function handleHeaderScroll() {
-          if (mainHeader) {
+        if (mainHeader) {
+          const scrollThreshold = 50;
+          window.addEventListener("scroll", () => {
             if (window.scrollY > scrollThreshold) {
               mainHeader.classList.add("header-scrolled");
             } else {
               mainHeader.classList.remove("header-scrolled");
             }
-          }
-        }
-        window.addEventListener("scroll", handleHeaderScroll);
-
-        if (currentYearSpan) {
-          currentYearSpan.textContent = new Date().getFullYear();
+          });
         }
 
+        // --- MANEJO DEL MENÚ MÓVIL ---
+        const mobileMenuButton = document.getElementById("mobileMenuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
         if (mobileMenuButton && mobileMenu) {
           mobileMenuButton.addEventListener("click", () => {
-            const isExpanded =
-              mobileMenuButton.getAttribute("aria-expanded") === "true" ||
-              false;
-            mobileMenuButton.setAttribute("aria-expanded", !isExpanded);
             mobileMenu.classList.toggle("hidden");
             const icon = mobileMenuButton.querySelector("i");
             if (icon) {
@@ -1066,29 +1049,27 @@
             }
           });
           mobileMenu.querySelectorAll("a").forEach((link) => {
-            link.addEventListener("click", () => {
-              mobileMenuButton.setAttribute("aria-expanded", "false");
-              mobileMenu.classList.add("hidden");
-              mobileMenuButton.querySelector("i")?.classList.remove("fa-times");
-              mobileMenuButton.querySelector("i")?.classList.add("fa-bars");
-            });
+            link.addEventListener("click", () =>
+              mobileMenu.classList.add("hidden")
+            );
           });
         }
 
-        function updateDarkModeIcon() {
-          const iconElement = darkModeToggle.querySelector("i");
-          // Asegurarse que darkModeToggle y su icono existan antes de manipular clases
-          if (darkModeToggle && iconElement) {
-            if (document.documentElement.classList.contains("dark")) {
-              iconElement.classList.remove("fa-moon");
-              iconElement.classList.add("fa-sun");
-            } else {
-              iconElement.classList.remove("fa-sun");
-              iconElement.classList.add("fa-moon");
+        // --- MANEJO DEL MODO OSCURO ---
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        if (darkModeToggle) {
+          function updateDarkModeIcon() {
+            const iconElement = darkModeToggle.querySelector("i");
+            if (iconElement) {
+              if (document.documentElement.classList.contains("dark")) {
+                iconElement.classList.remove("fa-moon");
+                iconElement.classList.add("fa-sun");
+              } else {
+                iconElement.classList.remove("fa-sun");
+                iconElement.classList.add("fa-moon");
+              }
             }
           }
-        }
-        if (darkModeToggle) {
           darkModeToggle.addEventListener("click", () => {
             document.documentElement.classList.toggle("dark");
             localStorage.setItem(
@@ -1100,77 +1081,53 @@
           updateDarkModeIcon();
         }
 
-        let currentLang =
-          localStorage.getItem("language") ||
-          document.documentElement.lang ||
-          "es";
-        document.body.setAttribute("data-lang", currentLang);
-
-        function setLanguage(lang) {
-          currentLang = lang;
-          localStorage.setItem("language", lang);
-          document.body.setAttribute("data-lang", lang);
-          document.documentElement.setAttribute("lang", lang);
-
-          // === VERIFICACIÓN AÑADIDA PARA langIndicator ===
-          if (langIndicator) {
-            if (lang === "es") {
-              langIndicator.innerHTML =
-                '<span role="img" aria-label="Bandera de Reino Unido">🇬🇧</span> EN';
-            } else {
-              langIndicator.innerHTML =
-                '<span role="img" aria-label="Bandera de España">🇪🇸</span> ES';
-            }
-          } else {
-            // Si langIndicator no se encuentra, muestra un error en la consola.
-            // Esto ayuda a identificar si el ID del span es incorrecto o si el elemento no existe.
-            console.error(
-              "Error: El elemento con ID 'langIndicator' no fue encontrado. No se puede actualizar el indicador de idioma."
-            );
-          }
-          // ===========================================
-
-          document.querySelectorAll("[data-translate-key]").forEach((el) => {
-            const key = el.getAttribute("data-translate-key");
-            if (translations[lang] && translations[lang][key]) {
-              if (key === "footerMadeWith" || key === "footerText") {
-                el.innerHTML = translations[lang][key];
-              } else {
-                el.textContent = translations[lang][key];
-              }
-            }
-          });
-          if (
-            currentYearSpan &&
-            translations[lang] &&
-            translations[lang]["footerText"]
-          ) {
-            const footerTextTemplate = translations[lang]["footerText"];
-            currentYearSpan.parentElement.innerHTML =
-              footerTextTemplate.replace(
-                `${new Date().getFullYear()}`,
-                `<span id="currentYear">${new Date().getFullYear()}</span>`
-              );
-          } else if (currentYearSpan) {
-            currentYearSpan.textContent = new Date().getFullYear();
-          }
-        }
-
+        // --- MANEJO DEL IDIOMA ---
+        const languageSwitcher = document.getElementById("languageSwitcher");
         if (languageSwitcher) {
+          let currentLang = localStorage.getItem("language") || "es";
+
+          function setLanguage(lang) {
+            const langIndicator = document.getElementById("langIndicator"); // Búsqueda en el momento justo
+            if (!langIndicator) {
+              console.error(
+                "CRITICAL: El elemento #langIndicator no existe en el HTML."
+              );
+              return; // Detiene la función si el elemento no existe
+            }
+
+            currentLang = lang;
+            localStorage.setItem("language", lang);
+            document.documentElement.lang = lang;
+            document.body.setAttribute("data-lang", lang);
+
+            langIndicator.innerHTML =
+              lang === "es"
+                ? '<span role="img" aria-label="Bandera de Reino Unido">🇬🇧</span> EN'
+                : '<span role="img" aria-label="Bandera de España">🇪🇸</span> ES';
+
+            document.querySelectorAll("[data-translate-key]").forEach((el) => {
+              const key = el.getAttribute("data-translate-key");
+              const translation = translations[lang]?.[key];
+              if (translation) {
+                el.innerHTML = translation; // Usar innerHTML para todo para simplificar y permitir iconos
+              }
+            });
+          }
+
           languageSwitcher.addEventListener("click", () => {
             setLanguage(currentLang === "es" ? "en" : "es");
           });
-          // === VERIFICACIÓN AÑADIDA ANTES DE LA LLAMADA INICIAL a setLanguage ===
-          if (langIndicator) {
-            setLanguage(currentLang);
-          } else {
-            console.error(
-              "Error: No se pudo inicializar el indicador de idioma porque el elemento 'langIndicator' no fue encontrado."
-            );
-          }
-          // ================================================================
+
+          setLanguage(currentLang); // Llamada inicial
         }
 
+        // --- MANEJO DEL AÑO EN FOOTER ---
+        const currentYearSpan = document.getElementById("currentYear");
+        if (currentYearSpan) {
+          currentYearSpan.textContent = new Date().getFullYear();
+        }
+
+        // --- MANEJO DE SCROLL SUAVE ---
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
           anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -1182,34 +1139,33 @@
               const elementPosition = targetElement.getBoundingClientRect().top;
               const offsetPosition =
                 elementPosition + window.pageYOffset - headerOffset;
-
-              window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth",
-              });
+              window.scrollTo({ top: offsetPosition, behavior: "smooth" });
             }
           });
         });
 
+        // --- MANEJO DE ANIMACIONES AL HACER SCROLL ---
         const animatedElements = document.querySelectorAll(
           ".service-card, .portfolio-item, #sobre-mi > div > div:first-child > h2, #sobre-mi > div > div:first-child > p, #sobre-mi > div > div:last-child > img"
         );
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("fade-in-up");
-                entry.target.classList.remove("paused-animation");
-              }
-            });
-          },
-          { threshold: 0.1 }
-        );
+        if (typeof IntersectionObserver !== "undefined") {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("fade-in-up");
+                  entry.target.classList.remove("paused-animation");
+                }
+              });
+            },
+            { threshold: 0.1 }
+          );
 
-        animatedElements.forEach((el) => {
-          el.classList.add("paused-animation");
-          observer.observe(el);
-        });
+          animatedElements.forEach((el) => {
+            el.classList.add("paused-animation");
+            observer.observe(el);
+          });
+        }
       });
     </script>
   </body>
