@@ -1,0 +1,6 @@
+Prompt for to solution problems in the console.
+
+Cambios Realizados
+Imágenes Corregidas: He cambiado el proveedor de las imágenes de marcador de posición a uno más fiable (placehold.co). Esto eliminará los errores de imágenes no encontradas y te permitirá ver el diseño correctamente. Recuerda que estas imágenes siguen siendo temporales y deberás reemplazarlas por las tuyas.
+
+Corrección del Error de JavaScript (TypeError): He añadido "código defensivo" en el script. Ahora, antes de intentar modificar un elemento, el código primero comprueba si el elemento existe. Esto evita que el TypeError detenga la ejecución de todo el script. Con esta corrección, la funcionalidad de scroll en el header debería empezar a funcionar,
