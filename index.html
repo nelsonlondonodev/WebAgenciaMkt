@@ -308,10 +308,17 @@
             class="mt-12 grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
           >
             <div
-              class="group rounded-xl bg-gradient-to-tr from-primary-green to-primary-blue p-1 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl"
+              class="relative group rounded-xl bg-gradient-to-tr from-primary-green to-primary-blue p-1 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl"
             >
+              <div class="absolute top-0 right-0 -mt-3 -mr-3 z-10">
+                <div
+                  class="bg-primary-blue dark:bg-primary-green text-white text-xs font-bold uppercase py-1 px-3 rounded-full shadow-md"
+                >
+                  <span data-translate-key="badgeNew">Nuevo</span>
+                </div>
+              </div>
               <div
-                class="h-full w-full rounded-lg bg-light-card p-8 dark:bg-dark-card"
+                class="relative h-full w-full rounded-lg bg-light-card p-8 dark:bg-dark-card overflow-hidden"
               >
                 <div
                   class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
@@ -894,6 +901,7 @@
     <script>
       const translations = {
         es: {
+          badgeNew: "Nuevo",
           navHome: "Inicio",
           navServices: "Servicios",
           navProjects: "Proyectos",
@@ -982,6 +990,7 @@
             'Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.',
         },
         en: {
+          badgeNew: "New",
           navHome: "Home",
           navServices: "Services",
           navProjects: "Projects",
@@ -1136,7 +1145,7 @@
           let currentLang = localStorage.getItem("language") || "es";
 
           function setLanguage(lang) {
-            const langIndicator = document.getElementById("langIndicator"); // Búsqueda en el momento justo
+            const langIndicator = document.getElementById("langIndicator");
             if (!langIndicator) {
               console.error(
                 "CRITICAL: El elemento #langIndicator no existe en el HTML."
@@ -1158,11 +1167,8 @@
               const key = el.getAttribute("data-translate-key");
               const translation = translations[lang]?.[key];
               if (translation) {
-                if (key === "footerMadeWith" || key === "footerText") {
-                  el.innerHTML = translation;
-                } else {
-                  el.textContent = translation;
-                }
+                // Usar innerHTML para todo simplifica el manejo y permite iconos si se necesitaran en otros textos
+                el.innerHTML = translation;
               }
             });
           }
@@ -1171,14 +1177,12 @@
             setLanguage(currentLang === "es" ? "en" : "es");
           });
 
-          setLanguage(currentLang); // Llamada inicial
+          setLanguage(currentLang);
         }
 
         // --- MANEJO DEL AÑO EN FOOTER ---
-        const currentYearSpan = document.getElementById("currentYear");
-        if (currentYearSpan) {
-          // El año es parte de un texto más grande, manejado por la traducción
-        }
+        // Se maneja a través de la traducción, no es necesario un script separado
+        // La clave 'footerText' en el objeto de traducciones maneja el año dinámicamente
 
         // --- MANEJO DE SCROLL SUAVE ---
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -1217,6 +1221,40 @@
           animatedElements.forEach((el) => {
             el.classList.add("paused-animation");
             observer.observe(el);
+          });
+        }
+
+        // --- MANEJO DE SCROLLSPY PARA NAVEGACIÓN ACTIVA ---
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll("header nav a");
+
+        if (sections.length > 0 && navLinks.length > 0) {
+          const observerOptions = {
+            root: null,
+            rootMargin: "0px 0px -60% 0px", // Se activa cuando el 40% superior de la sección es visible
+            threshold: 0,
+          };
+
+          const sectionObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const sectionId = entry.target.id;
+
+                  navLinks.forEach((link) => {
+                    link.classList.remove("nav-active");
+                    if (link.getAttribute("href") === `#${sectionId}`) {
+                      link.classList.add("nav-active");
+                    }
+                  });
+                }
+              });
+            },
+            observerOptions
+          );
+
+          sections.forEach((section) => {
+            sectionObserver.observe(section);
           });
         }
       });
