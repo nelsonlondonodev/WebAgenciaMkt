@@ -76,6 +76,12 @@
           @apply animate-hero-line;
           animation-delay: 0.5s;
         }
+        #price-toggle.toggled {
+          @apply bg-primary-green;
+        }
+        #price-toggle.toggled #price-toggle-handle {
+          @apply translate-x-5;
+        }
       }
       @layer components {
         .header-scrolled {
@@ -304,11 +310,37 @@
             objetivos. Precios transparentes y posibilidad de modelos de
             suscripción mensual.
           </p>
+          <div class="flex justify-center items-center mb-12">
+            <span
+              class="font-medium text-gray-700 dark:text-gray-300"
+              data-translate-key="pricingMonthly"
+              >Mensual</span
+            >
+            <button
+              id="price-toggle"
+              class="relative inline-flex items-center h-7 rounded-full w-12 transition-colors bg-gray-300 dark:bg-gray-700 mx-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-blue cursor-pointer"
+            >
+              <span
+                id="price-toggle-handle"
+                class="inline-block w-5 h-5 transform bg-white rounded-full transition-transform translate-x-1"
+              ></span>
+            </button>
+            <span
+              class="font-medium text-gray-700 dark:text-gray-300"
+              data-translate-key="pricingAnnual"
+              >Anual</span
+            >
+            <span
+              class="ml-3 bg-emerald-100 text-emerald-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-emerald-900 dark:text-emerald-300"
+              data-translate-key="pricingSave"
+              >Ahorra 20%</span
+            >
+          </div>
           <div
             class="mt-12 grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
           >
             <div
-              class="relative group rounded-xl bg-gradient-to-tr from-primary-green to-primary-blue p-1 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl"
+              class="relative group rounded-xl bg-gradient-to-tr from-primary-green to-primary-blue p-1 transition-all duration-300 shadow-lg hover:shadow-2xl"
             >
               <div class="absolute top-0 right-0 -mt-3 -mr-3 z-10">
                 <div
@@ -321,190 +353,227 @@
                 class="relative h-full w-full rounded-lg bg-light-card p-8 dark:bg-dark-card overflow-hidden"
               >
                 <div
+                  class="transition-transform duration-300 group-hover:-translate-y-2"
+                >
+                  <div
+                    class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+                  >
+                    <i class="fas fa-vr-cardboard fa-2x"></i>
+                  </div>
+                  <h3
+                    class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
+                    data-translate-key="serviceTourTitle"
+                  >
+                    Tours Virtuales de Negocios 360°
+                  </h3>
+                  <p
+                    class="text-gray-600 dark:text-gray-400 mb-4"
+                    data-translate-key="serviceTourDesc"
+                  >
+                    Nuevo Servicio Estrella. Experiencias inmersivas compatibles
+                    con Google Street View. Ideal para inmobiliarias,
+                    restaurantes, hoteles y más.
+                  </p>
+                  <p
+                    class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
+                    data-translate-key="serviceTourPrice"
+                  >
+                    Desde 499€
+                  </p>
+                  <p class="text-sm text-gray-500 dark:text-gray-500">
+                    (Pago único)
+                  </p>
+                  <a
+                    href="#contacto"
+                    class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
+                    data-translate-key="serviceTourCTA"
+                    >Solicita tu Tour Virtual
+                    <i class="fas fa-arrow-right ml-1"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-card group">
+              <div
+                class="transition-transform duration-300 group-hover:-translate-y-2"
+              >
+                <div
                   class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
                 >
-                  <i class="fas fa-vr-cardboard fa-2x"></i>
+                  <i class="fas fa-code fa-2x"></i>
                 </div>
                 <h3
                   class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
-                  data-translate-key="serviceTourTitle"
+                  data-translate-key="serviceCustomWebTitle"
                 >
-                  Tours Virtuales de Negocios 360°
+                  Desarrollo Web a Medida
                 </h3>
                 <p
                   class="text-gray-600 dark:text-gray-400 mb-4"
-                  data-translate-key="serviceTourDesc"
+                  data-translate-key="serviceCustomWebDesc"
                 >
-                  Nuevo Servicio Estrella. Experiencias inmersivas compatibles
-                  con Google Street View. Ideal para inmobiliarias,
-                  restaurantes, hoteles y más.
+                  Soluciones únicas con código nativo (HTML, CSS, JavaScript, y
+                  más) para un rendimiento y personalización máximos.
                 </p>
                 <p
                   class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
-                  data-translate-key="serviceTourPrice"
+                  data-translate-key="serviceCustomWebPrice"
                 >
-                  Desde 499€
+                  Desde 1200€
                 </p>
-                <p
-                  class="text-sm text-gray-500 dark:text-gray-500"
-                  data-translate-key="serviceSubscriptionInfo"
-                >
-                  (Consulta planes de suscripción para actualizaciones)
+                <p class="text-sm text-gray-500 dark:text-gray-500">
+                  (Pago único)
                 </p>
                 <a
                   href="#contacto"
                   class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                  data-translate-key="serviceTourCTA"
-                  >Solicita tu Tour Virtual
-                  <i class="fas fa-arrow-right ml-1"></i
+                  data-translate-key="serviceContactCTA"
+                  >Pide Presupuesto Web <i class="fas fa-arrow-right ml-1"></i
                 ></a>
               </div>
             </div>
 
-            <div class="service-card group hover:-translate-y-2">
+            <div class="service-card group">
               <div
-                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+                class="transition-transform duration-300 group-hover:-translate-y-2"
               >
-                <i class="fas fa-code fa-2x"></i>
+                <div
+                  class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+                >
+                  <i class="fab fa-wordpress fa-2x"></i>
+                </div>
+                <h3
+                  class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
+                  data-translate-key="serviceWordPressTitle"
+                >
+                  Desarrollo Web con WordPress
+                </h3>
+                <p
+                  class="text-gray-600 dark:text-gray-400 mb-4"
+                  data-translate-key="serviceWordPressDesc"
+                >
+                  Sitios web profesionales y autogestionables con el CMS más
+                  popular del mundo. Flexibilidad y potencia.
+                </p>
+                <div
+                  class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
+                >
+                  <span
+                    class="price-monthly"
+                    data-translate-key="serviceWordPressPriceMonthly"
+                    >Desde 800€ + 60€/mes</span
+                  >
+                  <span
+                    class="price-annual hidden"
+                    data-translate-key="serviceWordPressPriceAnnual"
+                    >Desde 800€ + 576€/año</span
+                  >
+                </div>
+                <p
+                  class="text-sm text-gray-500 dark:text-gray-500"
+                  data-translate-key="serviceSubscriptionInfo"
+                >
+                  (Mantenimiento y soporte)
+                </p>
+                <a
+                  href="#contacto"
+                  class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
+                  data-translate-key="serviceContactCTA"
+                  >Pide Presupuesto Web <i class="fas fa-arrow-right ml-1"></i
+                ></a>
               </div>
-              <h3
-                class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
-                data-translate-key="serviceCustomWebTitle"
-              >
-                Desarrollo Web a Medida
-              </h3>
-              <p
-                class="text-gray-600 dark:text-gray-400 mb-4"
-                data-translate-key="serviceCustomWebDesc"
-              >
-                Soluciones únicas con código nativo (HTML, CSS, JavaScript, y
-                más) para un rendimiento y personalización máximos.
-              </p>
-              <p
-                class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
-                data-translate-key="serviceCustomWebPrice"
-              >
-                Desde 1200€
-              </p>
-              <p
-                class="text-sm text-gray-500 dark:text-gray-500"
-                data-translate-key="serviceSubscriptionInfo"
-              >
-                (Consulta planes de suscripción para mantenimiento y
-                actualizaciones)
-              </p>
-              <a
-                href="#contacto"
-                class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                data-translate-key="serviceContactCTA"
-                >Pide Presupuesto Web <i class="fas fa-arrow-right ml-1"></i
-              ></a>
             </div>
 
-            <div class="service-card group hover:-translate-y-2">
+            <div class="service-card group">
               <div
-                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+                class="transition-transform duration-300 group-hover:-translate-y-2"
               >
-                <i class="fab fa-wordpress fa-2x"></i>
+                <div
+                  class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+                >
+                  <i class="fas fa-search-dollar fa-2x"></i>
+                </div>
+                <h3
+                  class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
+                  data-translate-key="serviceSeoTitle"
+                >
+                  SEO (Optimización para Buscadores)
+                </h3>
+                <p
+                  class="text-gray-600 dark:text-gray-400 mb-4"
+                  data-translate-key="serviceSeoDesc"
+                >
+                  Mejora la visibilidad de tu web en Google y otros buscadores.
+                  Atraer tráfico orgánico cualificado es clave.
+                </p>
+                <div
+                  class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
+                >
+                  <span
+                    class="price-monthly"
+                    data-translate-key="serviceSeoPriceMonthly"
+                    >Desde 300€/mes</span
+                  >
+                  <span
+                    class="price-annual hidden"
+                    data-translate-key="serviceSeoPriceAnnual"
+                    >Desde 2880€/año</span
+                  >
+                </div>
+                <p
+                  class="text-sm text-gray-500 dark:text-gray-500"
+                  data-translate-key="serviceSubscriptionInfo"
+                >
+                  (Plan de optimización continua)
+                </p>
+                <a
+                  href="#contacto"
+                  class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
+                  data-translate-key="serviceSeoCTA"
+                  >Consultar Plan SEO <i class="fas fa-arrow-right ml-1"></i
+                ></a>
               </div>
-              <h3
-                class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
-                data-translate-key="serviceWordPressTitle"
-              >
-                Desarrollo Web con WordPress
-              </h3>
-              <p
-                class="text-gray-600 dark:text-gray-400 mb-4"
-                data-translate-key="serviceWordPressDesc"
-              >
-                Sitios web profesionales y autogestionables con el CMS más
-                popular del mundo. Flexibilidad y potencia.
-              </p>
-              <p
-                class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
-                data-translate-key="serviceWordPressPrice"
-              >
-                Desde 800€
-              </p>
-              <p
-                class="text-sm text-gray-500 dark:text-gray-500"
-                data-translate-key="serviceSubscriptionInfo"
-              >
-                (Consulta planes de suscripción para mantenimiento y
-                actualizaciones)
-              </p>
-              <a
-                href="#contacto"
-                class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                data-translate-key="serviceContactCTA"
-                >Pide Presupuesto Web <i class="fas fa-arrow-right ml-1"></i
-              ></a>
             </div>
 
-            <div class="service-card group hover:-translate-y-2">
+            <div class="service-card group">
               <div
-                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+                class="transition-transform duration-300 group-hover:-translate-y-2"
               >
-                <i class="fas fa-search-dollar fa-2x"></i>
+                <div
+                  class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+                >
+                  <i class="fas fa-palette fa-2x"></i>
+                </div>
+                <h3
+                  class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
+                  data-translate-key="serviceBrandingTitle"
+                >
+                  Creación de Marca (Branding)
+                </h3>
+                <p
+                  class="text-gray-600 dark:text-gray-400 mb-4"
+                  data-translate-key="serviceBrandingDesc"
+                >
+                  Definimos y diseñamos la identidad visual de tu negocio para
+                  que conecte con tu audiencia y transmita tus valores.
+                </p>
+                <p
+                  class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
+                  data-translate-key="serviceBrandingPrice"
+                >
+                  Desde 600€
+                </p>
+                <p class="text-sm text-gray-500 dark:text-gray-500">
+                  (Pago único)
+                </p>
+                <a
+                  href="#contacto"
+                  class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
+                  data-translate-key="serviceBrandingCTA"
+                  >Descubre tu Identidad <i class="fas fa-arrow-right ml-1"></i
+                ></a>
               </div>
-              <h3
-                class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
-                data-translate-key="serviceSeoTitle"
-              >
-                SEO (Optimización para Buscadores)
-              </h3>
-              <p
-                class="text-gray-600 dark:text-gray-400 mb-4"
-                data-translate-key="serviceSeoDesc"
-              >
-                Mejora la visibilidad de tu web en Google y otros buscadores.
-                Atraer tráfico orgánico cualificado es clave.
-              </p>
-              <p
-                class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
-                data-translate-key="serviceSeoPrice"
-              >
-                Desde 300€/mes
-              </p>
-              <a
-                href="#contacto"
-                class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                data-translate-key="serviceSeoCTA"
-                >Consultar Plan SEO <i class="fas fa-arrow-right ml-1"></i
-              ></a>
-            </div>
-
-            <div class="service-card group hover:-translate-y-2">
-              <div
-                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
-              >
-                <i class="fas fa-palette fa-2x"></i>
-              </div>
-              <h3
-                class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white"
-                data-translate-key="serviceBrandingTitle"
-              >
-                Creación de Marca (Branding)
-              </h3>
-              <p
-                class="text-gray-600 dark:text-gray-400 mb-4"
-                data-translate-key="serviceBrandingDesc"
-              >
-                Definimos y diseñamos la identidad visual de tu negocio para que
-                conecte con tu audiencia y transmita tus valores.
-              </p>
-              <p
-                class="text-lg font-bold text-primary-green dark:text-primary-blue mb-2"
-                data-translate-key="serviceBrandingPrice"
-              >
-                Desde 600€
-              </p>
-              <a
-                href="#contacto"
-                class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                data-translate-key="serviceBrandingCTA"
-                >Descubre tu Identidad <i class="fas fa-arrow-right ml-1"></i
-              ></a>
             </div>
           </div>
         </div>
@@ -902,6 +971,13 @@
       const translations = {
         es: {
           badgeNew: "Nuevo",
+          pricingMonthly: "Mensual",
+          pricingAnnual: "Anual",
+          pricingSave: "Ahorra 20%",
+          serviceWordPressPriceMonthly: "Desde 800€ + 60€/mes",
+          serviceWordPressPriceAnnual: "Desde 800€ + 576€/año",
+          serviceSeoPriceMonthly: "Desde 300€/mes",
+          serviceSeoPriceAnnual: "Desde 2880€/año",
           navHome: "Inicio",
           navServices: "Servicios",
           navProjects: "Proyectos",
@@ -920,8 +996,7 @@
           serviceTourDesc:
             "Nuevo Servicio Estrella. Experiencias inmersivas compatibles con Google Street View. Ideal para inmobiliarias, restaurantes, hoteles y más.",
           serviceTourPrice: "Desde 499€",
-          serviceSubscriptionInfo:
-            "(Consulta planes de suscripción para mantenimiento y actualizaciones)",
+          serviceSubscriptionInfo: "(Mantenimiento y soporte)",
           serviceTourCTA: "Solicita tu Tour Virtual",
           serviceCustomWebTitle: "Desarrollo Web a Medida",
           serviceCustomWebDesc:
@@ -929,13 +1004,9 @@
           serviceCustomWebPrice: "Desde 1200€",
           serviceContactCTA: "Pide Presupuesto Web",
           serviceWordPressTitle: "Desarrollo Web con WordPress",
-          serviceWordPressDesc:
-            "Sitios web profesionales y autogestionables con el CMS más popular del mundo. Flexibilidad y potencia.",
-          serviceWordPressPrice: "Desde 800€",
           serviceSeoTitle: "SEO (Optimización para Buscadores)",
           serviceSeoDesc:
             "Mejora la visibilidad de tu web en Google y otros buscadores. Atraer tráfico orgánico cualificado es clave.",
-          serviceSeoPrice: "Desde 300€/mes",
           serviceSeoCTA: "Consultar Plan SEO",
           serviceBrandingTitle: "Creación de Marca (Branding)",
           serviceBrandingDesc:
@@ -991,6 +1062,13 @@
         },
         en: {
           badgeNew: "New",
+          pricingMonthly: "Monthly",
+          pricingAnnual: "Annual",
+          pricingSave: "Save 20%",
+          serviceWordPressPriceMonthly: "From €800 + €60/mo",
+          serviceWordPressPriceAnnual: "From €800 + €576/yr",
+          serviceSeoPriceMonthly: "From €300/mo",
+          serviceSeoPriceAnnual: "From €2880/yr",
           navHome: "Home",
           navServices: "Services",
           navProjects: "Projects",
@@ -1009,8 +1087,7 @@
           serviceTourDesc:
             "New Star Service. Immersive experiences compatible with Google Street View. Ideal for real estate, restaurants, hotels, and more.",
           serviceTourPrice: "From €499",
-          serviceSubscriptionInfo:
-            "(Check subscription plans for maintenance and updates)",
+          serviceSubscriptionInfo: "(Maintenance and support)",
           serviceTourCTA: "Request Your Virtual Tour",
           serviceCustomWebTitle: "Custom Web Development",
           serviceCustomWebDesc:
@@ -1018,13 +1095,9 @@
           serviceCustomWebPrice: "From €1200",
           serviceContactCTA: "Request Web Quote",
           serviceWordPressTitle: "WordPress Web Development",
-          serviceWordPressDesc:
-            "Professional, self-manageable websites with the world's most popular CMS. Flexibility and power.",
-          serviceWordPressPrice: "From €800",
           serviceSeoTitle: "SEO (Search Engine Optimization)",
           serviceSeoDesc:
             "Improve your website's visibility on Google and other search engines. Attracting qualified organic traffic is key.",
-          serviceSeoPrice: "From €300/month",
           serviceSeoCTA: "Consult SEO Plan",
           serviceBrandingTitle: "Branding (Brand Creation)",
           serviceBrandingDesc:
@@ -1081,8 +1154,15 @@
       };
 
       document.addEventListener("DOMContentLoaded", () => {
-        // --- MANEJO DEL HEADER CON SCROLL ---
         const mainHeader = document.getElementById("mainHeader");
+        const mobileMenuButton = document.getElementById("mobileMenuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const languageSwitcher = document.getElementById("languageSwitcher");
+        const currentYearSpan = document.getElementById("currentYear");
+        const priceToggle = document.getElementById("price-toggle");
+
+        // --- MANEJO DEL HEADER CON SCROLL ---
         if (mainHeader) {
           const scrollThreshold = 50;
           window.addEventListener("scroll", () => {
@@ -1095,8 +1175,6 @@
         }
 
         // --- MANEJO DEL MENÚ MÓVIL ---
-        const mobileMenuButton = document.getElementById("mobileMenuButton");
-        const mobileMenu = document.getElementById("mobileMenu");
         if (mobileMenuButton && mobileMenu) {
           mobileMenuButton.addEventListener("click", () => {
             mobileMenu.classList.toggle("hidden");
@@ -1114,7 +1192,6 @@
         }
 
         // --- MANEJO DEL MODO OSCURO ---
-        const darkModeToggle = document.getElementById("darkModeToggle");
         if (darkModeToggle) {
           function updateDarkModeIcon() {
             const iconElement = darkModeToggle.querySelector("i");
@@ -1139,8 +1216,36 @@
           updateDarkModeIcon();
         }
 
+        // --- MANEJO DEL SELECTOR DE PRECIOS ---
+        if (priceToggle) {
+          const monthlyPrices = document.querySelectorAll(".price-monthly");
+          const annualPrices = document.querySelectorAll(".price-annual");
+
+          let isAnnual = localStorage.getItem("pricingMode") === "annual";
+
+          function setPricingMode(isAnnualMode) {
+            isAnnual = isAnnualMode;
+            localStorage.setItem(
+              "pricingMode",
+              isAnnual ? "annual" : "monthly"
+            );
+            priceToggle.classList.toggle("toggled", isAnnual);
+            monthlyPrices.forEach((price) =>
+              price.classList.toggle("hidden", isAnnual)
+            );
+            annualPrices.forEach((price) =>
+              price.classList.toggle("hidden", !isAnnual)
+            );
+          }
+
+          priceToggle.addEventListener("click", () => {
+            setPricingMode(!isAnnual);
+          });
+
+          setPricingMode(isAnnual);
+        }
+
         // --- MANEJO DEL IDIOMA ---
-        const languageSwitcher = document.getElementById("languageSwitcher");
         if (languageSwitcher) {
           let currentLang = localStorage.getItem("language") || "es";
 
@@ -1167,7 +1272,6 @@
               const key = el.getAttribute("data-translate-key");
               const translation = translations[lang]?.[key];
               if (translation) {
-                // Usar innerHTML para todo simplifica el manejo y permite iconos si se necesitaran en otros textos
                 el.innerHTML = translation;
               }
             });
@@ -1179,10 +1283,6 @@
 
           setLanguage(currentLang);
         }
-
-        // --- MANEJO DEL AÑO EN FOOTER ---
-        // Se maneja a través de la traducción, no es necesario un script separado
-        // La clave 'footerText' en el objeto de traducciones maneja el año dinámicamente
 
         // --- MANEJO DE SCROLL SUAVE ---
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -1203,7 +1303,7 @@
 
         // --- MANEJO DE ANIMACIONES AL HACER SCROLL ---
         const animatedElements = document.querySelectorAll(
-          ".service-card, .portfolio-item, #sobre-mi > div > div:first-child > h2, #sobre-mi > div > div:first-child > p, #sobre-mi > div > div:last-child > img"
+          ".service-card, .portfolio-item, #sobre-mi > div > div:first-child > h2, #sobre-mi > div > div:first-child > p, #sobre-mi > div > div:last-child > img, div[class*='group rounded-xl']"
         );
         if (typeof IntersectionObserver !== "undefined") {
           const observer = new IntersectionObserver(
@@ -1224,14 +1324,13 @@
           });
         }
 
-        // --- MANEJO DE SCROLLSPY PARA NAVEGACIÓN ACTIVA ---
+        // --- MANEJO DE SCROLLSPY ---
         const sections = document.querySelectorAll("section[id]");
         const navLinks = document.querySelectorAll("header nav a");
-
         if (sections.length > 0 && navLinks.length > 0) {
           const observerOptions = {
             root: null,
-            rootMargin: "0px 0px -60% 0px", // Se activa cuando el 40% superior de la sección es visible
+            rootMargin: "0px 0px -60% 0px",
             threshold: 0,
           };
 
@@ -1240,7 +1339,6 @@
               entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                   const sectionId = entry.target.id;
-
                   navLinks.forEach((link) => {
                     link.classList.remove("nav-active");
                     if (link.getAttribute("href") === `#${sectionId}`) {
