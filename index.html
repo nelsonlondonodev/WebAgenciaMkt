@@ -33,6 +33,15 @@
               "dark-card": "#1F2937",
               "light-card": "#FFFFFF",
             },
+            animation: {
+              "zoom-in": "zoomIn 0.3s ease-out",
+            },
+            keyframes: {
+              zoomIn: {
+                "0%": { opacity: 0, transform: "scale(0.95)" },
+                "100%": { opacity: 1, transform: "scale(1)" },
+              },
+            },
           },
         },
       };
@@ -333,7 +342,8 @@
             class="mt-12 grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
           >
             <div
-              class="card-container relative group rounded-xl bg-gradient-to-tr from-primary-green to-primary-blue p-1 transition-all duration-500 ease-out shadow-lg hover:shadow-2xl hover:-translate-y-2 scroll-animate-initial"
+              id="card-tours-virtuales"
+              class="card-container relative group rounded-xl bg-gradient-to-tr from-primary-green to-primary-blue p-1 transition-all duration-500 ease-out shadow-lg hover:shadow-2xl hover:-translate-y-2 scroll-animate-initial cursor-pointer"
             >
               <div class="absolute top-0 right-0 -mt-3 -mr-3 z-10">
                 <div
@@ -946,6 +956,67 @@
       <span class="sr-only">Contactar por WhatsApp</span>
     </a>
 
+    <div
+      id="service-modal-tours"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-2xl w-full rounded-xl bg-light-card p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-4 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+            data-translate-key="serviceTourTitle"
+          >
+            Tours Virtuales 360°
+          </h3>
+          <button
+            id="close-modal-tours"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 space-y-4">
+          <p data-translate-key="modalTourDesc1">
+            Ofrece a tus clientes una experiencia inmersiva sin precedentes.
+            Nuestros Tours Virtuales 360° son la herramienta definitiva para
+            mostrar tu negocio de una forma realista, interactiva y accesible
+            24/7 desde cualquier dispositivo.
+          </p>
+          <p data-translate-key="modalTourDesc2">
+            Totalmente compatibles e integrables con **Google Street View**,
+            mejorando tu visibilidad y posicionamiento en Google Maps.
+          </p>
+          <ul class="list-disc list-inside space-y-2">
+            <li data-translate-key="modalTourFeature1">
+              Ideal para Inmobiliarias, Hoteles, Restaurantes, Clínicas y
+              Tiendas.
+            </li>
+            <li data-translate-key="modalTourFeature2">
+              Fotografía de alta resolución y montaje profesional.
+            </li>
+            <li data-translate-key="modalTourFeature3">
+              Navegación intuitiva y fluida.
+            </li>
+            <li data-translate-key="modalTourFeature4">
+              Puntos de información interactivos opcionales.
+            </li>
+          </ul>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <a
+            href="#contacto"
+            class="cta-button modal-contact-button"
+            data-translate-key="heroCTA"
+            >Pedir Presupuesto</a
+          >
+        </div>
+      </div>
+    </div>
+
     <script>
       const translations = {
         es: {
@@ -957,6 +1028,16 @@
           serviceWordPressPriceAnnual: "Desde 800€ + 576€/año",
           serviceSeoPriceMonthly: "Desde 300€/mes",
           serviceSeoPriceAnnual: "Desde 2880€/año",
+          modalTourDesc1:
+            "Ofrece a tus clientes una experiencia inmersiva sin precedentes. Nuestros Tours Virtuales 360° son la herramienta definitiva para mostrar tu negocio de una forma realista, interactiva y accesible 24/7 desde cualquier dispositivo.",
+          modalTourDesc2:
+            "Totalmente compatibles e integrables con **Google Street View**, mejorando tu visibilidad y posicionamiento en Google Maps.",
+          modalTourFeature1:
+            "Ideal para Inmobiliarias, Hoteles, Restaurantes, Clínicas y Tiendas.",
+          modalTourFeature2:
+            "Fotografía de alta resolución y montaje profesional.",
+          modalTourFeature3: "Navegación intuitiva y fluida.",
+          modalTourFeature4: "Puntos de información interactivos opcionales.",
           navHome: "Inicio",
           navServices: "Servicios",
           navProjects: "Proyectos",
@@ -1048,6 +1129,16 @@
           serviceWordPressPriceAnnual: "From €800 + €576/yr",
           serviceSeoPriceMonthly: "From €300/mo",
           serviceSeoPriceAnnual: "From €2880/yr",
+          modalTourDesc1:
+            "Offer your clients an unprecedented immersive experience. Our 360° Virtual Tours are the ultimate tool to showcase your business in a realistic, interactive, and accessible way, 24/7 from any device.",
+          modalTourDesc2:
+            "Fully compatible and integrable with **Google Street View**, enhancing your visibility and ranking on Google Maps.",
+          modalTourFeature1:
+            "Ideal for Real Estate, Hotels, Restaurants, Clinics, and Shops.",
+          modalTourFeature2:
+            "High-resolution photography and professional assembly.",
+          modalTourFeature3: "Intuitive and smooth navigation.",
+          modalTourFeature4: "Optional interactive information points.",
           navHome: "Home",
           navServices: "Services",
           navProjects: "Projects",
@@ -1229,6 +1320,9 @@
           function setLanguage(lang) {
             const langIndicator = document.getElementById("langIndicator");
             if (!langIndicator) {
+              console.error(
+                "CRITICAL: El elemento #langIndicator no existe en el HTML."
+              );
               return;
             }
 
@@ -1246,7 +1340,11 @@
               const key = el.getAttribute("data-translate-key");
               const translation = translations[lang]?.[key];
               if (translation) {
-                el.innerHTML = translation;
+                if (key === "footerMadeWith" || key === "footerText") {
+                  el.innerHTML = translation;
+                } else {
+                  el.textContent = translation;
+                }
               }
             });
           }
@@ -1255,7 +1353,7 @@
             setLanguage(currentLang === "es" ? "en" : "es");
           });
 
-          setLanguage(currentLang);
+          setLanguage(currentLang); // Llamada inicial
         }
 
         // --- MANEJO DE SCROLL SUAVE ---
@@ -1327,6 +1425,74 @@
 
           sections.forEach((section) => {
             sectionObserver.observe(section);
+          });
+        }
+
+        // --- MANEJO DEL MODAL DE SERVICIOS ---
+        const serviceModalTours = document.getElementById(
+          "service-modal-tours"
+        );
+        const openModalToursBtn = document.getElementById(
+          "card-tours-virtuales"
+        );
+        const closeModalToursBtn = document.getElementById("close-modal-tours");
+        const modalContactButton = document.querySelector(
+          ".modal-contact-button"
+        );
+
+        function openModal(modal) {
+          if (modal) {
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            document.body.classList.add("overflow-hidden"); // Evita el scroll del fondo
+          }
+        }
+
+        function closeModal(modal) {
+          if (modal) {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            document.body.classList.remove("overflow-hidden"); // Restaura el scroll
+          }
+        }
+
+        if (openModalToursBtn && serviceModalTours) {
+          openModalToursBtn.addEventListener("click", () => {
+            openModal(serviceModalTours);
+          });
+        }
+
+        if (closeModalToursBtn && serviceModalTours) {
+          closeModalToursBtn.addEventListener("click", () => {
+            closeModal(serviceModalTours);
+          });
+        }
+
+        // Cerrar modal al hacer clic en el fondo
+        if (serviceModalTours) {
+          serviceModalTours.addEventListener("click", (event) => {
+            if (event.target === serviceModalTours) {
+              closeModal(serviceModalTours);
+            }
+          });
+        }
+
+        // Cerrar modal con la tecla Escape
+        window.addEventListener("keydown", (event) => {
+          if (
+            event.key === "Escape" &&
+            serviceModalTours &&
+            !serviceModalTours.classList.contains("hidden")
+          ) {
+            closeModal(serviceModalTours);
+          }
+        });
+
+        // Cerrar modal al hacer clic en el botón de contacto dentro del modal
+        if (modalContactButton) {
+          modalContactButton.addEventListener("click", () => {
+            closeModal(serviceModalTours);
+            // El scroll suave a #contacto ya está manejado por otro script
           });
         }
       });
