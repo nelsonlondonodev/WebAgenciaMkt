@@ -353,7 +353,7 @@
                 </div>
               </div>
               <div
-                class="h-full w-full rounded-lg bg-light-card p-8 dark:bg-dark-card"
+                class="h-full w-full rounded-lg bg-light-card p-8 dark:bg-dark-card flex flex-col"
               >
                 <div
                   class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
@@ -367,7 +367,7 @@
                   Tours Virtuales de Negocios 360°
                 </h3>
                 <p
-                  class="text-gray-600 dark:text-gray-400 mb-4"
+                  class="text-gray-600 dark:text-gray-400 mb-4 flex-grow"
                   data-translate-key="serviceTourDesc"
                 >
                   Nuevo Servicio Estrella. Experiencias inmersivas compatibles
@@ -393,7 +393,7 @@
 
             <div
               id="card-web-medida"
-              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial cursor-pointer"
+              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial cursor-pointer flex flex-col"
             >
               <div
                 class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
@@ -407,7 +407,7 @@
                 Desarrollo Web a Medida
               </h3>
               <p
-                class="text-gray-600 dark:text-gray-400 mb-4"
+                class="text-gray-600 dark:text-gray-400 mb-4 flex-grow"
                 data-translate-key="serviceCustomWebDesc"
               >
                 Soluciones únicas con código nativo (HTML, CSS, JavaScript, y
@@ -430,7 +430,8 @@
             </div>
 
             <div
-              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial"
+              id="card-wordpress"
+              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial cursor-pointer flex flex-col"
             >
               <div
                 class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
@@ -444,7 +445,7 @@
                 Desarrollo Web con WordPress
               </h3>
               <p
-                class="text-gray-600 dark:text-gray-400 mb-4"
+                class="text-gray-600 dark:text-gray-400 mb-4 flex-grow"
                 data-translate-key="serviceWordPressDesc"
               >
                 Sitios web profesionales y autogestionables con el CMS más
@@ -470,16 +471,16 @@
               >
                 (Mantenimiento y soporte)
               </p>
-              <a
-                href="#contacto"
+              <span
                 class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                data-translate-key="serviceContactCTA"
-                >Pide Presupuesto Web <i class="fas fa-arrow-right ml-1"></i
-              ></a>
+                data-translate-key="serviceLearnMore"
+                >Saber más <i class="fas fa-arrow-right ml-1"></i
+              ></span>
             </div>
 
             <div
-              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial"
+              id="card-seo"
+              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial cursor-pointer flex flex-col"
             >
               <div
                 class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
@@ -493,7 +494,7 @@
                 SEO (Optimización para Buscadores)
               </h3>
               <p
-                class="text-gray-600 dark:text-gray-400 mb-4"
+                class="text-gray-600 dark:text-gray-400 mb-4 flex-grow"
                 data-translate-key="serviceSeoDesc"
               >
                 Mejora la visibilidad de tu web en Google y otros buscadores.
@@ -519,12 +520,11 @@
               >
                 (Plan de optimización continua)
               </p>
-              <a
-                href="#contacto"
+              <span
                 class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                data-translate-key="serviceSeoCTA"
-                >Consultar Plan SEO <i class="fas fa-arrow-right ml-1"></i
-              ></a>
+                data-translate-key="serviceLearnMore"
+                >Saber más <i class="fas fa-arrow-right ml-1"></i
+              ></span>
             </div>
 
             <div
@@ -1080,6 +1080,130 @@
       </div>
     </div>
 
+    <div
+      id="service-modal-wordpress"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-2xl w-full rounded-xl bg-light-card p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-4 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+            data-translate-key="serviceWordPressTitle"
+          >
+            Desarrollo Web con WordPress
+          </h3>
+          <button
+            id="close-modal-wordpress"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 space-y-4">
+          <p data-translate-key="modalWordPressDesc1">
+            Aprovecha la potencia y flexibilidad del gestor de contenidos más
+            popular del mundo. WordPress es la solución ideal para quienes
+            buscan un sitio web profesional, robusto y fácil de autogestionar.
+          </p>
+          <p data-translate-key="modalWordPressDesc2">
+            Te entregamos un sitio listo para usar, con un diseño personalizado
+            y las funcionalidades que necesites, dándote formación para que
+            puedas actualizar tu contenido sin depender de nadie.
+          </p>
+          <ul class="list-disc list-inside space-y-2">
+            <li data-translate-key="modalWordPressFeature1">
+              Panel de administración intuitivo para gestionar tu contenido.
+            </li>
+            <li data-translate-key="modalWordPressFeature2">
+              Enorme ecosistema de plugins para ampliar funcionalidades (tiendas
+              online, reservas, etc.).
+            </li>
+            <li data-translate-key="modalWordPressFeature3">
+              Diseños profesionales y adaptables a partir de temas premium o
+              creados a medida.
+            </li>
+            <li data-translate-key="modalWordPressFeature4">
+              Incluye nuestro plan de mantenimiento para que tu web esté siempre
+              segura y actualizada.
+            </li>
+          </ul>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <a
+            href="#contacto"
+            class="cta-button modal-contact-button"
+            data-translate-key="modalCTA"
+            >Pedir Presupuesto</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="service-modal-seo"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-2xl w-full rounded-xl bg-light-card p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-4 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+            data-translate-key="serviceSeoTitle"
+          >
+            SEO (Optimización para Buscadores)
+          </h3>
+          <button
+            id="close-modal-seo"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 space-y-4">
+          <p data-translate-key="modalSeoDesc1">
+            Tener una web increíble no sirve de nada si tus clientes no la
+            encuentran. Nuestro servicio de SEO se encarga de posicionar tu
+            página en los primeros resultados de Google para atraer tráfico
+            relevante y cualificado.
+          </p>
+          <p data-translate-key="modalSeoDesc2">
+            Trabajamos en todos los frentes: la optimización técnica de la web,
+            la creación de contenido de valor y la estrategia de autoridad para
+            convertirte en un referente en tu sector.
+          </p>
+          <ul class="list-disc list-inside space-y-2">
+            <li data-translate-key="modalSeoFeature1">
+              Auditoría SEO completa y análisis de la competencia.
+            </li>
+            <li data-translate-key="modalSeoFeature2">
+              Investigación y estrategia de palabras clave.
+            </li>
+            <li data-translate-key="modalSeoFeature3">
+              Optimización On-Page (contenido, meta-tags, velocidad).
+            </li>
+            <li data-translate-key="modalSeoFeature4">
+              Informes mensuales para medir el progreso y ajustar la estrategia.
+            </li>
+          </ul>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <a
+            href="#contacto"
+            class="cta-button modal-contact-button"
+            data-translate-key="modalCTA"
+            >Pedir Presupuesto</a
+          >
+        </div>
+      </div>
+    </div>
+
     <script>
       const translations = {
         es: {
@@ -1115,6 +1239,29 @@
             "Código limpio, semántico y preparado para SEO desde el inicio.",
           modalWebMedidaFeature4:
             "Totalmente escalable para añadir nuevas funcionalidades en el futuro.",
+          modalWordPressDesc1:
+            "Aprovecha la potencia y flexibilidad del gestor de contenidos más popular del mundo. WordPress es la solución ideal para quienes buscan un sitio web profesional, robusto y fácil de autogestionar.",
+          modalWordPressDesc2:
+            "Te entregamos un sitio listo para usar, con un diseño personalizado y las funcionalidades que necesites, dándote formación para que puedas actualizar tu contenido sin depender de nadie.",
+          modalWordPressFeature1:
+            "Panel de administración intuitivo para gestionar tu contenido.",
+          modalWordPressFeature2:
+            "Enorme ecosistema de plugins para ampliar funcionalidades (tiendas online, reservas, etc.).",
+          modalWordPressFeature3:
+            "Diseños profesionales y adaptables a partir de temas premium o creados a medida.",
+          modalWordPressFeature4:
+            "Incluye nuestro plan de mantenimiento para que tu web esté siempre segura y actualizada.",
+          modalSeoDesc1:
+            "Tener una web increíble no sirve de nada si tus clientes no la encuentran. Nuestro servicio de SEO se encarga de posicionar tu página en los primeros resultados de Google para atraer tráfico relevante y cualificado.",
+          modalSeoDesc2:
+            "Trabajamos en todos los frentes: la optimización técnica de la web, la creación de contenido de valor y la estrategia de autoridad para convertirte en un referente en tu sector.",
+          modalSeoFeature1:
+            "Auditoría SEO completa y análisis de la competencia.",
+          modalSeoFeature2: "Investigación y estrategia de palabras clave.",
+          modalSeoFeature3:
+            "Optimización On-Page (contenido, meta-tags, velocidad).",
+          modalSeoFeature4:
+            "Informes mensuales para medir el progreso y ajustar la estrategia.",
           navHome: "Inicio",
           navServices: "Servicios",
           navProjects: "Proyectos",
@@ -1145,7 +1292,6 @@
           serviceSeoTitle: "SEO (Optimización para Buscadores)",
           serviceSeoDesc:
             "Mejora la visibilidad de tu web en Google y otros buscadores. Atraer tráfico orgánico cualificado es clave.",
-          serviceSeoCTA: "Consultar Plan SEO",
           serviceBrandingTitle: "Creación de Marca (Branding)",
           serviceBrandingDesc:
             "Definimos y diseñamos la identidad visual de tu negocio para que conecte con tu audiencia y transmita tus valores.",
@@ -1231,6 +1377,27 @@
             "Clean, semantic code prepared for SEO from the start.",
           modalWebMedidaFeature4:
             "Fully scalable to add new features in the future.",
+          modalWordPressDesc1:
+            "Leverage the power and flexibility of the world's most popular content management system. WordPress is the ideal solution for those looking for a professional, robust, and easy-to-manage website.",
+          modalWordPressDesc2:
+            "We deliver a ready-to-use site with a custom design and the functionalities you need, providing training so you can update your content without depending on anyone.",
+          modalWordPressFeature1:
+            "Intuitive administration panel to manage your content.",
+          modalWordPressFeature2:
+            "Huge ecosystem of plugins to expand functionalities (online stores, bookings, etc.).",
+          modalWordPressFeature3:
+            "Professional and responsive designs from premium or custom-built themes.",
+          modalWordPressFeature4:
+            "Includes our maintenance plan to keep your site always secure and up-to-date.",
+          modalSeoDesc1:
+            "Having an amazing website is useless if your customers can't find it. Our SEO service positions your page in Google's top results to attract relevant and qualified traffic.",
+          modalSeoDesc2:
+            "We work on all fronts: technical website optimization, valuable content creation, and authority-building strategy to make you a leader in your industry.",
+          modalSeoFeature1: "Complete SEO audit and competitor analysis.",
+          modalSeoFeature2: "Keyword research and strategy.",
+          modalSeoFeature3: "On-Page optimization (content, meta-tags, speed).",
+          modalSeoFeature4:
+            "Monthly reports to measure progress and adjust the strategy.",
           navHome: "Home",
           navServices: "Services",
           navProjects: "Projects",
@@ -1261,7 +1428,6 @@
           serviceSeoTitle: "SEO (Search Engine Optimization)",
           serviceSeoDesc:
             "Improve your website's visibility on Google and other search engines. Attracting qualified organic traffic is key.",
-          serviceSeoCTA: "Consult SEO Plan",
           serviceBrandingTitle: "Branding (Brand Creation)",
           serviceBrandingDesc:
             "We define and design your business's visual identity to connect with your audience and convey your values.",
@@ -1559,11 +1725,6 @@
             openModal(serviceModalTours)
           );
         }
-        if (closeModalToursBtn && serviceModalTours) {
-          closeModalToursBtn.addEventListener("click", () =>
-            closeModal(serviceModalTours)
-          );
-        }
 
         // --- Configuración para Modal 2: Desarrollo Web a Medida ---
         const serviceModalWebMedida = document.getElementById(
@@ -1571,24 +1732,46 @@
         );
         const openModalWebMedidaBtn =
           document.getElementById("card-web-medida");
-        const closeModalWebMedidaBtn = document.getElementById(
-          "close-modal-web-medida"
-        );
 
         if (openModalWebMedidaBtn && serviceModalWebMedida) {
           openModalWebMedidaBtn.addEventListener("click", () =>
             openModal(serviceModalWebMedida)
           );
         }
-        if (closeModalWebMedidaBtn && serviceModalWebMedida) {
-          closeModalWebMedidaBtn.addEventListener("click", () =>
-            closeModal(serviceModalWebMedida)
+
+        // --- Configuración para Modal 3: WordPress ---
+        const serviceModalWordPress = document.getElementById(
+          "service-modal-wordpress"
+        );
+        const openModalWordPressBtn = document.getElementById("card-wordpress");
+
+        if (openModalWordPressBtn && serviceModalWordPress) {
+          openModalWordPressBtn.addEventListener("click", () =>
+            openModal(serviceModalWordPress)
+          );
+        }
+
+        // --- Configuración para Modal 4: SEO ---
+        const serviceModalSeo = document.getElementById("service-modal-seo");
+        const openModalSeoBtn = document.getElementById("card-seo");
+
+        if (openModalSeoBtn && serviceModalSeo) {
+          openModalSeoBtn.addEventListener("click", () =>
+            openModal(serviceModalSeo)
           );
         }
 
         // Lógica para cerrar cualquier modal activo
         const allModals = document.querySelectorAll('[id^="service-modal-"]');
         allModals.forEach((modal) => {
+          // Cerrar al hacer clic en el botón de cerrar (X)
+          const closeModalBtn = modal.querySelector(
+            'button[id^="close-modal-"]'
+          );
+          if (closeModalBtn) {
+            closeModalBtn.addEventListener("click", () => closeModal(modal));
+          }
+
           // Cerrar al hacer clic en el fondo
           modal.addEventListener("click", (event) => {
             if (event.target === modal) {
