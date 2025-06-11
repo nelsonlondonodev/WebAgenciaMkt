@@ -582,6 +582,33 @@
           </p>
           <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div
+              id="card-proyecto-barberia"
+              class="portfolio-item scroll-animate-initial cursor-pointer"
+            >
+              <img
+                class="w-full h-56 object-cover"
+                src="https://placehold.co/600x400/10B981/FFFFFF?text=La+Barbería+de+Isma"
+                alt="Tour 360 de La Barbería de Isma"
+              />
+              <div class="p-6">
+                <h3
+                  class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
+                >
+                  La Barbería de Isma
+                </h3>
+                <p
+                  class="text-sm text-primary-blue dark:text-primary-green mb-2"
+                >
+                  Tour Virtual 360° y SEO Local
+                </p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">
+                  Optimización de ficha Google Business y creación de un tour
+                  virtual para aumentar la visibilidad y atraer nuevos clientes
+                  en Fuente el Saz.
+                </p>
+              </div>
+            </div>
+            <div
               id="card-proyecto-kuula"
               class="portfolio-item scroll-animate-initial cursor-pointer"
             >
@@ -632,34 +659,6 @@
                 >
                   Descripción breve del proyecto destacando el impacto y la
                   solución aportada.
-                </p>
-              </div>
-            </div>
-            <div class="portfolio-item scroll-animate-initial">
-              <img
-                class="w-full h-56 object-cover"
-                src="https://placehold.co/600x400/10B981/FFFFFF?text=Proyecto+3"
-                alt="Proyecto 3"
-              />
-              <div class="p-6">
-                <h3
-                  class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
-                  data-translate-key="project3Title"
-                >
-                  Consultoría SEO Local
-                </h3>
-                <p
-                  class="text-sm text-primary-blue dark:text-primary-green mb-2"
-                  data-translate-key="project3Category"
-                >
-                  Optimización SEO y Contenido
-                </p>
-                <p
-                  class="text-gray-600 dark:text-gray-400 text-sm"
-                  data-translate-key="project3Desc"
-                >
-                  Estrategia SEO que duplicó la visibilidad online del cliente
-                  en 6 meses.
                 </p>
               </div>
             </div>
@@ -1263,6 +1262,42 @@
     </div>
 
     <div
+      id="proyecto-modal-barberia"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-4xl w-full rounded-xl bg-light-card p-4 sm:p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-3 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+          >
+            Tour Virtual 360 - La Barbería de Isma
+          </h3>
+          <button
+            id="close-modal-barberia"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 h-[75vh]">
+          <iframe
+            width="100%"
+            height="100%"
+            style="border: none"
+            frameborder="0"
+            allow="xr-spatial-tracking; gyroscope; accelerometer"
+            allowfullscreen
+            scrolling="no"
+            src="https://kuula.co/share/collection/71n8D?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <div
       id="proyecto-modal-kuula"
       class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
     >
@@ -1805,8 +1840,7 @@
           });
         }
 
-        // --- MANEJO GENÉRICO DE MODALES DE SERVICIOS ---
-
+        // --- MANEJO GENÉRICO DE MODALES ---
         function openModal(modal) {
           if (modal) {
             modal.classList.remove("hidden");
@@ -1824,6 +1858,10 @@
         }
 
         const modalConfigs = [
+          {
+            cardId: "card-proyecto-barberia",
+            modalId: "proyecto-modal-barberia",
+          },
           { cardId: "card-proyecto-kuula", modalId: "proyecto-modal-kuula" },
           { cardId: "card-tours-virtuales", modalId: "service-modal-tours" },
           { cardId: "card-web-medida", modalId: "service-modal-web-medida" },
