@@ -528,7 +528,8 @@
             </div>
 
             <div
-              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial"
+              id="card-branding"
+              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial cursor-pointer flex flex-col"
             >
               <div
                 class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
@@ -542,7 +543,7 @@
                 Creación de Marca (Branding)
               </h3>
               <p
-                class="text-gray-600 dark:text-gray-400 mb-4"
+                class="text-gray-600 dark:text-gray-400 mb-4 flex-grow"
                 data-translate-key="serviceBrandingDesc"
               >
                 Definimos y diseñamos la identidad visual de tu negocio para que
@@ -557,12 +558,11 @@
               <p class="text-sm text-gray-500 dark:text-gray-500">
                 (Pago único)
               </p>
-              <a
-                href="#contacto"
+              <span
                 class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                data-translate-key="serviceBrandingCTA"
-                >Descubre tu Identidad <i class="fas fa-arrow-right ml-1"></i
-              ></a>
+                data-translate-key="serviceLearnMore"
+                >Saber más <i class="fas fa-arrow-right ml-1"></i
+              ></span>
             </div>
           </div>
         </div>
@@ -1204,6 +1204,66 @@
       </div>
     </div>
 
+    <div
+      id="service-modal-branding"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-2xl w-full rounded-xl bg-light-card p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-4 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+            data-translate-key="serviceBrandingTitle"
+          >
+            Creación de Marca (Branding)
+          </h3>
+          <button
+            id="close-modal-branding"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 space-y-4">
+          <p data-translate-key="modalBrandingDesc1">
+            Tu marca es mucho más que un logo; es la promesa que le haces a tus
+            clientes. Nos encargamos de construir una identidad de marca sólida
+            y coherente que te diferencie de la competencia y conecte
+            emocionalmente con tu público.
+          </p>
+          <p data-translate-key="modalBrandingDesc2">
+            Desde la estrategia inicial hasta el diseño de cada elemento visual,
+            creamos una identidad memorable que refleja tus valores y tu visión.
+          </p>
+          <ul class="list-disc list-inside space-y-2">
+            <li data-translate-key="modalBrandingFeature1">
+              Diseño de logotipo y variaciones.
+            </li>
+            <li data-translate-key="modalBrandingFeature2">
+              Definición de paleta de colores y tipografías corporativas.
+            </li>
+            <li data-translate-key="modalBrandingFeature3">
+              Creación de manual de identidad visual.
+            </li>
+            <li data-translate-key="modalBrandingFeature4">
+              Diseño de papelería y material de marketing.
+            </li>
+          </ul>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <a
+            href="#contacto"
+            class="cta-button modal-contact-button"
+            data-translate-key="modalCTA"
+            >Pedir Presupuesto</a
+          >
+        </div>
+      </div>
+    </div>
+
     <script>
       const translations = {
         es: {
@@ -1262,6 +1322,15 @@
             "Optimización On-Page (contenido, meta-tags, velocidad).",
           modalSeoFeature4:
             "Informes mensuales para medir el progreso y ajustar la estrategia.",
+          modalBrandingDesc1:
+            "Tu marca es mucho más que un logo; es la promesa que le haces a tus clientes. Nos encargamos de construir una identidad de marca sólida y coherente que te diferencie de la competencia y conecte emocionalmente con tu público.",
+          modalBrandingDesc2:
+            "Desde la estrategia inicial hasta el diseño de cada elemento visual, creamos una identidad memorable que refleja tus valores y tu visión.",
+          modalBrandingFeature1: "Diseño de logotipo y variaciones.",
+          modalBrandingFeature2:
+            "Definición de paleta de colores y tipografías corporativas.",
+          modalBrandingFeature3: "Creación de manual de identidad visual.",
+          modalBrandingFeature4: "Diseño de papelería y material de marketing.",
           navHome: "Inicio",
           navServices: "Servicios",
           navProjects: "Proyectos",
@@ -1285,7 +1354,6 @@
           serviceCustomWebDesc:
             "Soluciones únicas con código nativo (HTML, CSS, JavaScript, y más) para un rendimiento y personalización máximos.",
           serviceCustomWebPrice: "Desde 1200€",
-          serviceContactCTA: "Pide Presupuesto Web",
           serviceWordPressTitle: "Desarrollo Web con WordPress",
           serviceWordPressDesc:
             "Sitios web profesionales y autogestionables con el CMS más popular del mundo. Flexibilidad y potencia.",
@@ -1296,7 +1364,6 @@
           serviceBrandingDesc:
             "Definimos y diseñamos la identidad visual de tu negocio para que conecte con tu audiencia y transmita tus valores.",
           serviceBrandingPrice: "Desde 600€",
-          serviceBrandingCTA: "Descubre tu Identidad",
           projectsTitle: "Nuestro Portafolio",
           projectsSubtitle:
             "Una muestra de la calidad y diversidad de nuestros trabajos. Clientes satisfechos son nuestra mejor carta de presentación.",
@@ -1398,6 +1465,16 @@
           modalSeoFeature3: "On-Page optimization (content, meta-tags, speed).",
           modalSeoFeature4:
             "Monthly reports to measure progress and adjust the strategy.",
+          modalBrandingDesc1:
+            "Your brand is much more than a logo; it's the promise you make to your customers. We build a solid and coherent brand identity that sets you apart from the competition and emotionally connects with your audience.",
+          modalBrandingDesc2:
+            "From the initial strategy to the design of every visual element, we create a memorable identity that reflects your values and vision.",
+          modalBrandingFeature1: "Logo design and variations.",
+          modalBrandingFeature2:
+            "Definition of color palette and corporate typographies.",
+          modalBrandingFeature3: "Creation of a visual identity manual.",
+          modalBrandingFeature4:
+            "Design of stationery and marketing materials.",
           navHome: "Home",
           navServices: "Services",
           navProjects: "Projects",
@@ -1421,7 +1498,6 @@
           serviceCustomWebDesc:
             "Unique solutions with native code (HTML, CSS, JavaScript, and more) for maximum performance and customization.",
           serviceCustomWebPrice: "From €1200",
-          serviceContactCTA: "Request Web Quote",
           serviceWordPressTitle: "WordPress Web Development",
           serviceWordPressDesc:
             "Professional and self-manageable websites with the world's most popular CMS. Flexibility and power.",
@@ -1432,7 +1508,6 @@
           serviceBrandingDesc:
             "We define and design your business's visual identity to connect with your audience and convey your values.",
           serviceBrandingPrice: "From €600",
-          serviceBrandingCTA: "Discover Your Identity",
           projectsTitle: "Our Portfolio",
           projectsSubtitle:
             "A showcase of the quality and diversity of our work. Satisfied clients are our best introduction.",
@@ -1483,6 +1558,11 @@
       };
 
       document.addEventListener("DOMContentLoaded", () => {
+        const currentYearSpan = document.getElementById("currentYear");
+        if (currentYearSpan) {
+          currentYearSpan.textContent = new Date().getFullYear();
+        }
+
         // --- MANEJO DEL HEADER CON SCROLL ---
         const mainHeader = document.getElementById("mainHeader");
         if (mainHeader) {
@@ -1509,9 +1589,14 @@
             }
           });
           mobileMenu.querySelectorAll("a").forEach((link) => {
-            link.addEventListener("click", () =>
-              mobileMenu.classList.add("hidden")
-            );
+            link.addEventListener("click", () => {
+              mobileMenu.classList.add("hidden");
+              const icon = mobileMenuButton.querySelector("i");
+              if (icon) {
+                icon.classList.remove("fa-times");
+                icon.classList.add("fa-bars");
+              }
+            });
           });
         }
 
@@ -1693,7 +1778,6 @@
 
         // --- MANEJO GENÉRICO DE MODALES DE SERVICIOS ---
 
-        // Función reutilizable para abrir un modal
         function openModal(modal) {
           if (modal) {
             modal.classList.remove("hidden");
@@ -1702,7 +1786,6 @@
           }
         }
 
-        // Función reutilizable para cerrar un modal
         function closeModal(modal) {
           if (modal) {
             modal.classList.add("hidden");
@@ -1711,60 +1794,24 @@
           }
         }
 
-        // --- Configuración para Modal 1: Tours Virtuales ---
-        const serviceModalTours = document.getElementById(
-          "service-modal-tours"
-        );
-        const openModalToursBtn = document.getElementById(
-          "card-tours-virtuales"
-        );
-        const closeModalToursBtn = document.getElementById("close-modal-tours");
+        const modalConfigs = [
+          { cardId: "card-tours-virtuales", modalId: "service-modal-tours" },
+          { cardId: "card-web-medida", modalId: "service-modal-web-medida" },
+          { cardId: "card-wordpress", modalId: "service-modal-wordpress" },
+          { cardId: "card-seo", modalId: "service-modal-seo" },
+          { cardId: "card-branding", modalId: "service-modal-branding" },
+        ];
 
-        if (openModalToursBtn && serviceModalTours) {
-          openModalToursBtn.addEventListener("click", () =>
-            openModal(serviceModalTours)
-          );
-        }
+        modalConfigs.forEach((config) => {
+          const card = document.getElementById(config.cardId);
+          const modal = document.getElementById(config.modalId);
+          if (card && modal) {
+            card.addEventListener("click", () => openModal(modal));
+          }
+        });
 
-        // --- Configuración para Modal 2: Desarrollo Web a Medida ---
-        const serviceModalWebMedida = document.getElementById(
-          "service-modal-web-medida"
-        );
-        const openModalWebMedidaBtn =
-          document.getElementById("card-web-medida");
-
-        if (openModalWebMedidaBtn && serviceModalWebMedida) {
-          openModalWebMedidaBtn.addEventListener("click", () =>
-            openModal(serviceModalWebMedida)
-          );
-        }
-
-        // --- Configuración para Modal 3: WordPress ---
-        const serviceModalWordPress = document.getElementById(
-          "service-modal-wordpress"
-        );
-        const openModalWordPressBtn = document.getElementById("card-wordpress");
-
-        if (openModalWordPressBtn && serviceModalWordPress) {
-          openModalWordPressBtn.addEventListener("click", () =>
-            openModal(serviceModalWordPress)
-          );
-        }
-
-        // --- Configuración para Modal 4: SEO ---
-        const serviceModalSeo = document.getElementById("service-modal-seo");
-        const openModalSeoBtn = document.getElementById("card-seo");
-
-        if (openModalSeoBtn && serviceModalSeo) {
-          openModalSeoBtn.addEventListener("click", () =>
-            openModal(serviceModalSeo)
-          );
-        }
-
-        // Lógica para cerrar cualquier modal activo
         const allModals = document.querySelectorAll('[id^="service-modal-"]');
         allModals.forEach((modal) => {
-          // Cerrar al hacer clic en el botón de cerrar (X)
           const closeModalBtn = modal.querySelector(
             'button[id^="close-modal-"]'
           );
@@ -1772,20 +1819,17 @@
             closeModalBtn.addEventListener("click", () => closeModal(modal));
           }
 
-          // Cerrar al hacer clic en el fondo
           modal.addEventListener("click", (event) => {
             if (event.target === modal) {
               closeModal(modal);
             }
           });
 
-          // Cerrar al hacer clic en un botón de contacto dentro del modal
           modal.querySelectorAll(".modal-contact-button").forEach((button) => {
             button.addEventListener("click", () => closeModal(modal));
           });
         });
 
-        // Cerrar con la tecla Escape
         window.addEventListener("keydown", (event) => {
           if (event.key === "Escape") {
             allModals.forEach((modal) => {
