@@ -94,3 +94,47 @@ Añadir una pequeña sección dentro de cada tarjeta de servicio (o dentro de la
 ¿Por qué mejora la sección?
 Genera credibilidad y confianza de forma inmediata. Un testimonio positivo vale más que mil palabras de marketing.
 Ayuda al visitante a visualizar el éxito que otros han tenido, animándole a contratar tus servicios.
+
+------------- Sugerencias de mejora para la sección de nuestro portafolio -----------
+
+Sugerencia 1: Mejorar la Interactividad de cada Proyecto
+Actualmente, cada proyecto es una tarjeta estática. Podríamos añadir enlaces directos para que los clientes potenciales puedan ver el trabajo real.
+
+¿Qué haríamos?
+
+Añadiríamos un botón o un icono de "Ver Proyecto" en cada tarjeta del portafolio.
+Este botón podría enlazar directamente a la página web del cliente (si está en vivo) o a una página de caso de estudio más detallada.
+¿Por qué mejora la sección?
+
+Permite a los visitantes explorar tu trabajo de primera mano, lo que es mucho más convincente que una simple descripción.
+Demuestra confianza en la calidad de tus proyectos.
+Sugerencia 2: Implementar un Filtro por Categorías
+A medida que tu portafolio crezca, tendrás proyectos de diferentes tipos (Desarrollo Web, Tours Virtuales, Branding, etc.). Un sistema de filtros mejoraría enormemente la experiencia de usuario.
+
+¿Qué haríamos?
+
+Añadiríamos una barra de botones de filtro en la parte superior de la sección de proyectos (ej: "Todos", "Web a Medida", "WordPress", "Tours Virtuales").
+Usando JavaScript, al hacer clic en un botón, se mostrarían solo los proyectos de esa categoría.
+¿Por qué mejora la sección?
+
+Permite a los clientes potenciales ver rápidamente los trabajos que son más relevantes para sus necesidades.
+Proyecta una imagen más profesional y organizada, mostrando la diversidad de tus habilidades de una forma limpia.
+Sugerencia 3: Ventanas Modales para Casos de Estudio
+Esta es mi recomendación principal, ya que sigue el patrón que acabamos de establecer con los servicios y aporta un gran valor. En lugar de solo una imagen y una breve descripción, puedes contar la historia detrás de cada proyecto.
+
+¿Qué haríamos?
+
+Al igual que hicimos con los servicios, haríamos que al hacer clic en una tarjeta de proyecto se abriera una ventana modal.
+Dentro de la modal, podríamos mostrar:
+Más imágenes o incluso un vídeo del proyecto.
+El desafío: Una breve descripción del problema o la necesidad del cliente.
+La solución: Cómo abordaste el proyecto y qué tecnologías usaste.
+El resultado: El impacto que tuvo tu trabajo (ej: "aumento del 20% en las ventas", "duplicó el tráfico orgánico").
+Un testimonio del cliente relacionado con ese proyecto específico.
+
+¿Por qué mejora la sección?
+
+Transforma tu portafolio de una simple galería a una colección de casos de éxito, lo que es mucho más persuasivo.
+Aporta un nivel de detalle y profesionalismo que genera una enorme confianza en los clientes potenciales.
+
+Permite al usuario profundizar en los proyectos que le interesan sin salir de la página.

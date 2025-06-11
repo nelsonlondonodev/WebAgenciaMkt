@@ -82,7 +82,7 @@
         }
         /* Clase para el estado inicial de los elementos que se animarán al hacer scroll */
         .scroll-animate-initial {
-          @apply opacity-0 translate-y-5;
+          @apply opacity-0 translate-y-5 transition-all duration-700 ease-out;
         }
       }
       @layer components {
@@ -393,7 +393,7 @@
 
             <div
               id="card-web-medida"
-              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial cursor-pointer flex flex-col"
+              class="service-card group hover:-translate-y-2 scroll-animate-initial cursor-pointer flex flex-col"
             >
               <div
                 class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
@@ -431,7 +431,7 @@
 
             <div
               id="card-wordpress"
-              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial cursor-pointer flex flex-col"
+              class="service-card group hover:-translate-y-2 scroll-animate-initial cursor-pointer flex flex-col"
             >
               <div
                 class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
@@ -480,7 +480,7 @@
 
             <div
               id="card-seo"
-              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial cursor-pointer flex flex-col"
+              class="service-card group hover:-translate-y-2 scroll-animate-initial cursor-pointer flex flex-col"
             >
               <div
                 class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
@@ -529,7 +529,7 @@
 
             <div
               id="card-branding"
-              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial cursor-pointer flex flex-col"
+              class="service-card group hover:-translate-y-2 scroll-animate-initial cursor-pointer flex flex-col"
             >
               <div
                 class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
@@ -1717,7 +1717,7 @@
           });
         });
 
-        // --- MANEJO DE ANIMACIONES AL HACER SCROLL ---
+        // --- MANEJO DE ANIMACIONES AL HACER SCROLL (CORREGIDO) ---
         const animatedElements = document.querySelectorAll(
           ".card-container, .service-card, .portfolio-item, #sobre-mi h2, #sobre-mi p, #sobre-mi img"
         );
@@ -1727,10 +1727,6 @@
               entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                   entry.target.classList.remove("scroll-animate-initial");
-                  entry.target.style.transition =
-                    "opacity 0.7s ease-out, transform 0.7s ease-out";
-                  entry.target.style.opacity = "1";
-                  entry.target.style.transform = "translateY(0)";
                   observer.unobserve(entry.target);
                 }
               });
@@ -1739,7 +1735,6 @@
           );
 
           animatedElements.forEach((el) => {
-            el.classList.add("scroll-animate-initial");
             observer.observe(el);
           });
         }
