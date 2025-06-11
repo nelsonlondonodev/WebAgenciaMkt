@@ -383,18 +383,17 @@
                 <p class="text-sm text-gray-500 dark:text-gray-500">
                   (Pago único)
                 </p>
-                <a
-                  href="#contacto"
+                <span
                   class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                  data-translate-key="serviceTourCTA"
-                  >Solicita tu Tour Virtual
-                  <i class="fas fa-arrow-right ml-1"></i
-                ></a>
+                  data-translate-key="serviceLearnMore"
+                  >Saber más <i class="fas fa-arrow-right ml-1"></i
+                ></span>
               </div>
             </div>
 
             <div
-              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial"
+              id="card-web-medida"
+              class="service-card group hover:-translate-y-2 card-container scroll-animate-initial cursor-pointer"
             >
               <div
                 class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
@@ -423,12 +422,11 @@
               <p class="text-sm text-gray-500 dark:text-gray-500">
                 (Pago único)
               </p>
-              <a
-                href="#contacto"
+              <span
                 class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                data-translate-key="serviceContactCTA"
-                >Pide Presupuesto Web <i class="fas fa-arrow-right ml-1"></i
-              ></a>
+                data-translate-key="serviceLearnMore"
+                >Saber más <i class="fas fa-arrow-right ml-1"></i
+              ></span>
             </div>
 
             <div
@@ -685,11 +683,13 @@
             <div>
               <h2
                 class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-6 scroll-animate-initial"
+                data-translate-key="aboutTitle"
               >
                 Conoce a Nelson Londoño
               </h2>
               <p
                 class="text-gray-600 dark:text-gray-300 text-lg mb-4 scroll-animate-initial"
+                data-translate-key="aboutIntro"
               >
                 Soy Nelson Londoño, un desarrollador de 43 años originario de
                 Colombia y afincado en Madrid. Mi pasión por la tecnología y el
@@ -697,6 +697,7 @@
               </p>
               <p
                 class="text-gray-600 dark:text-gray-300 mb-4 scroll-animate-initial"
+                data-translate-key="aboutExperience"
               >
                 Con años de experiencia en el sector, he fundado "Nelson Londoño
                 Agencia" con la misión de ofrecer soluciones digitales que no
@@ -706,6 +707,7 @@
               </p>
               <p
                 class="text-gray-600 dark:text-gray-300 mb-6 scroll-animate-initial"
+                data-translate-key="aboutPhilosophy"
               >
                 Nuestra filosofía se basa en la profesionalidad, la modernidad y
                 una constante adaptación a las nuevas tendencias, como nuestros
@@ -1010,7 +1012,68 @@
           <a
             href="#contacto"
             class="cta-button modal-contact-button"
-            data-translate-key="heroCTA"
+            data-translate-key="modalCTA"
+            >Pedir Presupuesto</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="service-modal-web-medida"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-2xl w-full rounded-xl bg-light-card p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-4 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+            data-translate-key="serviceCustomWebTitle"
+          >
+            Desarrollo Web a Medida
+          </h3>
+          <button
+            id="close-modal-web-medida"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 space-y-4">
+          <p data-translate-key="modalWebMedidaDesc1">
+            Creamos soluciones web desde cero, totalmente personalizadas para
+            tus necesidades. Si buscas un rendimiento superior, funcionalidades
+            únicas y un diseño que se adapte perfectamente a tu marca, esta es
+            tu solución.
+          </p>
+          <p data-translate-key="modalWebMedidaDesc2">
+            Utilizamos las últimas tecnologías (HTML5, CSS3, JavaScript moderno)
+            para construir sitios rápidos, seguros y escalables.
+          </p>
+          <ul class="list-disc list-inside space-y-2">
+            <li data-translate-key="modalWebMedidaFeature1">
+              Diseño 100% único y exclusivo para tu marca.
+            </li>
+            <li data-translate-key="modalWebMedidaFeature2">
+              Optimización máxima del rendimiento y velocidad de carga.
+            </li>
+            <li data-translate-key="modalWebMedidaFeature3">
+              Código limpio, semántico y preparado para SEO desde el inicio.
+            </li>
+            <li data-translate-key="modalWebMedidaFeature4">
+              Totalmente escalable para añadir nuevas funcionalidades en el
+              futuro.
+            </li>
+          </ul>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <a
+            href="#contacto"
+            class="cta-button modal-contact-button"
+            data-translate-key="modalCTA"
             >Pedir Presupuesto</a
           >
         </div>
@@ -1028,6 +1091,8 @@
           serviceWordPressPriceAnnual: "Desde 800€ + 576€/año",
           serviceSeoPriceMonthly: "Desde 300€/mes",
           serviceSeoPriceAnnual: "Desde 2880€/año",
+          serviceLearnMore: "Saber más",
+          modalCTA: "Pedir Presupuesto",
           modalTourDesc1:
             "Ofrece a tus clientes una experiencia inmersiva sin precedentes. Nuestros Tours Virtuales 360° son la herramienta definitiva para mostrar tu negocio de una forma realista, interactiva y accesible 24/7 desde cualquier dispositivo.",
           modalTourDesc2:
@@ -1038,6 +1103,18 @@
             "Fotografía de alta resolución y montaje profesional.",
           modalTourFeature3: "Navegación intuitiva y fluida.",
           modalTourFeature4: "Puntos de información interactivos opcionales.",
+          modalWebMedidaDesc1:
+            "Creamos soluciones web desde cero, totalmente personalizadas para tus necesidades. Si buscas un rendimiento superior, funcionalidades únicas y un diseño que se adapte perfectamente a tu marca, esta es tu solución.",
+          modalWebMedidaDesc2:
+            "Utilizamos las últimas tecnologías (HTML5, CSS3, JavaScript moderno) para construir sitios rápidos, seguros y escalables.",
+          modalWebMedidaFeature1:
+            "Diseño 100% único y exclusivo para tu marca.",
+          modalWebMedidaFeature2:
+            "Optimización máxima del rendimiento y velocidad de carga.",
+          modalWebMedidaFeature3:
+            "Código limpio, semántico y preparado para SEO desde el inicio.",
+          modalWebMedidaFeature4:
+            "Totalmente escalable para añadir nuevas funcionalidades en el futuro.",
           navHome: "Inicio",
           navServices: "Servicios",
           navProjects: "Proyectos",
@@ -1057,13 +1134,14 @@
             "Nuevo Servicio Estrella. Experiencias inmersivas compatibles con Google Street View. Ideal para inmobiliarias, restaurantes, hoteles y más.",
           serviceTourPrice: "Desde 499€",
           serviceSubscriptionInfo: "(Mantenimiento y soporte)",
-          serviceTourCTA: "Solicita tu Tour Virtual",
           serviceCustomWebTitle: "Desarrollo Web a Medida",
           serviceCustomWebDesc:
             "Soluciones únicas con código nativo (HTML, CSS, JavaScript, y más) para un rendimiento y personalización máximos.",
           serviceCustomWebPrice: "Desde 1200€",
           serviceContactCTA: "Pide Presupuesto Web",
           serviceWordPressTitle: "Desarrollo Web con WordPress",
+          serviceWordPressDesc:
+            "Sitios web profesionales y autogestionables con el CMS más popular del mundo. Flexibilidad y potencia.",
           serviceSeoTitle: "SEO (Optimización para Buscadores)",
           serviceSeoDesc:
             "Mejora la visibilidad de tu web en Google y otros buscadores. Atraer tráfico orgánico cualificado es clave.",
@@ -1129,6 +1207,8 @@
           serviceWordPressPriceAnnual: "From €800 + €576/yr",
           serviceSeoPriceMonthly: "From €300/mo",
           serviceSeoPriceAnnual: "From €2880/yr",
+          serviceLearnMore: "Learn more",
+          modalCTA: "Request Quote",
           modalTourDesc1:
             "Offer your clients an unprecedented immersive experience. Our 360° Virtual Tours are the ultimate tool to showcase your business in a realistic, interactive, and accessible way, 24/7 from any device.",
           modalTourDesc2:
@@ -1139,6 +1219,18 @@
             "High-resolution photography and professional assembly.",
           modalTourFeature3: "Intuitive and smooth navigation.",
           modalTourFeature4: "Optional interactive information points.",
+          modalWebMedidaDesc1:
+            "We create web solutions from scratch, fully customized to your needs. If you are looking for superior performance, unique features, and a design that perfectly fits your brand, this is your solution.",
+          modalWebMedidaDesc2:
+            "We use the latest technologies (HTML5, CSS3, modern JavaScript) to build fast, secure, and scalable sites.",
+          modalWebMedidaFeature1:
+            "100% unique and exclusive design for your brand.",
+          modalWebMedidaFeature2:
+            "Maximum optimization of performance and loading speed.",
+          modalWebMedidaFeature3:
+            "Clean, semantic code prepared for SEO from the start.",
+          modalWebMedidaFeature4:
+            "Fully scalable to add new features in the future.",
           navHome: "Home",
           navServices: "Services",
           navProjects: "Projects",
@@ -1158,13 +1250,14 @@
             "New Star Service. Immersive experiences compatible with Google Street View. Ideal for real estate, restaurants, hotels, and more.",
           serviceTourPrice: "From €499",
           serviceSubscriptionInfo: "(Maintenance and support)",
-          serviceTourCTA: "Request Your Virtual Tour",
           serviceCustomWebTitle: "Custom Web Development",
           serviceCustomWebDesc:
             "Unique solutions with native code (HTML, CSS, JavaScript, and more) for maximum performance and customization.",
           serviceCustomWebPrice: "From €1200",
           serviceContactCTA: "Request Web Quote",
           serviceWordPressTitle: "WordPress Web Development",
+          serviceWordPressDesc:
+            "Professional and self-manageable websites with the world's most popular CMS. Flexibility and power.",
           serviceSeoTitle: "SEO (Search Engine Optimization)",
           serviceSeoDesc:
             "Improve your website's visibility on Google and other search engines. Attracting qualified organic traffic is key.",
@@ -1383,6 +1476,10 @@
               entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                   entry.target.classList.remove("scroll-animate-initial");
+                  entry.target.style.transition =
+                    "opacity 0.7s ease-out, transform 0.7s ease-out";
+                  entry.target.style.opacity = "1";
+                  entry.target.style.transform = "translateY(0)";
                   observer.unobserve(entry.target);
                 }
               });
@@ -1428,7 +1525,27 @@
           });
         }
 
-        // --- MANEJO DEL MODAL DE SERVICIOS ---
+        // --- MANEJO GENÉRICO DE MODALES DE SERVICIOS ---
+
+        // Función reutilizable para abrir un modal
+        function openModal(modal) {
+          if (modal) {
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            document.body.classList.add("overflow-hidden");
+          }
+        }
+
+        // Función reutilizable para cerrar un modal
+        function closeModal(modal) {
+          if (modal) {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            document.body.classList.remove("overflow-hidden");
+          }
+        }
+
+        // --- Configuración para Modal 1: Tours Virtuales ---
         const serviceModalTours = document.getElementById(
           "service-modal-tours"
         );
@@ -1436,65 +1553,65 @@
           "card-tours-virtuales"
         );
         const closeModalToursBtn = document.getElementById("close-modal-tours");
-        const modalContactButton = document.querySelector(
-          ".modal-contact-button"
-        );
-
-        function openModal(modal) {
-          if (modal) {
-            modal.classList.remove("hidden");
-            modal.classList.add("flex");
-            document.body.classList.add("overflow-hidden"); // Evita el scroll del fondo
-          }
-        }
-
-        function closeModal(modal) {
-          if (modal) {
-            modal.classList.add("hidden");
-            modal.classList.remove("flex");
-            document.body.classList.remove("overflow-hidden"); // Restaura el scroll
-          }
-        }
 
         if (openModalToursBtn && serviceModalTours) {
-          openModalToursBtn.addEventListener("click", () => {
-            openModal(serviceModalTours);
-          });
+          openModalToursBtn.addEventListener("click", () =>
+            openModal(serviceModalTours)
+          );
         }
-
         if (closeModalToursBtn && serviceModalTours) {
-          closeModalToursBtn.addEventListener("click", () => {
-            closeModal(serviceModalTours);
-          });
+          closeModalToursBtn.addEventListener("click", () =>
+            closeModal(serviceModalTours)
+          );
         }
 
-        // Cerrar modal al hacer clic en el fondo
-        if (serviceModalTours) {
-          serviceModalTours.addEventListener("click", (event) => {
-            if (event.target === serviceModalTours) {
-              closeModal(serviceModalTours);
+        // --- Configuración para Modal 2: Desarrollo Web a Medida ---
+        const serviceModalWebMedida = document.getElementById(
+          "service-modal-web-medida"
+        );
+        const openModalWebMedidaBtn =
+          document.getElementById("card-web-medida");
+        const closeModalWebMedidaBtn = document.getElementById(
+          "close-modal-web-medida"
+        );
+
+        if (openModalWebMedidaBtn && serviceModalWebMedida) {
+          openModalWebMedidaBtn.addEventListener("click", () =>
+            openModal(serviceModalWebMedida)
+          );
+        }
+        if (closeModalWebMedidaBtn && serviceModalWebMedida) {
+          closeModalWebMedidaBtn.addEventListener("click", () =>
+            closeModal(serviceModalWebMedida)
+          );
+        }
+
+        // Lógica para cerrar cualquier modal activo
+        const allModals = document.querySelectorAll('[id^="service-modal-"]');
+        allModals.forEach((modal) => {
+          // Cerrar al hacer clic en el fondo
+          modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+              closeModal(modal);
             }
           });
-        }
 
-        // Cerrar modal con la tecla Escape
-        window.addEventListener("keydown", (event) => {
-          if (
-            event.key === "Escape" &&
-            serviceModalTours &&
-            !serviceModalTours.classList.contains("hidden")
-          ) {
-            closeModal(serviceModalTours);
-          }
+          // Cerrar al hacer clic en un botón de contacto dentro del modal
+          modal.querySelectorAll(".modal-contact-button").forEach((button) => {
+            button.addEventListener("click", () => closeModal(modal));
+          });
         });
 
-        // Cerrar modal al hacer clic en el botón de contacto dentro del modal
-        if (modalContactButton) {
-          modalContactButton.addEventListener("click", () => {
-            closeModal(serviceModalTours);
-            // El scroll suave a #contacto ya está manejado por otro script
-          });
-        }
+        // Cerrar con la tecla Escape
+        window.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            allModals.forEach((modal) => {
+              if (!modal.classList.contains("hidden")) {
+                closeModal(modal);
+              }
+            });
+          }
+        });
       });
     </script>
   </body>
