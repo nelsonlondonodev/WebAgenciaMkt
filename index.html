@@ -581,6 +581,32 @@
             Clientes satisfechos son nuestra mejor carta de presentación.
           </p>
           <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div
+              id="card-proyecto-kuula"
+              class="portfolio-item scroll-animate-initial cursor-pointer"
+            >
+              <img
+                class="w-full h-56 object-cover"
+                src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Tour+360+Piso"
+                alt="Tour 360 de un piso en Madrid"
+              />
+              <div class="p-6">
+                <h3
+                  class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
+                >
+                  Piso en Venta - Tour Virtual
+                </h3>
+                <p
+                  class="text-sm text-primary-blue dark:text-primary-green mb-2"
+                >
+                  Tour Virtual 360° con Kuula
+                </p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">
+                  Recorrido virtual completo para inmobiliaria, permitiendo
+                  visitas inmersivas 24/7 y acelerando el proceso de venta.
+                </p>
+              </div>
+            </div>
             <div class="portfolio-item scroll-animate-initial">
               <img
                 class="w-full h-56 object-cover"
@@ -606,34 +632,6 @@
                 >
                   Descripción breve del proyecto destacando el impacto y la
                   solución aportada.
-                </p>
-              </div>
-            </div>
-            <div class="portfolio-item scroll-animate-initial">
-              <img
-                class="w-full h-56 object-cover"
-                src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Proyecto+2"
-                alt="Proyecto 2"
-              />
-              <div class="p-6">
-                <h3
-                  class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
-                  data-translate-key="project2Title"
-                >
-                  Startup Tecnológica
-                </h3>
-                <p
-                  class="text-sm text-primary-blue dark:text-primary-green mb-2"
-                  data-translate-key="project2Category"
-                >
-                  Branding y Desarrollo WordPress
-                </p>
-                <p
-                  class="text-gray-600 dark:text-gray-400 text-sm"
-                  data-translate-key="project2Desc"
-                >
-                  Diseño de identidad de marca y web corporativa enfocada en la
-                  conversión.
                 </p>
               </div>
             </div>
@@ -1264,6 +1262,42 @@
       </div>
     </div>
 
+    <div
+      id="proyecto-modal-kuula"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-4xl w-full rounded-xl bg-light-card p-4 sm:p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-3 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+          >
+            Tour Virtual 360 - Piso en Madrid
+          </h3>
+          <button
+            id="close-modal-kuula"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 h-[75vh]">
+          <iframe
+            width="100%"
+            height="100%"
+            style="border: none"
+            frameborder="0"
+            allow="xr-spatial-tracking; gyroscope; accelerometer"
+            allowfullscreen
+            scrolling="no"
+            src="https://kuula.co/share/collection/71np8?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es"
+          ></iframe>
+        </div>
+      </div>
+    </div>
     <script>
       const translations = {
         es: {
@@ -1790,6 +1824,7 @@
         }
 
         const modalConfigs = [
+          { cardId: "card-proyecto-kuula", modalId: "proyecto-modal-kuula" },
           { cardId: "card-tours-virtuales", modalId: "service-modal-tours" },
           { cardId: "card-web-medida", modalId: "service-modal-web-medida" },
           { cardId: "card-wordpress", modalId: "service-modal-wordpress" },
@@ -1805,7 +1840,9 @@
           }
         });
 
-        const allModals = document.querySelectorAll('[id^="service-modal-"]');
+        const allModals = document.querySelectorAll(
+          '[id^="service-modal-"], [id^="proyecto-modal-"]'
+        );
         allModals.forEach((modal) => {
           const closeModalBtn = modal.querySelector(
             'button[id^="close-modal-"]'
