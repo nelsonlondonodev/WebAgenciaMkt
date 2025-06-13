@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 2. NUEVA SECCIÓN: Utilidades personalizadas */
+/* 2. Utilidades personalizadas */
 @layer utilities {
   .logo-invert-on-dark {
     @apply dark:invert dark:brightness-200;
@@ -39,6 +39,14 @@
   .portfolio-item {
     @apply bg-light-card dark:bg-dark-card rounded-lg shadow-lg overflow-hidden transition-all duration-500 ease-out;
   }
+
+  /* SECCIÓN AÑADIDA: Estilos para el interruptor de precios */
+  #price-toggle.toggled {
+    @apply bg-primary-green;
+  }
+  #price-toggle.toggled #price-toggle-handle {
+    @apply translate-x-5;
+  }
 }
 
 body {
@@ -46,4 +54,39 @@ body {
 }
 .sticky-header {
   @apply fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md shadow-lg transition-all duration-300;
+}
+
+/* Animación de gradiente para la sección de inicio */
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.animated-gradient-bg {
+  background-size: 200% 200%;
+  background-image: linear-gradient(
+    to right,
+    #f0f9ff,
+    #ecfdf5,
+    #dbeafe,
+    #ecfdf5,
+    #f0f9ff
+  );
+  animation: moveGradient 15s ease infinite;
+}
+.dark .animated-gradient-bg {
+  background-image: linear-gradient(
+    to right,
+    #0c4a6e,
+    #064e3b,
+    #1e3a8a,
+    #064e3b,
+    #0c4a6e
+  );
 }
