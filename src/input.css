@@ -1,11 +1,16 @@
-/* src/input.css */
-
 /* 1. Directivas de Tailwind. ESTO VA PRIMERO. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 2. Tus estilos y clases personalizadas. ESTO VA DESPUÉS. */
+/* 2. NUEVA SECCIÓN: Utilidades personalizadas */
+@layer utilities {
+  .logo-invert-on-dark {
+    @apply dark:invert dark:brightness-200;
+  }
+}
+
+/* 3. Tus componentes y estilos personalizados. */
 @layer components {
   .header-scrolled {
     @apply bg-white dark:bg-dark-bg shadow-xl;
