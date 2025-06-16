@@ -443,10 +443,29 @@
             Una muestra de la calidad y diversidad de nuestros trabajos.
             Clientes satisfechos son nuestra mejor carta de presentación.
           </p>
-          <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+          <div
+            id="portfolio-filters"
+            class="flex justify-center flex-wrap gap-2 mb-12"
+          >
+            <button data-filter="all" class="filter-btn active-filter">
+              Todos
+            </button>
+            <button data-filter="tour" class="filter-btn">
+              Tours Virtuales
+            </button>
+            <button data-filter="web" class="filter-btn">Desarrollo Web</button>
+            <button data-filter="seo" class="filter-btn">SEO Local</button>
+          </div>
+
+          <div
+            id="portfolio-grid"
+            class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          >
             <div
               id="card-proyecto-barberia"
               class="portfolio-item group scroll-animate-initial cursor-pointer"
+              data-category="tour seo"
             >
               <div class="relative">
                 <img
@@ -483,6 +502,7 @@
             <div
               id="card-proyecto-kuula"
               class="portfolio-item group scroll-animate-initial cursor-pointer"
+              data-category="tour"
             >
               <div class="relative">
                 <img
@@ -515,7 +535,10 @@
                 </p>
               </div>
             </div>
-            <div class="portfolio-item group scroll-animate-initial">
+            <div
+              class="portfolio-item group scroll-animate-initial"
+              data-category="web tour"
+            >
               <img
                 class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 src="https://placehold.co/600x400/1F2937/FFFFFF?text=Proyecto+1"

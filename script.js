@@ -328,74 +328,55 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- MANEJO DEL TEMA (MODO CLARO/OSCURO/AUTOMÁTICO) ---
   const darkModeToggle = document.getElementById("darkModeToggle");
   if (darkModeToggle) {
-    // Definimos los tres estados posibles del tema
     const themes = ["auto", "light", "dark"];
-    // Obtenemos el tema guardado, o usamos "auto" como predeterminado
     let currentTheme = localStorage.getItem("theme") || "auto";
 
-    // Función para aplicar el tema visualmente
     const applyTheme = (theme) => {
       if (theme === "auto") {
-        // Si es auto, usamos la preferencia del sistema
         const prefersDark = window.matchMedia(
           "(prefers-color-scheme: dark)"
         ).matches;
         document.documentElement.classList.toggle("dark", prefersDark);
       } else {
-        // Si es manual (light o dark), aplicamos la clase directamente
         document.documentElement.classList.toggle("dark", theme === "dark");
       }
     };
 
-    // Función para actualizar el icono del botón
     const updateIcon = (theme) => {
       const iconElement = darkModeToggle.querySelector("i");
       if (iconElement) {
-        // Limpiamos las clases de iconos anteriores
         iconElement.classList.remove(
           "fa-sun",
           "fa-moon",
           "fa-circle-half-stroke"
         );
-        // Añadimos la clase correspondiente al tema actual
         if (theme === "light") {
           iconElement.classList.add("fa-sun");
         } else if (theme === "dark") {
           iconElement.classList.add("fa-moon");
         } else {
-          iconElement.classList.add("fa-circle-half-stroke"); // Icono para "Auto"
+          iconElement.classList.add("fa-circle-half-stroke");
         }
       }
     };
 
-    // Event listener para el botón
     darkModeToggle.addEventListener("click", () => {
-      // Buscamos el índice actual y pasamos al siguiente, volviendo al inicio si es necesario
       const currentThemeIndex = themes.indexOf(currentTheme);
       const nextThemeIndex = (currentThemeIndex + 1) % themes.length;
       currentTheme = themes[nextThemeIndex];
-
-      // Guardamos la nueva preferencia en localStorage
       localStorage.setItem("theme", currentTheme);
-
-      // Aplicamos los cambios visuales
       applyTheme(currentTheme);
       updateIcon(currentTheme);
     });
 
-    // Listener para cambios en la preferencia del sistema operativo
-    // Esto hace que el modo "auto" reaccione en tiempo real si el usuario cambia su OS
     window
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", () => {
-        // Solo aplicamos el cambio si el modo actual es "auto"
         if (currentTheme === "auto") {
           applyTheme("auto");
         }
       });
 
-    // --- INICIALIZACIÓN AL CARGAR LA PÁGINA ---
-    // Aplicamos el tema y actualizamos el icono en cuanto la página carga
     applyTheme(currentTheme);
     updateIcon(currentTheme);
   }
@@ -405,7 +386,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (priceToggle) {
     const monthlyPrices = document.querySelectorAll(".price-monthly");
     const annualPrices = document.querySelectorAll(".price-annual");
-
     let isAnnual = localStorage.getItem("pricingMode") === "annual";
 
     function setPricingMode(isAnnualMode) {
@@ -468,7 +448,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setLanguage(currentLang === "es" ? "en" : "es");
     });
 
-    setLanguage(currentLang); // Llamada inicial
+    setLanguage(currentLang);
   }
 
   // --- MANEJO DE SCROLL SUAVE ---
@@ -536,6 +516,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sections.forEach((section) => {
       sectionObserver.observe(section);
+    });
+  }
+
+  // --- MANEJO DEL FILTRO DEL PORTAFOLIO ---
+  const filtersContainer = document.getElementById("portfolio-filters");
+  const portfolioItems = document.querySelectorAll(
+    "#portfolio-grid .portfolio-item"
+  );
+
+  if (filtersContainer && portfolioItems.length > 0) {
+    filtersContainer.addEventListener("click", (e) => {
+      // Nos aseguramos de que el clic fue en un BOTÓN dentro del contenedor
+      if (e.target.matches("button.filter-btn")) {
+        const clickedButton = e.target;
+
+        // Evitamos ejecutar el filtro si el botón ya está activo
+        if (clickedButton.classList.contains("active-filter")) {
+          return;
+        }
+
+        // Cambiamos el estilo del botón activo
+        filtersContainer
+          .querySelector(".active-filter")
+          .classList.remove("active-filter");
+        clickedButton.classList.add("active-filter");
+
+        const filterValue = clickedButton.dataset.filter;
+
+        // Recorremos cada proyecto para decidir si lo mostramos o lo ocultamos
+        portfolioItems.forEach((item) => {
+          const itemCategories = item.dataset.category;
+
+          if (filterValue === "all" || itemCategories.includes(filterValue)) {
+            item.classList.remove("project-hidden");
+          } else {
+            item.classList.add("project-hidden");
+          }
+        });
+      }
     });
   }
 
