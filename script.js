@@ -1,7 +1,3 @@
-if (localStorage.getItem("darkMode") === "false") {
-  document.documentElement.classList.remove("dark");
-}
-
 const translations = {
   es: {
     badgeNew: "Nuevo",
@@ -329,30 +325,79 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- MANEJO DEL MODO OSCURO ---
+  // --- MANEJO DEL TEMA (MODO CLARO/OSCURO/AUTOMÁTICO) ---
   const darkModeToggle = document.getElementById("darkModeToggle");
   if (darkModeToggle) {
-    function updateDarkModeIcon() {
+    // Definimos los tres estados posibles del tema
+    const themes = ["auto", "light", "dark"];
+    // Obtenemos el tema guardado, o usamos "auto" como predeterminado
+    let currentTheme = localStorage.getItem("theme") || "auto";
+
+    // Función para aplicar el tema visualmente
+    const applyTheme = (theme) => {
+      if (theme === "auto") {
+        // Si es auto, usamos la preferencia del sistema
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        document.documentElement.classList.toggle("dark", prefersDark);
+      } else {
+        // Si es manual (light o dark), aplicamos la clase directamente
+        document.documentElement.classList.toggle("dark", theme === "dark");
+      }
+    };
+
+    // Función para actualizar el icono del botón
+    const updateIcon = (theme) => {
       const iconElement = darkModeToggle.querySelector("i");
       if (iconElement) {
-        if (document.documentElement.classList.contains("dark")) {
-          iconElement.classList.remove("fa-moon");
+        // Limpiamos las clases de iconos anteriores
+        iconElement.classList.remove(
+          "fa-sun",
+          "fa-moon",
+          "fa-circle-half-stroke"
+        );
+        // Añadimos la clase correspondiente al tema actual
+        if (theme === "light") {
           iconElement.classList.add("fa-sun");
-        } else {
-          iconElement.classList.remove("fa-sun");
+        } else if (theme === "dark") {
           iconElement.classList.add("fa-moon");
+        } else {
+          iconElement.classList.add("fa-circle-half-stroke"); // Icono para "Auto"
         }
       }
-    }
+    };
+
+    // Event listener para el botón
     darkModeToggle.addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-      localStorage.setItem(
-        "darkMode",
-        document.documentElement.classList.contains("dark")
-      );
-      updateDarkModeIcon();
+      // Buscamos el índice actual y pasamos al siguiente, volviendo al inicio si es necesario
+      const currentThemeIndex = themes.indexOf(currentTheme);
+      const nextThemeIndex = (currentThemeIndex + 1) % themes.length;
+      currentTheme = themes[nextThemeIndex];
+
+      // Guardamos la nueva preferencia en localStorage
+      localStorage.setItem("theme", currentTheme);
+
+      // Aplicamos los cambios visuales
+      applyTheme(currentTheme);
+      updateIcon(currentTheme);
     });
-    updateDarkModeIcon();
+
+    // Listener para cambios en la preferencia del sistema operativo
+    // Esto hace que el modo "auto" reaccione en tiempo real si el usuario cambia su OS
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", () => {
+        // Solo aplicamos el cambio si el modo actual es "auto"
+        if (currentTheme === "auto") {
+          applyTheme("auto");
+        }
+      });
+
+    // --- INICIALIZACIÓN AL CARGAR LA PÁGINA ---
+    // Aplicamos el tema y actualizamos el icono en cuanto la página carga
+    applyTheme(currentTheme);
+    updateIcon(currentTheme);
   }
 
   // --- MANEJO DEL SELECTOR DE PRECIOS ---
