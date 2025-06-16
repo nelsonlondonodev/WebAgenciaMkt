@@ -527,16 +527,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (filtersContainer && portfolioItems.length > 0) {
     filtersContainer.addEventListener("click", (e) => {
-      // Nos aseguramos de que el clic fue en un BOTÓN dentro del contenedor
       if (e.target.matches("button.filter-btn")) {
         const clickedButton = e.target;
 
-        // Evitamos ejecutar el filtro si el botón ya está activo
         if (clickedButton.classList.contains("active-filter")) {
           return;
         }
 
-        // Cambiamos el estilo del botón activo
         filtersContainer
           .querySelector(".active-filter")
           .classList.remove("active-filter");
@@ -544,7 +541,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const filterValue = clickedButton.dataset.filter;
 
-        // Recorremos cada proyecto para decidir si lo mostramos o lo ocultamos
         portfolioItems.forEach((item) => {
           const itemCategories = item.dataset.category;
 
@@ -575,7 +571,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // INICIO DE LA MODIFICACIÓN
   const modalConfigs = [
+    {
+      cardId: "card-proyecto-locutorio",
+      modalId: "proyecto-modal-locutorio",
+    },
     {
       cardId: "card-proyecto-barberia",
       modalId: "proyecto-modal-barberia",
@@ -587,6 +588,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { cardId: "card-seo", modalId: "service-modal-seo" },
     { cardId: "card-branding", modalId: "service-modal-branding" },
   ];
+  // FIN DE LA MODIFICACIÓN
 
   modalConfigs.forEach((config) => {
     const card = document.getElementById(config.cardId);
