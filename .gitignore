@@ -1,0 +1,23 @@
+# Ignorar la carpeta de dependencias de Node.js
+# Esta carpeta se puede regenerar en cualquier momento ejecutando "npm install"
+node_modules/
+
+# Ignorar archivos de registro (logs) generados por npm
+npm-debug.log*
+yarn-error.log
+*.log
+
+# Ignorar archivos de variables de entorno
+# Estos archivos contienen información sensible como contraseñas o claves de API
+.env
+.env.local
+.env.development
+.env.production
+
+# Ignorar archivos de sistema operativo que se generan automáticamente
+.DS_Store
+Thumbs.db
+
+# Ignorar directorios de caché de editores de código comunes
+.vscode/
+.idea/
