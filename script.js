@@ -137,7 +137,7 @@ const translations = {
     formMessage: "Mensaje",
     formSubmit: "Enviar Mensaje",
     contactOrCall: "O si lo prefieres:",
-    contactPhone: "+34 (000) 000-000",
+    contactPhone: "+34 663 97 54 28",
     footerText: `&copy; ${new Date().getFullYear()} Nelson Londoño Agencia. Todos los derechos reservados.`,
     footerMadeWith:
       'Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.',
@@ -279,7 +279,7 @@ const translations = {
     formMessage: "Message",
     formSubmit: "Send Message",
     contactOrCall: "Or if you prefer:",
-    contactPhone: "+34 (000) 000-000",
+    contactPhone: "+34 663 97 54 28",
     footerText: `&copy; ${new Date().getFullYear()} Nelson Londoño Agency. All rights reserved.`,
     footerMadeWith:
       'Designed with <i class="fas fa-heart text-red-500"></i> in Madrid.',
@@ -575,7 +575,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // INICIO DE LA MODIFICACIÓN
   const modalConfigs = [
     {
       cardId: "card-proyecto-locutorio",
@@ -592,7 +591,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { cardId: "card-seo", modalId: "service-modal-seo" },
     { cardId: "card-branding", modalId: "service-modal-branding" },
   ];
-  // FIN DE LA MODIFICACIÓN
 
   modalConfigs.forEach((config) => {
     const card = document.getElementById(config.cardId);
@@ -631,4 +629,95 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
+
+  // --- MANEJO DEL ENVÍO DEL FORMULARIO DE CONTACTO (AJAX) ---
+  const contactForm = document.querySelector(
+    "form[action='https://formspree.io/f/xanjbdrp']"
+  );
+
+  if (contactForm) {
+    const statusMessage = document.getElementById("form-status");
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+
+    contactForm.addEventListener("submit", async function (e) {
+      e.preventDefault(); // Evitamos que la página se recargue
+
+      // Validamos el formulario antes de enviarlo
+      if (!contactForm.checkValidity()) {
+        // Si el formulario no es válido, mostramos los mensajes de error del navegador
+        contactForm.reportValidity();
+        if (statusMessage) {
+          statusMessage.textContent =
+            "Por favor, completa todos los campos requeridos.";
+          statusMessage.className =
+            "text-center font-semibold mt-4 text-red-600";
+          // Hacemos que el mensaje de error también desaparezca
+          setTimeout(() => {
+            statusMessage.textContent = "";
+          }, 5000);
+        }
+        return; // Detenemos la ejecución si no es válido
+      }
+
+      const formData = new FormData(contactForm);
+
+      // Mostramos un mensaje de "Enviando..." y desactivamos el botón
+      if (statusMessage) {
+        statusMessage.textContent = "Enviando...";
+        statusMessage.className =
+          "text-center font-semibold mt-4 text-gray-600 dark:text-gray-300";
+      }
+      submitButton.disabled = true;
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (response.ok) {
+          // Éxito en el envío
+          if (statusMessage) {
+            statusMessage.textContent = "¡Mensaje enviado con éxito!";
+            statusMessage.className =
+              "text-center font-semibold mt-4 text-green-600";
+            setTimeout(() => {
+              statusMessage.textContent = "";
+            }, 5000); // El mensaje de éxito desaparece
+          }
+          contactForm.reset(); // Limpiamos el formulario
+        } else {
+          // Error en el envío
+          if (statusMessage) {
+            statusMessage.textContent =
+              "Hubo un error al enviar el mensaje. Inténtalo de nuevo.";
+            statusMessage.className =
+              "text-center font-semibold mt-4 text-red-600";
+            setTimeout(() => {
+              statusMessage.textContent = "";
+            }, 5000); // El mensaje de error desaparece
+          }
+        }
+      } catch (error) {
+        // Error de red o conexión
+        if (statusMessage) {
+          statusMessage.textContent =
+            "Hubo un problema de conexión. Revisa tu internet.";
+          statusMessage.className =
+            "text-center font-semibold mt-4 text-red-600";
+          setTimeout(() => {
+            statusMessage.textContent = "";
+          }, 5000); // El mensaje de error desaparece
+        }
+      } finally {
+        // Reactivamos el botón después de un breve retraso
+        setTimeout(() => {
+          submitButton.disabled = false;
+        }, 3000);
+      }
+    });
+  }
 });

@@ -932,6 +932,7 @@
                     id="first-name"
                     autocomplete="given-name"
                     class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
+                    required
                   />
                 </div>
               </div>
@@ -949,6 +950,7 @@
                     id="last-name"
                     autocomplete="family-name"
                     class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
+                    required
                   />
                 </div>
               </div>
@@ -966,6 +968,7 @@
                     type="email"
                     autocomplete="email"
                     class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
+                    required
                   />
                 </div>
               </div>
@@ -998,8 +1001,9 @@
                     id="service-interest"
                     name="service-interest"
                     class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
+                    required
                   >
-                    <option data-translate-key="optionSelectService">
+                    <option value="" data-translate-key="optionSelectService">
                       Selecciona un servicio...
                     </option>
                     <option
@@ -1048,6 +1052,7 @@
                     name="message"
                     rows="4"
                     class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
+                    required
                   ></textarea>
                 </div>
               </div>
@@ -1060,6 +1065,9 @@
                   Enviar Mensaje
                 </button>
               </div>
+              
+              <div id="form-status" class="sm:col-span-2 text-center font-semibold mt-4"></div>
+              
             </form>
             <div class="mt-10 text-center text-gray-600 dark:text-gray-300">
               <p class="text-lg" data-translate-key="contactOrCall">
