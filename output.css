@@ -2013,3 +2013,12 @@ body:is(.dark *) {
     transform: translateY(0);
   }
 }
+
+/* =================== INICIO DE LA SECCIÓN MODIFICADA =================== */
+/* --- CORRECCIÓN PARA EL MODAL DE COOKIES --- */
+/* Esta regla asegura que el modal de cookies se oculte correctamente */
+/* al tener una especificidad mayor que la regla .cookie-modal-backdrop. */
+.cookie-modal-backdrop.hidden {
+  display: none;
+}
+/* =================== FIN DE LA SECCIÓN MODIFICADA =================== */

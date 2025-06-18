@@ -805,6 +805,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- GESTIÓN DE CONSENTIMIENTO DE COOKIES ---
+  // =================== INICIO DE LA SECCIÓN MODIFICADA ===================
   const COOKIE_CONSENT_KEY = "nelson_cookie_consent";
 
   const cookieBanner = document.getElementById("cookie-banner");
@@ -822,59 +823,83 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function handleConsent() {
-    const consent = getConsent();
-    if (consent) {
-      // Si ya hay consentimiento, aplicarlo
-      if (consent.analytics) {
-        enableGoogleAnalytics();
-      }
-      cookieBanner.classList.add("hidden");
-    } else {
-      // Si no hay consentimiento, mostrar el banner
-      cookieBanner.classList.remove("hidden");
-    }
-  }
-
   function getConsent() {
     const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
     return consent ? JSON.parse(consent) : null;
   }
 
   function setConsent(consent) {
+    // Esta función ahora solo guarda el consentimiento en localStorage.
     localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consent));
-    handleConsent();
   }
 
-  acceptBtn.addEventListener("click", () => {
-    setConsent({ necessary: true, analytics: true });
-    cookieBanner.remove();
-  });
+  function handleInitialConsent() {
+    // Esta función se ejecuta solo una vez al cargar la página.
+    const consent = getConsent();
+    if (consent) {
+      // Si ya hay consentimiento, lo aplicamos y eliminamos el banner.
+      if (consent.analytics) {
+        enableGoogleAnalytics();
+      }
+      if (cookieBanner) cookieBanner.remove();
+    } else {
+      // Si no hay consentimiento, mostramos el banner.
+      if (cookieBanner) cookieBanner.classList.remove("hidden");
+    }
+  }
 
-  rejectBtn.addEventListener("click", () => {
-    setConsent({ necessary: true, analytics: false });
-    cookieBanner.remove();
-  });
+  if (acceptBtn) {
+    acceptBtn.addEventListener("click", () => {
+      const consent = { necessary: true, analytics: true };
+      setConsent(consent);
+      enableGoogleAnalytics();
+      if (cookieBanner) cookieBanner.remove();
+    });
+  }
 
-  settingsBtn.addEventListener("click", () => {
-    const consent = getConsent() || { analytics: false };
-    analyticsToggle.checked = consent.analytics;
-    cookieModal.classList.remove("hidden");
-  });
+  if (rejectBtn) {
+    rejectBtn.addEventListener("click", () => {
+      const consent = { necessary: true, analytics: false };
+      setConsent(consent);
+      if (cookieBanner) cookieBanner.remove();
+    });
+  }
 
-  saveSettingsBtn.addEventListener("click", () => {
-    setConsent({ necessary: true, analytics: analyticsToggle.checked });
-    cookieModal.classList.add("hidden");
-    cookieBanner.remove();
-  });
+  if (settingsBtn) {
+    settingsBtn.addEventListener("click", () => {
+      const consent = getConsent() || { analytics: false };
+      if (analyticsToggle) analyticsToggle.checked = consent.analytics;
+      if (cookieModal) cookieModal.classList.remove("hidden");
+    });
+  }
+
+  if (saveSettingsBtn) {
+    saveSettingsBtn.addEventListener("click", () => {
+      const consent = {
+        necessary: true,
+        analytics: analyticsToggle ? analyticsToggle.checked : false,
+      };
+      setConsent(consent);
+
+      if (consent.analytics) {
+        enableGoogleAnalytics();
+      }
+
+      if (cookieModal) cookieModal.classList.add("hidden");
+      if (cookieBanner) cookieBanner.remove();
+    });
+  }
 
   // Cierra el modal si se hace clic fuera de él
-  cookieModal.addEventListener("click", (e) => {
-    if (e.target === cookieModal) {
-      cookieModal.classList.add("hidden");
-    }
-  });
+  if (cookieModal) {
+    cookieModal.addEventListener("click", (e) => {
+      if (e.target === cookieModal) {
+        cookieModal.classList.add("hidden");
+      }
+    });
+  }
 
-  // Iniciar la lógica de consentimiento
-  handleConsent();
+  // Iniciar la lógica de consentimiento al cargar la página
+  handleInitialConsent();
+  // =================== FIN DE LA SECCIÓN MODIFICADA ===================
 });
