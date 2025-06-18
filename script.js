@@ -803,4 +803,78 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     }
   }
+
+  // --- GESTIÓN DE CONSENTIMIENTO DE COOKIES ---
+  const COOKIE_CONSENT_KEY = "nelson_cookie_consent";
+
+  const cookieBanner = document.getElementById("cookie-banner");
+  const cookieModal = document.getElementById("cookie-settings-modal");
+  const acceptBtn = document.getElementById("cookie-accept");
+  const rejectBtn = document.getElementById("cookie-reject");
+  const settingsBtn = document.getElementById("cookie-settings-open");
+  const saveSettingsBtn = document.getElementById("cookie-settings-save");
+  const analyticsToggle = document.getElementById("analytics-cookie-toggle");
+
+  function enableGoogleAnalytics() {
+    if (typeof gtag === "function") {
+      gtag("config", "G-124QEKRXHD");
+      console.log("Google Analytics activado.");
+    }
+  }
+
+  function handleConsent() {
+    const consent = getConsent();
+    if (consent) {
+      // Si ya hay consentimiento, aplicarlo
+      if (consent.analytics) {
+        enableGoogleAnalytics();
+      }
+      cookieBanner.classList.add("hidden");
+    } else {
+      // Si no hay consentimiento, mostrar el banner
+      cookieBanner.classList.remove("hidden");
+    }
+  }
+
+  function getConsent() {
+    const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+    return consent ? JSON.parse(consent) : null;
+  }
+
+  function setConsent(consent) {
+    localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consent));
+    handleConsent();
+  }
+
+  acceptBtn.addEventListener("click", () => {
+    setConsent({ necessary: true, analytics: true });
+    cookieBanner.remove();
+  });
+
+  rejectBtn.addEventListener("click", () => {
+    setConsent({ necessary: true, analytics: false });
+    cookieBanner.remove();
+  });
+
+  settingsBtn.addEventListener("click", () => {
+    const consent = getConsent() || { analytics: false };
+    analyticsToggle.checked = consent.analytics;
+    cookieModal.classList.remove("hidden");
+  });
+
+  saveSettingsBtn.addEventListener("click", () => {
+    setConsent({ necessary: true, analytics: analyticsToggle.checked });
+    cookieModal.classList.add("hidden");
+    cookieBanner.remove();
+  });
+
+  // Cierra el modal si se hace clic fuera de él
+  cookieModal.addEventListener("click", (e) => {
+    if (e.target === cookieModal) {
+      cookieModal.classList.add("hidden");
+    }
+  });
+
+  // Iniciar la lógica de consentimiento
+  handleConsent();
 });
