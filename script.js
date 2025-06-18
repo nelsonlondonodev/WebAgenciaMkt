@@ -108,17 +108,17 @@ const translations = {
     testimonialsSubtitle:
       "Nos enorgullece el impacto positivo de nuestro trabajo. Estas son algunas de las experiencias de nuestros clientes.",
     testimonial1Text:
-      "¡El tour virtual ha sido una pasada! Ha aumentado las reservas online de manera notable. Nelson es un gran profesional, atento y muy creativo. Totalmente recomendado.",
-    testimonial1Author: "Ismael G.",
-    testimonial1Service: "La Barbería de Isma",
+      "Excelente experiencia, Nelson Londoño , muy profesional , estoy muy agradecido por sus servicios, asesoría y su amabilidad , 100 % recomendado",
+    testimonial1Author: "Jose Narvaez",
+    testimonial1Service: "Asesoría y Desarrollo Web",
     testimonial2Text:
-      "El posicionamiento de mi negocio en Google ha mejorado muchísimo. El tour 360 y la optimización de la ficha han sido clave para atraer clientes del barrio. ¡Gracias!",
-    testimonial2Author: "Carlos R.",
-    testimonial2Service: "Locutorio el Pilón",
+      "Muy complacido del trabajo realizado por ustedes de mi página web, gracias infinitas, excelente trabajo.",
+    testimonial2Author: "Luis Alberto Correa Marin",
+    testimonial2Service: "Página Web para Músico",
     testimonial3Text:
-      "El e-commerce que crearon para mi repostería es precioso y muy fácil de usar. Las ventas han subido y los clientes están encantados. El SEO local ha sido un acierto total.",
-    testimonial3Author: "Ana María P.",
-    testimonial3Service: "Suave Bocado Repostería",
+      "Nelson es un desarrollador web altamente capacitado y comprometido. Su capacidad para resolver problemas técnicos de manera eficiente y su proactividad para proponer soluciones innovadoras fueron muy valiosas. Recomiendo a Nelson ya que es una persona talentosa y confiable.",
+    testimonial3Author: "Aleja Villa",
+    testimonial3Service: "Desarrollo Web",
     contactTitle: "Contacta Ahora",
     contactSubtitle:
       "¿Listo para iniciar tu próximo proyecto o tienes alguna pregunta? Estamos aquí para ayudarte.",
@@ -250,17 +250,17 @@ const translations = {
     testimonialsSubtitle:
       "We are proud of the positive impact of our work. Here are some of our clients' experiences.",
     testimonial1Text:
-      "The virtual tour has been amazing! It has significantly increased online bookings. Nelson is a great professional, attentive, and very creative. Highly recommended.",
-    testimonial1Author: "Ismael G.",
-    testimonial1Service: "La Barbería de Isma",
+      "Excellent experience, Nelson Londoño is very professional. I am very grateful for his services, advice, and kindness. 100% recommended.",
+    testimonial1Author: "Jose Narvaez",
+    testimonial1Service: "Web Consulting and Development",
     testimonial2Text:
-      "My business's Google ranking has improved so much. The 360 tour and the business profile optimization have been key to attracting local customers. Thank you!",
-    testimonial2Author: "Carlos R.",
-    testimonial2Service: "Locutorio el Pilón",
+      "Very pleased with the work you did on my website, infinite thanks, excellent job.",
+    testimonial2Author: "Luis Alberto Correa Marin",
+    testimonial2Service: "Website for Musician",
     testimonial3Text:
-      "The e-commerce they created for my bakery is beautiful and very user-friendly. Sales have gone up, and customers are delighted. The local SEO was a total success.",
-    testimonial3Author: "Ana María P.",
-    testimonial3Service: "Suave Bocado Repostería",
+      "Nelson is a highly skilled and committed web developer. His ability to solve technical problems efficiently and his proactivity in proposing innovative solutions were very valuable. I recommend Nelson as he is a talented and trustworthy person.",
+    testimonial3Author: "Aleja Villa",
+    testimonial3Service: "Web Development",
     contactTitle: "Contact Now",
     contactSubtitle:
       "Ready to start your next project or have any questions? We're here to help.",
