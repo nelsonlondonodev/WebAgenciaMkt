@@ -1069,39 +1069,26 @@
               <div id="form-status" class="sm:col-span-2 text-center font-semibold mt-4"></div>
               
             </form>
-            <div class="mt-10 text-center text-gray-600 dark:text-gray-300">
-              <p class="text-lg" data-translate-key="contactOrCall">
+            <div class="mt-10 text-center">
+              <p class="text-lg text-gray-600 dark:text-gray-300" data-translate-key="contactOrCall">
                 O si lo prefieres:
               </p>
-              <p class="mt-2">
-                <i
-                  class="fas fa-envelope mr-2 text-primary-blue dark:text-primary-green"
-                ></i>
-                <a
-                  href="mailto:info@nelsonlondonoagencia.com"
-                  class="hover:underline"
-                  >info@nelsonlondonoagencia.com</a
-                >
-              </p>
-              <p class="mt-1">
-                <i
-                  class="fas fa-phone mr-2 text-primary-blue dark:text-primary-green"
-                ></i>
-                <a
-                  href="tel:+34663975428"
-                  class="hover:underline"
-                  data-translate-key="contactPhone"
-                  >+34 663 97 54 28</a
-                >
-              </p>
-              <p class="mt-1">
-                <i
-                  class="fas fa-map-marker-alt mr-2 text-primary-blue dark:text-primary-green"
-                ></i>
+              <div id="contact-reveal-container" class="mt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button id="reveal-email-btn" class="contact-reveal-button">
+                  <i class="fas fa-envelope mr-2"></i>
+                  <span>Mostrar Email</span>
+                </button>
+                <button id="reveal-phone-btn" class="contact-reveal-button">
+                  <i class="fas fa-phone mr-2"></i>
+                  <span>Mostrar Teléfono</span>
+                </button>
+              </div>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                <i class="fas fa-map-marker-alt mr-2 text-primary-blue dark:text-primary-green"></i>
                 Madrid, España
               </p>
             </div>
-          </div>
+            </div>
         </div>
       </section>
     </main>
