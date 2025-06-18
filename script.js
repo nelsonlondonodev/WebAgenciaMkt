@@ -97,6 +97,34 @@ const translations = {
     projectsTitle: "Nuestro Portafolio",
     projectsSubtitle:
       "Una muestra de la calidad y diversidad de nuestros trabajos. Clientes satisfechos son nuestra mejor carta de presentación.",
+    filterAll: "Todos",
+    filterTours: "Tours Virtuales",
+    filterWeb: "Desarrollo Web",
+    filterSeo: "SEO Local",
+    projectLocutorioTitle: "Locutorio el Pilón",
+    projectLocutorioSubtitle: "Tour virtual 360º y SEO local",
+    projectLocutorioDesc:
+      "Optimización de ficha Google Business y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.",
+    projectBarberiaTitle: "La Barbería de Isma",
+    projectBarberiaSubtitle: "Tour Virtual 360° y SEO Local",
+    projectBarberiaDesc:
+      "Optimización de ficha Google Business y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.",
+    projectPisoTitle: "Piso en Alquiler - Tour Virtual",
+    projectPisoSubtitle: "Tour Virtual 360°",
+    projectPisoDesc:
+      "Recorrido virtual completo para inmobiliaria, permitiendo visitas inmersivas 24/7 y acelerando el proceso de alquiler.",
+    projectSuaveBocadoTitle: "Suave Bocado Repostería",
+    projectSuaveBocadoSubtitle: "WordPress y SEO Local",
+    projectSuaveBocadoDesc:
+      "E-commerce para repostería en Envigado, Colombia. Incluyó estrategia de SEO local que la posicionó en el top 2 de Google.",
+    projectLuisCorreaTitle: "Luis Alberto Correa - Músico",
+    projectLuisCorreaSubtitle: "WordPress y SEO Local",
+    projectLuisCorreaDesc:
+      "Landing page para músico en Palma de Mallorca. Diseño web en WordPress y estrategia de SEO local para aumentar su visibilidad en la isla.",
+    projectMrTijerasTitle: "Barbería Mr. Tijeras",
+    projectMrTijerasSubtitle: "Landing Page y SEO Básico",
+    projectMrTijerasDesc:
+      "Creación de landing page y estrategia de SEO básico para una barbería en Madrid, aumentando su visibilidad y citas online.",
     projectsCTA: "Ver Más Proyectos (o Contactar)",
     aboutTitle: "Conoce a Nelson Londoño",
     aboutIntro:
@@ -239,6 +267,34 @@ const translations = {
     projectsTitle: "Our Portfolio",
     projectsSubtitle:
       "A showcase of the quality and diversity of our work. Satisfied clients are our best introduction.",
+    filterAll: "All",
+    filterTours: "Virtual Tours",
+    filterWeb: "Web Development",
+    filterSeo: "Local SEO",
+    projectLocutorioTitle: "Locutorio el Pilón",
+    projectLocutorioSubtitle: "360° Virtual Tour & Local SEO",
+    projectLocutorioDesc:
+      "Google Business profile optimization and creation of a virtual tour to increase visibility and attract new clients in Fuente el Saz.",
+    projectBarberiaTitle: "La Barbería de Isma",
+    projectBarberiaSubtitle: "360° Virtual Tour & Local SEO",
+    projectBarberiaDesc:
+      "Google Business profile optimization and creation of a virtual tour to increase visibility and attract new clients in Fuente el Saz.",
+    projectPisoTitle: "Apartment for Rent - Virtual Tour",
+    projectPisoSubtitle: "360° Virtual Tour",
+    projectPisoDesc:
+      "Complete virtual tour for a real estate agency, allowing 24/7 immersive visits and speeding up the rental process.",
+    projectSuaveBocadoTitle: "Suave Bocado Pastries",
+    projectSuaveBocadoSubtitle: "WordPress & Local SEO",
+    projectSuaveBocadoDesc:
+      "E-commerce for a pastry shop in Envigado, Colombia. Included a local SEO strategy that ranked it in the top 2 on Google.",
+    projectLuisCorreaTitle: "Luis Alberto Correa - Musician",
+    projectLuisCorreaSubtitle: "WordPress & Local SEO",
+    projectLuisCorreaDesc:
+      "Landing page for a musician in Palma de Mallorca. Web design in WordPress and local SEO strategy to increase his visibility on the island.",
+    projectMrTijerasTitle: "Mr. Tijeras Barbershop",
+    projectMrTijerasSubtitle: "Landing Page & Basic SEO",
+    projectMrTijerasDesc:
+      "Creation of a landing page and basic SEO strategy for a barbershop in Madrid, increasing its visibility and online appointments.",
     projectsCTA: "View More Projects (or Contact)",
     aboutTitle: "Meet Nelson Londoño",
     aboutIntro:
