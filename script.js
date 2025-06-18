@@ -45,7 +45,7 @@ const translations = {
     modalSeoDesc1:
       "Tener una web increíble no sirve de nada si tus clientes no la encuentran. Nuestro servicio de SEO se encarga de posicionar tu página en los primeros resultados de Google para atraer tráfico relevante y cualificado.",
     modalSeoDesc2:
-      "Trabajamos en todos los frentes: la optimización técnica de la web, la creación de contenido de valor y la estrategia de autoridad para convertirte en un referente en tu sector.",
+      "Trabajamos en todos los frentes: la optimización técnica de la web, la creación de contenido de valor y la estrategia de autoridad para convertite en un referente en tu sector.",
     modalSeoFeature1: "Auditoría SEO completa y análisis de la competencia.",
     modalSeoFeature2: "Investigación y estrategia de palabras clave.",
     modalSeoFeature3: "Optimización On-Page (contenido, meta-tags, velocidad).",
@@ -64,6 +64,7 @@ const translations = {
     navServices: "Servicios",
     navProjects: "Proyectos",
     navAbout: "Sobre Mí",
+    navTestimonials: "Testimonios",
     navContact: "Contacto",
     openMenu: "Abrir menú principal",
     heroTitle1: "Transformamos Ideas en",
@@ -96,27 +97,28 @@ const translations = {
     projectsTitle: "Nuestro Portafolio",
     projectsSubtitle:
       "Una muestra de la calidad y diversidad de nuestros trabajos. Clientes satisfechos son nuestra mejor carta de presentación.",
-    project1Title: "Cliente Actual Importante",
-    project1Category: "Desarrollo Web y Tour Virtual 360°",
-    project1Desc:
-      "Descripción breve del proyecto destacando el impacto y la solución aportada.",
-    project2Title: "Startup Tecnológica",
-    project2Category: "Branding y Desarrollo WordPress",
-    project2Desc:
-      "Diseño de identidad de marca y web corporativa enfocada en la conversión.",
-    project3Title: "Consultoría SEO Local",
-    project3Category: "Optimización SEO y Contenido",
-    project3Desc:
-      "Estrategia SEO que duplicó la visibilidad online del cliente en 6 meses.",
-    projectsCTA: "Ver Más Proyectos",
+    projectsCTA: "Ver Más Proyectos (o Contactar)",
     aboutTitle: "Conoce a Nelson Londoño",
     aboutIntro:
       "Soy Nelson Londoño, un desarrollador de 43 años originario de Colombia y afincado en Madrid. Mi pasión por la tecnología y el desarrollo de software no es solo mi profesión, es mi vocación.",
     aboutExperience:
       'Con años de experiencia en el sector, he fundado "Nelson Londoño Agencia" con la misión de ofrecer soluciones digitales que no solo cumplan, sino que superen las expectativas. Creemos en la cercanía, la transparencia y en construir relaciones de confianza a largo plazo con nuestros clientes.',
-    aboutPhilosophy:
-      "Nuestra filosofía se basa en la profesionalidad, la modernidad y una constante adaptación a las nuevas tendencias, como nuestros innovadores Tours Virtuales 360°. Queremos ser tu socio tecnológico en Madrid y más allá.",
     aboutCTA: "Hablemos de tu Proyecto",
+    testimonialsTitle: "Lo que Dicen Nuestros Clientes",
+    testimonialsSubtitle:
+      "Nos enorgullece el impacto positivo de nuestro trabajo. Estas son algunas de las experiencias de nuestros clientes.",
+    testimonial1Text:
+      "¡El tour virtual ha sido una pasada! Ha aumentado las reservas online de manera notable. Nelson es un gran profesional, atento y muy creativo. Totalmente recomendado.",
+    testimonial1Author: "Ismael G.",
+    testimonial1Service: "La Barbería de Isma",
+    testimonial2Text:
+      "El posicionamiento de mi negocio en Google ha mejorado muchísimo. El tour 360 y la optimización de la ficha han sido clave para atraer clientes del barrio. ¡Gracias!",
+    testimonial2Author: "Carlos R.",
+    testimonial2Service: "Locutorio el Pilón",
+    testimonial3Text:
+      "El e-commerce que crearon para mi repostería es precioso y muy fácil de usar. Las ventas han subido y los clientes están encantados. El SEO local ha sido un acierto total.",
+    testimonial3Author: "Ana María P.",
+    testimonial3Service: "Suave Bocado Repostería",
     contactTitle: "Contacta Ahora",
     contactSubtitle:
       "¿Listo para iniciar tu próximo proyecto o tienes alguna pregunta? Estamos aquí para ayudarte.",
@@ -204,6 +206,7 @@ const translations = {
     navServices: "Services",
     navProjects: "Projects",
     navAbout: "About Me",
+    navTestimonials: "Testimonials",
     navContact: "Contact",
     openMenu: "Open main menu",
     heroTitle1: "We Transform Ideas Into",
@@ -236,27 +239,28 @@ const translations = {
     projectsTitle: "Our Portfolio",
     projectsSubtitle:
       "A showcase of the quality and diversity of our work. Satisfied clients are our best introduction.",
-    project1Title: "Key Current Client",
-    project1Category: "Web Development & 360° Virtual Tour",
-    project1Desc:
-      "Brief project description highlighting the impact and solution provided.",
-    project2Title: "Tech Startup",
-    project2Category: "Branding & WordPress Development",
-    project2Desc:
-      "Brand identity design and corporate website focused on conversion.",
-    project3Title: "Local SEO Consultancy",
-    project3Category: "SEO Optimization & Content",
-    project3Desc:
-      "SEO strategy that doubled the client's online visibility in 6 months.",
-    projectsCTA: "View More Projects",
+    projectsCTA: "View More Projects (or Contact)",
     aboutTitle: "Meet Nelson Londoño",
     aboutIntro:
       "I'm Nelson Londoño, a 43-year-old developer originally from Colombia and based in Madrid. My passion for technology and software development is not just my profession, it's my calling.",
     aboutExperience:
       'With years of experience in the sector, I founded "Nelson Londoño Agency" with the mission to offer digital solutions that not only meet but exceed expectations. We believe in closeness, transparency, and building long-term trusting relationships with our clients.',
-    aboutPhilosophy:
-      "Our philosophy is based on professionalism, modernity, and constant adaptation to new trends, like our innovative 360° Virtual Tours. We want to be your technological partner in Madrid and beyond.",
     aboutCTA: "Let's Talk About Your Project",
+    testimonialsTitle: "What Our Clients Say",
+    testimonialsSubtitle:
+      "We are proud of the positive impact of our work. Here are some of our clients' experiences.",
+    testimonial1Text:
+      "The virtual tour has been amazing! It has significantly increased online bookings. Nelson is a great professional, attentive, and very creative. Highly recommended.",
+    testimonial1Author: "Ismael G.",
+    testimonial1Service: "La Barbería de Isma",
+    testimonial2Text:
+      "My business's Google ranking has improved so much. The 360 tour and the business profile optimization have been key to attracting local customers. Thank you!",
+    testimonial2Author: "Carlos R.",
+    testimonial2Service: "Locutorio el Pilón",
+    testimonial3Text:
+      "The e-commerce they created for my bakery is beautiful and very user-friendly. Sales have gone up, and customers are delighted. The local SEO was a total success.",
+    testimonial3Author: "Ana María P.",
+    testimonial3Service: "Suave Bocado Repostería",
     contactTitle: "Contact Now",
     contactSubtitle:
       "Ready to start your next project or have any questions? We're here to help.",
@@ -470,7 +474,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- MANEJO DE ANIMACIONES AL HACER SCROLL (CORREGIDO) ---
   const animatedElements = document.querySelectorAll(
-    ".card-container, .service-card, .portfolio-item, #sobre-mi h2, #sobre-mi p, #sobre-mi img"
+    ".card-container, .service-card, .portfolio-item, .testimonial-card, #sobre-mi h2, #sobre-mi p, #sobre-mi img"
   );
   if (typeof IntersectionObserver !== "undefined") {
     const observer = new IntersectionObserver(
