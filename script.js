@@ -67,14 +67,14 @@ const translations = {
     navTestimonials: "Testimonios",
     navContact: "Contacto",
     openMenu: "Abrir menú principal",
-    heroTitle1: "Transformamos Ideas en",
-    heroTitle2: "Experiencias Digitales Impactantes",
+    heroTitle1: "Marketing Digital en Fuente el Saz",
+    heroTitle2: "Transformamos tu Negocio Online",
     heroSubtitle:
       "Desde Madrid, con pasión colombiana y visión global. Creamos soluciones web innovadoras, SEO estratégico y los revolucionarios Tours Virtuales 360° para llevar tu negocio al siguiente nivel.",
     heroCTA: "Descubre Nuestros Servicios",
-    servicesTitle: "Nuestros Servicios",
+    servicesTitle: "Servicios de Marketing Digital",
     servicesSubtitle:
-      "Soluciones a medida para impulsar tu presencia online y alcanzar tus objetivos. Precios transparentes y posibilidad de modelos de suscripción mensual.",
+      "Ofrecemos Diseño Web, SEO Local y Tours Virtuales en Fuente el Saz y Madrid para impulsar tu presencia online y alcanzar tus objetivos.",
     serviceTourTitle: "Tours Virtuales de Negocios 360°",
     serviceTourDesc:
       "Nuevo Servicio Estrella. Experiencias inmersivas compatibles con Google Street View. Ideal para inmobiliarias, restaurantes, hoteles y más.",
@@ -237,14 +237,14 @@ const translations = {
     navTestimonials: "Testimonials",
     navContact: "Contact",
     openMenu: "Open main menu",
-    heroTitle1: "We Transform Ideas Into",
-    heroTitle2: "Impactful Digital Experiences",
+    heroTitle1: "Digital Marketing in Fuente el Saz",
+    heroTitle2: "We Transform Your Business Online",
     heroSubtitle:
       "From Madrid, with Colombian passion and global vision. We create innovative web solutions, strategic SEO, and revolutionary 360° Virtual Tours to take your business to the next level.",
     heroCTA: "Discover Our Services",
-    servicesTitle: "Our Services",
+    servicesTitle: "Digital Marketing Services",
     servicesSubtitle:
-      "Tailored solutions to boost your online presence and achieve your goals. Transparent pricing and monthly subscription models available.",
+      "We offer Web Design, Local SEO, and Virtual Tours in Fuente el Saz & Madrid to boost your online presence and achieve your goals.",
     serviceTourTitle: "360° Business Virtual Tours",
     serviceTourDesc:
       "New Star Service. Immersive experiences compatible with Google Street View. Ideal for real estate, restaurants, hotels, and more.",
