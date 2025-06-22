@@ -1514,6 +1514,18 @@ body:is(.dark *) {
   padding: 0px;
   opacity: 0;
 }
+/* =================== INICIO DE LA CORRECCIÓN DE ANIMACIÓN =================== */
+/*
+  Esta es la clase que define el estado inicial para los elementos que animamos al hacer scroll.
+  Comienzan transparentes y ligeramente desplazados hacia abajo.
+  El JavaScript (`script.js`) elimina esta clase cuando el elemento es visible,
+  y la propiedad `transition` existente en las tarjetas se encarga del resto.
+*/
+.scroll-animate-initial {
+  opacity: 0;
+  transform: translateY(20px);
+}
+/* =================== FIN DE LA CORRECCIÓN DE ANIMACIÓN =================== */
 .hover\:-translate-y-2:hover {
   --tw-translate-y: -0.5rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y))

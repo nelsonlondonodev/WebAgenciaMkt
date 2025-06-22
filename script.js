@@ -529,9 +529,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --- MANEJO DE ANIMACIONES AL HACER SCROLL (CORREGIDO) ---
-  const animatedElements = document.querySelectorAll(
-    ".card-container, .service-card, .portfolio-item, .testimonial-card, #sobre-mi h2, #sobre-mi p, #sobre-mi img"
-  );
+  const animatedElements = document.querySelectorAll(".scroll-animate-initial");
   if (typeof IntersectionObserver !== "undefined") {
     const observer = new IntersectionObserver(
       (entries) => {
