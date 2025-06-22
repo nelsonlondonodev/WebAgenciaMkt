@@ -912,145 +912,131 @@
               method="POST"
               class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
             >
-              <div>
+              <div class="relative scroll-animate-initial">
+                <input
+                  type="text"
+                  name="first-name"
+                  id="first-name"
+                  autocomplete="given-name"
+                  class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green"
+                  placeholder="Nombre"
+                  required
+                />
                 <label
                   for="first-name"
-                  class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
                   data-translate-key="formFirstName"
                   >Nombre</label
                 >
-                <div class="mt-1">
-                  <input
-                    type="text"
-                    name="first-name"
-                    id="first-name"
-                    autocomplete="given-name"
-                    class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
-                    required
-                  />
-                </div>
               </div>
-              <div>
+              <div class="relative scroll-animate-initial delay-100">
+                <input
+                  type="text"
+                  name="last-name"
+                  id="last-name"
+                  autocomplete="family-name"
+                  class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green"
+                  placeholder="Apellidos"
+                  required
+                />
                 <label
                   for="last-name"
-                  class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
                   data-translate-key="formLastName"
                   >Apellidos</label
                 >
-                <div class="mt-1">
-                  <input
-                    type="text"
-                    name="last-name"
-                    id="last-name"
-                    autocomplete="family-name"
-                    class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
-                    required
-                  />
-                </div>
               </div>
-              <div class="sm:col-span-2">
+              <div class="relative sm:col-span-2 scroll-animate-initial delay-200">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green"
+                  placeholder="Email"
+                  required
+                />
                 <label
                   for="email"
-                  class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
                   data-translate-key="formEmail"
                   >Email</label
                 >
-                <div class="mt-1">
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autocomplete="email"
-                    class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
-                    required
-                  />
-                </div>
               </div>
-              <div class="sm:col-span-2">
+              <div class="relative sm:col-span-2 scroll-animate-initial delay-300">
+                <input
+                  type="text"
+                  name="phone-number"
+                  id="phone-number"
+                  autocomplete="tel"
+                  class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green"
+                  placeholder="Teléfono (Opcional)"
+                />
                 <label
                   for="phone-number"
-                  class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
                   data-translate-key="formPhone"
                   >Teléfono (Opcional)</label
                 >
-                <div class="mt-1">
-                  <input
-                    type="text"
-                    name="phone-number"
-                    id="phone-number"
-                    autocomplete="tel"
-                    class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
-                  />
-                </div>
               </div>
-              <div class="sm:col-span-2">
+              <div class="relative sm:col-span-2 scroll-animate-initial delay-400">
+                <select
+                  id="service-interest"
+                  name="service-interest"
+                  class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-primary-green"
+                  required
+                >
+                  <option value="" disabled selected data-translate-key="optionSelectService">
+                    Selecciona un servicio...
+                  </option>
+                  <option
+                    value="tour_virtual"
+                    data-translate-key="optionTourVirtual"
+                  >
+                    Tour Virtual 360°
+                  </option>
+                  <option
+                    value="web_medida"
+                    data-translate-key="optionWebMedida"
+                  >
+                    Desarrollo Web a Medida
+                  </option>
+                  <option
+                    value="wordpress"
+                    data-translate-key="optionWordPress"
+                  >
+                    Desarrollo Web con WordPress
+                  </option>
+                  <option value="seo" data-translate-key="optionSEO">SEO</option>
+                  <option value="branding" data-translate-key="optionBranding">
+                    Branding
+                  </option>
+                  <option value="otro" data-translate-key="optionOtro">Otro</option>
+                </select>
                 <label
                   for="service-interest"
-                  class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
                   data-translate-key="formServiceInterest"
                   >Servicio de Interés</label
                 >
-                <div class="mt-1">
-                  <select
-                    id="service-interest"
-                    name="service-interest"
-                    class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
-                    required
-                  >
-                    <option value="" data-translate-key="optionSelectService">
-                      Selecciona un servicio...
-                    </option>
-                    <option
-                      value="tour_virtual"
-                      data-translate-key="optionTourVirtual"
-                    >
-                      Tour Virtual 360°
-                    </option>
-                    <option
-                      value="web_medida"
-                      data-translate-key="optionWebMedida"
-                    >
-                      Desarrollo Web a Medida
-                    </option>
-                    <option
-                      value="wordpress"
-                      data-translate-key="optionWordPress"
-                    >
-                      Desarrollo Web con WordPress
-                    </option>
-                    <option value="seo" data-translate-key="optionSEO">
-                      SEO
-                    </option>
-                    <option
-                      value="branding"
-                      data-translate-key="optionBranding"
-                    >
-                      Branding
-                    </option>
-                    <option value="otro" data-translate-key="optionOtro">
-                      Otro
-                    </option>
-                  </select>
-                </div>
               </div>
-              <div class="sm:col-span-2">
+              <div class="relative sm:col-span-2 scroll-animate-initial delay-500">
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green"
+                  placeholder="Mensaje"
+                  required
+                ></textarea>
                 <label
                   for="message"
-                  class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
                   data-translate-key="formMessage"
                   >Mensaje</label
                 >
-                <div class="mt-1">
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="4"
-                    class="py-3 px-4 block w-full shadow-sm focus:ring-primary-blue focus:border-primary-blue border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white rounded-md"
-                    required
-                  ></textarea>
-                </div>
               </div>
-              <div class="sm:col-span-2 text-center">
+              <div class="sm:col-span-2 text-center scroll-animate-initial delay-500">
                 <button
                   type="submit"
                   class="cta-button w-full sm:w-auto"
