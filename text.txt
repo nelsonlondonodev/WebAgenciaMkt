@@ -1,3 +1,10 @@
+-------Reglas para iniciar cada sección de trabajo con el código-----------------
+
+1. Al iniciar, analizas el código solamente, y no haces cambios hasta que te autorice.
+2. Cuando hagas cambios en los archivos, regresame el o los archivos completos, sin omitir una solo línea de código.
+3. Igualmente, si haces cambios en uno o más archivos, regresame uno a la vez, con teniendo en cuenta la regla # 2, y solicitando siempre que te autorice cada paso.
+4. Ve paso a paso, y en solicitudes o problemas grandes, haz uso de esta frase y la pones en practica, "Divide y venceras".
+
 -------------1 error en la consola -------------
 
 Prompt for to solution problems in the console.
