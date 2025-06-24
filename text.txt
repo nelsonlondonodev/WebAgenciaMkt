@@ -5,7 +5,6 @@
 3. Igualmente, si haces cambios en uno o más archivos, regresame uno a la vez, con teniendo en cuenta la regla # 2, y solicitando siempre que te autorice cada paso.
 4. Ve paso a paso, y en solicitudes o problemas grandes, haz uso de esta frase y la pones en practica, "Divide y venceras".
 5. Al terminar la sesión de desarrollo, documenta los cambios en el archivo, text.txt, así documentaremos el desarrollo de esta landing para la agencia. 
-6. Yo tomo la desición cuando quiera compliar el código para producción.
 
 -------------1 error en la consola -------------
 
