@@ -32,6 +32,18 @@
     />
 
     <link href="./output.css" rel="stylesheet" />
+    
+    <style>
+      #hero-text-container {
+        /* Modo claro: Fondo blanco con 80% de opacidad */
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+      .dark #hero-text-container {
+        /* Modo oscuro: Fondo gris oscuro con 75% de opacidad */
+        background-color: rgba(31, 41, 55, 0.75);
+      }
+    </style>
+
   </head>
   <body data-lang="es">
     <header id="mainHeader" class="sticky-header">
@@ -168,6 +180,27 @@
           scrolling="no"
           src="https://kuula.co/share/collection/71np8?logo=0&info=0&fs=1&vr=1&initload=0&autorotate=0.16&autop=10&thumbs=1&inst=es"
         ></iframe>
+        
+        <div id="hero-text-container"
+             style="position: absolute; bottom: 2rem; left: 2rem; right: 2rem; z-index: 10; backdrop-filter: blur(8px); border-radius: 0.75rem; padding: 2rem; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);"
+        >
+          <div class="flex flex-col md:flex-row md:items-center md:gap-8">
+            <div class="flex-grow">
+              <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white" data-translate-key="heroTitle1">
+                Marketing digital en Fuente el Saz
+              </h1>
+              <p class="mt-2 text-lg text-gray-700 dark:text-gray-300" data-translate-key="heroSubtitle">
+                Desde Madrid, con pasión Colombiana y visión global. Creamos soluciones web innovadoras y SEO estratégico para llevar tu negocio al siguiente nivel.
+              </p>
+            </div>
+            <div class="mt-6 md:mt-0 flex-shrink-0">
+               <a href="#servicios" class="cta-button" data-translate-key="heroCTA"
+                >Descubre nuestros servicios</a
+              >
+            </div>
+          </div>
+        </div>
+
       </section>
 
       <section id="servicios" class="py-16 sm:py-24">
