@@ -1,4 +1,6 @@
+# Permitir a todos los bots rastrear el sitio completo.
 User-agent: *
 Allow: /
 
-https://nelsonlondono.es/sitemap.xml
+# Ubicación del Sitemap
+Sitemap: https://nelsonlondono.es/sitemap.xml
