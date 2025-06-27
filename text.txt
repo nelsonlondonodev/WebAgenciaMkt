@@ -1,3 +1,5 @@
+ADVERTENCIA: NO VOLVER A INTENTAR EL PROCESO DE OPTIMIZACIÓN. EL PROBLEMA RESIDE EN EL ENTORNO LOCAL Y NO EN EL CÓDIGO DEL PROYECTO. LA VERSIÓN DESPLEGADA FUNCIONA CON EL CSS SIN MINIFICAR GENERADO POR EL COMANDO DE DESARROLLO.
+
 -------Reglas para iniciar cada sección de trabajo con el código-----------------
 
 1. Al iniciar, analizas el código solamente, y no haces cambios hasta que te autorice.
