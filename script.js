@@ -70,7 +70,7 @@ const translations = {
     heroTitle1: "Diseño web en Madrid",
     heroTitle2: "Transformamos tu negocio",
     heroSubtitle:
-      "Creamos soluciones web innovadoras, SEO estratégico y los revolucionarios Tours Virtuales 360° para llevar tu negocio al siguiente nivel.",
+      "Creamos soluciones web innovadoras, SEO estratégico y los revolucionarios Tours Virtuales 360°.",
     heroCTA: "Descubre nuestros servicios",
     servicesTitle: "Servicios de marketing digital",
     servicesSubtitle:
@@ -237,10 +237,10 @@ const translations = {
     navTestimonials: "Testimonials",
     navContact: "Contact",
     openMenu: "Open main menu",
-    heroTitle1: "Digital marketing in Fuente el Saz",
+    heroTitle1: "Web design in Madrid",
     heroTitle2: "We transform your business",
     heroSubtitle:
-      "From Madrid, with Colombian passion and global vision. We create innovative web solutions, strategic SEO, and revolutionary 360° Virtual Tours to take your business to the next level.",
+      "We create innovative web solutions, strategic SEO, and revolutionary 360° Virtual Tours.",
     heroCTA: "Discover our services",
     servicesTitle: "Digital marketing services",
     servicesSubtitle:
