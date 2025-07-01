@@ -10,6 +10,12 @@ const translations = {
     serviceSeoPriceAnnual: "Desde 2880€/año",
     serviceLearnMore: "Saber más",
     modalCTA: "Pedir Presupuesto",
+    serviceTourIntro:
+      "Ofrece una experiencia inmersiva que te diferencia de la competencia. El servicio incluye:",
+    serviceTourFeature1: "Integración total con Google Street View.",
+    serviceTourFeature2: "Fotografía 360° de alta definición (HDR).",
+    serviceTourFeature3: "Alojamiento del tour por 1 año.",
+    serviceTourFeature4: "Optimización para SEO Local en Google Maps.",
     modalTourDesc1:
       "Ofrece a tus clientes una experiencia inmersiva sin precedentes. Nuestros Tours Virtuales 360° son la herramienta definitiva para mostrar tu negocio de una forma realista, interactiva y accesible 24/7 desde cualquier dispositivo.",
     modalTourDesc2:
@@ -76,8 +82,6 @@ const translations = {
     servicesSubtitle:
       "Ofrecemos diseño web, SEO local y Tours virtuales en Fuente el Saz y Madrid para impulsar tu presencia online y alcanzar tus objetivos.",
     serviceTourTitle: "Tours Virtuales de Negocios 360°",
-    serviceTourDesc:
-      "Nuevo Servicio Estrella. Experiencias inmersivas compatibles con Google Street View. Ideal para inmobiliarias, restaurantes, hoteles y más.",
     serviceTourPrice: "Desde 499€",
     serviceSubscriptionInfo: "(Mantenimiento y soporte)",
     serviceCustomWebTitle: "Desarrollo Web a Medida",
@@ -181,6 +185,12 @@ const translations = {
     serviceSeoPriceAnnual: "From €2880/yr",
     serviceLearnMore: "Learn more",
     modalCTA: "Request Quote",
+    serviceTourIntro:
+      "Offer an immersive experience that sets you apart from the competition. The service includes:",
+    serviceTourFeature1: "Full integration with Google Street View.",
+    serviceTourFeature2: "High-definition (HDR) 360° photography.",
+    serviceTourFeature3: "Tour hosting for 1 year.",
+    serviceTourFeature4: "Optimization for Local SEO on Google Maps.",
     modalTourDesc1:
       "Offer your clients an unprecedented immersive experience. Our 360° Virtual Tours are the ultimate tool to showcase your business in a realistic, interactive, and accessible way, 24/7 from any device.",
     modalTourDesc2:
@@ -246,8 +256,6 @@ const translations = {
     servicesSubtitle:
       "We offer web design, local SEO, and virtual Tours in Fuente el Saz & Madrid to boost your online presence and achieve your goals.",
     serviceTourTitle: "360° Business Virtual Tours",
-    serviceTourDesc:
-      "New Star Service. Immersive experiences compatible with Google Street View. Ideal for real estate, restaurants, hotels, and more.",
     serviceTourPrice: "From €499",
     serviceSubscriptionInfo: "(Maintenance and support)",
     serviceCustomWebTitle: "Custom Web Development",
