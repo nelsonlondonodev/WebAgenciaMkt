@@ -16,6 +16,14 @@ const translations = {
     serviceTourFeature2: "Fotografía 360° de alta definición (HDR).",
     serviceTourFeature3: "Alojamiento del tour por 1 año.",
     serviceTourFeature4: "Optimización para SEO Local en Google Maps.",
+    serviceWebMedidaIntro:
+      "Para proyectos que requieren un control total y un rendimiento excepcional. El servicio incluye:",
+    serviceWebMedidaFeature1: "Diseño 100% exclusivo y adaptado a tu marca.",
+    serviceWebMedidaFeature2:
+      "Código optimizado para máxima velocidad y seguridad.",
+    serviceWebMedidaFeature3:
+      "Arquitectura escalable para futuras ampliaciones.",
+    serviceWebMedidaFeature4: "Panel de administración a medida (opcional).",
     modalTourDesc1:
       "Ofrece a tus clientes una experiencia inmersiva sin precedentes. Nuestros Tours Virtuales 360° son la herramienta definitiva para mostrar tu negocio de una forma realista, interactiva y accesible 24/7 desde cualquier dispositivo.",
     modalTourDesc2:
@@ -85,8 +93,6 @@ const translations = {
     serviceTourPrice: "Desde 499€",
     serviceSubscriptionInfo: "(Mantenimiento y soporte)",
     serviceCustomWebTitle: "Desarrollo Web a Medida",
-    serviceCustomWebDesc:
-      "Soluciones únicas con código nativo (HTML, CSS, JavaScript, y más) para un rendimiento y personalización máximos.",
     serviceCustomWebPrice: "Desde 1200€",
     serviceWordPressTitle: "Desarrollo Web con WordPress",
     serviceWordPressDesc:
@@ -191,6 +197,12 @@ const translations = {
     serviceTourFeature2: "High-definition (HDR) 360° photography.",
     serviceTourFeature3: "Tour hosting for 1 year.",
     serviceTourFeature4: "Optimization for Local SEO on Google Maps.",
+    serviceWebMedidaIntro:
+      "For projects requiring full control and exceptional performance. The service includes:",
+    serviceWebMedidaFeature1: "100% exclusive design tailored to your brand.",
+    serviceWebMedidaFeature2: "Code optimized for maximum speed and security.",
+    serviceWebMedidaFeature3: "Scalable architecture for future expansions.",
+    serviceWebMedidaFeature4: "Custom administration panel (optional).",
     modalTourDesc1:
       "Offer your clients an unprecedented immersive experience. Our 360° Virtual Tours are the ultimate tool to showcase your business in a realistic, interactive, and accessible way, 24/7 from any device.",
     modalTourDesc2:
@@ -259,8 +271,6 @@ const translations = {
     serviceTourPrice: "From €499",
     serviceSubscriptionInfo: "(Maintenance and support)",
     serviceCustomWebTitle: "Custom Web Development",
-    serviceCustomWebDesc:
-      "Unique solutions with native code (HTML, CSS, JavaScript, and more) for maximum performance and customization.",
     serviceCustomWebPrice: "From €1200",
     serviceWordPressTitle: "WordPress Web Development",
     serviceWordPressDesc:
