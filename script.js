@@ -24,6 +24,19 @@ const translations = {
     serviceWebMedidaFeature3:
       "Arquitectura escalable para futuras ampliaciones.",
     serviceWebMedidaFeature4: "Panel de administración a medida (opcional).",
+    serviceWordPressIntro:
+      "La solución ideal para webs profesionales y autogestionables. El servicio incluye:",
+    serviceWordPressFeature1: "Diseño personalizado y adaptado a móviles.",
+    serviceWordPressFeature2:
+      "Panel de control intuitivo para gestionar tu contenido.",
+    serviceWordPressFeature3: "Formación personalizada para que seas autónomo.",
+    serviceWordPressFeature4: "Plan de Mantenimiento y Seguridad incluido.",
+    serviceSeoIntro:
+      "Aumenta tu visibilidad y atrae clientes cualificados de forma orgánica. Nuestro plan incluye:",
+    serviceSeoFeature1: "Auditoría SEO completa y análisis competitivo.",
+    serviceSeoFeature2: "Estrategia de palabras clave y contenido.",
+    serviceSeoFeature3: "Optimización On-Page y SEO Técnico.",
+    serviceSeoFeature4: "Informes mensuales de posicionamiento y tráfico.",
     modalTourDesc1:
       "Ofrece a tus clientes una experiencia inmersiva sin precedentes. Nuestros Tours Virtuales 360° son la herramienta definitiva para mostrar tu negocio de una forma realista, interactiva y accesible 24/7 desde cualquier dispositivo.",
     modalTourDesc2:
@@ -95,11 +108,7 @@ const translations = {
     serviceCustomWebTitle: "Desarrollo Web a Medida",
     serviceCustomWebPrice: "Desde 1200€",
     serviceWordPressTitle: "Desarrollo Web con WordPress",
-    serviceWordPressDesc:
-      "Sitios web profesionales y autogestionables con el CMS más popular del mundo. Flexibilidad y potencia.",
     serviceSeoTitle: "SEO (Optimización para Buscadores)",
-    serviceSeoDesc:
-      "Mejora la visibilidad de tu web en Google y otros buscadores. Atraer tráfico orgánico cualificado es clave.",
     serviceBrandingTitle: "Creación de Marca (Branding)",
     serviceBrandingDesc:
       "Definimos y diseñamos la identidad visual de tu negocio para que conecte con tu audiencia y transmita tus valores.",
@@ -203,6 +212,18 @@ const translations = {
     serviceWebMedidaFeature2: "Code optimized for maximum speed and security.",
     serviceWebMedidaFeature3: "Scalable architecture for future expansions.",
     serviceWebMedidaFeature4: "Custom administration panel (optional).",
+    serviceWordPressIntro:
+      "The ideal solution for professional and self-managed websites. The service includes:",
+    serviceWordPressFeature1: "Custom and mobile-responsive design.",
+    serviceWordPressFeature2: "Intuitive control panel to manage your content.",
+    serviceWordPressFeature3: "Personalized training for you to be autonomous.",
+    serviceWordPressFeature4: "Maintenance and Security Plan included.",
+    serviceSeoIntro:
+      "Increase your visibility and attract qualified customers organically. Our plan includes:",
+    serviceSeoFeature1: "Complete SEO audit and competitive analysis.",
+    serviceSeoFeature2: "Keyword and content strategy.",
+    serviceSeoFeature3: "On-Page and Technical SEO optimization.",
+    serviceSeoFeature4: "Monthly ranking and traffic reports.",
     modalTourDesc1:
       "Offer your clients an unprecedented immersive experience. Our 360° Virtual Tours are the ultimate tool to showcase your business in a realistic, interactive, and accessible way, 24/7 from any device.",
     modalTourDesc2:
@@ -273,11 +294,7 @@ const translations = {
     serviceCustomWebTitle: "Custom Web Development",
     serviceCustomWebPrice: "From €1200",
     serviceWordPressTitle: "WordPress Web Development",
-    serviceWordPressDesc:
-      "Professional and self-manageable websites with the world's most popular CMS. Flexibility and power.",
     serviceSeoTitle: "SEO (Search Engine Optimization)",
-    serviceSeoDesc:
-      "Improve your website's visibility on Google and other search engines. Attracting qualified organic traffic is key.",
     serviceBrandingTitle: "Branding (Brand Creation)",
     serviceBrandingDesc:
       "We define and design your business's visual identity to connect with your audience and convey your values.",
