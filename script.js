@@ -37,6 +37,13 @@ const translations = {
     serviceSeoFeature2: "Estrategia de palabras clave y contenido.",
     serviceSeoFeature3: "Optimización On-Page y SEO Técnico.",
     serviceSeoFeature4: "Informes mensuales de posicionamiento y tráfico.",
+    serviceBrandingIntro:
+      "Construimos una identidad visual sólida que conecta con tu audiencia. Nuestro servicio incluye:",
+    serviceBrandingFeature1:
+      "Diseño de logotipo y variaciones para distintos usos.",
+    serviceBrandingFeature2: "Definición de paleta de colores y tipografías.",
+    serviceBrandingFeature3: "Creación de manual de identidad visual básico.",
+    serviceBrandingFeature4: "Diseño de papelería esencial (tarjetas, etc.).",
     modalTourDesc1:
       "Ofrece a tus clientes una experiencia inmersiva sin precedentes. Nuestros Tours Virtuales 360° son la herramienta definitiva para mostrar tu negocio de una forma realista, interactiva y accesible 24/7 desde cualquier dispositivo.",
     modalTourDesc2:
@@ -110,8 +117,6 @@ const translations = {
     serviceWordPressTitle: "Desarrollo Web con WordPress",
     serviceSeoTitle: "SEO (Optimización para Buscadores)",
     serviceBrandingTitle: "Creación de Marca (Branding)",
-    serviceBrandingDesc:
-      "Definimos y diseñamos la identidad visual de tu negocio para que conecte con tu audiencia y transmita tus valores.",
     serviceBrandingPrice: "Desde 600€",
     projectsTitle: "Nuestro Portafolio",
     projectsSubtitle:
@@ -224,6 +229,12 @@ const translations = {
     serviceSeoFeature2: "Keyword and content strategy.",
     serviceSeoFeature3: "On-Page and Technical SEO optimization.",
     serviceSeoFeature4: "Monthly ranking and traffic reports.",
+    serviceBrandingIntro:
+      "We build a strong visual identity that connects with your audience. Our service includes:",
+    serviceBrandingFeature1: "Logo design and variations for different uses.",
+    serviceBrandingFeature2: "Definition of color palette and typographies.",
+    serviceBrandingFeature3: "Creation of a basic visual identity manual.",
+    serviceBrandingFeature4: "Design of essential stationery (cards, etc.).",
     modalTourDesc1:
       "Offer your clients an unprecedented immersive experience. Our 360° Virtual Tours are the ultimate tool to showcase your business in a realistic, interactive, and accessible way, 24/7 from any device.",
     modalTourDesc2:
@@ -296,8 +307,6 @@ const translations = {
     serviceWordPressTitle: "WordPress Web Development",
     serviceSeoTitle: "SEO (Search Engine Optimization)",
     serviceBrandingTitle: "Branding (Brand Creation)",
-    serviceBrandingDesc:
-      "We define and design your business's visual identity to connect with your audience and convey your values.",
     serviceBrandingPrice: "From €600",
     projectsTitle: "Our Portfolio",
     projectsSubtitle:
