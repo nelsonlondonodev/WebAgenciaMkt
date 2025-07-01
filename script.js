@@ -485,32 +485,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateIcon(currentTheme);
   }
 
-  // --- MANEJO DEL SELECTOR DE PRECIOS ---
-  const priceToggle = document.getElementById("price-toggle");
-  if (priceToggle) {
-    const monthlyPrices = document.querySelectorAll(".price-monthly");
-    const annualPrices = document.querySelectorAll(".price-annual");
-    let isAnnual = localStorage.getItem("pricingMode") === "annual";
-
-    function setPricingMode(isAnnualMode) {
-      isAnnual = isAnnualMode;
-      localStorage.setItem("pricingMode", isAnnual ? "annual" : "monthly");
-      priceToggle.classList.toggle("toggled", isAnnual);
-      monthlyPrices.forEach((price) =>
-        price.classList.toggle("hidden", isAnnual)
-      );
-      annualPrices.forEach((price) =>
-        price.classList.toggle("hidden", !isAnnual)
-      );
-    }
-
-    priceToggle.addEventListener("click", () => {
-      setPricingMode(!isAnnual);
-    });
-
-    setPricingMode(isAnnual);
-  }
-
   // --- MANEJO DEL IDIOMA ---
   const languageSwitcher = document.getElementById("languageSwitcher");
   if (languageSwitcher) {
