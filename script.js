@@ -132,21 +132,21 @@ const translations = {
     projectBarberiaTitle: "La Barbería de Isma",
     projectBarberiaSubtitle: "Tour Virtual 360° y SEO Local",
     projectBarberiaDesc:
-      "Optimización de ficha Google Business y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.",
+      "Optimización de ficha Google Business y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz, que la posicionó en el top 2 de Google.",
     projectPisoTitle: "Piso en Alquiler - Tour Virtual",
     projectPisoSubtitle: "Tour Virtual 360°",
     projectPisoDesc:
       "Recorrido virtual completo para inmobiliaria, permitiendo visitas inmersivas 24/7 y acelerando el proceso de alquiler.",
     projectSuaveBocadoTitle: "Suave Bocado Repostería",
-    projectSuaveBocadoSubtitle: "WordPress y SEO Local",
+    projectSuaveBocadoSubtitle: "WordPress, Branding y SEO Local",
     projectSuaveBocadoDesc:
-      "E-commerce para repostería en Envigado, Colombia. Incluyó estrategia de SEO local que la posicionó en el top 2 de Google.",
+      "Landing page para repostería en Envigado, Colombia. Incluyó estrategia de SEO local que la posicionó en el top 2 de Google.",
     projectLuisCorreaTitle: "Luis Alberto Correa - Músico",
-    projectLuisCorreaSubtitle: "WordPress y SEO Local",
+    projectLuisCorreaSubtitle: "WordPress, Branding y SEO Local basico",
     projectLuisCorreaDesc:
       "Landing page para músico en Palma de Mallorca. Diseño web en WordPress y estrategia de SEO local para aumentar su visibilidad en la isla.",
     projectMrTijerasTitle: "Barbería Mr. Tijeras",
-    projectMrTijerasSubtitle: "Landing Page y SEO Básico",
+    projectMrTijerasSubtitle: "WordPress y SEO Básico",
     projectMrTijerasDesc:
       "Creación de landing page y estrategia de SEO básico para una barbería en Madrid, aumentando su visibilidad y citas online.",
     projectsCTA: "Ver Más Proyectos (o Contactar)",
