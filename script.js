@@ -106,7 +106,7 @@ const translations = {
     heroSubtitle:
       "Creamos soluciones web innovadoras, SEO estratégico y los revolucionarios Tours Virtuales 360°.",
     heroCTA: "Descubre nuestros servicios",
-    servicesTitle: "Servicios de marketing digital",
+    servicesTitle: "Servicios de Marketing Digital en Madrid",
     servicesSubtitle:
       "Ofrecemos diseño web, SEO local y Tours virtuales en Fuente el Saz y Madrid para impulsar tu presencia online y alcanzar tus objetivos.",
     serviceTourTitle: "Tours Virtuales de Negocios 360°",
@@ -118,7 +118,7 @@ const translations = {
     serviceSeoTitle: "SEO (Optimización para Buscadores)",
     serviceBrandingTitle: "Creación de Marca (Branding)",
     serviceBrandingPrice: "Desde 470€",
-    projectsTitle: "Nuestro Portafolio",
+    projectsTitle: "Nuestro Portafolio de Diseño Web",
     projectsSubtitle:
       "Una muestra de la calidad y diversidad de nuestros trabajos. Clientes satisfechos son nuestra mejor carta de presentación.",
     filterAll: "Todos",
@@ -171,7 +171,7 @@ const translations = {
       "Nelson es un desarrollador web altamente capacitado y comprometido. Su capacidad para resolver problemas técnicos de manera eficiente y su proactividad para proponer soluciones innovadoras fueron muy valiosas. Recomiendo a Nelson ya que es una persona talentosa y confiable.",
     testimonial3Author: "Aleja Villa",
     testimonial3Service: "Desarrollo Web",
-    contactTitle: "Contacta Ahora",
+    contactTitle: "Contacta para tu Proyecto Web",
     contactSubtitle:
       "¿Listo para iniciar tu próximo proyecto o tienes alguna pregunta? Estamos aquí para ayudarte.",
     formFirstName: "Nombre",
@@ -296,7 +296,7 @@ const translations = {
     heroSubtitle:
       "We create innovative web solutions, strategic SEO, and revolutionary 360° Virtual Tours.",
     heroCTA: "Discover our services",
-    servicesTitle: "Digital marketing services",
+    servicesTitle: "Digital Marketing Services in Madrid",
     servicesSubtitle:
       "We offer web design, local SEO, and virtual Tours in Fuente el Saz & Madrid to boost your online presence and achieve your goals.",
     serviceTourTitle: "360° Business Virtual Tours",
@@ -308,7 +308,7 @@ const translations = {
     serviceSeoTitle: "SEO (Search Engine Optimization)",
     serviceBrandingTitle: "Branding (Brand Creation)",
     serviceBrandingPrice: "From €470",
-    projectsTitle: "Our Portfolio",
+    projectsTitle: "Our Web Design Portfolio",
     projectsSubtitle:
       "A showcase of the quality and diversity of our work. Satisfied clients are our best introduction.",
     filterAll: "All",
@@ -361,7 +361,7 @@ const translations = {
       "Nelson is a highly skilled and committed web developer. His ability to solve technical problems efficiently and his proactivity in proposing innovative solutions were very valuable. I recommend Nelson as he is a talented and trustworthy person.",
     testimonial3Author: "Aleja Villa",
     testimonial3Service: "Web Development",
-    contactTitle: "Contact Now",
+    contactTitle: "Contact for Your Web Project",
     contactSubtitle:
       "Ready to start your next project or have any questions? We're here to help.",
     formFirstName: "First Name",
