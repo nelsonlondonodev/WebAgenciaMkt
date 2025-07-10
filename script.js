@@ -149,6 +149,10 @@ const translations = {
     projectMrTijerasSubtitle: "WordPress y SEO Básico",
     projectMrTijerasDesc:
       "Creación de landing page y estrategia de SEO básico para una barbería en Madrid, aumentando su visibilidad y citas online.",
+    projectNarbosTitle: "Narbo's Salón Spa",
+    projectNarbosSubtitle: "Landing Page y SEO Local",
+    projectNarbosDesc:
+      "Desarrollo de landing page a medida y estrategia de SEO local para una peluquería en Colombia, con el objetivo de aumentar su visibilidad y atraer clientes en su área.",
     projectsCTA: "Ver Más Proyectos (o Contactar)",
     aboutTitle: "Conoce a Nelson Londoño",
     aboutIntro:
@@ -339,6 +343,10 @@ const translations = {
     projectMrTijerasSubtitle: "WordPress & Basic SEO",
     projectMrTijerasDesc:
       "Creation of a landing page and basic SEO strategy for a barbershop in Madrid, increasing its visibility and online appointments.",
+    projectNarbosTitle: "Narbo's Salón Spa",
+    projectNarbosSubtitle: "Landing Page & Local SEO",
+    projectNarbosDesc:
+      "Custom landing page development and local SEO strategy for a beauty salon in Colombia, aiming to increase visibility and attract clients in its area.",
     projectsCTA: "View More Projects (or Contact)",
     aboutTitle: "Meet Nelson Londoño",
     aboutIntro:
