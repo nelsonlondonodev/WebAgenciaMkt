@@ -132,23 +132,27 @@ const translations = {
     projectBarberiaTitle: "La Barbería de Isma",
     projectBarberiaSubtitle: "Tour Virtual 360° y SEO Local",
     projectBarberiaDesc:
-      "Optimización de ficha Google Business y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.",
+      "Optimización de ficha Google Business y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz, que la posicionó en el top 2 de Google.",
     projectPisoTitle: "Piso en Alquiler - Tour Virtual",
     projectPisoSubtitle: "Tour Virtual 360°",
     projectPisoDesc:
       "Recorrido virtual completo para inmobiliaria, permitiendo visitas inmersivas 24/7 y acelerando el proceso de alquiler.",
     projectSuaveBocadoTitle: "Suave Bocado Repostería",
-    projectSuaveBocadoSubtitle: "WordPress y SEO Local",
+    projectSuaveBocadoSubtitle: "WordPress, Branding y SEO Local",
     projectSuaveBocadoDesc:
-      "E-commerce para repostería en Envigado, Colombia. Incluyó estrategia de SEO local que la posicionó en el top 2 de Google.",
+      "Landing page para repostería en Envigado, Colombia. Incluyó estrategia de SEO local que la posicionó en el top 2 de Google.",
     projectLuisCorreaTitle: "Luis Alberto Correa - Músico",
-    projectLuisCorreaSubtitle: "WordPress y SEO Local",
+    projectLuisCorreaSubtitle: "WordPress, Branding y SEO Local basico",
     projectLuisCorreaDesc:
       "Landing page para músico en Palma de Mallorca. Diseño web en WordPress y estrategia de SEO local para aumentar su visibilidad en la isla.",
     projectMrTijerasTitle: "Barbería Mr. Tijeras",
-    projectMrTijerasSubtitle: "Landing Page y SEO Básico",
+    projectMrTijerasSubtitle: "WordPress y SEO Básico",
     projectMrTijerasDesc:
       "Creación de landing page y estrategia de SEO básico para una barbería en Madrid, aumentando su visibilidad y citas online.",
+    projectNarbosTitle: "Narbo's Salón Spa",
+    projectNarbosSubtitle: "Landing Page y SEO Local",
+    projectNarbosDesc:
+      "Desarrollo de landing page a medida y estrategia de SEO local para una peluquería en Colombia, con el objetivo de aumentar su visibilidad y atraer clientes en su área.",
     projectsCTA: "Ver Más Proyectos (o Contactar)",
     aboutTitle: "Conoce a Nelson Londoño",
     aboutIntro:
@@ -315,30 +319,34 @@ const translations = {
     filterTours: "Virtual Tours",
     filterWeb: "Web Development",
     filterSeo: "Local SEO",
-    projectLocutorioTitle: "Locutorio el Pilón",
+    projectLocutorioTitle: "El Pilón Call Shop",
     projectLocutorioSubtitle: "360° Virtual Tour & Local SEO",
     projectLocutorioDesc:
       "Google Business profile optimization and creation of a virtual tour to increase visibility and attract new clients in Fuente el Saz.",
-    projectBarberiaTitle: "La Barbería de Isma",
+    projectBarberiaTitle: "Isma's Barbershop",
     projectBarberiaSubtitle: "360° Virtual Tour & Local SEO",
     projectBarberiaDesc:
-      "Google Business profile optimization and creation of a virtual tour to increase visibility and attract new clients in Fuente el Saz.",
+      "Google Business profile optimization and creation of a virtual tour to increase visibility and attract new clients in Fuente el Saz, which ranked it in the top 2 on Google.",
     projectPisoTitle: "Apartment for Rent - Virtual Tour",
     projectPisoSubtitle: "360° Virtual Tour",
     projectPisoDesc:
       "Complete virtual tour for a real estate agency, allowing 24/7 immersive visits and speeding up the rental process.",
     projectSuaveBocadoTitle: "Suave Bocado Pastries",
-    projectSuaveBocadoSubtitle: "WordPress & Local SEO",
+    projectSuaveBocadoSubtitle: "WordPress, Branding & Local SEO",
     projectSuaveBocadoDesc:
-      "E-commerce for a pastry shop in Envigado, Colombia. Included a local SEO strategy that ranked it in the top 2 on Google.",
+      "Landing page for a pastry shop in Envigado, Colombia. Included a local SEO strategy that ranked it in the top 2 on Google.",
     projectLuisCorreaTitle: "Luis Alberto Correa - Musician",
-    projectLuisCorreaSubtitle: "WordPress & Local SEO",
+    projectLuisCorreaSubtitle: "WordPress, Branding & Basic Local SEO",
     projectLuisCorreaDesc:
       "Landing page for a musician in Palma de Mallorca. Web design in WordPress and local SEO strategy to increase his visibility on the island.",
     projectMrTijerasTitle: "Mr. Tijeras Barbershop",
-    projectMrTijerasSubtitle: "Landing Page & Basic SEO",
+    projectMrTijerasSubtitle: "WordPress & Basic SEO",
     projectMrTijerasDesc:
       "Creation of a landing page and basic SEO strategy for a barbershop in Madrid, increasing its visibility and online appointments.",
+    projectNarbosTitle: "Narbo's Salón Spa",
+    projectNarbosSubtitle: "Landing Page & Local SEO",
+    projectNarbosDesc:
+      "Custom landing page development and local SEO strategy for a beauty salon in Colombia, aiming to increase visibility and attract clients in its area.",
     projectsCTA: "View More Projects (or Contact)",
     aboutTitle: "Meet Nelson Londoño",
     aboutIntro:
