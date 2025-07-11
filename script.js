@@ -625,15 +625,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const filterValue = clickedButton.dataset.filter;
 
+        // =================== INICIO DE LA MODIFICACIÓN ===================
+        // Se cambia la lógica para usar 'display' en lugar de clases.
         portfolioItems.forEach((item) => {
           const itemCategories = item.dataset.category;
+          const matchesFilter =
+            filterValue === "all" || itemCategories.includes(filterValue);
 
-          if (filterValue === "all" || itemCategories.includes(filterValue)) {
-            item.classList.remove("project-hidden");
-          } else {
-            item.classList.add("project-hidden");
-          }
+          item.style.display = matchesFilter ? "block" : "none";
         });
+        // =================== FIN DE LA MODIFICACIÓN ===================
       }
     });
   }
