@@ -5,9 +5,12 @@ const path = require("path");
 // URLs de tu sitio
 const links = [
   { url: "/", changefreq: "monthly", priority: 1.0 },
-  // Si en el futuro añades más páginas, añádelas aquí.
-  // { url: '/blog/', changefreq: 'weekly', priority: 0.8 },
-  // { url: '/blog/mi-primer-post', changefreq: 'yearly', priority: 0.6 },
+  { url: "/#inicio", changefreq: "monthly", priority: 0.9 },
+  { url: "/#servicios", changefreq: "monthly", priority: 0.8 },
+  { url: "/#proyectos", changefreq: "monthly", priority: 0.7 },
+  { url: "/#sobre-mi", changefreq: "monthly", priority: 0.6 },
+  { url: "/#testimonios", changefreq: "monthly", priority: 0.5 },
+  { url: "/#contacto", changefreq: "monthly", priority: 0.4 },
 ];
 
 // Dominio de tu sitio
