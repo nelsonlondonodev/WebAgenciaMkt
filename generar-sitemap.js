@@ -2,21 +2,15 @@ const { SitemapStream, streamToPromise } = require("sitemap");
 const { createWriteStream } = require("fs");
 const path = require("path");
 
-// URLs de tu sitio
-const links = [
-  { url: "/", changefreq: "monthly", priority: 1.0 },
-  { url: "/#inicio", changefreq: "monthly", priority: 0.9 },
-  { url: "/#servicios", changefreq: "monthly", priority: 0.8 },
-  { url: "/#proyectos", changefreq: "monthly", priority: 0.7 },
-  { url: "/#sobre-mi", changefreq: "monthly", priority: 0.6 },
-  { url: "/#testimonios", changefreq: "monthly", priority: 0.5 },
-  { url: "/#contacto", changefreq: "monthly", priority: 0.4 },
-];
+// ¡CORREGIDO! Solo incluimos la URL principal.
+const links = [{ url: "/", changefreq: "monthly", priority: 1.0 }];
 
-// Dominio de tu sitio
-const hostname = "https://www.nelsonlondono.es";
+// --- DECISIÓN IMPORTANTE ---
+// Elige tu dominio preferido (canónico). Se recomienda sin "www".
+// Esta URL se debe usar en TODAS PARTES (Google Search Console, Google Analytics, etc).
+const hostname = "https://nelsonlondono.es";
 
-// Ruta de destino para el sitemap
+// Ruta de destino para el sitemap (esto no cambia)
 const dest = path.resolve(__dirname, "sitemap.xml");
 
 async function generateSitemap() {
@@ -30,7 +24,9 @@ async function generateSitemap() {
 
   stream.end();
   await streamToPromise(stream);
-  console.log("✅ Sitemap generado correctamente en sitemap.xml");
+  console.log(
+    `✅ Sitemap generado correctamente en ${dest} con la URL: ${hostname}`
+  );
 }
 
 generateSitemap();
