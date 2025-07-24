@@ -78,4 +78,3 @@ En el archivo package.json, puedes encontrar los siguientes scripts:
 npm run build-css: Compila el archivo src/input.css usando PostCSS y Tailwind CSS, y lo guarda en output.css. El flag --watch mantiene el proceso activo para compilar sobre la marcha.
 
 npm run sitemap: Ejecuta un script de Node.js para generar el archivo sitemap.xml basado en las rutas definidas.
-
