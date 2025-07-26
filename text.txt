@@ -1,5 +1,3 @@
-ADVERTENCIA: NO VOLVER A INTENTAR EL PROCESO DE OPTIMIZACIÓN. EL PROBLEMA RESIDE EN EL ENTORNO LOCAL Y NO EN EL CÓDIGO DEL PROYECTO. LA VERSIÓN DESPLEGADA FUNCIONA CON EL CSS SIN MINIFICAR GENERADO POR EL COMANDO DE DESARROLLO.
-
 -------Reglas para iniciar cada sección de trabajo con el código-----------------
 
 1. Al iniciar, analizas el código solamente, y no haces cambios hasta que te autorice.
@@ -13,29 +11,26 @@ ADVERTENCIA: NO VOLVER A INTENTAR EL PROCESO DE OPTIMIZACIÓN. EL PROBLEMA RESID
 * **Problema:** Un error `TypeError: Cannot set properties of null` detenía la ejecución del script porque no encontraba el elemento `<span>` del indicador de idioma.
 * **Causa:** El ID del elemento en el HTML era incorrecto.
 * **Solución:** Se añadió código defensivo para verificar la existencia del elemento antes de manipularlo, evitando que el script se detuviera.
-
 ---
 **Error #2: Error 404 de `robots.txt` en Desarrollo (Ignorado)**
 * **Problema:** La consola mostraba un error `404 Not Found` para el archivo `robots.txt`.
 * **Causa:** Es un comportamiento normal en entornos de desarrollo local, donde este archivo no suele existir.
 * **Conclusión:** No afectaba el funcionamiento de la página y fue ignorado.
-
 ---
 **Error #3: Múltiples Bugs de Estilos en el Build de Producción (Solucionado)**
 * **Problema:** Al ejecutar el comando de `build`, varios estilos se rompían: botones de filtro, forma de la foto de perfil, efectos hover y estilos del banner de cookies.
-* **Diagnóstico Final:** La causa raíz fue un conflicto en el entorno de desarrollo local, provocado por un espacio en el nombre de la carpeta del proyecto (`Nelson agencia web`). Esto impedía que PostCSS/Tailwind procesaran correctamente las rutas de los archivos.
+* **Diagnóstico Final:** La causa raíz fue un conflicto en el entorno de desarrollo local, provocado por un espacio en el nombre de la carpeta del proyecto (`Nelson agencia web`).
+Esto impedía que PostCSS/Tailwind procesaran correctamente las rutas de los archivos.
 * **Solución Final:**
     1.  Se renombró la carpeta del proyecto para eliminar el espacio.
-    2.  Se instaló la extensión "Tailwind CSS IntelliSense" en VS Code.
-    3.  El proceso de construcción (`npm run build`) comenzó a funcionar correctamente, generando el CSS optimizado sin errores.
-
+2.  Se instaló la extensión "Tailwind CSS IntelliSense" en VS Code.
+3.  El proceso de construcción (`npm run build`) comenzó a funcionar correctamente, generando el CSS optimizado sin errores.
 ---
-**NOTA:** Todas las sugerencias de mejora para las secciones "Servicios", "Portafolio", "Sobre Mí" y los pasos para el pase a producción que estaban documentadas anteriormente **se dan por implementadas y completadas**. No se deben volver a sugerir.
+**NOTA:** Todas las sugerencias de mejora para las secciones "Servicios", "Portafolio", "Sobre Mí" y los pasos para el pase a producción que estaban documentadas anteriormente **se dan por implementadas y completadas**.
+No se deben volver a sugerir.
 
 ---
 --------------- REGISTRO DE BUG DE PRODUCCIÓN (27-06-2025) ---------------
-
-ADVERTENCIA: NO VOLVER A INTENTAR EL PROCESO DE OPTIMIZACIÓN. EL PROBLEMA RESIDE EN EL ENTORNO LOCAL Y NO EN EL CÓDIGO DEL PROYECTO. LA VERSIÓN DESPLEGADA FUNCIONA CON EL CSS SIN MINIFICAR GENERADO POR EL COMANDO DE DESARROLLO.
 
 Resumen del Proceso de Depuración:
 
@@ -43,25 +38,25 @@ Resumen del Proceso de Depuración:
 2.  **Problema Inicial:** Tras ejecutar el comando `build` (`npm run build`), varios estilos se rompían en la web: los botones de filtro del portafolio, la forma redondeada de la foto de perfil, los efectos `hover` de las tarjetas y los estilos del banner de cookies desaparecían.
 3.  **Hipótesis 1: Purga de CSS incorrecta.**
     * **Solución Intentada:** Modificar `tailwind.config.js` para incluir `script.js` en el `content`, y luego añadir una `safelist` explícita con las clases que desaparecían.
-    * **Resultado:** El problema persistió, indicando que la causa no era una simple purga de clases.
+* **Resultado:** El problema persistió, indicando que la causa no era una simple purga de clases.
 4.  **Hipótesis 2: Proceso de Construcción Inconsistente.**
     * **Solución Intentada:** Unificar los scripts de `package.json` para que tanto el desarrollo como la producción usaran `postcss-cli`, asegurando que el proceso fuera el mismo y activando la optimización con `NODE_ENV=production`.
-    * **Resultado:** El problema persistió. Esto demostró que el fallo ocurría incluso antes del paso de optimización.
+* **Resultado:** El problema persistió. Esto demostró que el fallo ocurría incluso antes del paso de optimización.
 5.  **Hipótesis 3: Configuración de PostCSS.**
     * **Solución Intentada:** Modificar `postcss.config.js` a un formato de array `[]` con `require()`, que es más explícito y robusto.
-    * **Resultado:** El problema persistió.
+* **Resultado:** El problema persistió.
 6.  **Hipótesis 4: Estructura de `input.css`.**
     * **Solución Intentada:** Refactorizar completamente `src/input.css` para usar las directivas `@layer` de forma estricta, organizando todas las reglas personalizadas en `base`, `components` o `utilities`.
-    * **Resultado:** El problema persistió.
+* **Resultado:** El problema persistió.
 7.  **Hipótesis 5: Entorno de `node_modules` corrupto.**
     * **Solución Intentada:** Eliminar por completo la carpeta `node_modules` y el archivo `package-lock.json`, y reinstalar todas las dependencias desde cero con `npm install`.
-    * **Resultado:** El problema persistió.
+* **Resultado:** El problema persistió.
 8.  **Hipótesis 6: Conflicto con la ruta del proyecto.**
     * **Solución Intentada:** Se renombró la carpeta del proyecto para eliminar espacios en la ruta (`Nelson agencia web` -> `nelson-agencia-web`) y se instaló la extensión oficial de Tailwind para VS Code.
-    * **Resultado:** ¡ÉXITO! Los comandos de construcción (`build:test` y `build`) comenzaron a funcionar correctamente, generando el `output.css` sin errores.
-
+* **Resultado:** ¡ÉXITO! Los comandos de construcción (`build:test` y `build`) comenzaron a funcionar correctamente, generando el `output.css` sin errores.
 **Diagnóstico y Conclusión Final:**
 
-El origen del bug era una combinación de factores en el entorno de desarrollo local. Principalmente, un **conflicto causado por el espacio en el nombre de la carpeta del proyecto** (`Nelson agencia web`), que impedía a las herramientas de línea de comandos (PostCSS/Tailwind) procesar correctamente las rutas de los archivos. Al eliminar el espacio y estandarizar el nombre de la carpeta, el proceso de construcción se normalizó.
-
+El origen del bug era una combinación de factores en el entorno de desarrollo local.
+Principalmente, un **conflicto causado por el espacio en el nombre de la carpeta del proyecto** (`Nelson agencia web`), que impedía a las herramientas de línea de comandos (PostCSS/Tailwind) procesar correctamente las rutas de los archivos.
+Al eliminar el espacio y estandarizar el nombre de la carpeta, el proceso de construcción se normalizó.
 **La solución práctica adoptada fue mantener la web en producción con el CSS generado por el modo de desarrollo (`npm run dev`), que aunque no está minificado, es 100% funcional.**
