@@ -101,7 +101,7 @@ const translations = {
     navTestimonials: 'Testimonios',
     navContact: 'Contacto',
     openMenu: 'Abrir menú principal',
-    heroTitle1: 'Diseño web en Madrid',
+    heroTitle1: 'Agencia de Marketing Digital y Diseño Web para Empresas en Madrid',
     heroTitle2: 'Transformamos tu negocio',
     heroSubtitle:
       'Creamos soluciones web innovadoras, SEO estratégico y los revolucionarios Tours Virtuales 360°.',
@@ -295,7 +295,7 @@ const translations = {
     navTestimonials: 'Testimonials',
     navContact: 'Contact',
     openMenu: 'Open main menu',
-    heroTitle1: 'Web design in Madrid',
+    heroTitle1: 'Digital Marketing and Web Design Agency for Companies in Madrid',
     heroTitle2: 'We transform your business',
     heroSubtitle:
       'We create innovative web solutions, strategic SEO, and revolutionary 360° Virtual Tours.',
