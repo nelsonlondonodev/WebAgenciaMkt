@@ -101,7 +101,8 @@ const translations = {
     navTestimonials: 'Testimonios',
     navContact: 'Contacto',
     openMenu: 'Abrir menú principal',
-    heroTitle1: 'Agencia de Marketing Digital y Diseño Web para Empresas en Madrid',
+    heroTitle1:
+      'Agencia de Marketing Digital y Diseño Web para Empresas en Madrid',
     heroTitle2: 'Transformamos tu negocio',
     heroSubtitle:
       'Creamos soluciones web innovadoras, SEO estratégico y los revolucionarios Tours Virtuales 360°.',
@@ -295,7 +296,8 @@ const translations = {
     navTestimonials: 'Testimonials',
     navContact: 'Contact',
     openMenu: 'Open main menu',
-    heroTitle1: 'Digital Marketing and Web Design Agency for Companies in Madrid',
+    heroTitle1:
+      'Digital Marketing and Web Design Agency for Companies in Madrid',
     heroTitle2: 'We transform your business',
     heroSubtitle:
       'We create innovative web solutions, strategic SEO, and revolutionary 360° Virtual Tours.',
@@ -830,7 +832,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- GESTIÓN DE CONSENTIMIENTO DE COOKIES ---
-  // =================== INICIO DE LA SECCIÓN MODIFICADA ===================
   const COOKIE_CONSENT_KEY = 'nelson_cookie_consent';
 
   const cookieBanner = document.getElementById('cookie-banner');
@@ -854,21 +855,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function setConsent(consent) {
-    // Esta función ahora solo guarda el consentimiento en localStorage.
     localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consent));
   }
 
   function handleInitialConsent() {
-    // Esta función se ejecuta solo una vez al cargar la página.
     const consent = getConsent();
     if (consent) {
-      // Si ya hay consentimiento, lo aplicamos y eliminamos el banner.
       if (consent.analytics) {
         enableGoogleAnalytics();
       }
       if (cookieBanner) cookieBanner.remove();
     } else {
-      // Si no hay consentimiento, mostramos el banner.
       if (cookieBanner) cookieBanner.classList.remove('hidden');
     }
   }
@@ -915,7 +912,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Cierra el modal si se hace clic fuera de él
   if (cookieModal) {
     cookieModal.addEventListener('click', (e) => {
       if (e.target === cookieModal) {
@@ -924,7 +920,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Iniciar la lógica de consentimiento al cargar la página
   handleInitialConsent();
-  // =================== FIN DE LA SECCIÓN MODIFICADA ===================
+
+  // --- MANEJO DEL IFRAME DEL HERO ---
+  const heroIframeContainer = document.getElementById('hero-iframe-container');
+  if (heroIframeContainer) {
+    heroIframeContainer.addEventListener(
+      'click',
+      () => {
+        const placeholder = document.getElementById('hero-iframe-placeholder');
+        const iframe = document.getElementById('hero-iframe');
+
+        if (iframe && iframe.dataset.src) {
+          iframe.src = iframe.dataset.src;
+          if (placeholder) {
+            placeholder.classList.add('hidden');
+          }
+          iframe.classList.remove('hidden');
+          heroIframeContainer.style.cursor = 'default';
+        }
+      },
+      { once: true }
+    );
+  }
 });

@@ -26,9 +26,17 @@
       content="Transformo tu negocio con un diseño web a medida en Madrid. Páginas rápidas, optimizadas para SEO y enfocadas en resultados."
     />
     <link
-      rel="stylesheet"
+      rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      />
+    </noscript>
 
     <link href="./output.css" rel="stylesheet" />
 
@@ -103,6 +111,7 @@
           <div class="flex items-center">
             <button
               id="languageSwitcher"
+              aria-label="Cambiar idioma"
               class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors mr-2"
             >
               <span
@@ -112,6 +121,7 @@
             </button>
             <button
               id="darkModeToggle"
+              aria-label="Cambiar tema de color"
               class="group p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors"
             >
               <i
@@ -178,15 +188,40 @@
         id="inicio"
         style="position: relative; height: 100vh; overflow: hidden"
       >
-        <iframe
-          width="100%"
-          height="640"
-          frameborder="0"
-          allow="xr-spatial-tracking; gyroscope; accelerometer"
-          allowfullscreen
-          scrolling="no"
-          src="https://kuula.co/share/hTjLL?logo=-1&info=0&fs=0&vr=0&initload=0&autorotate=0.08&autop=10&thumbs=4&inst=0"
-        ></iframe>
+        <div
+          id="hero-iframe-container"
+          class="relative w-full h-full cursor-pointer bg-gray-900"
+        >
+          <div
+            id="hero-iframe-placeholder"
+            class="absolute inset-0 flex items-center justify-center"
+          >
+            <img
+              src="image/piso-en-venta.webp"
+              alt="Vista previa del Tour Virtual 30 de un piso en Madrid"
+              class="w-full h-full object-cover blur-sm opacity-50"
+            />
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="absolute text-center text-white p-4">
+              <i class="fas fa-play-circle fa-5x mb-4 text-white/80"></i>
+              <p class="text-xl font-semibold">Cargar Tour Virtual 360°</p>
+              <p class="text-sm text-gray-300 mt-1">
+                Haz clic para iniciar la experiencia interactiva
+              </p>
+            </div>
+          </div>
+          <iframe
+            id="hero-iframe"
+            title="Tour Virtual 360 Interactivo"
+            width="100%"
+            height="100%"
+            frameborder="0"
+            allow="xr-spatial-tracking; gyroscope; accelerometer; fullscreen"
+            scrolling="no"
+            data-src="https://kuula.co/share/hTjLL?logo=-1&info=0&fs=1&vr=1&initload=0&autorotate=0.08&autop=10&thumbs=4&inst=es"
+            class="hidden"
+          ></iframe>
+        </div>
 
         <div
           id="hero-text-container"
@@ -647,6 +682,8 @@
                     class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                     src="image/screen-narbos.webp"
                     alt="Página web de Narbo's Salón Spa"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div
                     class="absolute top-2 right-2 p-2 bg-black/50 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -698,6 +735,8 @@
                   class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                   src="./image/foto-locutorio.webp"
                   alt="Tour 360 de Locutorio el Pilón"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div
                   class="absolute top-2 right-2 flex items-center space-x-1.5 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm"
@@ -741,6 +780,8 @@
                   class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                   src="image/barberia-isma.webp"
                   alt="Tour 360 de La Barbería de Isma"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div
                   class="absolute top-2 right-2 flex items-center space-x-1.5 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm"
@@ -784,6 +825,8 @@
                   class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                   src="image/piso-en-venta.webp"
                   alt="Tour 360 de un piso en Madrid"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div
                   class="absolute top-2 right-2 flex items-center space-x-1.5 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm"
@@ -831,6 +874,8 @@
                     class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                     src="./image/foto-suave-bocado.webp"
                     alt="Página web de Suave Bocado Repostería"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div
                     class="absolute top-2 right-2 p-2 bg-black/50 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -879,6 +924,8 @@
                     class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                     src="image/foto-luis-alberto-correa.webp"
                     alt="Landing page del músico Luis Alberto Correa"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div
                     class="absolute top-2 right-2 p-2 bg-black/50 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -927,6 +974,8 @@
                     class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                     src="image/foto-barberia-mrtijeras.webp"
                     alt="Landing page de la barbería Mr. Tijeras"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div
                     class="absolute top-2 right-2 p-2 bg-black/50 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -1088,6 +1137,8 @@
                 class="rounded-lg shadow-xl w-64 mx-auto lg:w-80"
                 src="image/foto-nelson.webp"
                 alt="Nelson Londoño, experto en SEO y desarrollo web en Fuente el Saz de Jarama"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -1485,10 +1536,10 @@
       href="https://wa.me/34663975428?text=Hola%2C%20estoy%20interesado%20en%20sus%20servicios."
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp"
       class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-40 transition-transform hover:scale-110"
     >
       <i class="fab fa-whatsapp fa-2x"></i>
-      <span class="sr-only">Contactar por WhatsApp</span>
     </a>
 
     <div
@@ -1821,6 +1872,7 @@
         </div>
         <div class="mt-4 h-[75vh]">
           <iframe
+            title="Tour Virtual 360 del Locutorio el Pilón"
             width="100%"
             height="100%"
             style="border: none"
@@ -1857,6 +1909,7 @@
         </div>
         <div class="mt-4 h-[75vh]">
           <iframe
+            title="Tour Virtual 360 de La Barbería de Isma"
             width="100%"
             height="100%"
             style="border: none"
@@ -1893,6 +1946,7 @@
         </div>
         <div class="mt-4 h-[75vh]">
           <iframe
+            title="Tour Virtual 360 de un piso en Madrid"
             width="100%"
             height="100%"
             style="border: none"
