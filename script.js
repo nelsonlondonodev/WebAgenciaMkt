@@ -539,14 +539,15 @@ document.addEventListener('DOMContentLoaded', () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.remove('scroll-animate-initial');
+            entry.target.classList.add('is-visible');
             observer.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.1 }
     );
-    animatedElements.forEach((el) => {
+    animatedElements.forEach((el, index) => {
+      el.style.transitionDelay = `${30 * index}ms`;
       observer.observe(el);
     });
   }
