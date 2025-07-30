@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-css": "postcss ./src/input.css -o ./output.css --watch",
-    "build": "NODE_ENV=production postcss ./src/input.css -o ./output.css",
+    "build-css": "NODE_ENV=production postcss ./src/input.css -o ./output.css",
+    "minify-js": "terser script.js -o script.min.js -c -m",
+    "build": "npm run build-css && npm run minify-js",
     "sitemap": "node generar-sitemap.js",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
