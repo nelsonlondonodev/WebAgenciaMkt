@@ -40,18 +40,7 @@
 
     <link href="./output.css" rel="stylesheet" />
 
-    <style>
-      #hero-text-container {
-        /* Modo claro: Fondo blanco con menos opacidad y borde de "cristal" */
-        background-color: rgba(255, 255, 255, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-      }
-      .dark #hero-text-container {
-        /* Modo oscuro: Fondo gris oscuro con menos opacidad y borde de "cristal" */
-        background-color: rgba(31, 41, 55, 0.65);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-      }
-    </style>
+    
   </head>
   <body data-lang="es">
     <header id="mainHeader" class="sticky-header">
@@ -186,15 +175,15 @@
     <main>
       <section
         id="inicio"
-        style="position: relative; height: 100vh; overflow: hidden"
+        class="relative h-screen overflow-hidden bg-white dark:bg-gray-900"
       >
         <div
           id="hero-iframe-container"
-          class="relative w-full h-full cursor-pointer bg-gray-900"
+          class="relative w-full h-full cursor-pointer lg:w-4/5 lg:mx-auto lg:rounded-2xl lg:shadow-2xl rounded-b-2xl"
         >
           <div
             id="hero-iframe-placeholder"
-            class="absolute inset-0 flex items-center justify-center"
+            class="absolute inset-0 flex items-center justify-center rounded-b-2xl lg:rounded-2xl overflow-hidden"
           >
             <img
               src="image/piso-en-venta.webp"
@@ -219,38 +208,36 @@
             allow="xr-spatial-tracking; gyroscope; accelerometer; fullscreen"
             scrolling="no"
             data-src="https://kuula.co/share/hTjLL?logo=-1&info=0&fs=1&vr=1&initload=0&autorotate=0.08&autop=10&thumbs=4&inst=es"
-            class="hidden"
+            class="hidden rounded-b-2xl lg:rounded-2xl"
           ></iframe>
-        </div>
-
-        <div
-          id="hero-text-container"
-          class="absolute z-10 rounded-2xl backdrop-blur p-4 bottom-4 left-4 right-4 sm:p-6 md:bottom-[-0.5rem] md:left-8 md:right-8 md:p-8"
-          style="box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1)"
-        >
-          <div class="flex flex-col md:flex-row md:items-center md:gap-8">
-            <div class="flex-grow">
-              <h1
-                class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white scroll-animate-initial"
-                data-translate-key="heroTitle1"
-              >
-                Diseño web en Madrid
-              </h1>
-              <p
-                class="mt-2 text-base sm:text-lg text-gray-700 dark:text-gray-300"
-                data-translate-key="heroSubtitle"
-              >
-                Creamos soluciones web innovadoras, SEO estratégico y los
-                revolucionarios Tours Virtuales 360°.
-              </p>
-            </div>
-            <div class="mt-6 md:mt-0 flex-shrink-0">
-              <a
-                href="#servicios"
-                class="cta-button hidden md:inline-block"
-                data-translate-key="heroCTA"
-                >Descubre nuestros servicios</a
-              >
+          <div
+            id="hero-text-container"
+            class="absolute z-10 p-4 bottom-2 left-4 sm:p-6 md:bottom-4 md:left-8 md:p-8 text-left"
+          >
+            <div class="flex flex-col md:flex-row md:items-center md:gap-8">
+              <div class="flex-grow">
+                <h1
+                  class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white dark:text-white scroll-animate-initial [text-shadow:0_2px_4px_rgba(0,0,0,0.5)]"
+                  data-translate-key="heroTitle1"
+                >
+                  Diseño web en Madrid
+                </h1>
+                <p
+                  class="mt-2 text-base sm:text-lg text-gray-200 dark:text-gray-200 [text-shadow:0_2px_4px_rgba(0,0,0,0.5)]"
+                  data-translate-key="heroSubtitle"
+                >
+                  Creamos soluciones web innovadoras, SEO estratégico y los
+                  revolucionarios Tours Virtuales 360°.
+                </p>
+              </div>
+              <div class="mt-6 md:mt-0 flex-shrink-0">
+                <a
+                  href="#servicios"
+                  class="cta-button hidden md:inline-block"
+                  data-translate-key="heroCTA"
+                  >Descubre nuestros servicios</a
+                >
+              </div>
             </div>
           </div>
         </div>
