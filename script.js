@@ -102,12 +102,12 @@ const translations = {
     navContact: 'Contacto',
     openMenu: 'Abrir menú principal',
     heroTitle1:
-      'Agencia de Marketing Digital y Diseño Web para Empresas en Madrid',
+      'Agencia de Marketing Digital y Diseño Web para Empresas en Fuente el Saz',
     heroTitle2: 'Transformamos tu negocio',
     heroSubtitle:
       'Creamos soluciones web innovadoras, SEO estratégico y los revolucionarios Tours Virtuales 360°.',
     heroCTA: 'Descubre nuestros servicios',
-    servicesTitle: 'Servicios de Marketing Digital en Madrid',
+    servicesTitle: 'Servicios de Marketing Digital en Fuente el Saz',
     servicesSubtitle:
       'Ofrecemos diseño web, SEO local y Tours virtuales en Fuente el Saz y Madrid para impulsar tu presencia online y alcanzar tus objetivos.',
     serviceTourTitle: 'Tours Virtuales de Negocios 360°',
@@ -297,12 +297,12 @@ const translations = {
     navContact: 'Contact',
     openMenu: 'Open main menu',
     heroTitle1:
-      'Digital Marketing and Web Design Agency for Companies in Madrid',
+      'Digital Marketing and Web Design Agency for Companies in Fuente el Saz',
     heroTitle2: 'We transform your business',
     heroSubtitle:
       'We create innovative web solutions, strategic SEO, and revolutionary 360° Virtual Tours.',
     heroCTA: 'Discover our services',
-    servicesTitle: 'Digital Marketing Services in Madrid',
+    servicesTitle: 'Digital Marketing Services in Fuente el Saz',
     servicesSubtitle:
       'We offer web design, local SEO, and virtual Tours in Fuente el Saz & Madrid to boost your online presence and achieve your goals.',
     serviceTourTitle: '360° Business Virtual Tours',
