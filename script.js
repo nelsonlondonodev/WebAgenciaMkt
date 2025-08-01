@@ -763,8 +763,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const analyticsToggle = document.getElementById('analytics-cookie-toggle');
   function enableGoogleAnalytics() {
     if (typeof gtag === 'function') {
-      gtag('config', 'G-124QEKRXHD');
-      console.log('Google Analytics activado.');
+      gtag("config", "G-124QEKRXHD");
+      // console.log('Google Analytics activado.');
     }
   }
   function getConsent() {
