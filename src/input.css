@@ -53,7 +53,7 @@
   }
 
   .contact-reveal-button {
-    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-primary-green hover:bg-emerald-600 dark:bg-primary-blue dark:hover:bg-sky-600;
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-primary-green hover:bg-emerald-600 dark:bg-primary-blue dark:hover:bg-sky-600 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out;
   }
 
   /* SECCIÓN AÑADIDA: Estilos para el interruptor de precios */
