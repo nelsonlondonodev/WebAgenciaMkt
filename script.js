@@ -605,6 +605,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   function openModal(modal) {
     if (modal) {
+      const iframe = modal.querySelector('iframe[data-src]');
+      if (iframe && !iframe.src) {
+        iframe.src = iframe.dataset.src;
+      }
       modal.classList.remove('hidden');
       modal.classList.add('flex');
       document.body.classList.add('overflow-hidden');
