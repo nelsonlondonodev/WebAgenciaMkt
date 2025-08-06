@@ -102,7 +102,7 @@ const translations = {
     navContact: 'Contacto',
     openMenu: 'Abrir menú principal',
     heroTitle1:
-      'Agencia de Marketing Digital y Diseño Web para Empresas en Fuente el Saz',
+      'Impulsamos Negocios en Fuente el Saz del Jarama con Diseño Web y Estrategias de Marketing',
     heroTitle2: 'Transformamos tu negocio',
     heroSubtitle:
       'Creamos soluciones web innovadoras, SEO estratégico y los revolucionarios Tours Virtuales 360°.',
@@ -198,6 +198,7 @@ const translations = {
     footerText: `&copy; ${new Date().getFullYear()} Nelson Londoño Agencia. Todos los derechos reservados.`,
     footerMadeWith:
       'Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.',
+    footerServices: 'Ofrecemos servicios de diseño web y SEO en Fuente el Saz y toda la zona norte de Madrid.',
   },
   en: {
     badgeNew: 'New',
@@ -297,7 +298,7 @@ const translations = {
     navContact: 'Contact',
     openMenu: 'Open main menu',
     heroTitle1:
-      'Digital Marketing and Web Design Agency for Companies in Fuente el Saz',
+      'Boosting Businesses in Fuente el Saz del Jarama with Web Design and Marketing Strategies',
     heroTitle2: 'We transform your business',
     heroSubtitle:
       'We create innovative web solutions, strategic SEO, and revolutionary 360° Virtual Tours.',
@@ -393,6 +394,7 @@ const translations = {
     footerText: `&copy; ${new Date().getFullYear()} Nelson Londoño Agency. All rights reserved.`,
     footerMadeWith:
       'Designed with <i class="fas fa-heart text-red-500"></i> in Madrid.',
+    footerServices: 'We offer web design and SEO services in Fuente el Saz and the entire northern area of Madrid.',
   },
 };
 document.addEventListener('DOMContentLoaded', () => {
