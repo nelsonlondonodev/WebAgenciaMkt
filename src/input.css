@@ -63,6 +63,36 @@
   #price-toggle.toggled #price-toggle-handle {
     @apply translate-x-5;
   }
+
+  .blog-card {
+    @apply bg-light-card dark:bg-dark-card rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-out flex flex-col;
+  }
+
+  /* Nuevos estilos para el contenido del artículo */
+  .article-content h2 {
+    @apply text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-8 mb-4;
+  }
+  .article-content h3 {
+    @apply text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mt-6 mb-3;
+  }
+  .article-content p {
+    @apply text-lg text-gray-700 dark:text-gray-300 leading-relaxed;
+  }
+  .article-content a {
+    @apply text-primary-blue dark:text-primary-green font-semibold underline decoration-primary-blue/50 dark:decoration-primary-green/50 hover:decoration-primary-blue dark:hover:decoration-primary-green transition;
+  }
+  .article-content ul {
+    @apply list-disc list-inside space-y-2 pl-4;
+  }
+  .article-content ul li {
+    @apply text-lg text-gray-700 dark:text-gray-300 leading-relaxed;
+  }
+  .article-content blockquote {
+    @apply border-l-4 border-primary-green dark:border-primary-blue pl-6 py-2 my-6 italic text-xl text-gray-800 dark:text-gray-200;
+  }
+  .social-share-btn {
+    @apply w-12 h-12 bg-gray-800 dark:bg-gray-700 text-white rounded-full flex items-center justify-center text-xl transition-colors;
+  }
 }
 
 .scroll-animate-initial {
@@ -118,12 +148,4 @@ body {
     #064e3b,
     #0c4a6e
   );
-}
-
-@layer components {
-  /* ... (tus clases existentes como .service-card, .portfolio-item, etc.) ... */
-
-  .blog-card {
-    @apply bg-light-card dark:bg-dark-card rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-out flex flex-col;
-  }
 }
