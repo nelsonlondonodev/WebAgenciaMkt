@@ -119,3 +119,11 @@ body {
     #0c4a6e
   );
 }
+
+@layer components {
+  /* ... (tus clases existentes como .service-card, .portfolio-item, etc.) ... */
+
+  .blog-card {
+    @apply bg-light-card dark:bg-dark-card rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-out flex flex-col;
+  }
+}
