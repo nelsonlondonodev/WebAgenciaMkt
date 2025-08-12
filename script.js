@@ -836,6 +836,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   handleInitialConsent();
   const heroIframeContainer = document.getElementById('hero-iframe-container');
+
+  function setupSocialSharing() {
+    const shareLinkedin = document.getElementById('share-linkedin');
+    const shareWhatsapp = document.getElementById('share-whatsapp');
+    const shareTwitter = document.getElementById('share-twitter');
+
+    if (shareLinkedin && shareWhatsapp && shareTwitter) {
+      const shareUrl = window.location.href;
+      const shareTitle = document.title;
+      const shareText = document.querySelector('meta[name="description"]').getAttribute('content');
+
+      shareLinkedin.href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(shareTitle)}&summary=${encodeURIComponent(shareText)}`;
+      shareLinkedin.target = '_blank';
+      shareLinkedin.rel = 'noopener noreferrer';
+
+      shareWhatsapp.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareTitle + " - " + shareUrl)}`;
+      shareWhatsapp.target = '_blank';
+      shareWhatsapp.rel = 'noopener noreferrer';
+
+      shareTwitter.href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`;
+      shareTwitter.target = '_blank';
+      shareTwitter.rel = 'noopener noreferrer';
+    }
+  }
+  setupSocialSharing();
+
   if (heroIframeContainer) {
     heroIframeContainer.addEventListener(
       'click',
