@@ -60,3 +60,29 @@ El origen del bug era una combinación de factores en el entorno de desarrollo l
 Principalmente, un **conflicto causado por el espacio en el nombre de la carpeta del proyecto** (`Nelson agencia web`), que impedía a las herramientas de línea de comandos (PostCSS/Tailwind) procesar correctamente las rutas de los archivos.
 Al eliminar el espacio y estandarizar el nombre de la carpeta, el proceso de construcción se normalizó.
 **La solución práctica adoptada fue mantener la web en producción con el CSS generado por el modo de desarrollo (`npm run dev`), que aunque no está minificado, es 100% funcional.**
+
+Sugerencias para mejora el blog.
+Sugerencias de Máxima Prioridad (Contenido y SEO)
+
+   1. Optimizar la Imagen de Vista Previa del Blog: En la página principal del blog (blog.html), la imagen del artículo de ejemplo sigue siendo un
+      placeholder. Deberías reemplazarla por una imagen estática (WebP, 1200x900px como hablamos) que represente el contenido del artículo. Esto es
+       lo primero que verán tus visitantes.
+   2. Añadir Textos `alt` a TODAS las Imágenes: Has hecho un buen trabajo en el artículo, pero asegúrate de que cada imagen en todo el sitio tenga
+      un texto alt descriptivo. Es absolutamente crucial para el SEO y para la accesibilidad de usuarios con discapacidad visual.
+   3. Enlaces Internos dentro de los Artículos: En tu "Guía de SEO Local", podrías añadir un enlace a tu página de servicios cuando mencionas que
+      puedes ayudar. Por ejemplo: "...déjame ayudarte a conseguir la visibilidad que mereces (enlaza a index.html#servicios)". Esto retiene al
+      usuario en tu web y es muy bueno para el SEO.
+
+  Sugerencias para una Mejor Experiencia de Usuario
+
+   4. Crear una Página de Error 404 Personalizada: Si alguien escribe mal una URL, verá un error genérico. Crear una página 404.html con tu logo y
+      un enlace a la página de inicio ofrece una experiencia mucho más profesional. Puedo crear una página 404 básica para ti si quieres.
+   5. Añadir Botones para Compartir en Redes Sociales: Colocar botones discretos en la página del artículo para compartir en LinkedIn, WhatsApp,
+      Twitter, etc., facilita enormemente que tus lectores difundan tu contenido.
+
+  Verificación Técnica Final
+
+   6. Generar el `sitemap.xml` Final: Ya tienes el script generar-sitemap.js. Justo antes de publicar, ejecútalo (npm run sitemap) para asegurar
+      que el mapa del sitio que envíes a Google esté 100% actualizado.
+   7. Pruebas en Dispositivos Reales: Revisa el sitio en tu móvil y, si es posible, en una tablet y en diferentes navegadores (Chrome, Firefox,
+      Safari) para confirmar que todo se ve y funciona a la perfección.
