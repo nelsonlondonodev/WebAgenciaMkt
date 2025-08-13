@@ -102,6 +102,10 @@
   .social-share-btn.twitter {
     @apply bg-[#1DA1F2] hover:bg-[#1a91da];
   }
+
+  .object-contain-custom {
+    object-fit: contain;
+  }
 }
 
 .scroll-animate-initial {

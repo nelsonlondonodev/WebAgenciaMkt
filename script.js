@@ -520,7 +520,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     setLanguage(currentLang);
   }
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  document.querySelectorAll('a[href^="#"]:not(.social-share-btn)').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
@@ -840,9 +840,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function setupSocialSharing() {
     const shareLinkedin = document.getElementById('share-linkedin');
     const shareWhatsapp = document.getElementById('share-whatsapp');
-    const shareTwitter = document.getElementById('share-twitter');
 
-    if (shareLinkedin && shareWhatsapp && shareTwitter) {
+    if (shareLinkedin && shareWhatsapp) {
       const shareUrl = window.location.href;
       const shareTitle = document.title;
       const shareText = document.querySelector('meta[name="description"]').getAttribute('content');
@@ -851,13 +850,12 @@ document.addEventListener('DOMContentLoaded', () => {
       shareLinkedin.target = '_blank';
       shareLinkedin.rel = 'noopener noreferrer';
 
-      shareWhatsapp.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareTitle + " - " + shareUrl)}`;
+      shareWhatsapp.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareTitle + " - Link: " + shareUrl)}`;
       shareWhatsapp.target = '_blank';
       shareWhatsapp.rel = 'noopener noreferrer';
 
-      shareTwitter.href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`;
-      shareTwitter.target = '_blank';
-      shareTwitter.rel = 'noopener noreferrer';
+      
+      
     }
   }
   setupSocialSharing();
