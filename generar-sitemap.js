@@ -3,7 +3,11 @@ const { createWriteStream } = require('fs');
 const path = require('path');
 
 // ¡CORREGIDO! Solo incluimos la URL principal.
-const links = [{ url: '/', changefreq: 'monthly', priority: 1.0 }];
+const links = [
+  { url: '/', changefreq: 'monthly', priority: 1.0 },
+  { url: '/blog.html', changefreq: 'weekly', priority: 0.8 },
+  { url: '/articulo-ejemplo.html', changefreq: 'monthly', priority: 0.7 },
+];
 
 // --- DECISIÓN IMPORTANTE ---
 // Elige tu dominio preferido (canónico). Se recomienda sin "www".
