@@ -1,5 +1,7 @@
 const translations = {
   es: {
+    pageTitle: "Agencia de Marketing en Fuente el Saz | Diseño Web y SEO Local",
+    pageDescription: "Transformo tu negocio con un diseño web a medida en Fuente el Saz del Jarama. Páginas rápidas, optimizadas para SEO y enfocadas en resultados.",
     badgeNew: "Nuevo",
     pricingMonthly: "Mensual",
     pricingAnnual: "Anual",
@@ -284,8 +286,25 @@ const translations = {
               Google.
             </p>
     `,
+    heroPlay: "Cargar Tour Virtual 360°",
+    heroPlaySub: "Haz clic para iniciar la experiencia interactiva",
+    aboutProTitle: "Profesionalidad",
+    aboutProDesc: "Compromiso total con la calidad, la comunicación transparente y la entrega puntual de cada proyecto.",
+    aboutModernTitle: "Modernidad",
+    aboutModernDesc: "Uso de las últimas tecnologías y tendencias para crear soluciones digitales frescas e impactantes.",
+    aboutAdaptTitle: "Adaptación",
+    aboutAdaptDesc: "Soluciones flexibles y a medida que evolucionan junto a las necesidades de tu negocio.",
+    revealEmail: "Mostrar Email",
+    revealPhone: "Mostrar Teléfono",
+    modalTourTitle: "Tours Virtuales 360°",
+    modalWebMedidaTitle: "Desarrollo Web a Medida",
+    modalWordPressTitle: "Desarrollo Web con WordPress",
+    modalSeoTitle: "SEO (Optimización para Buscadores)",
+    modalBrandingTitle: "Creación de Marca (Branding)",
   },
   en: {
+    pageTitle: "Marketing Agency in Fuente el Saz | Web Design and Local SEO",
+    pageDescription: "I transform your business with custom web design in Fuente el Saz del Jarama. Fast, SEO-optimized, and results-focused pages.",
     badgeNew: "New",
     pricingMonthly: "Monthly",
     pricingAnnual: "Annual",
@@ -564,6 +583,21 @@ const translations = {
               authority with Google.
             </p>
     `,
+    heroPlay: "Load 360° Virtual Tour",
+    heroPlaySub: "Click to start the interactive experience",
+    aboutProTitle: "Professionalism",
+    aboutProDesc: "Total commitment to quality, transparent communication, and timely delivery of each project.",
+    aboutModernTitle: "Modernity",
+    aboutModernDesc: "Use of the latest technologies and trends to create fresh and impactful digital solutions.",
+    aboutAdaptTitle: "Adaptation",
+    aboutAdaptDesc: "Flexible and tailor-made solutions that evolve with the needs of your business.",
+    revealEmail: "Show Email",
+    revealPhone: "Show Phone",
+    modalTourTitle: "360° Virtual Tours",
+    modalWebMedidaTitle: "Custom Web Development",
+    modalWordPressTitle: "WordPress Web Development",
+    modalSeoTitle: "SEO (Search Engine Optimization)",
+    modalBrandingTitle: "Branding",
   },
 };
 
@@ -677,36 +711,30 @@ document.addEventListener("DOMContentLoaded", () => {
       // Translate meta tags
       const title = document.querySelector("title");
       const description = document.querySelector('meta[name="description"]');
-      if (
-        title &&
-        window.location.pathname.includes("blog.html") &&
-        translations[lang].blogTitle
-      ) {
-        title.textContent = translations[lang].blogTitle;
-      }
-      if (
-        description &&
-        window.location.pathname.includes("blog.html") &&
-        translations[lang].blogDescription
-      ) {
-        description.setAttribute("content", translations[lang].blogDescription);
-      }
-      if (
-        title &&
-        window.location.pathname.includes("articulo-ejemplo.html") &&
-        translations[lang].articleExampleTitle
-      ) {
-        title.textContent = translations[lang].articleExampleTitle;
-      }
-      if (
-        description &&
-        window.location.pathname.includes("articulo-ejemplo.html") &&
-        translations[lang].articleExampleDescription
-      ) {
-        description.setAttribute(
-          "content",
-          translations[lang].articleExampleDescription
-        );
+      if (window.location.pathname.includes("index.html")) {
+        if (title && translations[lang].pageTitle) {
+          title.textContent = translations[lang].pageTitle;
+        }
+        if (description && translations[lang].pageDescription) {
+          description.setAttribute("content", translations[lang].pageDescription);
+        }
+      } else if (window.location.pathname.includes("blog.html")) {
+        if (title && translations[lang].blogTitle) {
+          title.textContent = translations[lang].blogTitle;
+        }
+        if (description && translations[lang].blogDescription) {
+          description.setAttribute("content", translations[lang].blogDescription);
+        }
+      } else if (window.location.pathname.includes("articulo-ejemplo.html")) {
+        if (title && translations[lang].articleExampleTitle) {
+          title.textContent = translations[lang].articleExampleTitle;
+        }
+        if (description && translations[lang].articleExampleDescription) {
+          description.setAttribute(
+            "content",
+            translations[lang].articleExampleDescription
+          );
+        }
       }
 
       document.querySelectorAll("[data-translate-key]").forEach((el) => {
