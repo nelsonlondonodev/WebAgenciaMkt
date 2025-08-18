@@ -301,6 +301,9 @@ const translations = {
     modalWordPressTitle: "Desarrollo Web con WordPress",
     modalSeoTitle: "SEO (Optimización para Buscadores)",
     modalBrandingTitle: "Creación de Marca (Branding)",
+        "404Title": "Página no encontrada",
+    "404Subtitle": "Lo sentimos, la página que buscas no existe o ha sido movida.",
+    "404GoHome": "Volver a la página de inicio",
   },
   en: {
     pageTitle: "Marketing Agency in Fuente el Saz | Web Design and Local SEO",
@@ -503,7 +506,7 @@ const translations = {
       "We offer web design and SEO services in Fuente el Saz and the entire northern area of Madrid.",
     blogTitle: "Blog | Nelson Londoño - Digital Marketing Agency",
     blogDescription:
-      "Articles and tutorials on digital marketing, SEO, web development, and technology for businesses in Fuente el Saz.",
+      "Artículos y tutoriales sobre marketing digital, SEO, desarrollo web y tecnología para negocios en Fuente el Saz.",
     blogHeader: "Blog for Businesses in Fuente el Saz",
     blogSubheader:
       "Marketing, SEO, and web design tips to grow your business in the northern area of Madrid.",
@@ -537,7 +540,7 @@ const translations = {
               presence and dominate local search results.
             </p>
 
-            <h2>Step 1: Claim and Optimize Your Google Business Profile</h2>
+            <h2>Paso 1: Claim and Optimize Your Google Business Profile</h2>
             <p>
               Your Google Business Profile is your most powerful tool for
               local SEO. It's completely free and is the first thing your
@@ -598,6 +601,9 @@ const translations = {
     modalWordPressTitle: "WordPress Web Development",
     modalSeoTitle: "SEO (Search Engine Optimization)",
     modalBrandingTitle: "Branding",
+        "404Title": "Page Not Found",
+    "404Subtitle": "Sorry, the page you are looking for does not exist or has been moved.",
+    "404GoHome": "Go back to the homepage",
   },
 };
 
@@ -808,22 +814,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   const animatedElements = document.querySelectorAll(".scroll-animate-initial");
-  if (typeof IntersectionObserver !== "undefined") {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    animatedElements.forEach((el, index) => {
-      el.style.transitionDelay = `${30 * index}ms`;
-      observer.observe(el);
-    });
+  if (animatedElements.length > 0) {
+    if (typeof IntersectionObserver !== "undefined") {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      animatedElements.forEach((el, index) => {
+        el.style.transitionDelay = `${30 * index}ms`;
+        observer.observe(el);
+      });
+    }
   }
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll("header nav a");
@@ -913,29 +921,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const allModals = document.querySelectorAll(
     '[id^="service-modal-"], [id^="proyecto-modal-"]'
   );
-  allModals.forEach((modal) => {
-    const closeModalBtn = modal.querySelector('button[id^="close-modal-"]');
-    if (closeModalBtn) {
-      closeModalBtn.addEventListener("click", () => closeModal(modal));
-    }
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        closeModal(modal);
+  if (allModals.length > 0) {
+    allModals.forEach((modal) => {
+      const closeModalBtn = modal.querySelector('button[id^="close-modal-"]');
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener("click", () => closeModal(modal));
       }
-    });
-    modal.querySelectorAll(".modal-contact-button").forEach((button) => {
-      button.addEventListener("click", () => closeModal(modal));
-    });
-  });
-  window.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      allModals.forEach((modal) => {
-        if (!modal.classList.contains("hidden")) {
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
           closeModal(modal);
         }
       });
-    }
-  });
+      modal.querySelectorAll(".modal-contact-button").forEach((button) => {
+        button.addEventListener("click", () => closeModal(modal));
+      });
+    });
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        allModals.forEach((modal) => {
+          if (!modal.classList.contains("hidden")) {
+            closeModal(modal);
+          }
+        });
+      }
+    });
+  }
   const contactForm = document.querySelector(
     "form[action='https://formspree.io/f/xanjbdrp']"
   );
@@ -963,7 +973,9 @@ document.addEventListener("DOMContentLoaded", () => {
         statusMessage.className =
           "text-center font-semibold mt-4 text-gray-600 dark:text-gray-300";
       }
-      submitButton.disabled = true;
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
       try {
         const response = await fetch(contactForm.action, {
           method: "POST",
@@ -1002,9 +1014,11 @@ document.addEventListener("DOMContentLoaded", () => {
           }, 5e3);
         }
       } finally {
-        setTimeout(() => {
-          submitButton.disabled = false;
-        }, 3e3);
+        if (submitButton) {
+          setTimeout(() => {
+            submitButton.disabled = false;
+          }, 3e3);
+        }
       }
     });
   }
@@ -1039,110 +1053,84 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   const COOKIE_CONSENT_KEY = "nelson_cookie_consent";
   const cookieBanner = document.getElementById("cookie-banner");
-  const cookieModal = document.getElementById("cookie-settings-modal");
-  const acceptBtn = document.getElementById("cookie-accept");
-  const rejectBtn = document.getElementById("cookie-reject");
-  const settingsBtn = document.getElementById("cookie-settings-open");
-  const saveSettingsBtn = document.getElementById("cookie-settings-save");
-  const analyticsToggle = document.getElementById("analytics-cookie-toggle");
-  function enableGoogleAnalytics() {
-    if (typeof gtag === "function") {
-      gtag("config", "G-124QEKRXHD");
-      // console.log('Google Analytics activado.');
+  if (cookieBanner) {
+    const cookieModal = document.getElementById("cookie-settings-modal");
+    const acceptBtn = document.getElementById("cookie-accept");
+    const rejectBtn = document.getElementById("cookie-reject");
+    const settingsBtn = document.getElementById("cookie-settings-open");
+    const saveSettingsBtn = document.getElementById("cookie-settings-save");
+    const analyticsToggle = document.getElementById("analytics-cookie-toggle");
+    function enableGoogleAnalytics() {
+      if (typeof gtag === "function") {
+        gtag("config", "G-124QEKRXHD");
+        // console.log('Google Analytics activado.');
+      }
     }
-  }
-  function getConsent() {
-    const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
-    return consent ? JSON.parse(consent) : null;
-  }
-  function setConsent(consent) {
-    localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consent));
-  }
-  function handleInitialConsent() {
-    const consent = getConsent();
-    if (consent) {
-      if (consent.analytics) {
-        enableGoogleAnalytics();
-      }
-      if (cookieBanner) cookieBanner.remove();
-    } else {
-      if (cookieBanner) cookieBanner.classList.remove("hidden");
+    function getConsent() {
+      const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+      return consent ? JSON.parse(consent) : null;
     }
-  }
-  if (acceptBtn) {
-    acceptBtn.addEventListener("click", () => {
-      const consent = { necessary: true, analytics: true };
-      setConsent(consent);
-      enableGoogleAnalytics();
-      if (cookieBanner) cookieBanner.remove();
-    });
-  }
-  if (rejectBtn) {
-    rejectBtn.addEventListener("click", () => {
-      const consent = { necessary: true, analytics: false };
-      setConsent(consent);
-      if (cookieBanner) cookieBanner.remove();
-    });
-  }
-  if (settingsBtn) {
-    settingsBtn.addEventListener("click", () => {
-      const consent = getConsent() || { analytics: false };
-      if (analyticsToggle) analyticsToggle.checked = consent.analytics;
-      if (cookieModal) cookieModal.classList.remove("hidden");
-    });
-  }
-  if (saveSettingsBtn) {
-    saveSettingsBtn.addEventListener("click", () => {
-      const consent = {
-        necessary: true,
-        analytics: analyticsToggle ? analyticsToggle.checked : false,
-      };
-      setConsent(consent);
-      if (consent.analytics) {
+    function setConsent(consent) {
+      localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consent));
+    }
+    function handleInitialConsent() {
+      const consent = getConsent();
+      if (consent) {
+        if (consent.analytics) {
+          enableGoogleAnalytics();
+        }
+        if (cookieBanner) cookieBanner.remove();
+      } else {
+        if (cookieBanner) cookieBanner.classList.remove("hidden");
+      }
+    }
+    if (acceptBtn) {
+      acceptBtn.addEventListener("click", () => {
+        const consent = { necessary: true, analytics: true };
+        setConsent(consent);
         enableGoogleAnalytics();
-      }
-      if (cookieModal) cookieModal.classList.add("hidden");
-      if (cookieBanner) cookieBanner.remove();
-    });
+        if (cookieBanner) cookieBanner.remove();
+      });
+    }
+    if (rejectBtn) {
+      rejectBtn.addEventListener("click", () => {
+        const consent = { necessary: true, analytics: false };
+        setConsent(consent);
+        if (cookieBanner) cookieBanner.remove();
+      });
+    }
+    if (settingsBtn) {
+      settingsBtn.addEventListener("click", () => {
+        const consent = getConsent() || { analytics: false };
+        if (analyticsToggle) analyticsToggle.checked = consent.analytics;
+        if (cookieModal) cookieModal.classList.remove("hidden");
+      });
+    }
+    if (saveSettingsBtn) {
+      saveSettingsBtn.addEventListener("click", () => {
+        const consent = {
+          necessary: true,
+          analytics: analyticsToggle ? analyticsToggle.checked : false,
+        };
+        setConsent(consent);
+        if (consent.analytics) {
+          enableGoogleAnalytics();
+        }
+        if (cookieModal) cookieModal.classList.add("hidden");
+        if (cookieBanner) cookieBanner.remove();
+      });
+    }
+    if (cookieModal) {
+      cookieModal.addEventListener("click", (e) => {
+        if (e.target === cookieModal) {
+          cookieModal.classList.add("hidden");
+        }
+      });
+    }
+    handleInitialConsent();
   }
-  if (cookieModal) {
-    cookieModal.addEventListener("click", (e) => {
-      if (e.target === cookieModal) {
-        cookieModal.classList.add("hidden");
-      }
-    });
-  }
-  handleInitialConsent();
+
   const heroIframeContainer = document.getElementById("hero-iframe-container");
-
-  function setupSocialSharing() {
-    const shareLinkedin = document.getElementById("share-linkedin");
-    const shareWhatsapp = document.getElementById("share-whatsapp");
-
-    if (shareLinkedin && shareWhatsapp) {
-      const shareUrl = window.location.href;
-      const shareTitle = document.title;
-      const shareText = document
-        .querySelector('meta[name="description"]')
-        .getAttribute("content");
-
-      shareLinkedin.href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
-        shareUrl
-      )}&title=${encodeURIComponent(shareTitle)}&summary=${encodeURIComponent(
-        shareText
-      )}`;
-      shareLinkedin.target = "_blank";
-      shareLinkedin.rel = "noopener noreferrer";
-
-      shareWhatsapp.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(
-        shareTitle + " - Link: " + shareUrl
-      )}`;
-      shareWhatsapp.target = "_blank";
-      shareWhatsapp.rel = "noopener noreferrer";
-    }
-  }
-  setupSocialSharing();
-
   if (heroIframeContainer) {
     heroIframeContainer.addEventListener(
       "click",
@@ -1161,4 +1149,34 @@ document.addEventListener("DOMContentLoaded", () => {
       { once: true }
     );
   }
+
+  function setupSocialSharing() {
+    const shareLinkedin = document.getElementById("share-linkedin");
+    const shareWhatsapp = document.getElementById("share-whatsapp");
+
+    if (shareLinkedin && shareWhatsapp) {
+      const shareUrl = window.location.href;
+      const shareTitle = document.title;
+      const shareText = document
+        .querySelector('meta[name="description"]')
+        .getAttribute("content");
+
+      if (shareUrl && shareTitle && shareText) {
+        shareLinkedin.href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+          shareUrl
+        )}&title=${encodeURIComponent(shareTitle)}&summary=${encodeURIComponent(
+          shareText
+        )}`;
+        shareLinkedin.target = "_blank";
+        shareLinkedin.rel = "noopener noreferrer";
+
+        shareWhatsapp.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(
+          shareTitle + " - Link: " + shareUrl
+        )}`;
+        shareWhatsapp.target = "_blank";
+        shareWhatsapp.rel = "noopener noreferrer";
+      }
+    }
+  }
+  setupSocialSharing();
 });
