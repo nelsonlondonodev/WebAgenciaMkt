@@ -602,6 +602,7 @@ const translations = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  document.body.style.opacity = 1;
   const currentYearSpan = document.getElementById("currentYear");
   if (currentYearSpan) {
     currentYearSpan.textContent = new Date().getFullYear();
@@ -759,23 +760,53 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     setLanguage(currentLang);
   }
-  document
-    .querySelectorAll('a[href^="#"]:not(.social-share-btn)')
-    .forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        const targetId = this.getAttribute("href");
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          const headerOffset =
-            document.getElementById("mainHeader")?.offsetHeight || 80;
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition =
-            elementPosition + window.pageYOffset - headerOffset;
-          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-        }
-      });
+  // Smooth scroll and page transition logic
+  document.body.classList.add('fade-in');
+
+  document.querySelectorAll('a:not([href^="tel:"]):not([href^="mailto:"]):not(.social-share-btn):not(.modal-contact-button):not([target="_blank"])').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      
+      // Don't intercept if it's just a placeholder or has no real href
+      if (!href || href === '#') {
+        return;
+      }
+
+      const isInternalLink = href.startsWith('#');
+      const isSamePageNavigation = isInternalLink || href.split('#')[0] === window.location.pathname.split('/').pop() || href.split('#')[0] === '';
+
+      if (this.hostname === window.location.hostname || href.startsWith('/')) {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        
+        setTimeout(() => {
+          if (isSamePageNavigation && isInternalLink) {
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+              const headerOffset = document.getElementById('mainHeader')?.offsetHeight || 80;
+              const elementPosition = targetElement.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+              
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+              });
+              
+              // Fade back in after scrolling
+              setTimeout(() => {
+                document.body.classList.remove('fade-out');
+              }, 50);
+
+            } else {
+              document.body.classList.remove('fade-out');
+            }
+          } else {
+            window.location.href = href;
+          }
+        }, 300); // Match this to the CSS transition duration
+      }
     });
+  });
   const animatedElements = document.querySelectorAll(".scroll-animate-initial");
   if (typeof IntersectionObserver !== "undefined") {
     const observer = new IntersectionObserver(
