@@ -75,7 +75,40 @@
             </nav>
           </div>
           <div class="flex items-center">
+            <button
+              id="languageSwitcher"
+              aria-label="Cambiar idioma"
+              class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors mr-2"
+            >
+              <span
+                id="langIndicator"
+                class="flex items-center space-x-1"
+              ></span>
+            </button>
+            <button
+              id="darkModeToggle"
+              aria-label="Cambiar tema de color"
+              class="group p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors"
+            >
+              <i
+                class="fas fa-moon transition-transform duration-300 ease-in-out group-hover:rotate-[20deg]"
+              ></i>
+            </button>
+            <div class="lg:hidden ml-2">
+              <button
+                id="mobileMenuButton"
+                type="button"
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-primary-blue dark:hover:text-primary-green hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-blue"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span class="sr-only" data-translate-key="openMenu"
+                  >Abrir menú principal</span
+                >
+                <i class="fas fa-bars fa-lg"></i>
+              </button>
             </div>
+          </div>
         </div>
       </div>
     </header>
