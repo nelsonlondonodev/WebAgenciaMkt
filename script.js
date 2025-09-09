@@ -715,51 +715,64 @@ document.addEventListener("DOMContentLoaded", () => {
           ? '<span role="img" aria-label="Bandera de Reino Unido">🇬🇧</span> EN'
           : '<span role="img" aria-label="Bandera de España">🇪🇸</span> ES';
 
-      // Translate meta tags
-      const title = document.querySelector("title");
-      const description = document.querySelector('meta[name="description"]');
-      if (window.location.pathname.includes("index.html")) {
-        if (title && translations[lang].pageTitle) {
-          title.textContent = translations[lang].pageTitle;
-        }
-        if (description && translations[lang].pageDescription) {
-          description.setAttribute("content", translations[lang].pageDescription);
-        }
-      } else if (window.location.pathname.includes("blog.html")) {
-        if (title && translations[lang].blogTitle) {
-          title.textContent = translations[lang].blogTitle;
-        }
-        if (description && translations[lang].blogDescription) {
-          description.setAttribute("content", translations[lang].blogDescription);
-        }
+      let translationsUrl;
+      if (window.location.pathname.includes("articulo-seo-post-fiestas.html")) {
+        translationsUrl = "./translations/articulo-seo-post-fiestas.json";
       } else if (window.location.pathname.includes("articulo-ejemplo.html")) {
-        if (title && translations[lang].articleExampleTitle) {
-          title.textContent = translations[lang].articleExampleTitle;
-        }
-        if (description && translations[lang].articleExampleDescription) {
-          description.setAttribute(
-            "content",
-            translations[lang].articleExampleDescription
-          );
-        }
+        // TODO: Create a translations file for the example article
+      } else {
+        // Default translations for other pages
+        // You might want to create a main translations file
       }
 
-      document.querySelectorAll("[data-translate-key]").forEach((el) => {
-        const key = el.getAttribute("data-translate-key");
-        const translation = translations[lang]?.[key];
-        if (translation) {
-          if (
-            key.includes("Content") ||
-            key.includes("Button") ||
-            key === "footerMadeWith" ||
-            key === "footerText"
-          ) {
-            el.innerHTML = translation;
-          } else {
-            el.textContent = translation;
+      if (translationsUrl) {
+        fetch(translationsUrl)
+          .then((response) => response.json())
+          .then((translations) => {
+            document.querySelectorAll("[data-translate-key]").forEach((el) => {
+              const key = el.getAttribute("data-translate-key");
+              const translation = translations[lang]?.[key];
+              if (translation) {
+                if (key === "articleContent") {
+                  el.innerHTML = "";
+                  translation.forEach((item) => {
+                    const newEl = document.createElement(item.type);
+                    if (item.type === "ul") {
+                      item.items.forEach((liContent) => {
+                        const li = document.createElement("li");
+                        li.innerHTML = liContent;
+                        newEl.appendChild(li);
+                      });
+                    } else {
+                      newEl.innerHTML = item.content;
+                    }
+                    el.appendChild(newEl);
+                  });
+                } else {
+                  el.innerHTML = translation;
+                }
+              }
+            });
+          });
+      } else {
+        // Handle translations for pages without a dedicated JSON file
+        document.querySelectorAll("[data-translate-key]").forEach((el) => {
+          const key = el.getAttribute("data-translate-key");
+          const translation = translations[lang]?.[key];
+          if (translation) {
+            if (
+              key.includes("Content") ||
+              key.includes("Button") ||
+              key === "footerMadeWith" ||
+              key === "footerText"
+            ) {
+              el.innerHTML = translation;
+            } else {
+              el.textContent = translation;
+            }
           }
-        }
-      });
+        });
+      }
     }
     languageSwitcher.addEventListener("click", () => {
       setLanguage(currentLang === "es" ? "en" : "es");
