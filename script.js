@@ -728,10 +728,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (translationsUrl) {
         fetch(translationsUrl)
           .then((response) => response.json())
-          .then((translations) => {
+          .then((articleTranslations) => {
+            const mergedTranslations = {
+              es: { ...translations.es, ...articleTranslations.es },
+              en: { ...translations.en, ...articleTranslations.en },
+            };
             document.querySelectorAll("[data-translate-key]").forEach((el) => {
               const key = el.getAttribute("data-translate-key");
-              const translation = translations[lang]?.[key];
+              const translation = mergedTranslations[lang]?.[key];
               if (translation) {
                 if (key === "articleContent") {
                   el.innerHTML = "";
