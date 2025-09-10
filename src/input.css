@@ -106,6 +106,55 @@
   .object-contain-custom {
     object-fit: contain;
   }
+
+  .cookie-banner {
+    @apply fixed bottom-4 left-4 w-full max-w-md bg-white dark:bg-gray-800 text-gray-800 dark:text-white p-6 rounded-lg shadow-2xl z-50 transition-all duration-500 ease-in-out;
+  }
+  .cookie-banner-content {
+    @apply flex flex-col;
+  }
+  .cookie-banner-actions {
+    @apply flex items-center space-x-4 mt-4 justify-end;
+  }
+  .cookie-button-accept {
+    @apply bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out;
+  }
+  .cookie-button-reject {
+    @apply bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out;
+  }
+  .cookie-button-settings {
+    @apply text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white underline;
+  }
+  .cookie-modal-backdrop {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm;
+  }
+  .cookie-modal-content {
+    @apply bg-light-card dark:bg-dark-card p-8 rounded-xl shadow-2xl max-w-lg w-full;
+  }
+  .cookie-category {
+    @apply mt-4 pt-4 border-t border-gray-200 dark:border-gray-700;
+  }
+  .cookie-category-header {
+    @apply flex items-center justify-between;
+  }
+  .cookie-toggle {
+    @apply relative inline-flex items-center h-6 rounded-full w-11;
+  }
+  .cookie-toggle-input {
+    @apply absolute w-full h-full opacity-0 cursor-pointer;
+  }
+  .cookie-toggle-slider {
+    @apply inline-block w-11 h-6 rounded-full bg-gray-300 dark:bg-gray-700 transition-colors;
+  }
+  .cookie-toggle-input:checked + .cookie-toggle-slider {
+    @apply bg-primary-green dark:bg-primary-blue;
+  }
+  .cookie-toggle-slider::before {
+    @apply inline-block w-4 h-4 transform bg-white rounded-full transition-transform absolute top-1 left-1;
+  }
+  .cookie-toggle-input:checked + .cookie-toggle-slider::before {
+    @apply translate-x-5;
+  }
 }
 
 .scroll-animate-initial {
@@ -183,4 +232,8 @@ body.fade-out {
 body.fade-in {
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
+}
+
+.cookie-toggle-slider::before {
+  content: '';
 }
