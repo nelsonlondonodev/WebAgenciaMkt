@@ -418,15 +418,16 @@
               data-translate-key="ctaButton"
               >Solicita una Auditoría SEO Local Gratuita</a
             >
-            <a
-              href="https://wa.me/34663975428?text=Hola%2C%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20SEO%20Local.%20Vengo%20del%20art%C3%ADculo%20del%20blog."
-              class="cta-button bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 mt-4"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-translate-key="whatsappButton"
-            >
-              <i class="fab fa-whatsapp mr-2"></i> Contactar por WhatsApp
-            </a>
+    <!-- n8n Chatbot -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+      createChat({
+        webhookUrl: 'https://nelsonlondono-dev.app.n8n.cloud/webhook/f06aacb1-5f33-40c8-b0f9-fc0856afe0c6/chat'
+      });
+    </script>
+    <!-- End n8n Chatbot -->
           </div>
         </section>
       </article>
