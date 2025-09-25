@@ -720,6 +720,8 @@ document.addEventListener("DOMContentLoaded", () => {
         translationsUrl = "./translations/articulo-seo-post-fiestas.json";
       } else if (window.location.pathname.includes("articulo-ejemplo.html")) {
         // TODO: Create a translations file for the example article
+      } else if (window.location.pathname.includes("blog.html")) {
+        translationsUrl = "./translations/blog.json";
       } else {
         // Default translations for other pages
         // You might want to create a main translations file
