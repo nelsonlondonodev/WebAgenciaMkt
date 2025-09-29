@@ -1,56 +1,12 @@
 import { initTranslations } from './translations.js';
 import { initDarkMode } from './darkMode.js';
+import { initSmoothScroll } from './smoothScroll.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   initTranslations();
   initDarkMode();
-  // Smooth scroll and page transition logic
-  document.body.classList.add('fade-in');
-
-  document.querySelectorAll('a:not([href^="tel:"]):not([href^="mailto:"]):not(.social-share-btn):not(.modal-contact-button):not([target="_blank"])').forEach(link => {
-    link.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      
-      // Don't intercept if it's just a placeholder or has no real href
-      if (!href || href === '#') {
-        return;
-      }
-
-      const isInternalLink = href.startsWith('#');
-      const isSamePageNavigation = isInternalLink || href.split('#')[0] === window.location.pathname.split('/').pop() || href.split('#')[0] === '';
-
-      if (this.hostname === window.location.hostname || href.startsWith('/')) {
-        e.preventDefault();
-        document.body.classList.add('fade-out');
-        
-        setTimeout(() => {
-          if (isSamePageNavigation && isInternalLink) {
-            const targetElement = document.querySelector(href);
-            if (targetElement) {
-              const headerOffset = document.getElementById('mainHeader')?.offsetHeight || 80;
-              const elementPosition = targetElement.getBoundingClientRect().top;
-              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-              
-              window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-              });
-              
-              // Fade back in after scrolling
-              setTimeout(() => {
-                document.body.classList.remove('fade-out');
-              }, 50);
-
-            } else {
-              document.body.classList.remove('fade-out');
-            }
-          } else {
-            window.location.href = href;
-          }
-        }, 300); // Match this to the CSS transition duration
-      }
-    });
-  });
+  initSmoothScroll();
+  
   const animatedElements = document.querySelectorAll(".scroll-animate-initial");
   if (animatedElements.length > 0) {
     if (typeof IntersectionObserver !== "undefined") {
