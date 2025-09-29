@@ -245,3 +245,31 @@ body.fade-in {
 .chat-window-toggle:hover {
   background-color: #10B981 !important;
 }
+
+/* Custom styles for n8n chat window */
+.chat-window {
+  border-radius: 0.75rem !important; /* 12px */
+  overflow: hidden !important;
+}
+.chat-header {
+  background-color: #3B82F6 !important; /* primary-blue */
+  color: #FFFFFF !important;
+}
+.chat-header .title,
+.chat-header .subtitle {
+  color: #FFFFFF !important;
+}
+.n8n-chat-ui-user-message .message-content {
+  background-color: #10B981 !important; /* primary-green */
+  color: #FFFFFF !important;
+}
+.n8n-chat-ui-user-message .message-arrow {
+  border-left-color: #10B981 !important;
+}
+.n8n-chat-ui-bot-message .message-content {
+  background-color: #F3F4F6 !important; /* gray-100 */
+  color: #1F2937 !important; /* gray-800 */
+}
+.n8n-chat-ui-bot-message .message-arrow {
+  border-right-color: #F3F4F6 !important;
+}
