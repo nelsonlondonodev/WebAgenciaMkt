@@ -1629,7 +1629,7 @@
       import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
       createChat({
-        webhookUrl: 'https://nelsonlondono-dev.app.n8n.cloud/webhook/f06aacb1-5f33-40c8-b0f9-fc0856afe0c6/chat',
+        webhookUrl: 'https://n8n.srv1033442.hstgr.cloud/webhook/f06aacb1-5f33-40c8-b0f9-fc0856afe0c6/chat',
         initialMessages: [
           'Puedes consultarme sobre nuestros servicios, ver ejemplos de proyectos o preguntar por precios.'
         ],
@@ -1639,6 +1639,16 @@
             subtitle: '¿Cómo puedo ayudarte hoy?',
             inputPlaceholder: 'Ej: ¿Qué precio tienen los tours virtuales?',
           }
+        },
+        theme: {
+          customCSS: `
+            .chat-window-toggle {
+              background-color: #3B82F6 !important;
+            }
+            .chat-window-toggle:hover {
+              background-color: #10B981 !important;
+            }
+          `
         }
       });
     </script>
