@@ -3,6 +3,7 @@ import { initDarkMode } from './darkMode.js';
 import { initSmoothScroll } from './smoothScroll.js';
 import { initScrollAnimations } from './scrollAnimations.js';
 import { initNav } from './nav.js';
+import { initPortfolio } from './portfolio.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   initTranslations();
@@ -10,34 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
   initScrollAnimations();
   initNav();
+  initPortfolio();
   
   
   
-  const filtersContainer = document.getElementById("portfolio-filters");
-  const portfolioItems = document.querySelectorAll(
-    "#portfolio-grid .portfolio-item"
-  );
-  if (filtersContainer && portfolioItems.length > 0) {
-    filtersContainer.addEventListener("click", (e) => {
-      if (e.target.matches("button.filter-btn")) {
-        const clickedButton = e.target;
-        if (clickedButton.classList.contains("active-filter")) {
-          return;
-        }
-        filtersContainer
-          .querySelector(".active-filter")
-          .classList.remove("active-filter");
-        clickedButton.classList.add("active-filter");
-        const filterValue = clickedButton.dataset.filter;
-        portfolioItems.forEach((item) => {
-          const itemCategories = item.dataset.category;
-          const matchesFilter =
-            filterValue === "all" || itemCategories.includes(filterValue);
-          item.style.display = matchesFilter ? "block" : "none";
-        });
-      }
-    });
-  }
+  
   function openModal(modal) {
     if (modal) {
       const iframe = modal.querySelector("iframe[data-src]");
