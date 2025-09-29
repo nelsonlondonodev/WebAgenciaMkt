@@ -237,3 +237,11 @@ body.fade-in {
 .cookie-toggle-slider::before {
   content: '';
 }
+
+/* Custom styles for n8n chat button */
+.chat-window-toggle {
+  background-color: #3B82F6 !important;
+}
+.chat-window-toggle:hover {
+  background-color: #10B981 !important;
+}
