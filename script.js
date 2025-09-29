@@ -2,39 +2,17 @@ import { initTranslations } from './translations.js';
 import { initDarkMode } from './darkMode.js';
 import { initSmoothScroll } from './smoothScroll.js';
 import { initScrollAnimations } from './scrollAnimations.js';
+import { initNav } from './nav.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   initTranslations();
   initDarkMode();
   initSmoothScroll();
   initScrollAnimations();
+  initNav();
   
   
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll("header nav a");
-  if (sections.length > 0 && navLinks.length > 0) {
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px 0px -60% 0px",
-      threshold: 0,
-    };
-    const sectionObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const sectionId = entry.target.id;
-          navLinks.forEach((link) => {
-            link.classList.remove("nav-active");
-            if (link.getAttribute("href") === `#${sectionId}`) {
-              link.classList.add("nav-active");
-            }
-          });
-        }
-      });
-    }, observerOptions);
-    sections.forEach((section) => {
-      sectionObserver.observe(section);
-    });
-  }
+  
   const filtersContainer = document.getElementById("portfolio-filters");
   const portfolioItems = document.querySelectorAll(
     "#portfolio-grid .portfolio-item"
