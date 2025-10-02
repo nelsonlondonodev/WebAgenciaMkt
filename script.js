@@ -4,6 +4,7 @@ import { initSmoothScroll } from './smoothScroll.js';
 import { initScrollAnimations } from './scrollAnimations.js';
 import { initNav } from './nav.js';
 import { initPortfolio } from './portfolio.js';
+import { initChat } from './chat.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   initTranslations();
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollAnimations();
   initNav();
   initPortfolio();
+  initChat();
   
   
   
