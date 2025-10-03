@@ -28,6 +28,16 @@
       />
     </noscript>
     <link href="./output.css" rel="stylesheet" />
+
+    <!-- Estilos personalizados para el Chatbot de n8n -->
+    <style>
+      :root {
+        --chat--color-primary: #3B82F6;
+        --chat--color-primary-shade-50: #2563EB;
+        --chat--color-primary-shade-100: #1D4ED8;
+        --chat--color-secondary: #10B981;
+      }
+    </style>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -363,6 +373,32 @@
         </div>
       </div>
     </div>
-    <script src="./script.js" defer></script>
+    <script src="./script.js" type="module"></script>
+    <script src="./translations.js" type="module"></script>
+    <script src="./darkMode.js" type="module"></script>
+    <script src="./smoothScroll.js" type="module"></script>
+    <script src="./scrollAnimations.js" type="module"></script>
+    <script src="./nav.js" type="module"></script>
+    <script src="./portfolio.js" type="module"></script>
+    <!-- n8n Chatbot -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+      createChat({
+        webhookUrl: 'https://nelsonlondono-dev.app.n8n.cloud/webhook/f06aacb1-5f33-40c8-b0f9-fc0856afe0c6/chat',
+        initialMessages: [
+          'Puedes consultarme sobre nuestros servicios, ver ejemplos de proyectos o preguntar por precios.'
+        ],
+        i18n: {
+          en: {
+            title: '¡Hola! Soy NLAgencia Asistente Virtual',
+            subtitle: '¿Cómo puedo ayudarte hoy?',
+            inputPlaceholder: 'Ej: ¿Qué precio tienen los tours virtuales?',
+          }
+        }
+      });
+    </script>
+    <!-- End n8n Chatbot -->
   </body>
 </html>
