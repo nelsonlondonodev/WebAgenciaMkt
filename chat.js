@@ -11,7 +11,7 @@ export function initChat() {
     return;
   }
 
-  const webhookUrl = "https://n8n.srv1033442.hstgr.cloud/webhook/2fd095ea-f1a1-4202-acb9-ee74cc8104cb";
+  const webhookUrl = "https://n8n.srv1033442.hstgr.cloud/webhook/f576ac1f-1397-416f-b3c6-6e2ab7dc4c08/chat";
   const sessionId = `session_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
   let isFirstOpen = true;
 
@@ -92,12 +92,20 @@ export function initChat() {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = await response.json();
-        const responseItem = Array.isArray(data) ? data[0] : data;
-        const botReply =
-          (responseItem && responseItem.responseText) ||
-          "No he podido entender eso. Inténtalo de nuevo.";
-        addMessageToUI(botReply, "bot");
+        const responseText = await response.text();
+
+        try {
+          const data = JSON.parse(responseText);
+          // The bot's reply is nested in data.output.response
+          const botReply =
+            (data.output && data.output.response) ||
+            "No he podido entender eso. Inténtalo de nuevo.";
+          addMessageToUI(botReply, "bot");
+        } catch (jsonError) {
+          console.error("Failed to parse JSON:", jsonError);
+          console.error("Response that failed to parse:", responseText);
+          addMessageToUI("La respuesta del bot no tuvo el formato esperado.", "bot");
+        }
 
       } catch (error) {
         console.error("Error sending message to bot:", error);
