@@ -120,8 +120,15 @@ export function initChat() {
 
   function toggleChatWindow() {
     const isHidden = chatWindow.classList.contains("hidden");
+    const isMobile = window.innerWidth <= 768;
 
     if (isHidden) {
+      document.body.classList.add("n8n-chat-open");
+      if (isMobile) {
+        chatWindow.classList.remove("bottom-24", "right-5");
+      } else {
+        chatWindow.classList.add("bottom-24", "right-5");
+      }
       chatWindow.classList.remove("hidden");
       setTimeout(() => {
         chatBubble.classList.add("opacity-0", "scale-0");
@@ -136,6 +143,7 @@ export function initChat() {
         setTimeout(() => chatInput.focus(), 300);
       }, 10);
     } else {
+      document.body.classList.remove("n8n-chat-open");
       chatBubble.classList.remove("opacity-0", "scale-0");
       chatWindow.classList.remove("opacity-100", "translate-y-0");
       chatWindow.classList.add("opacity-0", "translate-y-4");

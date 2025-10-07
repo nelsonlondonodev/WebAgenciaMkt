@@ -239,39 +239,53 @@ body.fade-in {
 }
 
 /* Custom styles for n8n chat button */
-.chat-window-toggle {
-  background-color: #3B82F6 !important;
+body.n8n-chat-open .n8n-chat-toggle {
+  background-color: #3B82F6;
 }
-.chat-window-toggle:hover {
-  background-color: #10B981 !important;
+body.n8n-chat-open .n8n-chat-toggle:hover {
+  background-color: #10B981;
 }
 
 /* Custom styles for n8n chat window */
-.chat-window {
-  border-radius: 0.75rem !important; /* 12px */
-  overflow: hidden !important;
+body.n8n-chat-open .n8n-chat-window {
+  border-radius: 0.75rem; /* 12px */
+  overflow: hidden;
 }
-.chat-header {
-  background-color: #3B82F6 !important; /* primary-blue */
-  color: #FFFFFF !important;
+body.n8n-chat-open .n8n-chat-header {
+  background-color: #3B82F6; /* primary-blue */
+  color: #FFFFFF;
 }
-.chat-header .title,
-.chat-header .subtitle {
-  color: #FFFFFF !important;
+body.n8n-chat-open .n8n-chat-header .title,
+body.n8n-chat-open .n8n-chat-header .subtitle {
+  color: #FFFFFF;
 }
-.n8n-chat-ui-user-message .message-content {
-  background-color: #10B981 !important; /* primary-green */
-  color: #FFFFFF !important;
+body.n8n-chat-open .n8n-chat-ui-user-message .message-content {
+  background-color: #10B981; /* primary-green */
+  color: #FFFFFF;
 }
-.n8n-chat-ui-user-message .message-arrow {
-  border-left-color: #10B981 !important;
+body.n8n-chat-open .n8n-chat-ui-user-message .message-arrow {
+  border-left-color: #10B981;
 }
-.n8n-chat-ui-bot-message .message-content {
-  background-color: #F3F4F6 !important; /* gray-100 */
-  color: #1F2937 !important; /* gray-800 */
+body.n8n-chat-open .n8n-chat-ui-bot-message .message-content {
+  background-color: #F3F4F6; /* gray-100 */
+  color: #1F2937; /* gray-800 */
 }
-.n8n-chat-ui-bot-message .message-arrow {
-  border-right-color: #F3F4F6 !important;
+body.n8n-chat-open .n8n-chat-ui-bot-message .message-arrow {
+  border-right-color: #F3F4F6;
+}
+
+@media (max-width: 768px) {
+  body.n8n-chat-open .n8n-chat-window {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 1rem;
+  }
 }
 
 @layer utilities {
