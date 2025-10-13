@@ -641,9 +641,11 @@ function setLanguage(lang) {
   let translationsUrl;
   if (window.location.pathname.includes("articulo-seo-post-fiestas.html")) {
     translationsUrl = "./translations/articulo-seo-post-fiestas.json";
+  } else if (window.location.pathname.includes("articulo-redes-sociales-publicidad-local.html")) {
+    translationsUrl = "./translations/articulo-redes-sociales-publicidad-local.json";
   } else if (window.location.pathname.includes("articulo-ejemplo.html")) {
     // TODO: Create a translations file for the example article
-  } else if (window.location.pathname.includes("blog.html") || window.location.pathname.includes("articulo-redes-sociales-publicidad-local.html")) {
+  } else if (window.location.pathname.includes("blog.html")) {
     translationsUrl = "./translations/blog.json";
   } else {
     // Default translations for other pages
