@@ -211,7 +211,6 @@ const translations = {
     blogSubheader:
       "Consejos de marketing, SEO y diseño web para hacer crecer tu negocio en la zona norte de Madrid.",
     articleCategory: "SEO Local",
-    articleDate: "15 de Agosto, 2025",
     articleTitle:
       "Aparece Primero en Google Maps: Guía de SEO Local para Negocios en Fuente el Saz",
     articleDescription:
@@ -512,7 +511,6 @@ const translations = {
     blogSubheader:
       "Marketing, SEO, and web design tips to grow your business in the northern area of Madrid.",
     articleCategory: "Local SEO",
-    articleDate: "August 15, 2025",
     articleTitle:
       "Appear First on Google Maps: A Local SEO Guide for Businesses in Fuente el Saz",
     articleDescription:
