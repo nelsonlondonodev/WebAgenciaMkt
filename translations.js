@@ -608,6 +608,22 @@ const translations = {
   },
 };
 
+function formatDate(lang) {
+  const timeElements = document.querySelectorAll("time");
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const locale = lang === 'es' ? 'es-ES' : 'en-US';
+
+  timeElements.forEach(el => {
+    const datetime = el.getAttribute('datetime');
+    if (datetime) {
+      // Create a date object in UTC to avoid timezone issues
+      const dateParts = datetime.split('-').map(part => parseInt(part, 10));
+      const date = new Date(Date.UTC(dateParts[0], dateParts[1] - 1, dateParts[2]));
+      el.textContent = new Intl.DateTimeFormat(locale, options).format(date);
+    }
+  });
+}
+
 function setLanguage(lang) {
   const langIndicator = document.getElementById("langIndicator");
   if (!langIndicator) {
@@ -629,7 +645,7 @@ function setLanguage(lang) {
     translationsUrl = "./translations/articulo-seo-post-fiestas.json";
   } else if (window.location.pathname.includes("articulo-ejemplo.html")) {
     // TODO: Create a translations file for the example article
-  } else if (window.location.pathname.includes("blog.html")) {
+  } else if (window.location.pathname.includes("blog.html") || window.location.pathname.includes("articulo-redes-sociales-publicidad-local.html")) {
     translationsUrl = "./translations/blog.json";
   } else {
     // Default translations for other pages
@@ -668,6 +684,7 @@ function setLanguage(lang) {
             }
           }
         });
+        formatDate(lang); // Translate dates
       });
   } else {
     // Handle translations for pages without a dedicated JSON file
@@ -687,6 +704,7 @@ function setLanguage(lang) {
         }
       }
     });
+    formatDate(lang); // Translate dates
   }
 }
 
