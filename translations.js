@@ -211,7 +211,6 @@ const translations = {
     blogSubheader:
       "Consejos de marketing, SEO y diseño web para hacer crecer tu negocio en la zona norte de Madrid.",
     articleCategory: "SEO Local",
-    articleDate: "15 de Agosto, 2025",
     articleTitle:
       "Aparece Primero en Google Maps: Guía de SEO Local para Negocios en Fuente el Saz",
     articleDescription:
@@ -512,7 +511,6 @@ const translations = {
     blogSubheader:
       "Marketing, SEO, and web design tips to grow your business in the northern area of Madrid.",
     articleCategory: "Local SEO",
-    articleDate: "August 15, 2025",
     articleTitle:
       "Appear First on Google Maps: A Local SEO Guide for Businesses in Fuente el Saz",
     articleDescription:
@@ -608,6 +606,22 @@ const translations = {
   },
 };
 
+function formatDate(lang) {
+  const timeElements = document.querySelectorAll("time");
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const locale = lang === 'es' ? 'es-ES' : 'en-US';
+
+  timeElements.forEach(el => {
+    const datetime = el.getAttribute('datetime');
+    if (datetime) {
+      // Create a date object in UTC to avoid timezone issues
+      const dateParts = datetime.split('-').map(part => parseInt(part, 10));
+      const date = new Date(Date.UTC(dateParts[0], dateParts[1] - 1, dateParts[2]));
+      el.textContent = new Intl.DateTimeFormat(locale, options).format(date);
+    }
+  });
+}
+
 function setLanguage(lang) {
   const langIndicator = document.getElementById("langIndicator");
   if (!langIndicator) {
@@ -627,6 +641,8 @@ function setLanguage(lang) {
   let translationsUrl;
   if (window.location.pathname.includes("articulo-seo-post-fiestas.html")) {
     translationsUrl = "./translations/articulo-seo-post-fiestas.json";
+  } else if (window.location.pathname.includes("articulo-redes-sociales-publicidad-local.html")) {
+    translationsUrl = "./translations/articulo-redes-sociales-publicidad-local.json";
   } else if (window.location.pathname.includes("articulo-ejemplo.html")) {
     // TODO: Create a translations file for the example article
   } else if (window.location.pathname.includes("blog.html")) {
@@ -668,6 +684,7 @@ function setLanguage(lang) {
             }
           }
         });
+        formatDate(lang); // Translate dates
       });
   } else {
     // Handle translations for pages without a dedicated JSON file
@@ -687,6 +704,7 @@ function setLanguage(lang) {
         }
       }
     });
+    formatDate(lang); // Translate dates
   }
 }
 
