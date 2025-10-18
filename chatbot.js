@@ -7,6 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatMessages = document.getElementById('chat-messages');
 
     const n8nWebhookUrl = 'https://n8n.srv1033442.hstgr.cloud/webhook/34b5ab96-ecf0-4195-93de-e3923c2062e5';
+    const CHAT_SESSION_ID_KEY = 'nelson_chat_session_id';
+
+    function getOrCreateSessionId() {
+        let sessionId = localStorage.getItem(CHAT_SESSION_ID_KEY);
+        if (!sessionId) {
+            sessionId = Date.now().toString(36) + Math.random().toString(36).substring(2);
+            localStorage.setItem(CHAT_SESSION_ID_KEY, sessionId);
+        }
+        return sessionId;
+    }
 
     chatWidgetButton.addEventListener('click', () => {
         toggleChatWindow();
@@ -43,13 +53,15 @@ document.addEventListener('DOMContentLoaded', () => {
         chatInput.value = '';
         showTypingIndicator();
 
+        const sessionId = getOrCreateSessionId();
+
         // Send message to n8n
         fetch(n8nWebhookUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ message: message })
+            body: JSON.stringify({ message: message, sessionId: sessionId })
         })
         .then(response => response.json())
         .then(data => {
