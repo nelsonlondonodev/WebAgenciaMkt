@@ -92,7 +92,14 @@ document.addEventListener('DOMContentLoaded', () => {
             bubble.classList.add('bg-gray-300', 'dark:bg-gray-600', 'text-gray-900', 'dark:text-white');
         }
 
-        bubble.innerText = message;
+        bubble.innerHTML = message;
+
+        // Find all links within the bubble and apply styling to ensure they are visible.
+        const links = bubble.querySelectorAll('a');
+        links.forEach(link => {
+            link.classList.add('text-blue-500', 'underline');
+        });
+
         messageElement.appendChild(bubble);
         chatMessages.appendChild(messageElement);
         chatMessages.scrollTop = chatMessages.scrollHeight;
