@@ -88,6 +88,9 @@ module.exports = {
     'w-2',
     'h-2',
     'bg-gray-500',
-    'animate-pulse'
+    'animate-pulse',
+    'text-blue-500',
+    'underline',
+    'bg-gray-200'
   ]
 };
