@@ -8,7 +8,7 @@
     "watch:css": "postcss ./src/input.css -o ./output.css --watch",
     "build:css": "NODE_ENV=production postcss ./src/input.css -o ./output.css",
     "build:js": "esbuild script.js --bundle --minify --outfile=bundle.min.js",
-    "build": "npm run build:css && npm run build:js",
+    "build": "npm run build:css && npm run build:js && node cache-buster.js",
     "sitemap": "node generar-sitemap.js",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
