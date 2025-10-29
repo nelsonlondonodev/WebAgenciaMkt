@@ -78,35 +78,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function appendMessage(message, sender) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('mb-4', 'flex', 'flex-col', sender === 'user' ? 'items-end' : 'items-start');
-
+    function createBubble(message, sender) {
         const bubble = document.createElement('div');
         bubble.classList.add('py-2', 'px-4', 'rounded-lg', 'inline-block', 'max-w-xs');
 
-        if (sender === 'user') {
-            bubble.classList.add('bg-primary-blue', 'text-white');
-        } else {
-            bubble.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-900', 'dark:text-white');
-        }
+        const bubbleColor = sender === 'user' 
+            ? ['bg-primary-blue', 'text-white'] 
+            : ['bg-gray-200', 'dark:bg-gray-700', 'text-gray-900', 'dark:text-white'];
+        bubble.classList.add(...bubbleColor);
 
         bubble.innerHTML = message;
 
-        // Find all links within the bubble and apply styling to ensure they are visible.
         const links = bubble.querySelectorAll('a');
         links.forEach(link => {
             link.classList.add('text-blue-500', 'underline');
         });
 
-        messageElement.appendChild(bubble);
+        return bubble;
+    }
 
-        // Create and append timestamp
+    function createTimestamp() {
         const time = new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
         const timeElement = document.createElement('div');
         timeElement.classList.add('text-xs', 'text-gray-500', 'dark:text-gray-400', 'mt-1');
         timeElement.textContent = time;
-        messageElement.appendChild(timeElement);
+        return timeElement;
+    }
+
+    function appendMessage(message, sender) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('mb-4', 'flex', 'flex-col', sender === 'user' ? 'items-end' : 'items-start');
+
+        const bubble = createBubble(message, sender);
+        const timestamp = createTimestamp();
+
+        messageElement.appendChild(bubble);
+        messageElement.appendChild(timestamp);
 
         chatMessages.appendChild(messageElement);
         chatMessages.scrollTop = chatMessages.scrollHeight;
