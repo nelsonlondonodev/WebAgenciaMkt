@@ -80,16 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function appendMessage(message, sender) {
         const messageElement = document.createElement('div');
-        messageElement.classList.add('mb-4');
+        messageElement.classList.add('mb-4', 'flex', 'flex-col', sender === 'user' ? 'items-end' : 'items-start');
 
         const bubble = document.createElement('div');
         bubble.classList.add('py-2', 'px-4', 'rounded-lg', 'inline-block', 'max-w-xs');
 
         if (sender === 'user') {
-            messageElement.classList.add('text-right');
-            bubble.classList.add('bg-blue-500', 'text-white');
+            bubble.classList.add('bg-primary-blue', 'text-white');
         } else {
-            bubble.classList.add('bg-gray-300', 'dark:bg-gray-600', 'text-gray-900', 'dark:text-white');
+            bubble.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-900', 'dark:text-white');
         }
 
         bubble.innerHTML = message;
@@ -101,6 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         messageElement.appendChild(bubble);
+
+        // Create and append timestamp
+        const time = new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+        const timeElement = document.createElement('div');
+        timeElement.classList.add('text-xs', 'text-gray-500', 'dark:text-gray-400', 'mt-1');
+        timeElement.textContent = time;
+        messageElement.appendChild(timeElement);
+
         chatMessages.appendChild(messageElement);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
