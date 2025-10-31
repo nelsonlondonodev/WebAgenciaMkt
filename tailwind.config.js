@@ -91,6 +91,7 @@ module.exports = {
     'animate-pulse',
     'text-blue-500',
     'underline',
-    'bg-gray-200'
+    'bg-gray-200',
+    { pattern: /bg-(primary-green|primary-blue)/, variants: ['hover'] }
   ]
 };
