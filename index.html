@@ -41,11 +41,7 @@
       />
     </noscript>
 
-    <link
-      rel="preload"
-      href="./image/placeholder-inicio-nuevo2.webp"
-      as="image"
-    />
+
     <link href="./output.css?v=1761721531560" rel="stylesheet" />
 
     <!-- Estilos personalizados para el Chatbot de n8n -->
@@ -215,6 +211,12 @@
               class="absolute inset-0 flex items-center justify-center overflow-hidden"
             >
               <img
+                srcset="image/placeholder-inicio-nuevo2-480.webp 480w,
+                        image/placeholder-inicio-nuevo2-800.webp 800w,
+                        image/placeholder-inicio-nuevo2.webp 1140w"
+                sizes="(max-width: 640px) 480px,
+                       (max-width: 1024px) 800px,
+                       1140px"
                 src="image/placeholder-inicio-nuevo2.webp"
                 alt="Vista previa del Tour Virtual 360 de la sección de inicio"
                 class="w-full h-full object-cover blur-sm opacity-50"
@@ -793,14 +795,17 @@
               data-category="tour seo"
             >
               <div class="relative">
-                <img
-                  class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                  src="image/barberia-isma.webp"
-                  alt="Tour 360 de La Barbería de Isma"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div
+                                  <img
+                                    class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                                    srcset="image/barberia-isma-480.webp 480w,
+                                            image/barberia-isma.webp 640w"
+                                    sizes="(max-width: 640px) 480px,
+                                           640px"
+                                    src="image/barberia-isma.webp"
+                                    alt="Tour 360 de La Barbería de Isma"
+                                    loading="lazy"
+                                    decoding="async"
+                                  />                <div
                   class="absolute top-2 right-2 flex items-center space-x-1.5 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm"
                 >
                   <i class="fas fa-vr-cardboard"></i>
@@ -889,6 +894,12 @@
                 <div class="relative">
                   <img
                     class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                    srcset="./image/foto-suave-bocado-480.webp 480w,
+                            ./image/foto-suave-bocado-800.webp 800w,
+                            ./image/foto-suave-bocado.webp 1423w"
+                    sizes="(max-width: 640px) 480px,
+                           (max-width: 1024px) 800px,
+                           1423px"
                     src="./image/foto-suave-bocado.webp"
                     alt="Página web de Suave Bocado Repostería"
                     loading="lazy"
@@ -939,6 +950,12 @@
                 <div class="relative">
                   <img
                     class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                    srcset="image/foto-luis-alberto-correa-480.webp 480w,
+                            image/foto-luis-alberto-correa-800.webp 800w,
+                            image/foto-luis-alberto-correa.webp 1422w"
+                    sizes="(max-width: 640px) 480px,
+                           (max-width: 1024px) 800px,
+                           1422px"
                     src="image/foto-luis-alberto-correa.webp"
                     alt="Landing page del músico Luis Alberto Correa"
                     loading="lazy"
@@ -989,6 +1006,12 @@
                 <div class="relative">
                   <img
                     class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                    srcset="image/foto-barberia-mrtijeras-480.webp 480w,
+                            image/foto-barberia-mrtijeras-800.webp 800w,
+                            image/foto-barberia-mrtijeras.webp 1440w"
+                    sizes="(max-width: 640px) 480px,
+                           (max-width: 1024px) 800px,
+                           1440px"
                     src="image/foto-barberia-mrtijeras.webp"
                     alt="Landing page de la barbería Mr. Tijeras"
                     loading="lazy"
