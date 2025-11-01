@@ -2077,6 +2077,14 @@
       </div>
     </div>
 
+    <!-- SCRIPTS PARA PRODUCCIÓN -->
+    <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
+    <!-- 
+    <script src="./bundle.min.js?v=1761980189470" defer></script>
+    -->
+
+    <!-- SCRIPTS PARA DESARROLLO -->
+    <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->
     <script type="module" src="./script.js"></script>
     <script type="module" src="./darkMode.js"></script>
     <script type="module" src="./smoothScroll.js"></script>
@@ -2084,7 +2092,7 @@
     <script type="module" src="./nav.js"></script>
     <script type="module" src="./portfolio.js"></script>
     <script type="module" src="./translations.js"></script>
-    <script type="module" src="./chatbot.js"></script>
+    <script type="module" src="./chatbot.js?v=1761980189470"></script>
 
     <!-- Chatbot Widget -->
     <div id="chat-widget-container" class="fixed bottom-5 right-5 z-[9999]">
