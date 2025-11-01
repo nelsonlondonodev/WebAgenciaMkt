@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   const contactForm = document.querySelector(
-    "form[action='https://formspree.io/f/xanjbdrp']"
+    "#contact-form"
   );
   if (contactForm) {
     const statusMessage = document.getElementById("form-status");
