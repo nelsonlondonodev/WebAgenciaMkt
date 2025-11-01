@@ -1440,45 +1440,28 @@
             <form
               action="https://formspree.io/f/xanjbdrp"
               method="POST"
-              class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+              class="grid grid-cols-1 gap-y-6"
             >
+              <!-- Campo Nombre -->
               <div class="relative scroll-animate-initial">
                 <input
                   type="text"
-                  name="first-name"
-                  id="first-name"
-                  autocomplete="given-name"
+                  name="name"
+                  id="name"
+                  autocomplete="name"
                   class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green"
                   placeholder="Nombre"
                   required
                 />
                 <label
-                  for="first-name"
+                  for="name"
                   class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
                   data-translate-key="formFirstName"
                   >Nombre</label
                 >
               </div>
+              <!-- Campo Email -->
               <div class="relative scroll-animate-initial delay-100">
-                <input
-                  type="text"
-                  name="last-name"
-                  id="last-name"
-                  autocomplete="family-name"
-                  class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green"
-                  placeholder="Apellidos"
-                  required
-                />
-                <label
-                  for="last-name"
-                  class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-                  data-translate-key="formLastName"
-                  >Apellidos</label
-                >
-              </div>
-              <div
-                class="relative sm:col-span-2 scroll-animate-initial delay-200"
-              >
                 <input
                   id="email"
                   name="email"
@@ -1495,79 +1478,25 @@
                   >Email</label
                 >
               </div>
-              <div
-                class="relative sm:col-span-2 scroll-animate-initial delay-300"
-              >
+              <!-- Campo Teléfono -->
+              <div class="relative scroll-animate-initial delay-200">
                 <input
-                  type="text"
-                  name="phone-number"
-                  id="phone-number"
+                  type="tel"
+                  name="phone"
+                  id="phone"
                   autocomplete="tel"
                   class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green"
-                  placeholder="Teléfono (Opcional)"
+                  placeholder="Teléfono"
                 />
                 <label
-                  for="phone-number"
+                  for="phone"
                   class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
                   data-translate-key="formPhone"
-                  >Teléfono (Opcional)</label
+                  >Teléfono</label
                 >
               </div>
-              <div
-                class="relative sm:col-span-2 scroll-animate-initial delay-400"
-              >
-                <select
-                  id="service-interest"
-                  name="service-interest"
-                  class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-primary-green"
-                  required
-                >
-                  <option
-                    value=""
-                    disabled
-                    selected
-                    data-translate-key="optionSelectService"
-                  >
-                    Selecciona un servicio...
-                  </option>
-                  <option
-                    value="tour_virtual"
-                    data-translate-key="optionTourVirtual"
-                  >
-                    Tour Virtual 360°
-                  </option>
-                  <option
-                    value="web_medida"
-                    data-translate-key="optionWebMedida"
-                  >
-                    Desarrollo Web a Medida
-                  </option>
-                  <option
-                    value="wordpress"
-                    data-translate-key="optionWordPress"
-                  >
-                    Desarrollo Web con WordPress
-                  </option>
-                  <option value="seo" data-translate-key="optionSEO">
-                    SEO
-                  </option>
-                  <option value="branding" data-translate-key="optionBranding">
-                    Branding
-                  </option>
-                  <option value="otro" data-translate-key="optionOtro">
-                    Otro
-                  </option>
-                </select>
-                <label
-                  for="service-interest"
-                  class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-                  data-translate-key="formServiceInterest"
-                  >Servicio de Interés</label
-                >
-              </div>
-              <div
-                class="relative sm:col-span-2 scroll-animate-initial delay-500"
-              >
+              <!-- Campo Mensaje -->
+              <div class="relative scroll-animate-initial delay-300">
                 <textarea
                   id="message"
                   name="message"
@@ -1583,9 +1512,8 @@
                   >Mensaje</label
                 >
               </div>
-              <div
-                class="sm:col-span-2 text-center scroll-animate-initial delay-500"
-              >
+              <!-- Botón Enviar -->
+              <div class="text-center scroll-animate-initial delay-400">
                 <button
                   type="submit"
                   class="cta-button w-full sm:w-auto"
@@ -1594,10 +1522,10 @@
                   Enviar Mensaje
                 </button>
               </div>
-
+              <!-- Status del Formulario -->
               <div
                 id="form-status"
-                class="sm:col-span-2 text-center font-semibold mt-4"
+                class="text-center font-semibold mt-4"
               ></div>
             </form>
             <div class="mt-10 text-center">
