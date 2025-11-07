@@ -106,10 +106,9 @@ const translations = {
     navBlog: "Blog",
     openMenu: "Abrir menú principal",
     heroTitle1:
-      "Impulsamos Negocios en Fuente el Saz del Jarama con Diseño Web y Estrategias de Marketing",
-    heroTitle2: "Transformamos tu negocio",
+      "Agencia de Marketing en Fuente el Saz que Transforma tu Negocio con Tecnología",
     heroSubtitle:
-      "Creamos soluciones web innovadoras, SEO estratégico y los revolucionarios Tours Virtuales 360°.",
+      "Creamos webs de alto rendimiento, estrategias SEO y asistentes virtuales con IA para automatizar tus procesos y multiplicar tus resultados.",
     heroCTA: "Descubre nuestros servicios",
     servicesTitle: "Servicios de Marketing Digital en Fuente el Saz",
     servicesSubtitle:
@@ -406,10 +405,9 @@ const translations = {
     navBlog: "Blog",
     openMenu: "Open main menu",
     heroTitle1:
-      "Boosting Businesses in Fuente el Saz del Jarama with Web Design and Marketing Strategies",
-    heroTitle2: "We transform your business",
+      "Marketing Agency in Fuente el Saz that Transforms Your Business with Technology",
     heroSubtitle:
-      "We create innovative web solutions, strategic SEO, and revolutionary 360° Virtual Tours.",
+      "We create high-performance websites, SEO strategies, and AI virtual assistants to automate your processes and multiply your results.",
     heroCTA: "Discover our services",
     servicesTitle: "Digital Marketing Services in Fuente el Saz",
     servicesSubtitle:
