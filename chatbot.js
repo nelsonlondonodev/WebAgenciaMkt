@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function appendMessage(message, sender) {
         const messageElement = document.createElement('div');
-        messageElement.classList.add('mb-4', 'flex', 'flex-col', sender === 'user' ? 'items-end' : 'items-start');
+        messageElement.classList.add('mb-4', 'flex', 'flex-col', sender === 'user' ? 'items-end' : 'items-start', 'animate-chat-message-in');
 
         const bubble = createBubble(message, sender);
         const timestamp = createTimestamp();
