@@ -195,87 +195,22 @@
     </header>
 
     <main>
-      <section
-        id="inicio"
-        class="relative h-[80vh] overflow-hidden bg-white dark:bg-dark-bg"
-      >
-        <div
-          id="hero-iframe-container"
-          class="relative w-full h-full cursor-pointer lg:w-4/5 lg:mx-auto lg:rounded-2xl lg:shadow-2xl rounded-b-2xl bg-gradient-to-tr from-primary-green to-primary-blue p-1"
-        >
-          <div
-            class="relative w-full h-full rounded-b-xl lg:rounded-xl overflow-hidden bg-white dark:bg-dark-bg"
-          >
-            <div
-              id="hero-iframe-placeholder"
-              class="absolute inset-0 flex items-center justify-center overflow-hidden"
-            >
-              <img
-                srcset="image/placeholder-inicio-nuevo2-480.webp 480w,
-                        image/placeholder-inicio-nuevo2-800.webp 800w,
-                        image/placeholder-inicio-nuevo2.webp 1140w"
-                sizes="(max-width: 640px) 480px,
-                       (max-width: 1024px) 800px,
-                       1140px"
-                src="image/placeholder-inicio-nuevo2.webp"
-                alt="Vista previa del Tour Virtual 360 de la sección de inicio"
-                class="w-full h-full object-cover blur-sm opacity-50"
-                width="1920"
-                height="1080"
-                loading="lazy"
-                decoding="async"
-                fetchpriority="high"
-              />
-              <div class="absolute inset-0 bg-black/50"></div>
-              <div class="absolute text-center text-white p-4">
-                <i class="fas fa-play-circle fa-5x mb-4 text-white/80"></i>
-                <p class="text-xl font-semibold" data-translate-key="heroPlay">
-                  Cargar Tour Virtual 360°
-                </p>
-                <p
-                  class="text-sm text-gray-300 mt-1"
-                  data-translate-key="heroPlaySub"
+      <section id="inicio" class="bg-white dark:bg-dark-bg">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center min-h-[60vh]">
+            <div class="max-w-3xl">
+                <h1
+                  class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white scroll-animate-initial"
+                  data-translate-key="heroTitleNew"
                 >
-                  Haz clic para iniciar la experiencia interactiva
+                  Agencia de Marketing en Fuente el Saz que Transforma tu Negocio con Tecnología
+                </h1>
+                <p
+                  class="mt-6 text-xl text-gray-600 dark:text-gray-300"
+                  data-translate-key="heroSubtitleNew"
+                >
+                  Creamos webs de alto rendimiento, estrategias SEO y asistentes virtuales con IA para automatizar tus procesos y multiplicar tus resultados.
                 </p>
-              </div>
             </div>
-            <iframe
-              id="hero-iframe"
-              title="Tour Virtual 360 Interactivo"
-              width="100%"
-              height="100%"
-              frameborder="0"
-              allow="xr-spatial-tracking; gyroscope; accelerometer; fullscreen"
-              scrolling="no"
-              data-src="https://kuula.co/share/h8d12?logo=-1&card=1&info=0&fs=0&vr=0&initload=0&autorotate=0.08&autop=10&thumbs=4&inst=0"
-              class="hidden"
-            ></iframe>
-            <div
-              id="hero-text-container"
-              class="absolute z-10 p-4 bottom-2 left-4 sm:p-6 md:bottom-4 md:left-8 md:p-8 text-left"
-            >
-              <div class="flex flex-col md:flex-row md:items-center md:gap-8">
-                <div class="flex-grow">
-                  <h1
-                    class="text-3xl sm:text-4xl font-extrabold text-white dark:text-white scroll-animate-initial [text-shadow:0_2px_4px_rgba(0,0,0,0.5)]"
-                    data-translate-key="heroTitle1"
-                  >
-                    Impulsamos Negocios en Fuente el Saz del Jarama con Diseño
-                    Web y Estrategias de Marketing
-                  </h1>
-                  <p
-                    class="mt-2 text-base sm:text-lg text-gray-200 dark:text-gray-200 [text-shadow:0_2px_4px_rgba(0,0,0,0.5)]"
-                    data-translate-key="heroSubtitle"
-                  >
-                    Creamos soluciones web innovadoras, SEO estratégico y los
-                    revolucionarios Tours Virtuales 360°.
-                  </p>
-                </div>
-                <div class="mt-6 md:mt-0 flex-shrink-0"></div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
