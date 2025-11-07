@@ -80,12 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createBubble(message, sender) {
         const bubble = document.createElement('div');
-        bubble.classList.add('py-2', 'px-4', 'rounded-lg', 'inline-block', 'max-w-xs');
+        bubble.classList.add('py-2', 'px-4', 'inline-block', 'max-w-xs');
 
-        const bubbleColor = sender === 'user' 
-            ? ['bg-primary-blue', 'text-white'] 
-            : ['bg-gray-200', 'dark:bg-gray-700', 'text-gray-900', 'dark:text-white'];
-        bubble.classList.add(...bubbleColor);
+        if (sender === 'user') {
+            bubble.classList.add('bg-primary-blue', 'text-white', 'rounded-t-lg', 'rounded-bl-lg');
+        } else {
+            bubble.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-900', 'dark:text-white', 'rounded-t-lg', 'rounded-br-lg');
+        }
 
         bubble.innerHTML = message;
 
