@@ -14,7 +14,7 @@ fs.readFile(indexPath, 'utf8', (err, data) => {
 
     // Correctly create a RegExp object.
     // The regex now correctly captures the attribute (src or href) and the filename.
-    const regex = new RegExp('(src|href)="\\./(bundle\\.min\\.js|output\\.css|chatbot\\.js)"', 'g');
+    const regex = new RegExp('(src|href)="\\./(bundle\\.min\\.js|output\\.css)"', 'g');
 
     const updatedData = data.replace(regex, (match, attribute, filename) => {
         const newUrl = `${attribute}="./${filename}?v=${version}"`;
