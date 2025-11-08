@@ -106,7 +106,7 @@ const translations = {
     navBlog: "Blog",
     openMenu: "Abrir menú principal",
     heroTitle: "Agencia de Marketing en Fuente el Saz",
-    heroTagline: "que Transforma tu Negocio con Tecnología",
+    heroTagline: "Transforma tu negocio con tecnología",
     heroSubtitle:
       "Creamos webs de alto rendimiento, estrategias SEO y asistentes virtuales con IA para automatizar tus procesos y multiplicar tus resultados.",
     heroCTA: "Descubre nuestros servicios",
@@ -405,7 +405,7 @@ const translations = {
     navBlog: "Blog",
     openMenu: "Open main menu",
     heroTitle: "Marketing Agency in Fuente el Saz",
-    heroTagline: "that Transforms Your Business with Technology",
+    heroTagline: "Transforms your business with technology",
     heroSubtitle:
       "We create high-performance websites, SEO strategies, and AI virtual assistants to automate your processes and multiply your results.",
     heroCTA: "Discover our services",
