@@ -13,7 +13,7 @@
 /* 2. Utilidades personalizadas */
 @layer utilities {
   .logo-invert-on-dark {
-    @apply dark:invert dark:brightness-200;
+    @apply dark:invert;
   }
 }
 
