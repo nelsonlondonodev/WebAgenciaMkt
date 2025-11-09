@@ -16,10 +16,26 @@ module.exports = {
       },
       animation: {
         'zoom-in': 'zoomIn 0.3s ease-out',
+        'slide-in-right': 'slideInRight 0.8s ease-out forwards',
+        'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
+        'scale-in-core': 'scaleInCore 0.8s ease-out forwards',
       },
       keyframes: {
         zoomIn: {
           '0%': { opacity: 0, transform: 'scale(0.95)' },
+          '100%': { opacity: 1, transform: 'scale(1)' },
+        },
+        slideInRight: {
+          '0%': { opacity: 0, transform: 'translateX(150px)' },
+          '80%': { opacity: 1, transform: 'translateX(-10px)' },
+          '100%': { opacity: 1, transform: 'translateX(0)' },
+        },
+        slideInLeft: {
+          '0%': { opacity: 0, transform: 'translateX(-100px)' },
+          '100%': { opacity: 1, transform: 'translateX(0)' },
+        },
+        scaleInCore: {
+          '0%': { opacity: 0, transform: 'scale(0.8)' },
           '100%': { opacity: 1, transform: 'scale(1)' },
         },
       },
