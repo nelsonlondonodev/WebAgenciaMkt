@@ -163,6 +163,22 @@
     @apply translate-x-5;
   }
 
+  /* Degradado suave entre secciones */
+  #inicio::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px; /* Altura del degradado */
+    background: linear-gradient(to top, #F9FAFB, transparent);
+    pointer-events: none; /* Para que no interfiera con el ratón */
+  }
+
+  .dark #inicio::after {
+    background: linear-gradient(to top, #020202, transparent);
+  }
+
   /* Animación de gradiente para la sección de inicio */
   @keyframes moveGradient {
     0% {
