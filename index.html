@@ -41,9 +41,7 @@
       />
     </noscript>
 
-
     <link href="./output.css?v=1761721531560" rel="stylesheet" />
-
   </head>
   <body data-lang="es">
     <header id="mainHeader" class="sticky-header">
@@ -188,30 +186,49 @@
     </header>
 
     <main class="pt-20">
-      <section id="inicio" class="relative overflow-hidden animated-gradient-bg">
-        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center md:min-h-[calc(90vh-5rem)]">
-            <div class="max-w-3xl">
-                <h1
-                  class="text-2xl sm:text-[26px] font-normal text-gray-900 dark:text-white opacity-0 animate-slide-in-right uppercase"
-                  data-translate-key="heroTitle"
-                >
-                  Agencia de Marketing en Fuente el Saz
-                </h1>
-                <p
-                  class="mt-8 text-3xl sm:text-6xl font-extrabold text-gray-700 dark:text-gray-200 opacity-0 animate-slide-in-left text-left sm:text-center"
-                  style="animation-delay: 0.2s"
-                  data-translate-key="heroTagline"
-                >
-                  que Transforma tu Negocio con Tecnología
-                </p>
-                <p
-                  class="mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center"
-                  style="animation-delay: 0.4s"
-                  data-translate-key="heroSubtitle"
-                >
-                  Creamos webs de alto rendimiento, estrategias SEO y asistentes virtuales con IA para automatizar tus procesos y multiplicar tus resultados.
-                </p>
-            </div>
+      <section
+        id="inicio"
+        class="relative overflow-hidden animated-gradient-bg"
+      >
+        <div
+          class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center md:min-h-[calc(90vh-5rem)]"
+        >
+          <!-- Imágenes flotantes -->
+          <img
+            src="./image/flujo_n8n.png"
+            alt="Flujo de automatización en n8n"
+            class="absolute top-1/4 left-4 w-48 lg:w-64 rounded-lg shadow-2xl transform -rotate-12 z-0 animate-float-up-down"
+          />
+          <img
+            src="./image/metrica_GMB.png"
+            alt="Métricas de Google My Business"
+            class="absolute bottom-1/4 right-4 w-48 lg:w-64 rounded-lg shadow-2xl transform rotate-12 z-0 animate-float-down-up"
+          />
+
+          <div class="max-w-3xl relative z-10">
+            <h1
+              class="text-2xl sm:text-[26px] font-normal text-gray-900 dark:text-white opacity-0 animate-slide-in-right uppercase"
+              data-translate-key="heroTitle"
+            >
+              Agencia de Marketing en Fuente el Saz
+            </h1>
+            <p
+              class="mt-8 text-3xl sm:text-6xl font-extrabold text-gray-700 dark:text-gray-200 opacity-0 animate-slide-in-left text-left sm:text-center"
+              style="animation-delay: 0.2s"
+              data-translate-key="heroTagline"
+            >
+              que Transforma tu Negocio con Tecnología
+            </p>
+            <p
+              class="mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center"
+              style="animation-delay: 0.4s"
+              data-translate-key="heroSubtitle"
+            >
+              Creamos webs de alto rendimiento, estrategias SEO y asistentes
+              virtuales con IA para automatizar tus procesos y multiplicar tus
+              resultados.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -683,21 +700,24 @@
               data-category="tour seo"
             >
               <div class="relative">
-                                  <img
-                                    class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                                    srcset="./image/foto-locutorio-480.webp 480w,
-                                            ./image/foto-locutorio-800.webp 800w,
-                                            ./image/foto-locutorio.webp 1440w"
-                                    sizes="(max-width: 640px) 480px,
+                <img
+                  class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                  srcset="
+                    ./image/foto-locutorio-480.webp  480w,
+                    ./image/foto-locutorio-800.webp  800w,
+                    ./image/foto-locutorio.webp     1440w
+                  "
+                  sizes="(max-width: 640px) 480px,
                                            (max-width: 1024px) 800px,
                                            1440px"
-                                    src="./image/foto-locutorio.webp"
-                                    alt="Tour 360 de Locutorio el Pilón"
-                                    loading="lazy"
-                                    decoding="async"
-                                    width="1440"
-                                    height="777"
-                                  />                <div
+                  src="./image/foto-locutorio.webp"
+                  alt="Tour 360 de Locutorio el Pilón"
+                  loading="lazy"
+                  decoding="async"
+                  width="1440"
+                  height="777"
+                />
+                <div
                   class="absolute top-2 right-2 flex items-center space-x-1.5 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm"
                 >
                   <i class="fas fa-vr-cardboard"></i>
@@ -735,19 +755,22 @@
               data-category="tour seo"
             >
               <div class="relative">
-                                  <img
-                                    class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                                    srcset="image/barberia-isma-480.webp 480w,
-                                            image/barberia-isma.webp 640w"
-                                    sizes="(max-width: 640px) 480px,
+                <img
+                  class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                  srcset="
+                    image/barberia-isma-480.webp 480w,
+                    image/barberia-isma.webp     640w
+                  "
+                  sizes="(max-width: 640px) 480px,
                                            640px"
-                                    src="image/barberia-isma.webp"
-                                    alt="Tour 360 de La Barbería de Isma"
-                                    loading="lazy"
-                                    decoding="async"
-                                    width="640"
-                                    height="400"
-                                  />                <div
+                  src="image/barberia-isma.webp"
+                  alt="Tour 360 de La Barbería de Isma"
+                  loading="lazy"
+                  decoding="async"
+                  width="640"
+                  height="400"
+                />
+                <div
                   class="absolute top-2 right-2 flex items-center space-x-1.5 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm"
                 >
                   <i class="fas fa-vr-cardboard"></i>
@@ -785,19 +808,22 @@
               data-category="tour"
             >
               <div class="relative">
-                                  <img
-                                    class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                                    srcset="image/piso-en-venta-480.webp 480w,
-                                            image/piso-en-venta.webp 640w"
-                                    sizes="(max-width: 640px) 480px,
+                <img
+                  class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                  srcset="
+                    image/piso-en-venta-480.webp 480w,
+                    image/piso-en-venta.webp     640w
+                  "
+                  sizes="(max-width: 640px) 480px,
                                            640px"
-                                    src="image/piso-en-venta.webp"
-                                    alt="Tour 360 de un piso en Madrid"
-                                    loading="lazy"
-                                    decoding="async"
-                                    width="640"
-                                    height="400"
-                                  />                <div
+                  src="image/piso-en-venta.webp"
+                  alt="Tour 360 de un piso en Madrid"
+                  loading="lazy"
+                  decoding="async"
+                  width="640"
+                  height="400"
+                />
+                <div
                   class="absolute top-2 right-2 flex items-center space-x-1.5 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm"
                 >
                   <i class="fas fa-vr-cardboard"></i>
@@ -841,9 +867,11 @@
                 <div class="relative">
                   <img
                     class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                    srcset="./image/foto-suave-bocado-480.webp 480w,
-                            ./image/foto-suave-bocado-800.webp 800w,
-                            ./image/foto-suave-bocado.webp 1423w"
+                    srcset="
+                      ./image/foto-suave-bocado-480.webp  480w,
+                      ./image/foto-suave-bocado-800.webp  800w,
+                      ./image/foto-suave-bocado.webp     1423w
+                    "
                     sizes="(max-width: 640px) 480px,
                            (max-width: 1024px) 800px,
                            1423px"
@@ -899,9 +927,11 @@
                 <div class="relative">
                   <img
                     class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                    srcset="image/foto-luis-alberto-correa-480.webp 480w,
-                            image/foto-luis-alberto-correa-800.webp 800w,
-                            image/foto-luis-alberto-correa.webp 1422w"
+                    srcset="
+                      image/foto-luis-alberto-correa-480.webp  480w,
+                      image/foto-luis-alberto-correa-800.webp  800w,
+                      image/foto-luis-alberto-correa.webp     1422w
+                    "
                     sizes="(max-width: 640px) 480px,
                            (max-width: 1024px) 800px,
                            1422px"
@@ -957,9 +987,11 @@
                 <div class="relative">
                   <img
                     class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                    srcset="image/foto-barberia-mrtijeras-480.webp 480w,
-                            image/foto-barberia-mrtijeras-800.webp 800w,
-                            image/foto-barberia-mrtijeras.webp 1440w"
+                    srcset="
+                      image/foto-barberia-mrtijeras-480.webp  480w,
+                      image/foto-barberia-mrtijeras-800.webp  800w,
+                      image/foto-barberia-mrtijeras.webp     1440w
+                    "
                     sizes="(max-width: 640px) 480px,
                            (max-width: 1024px) 800px,
                            1440px"
@@ -1522,8 +1554,6 @@
       </section>
     </main>
 
-
-
     <footer class="bg-gray-800 dark:bg-black">
       <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
         <p class="text-gray-400" data-translate-key="footerText">
@@ -1537,7 +1567,9 @@
           Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.
         </p>
         <p class="text-xs text-gray-500 mt-2">
-          <a href="#" id="open-cookie-settings" class="hover:underline">Configuración de Cookies</a>
+          <a href="#" id="open-cookie-settings" class="hover:underline"
+            >Configuración de Cookies</a
+          >
         </p>
         <p
           class="text-xs text-gray-500 mt-2"
@@ -1970,10 +2002,12 @@
     <div id="cookie-banner" class="cookie-banner hidden">
       <div class="cookie-banner-content">
         <div class="flex items-center">
-          <i class="fas fa-cookie-bite fa-2x mr-4 text-primary-blue dark:text-primary-green"></i>
+          <i
+            class="fas fa-cookie-bite fa-2x mr-4 text-primary-blue dark:text-primary-green"
+          ></i>
           <p class="text-sm">
-            Utilizamos cookies para mejorar tu experiencia. Las cookies analíticas
-            nos ayudan a entender cómo usas nuestro sitio web.
+            Utilizamos cookies para mejorar tu experiencia. Las cookies
+            analíticas nos ayudan a entender cómo usas nuestro sitio web.
           </p>
         </div>
         <div class="cookie-banner-actions">
@@ -2058,16 +2092,45 @@ src="./portfolio.js"></script>
 
     <!-- Chatbot Widget -->
     <div id="chat-widget-container" class="fixed bottom-5 right-5 z-[9999]">
-      <button id="chat-widget-button" class="bg-primary-blue text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:bg-primary-green transition-colors animate-bounce" aria-label="Abrir chat">
+      <button
+        id="chat-widget-button"
+        class="bg-primary-blue text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:bg-primary-green transition-colors animate-bounce"
+        aria-label="Abrir chat"
+      >
         <i class="fas fa-comment-dots fa-2x"></i>
       </button>
     </div>
 
-    <div id="chat-window" class="hidden fixed bottom-24 right-5 left-5 sm:left-auto max-w-sm bg-gray-100 dark:bg-gray-900 rounded-lg shadow-2xl z-[9999] flex flex-col" style="height: 70vh;">
-      <div class="bg-primary-blue text-white p-4 rounded-t-lg flex justify-between items-center">
-        <h3 class="text-lg font-semibold flex items-center"><i class="fas fa-robot mr-2"></i>Aurelio</h3>
-        <button id="close-chat-window" class="text-gray-300 hover:text-white transition-colors" aria-label="Cerrar chat">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    <div
+      id="chat-window"
+      class="hidden fixed bottom-24 right-5 left-5 sm:left-auto max-w-sm bg-gray-100 dark:bg-gray-900 rounded-lg shadow-2xl z-[9999] flex flex-col"
+      style="height: 70vh"
+    >
+      <div
+        class="bg-primary-blue text-white p-4 rounded-t-lg flex justify-between items-center"
+      >
+        <h3 class="text-lg font-semibold flex items-center">
+          <i class="fas fa-robot mr-2"></i>Aurelio
+        </h3>
+        <button
+          id="close-chat-window"
+          class="text-gray-300 hover:text-white transition-colors"
+          aria-label="Cerrar chat"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
         </button>
       </div>
       <div id="chat-messages" class="flex-1 p-4 overflow-y-auto">
@@ -2075,8 +2138,19 @@ src="./portfolio.js"></script>
       </div>
       <div class="p-4 border-t border-gray-200 dark:border-gray-700">
         <div class="flex">
-          <input type="text" id="chat-input" class="flex-1 border border-gray-300 dark:border-gray-600 rounded-l-lg p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" placeholder="Escribe un mensaje...">
-          <button id="chat-send" class="bg-primary-blue text-white rounded-r-lg px-4 hover:bg-blue-600 transition-colors flex items-center justify-center" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i></button>
+          <input
+            type="text"
+            id="chat-input"
+            class="flex-1 border border-gray-300 dark:border-gray-600 rounded-l-lg p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+            placeholder="Escribe un mensaje..."
+          />
+          <button
+            id="chat-send"
+            class="bg-primary-blue text-white rounded-r-lg px-4 hover:bg-blue-600 transition-colors flex items-center justify-center"
+            aria-label="Enviar mensaje"
+          >
+            <i class="fas fa-paper-plane"></i>
+          </button>
         </div>
       </div>
     </div>

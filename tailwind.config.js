@@ -19,6 +19,8 @@ module.exports = {
         'slide-in-right': 'slideInRight 0.8s ease-out forwards',
         'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
         'scale-in-core': 'scaleInCore 0.8s ease-out forwards',
+        'float-up-down': 'float-up-down 6s ease-in-out infinite',
+        'float-down-up': 'float-down-up 8s ease-in-out infinite',
       },
       keyframes: {
         zoomIn: {
@@ -37,6 +39,14 @@ module.exports = {
         scaleInCore: {
           '0%': { opacity: 0, transform: 'scale(0.8)' },
           '100%': { opacity: 1, transform: 'scale(1)' },
+        },
+        'float-up-down': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        'float-down-up': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(20px)' },
         },
       },
     },
@@ -108,6 +118,6 @@ module.exports = {
     'text-blue-500',
     'underline',
     'bg-gray-200',
-    { pattern: /bg-(primary-green|primary-blue)/, variants: ['hover'] }
-  ]
+    { pattern: /bg-(primary-green|primary-blue)/, variants: ['hover'] },
+  ],
 };
