@@ -274,5 +274,142 @@
 
     <!-- Chatbot -->
     <div id="chat-widget-container"></div>
+
+    <div
+      id="service-modal-tours"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-2xl w-full rounded-xl bg-light-card p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-4 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+            data-translate-key="modalTourTitle"
+          >
+            Tours Virtuales 360°
+          </h3>
+          <button
+            id="close-modal-tours"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 space-y-4">
+          <p data-translate-key="modalTourDesc1">
+            Ofrece a tus clientes una experiencia inmersiva sin precedentes.
+            Nuestros Tours Virtuales 360° son la herramienta definitiva para
+            mostrar tu negocio de una forma realista, interactiva y accesible
+            24/7 desde cualquier dispositivo.
+          </p>
+          <p data-translate-key="modalTourDesc2">
+            Totalmente compatibles e integrables con **Google Street View**,
+            mejorando tu visibilidad y posicionamiento en Google Maps.
+          </p>
+          <ul class="list-disc list-inside space-y-2">
+            <li data-translate-key="modalTourFeature1">
+              Ideal para Inmobiliarias, Hoteles, Restaurantes, Clínicas y
+              Tiendas.
+            </li>
+            <li data-translate-key="modalTourFeature2">
+              Fotografía de alta resolución y montaje profesional.
+            </li>
+            <li data-translate-key="modalTourFeature3">
+              Navegación intuitiva y fluida.
+            </li>
+            <li data-translate-key="modalTourFeature4">
+              Puntos de información interactivos opcionales.
+            </li>
+          </ul>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <a
+            href="#contacto"
+            class="cta-button modal-contact-button"
+            data-translate-key="modalCTA"
+            >Pedir Presupuesto</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="cookie-banner"
+      class="cookie-banner hidden"
+    >
+      <div class="cookie-banner-content">
+        <div class="flex items-center">
+          <i
+            class="fas fa-cookie-bite fa-2x mr-4 text-primary-blue dark:text-primary-green"
+          ></i>
+          <p class="text-sm">
+            Utilizamos cookies para mejorar tu experiencia. Las cookies
+            analíticas nos ayudan a entender cómo usas nuestro sitio web.
+          </p>
+        </div>
+        <div class="cookie-banner-actions">
+          <button id="cookie-reject" class="cookie-button-reject">
+            Rechazar
+          </button>
+          <button id="cookie-accept" class="cookie-button-accept">
+            Aceptar
+          </button>
+          <button id="cookie-settings-open" class="cookie-button-settings">
+            Configurar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="cookie-settings-modal" class="cookie-modal-backdrop hidden">
+      <div class="cookie-modal-content">
+        <h3 class="text-lg font-semibold mb-4">Configuración de Cookies</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">
+          Gestiona tus preferencias de consentimiento. Puedes habilitar o
+          deshabilitar los diferentes tipos de cookies a continuación.
+        </p>
+
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <h4 class="font-semibold">Cookies Necesarias</h4>
+            <span
+              class="text-xs text-primary-green dark:text-primary-blue font-bold"
+              >Siempre Activas</span
+            >
+          </div>
+          <p class="text-sm text-gray-500 mt-1">
+            Estas cookies son esenciales para que el sitio web funcione
+            correctamente. No se pueden desactivar.
+          </p>
+        </div>
+
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <h4 class="font-semibold">Cookies de Análisis</h4>
+            <label class="cookie-toggle">
+              <input
+                type="checkbox"
+                id="analytics-cookie-toggle"
+                class="cookie-toggle-input"
+              />
+              <span class="cookie-toggle-slider"></span>
+            </label>
+          </div>
+          <p class="text-sm text-gray-500 mt-1">
+            Estas cookies nos permiten medir el tráfico y analizar el
+            comportamiento del usuario para mejorar nuestro servicio (Google
+            Analytics).
+          </p>
+        </div>
+
+        <div class="mt-8 flex justify-end">
+          <button id="cookie-settings-save" class="cookie-button-accept">
+            Guardar Configuración
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
