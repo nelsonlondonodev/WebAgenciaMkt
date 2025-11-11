@@ -70,12 +70,23 @@
                 <i class="fas fa-home w-5 text-center mr-2"></i
                 ><span class="flex-1" data-translate-key="navHome">Inicio</span>
               </a>
-              <a href="#servicios" class="nav-link flex items-center">
-                <i class="fas fa-briefcase w-5 text-center mr-2"></i
-                ><span class="flex-1" data-translate-key="navServices"
-                  >Servicios</span
+              <div class="relative group">
+                <a href="#servicios" class="nav-link flex items-center">
+                  <i class="fas fa-briefcase w-5 text-center mr-2"></i>
+                  <span class="flex-1" data-translate-key="navServices">Servicios</span>
+                  <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                </a>
+                <div
+                  class="absolute z-20 hidden group-hover:block bg-white dark:bg-gray-800 shadow-lg rounded-md mt-2 w-60"
                 >
-              </a>
+                  <a
+                    href="agencia-automatizaciones.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    data-translate-key="navServiceAutomations"
+                    >Agentes Virtuales y Automatizaciones</a
+                  >
+                </div>
+              </div>
               <a href="#proyectos" class="nav-link flex items-center">
                 <i class="fas fa-folder-open w-5 text-center mr-2"></i
                 ><span class="flex-1" data-translate-key="navProjects"
@@ -149,12 +160,24 @@
             <i class="fas fa-home w-5 text-center mr-2"></i
             ><span class="flex-1" data-translate-key="navHome">Inicio</span>
           </a>
-          <a href="#servicios" class="nav-link-mobile flex items-center">
-            <i class="fas fa-briefcase w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navServices"
-              >Servicios</span
+          <div class="relative">
+            <button
+              id="mobileServicesButton"
+              class="nav-link-mobile flex items-center w-full text-left"
             >
-          </a>
+              <i class="fas fa-briefcase w-5 text-center mr-2"></i>
+              <span class="flex-1" data-translate-key="navServices">Servicios</span>
+              <i class="fas fa-chevron-down ml-2 text-xs"></i>
+            </button>
+            <div id="mobileServicesMenu" class="hidden pl-8">
+              <a
+                href="agencia-automatizaciones.html"
+                class="nav-link-mobile flex items-center"
+                data-translate-key="navServiceAutomations"
+                >Agentes Virtuales y Automatizaciones</a
+              >
+            </div>
+          </div>
           <a href="#proyectos" class="nav-link-mobile flex items-center">
             <i class="fas fa-folder-open w-5 text-center mr-2"></i
             ><span class="flex-1" data-translate-key="navProjects"

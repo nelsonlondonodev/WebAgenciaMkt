@@ -17,6 +17,11 @@ const links = [
     changefreq: 'monthly',
     priority: 0.7,
   },
+  {
+    url: '/agencia-automatizaciones.html',
+    changefreq: 'monthly',
+    priority: 0.9,
+  },
 ];
 
 // --- DECISIÓN IMPORTANTE ---

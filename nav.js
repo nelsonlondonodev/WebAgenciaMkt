@@ -1,6 +1,9 @@
 export function initNav() {
   const mobileMenuButton = document.getElementById('mobileMenuButton');
   const mobileMenu = document.getElementById('mobileMenu');
+  const mobileServicesButton = document.getElementById('mobileServicesButton');
+  const mobileServicesMenu = document.getElementById('mobileServicesMenu');
+
   if (mobileMenuButton && mobileMenu) {
     mobileMenuButton.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
@@ -19,6 +22,17 @@ export function initNav() {
           icon.classList.add('fa-bars');
         }
       });
+    });
+  }
+
+  if (mobileServicesButton && mobileServicesMenu) {
+    mobileServicesButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileServicesMenu.classList.toggle('hidden');
+      const icon = mobileServicesButton.querySelector('i.fa-chevron-down');
+      if (icon) {
+        icon.classList.toggle('rotate-180');
+      }
     });
   }
 
