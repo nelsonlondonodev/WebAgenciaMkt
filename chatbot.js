@@ -62,30 +62,32 @@ class Chatbot {
     this.appendMessage(message, 'user');
     this.elements.input.value = '';
     this.showTypingIndicator();
+    this.sendToWebhook(message, this.sessionId);
+  }
 
-    fetch(this.n8nWebhookUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ message: message, sessionId: this.sessionId }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        this.removeTypingIndicator();
-        const botResponse =
-          data.response ||
-          'Lo siento, no he podido procesar tu mensaje. Por favor, intenta de nuevo.';
-        this.appendMessage(botResponse, 'bot');
-      })
-      .catch((error) => {
-        console.error('Error sending message to n8n:', error);
-        this.removeTypingIndicator();
-        this.appendMessage(
-          'Lo siento, ha ocurrido un error de conexión. Por favor, inténtalo más tarde.',
-          'bot'
-        );
+  async sendToWebhook(message, sessionId) {
+    try {
+      const response = await fetch(this.n8nWebhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: message, sessionId: sessionId }),
       });
+      const data = await response.json();
+      this.removeTypingIndicator();
+      const botResponse =
+        data.response ||
+        'Lo siento, no he podido procesar tu mensaje. Por favor, intenta de nuevo.';
+      this.appendMessage(botResponse, 'bot');
+    } catch (error) {
+      console.error('Error sending message to n8n:', error);
+      this.removeTypingIndicator();
+      this.appendMessage(
+        'Lo siento, ha ocurrido un error de conexión. Por favor, inténtalo más tarde.',
+        'bot'
+      );
+    }
   }
 
   createBubble(message, sender) {
