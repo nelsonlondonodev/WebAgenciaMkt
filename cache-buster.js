@@ -1,35 +1,54 @@
 const fs = require('fs');
 const path = require('path');
 
-const indexPath = path.join(__dirname, 'index.html');
+const distPath = path.join(__dirname, 'dist');
 const version = Date.now();
 
-fs.readFile(indexPath, 'utf8', (err, data) => {
+console.log('Starting cache busting in `dist` directory...');
+
+// Find all HTML files in the dist directory
+fs.readdir(distPath, (err, files) => {
   if (err) {
-    console.error('Error reading index.html:', err);
+    console.error('Error reading dist directory:', err);
     return;
   }
 
-  console.log('Starting cache busting...');
+  const htmlFiles = files.filter(file => file.endsWith('.html'));
 
-  // Correctly create a RegExp object.
-  // The regex now correctly captures the attribute (src or href) and the filename.
-  const regex = new RegExp(
-    '(src|href)="\\./(bundle\\.min\\.js|output\\.css)"',
-    'g'
-  );
+  if (htmlFiles.length === 0) {
+    console.log('No HTML files found in dist directory. Nothing to do.');
+    return;
+  }
 
-  const updatedData = data.replace(regex, (match, attribute, filename) => {
-    const newUrl = `${attribute}="./${filename}?v=${version}"`;
-    console.log(`Updated ${filename} to ${filename}?v=${version}`);
-    return newUrl;
-  });
+  htmlFiles.forEach(file => {
+    const filePath = path.join(distPath, file);
 
-  fs.writeFile(indexPath, updatedData, 'utf8', (err) => {
-    if (err) {
-      console.error('Error writing updated index.html:', err);
-      return;
-    }
-    console.log('Cache busting complete. index.html updated successfully.');
+    fs.readFile(filePath, 'utf8', (err, data) => {
+      if (err) {
+        console.error(`Error reading ${file}:`, err);
+        return;
+      }
+
+      // The regex looks for src/href attributes pointing to the specific files.
+      // It handles paths like "./bundle.min.js" or "bundle.min.js".
+      const regex = new RegExp(
+        '(src|href)="\\.?/?(bundle\\.min\\.js|output\\.css)"',
+        'g'
+      );
+
+      const updatedData = data.replace(regex, (match, attribute, filename) => {
+        const newUrl = `${attribute}="./${filename}?v=${version}"`;
+        console.log(`In ${file}, updated ${filename} to ${filename}?v=${version}`);
+        return newUrl;
+      });
+
+      fs.writeFile(filePath, updatedData, 'utf8', (err) => {
+        if (err) {
+          console.error(`Error writing updated ${file}:`, err);
+          return;
+        }
+        console.log(`Cache busting complete for ${file}.`);
+      });
+    });
   });
 });
