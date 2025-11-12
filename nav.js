@@ -72,9 +72,29 @@ function initScrollSpy() {
   });
 }
 
+function initDesktopServicesMenu() {
+  const servicesMenuGroup = document.getElementById('services-menu-group');
+  const servicesMenuDropdown = document.getElementById('services-menu-dropdown');
+  let timeoutId;
+
+  if (!servicesMenuGroup || !servicesMenuDropdown) return;
+
+  servicesMenuGroup.addEventListener('mouseenter', () => {
+    clearTimeout(timeoutId);
+    servicesMenuDropdown.classList.remove('hidden');
+  });
+
+  servicesMenuGroup.addEventListener('mouseleave', () => {
+    timeoutId = setTimeout(() => {
+      servicesMenuDropdown.classList.add('hidden');
+    }, 300); // 300ms de retardo
+  });
+}
+
 export function initNav() {
   initMobileMenu();
   initMobileServicesMenu();
   initScrollSpy();
+  initDesktopServicesMenu();
 }
 
