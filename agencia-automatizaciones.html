@@ -38,6 +38,24 @@
     </noscript>
 
     <link href="./output.css?v=1761721531560" rel="stylesheet" />
+
+    <style>
+      /* Solución para el gradiente de la sección de inicio */
+      #inicio-servicio::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100px; /* Altura del degradado */
+        background: linear-gradient(to top, #F9FAFB, transparent);
+        pointer-events: none; /* Para que no interfiera con el ratón */
+      }
+
+      .dark #inicio-servicio::after {
+        background: linear-gradient(to top, #020202, transparent);
+      }
+    </style>
   </head>
   <body data-lang="es">
     <header id="mainHeader" class="sticky-header">
@@ -211,7 +229,7 @@
         class="relative overflow-hidden animated-gradient-bg"
       >
         <div
-          class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center md:min-h-[calc(70vh-5rem)]"
+          class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center md:min-h-[calc(90vh-5rem)]"
         >
           <!-- Iconos flotantes de automatización -->
           <i
