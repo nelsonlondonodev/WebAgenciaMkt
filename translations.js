@@ -89,24 +89,15 @@ function updateDOMForLanguage(lang) {
  */
 function getPageSpecificTranslationsUrl() {
   const path = window.location.pathname;
-  const pageName = path.substring(path.lastIndexOf('/') + 1);
+  let pageName = path.substring(path.lastIndexOf('/') + 1);
 
-  // List of pages that have their own translation files
-  const pagesWithTranslations = [
-    'agencia-automatizaciones.html',
-    'articulo-redes-sociales-publicidad-local.html',
-    'articulo-seo-post-fiestas.html',
-    'blog.html',
-    'index.html', // Assuming index.html also has a corresponding json
-  ];
-
-  if (pagesWithTranslations.includes(pageName) || (pageName === '' && pagesWithTranslations.includes('index.html'))) {
-    const jsonFile = (pageName || 'index.html').replace('.html', '.json');
-    return `./translations/${jsonFile}`;
+  if (pageName === '') {
+    pageName = 'index';
+  } else if (pageName.endsWith('.html')) {
+    pageName = pageName.slice(0, -5);
   }
-  
-  // For pages like articulo-ejemplo.html that don't have a json, it will return null
-  return null;
+
+  return `./translations/${pageName}.json`;
 }
 
 /**
@@ -125,14 +116,7 @@ function applyTranslations(lang, pageTranslations) {
     const translation = mergedTranslations[lang]?.[key];
 
     if (translation !== undefined) {
-      // Use innerHTML for keys that are known to contain HTML tags
-      const keysWithHtml = [
-        'articleContent',
-        'footerMadeWith',
-        'ctaDescription',
-        'whatsappButton',
-      ];
-      if (keysWithHtml.includes(key)) {
+      if (el.dataset.translateType === 'html') {
         el.innerHTML = translation;
       } else {
         el.textContent = translation;
