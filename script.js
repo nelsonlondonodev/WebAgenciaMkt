@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { cardId: 'card-proyecto-locutorio', modalId: 'proyecto-modal-locutorio' },
       { cardId: 'card-proyecto-barberia', modalId: 'proyecto-modal-barberia' },
       { cardId: 'card-proyecto-kuula', modalId: 'proyecto-modal-kuula' },
-      { cardId: 'card-tours-virtuales', modalId: 'service-modal-tours' },
+
       { cardId: 'card-web-medida', modalId: 'service-modal-web-medida' },
       { cardId: 'card-wordpress', modalId: 'service-modal-wordpress' },
       { cardId: 'card-seo', modalId: 'service-modal-seo' },
