@@ -1,5 +1,9 @@
 {
   "es": {
+    "blogTitle": "Blog | Nelson Londono",
+    "blogDescription": "Explora artículos sobre desarrollo web, SEO y marketing digital.",
+    "blogHeader": "Nuestro Blog",
+    "blogSubheader": "Aquí encontrarás artículos y tutoriales sobre desarrollo web, SEO y marketing digital.",
     "article1Category": "SEO Local",
     "article1Title": "Las Fiestas han Terminado, ¿y ahora qué? 3 Estrategias de SEO Local para Reactivar tu Negocio en Fuente el Saz",
     "article1Description": "Aprovecha el momento posfiestas para optimizar tu presencia online. Te enseñamos cómo mejorar tu posicionamiento en Google y atraer más clientes este otoño.",
@@ -12,12 +16,16 @@
     "readMore": "Leer más &rarr;"
   },
   "en": {
+    "blogTitle": "Blog | Nelson Londono",
+    "blogDescription": "Explore articles on web development, SEO, and digital marketing.",
+    "blogHeader": "Our Blog",
+    "blogSubheader": "Here you will find articles and tutorials on web development, SEO, and digital marketing.",
     "article1Category": "Local SEO",
     "article1Title": "The Holidays Are Over, Now What? 3 Local SEO Strategies to Reactivate Your Business in Fuente el Saz",
     "article1Description": "Take advantage of the post-holiday moment to optimize your online presence. We show you how to improve your Google ranking and attract more customers this fall.",
     "article2Category": "Local SEO",
     "article2Title": "Appear First on Google Maps: A Local SEO Guide for Businesses in Fuente el Saz",
-    "article2Description": "Dominate local search results and attract more customers from Fuente el Saz, Algete, and Cobeña directly to your door.",
+    "article2Description": "Dominate local search results and and attract more customers from Fuente el Saz, Algete, and Cobeña directly to your door.",
     "article3Category": "Social Media & Advertising",
     "article3Title": "Beyond the Storefront: How Social Media and Local Advertising Boost Your Business in Fuente el Saz this Autumn",
     "article3Description": "Discover how to connect with your Fuente el Saz customers and attract new ones using effective social media strategies and local advertising campaigns.",
