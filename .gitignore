@@ -23,4 +23,11 @@ Thumbs.db
 .idea/
 
 # Ignorar .htaccess para despliegues específicos
+
 .htaccess
+
+
+
+# Ignorar directorio de build
+
+/dist
