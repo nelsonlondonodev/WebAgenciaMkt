@@ -116,7 +116,27 @@ function applyTranslations(lang, pageTranslations) {
     const translation = mergedTranslations[lang]?.[key];
 
     if (translation !== undefined) {
-      if (el.dataset.translateType === 'html') {
+      if (Array.isArray(translation)) {
+        // Handle structured content (e.g., articleContent)
+        el.innerHTML = ''; // Clear existing content
+        translation.forEach(item => {
+          let element;
+          if (item.type === 'ul') {
+            element = document.createElement('ul');
+            if (item.items) {
+              item.items.forEach(listItemContent => {
+                const li = document.createElement('li');
+                li.innerHTML = listItemContent; // Use innerHTML for list items as they can contain strong tags
+                element.appendChild(li);
+              });
+            }
+          } else {
+            element = document.createElement(item.type);
+            element.innerHTML = item.content; // Use innerHTML as content can contain HTML tags
+          }
+          el.appendChild(element);
+        });
+      } else if (el.dataset.translateType === 'html') {
         el.innerHTML = translation;
       } else {
         el.textContent = translation;
