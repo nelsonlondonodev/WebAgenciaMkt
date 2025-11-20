@@ -1,7 +1,0 @@
-Tareas de refactorización pendientes:
-
-- Modularizar la lógica de los modales (`modals.js`).
-- Modularizar la lógica del formulario de contacto (`contactForm.js`).
-- Modularizar la lógica del consentimiento de cookies (`cookieConsent.js`).
-- Modularizar la lógica del iframe del héroe (`hero.js`).
-- Modularizar la lógica para compartir en redes sociales (`socialSharing.js`).
