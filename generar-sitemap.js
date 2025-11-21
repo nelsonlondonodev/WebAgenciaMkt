@@ -1,30 +1,22 @@
 const { SitemapStream, streamToPromise } = require('sitemap');
-const { createWriteStream, readdirSync } = require('fs');
+const { createWriteStream } = require('fs');
 const path = require('path');
 
-// --- DECISIÓN IMPORTANTE ---
-// Elige tu dominio preferido (canónico). Se recomienda sin "www".
-// Esta URL se debe usar en TODAS PARTES (Google Search Console, Google Analytics, etc).
 const hostname = 'https://nelsonlondono.es';
-const distPath = path.resolve(__dirname, 'dist');
-const sitemapPath = path.resolve(distPath, 'sitemap.xml');
+const sitemapPath = path.resolve(__dirname, 'sitemap.xml');
 
 async function generateSitemap() {
   console.log('Starting sitemap generation...');
 
-  const links = [];
-  const files = readdirSync(distPath);
-
-  files.forEach(file => {
-    if (file.endsWith('.html')) {
-      const urlPath = file === 'index.html' ? '/' : `/${file}`;
-      links.push({ url: urlPath, changefreq: 'monthly', priority: 0.8 });
-    }
-  });
-
-  // Add specific links that might not be directly HTML files or need different priority
-  // Example: If you have a blog index that's not blog.html but generated dynamically
-  // links.push({ url: '/blog', changefreq: 'weekly', priority: 0.8 });
+  const links = [
+    { url: '/', changefreq: 'monthly', priority: 1.0 },
+    { url: '/blog.html', changefreq: 'weekly', priority: 0.8 },
+    { url: '/articulo-ejemplo.html', changefreq: 'monthly', priority: 0.7 },
+    { url: '/articulo-seo-post-fiestas.html', changefreq: 'monthly', priority: 0.7 },
+    { url: '/articulo-redes-sociales-publicidad-local.html', changefreq: 'monthly', priority: 0.7 },
+    { url: '/agencia-automatizaciones.html', changefreq: 'monthly', priority: 0.9 },
+    { url: '/articulo-automatizacion-marketing.html', changefreq: 'monthly', priority: 0.7 },
+  ];
 
   const stream = new SitemapStream({ hostname });
   const xmlStream = createWriteStream(sitemapPath);
