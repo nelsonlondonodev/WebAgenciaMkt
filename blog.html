@@ -141,15 +141,23 @@
             <i class="fas fa-home w-5 text-center mr-2"></i
             ><span class="flex-1" data-translate-key="navHome">Inicio</span>
           </a>
-          <a
-            href="index.html#servicios"
-            class="nav-link-mobile flex items-center"
-          >
-            <i class="fas fa-briefcase w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navServices"
-              >Servicios</span
+          <div class="relative">
+            <button
+              id="mobileServicesButton"
+              class="nav-link-mobile flex items-center w-full text-left"
             >
-          </a>
+              <i class="fas fa-briefcase w-5 text-center mr-2"></i>
+              <span class="flex-1">Servicios</span>
+              <i class="fas fa-chevron-down ml-2 text-xs"></i>
+            </button>
+            <div id="mobileServicesMenu" class="hidden pl-8">
+              <a
+                href="agencia-automatizaciones.html"
+                class="nav-link-mobile flex items-center"
+                >Agentes Virtuales y Automatizaciones</a
+              >
+            </div>
+          </div>
           <a
             href="index.html#proyectos"
             class="nav-link-mobile flex items-center"
