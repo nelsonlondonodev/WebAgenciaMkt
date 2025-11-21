@@ -71,7 +71,7 @@
       // gtag("config", "G-124QEKRXHD");
     </script>
   </head>
-  <body data-lang="es" class="bg-light-bg dark:bg-dark-bg">
+  <body class="bg-light-bg dark:bg-dark-bg">
     <header id="mainHeader" class="sticky-header">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
@@ -96,48 +96,38 @@
             <nav class="ml-10 flex items-baseline space-x-4">
               <a href="index.html#inicio" class="nav-link flex items-center">
                 <i class="fas fa-home w-5 text-center mr-2"></i
-                ><span data-translate-key="navHome">Inicio</span>
+                ><span>Inicio</span>
               </a>
               <a href="index.html#servicios" class="nav-link flex items-center">
                 <i class="fas fa-briefcase w-5 text-center mr-2"></i
-                ><span data-translate-key="navServices">Servicios</span>
+                ><span>Servicios</span>
               </a>
               <a href="index.html#proyectos" class="nav-link flex items-center">
                 <i class="fas fa-folder-open w-5 text-center mr-2"></i
-                ><span data-translate-key="navProjects">Proyectos</span>
+                ><span>Proyectos</span>
               </a>
               <a href="index.html#sobre-mi" class="nav-link flex items-center">
                 <i class="fas fa-user w-5 text-center mr-2"></i
-                ><span data-translate-key="navAbout">Sobre Mí</span>
+                ><span>Sobre Mí</span>
               </a>
               <a
                 href="index.html#testimonios"
                 class="nav-link flex items-center"
               >
                 <i class="fas fa-star w-5 text-center mr-2"></i
-                ><span data-translate-key="navTestimonials">Testimonios</span>
+                ><span>Testimonios</span>
               </a>
               <a href="index.html#contacto" class="nav-link flex items-center">
                 <i class="fas fa-envelope w-5 text-center mr-2"></i
-                ><span data-translate-key="navContact">Contacto</span>
+                ><span>Contacto</span>
               </a>
               <a href="blog.html" class="nav-link flex items-center nav-active">
                 <i class="fas fa-newspaper w-5 text-center mr-2"></i
-                ><span data-translate-key="navBlog">Blog</span>
+                ><span>Blog</span>
               </a>
             </nav>
           </div>
           <div class="flex items-center">
-            <button
-              id="languageSwitcher"
-              aria-label="Cambiar idioma"
-              class="p-3 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors mr-2"
-            >
-              <span
-                id="langIndicator"
-                class="flex items-center space-x-1"
-              ></span>
-            </button>
             <button
               id="darkModeToggle"
               aria-label="Cambiar tema de color"
@@ -155,9 +145,7 @@
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
-                <span class="sr-only" data-translate-key="openMenu"
-                  >Abrir menú principal</span
-                >
+                <span class="sr-only">Abrir menú principal</span>
                 <i class="fas fa-bars fa-lg"></i>
               </button>
             </div>
@@ -168,57 +156,49 @@
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a href="index.html#inicio" class="nav-link-mobile flex items-center">
             <i class="fas fa-home w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navHome">Inicio</span>
+            ><span class="flex-1">Inicio</span>
           </a>
           <a
             href="index.html#servicios"
             class="nav-link-mobile flex items-center"
           >
             <i class="fas fa-briefcase w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navServices"
-              >Servicios</span
-            >
+            ><span class="flex-1">Servicios</span>
           </a>
           <a
             href="index.html#proyectos"
             class="nav-link-mobile flex items-center"
           >
             <i class="fas fa-folder-open w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navProjects"
-              >Proyectos</span
-            >
+            ><span class="flex-1">Proyectos</span>
           </a>
           <a
             href="index.html#sobre-mi"
             class="nav-link-mobile flex items-center"
           >
             <i class="fas fa-user w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navAbout">Sobre Mí</span>
+            ><span class="flex-1">Sobre Mí</span>
           </a>
           <a
             href="index.html#testimonios"
             class="nav-link-mobile flex items-center"
           >
             <i class="fas fa-star w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navTestimonials"
-              >Testimonios</span
-            >
+            ><span class="flex-1">Testimonios</span>
           </a>
           <a
             href="index.html#contacto"
             class="nav-link-mobile flex items-center"
           >
             <i class="fas fa-envelope w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navContact"
-              >Contacto</span
-            >
+            ><span class="flex-1">Contacto</span>
           </a>
           <a
             href="blog.html"
             class="nav-link-mobile flex items-center nav-active"
           >
             <i class="fas fa-newspaper w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navBlog">Blog</span>
+            ><span class="flex-1">Blog</span>
           </a>
         </div>
       </div>
@@ -234,13 +214,15 @@
               <a
                 href="blog.html"
                 class="font-semibold text-primary-blue dark:text-primary-green uppercase text-sm"
-                data-translate-key="backToBlog"
-              ></a>
+                >Volver al Blog</a
+              >
             </div>
             <h1
               class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6"
-              data-translate-key="articleTitle"
-            ></h1>
+            >
+              Después de la Fiesta, la Estrategia: 3 Claves de SEO Local para
+              Reactivar tu Negocio en Fuente el Saz
+            </h1>
             <div
               class="flex items-center justify-center space-x-4 text-gray-600 dark:text-gray-400"
             >
@@ -254,8 +236,8 @@
                 height="472"
               />
               <div>
-                <p class="font-semibold" data-translate-key="author"></p>
-                <time datetime="2025-09-10" data-translate-key="date"></time>
+                <p class="font-semibold">Por Nelson Londoño</p>
+                <time datetime="2025-09-10">10 de Septiembre, 2025</time>
               </div>
             </div>
           </div>
@@ -290,27 +272,121 @@
         >
             <div
               class="article-content prose prose-lg dark:prose-invert max-w-none mx-auto"
-              data-translate-key="articleContent"
-              data-translate-type="html"
-            ></div>
+            >
+              <p>
+                Las fiestas patronales de Fuente el Saz han terminado, y con
+                ellas, la euforia y el bullicio en las calles. Ahora, con la
+                llegada de septiembre, es el momento perfecto para que los
+                negocios locales no solo retomen el pulso, sino que se preparen
+                para un otoño exitoso. Aquí te presento 3 estrategias de SEO
+                Local clave para reactivar tu visibilidad y atraer clientes en
+                esta nueva temporada.
+              </p>
+
+              <h2>
+                1. Actualiza tu Perfil de Negocio de Google: Tu Escaparate
+                Digital Post-Fiestas
+              </h2>
+              <p>
+                Tu Perfil de Negocio en Google (anteriormente Google My
+                Business) es tu activo más importante en el SEO local. Tras las
+                fiestas, es vital actualizarlo para reflejar la nueva temporada.
+              </p>
+              <ul>
+                <li>
+                  <strong>Publica Novedades de Otoño:</strong> ¿Nuevos productos
+                  o servicios? ¿Un menú de temporada? ¿Ofertas de "vuelta al
+                  cole"? Utiliza la sección de "Publicaciones" para anunciarlo.
+                  Estas publicaciones son visibles directamente en los
+                  resultados de búsqueda y en Google Maps.
+                </li>
+                <li>
+                  <strong>Actualiza tu Horario:</strong> Asegúrate de que tu
+                  horario post-fiestas sea el correcto. Un cliente que te
+                  encuentra cerrado cuando esperaba que estuvieras abierto es un
+                  cliente perdido.
+                </li>
+                <li>
+                  <strong>Sube Fotos Recientes:</strong> Muestra tu local con
+                  decoración de otoño o presenta a tu equipo. Las fotos frescas
+                  indican a Google que tu negocio está activo y es relevante.
+                </li>
+              </ul>
+
+              <h2>
+                2. Crea Contenido Enfocado en la "Vuelta a la Rutina"
+              </h2>
+              <blockquote>
+                "El buen contenido no solo atrae, sino que también responde a
+                las necesidades de tus clientes antes incluso de que te las
+                pregunten."
+              </blockquote>
+              <p>
+                Piensa en lo que tus clientes de Fuente el Saz, Algete o Cobeña
+                buscan en septiembre. Crea contenido en tu blog o redes sociales
+                que responda a esas necesidades.
+              </p>
+              <ul>
+                <li>
+                  <strong>Restaurantes:</strong> "Los 5 platos de cuchara que no
+                  te puedes perder este otoño en Fuente el Saz".
+                </li>
+                <li>
+                  <strong>Gimnasios:</strong> "Plan détox post-fiestas: recupera
+                  la forma en nuestro gimnasio".
+                </li>
+                <li>
+                  <strong>Peluquerías y Centros de Estética:</strong> "Repara tu
+                  pelo y piel del verano: tratamientos de otoño".
+                </li>
+              </ul>
+              <p>
+                Este tipo de contenido no solo te posiciona como un experto en
+                tu sector, sino que también atrae tráfico cualificado a tu web.
+              </p>
+
+              <h2>
+                3. Lanza una Campaña de Reseñas Post-Fiestas
+              </h2>
+              <p>
+                Las reseñas son un factor de posicionamiento clave. Anima a los
+                clientes que te visitaron durante las fiestas a dejar una
+                valoración. Un simple email o un mensaje de WhatsApp puede ser
+                muy efectivo.
+              </p>
+              <p>
+                <strong>Consejo extra:</strong> Responde a todas las reseñas,
+                tanto positivas como negativas. Agradece los buenos comentarios
+                y ofrece soluciones a los problemas. Esto demuestra un excelente
+                servicio al cliente y genera confianza.
+              </p>
+
+              <p>
+                Implementar estas tres estrategias te ayudará a mantener el
+                impulso de las fiestas y a posicionarte como la opción preferida
+                para los vecinos de Fuente el Saz y alrededores durante el
+                otoño.
+              </p>
+            </div>
         </div>
 
         <section
           class="bg-gray-50 dark:bg-gray-800/50 py-16 scroll-animate-initial"
         >
           <div class="max-w-4xl mx-auto text-center px-4">
-            <h2 class="text-3xl font-bold mb-4" data-translate-key="ctaTitle">
+            <h2 class="text-3xl font-bold mb-4">
               ¿Quieres que tu negocio sea el primero que vean en Fuente el Saz?
             </h2>
           <p
             class="text-lg text-gray-600 dark:text-gray-300 mb-8"
-            data-translate-key="ctaDescription"
-            data-translate-type="html"
-          ></p>
+          >
+            Las fiestas han sido solo el comienzo. Ahora es el momento de
+            consolidar tu presencia online y asegurarte de que los clientes te
+            encuentren durante todo el año.
+          </p>
             <a
               href="index.html#contacto"
               class="cta-button"
-              data-translate-key="ctaButton"
               >Solicita una Auditoría SEO Local Gratuita</a
             >
           </div>
@@ -320,13 +396,12 @@
 
     <footer class="bg-gray-800 dark:bg-black">
       <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
-        <p class="text-gray-400" data-translate-key="footerText">
+        <p class="text-gray-400">
           &copy; <span id="currentYear"></span> Nelson Londoño Agencia. Todos
           los derechos reservados.
         </p>
         <p
           class="text-xs text-gray-500 mt-1"
-          data-translate-key="footerMadeWith"
           data-translate-type="html"
         >
           Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.
@@ -338,7 +413,6 @@
         </p>
         <p
           class="text-xs text-gray-500 mt-2"
-          data-translate-key="footerServices"
         >
           Ofrecemos servicios de diseño web y SEO en Fuente el Saz y toda la
           zona norte de Madrid.

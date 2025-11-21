@@ -57,7 +57,7 @@
       }
     </style>
   </head>
-  <body data-lang="es">
+  <body class="bg-light-bg dark:bg-dark-bg">
     <header id="mainHeader" class="sticky-header">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
@@ -82,12 +82,12 @@
             <nav class="ml-10 flex items-baseline space-x-4">
               <a href="index.html" class="nav-link flex items-center">
                 <i class="fas fa-home w-5 text-center mr-2"></i
-                ><span class="flex-1" data-translate-key="navHome">Inicio</span>
+                ><span class="flex-1">Inicio</span>
               </a>
               <div id="services-menu-group" class="relative group">
                 <a href="index.html" class="nav-link flex items-center">
                   <i class="fas fa-briefcase w-5 text-center mr-2"></i>
-                  <span class="flex-1" data-translate-key="navServices">Servicios</span>
+                  <span class="flex-1">Servicios</span>
                   <i class="fas fa-chevron-down ml-2 text-xs"></i>
                 </a>
                 <div
@@ -97,52 +97,33 @@
                   <a
                     href="agencia-automatizaciones.html"
                     class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                    data-translate-key="navServiceAutomations"
                     >Agentes Virtuales y Automatizaciones</a
                   >
                 </div>
               </div>
               <a href="index.html#proyectos" class="nav-link flex items-center">
                 <i class="fas fa-folder-open w-5 text-center mr-2"></i
-                ><span class="flex-1" data-translate-key="navProjects"
-                  >Proyectos</span
-                >
+                ><span class="flex-1">Proyectos</span>
               </a>
               <a href="index.html#sobre-mi" class="nav-link flex items-center">
                 <i class="fas fa-user w-5 text-center mr-2"></i
-                ><span class="flex-1" data-translate-key="navAbout"
-                  >Sobre Mí</span
-                >
+                ><span class="flex-1">Sobre Mí</span>
               </a>
               <a href="index.html#testimonios" class="nav-link flex items-center">
                 <i class="fas fa-star w-5 text-center mr-2"></i
-                ><span class="flex-1" data-translate-key="navTestimonials"
-                  >Testimonios</span
-                >
+                ><span class="flex-1">Testimonios</span>
               </a>
               <a href="index.html#contacto" class="nav-link flex items-center">
                 <i class="fas fa-envelope w-5 text-center mr-2"></i
-                ><span class="flex-1" data-translate-key="navContact"
-                  >Contacto</span
-                >
+                ><span class="flex-1">Contacto</span>
               </a>
               <a href="blog.html" class="nav-link flex items-center">
                 <i class="fas fa-newspaper w-5 text-center mr-2"></i
-                ><span class="flex-1" data-translate-key="navBlog">Blog</span>
+                ><span class="flex-1">Blog</span>
               </a>
             </nav>
           </div>
           <div class="flex items-center">
-            <button
-              id="languageSwitcher"
-              aria-label="Cambiar idioma"
-              class="p-3 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors mr-2"
-            >
-              <span
-                id="langIndicator"
-                class="flex items-center space-x-1"
-              ></span>
-            </button>
             <button
               id="darkModeToggle"
               aria-label="Cambiar tema de color"
@@ -160,9 +141,7 @@
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
-                <span class="sr-only" data-translate-key="openMenu"
-                  >Abrir menú principal</span
-                >
+                <span class="sr-only">Abrir menú principal</span>
                 <i class="fas fa-bars fa-lg"></i>
               </button>
             </div>
@@ -173,7 +152,7 @@
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a href="index.html" class="nav-link-mobile flex items-center">
             <i class="fas fa-home w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navHome">Inicio</span>
+            ><span class="flex-1">Inicio</span>
           </a>
           <div class="relative">
             <button
@@ -181,43 +160,36 @@
               class="nav-link-mobile flex items-center w-full text-left"
             >
               <i class="fas fa-briefcase w-5 text-center mr-2"></i>
-              <span class="flex-1" data-translate-key="navServices">Servicios</span>
+              <span class="flex-1">Servicios</span>
               <i class="fas fa-chevron-down ml-2 text-xs"></i>
             </button>
             <div id="mobileServicesMenu" class="hidden pl-8">
               <a
                 href="agencia-automatizaciones.html"
                 class="nav-link-mobile flex items-center"
-                data-translate-key="navServiceAutomations"
                 >Agentes Virtuales y Automatizaciones</a
               >
             </div>
           </div>
           <a href="index.html#proyectos" class="nav-link-mobile flex items-center">
             <i class="fas fa-folder-open w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navProjects"
-              >Proyectos</span
-            >
+            ><span class="flex-1">Proyectos</span>
           </a>
           <a href="index.html#sobre-mi" class="nav-link-mobile flex items-center">
             <i class="fas fa-user w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navAbout">Sobre Mí</span>
+            ><span class="flex-1">Sobre Mí</span>
           </a>
           <a href="index.html#testimonios" class="nav-link-mobile flex items-center">
             <i class="fas fa-star w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navTestimonials"
-              >Testimonios</span
-            >
+            ><span class="flex-1">Testimonios</span>
           </a>
           <a href="index.html#contacto" class="nav-link-mobile flex items-center">
             <i class="fas fa-envelope w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navContact"
-              >Contacto</span
-            >
+            ><span class="flex-1">Contacto</span>
           </a>
           <a href="blog.html" class="nav-link-mobile flex items-center">
             <i class="fas fa-newspaper w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navBlog">Blog</span>
+            ><span class="flex-1">Blog</span>
           </a>
         </div>
       </div>
@@ -248,21 +220,18 @@
           <div class="max-w-3xl relative z-10">
             <h1
               class="text-2xl sm:text-[26px] font-normal text-gray-900 dark:text-white opacity-0 animate-slide-in-right uppercase"
-              data-translate-key="heroTitleAutomations"
             >
               Asistentes Virtuales en Fuente el Saz
             </h1>
             <p
               class="mt-8 text-3xl sm:text-6xl font-extrabold text-gray-700 dark:text-gray-200 opacity-0 animate-slide-in-left text-left sm:text-center"
               style="animation-delay: 0.2s"
-              data-translate-key="servicePageHeadline"
             >
               Potencia tu negocio con automatizaciones
             </p>
             <p
               class="mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center"
               style="animation-delay: 0.4s"
-              data-translate-key="servicePageSubtitle"
             >
               Implementamos soluciones de inteligencia artificial y automatización para optimizar tus operaciones, reducir costos y escalar tu crecimiento.
             </p>
@@ -275,13 +244,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
-            data-translate-key="popularAutomationsTitle"
           >
             Automatizaciones Populares
           </h2>
           <p
             class="section-subtitle text-base sm:text-lg"
-            data-translate-key="popularAutomationsSubtitle"
           >
             Soluciones inteligentes para transformar tu negocio, aumentar la eficiencia y reducir costos.
           </p>
@@ -298,14 +265,13 @@
               </div>
               <h3
                 class="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 dark:text-white"
-                data-translate-key="automationCard1Title"
               >
                 Asistente Virtual con IA
               </h3>
               <div
                 class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
               >
-                <p data-translate-key="automationCard1Desc">
+                <p>
                   Un asistente inteligente que gestiona correos, agenda citas y atiende a tus clientes 24/7, mejorando la eficiencia y la satisfacción.
                 </p>
               </div>
@@ -321,14 +287,13 @@
               </div>
               <h3
                 class="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 dark:text-white"
-                data-translate-key="automationCard2Title"
               >
                 Automatización de Marketing y Ventas
               </h3>
               <div
                 class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
               >
-                <p data-translate-key="automationCard2Desc">
+                <p>
                   Optimiza tus embudos de venta, nutre leads automáticamente y personaliza la comunicación para convertir más clientes con menos esfuerzo.
                 </p>
               </div>
@@ -344,14 +309,13 @@
               </div>
               <h3
                 class="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 dark:text-white"
-                data-translate-key="automationCard3Title"
               >
                 Integración de Sistemas y Flujos de Trabajo
               </h3>
               <div
                 class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
               >
-                <p data-translate-key="automationCard3Desc">
+                <p>
                   Conectamos tus herramientas (CRM, ERP, etc.) para crear flujos de trabajo sin fricciones que eliminan tareas manuales y reducen errores.
                 </p>
               </div>
@@ -364,13 +328,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
-            data-translate-key="benefitsTitle"
           >
             Beneficios Clave para tu Negocio
           </h2>
           <p
             class="section-subtitle text-base sm:text-lg"
-            data-translate-key="benefitsSubtitle"
           >
             Descubre cómo los agentes virtuales y las automatizaciones pueden transformar tu operación diaria.
           </p>
@@ -380,8 +342,8 @@
                 <i class="fas fa-chart-line fa-2x text-primary-blue dark:text-primary-green"></i>
               </div>
               <div class="ml-4">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white" data-translate-key="benefit1Title">Aumento de la Eficiencia</h3>
-                <p class="mt-2 text-base text-gray-600 dark:text-gray-400" data-translate-key="benefit1Desc">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Aumento de la Eficiencia</h3>
+                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
                   Automatiza tareas repetitivas y libera a tu equipo para que se enfoque en actividades de mayor valor.
                 </p>
               </div>
@@ -391,8 +353,8 @@
                 <i class="fas fa-dollar-sign fa-2x text-primary-blue dark:text-primary-green"></i>
               </div>
               <div class="ml-4">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white" data-translate-key="benefit2Title">Reducción de Costos</h3>
-                <p class="mt-2 text-base text-gray-600 dark:text-gray-400" data-translate-key="benefit2Desc">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Reducción de Costos</h3>
+                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
                   Minimiza errores humanos y optimiza recursos, resultando en ahorros significativos a largo plazo.
                 </p>
               </div>
@@ -402,8 +364,8 @@
                 <i class="fas fa-headset fa-2x text-primary-blue dark:text-primary-green"></i>
               </div>
               <div class="ml-4">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white" data-translate-key="benefit3Title">Mejora la Experiencia del Cliente</h3>
-                <p class="mt-2 text-base text-gray-600 dark:text-gray-400" data-translate-key="benefit3Desc">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Mejora la Experiencia del Cliente</h3>
+                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
                   Ofrece atención 24/7, respuestas rápidas y personalizadas, elevando la satisfacción del cliente.
                 </p>
               </div>
@@ -413,8 +375,8 @@
                 <i class="fas fa-rocket fa-2x text-primary-blue dark:text-primary-green"></i>
               </div>
               <div class="ml-4">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white" data-translate-key="benefit4Title">Escalabilidad y Crecimiento</h3>
-                <p class="mt-2 text-base text-gray-600 dark:text-gray-400" data-translate-key="benefit4Desc">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Escalabilidad y Crecimiento</h3>
+                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
                   Prepara tu negocio para crecer sin limitaciones, gestionando un mayor volumen de trabajo sin aumentar proporcionalmente los costos.
                 </p>
               </div>
@@ -424,8 +386,8 @@
                 <i class="fas fa-shield-alt fa-2x text-primary-blue dark:text-primary-green"></i>
               </div>
               <div class="ml-4">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white" data-translate-key="benefit5Title">Mayor Seguridad y Cumplimiento</h3>
-                <p class="mt-2 text-base text-gray-600 dark:text-gray-400" data-translate-key="benefit5Desc">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Mayor Seguridad y Cumplimiento</h3>
+                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
                   Reduce el riesgo de errores y asegura el cumplimiento de normativas mediante procesos automatizados y consistentes.
                 </p>
               </div>
@@ -435,8 +397,8 @@
                 <i class="fas fa-lightbulb fa-2x text-primary-blue dark:text-primary-green"></i>
               </div>
               <div class="ml-4">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white" data-translate-key="benefit6Title">Innovación Constante</h3>
-                <p class="mt-2 text-base text-gray-600 dark:text-gray-400" data-translate-key="benefit6Desc">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Innovación Constante</h3>
+                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
                   Mantente a la vanguardia con soluciones que se adaptan y evolucionan con las últimas tecnologías de IA y automatización.
                 </p>
               </div>
@@ -449,13 +411,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
-            data-translate-key="howWeWorkTitle"
           >
             Nuestro Proceso de Trabajo
           </h2>
           <p
             class="section-subtitle text-base sm:text-lg"
-            data-translate-key="howWeWorkSubtitle"
           >
             Un enfoque claro y colaborativo para asegurar el éxito de tu proyecto de automatización.
           </p>
@@ -468,8 +428,8 @@
                 <div class="md:w-5/6 lg:w-2/3">
                   <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-right transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue dark:hover:border-primary-green border-2 border-transparent">
                     <div class="absolute -left-4 md:left-auto md:-right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary-blue dark:bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">1</div>
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2" data-translate-key="step1Title">Análisis y Estrategia</h3>
-                    <p class="text-gray-600 dark:text-gray-400" data-translate-key="step1Desc">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Análisis y Estrategia</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
                       Comprendemos tus necesidades, identificamos oportunidades de automatización y diseñamos una estrategia a medida.
                     </p>
                   </div>
@@ -480,8 +440,8 @@
                 <div class="md:w-5/6 lg:w-2/3">
                   <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue dark:hover:border-primary-green border-2 border-transparent">
                     <div class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary-blue dark:bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">2</div>
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2" data-translate-key="step2Title">Diseño y Desarrollo</h3>
-                    <p class="text-gray-600 dark:text-gray-400" data-translate-key="step2Desc">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Diseño y Desarrollo</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
                       Creamos y configuramos tus agentes virtuales y flujos de automatización utilizando las mejores herramientas.
                     </p>
                   </div>
@@ -492,8 +452,8 @@
                 <div class="md:w-5/6 lg:w-2/3">
                   <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-right transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue dark:hover:border-primary-green border-2 border-transparent">
                     <div class="absolute -left-4 md:left-auto md:-right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary-blue dark:bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">3</div>
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2" data-translate-key="step3Title">Implementación y Pruebas</h3>
-                    <p class="text-gray-600 dark:text-gray-400" data-translate-key="step3Desc">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Implementación y Pruebas</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
                       Integramos las soluciones en tu sistema y realizamos pruebas exhaustivas para garantizar un funcionamiento impecable.
                     </p>
                   </div>
@@ -504,8 +464,8 @@
                 <div class="md:w-5/6 lg:w-2/3">
                   <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue dark:hover:border-primary-green border-2 border-transparent">
                     <div class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary-blue dark:bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">4</div>
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2" data-translate-key="step4Title">Soporte y Optimización</h3>
-                    <p class="text-gray-600 dark:text-gray-400" data-translate-key="step4Desc">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Soporte y Optimización</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
                       Ofrecemos soporte continuo y optimizamos tus automatizaciones para adaptarlas a la evolución de tu negocio.
                     </p>
                   </div>
@@ -520,50 +480,48 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
-            data-translate-key="faqTitle"
           >
             Preguntas Frecuentes
           </h2>
           <p
             class="section-subtitle text-base sm:text-lg"
-            data-translate-key="faqSubtitle"
           >
             Resolvemos tus dudas más comunes sobre agentes virtuales y automatizaciones.
           </p>
           <div class="mt-12 max-w-3xl mx-auto space-y-6">
             <!-- Pregunta 1 -->
             <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg scroll-animate-initial transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2" data-translate-key="faq1Question">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                 ¿Qué es un agente virtual y cómo puede ayudar a mi negocio?
               </h3>
-              <p class="text-gray-600 dark:text-gray-400" data-translate-key="faq1Answer">
+              <p class="text-gray-600 dark:text-gray-400">
                 Un agente virtual es un programa de software impulsado por inteligencia artificial que puede interactuar con clientes, responder preguntas, gestionar tareas y automatizar procesos. Puede mejorar la atención al cliente, reducir la carga de trabajo de tu equipo y operar 24/7.
               </p>
             </div>
             <!-- Pregunta 2 -->
             <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg scroll-animate-initial delay-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2" data-translate-key="faq2Question">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                 ¿Qué tipo de procesos se pueden automatizar?
               </h3>
-              <p class="text-gray-600 dark:text-gray-400" data-translate-key="faq2Answer">
+              <p class="text-gray-600 dark:text-gray-400">
                 Prácticamente cualquier proceso repetitivo y basado en reglas puede ser automatizado. Esto incluye la gestión de correos electrónicos, la entrada de datos, la programación de citas, la generación de informes, la atención al cliente, la gestión de redes sociales y mucho más.
               </p>
             </div>
             <!-- Pregunta 3 -->
             <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg scroll-animate-initial delay-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2" data-translate-key="faq3Question">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                 ¿Necesito conocimientos técnicos para implementar estas soluciones?
               </h3>
-              <p class="text-gray-600 dark:text-gray-400" data-translate-key="faq3Answer">
+              <p class="text-gray-600 dark:text-gray-400">
                 No, nuestro equipo se encarga de todo el proceso de diseño, desarrollo e implementación. Te proporcionaremos una solución lista para usar y la formación necesaria para que tú y tu equipo puedan gestionarla fácilmente.
               </p>
             </div>
             <!-- Pregunta 4 -->
             <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg scroll-animate-initial delay-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2" data-translate-key="faq4Question">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                 ¿Cuánto tiempo tarda en verse el retorno de la inversión (ROI)?
               </h3>
-              <p class="text-gray-600 dark:text-gray-400" data-translate-key="faq4Answer">
+              <p class="text-gray-600 dark:text-gray-400">
                 El ROI puede variar según la complejidad de las automatizaciones y el tamaño de tu negocio. Sin embargo, muchos de nuestros clientes comienzan a ver mejoras significativas en eficiencia y reducción de costos en los primeros meses después de la implementación.
               </p>
             </div>
@@ -576,20 +534,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-4 scroll-animate-initial"
-            data-translate-key="ctaTitle"
           >
             ¿Listo para Transformar tu Negocio con Automatización?
           </h2>
           <p
             class="text-lg text-gray-600 dark:text-gray-300 mb-8 scroll-animate-initial delay-100"
-            data-translate-key="ctaSubtitle"
           >
             Contáctanos hoy mismo para una consulta gratuita y descubre cómo podemos ayudarte a escalar tu eficiencia y crecimiento.
           </p>
           <a
             href="index.html#contacto"
             class="cta-button scroll-animate-initial delay-200"
-            data-translate-key="ctaButton"
             >Solicitar Consulta Gratuita</a
           >
         </div>
@@ -598,13 +553,12 @@
 
     <footer class="bg-gray-800 dark:bg-black">
       <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
-        <p class="text-gray-400" data-translate-key="footerText">
+        <p class="text-gray-400">
           &copy; <span id="currentYear"></span> Nelson Londoño Agencia. Todos
           los derechos reservados.
         </p>
         <p
           class="text-xs text-gray-500 mt-1"
-          data-translate-key="footerMadeWith"
           data-translate-type="html"
         >
           Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.
@@ -616,7 +570,6 @@
         </p>
         <p
           class="text-xs text-gray-500 mt-2"
-          data-translate-key="footerServices"
         ></p>
       </div>
     </footer>
@@ -643,7 +596,6 @@
         >
           <h3
             class="text-2xl font-bold text-primary-blue dark:text-primary-green"
-            data-translate-key="modalTourTitle"
           >
             Tours Virtuales 360°
           </h3>
@@ -655,28 +607,28 @@
           </button>
         </div>
         <div class="mt-4 space-y-4">
-          <p data-translate-key="modalTourDesc1">
+          <p>
             Ofrece a tus clientes una experiencia inmersiva sin precedentes.
             Nuestros Tours Virtuales 360° son la herramienta definitiva para
             mostrar tu negocio de una forma realista, interactiva y accesible
             24/7 desde cualquier dispositivo.
           </p>
-          <p data-translate-key="modalTourDesc2">
+          <p>
             Totalmente compatibles e integrables con **Google Street View**,
             mejorando tu visibilidad y posicionamiento en Google Maps.
           </p>
           <ul class="list-disc list-inside space-y-2">
-            <li data-translate-key="modalTourFeature1">
+            <li>
               Ideal para Inmobiliarias, Hoteles, Restaurantes, Clínicas y
               Tiendas.
             </li>
-            <li data-translate-key="modalTourFeature2">
+            <li>
               Fotografía de alta resolución y montaje profesional.
             </li>
-            <li data-translate-key="modalTourFeature3">
+            <li>
               Navegación intuitiva y fluida.
             </li>
-            <li data-translate-key="modalTourFeature4">
+            <li>
               Puntos de información interactivos opcionales.
             </li>
           </ul>
@@ -685,7 +637,6 @@
           <a
             href="#contacto"
             class="cta-button modal-contact-button"
-            data-translate-key="modalCTA"
             >Pedir Presupuesto</a
           >
         </div>

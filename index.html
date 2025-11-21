@@ -61,7 +61,7 @@
       }
     </style>
   </head>
-  <body data-lang="es">
+  <body class="bg-light-bg dark:bg-dark-bg">
     <header id="mainHeader" class="sticky-header">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
@@ -86,12 +86,12 @@
             <nav class="ml-10 flex items-baseline space-x-4">
               <a href="#inicio" class="nav-link flex items-center">
                 <i class="fas fa-home w-5 text-center mr-2"></i
-                ><span class="flex-1" data-translate-key="navHome">Inicio</span>
+                ><span class="flex-1">Inicio</span>
               </a>
               <div id="services-menu-group" class="relative group">
                 <a href="#" class="nav-link flex items-center">
                   <i class="fas fa-briefcase w-5 text-center mr-2"></i>
-                  <span class="flex-1" data-translate-key="navServices">Servicios</span>
+                  <span class="flex-1">Servicios</span>
                   <i class="fas fa-chevron-down ml-2 text-xs"></i>
                 </a>
                 <div
@@ -101,52 +101,33 @@
                   <a
                     href="agencia-automatizaciones.html"
                     class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                    data-translate-key="navServiceAutomations"
                     >Agentes Virtuales y Automatizaciones</a
                   >
                 </div>
               </div>
               <a href="#proyectos" class="nav-link flex items-center">
                 <i class="fas fa-folder-open w-5 text-center mr-2"></i
-                ><span class="flex-1" data-translate-key="navProjects"
-                  >Proyectos</span
-                >
+                ><span class="flex-1">Proyectos</span>
               </a>
               <a href="#sobre-mi" class="nav-link flex items-center">
                 <i class="fas fa-user w-5 text-center mr-2"></i
-                ><span class="flex-1" data-translate-key="navAbout"
-                  >Sobre Mí</span
-                >
+                ><span class="flex-1">Sobre Mí</span>
               </a>
               <a href="#testimonios" class="nav-link flex items-center">
                 <i class="fas fa-star w-5 text-center mr-2"></i
-                ><span class="flex-1" data-translate-key="navTestimonials"
-                  >Testimonios</span
-                >
+                ><span class="flex-1">Testimonios</span>
               </a>
               <a href="#contacto" class="nav-link flex items-center">
                 <i class="fas fa-envelope w-5 text-center mr-2"></i
-                ><span class="flex-1" data-translate-key="navContact"
-                  >Contacto</span
-                >
+                ><span class="flex-1">Contacto</span>
               </a>
               <a href="blog.html" class="nav-link flex items-center">
                 <i class="fas fa-newspaper w-5 text-center mr-2"></i
-                ><span class="flex-1" data-translate-key="navBlog">Blog</span>
+                ><span class="flex-1">Blog</span>
               </a>
             </nav>
           </div>
           <div class="flex items-center">
-            <button
-              id="languageSwitcher"
-              aria-label="Cambiar idioma"
-              class="p-3 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors mr-2"
-            >
-              <span
-                id="langIndicator"
-                class="flex items-center space-x-1"
-              ></span>
-            </button>
             <button
               id="darkModeToggle"
               aria-label="Cambiar tema de color"
@@ -164,9 +145,7 @@
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
-                <span class="sr-only" data-translate-key="openMenu"
-                  >Abrir menú principal</span
-                >
+                <span class="sr-only">Abrir menú principal</span>
                 <i class="fas fa-bars fa-lg"></i>
               </button>
             </div>
@@ -177,7 +156,7 @@
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a href="#inicio" class="nav-link-mobile flex items-center">
             <i class="fas fa-home w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navHome">Inicio</span>
+            ><span class="flex-1">Inicio</span>
           </a>
           <div class="relative">
             <button
@@ -185,43 +164,36 @@
               class="nav-link-mobile flex items-center w-full text-left"
             >
               <i class="fas fa-briefcase w-5 text-center mr-2"></i>
-              <span class="flex-1" data-translate-key="navServices">Servicios</span>
+              <span class="flex-1">Servicios</span>
               <i class="fas fa-chevron-down ml-2 text-xs"></i>
             </button>
             <div id="mobileServicesMenu" class="hidden pl-8">
               <a
                 href="agencia-automatizaciones.html"
                 class="nav-link-mobile flex items-center"
-                data-translate-key="navServiceAutomations"
                 >Agentes Virtuales y Automatizaciones</a
               >
             </div>
           </div>
           <a href="#proyectos" class="nav-link-mobile flex items-center">
             <i class="fas fa-folder-open w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navProjects"
-              >Proyectos</span
-            >
+            ><span class="flex-1">Proyectos</span>
           </a>
           <a href="#sobre-mi" class="nav-link-mobile flex items-center">
             <i class="fas fa-user w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navAbout">Sobre Mí</span>
+            ><span class="flex-1">Sobre Mí</span>
           </a>
           <a href="#testimonios" class="nav-link-mobile flex items-center">
             <i class="fas fa-star w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navTestimonials"
-              >Testimonios</span
-            >
+            ><span class="flex-1">Testimonios</span>
           </a>
           <a href="#contacto" class="nav-link-mobile flex items-center">
             <i class="fas fa-envelope w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navContact"
-              >Contacto</span
-            >
+            ><span class="flex-1">Contacto</span>
           </a>
           <a href="blog.html" class="nav-link-mobile flex items-center">
             <i class="fas fa-newspaper w-5 text-center mr-2"></i
-            ><span class="flex-1" data-translate-key="navBlog">Blog</span>
+            ><span class="flex-1">Blog</span>
           </a>
         </div>
       </div>
@@ -253,21 +225,18 @@
           <div class="max-w-3xl relative z-10">
             <h1
               class="text-2xl sm:text-[26px] font-normal text-gray-900 dark:text-white opacity-0 animate-slide-in-right uppercase"
-              data-translate-key="heroTitle"
             >
               Agencia de Marketing en Fuente el Saz
             </h1>
             <p
               class="mt-8 text-3xl sm:text-6xl font-extrabold text-gray-700 dark:text-gray-200 opacity-0 animate-slide-in-left text-left sm:text-center"
               style="animation-delay: 0.2s"
-              data-translate-key="heroTagline"
             >
               que Transforma tu Negocio con Tecnología
             </p>
             <p
               class="mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center"
               style="animation-delay: 0.4s"
-              data-translate-key="heroSubtitle"
             >
               Creamos webs de alto rendimiento, estrategias SEO y asistentes
               virtuales con IA para automatizar tus procesos y multiplicar tus
@@ -281,13 +250,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
-            data-translate-key="servicesTitle"
           >
             Servicios de Marketing Digital en Fuente el Saz
           </h2>
                       <p
                       class="section-subtitle text-base sm:text-lg"
-                      data-translate-key="servicesSubtitle"
                     >
                       Ofrecemos diseño web y SEO local en Fuente el Saz y Madrid para
                       impulsar tu presencia online y alcanzar tus objetivos.
@@ -308,35 +275,33 @@
               </div>
               <h3
                 class="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 dark:text-white"
-                data-translate-key="serviceCustomWebTitle"
               >
                 Desarrollo Web a Medida
               </h3>
               <div
                 class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
               >
-                <p class="mb-4" data-translate-key="serviceWebMedidaIntro">
+                <p class="mb-4">
                   Para proyectos que requieren un control total y un rendimiento
                   excepcional. El servicio incluye:
                 </p>
                 <ul class="space-y-2 list-disc list-inside">
-                  <li data-translate-key="serviceWebMedidaFeature1">
+                  <li>
                     Diseño 100% exclusivo y adaptado a tu marca.
                   </li>
-                  <li data-translate-key="serviceWebMedidaFeature2">
+                  <li>
                     Código optimizado para máxima velocidad y seguridad.
                   </li>
-                  <li data-translate-key="serviceWebMedidaFeature3">
+                  <li>
                     Arquitectura escalable para futuras ampliaciones.
                   </li>
-                  <li data-translate-key="serviceWebMedidaFeature4">
+                  <li>
                     Panel de administración a medida (opcional).
                   </li>
                 </ul>
               </div>
               <span
                 class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                data-translate-key="serviceLearnMore"
                 >Saber más</span
               >
             </div>
@@ -352,35 +317,33 @@
               </div>
               <h3
                 class="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 dark:text-white"
-                data-translate-key="serviceWordPressTitle"
               >
                 Desarrollo Web con WordPress
               </h3>
               <div
                 class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
               >
-                <p class="mb-4" data-translate-key="serviceWordPressIntro">
+                <p class="mb-4">
                   La solución ideal para webs profesionales y autogestionables.
                   El servicio incluye:
                 </p>
                 <ul class="space-y-2 list-disc list-inside">
-                  <li data-translate-key="serviceWordPressFeature1">
+                  <li>
                     Diseño personalizado y adaptado a móviles.
                   </li>
-                  <li data-translate-key="serviceWordPressFeature2">
+                  <li>
                     Panel de control intuitivo para gestionar tu contenido.
                   </li>
-                  <li data-translate-key="serviceWordPressFeature3">
+                  <li>
                     Formación personalizada para que seas autónomo.
                   </li>
-                  <li data-translate-key="serviceWordPressFeature4">
+                  <li>
                     Plan de Mantenimiento y Seguridad incluido.
                   </li>
                 </ul>
               </div>
               <span
                 class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                data-translate-key="serviceLearnMore"
                 >Saber más</span
               >
             </div>
@@ -396,35 +359,33 @@
               </div>
               <h3
                 class="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 dark:text-white"
-                data-translate-key="serviceSeoTitle"
               >
                 SEO (Optimización para Buscadores)
               </h3>
               <div
                 class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
               >
-                <p class="mb-4" data-translate-key="serviceSeoIntro">
+                <p class="mb-4">
                   Aumenta tu visibilidad y atrae clientes cualificados de forma
                   orgánica. Nuestro plan incluye:
                 </p>
                 <ul class="space-y-2 list-disc list-inside">
-                  <li data-translate-key="serviceSeoFeature1">
+                  <li>
                     Auditoría SEO completa y análisis competitivo.
                   </li>
-                  <li data-translate-key="serviceSeoFeature2">
+                  <li>
                     Estrategia de palabras clave y contenido.
                   </li>
-                  <li data-translate-key="serviceSeoFeature3">
+                  <li>
                     Optimización On-Page y SEO Técnico.
                   </li>
-                  <li data-translate-key="serviceSeoFeature4">
+                  <li>
                     Informes mensuales de posicionamiento y tráfico.
                   </li>
                 </ul>
               </div>
               <span
                 class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                data-translate-key="serviceLearnMore"
                 >Saber más</span
               >
             </div>
@@ -440,35 +401,33 @@
               </div>
               <h3
                 class="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 dark:text-white"
-                data-translate-key="serviceBrandingTitle"
               >
                 Creación de Marca (Branding)
               </h3>
               <div
                 class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
               >
-                <p class="mb-4" data-translate-key="serviceBrandingIntro">
+                <p class="mb-4">
                   Construimos una identidad visual sólida que conecta con tu
                   audiencia. Nuestro servicio incluye:
                 </p>
                 <ul class="space-y-2 list-disc list-inside">
-                  <li data-translate-key="serviceBrandingFeature1">
+                  <li>
                     Diseño de logotipo y variaciones para distintos usos.
                   </li>
-                  <li data-translate-key="serviceBrandingFeature2">
+                  <li>
                     Definición de paleta de colores y tipografías.
                   </li>
-                  <li data-translate-key="serviceBrandingFeature3">
+                  <li>
                     Creación de manual de identidad visual básico.
                   </li>
-                  <li data-translate-key="serviceBrandingFeature4">
+                  <li>
                     Diseño de papelería esencial (tarjetas, etc.).
                   </li>
                 </ul>
               </div>
               <span
                 class="mt-6 inline-block text-primary-blue dark:text-primary-green font-semibold hover:underline"
-                data-translate-key="serviceLearnMore"
                 >Saber más</span
               >
             </div>
@@ -483,13 +442,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
-            data-translate-key="projectsTitle"
           >
             Nuestro Portafolio de Diseño Web
           </h2>
           <p
             class="section-subtitle text-base sm:text-lg"
-            data-translate-key="projectsSubtitle"
           >
             Una muestra de la calidad y diversidad de nuestros trabajos.
             Clientes satisfechos son nuestra mejor carta de presentación.
@@ -502,7 +459,6 @@
             <button
               data-filter="all"
               class="filter-btn active-filter"
-              data-translate-key="filterAll"
             >
               Todos
             </button>
@@ -510,14 +466,12 @@
             <button
               data-filter="web"
               class="filter-btn"
-              data-translate-key="filterWeb"
             >
               Desarrollo Web
             </button>
             <button
               data-filter="seo"
               class="filter-btn"
-              data-translate-key="filterSeo"
             >
               SEO Local
             </button>
@@ -558,26 +512,22 @@
                   <div class="flex items-center gap-2 mb-2">
                     <h3
                       class="text-xl font-semibold text-gray-900 dark:text-white"
-                      data-translate-key="projectNarbosTitle"
                     >
                       Narbo's Salón Spa
                     </h3>
                     <span
                       class="bg-primary-blue dark:bg-primary-green text-white text-xs font-bold uppercase py-1 px-2 rounded-full"
-                      data-translate-key="badgeNew"
                     >
                       Nuevo
                     </span>
                   </div>
                   <p
                     class="text-sm text-primary-blue dark:text-primary-green mb-2"
-                    data-translate-key="projectNarbosSubtitle"
                   >
                     Landing Page y SEO Local
                   </p>
                   <p
                     class="text-gray-600 dark:text-gray-400 text-base"
-                    data-translate-key="projectNarbosDesc"
                   >
                     Desarrollo de landing page a medida y estrategia de SEO
                     local para una peluquería en Colombia, con el objetivo de
@@ -621,19 +571,16 @@
               <div class="p-6">
                 <h3
                   class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
-                  data-translate-key="projectLocutorioTitle"
                 >
                   Locutorio el Pilón
                 </h3>
                 <p
                   class="text-sm text-primary-blue dark:text-primary-green mb-2"
-                  data-translate-key="projectLocutorioSubtitle"
                 >
                   Tour virtual 360º y SEO local
                 </p>
                 <p
                   class="text-gray-600 dark:text-gray-400 text-base"
-                  data-translate-key="projectLocutorioDesc"
                 >
                   Optimización de ficha Google Business y creación de un tour
                   virtual para aumentar la visibilidad y atraer nuevos clientes
@@ -674,19 +621,16 @@
               <div class="p-6">
                 <h3
                   class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
-                  data-translate-key="projectBarberiaTitle"
                 >
                   La Barbería de Isma
                 </h3>
                 <p
                   class="text-sm text-primary-blue dark:text-primary-green mb-2"
-                  data-translate-key="projectBarberiaSubtitle"
                 >
                   Tour Virtual 360° y SEO Local
                 </p>
                 <p
                   class="text-gray-600 dark:text-gray-400 text-base"
-                  data-translate-key="projectBarberiaDesc"
                 >
                   Optimización de ficha Google Business y creación de un tour
                   virtual para aumentar la visibilidad y atraer nuevos clientes
@@ -727,19 +671,16 @@
               <div class="p-6">
                 <h3
                   class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
-                  data-translate-key="projectPisoTitle"
                 >
                   Piso en Alquiler - Tour Virtual
                 </h3>
                 <p
                   class="text-sm text-primary-blue dark:text-primary-green mb-2"
-                  data-translate-key="projectPisoSubtitle"
                 >
                   Tour Virtual 360°
                 </p>
                 <p
                   class="text-gray-600 dark:text-gray-400 text-base"
-                  data-translate-key="projectPisoDesc"
                 >
                   Recorrido virtual completo para inmobiliaria, permitiendo
                   visitas inmersivas 24/7 y acelerando el proceso de alquiler.
@@ -785,19 +726,16 @@
                 <div class="p-6">
                   <h3
                     class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
-                    data-translate-key="projectSuaveBocadoTitle"
                   >
                     Suave Bocado Repostería
                   </h3>
                   <p
                     class="text-sm text-primary-blue dark:text-primary-green mb-2"
-                    data-translate-key="projectSuaveBocadoSubtitle"
                   >
                     WordPress y SEO Local
                   </p>
                   <p
                     class="text-gray-600 dark:text-gray-400 text-base"
-                    data-translate-key="projectSuaveBocadoDesc"
                   >
                     Landing page para repostería en Envigado, Colombia. Incluyó
                     estrategia de SEO local que la posicionó en el top 2 de
@@ -845,19 +783,16 @@
                 <div class="p-6">
                   <h3
                     class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
-                    data-translate-key="projectLuisCorreaTitle"
                   >
                     Luis Alberto Correa - Músico
                   </h3>
                   <p
                     class="text-sm text-primary-blue dark:text-primary-green mb-2"
-                    data-translate-key="projectLuisCorreaSubtitle"
                   >
                     WordPress y SEO Local
                   </p>
                   <p
                     class="text-gray-600 dark:text-gray-400 text-base"
-                    data-translate-key="projectLuisCorreaDesc"
                   >
                     Landing page para músico en Palma de Mallorca. Diseño web en
                     WordPress y estrategia de SEO local para aumentar su
@@ -905,19 +840,16 @@
                 <div class="p-6">
                   <h3
                     class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
-                    data-translate-key="projectMrTijerasTitle"
                   >
                     Barbería Mr. Tijeras
                   </h3>
                   <p
                     class="text-sm text-primary-blue dark:text-primary-green mb-2"
-                    data-translate-key="projectMrTijerasSubtitle"
                   >
                     Landing Page y SEO Básico
                   </p>
                   <p
                     class="text-gray-600 dark:text-gray-400 text-base"
-                    data-translate-key="projectMrTijerasDesc"
                   >
                     Creación de landing page y estrategia de SEO básico para una
                     barbería en Madrid, aumentando su visibilidad y citas
@@ -932,7 +864,6 @@
             <a
               href="#contacto"
               class="cta-button"
-              data-translate-key="projectsCTA"
               >Ver Más Proyectos (o Contactar)</a
             >
           </div>
@@ -945,13 +876,11 @@
             <div>
               <h2
                 class="text-4xl sm:text-5xl font-bold text-gray-800 dark:text-white mb-6 scroll-animate-initial"
-                data-translate-key="aboutTitle"
               >
                 Conoce a Nelson Londoño
               </h2>
               <p
                 class="text-gray-600 dark:text-gray-300 text-lg mb-4 scroll-animate-initial"
-                data-translate-key="aboutIntro"
               >
                 Soy Nelson Londoño, un desarrollador de 43 años originario de
                 Colombia y afincado en Madrid. Mi pasión por la tecnología y el
@@ -959,7 +888,6 @@
               </p>
               <p
                 class="text-gray-600 dark:text-gray-300 mb-4 scroll-animate-initial"
-                data-translate-key="aboutExperience"
               >
                 Con años de experiencia en el sector, he fundado "Nelson Londoño
                 Agencia" con la la misión de ofrecer soluciones digitales que no
@@ -978,13 +906,11 @@
                   <div>
                     <h3
                       class="font-semibold text-gray-800 dark:text-white"
-                      data-translate-key="aboutProTitle"
                     >
                       Profesionalidad
                     </h3>
                     <p
                       class="text-gray-600 dark:text-gray-400"
-                      data-translate-key="aboutProDesc"
                     >
                       Compromiso total con la calidad, la comunicación
                       transparente y la entrega puntual de cada proyecto.
@@ -1000,13 +926,11 @@
                   <div>
                     <h3
                       class="font-semibold text-gray-800 dark:text-white"
-                      data-translate-key="aboutModernTitle"
                     >
                       Modernidad
                     </h3>
                     <p
                       class="text-gray-600 dark:text-gray-400"
-                      data-translate-key="aboutModernDesc"
                     >
                       Uso de las últimas tecnologías y tendencias para crear
                       soluciones digitales frescas e impactantes.
@@ -1022,13 +946,11 @@
                   <div>
                     <h3
                       class="font-semibold text-gray-800 dark:text-white"
-                      data-translate-key="aboutAdaptTitle"
                     >
                       Adaptación
                     </h3>
                     <p
                       class="text-gray-600 dark:text-gray-400"
-                      data-translate-key="aboutAdaptDesc"
                     >
                       Soluciones flexibles y a medida que evolucionan junto a
                       las necesidades de tu negocio.
@@ -1041,7 +963,6 @@
                 <a
                   href="#contacto"
                   class="cta-button"
-                  data-translate-key="aboutCTA"
                   >Hablemos de tu Proyecto</a
                 >
                 <div class="flex justify-start space-x-6">
@@ -1096,13 +1017,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
-            data-translate-key="testimonialsTitle"
           >
             Lo que Dicen Nuestros Clientes
           </h2>
           <p
             class="section-subtitle text-base sm:text-lg"
-            data-translate-key="testimonialsSubtitle"
           >
             Nos enorgullece el impacto positivo de nuestro trabajo. Estas son
             algunas de las experiencias de nuestros clientes.
@@ -1143,7 +1062,6 @@
               </div>
               <p
                 class="my-4 text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300 flex-grow"
-                data-translate-key="testimonial1Text"
               >
                 Excelente experiencia, Nelson Londoño , muy profesional , estoy
                 muy agradecido por sus servicios, asesoría y su amabilidad , 100
@@ -1159,13 +1077,11 @@
                 </div>
                 <p
                   class="font-semibold text-gray-800 dark:text-white"
-                  data-translate-key="testimonial1Author"
                 >
                   Jose Narvaez
                 </p>
                 <p
                   class="text-sm text-gray-500"
-                  data-translate-key="testimonial1Service"
                 >
                   Asesoría y Desarrollo Web
                 </p>
@@ -1207,7 +1123,6 @@
               </div>
               <p
                 class="my-4 text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300 flex-grow"
-                data-translate-key="testimonial2Text"
               >
                 Muy complacido del trabajo realizado por ustedes de mi página
                 web, gracias infinitas, excelente trabajo.
@@ -1222,13 +1137,11 @@
                 </div>
                 <p
                   class="font-semibold text-gray-800 dark:text-white"
-                  data-translate-key="testimonial2Author"
                 >
                   Luis Alberto Correa Marin
                 </p>
                 <p
                   class="text-sm text-gray-500"
-                  data-translate-key="testimonial2Service"
                 >
                   Página Web para Músico
                 </p>
@@ -1270,7 +1183,6 @@
               </div>
               <p
                 class="my-4 text-base leading-relaxed text-gray-600 dark:text-gray-300 flex-grow"
-                data-translate-key="testimonial3Text"
               >
                 Nelson es un desarrollador web altamente capacitado y
                 comprometido. Su capacidad para resolver problemas técnicos de
@@ -1288,13 +1200,11 @@
                 </div>
                 <p
                   class="font-semibold text-gray-800 dark:text-white"
-                  data-translate-key="testimonial3Author"
                 >
                   Aleja Villa
                 </p>
                 <p
                   class="text-sm text-gray-500"
-                  data-translate-key="testimonial3Service"
                 >
                   Desarrollo Web
                 </p>
@@ -1311,13 +1221,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
-            data-translate-key="contactTitle"
           >
             Contacta para tu Proyecto Web
           </h2>
           <p
             class="section-subtitle text-base sm:text-lg"
-            data-translate-key="contactSubtitle"
           >
             ¿Listo para iniciar tu próximo proyecto o tienes alguna pregunta?
             Estamos aquí para ayudarte.
@@ -1343,7 +1251,6 @@
                 <label
                   for="name"
                   class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-                  data-translate-key="formFirstName"
                   >Nombre</label
                 >
               </div>
@@ -1361,7 +1268,6 @@
                 <label
                   for="email"
                   class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-                  data-translate-key="formEmail"
                   >Email</label
                 >
               </div>
@@ -1378,7 +1284,6 @@
                 <label
                   for="phone"
                   class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-                  data-translate-key="formPhone"
                   >Teléfono</label
                 >
               </div>
@@ -1395,7 +1300,6 @@
                 <label
                   for="message"
                   class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-                  data-translate-key="formMessage"
                   >Mensaje</label
                 >
               </div>
@@ -1404,7 +1308,6 @@
                 <button
                   type="submit"
                   class="cta-button w-full sm:w-auto"
-                  data-translate-key="formSubmit"
                 >
                   Enviar Mensaje
                 </button>
@@ -1418,7 +1321,6 @@
             <div class="mt-10 text-center">
               <p
                 class="text-lg text-gray-600 dark:text-gray-300"
-                data-translate-key="contactOrCall"
               >
                 O si lo prefieres:
               </p>
@@ -1428,11 +1330,11 @@
               >
                 <button id="reveal-email-btn" class="contact-reveal-button">
                   <i class="fas fa-envelope mr-2"></i>
-                  <span data-translate-key="revealEmail">Mostrar Email</span>
+                  <span>Mostrar Email</span>
                 </button>
                 <button id="reveal-phone-btn" class="contact-reveal-button">
                   <i class="fas fa-phone mr-2"></i>
-                  <span data-translate-key="revealPhone">Mostrar Teléfono</span>
+                  <span>Mostrar Teléfono</span>
                 </button>
               </div>
               <p class="mt-4 text-gray-600 dark:text-gray-300">
@@ -1449,13 +1351,12 @@
 
     <footer class="bg-gray-800 dark:bg-black">
       <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
-        <p class="text-gray-400" data-translate-key="footerText">
+        <p class="text-gray-400">
           &copy; <span id="currentYear"></span> Nelson Londoño Agencia. Todos
           los derechos reservados.
         </p>
         <p
           class="text-xs text-gray-500 mt-1"
-          data-translate-key="footerMadeWith"
           data-translate-type="html"
         >
           Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.
@@ -1467,7 +1368,6 @@
         </p>
         <p
           class="text-xs text-gray-500 mt-2"
-          data-translate-key="footerServices"
         ></p>
       </div>
     </footer>
@@ -1486,7 +1386,6 @@
         >
           <h3
             class="text-2xl font-bold text-primary-blue dark:text-primary-green"
-            data-translate-key="modalWebMedidaTitle"
           >
             Desarrollo Web a Medida
           </h3>
@@ -1498,27 +1397,27 @@
           </button>
         </div>
         <div class="mt-4 space-y-4">
-          <p data-translate-key="modalWebMedidaDesc1">
+          <p>
             Creamos soluciones web desde cero, totalmente personalizadas para
             tus necesidades. Si buscas un rendimiento superior, funcionalidades
             únicas y un diseño que se adapte perfectamente a tu marca, esta es
             tu solución.
           </p>
-          <p data-translate-key="modalWebMedidaDesc2">
+          <p>
             Utilizamos las últimas tecnologías (HTML5, CSS3, JavaScript moderno)
             para construir sitios rápidos, seguros y escalables.
           </p>
           <ul class="list-disc list-inside space-y-2">
-            <li data-translate-key="modalWebMedidaFeature1">
+            <li>
               Diseño 100% único y exclusivo para tu marca.
             </li>
-            <li data-translate-key="modalWebMedidaFeature2">
+            <li>
               Optimización máxima del rendimiento y velocidad de carga.
             </li>
-            <li data-translate-key="modalWebMedidaFeature3">
+            <li>
               Código limpio, semántico y preparado para SEO desde el inicio.
             </li>
-            <li data-translate-key="modalWebMedidaFeature4">
+            <li>
               Totalmente escalable para añadir nuevas funcionalidades en el
               futuro.
             </li>
@@ -1528,7 +1427,6 @@
           <a
             href="#contacto"
             class="cta-button modal-contact-button"
-            data-translate-key="modalCTA"
             >Pedir Presupuesto</a
           >
         </div>
@@ -1547,7 +1445,6 @@
         >
           <h3
             class="text-2xl font-bold text-primary-blue dark:text-primary-green"
-            data-translate-key="modalWordPressTitle"
           >
             Desarrollo Web con WordPress
           </h3>
@@ -1559,29 +1456,29 @@
           </button>
         </div>
         <div class="mt-4 space-y-4">
-          <p data-translate-key="modalWordPressDesc1">
+          <p>
             Aprovecha la potencia y flexibilidad del gestor de contenidos más
             popular del mundo. WordPress es la solución ideal para quienes
             buscan un sitio web profesional, robusto y fácil de autogestionar.
           </p>
-          <p data-translate-key="modalWordPressDesc2">
+          <p>
             Te entregamos un sitio listo para usar, con un diseño personalizado
             y las funcionalidades que necesites, dándote formación para que
             puedas actualizar tu contenido sin depender de nadie.
           </p>
           <ul class="list-disc list-inside space-y-2">
-            <li data-translate-key="modalWordPressFeature1">
+            <li>
               Panel de administración intuitivo para gestionar tu contenido.
             </li>
-            <li data-translate-key="modalWordPressFeature2">
+            <li>
               Enorme ecosistema de plugins para ampliar funcionalidades (tiendas
               online, reservas, etc.).
             </li>
-            <li data-translate-key="modalWordPressFeature3">
+            <li>
               Diseños profesionales y adaptables a partir de temas premium o
               creados a medida.
             </li>
-            <li data-translate-key="modalWordPressFeature4">
+            <li>
               Incluye nuestro plan de mantenimiento para que tu web esté siempre
               segura y actualizada.
             </li>
@@ -1591,7 +1488,6 @@
           <a
             href="#contacto"
             class="cta-button modal-contact-button"
-            data-translate-key="modalCTA"
             >Pedir Presupuesto</a
           >
         </div>
@@ -1610,7 +1506,6 @@
         >
           <h3
             class="text-2xl font-bold text-primary-blue dark:text-primary-green"
-            data-translate-key="modalSeoTitle"
           >
             SEO (Optimización para Buscadores)
           </h3>
@@ -1622,28 +1517,28 @@
           </button>
         </div>
         <div class="mt-4 space-y-4">
-          <p data-translate-key="modalSeoDesc1">
+          <p>
             Tener una web increíble no sirve de nada si tus clientes no la
             encuentran. Nuestro servicio de SEO se encarga de posicionar tu
             página en los primeros resultados de Google para atraer tráfico
             relevante y cualificado.
           </p>
-          <p data-translate-key="modalSeoDesc2">
+          <p>
             Trabajamos en todos los frentes: la optimización técnica de la web,
             la creación de contenido de valor y la estrategia de autoridad para
             convertirte en un referente en tu sector.
           </p>
           <ul class="list-disc list-inside space-y-2">
-            <li data-translate-key="modalSeoFeature1">
+            <li>
               Auditoría SEO completa y análisis de la competencia.
             </li>
-            <li data-translate-key="modalSeoFeature2">
+            <li>
               Investigación y estrategia de palabras clave.
             </li>
-            <li data-translate-key="modalSeoFeature3">
+            <li>
               Optimización On-Page (contenido, meta-tags, velocidad).
             </li>
-            <li data-translate-key="modalSeoFeature4">
+            <li>
               Informes mensuales para medir el progreso y ajustar la estrategia.
             </li>
           </ul>
@@ -1652,7 +1547,6 @@
           <a
             href="#contacto"
             class="cta-button modal-contact-button"
-            data-translate-key="modalCTA"
             >Pedir Presupuesto</a
           >
         </div>
@@ -1671,7 +1565,6 @@
         >
           <h3
             class="text-2xl font-bold text-primary-blue dark:text-primary-green"
-            data-translate-key="modalBrandingTitle"
           >
             Creación de Marca (Branding)
           </h3>
@@ -1683,27 +1576,27 @@
           </button>
         </div>
         <div class="mt-4 space-y-4">
-          <p data-translate-key="modalBrandingDesc1">
+          <p>
             Tu marca es mucho más que un logo; es la promesa que le haces a tus
             clientes. Nos encargamos de construir una identidad de marca sólida
             y coherente que te diferencie de la competencia y conecte
             emocionalmente con tu público.
           </p>
-          <p data-translate-key="modalBrandingDesc2">
+          <p>
             Desde la estrategia inicial hasta el diseño de cada elemento visual,
             creamos una identidad memorable que refleja tus valores y tu visión.
           </p>
           <ul class="list-disc list-inside space-y-2">
-            <li data-translate-key="modalBrandingFeature1">
+            <li>
               Diseño de logotipo y variaciones.
             </li>
-            <li data-translate-key="modalBrandingFeature2">
+            <li>
               Definición de paleta de colores y tipografías corporativas.
             </li>
-            <li data-translate-key="modalBrandingFeature3">
+            <li>
               Creación de manual de identidad visual.
             </li>
-            <li data-translate-key="modalBrandingFeature4">
+            <li>
               Diseño de papelería y material de marketing.
             </li>
           </ul>
@@ -1712,7 +1605,6 @@
           <a
             href="#contacto"
             class="cta-button modal-contact-button"
-            data-translate-key="modalCTA"
             >Pedir Presupuesto</a
           >
         </div>
