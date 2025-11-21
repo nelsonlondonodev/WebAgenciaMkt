@@ -1,4 +1,3 @@
-import { initTranslations } from './translations.js';
 import { initDarkMode } from './darkMode.js';
 import { initSmoothScroll } from './smoothScroll.js';
 import { initScrollAnimations } from './scrollAnimations.js';
@@ -7,7 +6,6 @@ import { initPortfolio } from './portfolio.js';
 import './chatbot.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  initTranslations();
   initDarkMode();
   initSmoothScroll();
   initScrollAnimations();
