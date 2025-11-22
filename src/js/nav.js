@@ -1,6 +1,7 @@
 function initMobileMenu() {
   const mobileMenuButton = document.getElementById('mobileMenuButton');
   const mobileMenu = document.getElementById('mobileMenu');
+  const mobileServicesButton = document.getElementById('mobileServicesButton');
 
   if (!mobileMenuButton || !mobileMenu) return;
 
@@ -13,15 +14,24 @@ function initMobileMenu() {
     }
   });
 
-  mobileMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      const icon = mobileMenuButton.querySelector('i');
-      if (icon) {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
+  // Close menu when a link is clicked, but not the services button
+  mobileMenu.addEventListener('click', (e) => {
+    // Check if the clicked element is a link inside the mobile menu
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    // If the click is on the services button, do nothing, let its own handler work
+    if (e.target.closest('#mobileServicesButton')) {
+      return;
+    }
+
+    // For all other links, close the menu
+    mobileMenu.classList.add('hidden');
+    const icon = mobileMenuButton.querySelector('i');
+    if (icon) {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
   });
 }
 
