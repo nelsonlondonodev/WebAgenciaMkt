@@ -5,7 +5,19 @@ function initMobileMenu() {
 
   if (!mobileMenuButton || !mobileMenu) return;
 
-  mobileMenuButton.addEventListener('click', () => {
+  const closeMobileMenu = () => {
+    if (!mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.add('hidden');
+      const icon = mobileMenuButton.querySelector('i');
+      if (icon) {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    }
+  };
+
+  mobileMenuButton.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent this click from immediately propagating to the document listener
     mobileMenu.classList.toggle('hidden');
     const icon = mobileMenuButton.querySelector('i');
     if (icon) {
@@ -26,11 +38,16 @@ function initMobileMenu() {
     }
 
     // For all other links, close the menu
-    mobileMenu.classList.add('hidden');
-    const icon = mobileMenuButton.querySelector('i');
-    if (icon) {
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
+    closeMobileMenu();
+  });
+
+  // Close mobile menu when clicking outside of it or the toggle button
+  document.addEventListener('click', (e) => {
+    if (
+      !mobileMenu.contains(e.target) && // Click is outside the mobile menu
+      !mobileMenuButton.contains(e.target) // Click is outside the mobile menu button
+    ) {
+      closeMobileMenu();
     }
   });
 }
