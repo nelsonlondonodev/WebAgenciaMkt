@@ -36,10 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
       { cardId: 'card-proyecto-locutorio', modalId: 'proyecto-modal-locutorio' },
       { cardId: 'card-proyecto-barberia', modalId: 'proyecto-modal-barberia' },
       { cardId: 'card-proyecto-kuula', modalId: 'proyecto-modal-kuula' },
-
-      { cardId: 'card-wordpress', modalId: 'service-modal-wordpress' },
-      { cardId: 'card-seo', modalId: 'service-modal-seo' },
-      { cardId: 'card-branding', modalId: 'service-modal-branding' },
     ];
     modalConfigs.forEach((config) => {
       const card = document.getElementById(config.cardId);
