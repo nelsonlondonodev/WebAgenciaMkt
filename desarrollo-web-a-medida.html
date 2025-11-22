@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth dark">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-124QEKRXHD"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desarrollo Web a Medida | Nelson Londono Agencia</title>
+    <link rel="canonical" href="https://nelsonlondono.es/desarrollo-web-a-medida.html" />
+    <link rel="icon" type="image/webp" href="./image/favicon.webp" />
+    <meta
+      name="description"
+      content="Creamos páginas web a medida con código limpio y optimizado. Soluciones de alto rendimiento con HTML, CSS, JavaScript y React para tu negocio."
+    />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      />
+    </noscript>
+
+    <link href="./output.css?v=1761721531560" rel="stylesheet" />
+
+    <style>
+      #inicio-servicio::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(to top, #F9FAFB, transparent);
+        pointer-events: none;
+      }
+
+      .dark #inicio-servicio::after {
+        background: linear-gradient(to top, #020202, transparent);
+      }
+    </style>
+  </head>
+  <body class="bg-light-bg dark:bg-dark-bg">
+    <header id="mainHeader" class="sticky-header">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center flex-shrink-0">
+            <a
+              href="index.html"
+              class="block"
+              aria-label="Nelson Londoño Agencia - Página de Inicio"
+            >
+              <img
+                src="./image/logo-nelson.webp"
+                alt="Logo de Nelson Londoño Agencia de Marketing Digital en Fuente el Saz"
+                class="h-10 sm:h-12 w-auto logo-invert-on-dark"
+                loading="lazy"
+                decoding="async"
+                width="174"
+                height="48"
+              />
+            </a>
+          </div>
+          <div class="hidden lg:block">
+            <nav class="ml-10 flex items-baseline space-x-4">
+              <a href="index.html" class="nav-link flex items-center">
+                <i class="fas fa-home w-5 text-center mr-2"></i
+                ><span class="flex-1">Inicio</span>
+              </a>
+              <div id="services-menu-group" class="relative group">
+                <a href="#" class="nav-link flex items-center">
+                  <i class="fas fa-briefcase w-5 text-center mr-2"></i>
+                  <span class="flex-1">Servicios</span>
+                  <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                </a>
+                <div
+                  id="services-menu-dropdown"
+                  class="absolute z-20 hidden bg-white dark:bg-gray-800 shadow-lg rounded-md mt-2 w-60"
+                >
+                  <a
+                    href="agencia-automatizaciones.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >Agentes Virtuales y Automatizaciones</a
+                  >
+                   <a
+                    href="desarrollo-web-a-medida.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >Desarrollo Web a Medida</a
+                  >
+                </div>
+              </div>
+              <a href="index.html#proyectos" class="nav-link flex items-center">
+                <i class="fas fa-folder-open w-5 text-center mr-2"></i
+                ><span class="flex-1">Proyectos</span>
+              </a>
+              <a href="index.html#sobre-mi" class="nav-link flex items-center">
+                <i class="fas fa-user w-5 text-center mr-2"></i
+                ><span class="flex-1">Sobre Mí</span>
+              </a>
+              <a href="index.html#testimonios" class="nav-link flex items-center">
+                <i class="fas fa-star w-5 text-center mr-2"></i
+                ><span class="flex-1">Testimonios</span>
+              </a>
+              <a href="index.html#contacto" class="nav-link flex items-center">
+                <i class="fas fa-envelope w-5 text-center mr-2"></i
+                ><span class="flex-1">Contacto</span>
+              </a>
+              <a href="blog.html" class="nav-link flex items-center">
+                <i class="fas fa-newspaper w-5 text-center mr-2"></i
+                ><span class="flex-1">Blog</span>
+              </a>
+            </nav>
+          </div>
+          <div class="flex items-center">
+            <button
+              id="darkModeToggle"
+              aria-label="Cambiar tema de color"
+              class="group p-3 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition-colors"
+            >
+              <i
+                class="fas fa-moon transition-transform duration-300 ease-in-out group-hover:rotate-[20deg]"
+              ></i>
+            </button>
+            <div class="lg:hidden ml-2">
+              <button
+                id="mobileMenuButton"
+                type="button"
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-primary-blue dark:hover:text-primary-green hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-blue"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Abrir menú principal</span>
+                <i class="fas fa-bars fa-lg"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:hidden hidden" id="mobileMenu">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a href="index.html" class="nav-link-mobile flex items-center">
+            <i class="fas fa-home w-5 text-center mr-2"></i
+            ><span class="flex-1">Inicio</span>
+          </a>
+          <div class="relative">
+            <button
+              id="mobileServicesButton"
+              class="nav-link-mobile flex items-center w-full text-left"
+            >
+              <i class="fas fa-briefcase w-5 text-center mr-2"></i>
+              <span class="flex-1">Servicios</span>
+              <i class="fas fa-chevron-down ml-2 text-xs"></i>
+            </button>
+            <div id="mobileServicesMenu" class="hidden pl-8">
+              <a
+                href="agencia-automatizaciones.html"
+                class="nav-link-mobile flex items-center"
+                >Agentes Virtuales y Automatizaciones</a
+              >
+               <a
+                href="desarrollo-web-a-medida.html"
+                class="nav-link-mobile flex items-center"
+                >Desarrollo Web a Medida</a
+              >
+            </div>
+          </div>
+          <a href="index.html#proyectos" class="nav-link-mobile flex items-center">
+            <i class="fas fa-folder-open w-5 text-center mr-2"></i
+            ><span class="flex-1">Proyectos</span>
+          </a>
+          <a href="index.html#sobre-mi" class="nav-link-mobile flex items-center">
+            <i class="fas fa-user w-5 text-center mr-2"></i
+            ><span class="flex-1">Sobre Mí</span>
+          </a>
+          <a href="index.html#testimonios" class="nav-link-mobile flex items-center">
+            <i class="fas fa-star w-5 text-center mr-2"></i
+            ><span class="flex-1">Testimonios</span>
+          </a>
+          <a href="index.html#contacto" class="nav-link-mobile flex items-center">
+            <i class="fas fa-envelope w-5 text-center mr-2"></i
+            ><span class="flex-1">Contacto</span>
+          </a>
+          <a href="blog.html" class="nav-link-mobile flex items-center">
+            <i class="fas fa-newspaper w-5 text-center mr-2"></i
+            ><span class="flex-1">Blog</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-20">
+      <section
+        id="inicio-servicio"
+        class="relative overflow-hidden animated-gradient-bg"
+      >
+        <div
+          class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center md:min-h-[calc(90vh-5rem)]"
+        >
+          <!-- Iconos flotantes de desarrollo web -->
+          <i
+            class="fas fa-code absolute top-1/4 left-4 text-6xl lg:text-8xl text-primary-green/50 dark:text-primary-green/30 transform -rotate-12 z-0 animate-float-up-down"
+            aria-hidden="true"
+          ></i>
+          <i
+            class="fab fa-react absolute bottom-1/4 right-4 text-6xl lg:text-8xl text-primary-blue/50 dark:text-primary-blue/30 transform rotate-12 z-0 animate-float-down-up"
+            aria-hidden="true"
+          ></i>
+          <i
+            class="fas fa-rocket absolute top-1/2 left-1/3 text-5xl lg:text-7xl text-gray-400/50 dark:text-gray-500/30 transform z-0 animate-float-up-down"
+            style="animation-duration: 10s;"
+            aria-hidden="true"
+          ></i>
+          <div class="max-w-4xl relative z-10">
+            <h1
+              class="text-2xl sm:text-[26px] font-normal text-gray-900 dark:text-white opacity-0 animate-slide-in-right uppercase"
+            >
+              Servicio de Desarrollo Web a Medida
+            </h1>
+            <p
+              class="mt-8 text-3xl sm:text-6xl font-extrabold text-gray-700 dark:text-gray-200 opacity-0 animate-slide-in-left text-left sm:text-center"
+              style="animation-delay: 0.2s"
+            >
+              Soluciones Digitales Únicas para Negocios Exigentes
+            </p>
+            <p
+              class="mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center"
+              style="animation-delay: 0.4s"
+            >
+              Creamos sitios web y aplicaciones desde cero, con código limpio y optimizado para ofrecer un rendimiento, seguridad y una experiencia de usuario sin concesiones.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <section id="introduccion" class="py-12 sm:py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="section-title text-4xl sm:text-5xl scroll-animate-initial">¿Qué es el Desarrollo a Medida?</h2>
+            <p class="mt-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed scroll-animate-initial delay-100">
+                El desarrollo web a medida significa construir tu proyecto digital desde una hoja en blanco, sin las limitaciones de plantillas o plataformas predefinidas. Cada línea de código, cada funcionalidad y cada elemento de diseño se crea específicamente para cumplir tus objetivos de negocio. Es la solución definitiva para quienes buscan un control total, un rendimiento excepcional y una identidad digital verdaderamente única.
+            </p>
+        </div>
+      </section>
+
+      <section id="por-que-codigo" class="py-12 sm:py-16 bg-gray-50 dark:bg-gradient-to-b dark:from-dark-bg dark:to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="section-title text-4xl sm:text-5xl scroll-animate-initial"
+          >
+            ¿Por qué elegir código a medida?
+          </h2>
+          <p
+            class="section-subtitle text-base sm:text-lg"
+          >
+            Descubre las ventajas de una solución construida exclusivamente para ti.
+          </p>
+          <div
+            class="mt-12 grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          >
+            <div
+              class="service-card group hover:-translate-y-2 scroll-animate-initial flex flex-col"
+            >
+              <div
+                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+              >
+                <i class="fas fa-tachometer-alt fa-2x"></i>
+              </div>
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 dark:text-white"
+              >
+                Rendimiento Superior
+              </h3>
+              <div
+                class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
+              >
+                <p>
+                  Al no depender de plugins o código innecesario, tu web será increíblemente rápida. Usamos tecnologías modernas como <strong class="font-semibold text-gray-700 dark:text-gray-200">HTML, CSS, TailwindCSS y JavaScript</strong> para garantizar tiempos de carga mínimos, mejorando el SEO y la experiencia del usuario.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="service-card group hover:-translate-y-2 scroll-animate-initial flex flex-col"
+            >
+              <div
+                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+              >
+                <i class="fas fa-layer-group fa-2x"></i>
+              </div>
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 dark:text-white"
+              >
+                Escalabilidad sin Límites
+              </h3>
+              <div
+                class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
+              >
+                <p>
+                  Tu negocio crecerá, y tu web debe hacerlo contigo. Una base de código a medida permite añadir nuevas funcionalidades complejas en el futuro sin comprometer la estructura o el rendimiento, utilizando librerías como <strong class="font-semibold text-gray-700 dark:text-gray-200">React</strong> para aplicaciones dinámicas.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="service-card group hover:-translate-y-2 scroll-animate-initial flex flex-col"
+            >
+              <div
+                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+              >
+                <i class="fas fa-puzzle-piece fa-2x"></i>
+              </div>
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 dark:text-white"
+              >
+                Integraciones Potentes
+              </h3>
+              <div
+                class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
+              >
+                <p>
+                  Conectamos tu web con cualquier servicio que necesites: desde <strong class="font-semibold text-gray-700 dark:text-gray-200">chatbots con IA</strong> para atención al cliente 24/7, hasta <strong class="font-semibold text-gray-700 dark:text-gray-200">formularios automatizados</strong> que capturan y cualifican leads, enviándolos directamente a tu CRM.
+                </p>
+              </div>
+            </div>
+            
+            <div
+              class="service-card group hover:-translate-y-2 scroll-animate-initial flex flex-col"
+            >
+              <div
+                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+              >
+                <i class="fas fa-shopping-cart fa-2x"></i>
+              </div>
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 dark:text-white"
+              >
+                Desde Landing Pages a E-commerce
+              </h3>
+              <div
+                class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
+              >
+                <p>
+                  La flexibilidad es total. Podemos construir desde una <strong class="font-semibold text-gray-700 dark:text-gray-200">landing page</strong> de alta conversión hasta una plataforma de <strong class="font-semibold text-gray-700 dark:text-gray-200">e-commerce</strong> completa con pasarelas de pago, gestión de inventario y perfiles de usuario, todo hecho a medida.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="service-card group hover:-translate-y-2 scroll-animate-initial flex flex-col"
+            >
+              <div
+                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+              >
+                <i class="fas fa-palette fa-2x"></i>
+              </div>
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 dark:text-white"
+              >
+                Diseño 100% Exclusivo
+              </h3>
+              <div
+                class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
+              >
+                <p>
+                  Tu marca es única, y tu web también debería serlo. Creamos una experiencia visual y de usuario que refleja tu identidad a la perfección, sin estar atados a las restricciones de una plantilla. El resultado es un sitio memorable que te diferencia de la competencia.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="service-card group hover:-translate-y-2 scroll-animate-initial flex flex-col"
+            >
+              <div
+                class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-primary-green dark:text-primary-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+              >
+                <i class="fas fa-shield-alt fa-2x"></i>
+              </div>
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-gray-900 dark:text-white"
+              >
+                Seguridad Reforzada
+              </h3>
+              <div
+                class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
+              >
+                <p>
+                  Al tener un código a medida, la superficie de ataque para hackers es mucho menor en comparación con plataformas populares y sus plugins. Implementamos las mejores prácticas de seguridad para proteger tus datos y los de tus clientes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta-final" class="py-12 sm:py-16 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-4 scroll-animate-initial"
+          >
+            ¿Listo para construir una solución digital sin compromisos?
+          </h2>
+          <p
+            class="text-lg text-gray-600 dark:text-gray-300 mb-8 scroll-animate-initial delay-100"
+          >
+            Hablemos de tu proyecto. Contáctanos para una consulta gratuita y descubre cómo el desarrollo a medida puede llevar tu negocio al siguiente nivel.
+          </p>
+          <a
+            href="index.html#contacto"
+            class="cta-button scroll-animate-initial delay-200"
+            >Solicitar Presupuesto</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-800 dark:bg-black">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-gray-400">
+          &copy; <span id="currentYear"></span> Nelson Londoño Agencia. Todos
+          los derechos reservados.
+        </p>
+        <p
+          class="text-xs text-gray-500 mt-1"
+          data-translate-type="html"
+        >
+          Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.
+        </p>
+        <p class="text-xs text-gray-500 mt-2">
+          <a href="#" id="open-cookie-settings" class="hover:underline"
+            >Configuración de Cookies</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <script src="bundle.min.js?v=1761721531560" defer></script>
+    
+    <!-- Chatbot y otros elementos comunes -->
+    <div id="chat-widget-container"></div>
+    <div id="cookie-banner" class="cookie-banner hidden"></div>
+    <div id="cookie-settings-modal" class="cookie-modal-backdrop hidden"></div>
+    <div id="chat-widget-container" class="fixed bottom-5 right-5 z-[9999]"></div>
+    <div id="chat-window" class="hidden fixed bottom-24 right-5 left-5 sm:left-auto max-w-sm bg-gray-100 dark:bg-gray-900 rounded-lg shadow-2xl z-[9999] flex flex-col" style="height: 70vh"></div>
+  </body>
+</html>
