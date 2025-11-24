@@ -15,6 +15,8 @@ async function generateSitemap() {
     { url: '/articulo-seo-post-fiestas.html', changefreq: 'monthly', priority: 0.7 },
     { url: '/articulo-redes-sociales-publicidad-local.html', changefreq: 'monthly', priority: 0.7 },
     { url: '/agencia-automatizaciones.html', changefreq: 'monthly', priority: 0.9 },
+    { url: '/agencia-desarrollo-web-con-codigo.html', changefreq: 'monthly', priority: 0.9 },
+    { url: '/agencia-seo.html', changefreq: 'monthly', priority: 0.9 },
     { url: '/articulo-automatizacion-marketing.html', changefreq: 'monthly', priority: 0.7 },
   ];
 
