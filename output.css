@@ -2155,18 +2155,12 @@ video {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity, 1));
 }
-.text-primary-blue\/50 {
-  color: rgb(59 130 246 / 0.5);
-}
 .text-primary-green {
   --tw-text-opacity: 1;
   color: rgb(16 185 129 / var(--tw-text-opacity, 1));
 }
 .text-primary-green\/20 {
   color: rgb(16 185 129 / 0.2);
-}
-.text-primary-green\/50 {
-  color: rgb(16 185 129 / 0.5);
 }
 .text-red-500 {
   --tw-text-opacity: 1;
@@ -2918,17 +2912,9 @@ body.fade-in {
   color: rgb(59 130 246 / 0.2);
 }
 
-.dark\:text-primary-blue\/30:is(.dark *) {
-  color: rgb(59 130 246 / 0.3);
-}
-
 .dark\:text-primary-green:is(.dark *) {
   --tw-text-opacity: 1;
   color: rgb(16 185 129 / var(--tw-text-opacity, 1));
-}
-
-.dark\:text-primary-green\/30:is(.dark *) {
-  color: rgb(16 185 129 / 0.3);
 }
 
 .dark\:text-white:is(.dark *) {
