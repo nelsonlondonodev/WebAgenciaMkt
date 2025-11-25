@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const distPath = path.join(__dirname, 'dist');
+const distPath = __dirname;
 const version = Date.now();
 
-console.log('Starting cache busting in `dist` directory...');
+console.log('Starting cache busting in root directory...');
 
 // Find all HTML files in the dist directory
 fs.readdir(distPath, (err, files) => {
