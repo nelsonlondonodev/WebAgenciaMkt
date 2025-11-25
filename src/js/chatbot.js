@@ -17,7 +17,10 @@ class Chatbot {
       'https://n8n.srv1033442.hstgr.cloud/webhook/34b5ab96-ecf0-4195-93de-e3923c2062e5';
     this.sessionIdKey = 'nelson_chat_session_id';
     this.sessionId = this.getOrCreateSessionId();
+    this.historyKey = `nelson_chat_history_${this.sessionId}`;
+    this.history = [];
 
+    this.loadHistory();
     this.addEventListeners();
   }
 
@@ -29,6 +32,17 @@ class Chatbot {
       localStorage.setItem(this.sessionIdKey, sessionId);
     }
     return sessionId;
+  }
+
+  loadHistory() {
+    const storedHistory = sessionStorage.getItem(this.historyKey);
+    if (storedHistory) {
+      this.history = JSON.parse(storedHistory);
+      this.history.forEach(item => {
+        // Pass false to prevent re-saving history while loading
+        this.appendMessage(item.message, item.sender, false);
+      });
+    }
   }
 
   addEventListeners() {
@@ -46,7 +60,7 @@ class Chatbot {
     this.elements.window.classList.toggle('hidden');
     if (!this.elements.window.classList.contains('hidden')) {
       this.elements.input.focus();
-      if (this.elements.messages.children.length === 0) {
+      if (this.history.length === 0) {
         this.appendMessage(
           '¡Hola! Soy Aurelio, tu asistente virtual. ¿En qué puedo ayudarte?',
           'bot'
@@ -113,7 +127,12 @@ class Chatbot {
     return timeElement;
   }
 
-  appendMessage(message, sender) {
+  appendMessage(message, sender, save = true) {
+    if (save) {
+      this.history.push({ message, sender });
+      sessionStorage.setItem(this.historyKey, JSON.stringify(this.history));
+    }
+
     const messageElement = document.createElement('div');
     messageElement.className = `mb-4 flex flex-col ${
       sender === 'user' ? 'items-end' : 'items-start'

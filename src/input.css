@@ -15,6 +15,14 @@
   .logo-invert-on-dark {
     @apply dark:invert;
   }
+  .text-glow-green {
+    @apply text-primary-green transition-all duration-300;
+    text-shadow: 0 0 8px theme('colors.primary-green');
+  }
+  .text-glow-blue {
+    @apply text-primary-blue transition-all duration-300;
+    text-shadow: 0 0 8px theme('colors.primary-blue');
+  }
 }
 
 /* 3. Tus componentes y estilos personalizados. */
@@ -197,6 +205,13 @@
       /* Tono índigo oscuro */ #059669 /* Tono esmeralda oscuro */
     );
   }
+}
+
+
+.scroll-animate-initial {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .scroll-animate-initial.is-visible {
