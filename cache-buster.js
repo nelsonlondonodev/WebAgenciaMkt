@@ -32,7 +32,7 @@ fs.readdir(distPath, (err, files) => {
       // The regex looks for src/href attributes pointing to the specific files.
       // It handles paths like "./bundle.min.js" or "bundle.min.js".
       const regex = new RegExp(
-        '(src|href)="\\.?/?(bundle\\.min\\.js|output\\.css)"',
+        '(src|href)="\\.?/?(bundle\\.min\\.js|output\\.css)(?:\\?v=[0-9]*)?"',
         'g'
       );
 
