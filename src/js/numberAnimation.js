@@ -30,14 +30,10 @@ function initNumberAnimation() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           if (endPosElement) {
-            animateValue(endPosElement, 0, 6.6, 2000, 1);
+            // Animate the main number from 9.0 down to 6.6
+            animateValue(endPosElement, 9.0, 6.6, 2000, 1);
           }
-          if (startPosElement) {
-            animateValue(startPosElement, 0, 9, 1500, 0);
-          }
-          if (endPosDescElement) {
-            animateValue(endPosDescElement, 0, 6.6, 2000, 1);
-          }
+          // The other numbers in the text will remain static.
           observer.unobserve(card); // Animate only once
         }
       });
