@@ -11,6 +11,7 @@
     "build:css": "NODE_ENV=production postcss ./src/input.css -o output.css",
     "build:js": "esbuild src/js/script.js --bundle --minify --outfile=bundle.min.js",
     "build": "npm run build:css && npm run build:js && node cache-buster.js && node generar-sitemap.js",
+    "build:dist": "npm run build && rm -rf dist && mkdir -p dist/image && cp *.html output.css bundle.min.js robots.txt sitemap.xml dist/ && cp image/* dist/image/",
     "sitemap": "node generar-sitemap.js",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

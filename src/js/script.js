@@ -3,6 +3,7 @@ import { initSmoothScroll } from './smoothScroll.js';
 import { initScrollAnimations } from './scrollAnimations.js';
 import { initNav } from './nav.js';
 import { initPortfolio } from './portfolio.js';
+import { initNumberAnimation } from './numberAnimation.js';
 import './chatbot.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initNav();
   initPortfolio();
+  initNumberAnimation();
   initModals();
 
   function initModals() {
