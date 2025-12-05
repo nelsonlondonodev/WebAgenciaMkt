@@ -34,7 +34,7 @@
       />
     </noscript>
 
-    <link href="./output.css?v=1764837121792" rel="stylesheet" />
+    <link href="./output.css?v=1764935841399" rel="stylesheet" />
 
     <style>
       #inicio-servicio::after {
@@ -412,7 +412,6 @@
           <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             <!-- Card 2: SEO Web -->
             <div
-              id="seo-case-study-card"
               class="service-card group hover:-translate-y-2 flex flex-col items-center text-center scroll-animate-initial delay-100"
             >
               <div
@@ -435,7 +434,7 @@
               <p
                 class="text-5xl sm:text-6xl font-bold text-primary-green dark:text-primary-blue mb-2"
               >
-                Top <span id="case-study-end-pos">6.6</span>
+                Top <span class="animate-number" data-start-value="9" data-end-value="6.6" data-decimals="1">9.0</span>
               </p>
               <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">
                 Posición media en Google
@@ -444,8 +443,8 @@
                 class="text-base text-gray-700 dark:text-gray-400 leading-relaxed mb-4"
               >
                 Escalabilidad rápida. Pasamos de la posición
-                <span id="case-study-start-pos" class="font-bold">9</span> a la
-                <span id="case-study-end-pos-desc" class="font-bold">6.6</span>
+                <span class="font-bold">9</span> a la
+                <span class="font-bold">6.6</span>
                 en búsquedas transaccionales en menos de 45 días.
               </p>
               <a
@@ -490,7 +489,7 @@
           &copy; <span id="currentYear"></span> Nelson Londoño Agencia. Todos
           los derechos reservados.
         </p>
-        <p class="text-xs text-gray-500 mt-1" data-translate-type="html">
+        <p class="text-xs text-gray-500 mt-1">
           Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.
         </p>
         <p class="text-xs text-gray-500 mt-2">
@@ -566,6 +565,79 @@
       </div>
     </div>
 
-    <script src="./bundle.min.js?v=1764837121792" defer></script>
+    <div id="cookie-banner" class="cookie-banner hidden">
+      <div class="cookie-banner-content">
+        <div class="flex items-center">
+          <i
+            class="fas fa-cookie-bite fa-2x mr-4 text-primary-blue dark:text-primary-green"
+          ></i>
+          <p class="text-sm">
+            Utilizamos cookies para mejorar tu experiencia. Las cookies
+            analíticas nos ayudan a entender cómo usas nuestro sitio web.
+          </p>
+        </div>
+        <div class="cookie-banner-actions">
+          <button id="cookie-reject" class="cookie-button-reject">
+            Rechazar
+          </button>
+          <button id="cookie-accept" class="cookie-button-accept">
+            Aceptar
+          </button>
+          <button id="cookie-settings-open" class="cookie-button-settings">
+            Configurar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="cookie-settings-modal" class="cookie-modal-backdrop hidden">
+      <div class="cookie-modal-content">
+        <h3 class="text-lg font-semibold mb-4">Configuración de cookies</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">
+          Gestiona tus preferencias de consentimiento. Puedes habilitar o
+          deshabilitar los diferentes tipos de cookies a continuación.
+        </p>
+
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <h4 class="font-semibold">Cookies Necesarias</h4>
+            <span
+              class="text-xs text-primary-green dark:text-primary-blue font-bold"
+              >Siempre Activas</span
+            >
+          </div>
+          <p class="text-sm text-gray-500 mt-1">
+            Estas cookies son esenciales para que el sitio web funcione
+            correctamente. No se pueden desactivar.
+          </p>
+        </div>
+
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <h4 class="font-semibold">Cookies de Análisis</h4>
+            <label class="cookie-toggle">
+              <input
+                type="checkbox"
+                id="analytics-cookie-toggle"
+                class="cookie-toggle-input"
+              />
+              <span class="cookie-toggle-slider"></span>
+            </label>
+          </div>
+          <p class="text-sm text-gray-500 mt-1">
+            Estas cookies nos permiten medir el tráfico y analizar el
+            comportamiento del usuario para mejorar nuestro servicio (Google
+            Analytics).
+          </p>
+        </div>
+
+        <div class="mt-8 flex justify-end">
+          <button id="cookie-settings-save" class="cookie-button-accept">
+            Guardar Configuración
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./bundle.min.js?v=1764935841399" defer></script>
   </body>
 </html>
