@@ -4,9 +4,14 @@ import { initScrollAnimations } from './scrollAnimations.js';
 import { initNav } from './nav.js';
 import { initPortfolio } from './portfolio.js';
 import { initNumberAnimation } from './numberAnimation.js';
+import { loadComponents } from './componentLoader.js'; // Importar el cargador de componentes
 import './chatbot.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  // Cargar componentes reutilizables como el NAV y el Footer
+  await loadComponents();
+
+  // Inicializar el resto de los scripts después de que los componentes estén cargados
   initDarkMode();
   initSmoothScroll();
   initScrollAnimations();
