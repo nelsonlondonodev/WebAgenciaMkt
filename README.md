@@ -1,80 +1,112 @@
-Nelson Londoño - Agencia de Marketing Digital
-Este es el repositorio del código fuente de mi página web profesional, una landing page moderna y completamente adaptable creada para mostrar mis servicios de desarrollo web, SEO y marketing digital. El proyecto está diseñado para ser visualmente atractivo, rápido y funcional, utilizando tecnologías web modernas como Tailwind CSS y JavaScript puro para una máxima eficiencia.
+# Nelson Londoño - Agencia Web Personal
 
-Ver el sitio en vivo: https://www.nelsonlondono.es/
+Este es el repositorio del código fuente de mi página web profesional, un sitio multi-página moderno y de alto rendimiento creado para mostrar mis servicios de desarrollo web, SEO y automatizaciones. El proyecto está construido con un enfoque "vanilla" (HTML, CSS, JS) y un pipeline de construcción moderno para máxima eficiencia y control.
 
-✨ Características Principales
-Diseño Totalmente Adaptable (Responsive): La interfaz se adapta perfectamente a cualquier tamaño de pantalla, desde móviles pequeños hasta monitores de escritorio grandes.
+## ✨ Características Principales
 
-Tema Claro y Oscuro: Los usuarios pueden elegir entre un tema claro y uno oscuro según sus preferencias. El sistema también puede detectar la preferencia del sistema operativo del usuario.
+-   **Sitio Multi-página Estático:** Arquitectura optimizada para la velocidad y el SEO.
+-   **Componentes Reutilizables:** Navegación y pie de página cargados dinámicamente con JavaScript (`fetch`) para facilitar el mantenimiento.
+-   **Diseño Adaptable (Responsive):** Interfaz que se adapta perfectamente a cualquier tamaño de pantalla.
+-   **Tema Claro y Oscuro:** Selector de tema manual que guarda la preferencia del usuario.
+-   **Interactivo:** Animaciones por scroll, portafolio filtrable, modales y un formulario de contacto funcional.
+-   **Optimizado para Producción:**
+    -   Bundling y minificación de JavaScript con `esbuild`.
+    -   Procesamiento y minificación de CSS con `PostCSS` y `Tailwind CSS`.
+    -   Cache-busting automático para los archivos CSS y JS.
+    -   Generación automática de `sitemap.xml`.
 
-Soporte Multilenguaje (i18n): Todo el contenido textual de la página puede cambiar dinámicamente entre Español e Inglés, guardando la preferencia del usuario.
+## 🛠️ Tecnologías Utilizadas
 
-Secciones Interactivas:
+-   **HTML5:** Estructura semántica del contenido.
+-   **Tailwind CSS:** Framework CSS "utility-first" para un diseño rápido y personalizado.
+-   **PostCSS:** Herramienta para transformar CSS, usada aquí para el autoprefijado y la minificación con `cssnano`.
+-   **JavaScript (Vanilla):** Lógica interactiva modular (ESM).
+-   **esbuild:** Bundler y minificador de JavaScript extremadamente rápido.
+-   **concurrently:** Para ejecutar múltiples scripts (watchers de JS y CSS) en paralelo.
+-   **http-server:** Servidor de desarrollo local ligero.
+-   **Node.js:** Para ejecutar los scripts de construcción y el ecosistema de `npm`.
 
-Portafolio Filtrable: Los proyectos se pueden filtrar por categorías (Tours Virtuales, Desarrollo Web, SEO Local) de forma dinámica y sin recargar la página.
+---
 
-Modales Detallados: Cada servicio y proyecto del portafolio tiene una ventana modal que se abre para mostrar información más detallada.
+## 🚀 Entorno de Desarrollo
 
-Formulario de Contacto Funcional: Envío de datos a través de AJAX a Formspree, con validación en el cliente y mensajes de estado (enviando, éxito, error).
+Para trabajar en el proyecto localmente, necesitas tener **dos terminales abiertas** en el directorio raíz del proyecto.
 
-Animaciones y Microinteracciones: Se utilizan animaciones sutiles (al hacer scroll, en botones, tarjetas, etc.) para mejorar la experiencia de usuario.
+### Requisitos
 
-Optimización SEO:
+-   [Node.js](https://nodejs.org/) (versión 18 o superior)
+-   `npm` (viene con Node.js)
 
-Uso de etiquetas semánticas de HTML5.
+### 1. Instalación
 
-Metaetiquetas optimizadas para descripción y título.
+Primero, clona el repositorio e instala las dependencias:
 
-Generación de sitemap.xml y configuración de robots.txt para un correcto rastreo.
-
-Gestión de Cookies: Incluye un banner de consentimiento de cookies y un modal para que el usuario gestione sus preferencias, cumpliendo con las normativas de privacidad.
-
-🛠️ Tecnologías Utilizadas
-HTML5: Para la estructura semántica del contenido.
-
-CSS3: Para los estilos base y animaciones.
-
-Tailwind CSS: Un framework de CSS "utility-first" para un diseño rápido y personalizado.
-
-JavaScript (Vanilla): Para toda la lógica interactiva, sin necesidad de frameworks pesados, garantizando un rendimiento óptimo.
-
-PostCSS: Para procesar el CSS, utilizando autoprefixer para añadir prefijos de navegador automáticamente.
-
-Font Awesome: Para la iconografía del sitio.
-
-Formspree: Como backend para el formulario de contacto.
-
-🚀 Instalación y Uso Local
-Si deseas clonar y ejecutar este proyecto en tu máquina local, sigue estos pasos:
-
-Clona el repositorio:
-
-Bash
-
-git clone https://github.com/nelsonlondonodev/webagenciamkt.git
-Navega a la carpeta del proyecto:
-
-Bash
-
-cd webagenciamkt
-Instala las dependencias de desarrollo:
-
-Bash
-
+```bash
+git clone https://github.com/nelsonlondonodev/nelson-agencia-web.git
+cd nelson-agencia-web
 npm install
-Inicia el proceso de compilación de CSS en modo "watch":
-Este comando vigilará los cambios en src/input.css y los compilará automáticamente en output.css.
+```
 
-Bash
+### 2. Ejecución
 
-npm run build-css
-Abre index.html en tu navegador:
-Puedes usar una extensión como "Live Server" en VS Code para ver los cambios en tiempo real.
+Con las dependencias instaladas, sigue estos pasos:
 
-📜 Scripts Disponibles
-En el archivo package.json, puedes encontrar los siguientes scripts:
+1.  **En la Terminal 1 - Inicia los Watchers:**
+    Este comando vigilará los cambios en los archivos de `src/` y reconstruirá automáticamente `output.css` y `bundle.min.js`.
 
-npm run build-css: Compila el archivo src/input.css usando PostCSS y Tailwind CSS, y lo guarda en output.css. El flag --watch mantiene el proceso activo para compilar sobre la marcha.
+    ```bash
+    npm run dev
+    ```
+    *Deja esta terminal abierta mientras desarrollas.*
 
-npm run sitemap: Ejecuta un script de Node.js para generar el archivo sitemap.xml basado en las rutas definidas.
+2.  **En la Terminal 2 - Inicia el Servidor de Desarrollo:**
+    Este comando servirá el proyecto en un servidor local.
+
+    ```bash
+    npx http-server -c-1
+    ```
+    *El flag `-c-1` deshabilita el caché para asegurar que siempre veas los últimos cambios.*
+
+3.  **Abre tu navegador:**
+    Visita [http://localhost:8080](http://localhost:8080) para ver el sitio web y tus cambios en tiempo real al recargar la página.
+
+---
+
+## 📦 Construcción para Producción
+
+Para generar la versión final del sitio, optimizada y lista para desplegar:
+
+1.  **Detén todos los procesos de desarrollo** (`npm run dev` y `http-server`).
+2.  **Ejecuta el script de construcción:**
+
+    ```bash
+    npm run build:dist
+    ```
+
+Este comando hará lo siguiente:
+- Construirá y minificará el CSS y el JS.
+- Aplicará cache-busting a los assets.
+- Generará un `sitemap.xml` actualizado.
+- Limpiará la carpeta `dist/` y copiará todos los archivos listos para producción en ella.
+
+### Previsualizar la Versión de Producción
+
+Para asegurarte de que todo funciona como se espera antes de subirlo, puedes previsualizar la carpeta `dist`:
+
+```bash
+cd dist
+npx http-server -c-1
+```
+Accede a `http://localhost:8080` para ver la versión final.
+
+---
+
+## 📜 Scripts de NPM
+
+-   `npm run dev`: Inicia los watchers para JS y CSS en paralelo. Ideal para desarrollo.
+-   `npm run watch:css`: Inicia el watcher de PostCSS/Tailwind.
+-   `npm run watch:js`: Inicia el watcher de esbuild.
+-   `npm run build`: Ejecuta la construcción de CSS y JS, el cache-busting y la generación del sitemap.
+-   `npm run build:css`: Construye `output.css` para producción (minificado).
+-   `npm run build:js`: Construye `bundle.min.js` para producción (minificado).
+-   `npm run build:dist`: Construye el proyecto y empaqueta todo en la carpeta `dist/`. **Este es el comando que debes usar para preparar el despliegue.**
