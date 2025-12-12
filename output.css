@@ -2742,6 +2742,10 @@ body.fade-in {
   text-decoration-line: underline;
 }
 
+.hover\:no-underline:hover {
+  text-decoration-line: none;
+}
+
 .hover\:shadow-2xl:hover {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
@@ -2974,6 +2978,11 @@ body.fade-in {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.dark\:text-red-400:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(248 113 113 / var(--tw-text-opacity, 1));
+}
+
 .dark\:opacity-30:is(.dark *) {
   opacity: 0.3;
 }
@@ -3059,6 +3068,9 @@ body.fade-in {
   }
   .sm\:p-6 {
     padding: 1.5rem;
+  }
+  .sm\:p-8 {
+    padding: 2rem;
   }
   .sm\:px-3 {
     padding-left: 0.75rem;
