@@ -35,4 +35,5 @@ export const loadComponents = async () => {
   // Las rutas a los componentes son relativas a la raíz del sitio.
   await loadComponent('#nav-placeholder', '/components/nav.html');
   await loadComponent('#footer-placeholder', '/components/footer.html');
+  await loadComponent('#cookie-banner-placeholder', '/components/cookie-banner.html');
 };
