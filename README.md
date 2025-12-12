@@ -15,6 +15,24 @@ Este es el repositorio del código fuente de mi página web profesional, un siti
     -   Cache-busting automático para los archivos CSS y JS.
     -   Generación automática de `sitemap.xml`.
 
+### 📄 Documentación del Componente de Banner de Cookies
+
+Para mejorar la gestión del consentimiento de cookies y garantizar la consistencia en todo el sitio, el banner de cookies (anteriormente incrustado en varias páginas) ha sido refactorizado a un componente reutilizable. Este componente se carga dinámicamente en las páginas a través de JavaScript.
+
+**Cambios Realizados:**
+
+*   **Refactorización:** El código HTML y JS del banner de cookies ha sido centralizado en `components/cookie-banner.html` y su lógica de carga en `src/js/componentLoader.js`.
+*   **Archivos Actualizados:** El marcador de posición `<div id="cookie-banner-placeholder"></div>` se ha añadido o reemplazado en los siguientes archivos para cargar el componente:
+    *   `politica-de-cookies.html`
+    *   `blog.html`
+    *   `articulo-seo-post-fiestas.html`
+    *   `articulo-ejemplo.html`
+    *   `articulo-redes-sociales-publicidad-local.html`
+    *   `agencia-seo.html`
+    *   `agencia-desarrollo-web-con-codigo.html`
+    *   `articulo-automatizacion-marketing.html`
+    *   `agencia-seo-local.html`
+
 ## 🛠️ Tecnologías Utilizadas
 
 -   **HTML5:** Estructura semántica del contenido.
