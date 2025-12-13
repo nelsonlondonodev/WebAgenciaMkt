@@ -172,7 +172,7 @@ class Chatbot {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+export function initChatbot() {
   new Chatbot();
-});
+}
 

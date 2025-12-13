@@ -6,7 +6,7 @@ import { initPortfolio } from './portfolio.js';
 import { initNumberAnimation } from './numberAnimation.js';
 import { loadComponents } from './componentLoader.js'; // Importar el cargador de componentes
 import { initFooter } from './footer.js'; // Importar la inicialización del footer
-import './chatbot.js';
+import { initChatbot } from './chatbot.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Cargar componentes reutilizables como el NAV y el Footer
@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initPortfolio();
   initNumberAnimation();
   initFooter(); // Inicializar el footer
+  initChatbot(); // Inicializar el chatbot
   initModals();
 
   function initModals() {

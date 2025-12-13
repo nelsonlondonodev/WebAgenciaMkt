@@ -36,4 +36,5 @@ export const loadComponents = async () => {
   await loadComponent('#nav-placeholder', '/components/nav.html');
   await loadComponent('#footer-placeholder', '/components/footer.html');
   await loadComponent('#cookie-banner-placeholder', '/components/cookie-banner.html');
+  await loadComponent('[data-component="chatbot"]', '/components/chatbot.html');
 };
