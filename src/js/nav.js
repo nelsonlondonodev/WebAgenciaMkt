@@ -1,54 +1,65 @@
+function createNavOverlay() {
+  const overlay = document.createElement('div');
+  overlay.id = 'nav-overlay';
+  overlay.className =
+    'fixed inset-0 bg-black/50 z-10 hidden';
+  document.body.appendChild(overlay);
+  return overlay;
+}
+
 function initMobileMenu() {
   const mobileMenuButton = document.getElementById('mobileMenuButton');
   const mobileMenu = document.getElementById('mobileMenu');
-  const mobileServicesButton = document.getElementById('mobileServicesButton');
+  const overlay = createNavOverlay();
 
   if (!mobileMenuButton || !mobileMenu) return;
 
+  const icon = mobileMenuButton.querySelector('i');
+
   const closeMobileMenu = () => {
-    if (!mobileMenu.classList.contains('hidden')) {
-      mobileMenu.classList.add('hidden');
-      const icon = mobileMenuButton.querySelector('i');
-      if (icon) {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
+    mobileMenu.classList.add('hidden');
+    overlay.classList.add('hidden');
+    if (icon) {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+  };
+
+  const openMobileMenu = () => {
+    mobileMenu.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+    if (icon) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-times');
+    }
+  };
+
+  const toggleMobileMenu = () => {
+    if (mobileMenu.classList.contains('hidden')) {
+      openMobileMenu();
+    } else {
+      closeMobileMenu();
     }
   };
 
   mobileMenuButton.addEventListener('click', (e) => {
-    e.stopPropagation(); // Prevent this click from immediately propagating to the document listener
-    mobileMenu.classList.toggle('hidden');
-    const icon = mobileMenuButton.querySelector('i');
-    if (icon) {
-      icon.classList.toggle('fa-bars');
-      icon.classList.toggle('fa-times');
-    }
+    e.stopPropagation();
+    toggleMobileMenu();
   });
+
+  // Close menu when the overlay is clicked
+  overlay.addEventListener('click', closeMobileMenu);
 
   // Close menu when a link is clicked, but not the services button
   mobileMenu.addEventListener('click', (e) => {
-    // Check if the clicked element is a link inside the mobile menu
     const link = e.target.closest('a');
     if (!link) return;
 
-    // If the click is on the services button, do nothing, let its own handler work
     if (e.target.closest('#mobileServicesButton')) {
       return;
     }
 
-    // For all other links, close the menu
     closeMobileMenu();
-  });
-
-  // Close mobile menu when clicking outside of it or the toggle button
-  document.addEventListener('click', (e) => {
-    if (
-      !mobileMenu.contains(e.target) && // Click is outside the mobile menu
-      !mobileMenuButton.contains(e.target) // Click is outside the mobile menu button
-    ) {
-      closeMobileMenu();
-    }
   });
 }
 
