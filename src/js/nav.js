@@ -14,24 +14,16 @@ function initMobileMenu() {
 
   if (!mobileMenuButton || !mobileMenu) return;
 
-  const icon = mobileMenuButton.querySelector('i');
-
   const closeMobileMenu = () => {
     mobileMenu.classList.add('hidden');
     overlay.classList.add('hidden');
-    if (icon) {
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
-    }
+    mobileMenuButton.classList.remove('is-active');
   };
 
   const openMobileMenu = () => {
     mobileMenu.classList.remove('hidden');
     overlay.classList.remove('hidden');
-    if (icon) {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-times');
-    }
+    mobileMenuButton.classList.add('is-active');
   };
 
   const toggleMobileMenu = () => {

@@ -205,6 +205,20 @@
       /* Tono índigo oscuro */ #059669 /* Tono esmeralda oscuro */
     );
   }
+
+  /* Estilos para el botón de hamburguesa animado */
+  #mobileMenuButton span {
+    transition: all 0.3s ease-in-out;
+  }
+  #mobileMenuButton.is-active span:nth-child(1) {
+    transform: translateY(0.625rem) rotate(45deg);
+  }
+  #mobileMenuButton.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  #mobileMenuButton.is-active span:nth-child(3) {
+    transform: translateY(-0.625rem) rotate(-45deg);
+  }
 }
 
 

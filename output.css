@@ -1181,6 +1181,19 @@ video {
       /* Tono índigo oscuro */ #059669 /* Tono esmeralda oscuro */
     );
   }
+/* Estilos para el botón de hamburguesa animado */
+#mobileMenuButton span {
+    transition: all 0.3s ease-in-out;
+  }
+#mobileMenuButton.is-active span:nth-child(1) {
+    transform: translateY(0.625rem) rotate(45deg);
+  }
+#mobileMenuButton.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+#mobileMenuButton.is-active span:nth-child(3) {
+    transform: translateY(-0.625rem) rotate(-45deg);
+  }
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1367,6 +1380,9 @@ video {
 }
 .aspect-\[4\/3\] {
   aspect-ratio: 4/3;
+}
+.h-0\.5 {
+  height: 0.125rem;
 }
 .h-10 {
   height: 2.5rem;
@@ -1660,6 +1676,9 @@ video {
 .justify-between {
   justify-content: space-between;
 }
+.justify-around {
+  justify-content: space-around;
+}
 .gap-10 {
   gap: 2.5rem;
 }
@@ -1812,6 +1831,9 @@ video {
 .bg-blue-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
+}
+.bg-current {
+  background-color: currentColor;
 }
 .bg-gray-100 {
   --tw-bg-opacity: 1;
