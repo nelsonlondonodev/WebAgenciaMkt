@@ -5,33 +5,21 @@ Este es el repositorio del código fuente de mi página web profesional, un siti
 ## ✨ Características Principales
 
 -   **Sitio Multi-página Estático:** Arquitectura optimizada para la velocidad y el SEO.
--   **Componentes Reutilizables:** Navegación y pie de página cargados dinámicamente con JavaScript (`fetch`) para facilitar el mantenimiento.
+-   **Componentes Reutilizables:** El `nav`, `footer`, `cookie-banner` y `chatbot` se cargan dinámicamente con JavaScript (`fetch`) para facilitar el mantenimiento y la coherencia en todo el sitio.
 -   **Diseño Adaptable (Responsive):** Interfaz que se adapta perfectamente a cualquier tamaño de pantalla.
--   **Tema Claro y Oscuro:** Selector de tema manual que guarda la preferencia del usuario.
--   **Interactivo:** Animaciones por scroll, portafolio filtrable, modales y un formulario de contacto funcional.
+-   **Tema Claro y Oscuro:** Selector de tema manual que guarda la preferencia del usuario en `localStorage`.
+-   **Interactivo y Moderno:**
+    -   Animaciones por scroll.
+    -   Portafolio filtrable.
+    -   Modales para mostrar proyectos y detalles de servicios.
+    -   Formulario de contacto funcional.
+    -   **Menú móvil mejorado:** Con animación CSS y un overlay para una mejor experiencia de usuario.
+    -   **Chatbot integrado:** Un asistente virtual para interactuar con los visitantes.
 -   **Optimizado para Producción:**
     -   Bundling y minificación de JavaScript con `esbuild`.
     -   Procesamiento y minificación de CSS con `PostCSS` y `Tailwind CSS`.
     -   Cache-busting automático para los archivos CSS y JS.
     -   Generación automática de `sitemap.xml`.
-
-### 📄 Documentación del Componente de Banner de Cookies
-
-Para mejorar la gestión del consentimiento de cookies y garantizar la consistencia en todo el sitio, el banner de cookies (anteriormente incrustado en varias páginas) ha sido refactorizado a un componente reutilizable. Este componente se carga dinámicamente en las páginas a través de JavaScript.
-
-**Cambios Realizados:**
-
-*   **Refactorización:** El código HTML y JS del banner de cookies ha sido centralizado en `components/cookie-banner.html` y su lógica de carga en `src/js/componentLoader.js`.
-*   **Archivos Actualizados:** El marcador de posición `<div id="cookie-banner-placeholder"></div>` se ha añadido o reemplazado en los siguientes archivos para cargar el componente:
-    *   `politica-de-cookies.html`
-    *   `blog.html`
-    *   `articulo-seo-post-fiestas.html`
-    *   `articulo-ejemplo.html`
-    *   `articulo-redes-sociales-publicidad-local.html`
-    *   `agencia-seo.html`
-    *   `agencia-desarrollo-web-con-codigo.html`
-    *   `articulo-automatizacion-marketing.html`
-    *   `agencia-seo-local.html`
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -40,15 +28,14 @@ Para mejorar la gestión del consentimiento de cookies y garantizar la consisten
 -   **PostCSS:** Herramienta para transformar CSS, usada aquí para el autoprefijado y la minificación con `cssnano`.
 -   **JavaScript (Vanilla):** Lógica interactiva modular (ESM).
 -   **esbuild:** Bundler y minificador de JavaScript extremadamente rápido.
--   **concurrently:** Para ejecutar múltiples scripts (watchers de JS y CSS) en paralelo.
--   **http-server:** Servidor de desarrollo local ligero.
+-   **concurrently:** Para ejecutar múltiples scripts (watchers de JS y CSS) en paralelo durante el desarrollo.
 -   **Node.js:** Para ejecutar los scripts de construcción y el ecosistema de `npm`.
 
 ---
 
 ## 🚀 Entorno de Desarrollo
 
-Para trabajar en el proyecto localmente, necesitas tener **dos terminales abiertas** en el directorio raíz del proyecto.
+Para trabajar en el proyecto localmente, solo necesitas tener Node.js y npm instalados.
 
 ### Requisitos
 
@@ -57,7 +44,7 @@ Para trabajar en el proyecto localmente, necesitas tener **dos terminales abiert
 
 ### 1. Instalación
 
-Primero, clona el repositorio e instala las dependencias:
+Primero, clona el repositorio e instala las dependencias del proyecto:
 
 ```bash
 git clone https://github.com/nelsonlondonodev/nelson-agencia-web.git
@@ -67,7 +54,7 @@ npm install
 
 ### 2. Ejecución
 
-Con las dependencias instaladas, sigue estos pasos:
+El entorno de desarrollo requiere dos procesos simultáneos: uno para compilar los archivos en tiempo real y otro para servir el contenido en un servidor local.
 
 1.  **En la Terminal 1 - Inicia los Watchers:**
     Este comando vigilará los cambios en los archivos de `src/` y reconstruirá automáticamente `output.css` y `bundle.min.js`.
@@ -78,15 +65,16 @@ Con las dependencias instaladas, sigue estos pasos:
     *Deja esta terminal abierta mientras desarrollas.*
 
 2.  **En la Terminal 2 - Inicia el Servidor de Desarrollo:**
-    Este comando servirá el proyecto en un servidor local.
+    Este comando servirá el proyecto en un servidor local. Recomendamos `http-server` por su simplicidad.
 
     ```bash
+    # Si no lo tienes, puedes instalarlo globalmente: npm install -g http-server
     npx http-server -c-1
     ```
     *El flag `-c-1` deshabilita el caché para asegurar que siempre veas los últimos cambios.*
 
 3.  **Abre tu navegador:**
-    Visita [http://localhost:8080](http://localhost:8080) para ver el sitio web y tus cambios en tiempo real al recargar la página.
+    Visita [http://localhost:8080](http://localhost:8080) para ver el sitio web. La página se actualizará al recargar manualmente después de que `npm run dev` haya procesado tus cambios.
 
 ---
 
@@ -94,8 +82,8 @@ Con las dependencias instaladas, sigue estos pasos:
 
 Para generar la versión final del sitio, optimizada y lista para desplegar:
 
-1.  **Detén todos los procesos de desarrollo** (`npm run dev` y `http-server`).
-2.  **Ejecuta el script de construcción:**
+1.  **Detén todos los procesos de desarrollo** (si se están ejecutando).
+2.  **Ejecuta el script de construcción principal:**
 
     ```bash
     npm run build:dist
@@ -103,17 +91,16 @@ Para generar la versión final del sitio, optimizada y lista para desplegar:
 
 Este comando hará lo siguiente:
 - Construirá y minificará el CSS y el JS.
-- Aplicará cache-busting a los assets.
+- Aplicará cache-busting a los assets para evitar problemas de caché.
 - Generará un `sitemap.xml` actualizado.
 - Limpiará la carpeta `dist/` y copiará todos los archivos listos para producción en ella.
 
 ### Previsualizar la Versión de Producción
 
-Para asegurarte de que todo funciona como se espera antes de subirlo, puedes previsualizar la carpeta `dist`:
+Para asegurarte de que todo funciona como se espera antes de subirlo, puedes previsualizar el contenido de la carpeta `dist`:
 
 ```bash
-cd dist
-npx http-server -c-1
+npx http-server dist
 ```
 Accede a `http://localhost:8080` para ver la versión final.
 
@@ -128,3 +115,7 @@ Accede a `http://localhost:8080` para ver la versión final.
 -   `npm run build:css`: Construye `output.css` para producción (minificado).
 -   `npm run build:js`: Construye `bundle.min.js` para producción (minificado).
 -   `npm run build:dist`: Construye el proyecto y empaqueta todo en la carpeta `dist/`. **Este es el comando que debes usar para preparar el despliegue.**
+-   `npm run format`: Formatea todo el código del proyecto usando Prettier.
+-   `npm run format:check`: Comprueba si el código está formateado correctamente, sin hacer cambios.
+-   `npm run sitemap`: Genera manualmente el `sitemap.xml`.
+-   `npm test`: (Actualmente no configurado).
