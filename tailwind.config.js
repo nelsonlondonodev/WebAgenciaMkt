@@ -3,7 +3,7 @@ module.exports = {
   // Añadimos esta línea para activar el modo oscuro por clase
   darkMode: 'class',
 
-  content: ['./*.html', './src/js/**/*.js'],
+  content: ['./*.html', './src/js/**/*.js', './components/**/*.html'],
   theme: {
     extend: {
       colors: {

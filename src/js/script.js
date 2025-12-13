@@ -2,18 +2,33 @@ import { initDarkMode } from './darkMode.js';
 import { initSmoothScroll } from './smoothScroll.js';
 import { initScrollAnimations } from './scrollAnimations.js';
 import { initNav } from './nav.js';
-import { initPortfolio } from './portfolio.js';
+import { initPortfolioFilter } from './portfolio.js';
 import { initNumberAnimation } from './numberAnimation.js';
-import './chatbot.js';
+import { loadComponents } from './componentLoader.js'; // Importar el cargador de componentes
+import { initFooter } from './footer.js'; // Importar la inicialización del footer
+import { initChatbot } from './chatbot.js';
+import { initServiceCards } from './serviceRenderer.js';
+import { initPortfolioCards } from './portfolioRenderer.js';
+import { initTestimonialCards } from './testimonialRenderer.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  // Cargar componentes reutilizables como el NAV y el Footer
+  await loadComponents();
+
+  // Inicializar el resto de los scripts después de que los componentes estén cargados
   initDarkMode();
   initSmoothScroll();
   initScrollAnimations();
   initNav();
-  initPortfolio();
   initNumberAnimation();
-  initModals();
+  initServiceCards();
+  initPortfolioCards(); // Renderiza las tarjetas del portafolio
+  initPortfolioFilter(); // Inicializa los filtros para las tarjetas recién creadas
+  initTestimonialCards();
+  initFooter(); // Inicializar el footer
+  initChatbot(); // Inicializar el chatbot
+  initModals(); // Inicializa los modales para las tarjetas recién creadas
+
 
   function initModals() {
     function openModal(modal) {
