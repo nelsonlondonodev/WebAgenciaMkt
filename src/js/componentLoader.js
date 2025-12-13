@@ -32,9 +32,15 @@ const loadComponent = async (selector, url) => {
  * de los elementos cargados (ej. nav.js).
  */
 export const loadComponents = async () => {
-  // Las rutas a los componentes son relativas a la raíz del sitio.
-  await loadComponent('#nav-placeholder', '/components/nav.html');
-  await loadComponent('#footer-placeholder', '/components/footer.html');
-  await loadComponent('#cookie-banner-placeholder', '/components/cookie-banner.html');
-  await loadComponent('[data-component="chatbot"]', '/components/chatbot.html');
+  // Siempre carga los componentes comunes como nav, footer y el banner de cookies.
+  await Promise.all([
+    loadComponent('#nav-placeholder', '/components/nav.html'),
+    loadComponent('#footer-placeholder', '/components/footer.html'),
+    loadComponent('#cookie-banner-placeholder', '/components/cookie-banner.html')
+  ]);
+
+  // Carga el chatbot solo si su placeholder existe en la página.
+  if (document.querySelector('[data-component="chatbot"]')) {
+    await loadComponent('[data-component="chatbot"]', '/components/chatbot.html');
+  }
 };
