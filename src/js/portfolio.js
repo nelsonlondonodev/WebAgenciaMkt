@@ -1,27 +1,38 @@
-export function initPortfolio() {
+export function initPortfolioFilter() {
   const filtersContainer = document.getElementById('portfolio-filters');
-  const portfolioItems = document.querySelectorAll(
-    '#portfolio-grid .portfolio-item'
-  );
-  if (filtersContainer && portfolioItems.length > 0) {
-    filtersContainer.addEventListener('click', (e) => {
-      if (e.target.matches('button.filter-btn')) {
-        const clickedButton = e.target;
-        if (clickedButton.classList.contains('active-filter')) {
-          return;
-        }
-        filtersContainer
-          .querySelector('.active-filter')
-          .classList.remove('active-filter');
-        clickedButton.classList.add('active-filter');
-        const filterValue = clickedButton.dataset.filter;
-        portfolioItems.forEach((item) => {
-          const itemCategories = item.dataset.category;
-          const matchesFilter =
-            filterValue === 'all' || itemCategories.includes(filterValue);
-          item.style.display = matchesFilter ? 'block' : 'none';
-        });
+  const portfolioGrid = document.getElementById('portfolio-grid');
+
+  if (!filtersContainer || !portfolioGrid) return;
+
+  const portfolioItems = portfolioGrid.querySelectorAll('.portfolio-item');
+  if (portfolioItems.length === 0) return;
+
+  filtersContainer.addEventListener('click', (e) => {
+    const clickedButton = e.target.closest('button.filter-btn');
+    if (!clickedButton) return;
+
+    if (clickedButton.classList.contains('active-filter')) {
+      return;
+    }
+
+    const currentActive = filtersContainer.querySelector('.active-filter');
+    if (currentActive) {
+      currentActive.classList.remove('active-filter');
+    }
+    clickedButton.classList.add('active-filter');
+
+    const filterValue = clickedButton.dataset.filter;
+
+    portfolioItems.forEach((item) => {
+      const itemCategories = item.dataset.category || '';
+      const matchesFilter =
+        filterValue === 'all' || itemCategories.includes(filterValue);
+
+      if (matchesFilter) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
       }
     });
-  }
+  });
 }
