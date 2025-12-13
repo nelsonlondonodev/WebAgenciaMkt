@@ -9,6 +9,7 @@ import { initFooter } from './footer.js'; // Importar la inicialización del foo
 import { initChatbot } from './chatbot.js';
 import { initServiceCards } from './serviceRenderer.js';
 import { initPortfolioCards } from './portfolioRenderer.js';
+import { initTestimonialCards } from './testimonialRenderer.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Cargar componentes reutilizables como el NAV y el Footer
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initServiceCards();
   initPortfolioCards(); // Renderiza las tarjetas del portafolio
   initPortfolioFilter(); // Inicializa los filtros para las tarjetas recién creadas
+  initTestimonialCards();
   initFooter(); // Inicializar el footer
   initChatbot(); // Inicializar el chatbot
   initModals(); // Inicializa los modales para las tarjetas recién creadas
