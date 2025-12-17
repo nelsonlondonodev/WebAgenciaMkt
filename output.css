@@ -2126,6 +2126,9 @@ video {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
+.pb-12 {
+  padding-bottom: 3rem;
+}
 .pb-3 {
   padding-bottom: 0.75rem;
 }
@@ -2143,9 +2146,6 @@ video {
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.pb-12 {
-  padding-bottom: 3rem;
 }
 .text-left {
   text-align: left;
@@ -3216,11 +3216,11 @@ body.fade-in {
   .md\:grid {
     display: grid;
   }
-  .md\:min-h-\[calc\(90vh-5rem\)\] {
-    min-height: calc(90vh - 5rem);
-  }
   .md\:min-h-\[calc\(70vh-5rem\)\] {
     min-height: calc(70vh - 5rem);
+  }
+  .md\:min-h-\[calc\(90vh-5rem\)\] {
+    min-height: calc(90vh - 5rem);
   }
   .md\:w-5\/6 {
     width: 83.333333%;

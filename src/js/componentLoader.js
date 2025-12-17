@@ -54,7 +54,7 @@ const loadConfigurableComponent = async (element) => {
       // No procesar 'component' o 'heroCustomStyles' en este bucle
       if (key !== 'component' && key !== 'heroCustomStyles') {
         const placeholder = key.replace(/([A-Z])/g, '_$1').toUpperCase();
-        html = html.replace(new RegExp(`{{${placeholder}}}`, 'g'), element.dataset[key]);
+        html = html.replace(new RegExp(`{{${placeholder}}}`, 'g'), () => element.dataset[key]);
       }
     }
 
