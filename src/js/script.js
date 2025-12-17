@@ -10,6 +10,7 @@ import { initChatbot } from './chatbot.js';
 import { initServiceCards } from './serviceRenderer.js';
 import { renderPortfolioCards } from './portfolioRenderer.js';
 import { initTestimonialCards } from './testimonialRenderer.js';
+import { initDynamicModals } from './modalRenderer.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Cargar componentes reutilizables como el NAV y el Footer
@@ -32,70 +33,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   initTestimonialCards();
   initFooter(); // Inicializar el footer
   initChatbot(); // Inicializar el chatbot
-  initModals(); // Inicializa los modales para las tarjetas recién creadas
+  initDynamicModals(); // Inicializa los modales dinámicos
 
-
-  function initModals() {
-    function openModal(modal) {
-      if (modal) {
-        const iframe = modal.querySelector('iframe[data-src]');
-        if (iframe && !iframe.src) {
-          iframe.src = iframe.dataset.src;
-        }
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        document.body.classList.add('overflow-hidden');
-      }
-    }
-    function closeModal(modal) {
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.classList.remove('overflow-hidden');
-      }
-    }
-    const modalConfigs = [
-      { cardId: 'card-proyecto-locutorio', modalId: 'proyecto-modal-locutorio' },
-      { cardId: 'card-proyecto-barberia', modalId: 'proyecto-modal-barberia' },
-      { cardId: 'card-proyecto-kuula', modalId: 'proyecto-modal-kuula' },
-
-    ];
-    modalConfigs.forEach((config) => {
-      const card = document.getElementById(config.cardId);
-      const modal = document.getElementById(config.modalId);
-      if (card && modal) {
-        card.addEventListener('click', () => openModal(modal));
-      }
-    });
-    const allModals = document.querySelectorAll(
-      '[id^="service-modal-"], [id^="proyecto-modal-"]'
-    );
-    if (allModals.length > 0) {
-      allModals.forEach((modal) => {
-        const closeModalBtn = modal.querySelector('button[id^="close-modal-"]');
-        if (closeModalBtn) {
-          closeModalBtn.addEventListener('click', () => closeModal(modal));
-        }
-        modal.addEventListener('click', (event) => {
-          if (event.target === modal) {
-            closeModal(modal);
-          }
-        });
-        modal.querySelectorAll('.modal-contact-button').forEach((button) => {
-          button.addEventListener('click', () => closeModal(modal));
-        });
-      });
-      window.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-          allModals.forEach((modal) => {
-            if (!modal.classList.contains('hidden')) {
-              closeModal(modal);
-            }
-          });
-        }
-      });
-    }
-  }
 
   initContactForm();
   function initContactForm() {

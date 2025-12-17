@@ -12,14 +12,15 @@ function createPortfolioCard(item) {
   const isLink = item.type === 'link';
   const tag = isLink ? 'a' : 'div';
   const hrefAttr = isLink ? `href="${item.url}" target="_blank" rel="noopener noreferrer"` : '';
-  const cursorClass = isLink ? 'cursor-pointer' : 'cursor-pointer'; // Mantener cursor-pointer para modales
-  const idAttr = item.type === 'modal' ? `id="${item.modalId}"` : '';
+  const cursorClass = 'cursor-pointer'; // Siempre cursor-pointer para enlaces o modales
+  const idAttr = item.type === 'modal' ? `id="card-proyecto-${item.id}"` : '';
+  const dataTypeAttr = item.type === 'modal' ? 'data-type="modal"' : '';
 
   const srcsetAttr = item.imgSrcSet ? `srcset="${createSrcSet(item.imgSrcSet)}"` : '';
   const sizesAttr = item.imgSrcSet ? `sizes="(max-width: 640px) 480px, (max-width: 1024px) 800px, 1440px"` : '';
 
   return `
-    <${tag} ${idAttr} class="portfolio-item group scroll-animate-initial ${cursorClass}" data-category="${item.category}" ${hrefAttr}>
+    <${tag} ${idAttr} ${dataTypeAttr} class="portfolio-item group scroll-animate-initial ${cursorClass}" data-category="${item.category}" ${hrefAttr}>
       <div class="relative">
         <img
           class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
