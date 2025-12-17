@@ -1,13 +1,21 @@
-<section class="py-12 sm:py-16">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center">
-      <h1 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
+<section id="inicio-servicio" class="relative overflow-hidden animated-gradient-bg">
+  <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center md:min-h-[calc(70vh-5rem)]">
+    
+    <!-- Placeholders para iconos flotantes -->
+    {{HERO_ICON_1}}
+    {{HERO_ICON_2}}
+    {{HERO_ICON_3}}
+
+    <div class="max-w-4xl relative z-10">
+      <h1 class="text-2xl sm:text-[26px] font-normal text-gray-900 dark:text-white opacity-0 animate-slide-in-right uppercase">
         {{HERO_TITLE}}
       </h1>
-      <p class="section-subtitle text-base sm:text-lg mt-4">
-        {{HERO_SUBTITLE}}
+      <p class="mt-8 text-3xl sm:text-6xl font-extrabold text-gray-700 dark:text-gray-200 opacity-0 animate-slide-in-left text-left sm:text-center" style="animation-delay: 0.2s">
+        {{HERO_SUBTITLE_MAIN}}
       </p>
-      {{HERO_EXTRA_CONTENT}}
+      <p class="mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center" style="animation-delay: 0.4s">
+        {{HERO_SUBTITLE_SECONDARY}}
+      </p>
     </div>
   </div>
 </section>

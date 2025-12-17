@@ -42,10 +42,17 @@ const loadConfigurableComponent = async (element) => {
     }
     let html = await response.text();
 
+    // Manejar y cargar estilos personalizados en el head
+    if (element.dataset.heroCustomStyles) {
+      const style = document.createElement('style');
+      style.textContent = element.dataset.heroCustomStyles;
+      document.head.appendChild(style);
+    }
+
     // Reemplazar placeholders como {{KEY}} con el valor de data-key
     for (const key in element.dataset) {
-      if (key !== 'component') {
-        // Convertir camelCase (e.g., heroTitle) a SNAKE_CASE_UPPER (e.g., HERO_TITLE)
+      // No procesar 'component' o 'heroCustomStyles' en este bucle
+      if (key !== 'component' && key !== 'heroCustomStyles') {
         const placeholder = key.replace(/([A-Z])/g, '_$1').toUpperCase();
         html = html.replace(new RegExp(`{{${placeholder}}}`, 'g'), element.dataset[key]);
       }
