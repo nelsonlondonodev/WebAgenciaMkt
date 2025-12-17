@@ -8,7 +8,7 @@ import { loadComponents } from './componentLoader.js'; // Importar el cargador d
 import { initFooter } from './footer.js'; // Importar la inicialización del footer
 import { initChatbot } from './chatbot.js';
 import { initServiceCards } from './serviceRenderer.js';
-import { initPortfolioCards } from './portfolioRenderer.js';
+import { renderPortfolioCards } from './portfolioRenderer.js';
 import { initTestimonialCards } from './testimonialRenderer.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -22,7 +22,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   initNav();
   initNumberAnimation();
   initServiceCards();
-  initPortfolioCards(); // Renderiza las tarjetas del portafolio
+  if (document.getElementById('portfolio-grid')) {
+      renderPortfolioCards('portfolio-grid', 3); // Para la página de inicio, limitar a 3 proyectos
+  }
+  if (document.getElementById('portfolio-grid-proyectos')) {
+      renderPortfolioCards('portfolio-grid-proyectos'); // Para la página de proyectos, renderizar todos
+  }
   initPortfolioFilter(); // Inicializa los filtros para las tarjetas recién creadas
   initTestimonialCards();
   initFooter(); // Inicializar el footer

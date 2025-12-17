@@ -58,13 +58,23 @@ function createPortfolioCard(item) {
   `;
 }
 
-export function initPortfolioCards() {
-  const container = document.getElementById('portfolio-grid');
+export function renderPortfolioCards(containerId, limit = null) {
+  const container = document.getElementById(containerId);
   if (!container) return;
 
-  const cardsHtml = portfolioData.map(createPortfolioCard).join('');
+  const itemsToRender = limit ? portfolioData.slice(0, limit) : portfolioData;
+
+  const cardsHtml = itemsToRender.map(createPortfolioCard).join('');
   container.innerHTML = cardsHtml;
 
   const newCards = container.querySelectorAll('.scroll-animate-initial');
   observeAnimatedElements(newCards);
 }
+
+// La función initPortfolioCards ya no se usará directamente, su lógica
+// se manejará desde script.js llamando a renderPortfolioCards con los
+// argumentos apropiados para cada página.
+export function initPortfolioCards() {
+  console.warn('initPortfolioCards está obsoleta. Usa renderPortfolioCards(containerId, limit) en su lugar.');
+}
+
