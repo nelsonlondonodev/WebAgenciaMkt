@@ -51,6 +51,9 @@ const loadConfigurableComponent = async (element) => {
       }
     }
 
+    // Limpiar cualquier placeholder restante que no tenga un data-attribute correspondiente
+    html = html.replace(/\{\{[A-Z_]+\}\}/g, '');
+
     element.innerHTML = html;
   } catch (error) {
     console.error(`No se pudo cargar componente configurable desde ${url}:`, error);
