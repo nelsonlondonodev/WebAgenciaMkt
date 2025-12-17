@@ -1,46 +1,82 @@
 // src/js/componentLoader.js
 
 /**
- * Carga un componente HTML desde una URL y lo inserta en un elemento del DOM.
- * @param {string} selector - El selector CSS del elemento donde se insertará el componente.
+ * Carga un componente HTML estático y lo inserta en un elemento del DOM.
+ * @param {string} selector - El selector CSS del elemento.
  * @param {string} url - La URL del archivo HTML del componente.
  * @returns {Promise<void>}
  */
-const loadComponent = async (selector, url) => {
+const loadStaticComponent = async (selector, url) => {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(
-        `Error al cargar el componente ${url}: ${response.statusText}`,
-      );
+      throw new Error(`Error al cargar ${url}: ${response.statusText}`);
     }
     const data = await response.text();
     const element = document.querySelector(selector);
     if (element) {
       element.innerHTML = data;
     } else {
-      console.warn(`No se encontró el elemento con el selector: ${selector}`);
+      console.warn(`Selector no encontrado: ${selector}`);
     }
   } catch (error) {
-    console.error(`No se pudo cargar el componente desde ${url}:`, error);
+    console.error(`No se pudo cargar componente desde ${url}:`, error);
   }
 };
 
 /**
- * Carga todos los componentes comunes de la página, como el nav y el footer.
- * Es importante que esta función se ejecute antes de los scripts que dependen
- * de los elementos cargados (ej. nav.js).
+ * Carga un componente configurable, reemplazando placeholders con data-attributes.
+ * @param {HTMLElement} element - El elemento del DOM que requiere el componente.
+ * @returns {Promise<void>}
+ */
+const loadConfigurableComponent = async (element) => {
+  const componentName = element.dataset.component;
+  if (!componentName) return;
+
+  const url = `/components/${componentName}.html`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Error al cargar ${url}: ${response.statusText}`);
+    }
+    let html = await response.text();
+
+    // Reemplazar placeholders como {{KEY}} con el valor de data-key
+    for (const key in element.dataset) {
+      if (key !== 'component') {
+        // Convertir camelCase (e.g., heroTitle) a SNAKE_CASE_UPPER (e.g., HERO_TITLE)
+        const placeholder = key.replace(/([A-Z])/g, '_$1').toUpperCase();
+        html = html.replace(new RegExp(`{{${placeholder}}}`, 'g'), element.dataset[key]);
+      }
+    }
+
+    element.innerHTML = html;
+  } catch (error) {
+    console.error(`No se pudo cargar componente configurable desde ${url}:`, error);
+  }
+};
+
+
+/**
+ * Carga todos los componentes de la página.
  */
 export const loadComponents = async () => {
-  // Siempre carga los componentes comunes como nav, footer y el banner de cookies.
-  await Promise.all([
-    loadComponent('#nav-placeholder', '/components/nav.html'),
-    loadComponent('#footer-placeholder', '/components/footer.html'),
-    loadComponent('#cookie-banner-placeholder', '/components/cookie-banner.html')
-  ]);
+  // Carga componentes estáticos comunes
+  const staticLoaders = [
+    loadStaticComponent('#nav-placeholder', '/components/nav.html'),
+    loadStaticComponent('#footer-placeholder', '/components/footer.html'),
+    loadStaticComponent('#cookie-banner-placeholder', '/components/cookie-banner.html')
+  ];
+  
+  // Carga componentes configurables basados en data-attributes
+  const configurableComponents = document.querySelectorAll('[data-component]');
+  const configurableLoaders = Array.from(configurableComponents).map(element => {
+    // Asegurarnos de no volver a procesar los que ya tienen un loader específico si es necesario,
+    // pero para este caso, 'chatbot' y 'hero-section' son únicos.
+    return loadConfigurableComponent(element);
+  });
 
-  // Carga el chatbot solo si su placeholder existe en la página.
-  if (document.querySelector('[data-component="chatbot"]')) {
-    await loadComponent('[data-component="chatbot"]', '/components/chatbot.html');
-  }
+  // Ejecutar todos los cargadores en paralelo
+  await Promise.all([...staticLoaders, ...configurableLoaders]);
 };
