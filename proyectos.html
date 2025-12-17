@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth dark">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-124QEKRXHD"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      // Google Analytics config is now managed by script.js based on user consent.
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyectos y Casos de Éxito | Nelson Londono</title>
+    <link rel="canonical" href="https://nelsonlondono.es/proyectos.html" />
+    <link rel="icon" type="image/webp" href="./image/favicon.webp" />
+    <meta
+      name="description"
+      content="Explora nuestro portafolio de proyectos de desarrollo web, SEO y automatización. Casos de éxito que demuestran nuestro compromiso con la calidad y los resultados."
+    />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      />
+    </noscript>
+
+    <link href="./output.css?v=1765628562712" rel="stylesheet" />
+
+  </head>
+  <body class="bg-light-bg dark:bg-dark-bg">
+    <div id="nav-placeholder"></div>
+
+    <main class="pt-20">
+      <section
+        id="proyectos-page"
+        class="py-12 sm:py-16"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center">
+            <h1 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
+              Nuestro Portafolio de Proyectos
+            </h1>
+            <p class="section-subtitle text-base sm:text-lg mt-4">
+              Una muestra de la calidad y diversidad de nuestros trabajos. Clientes satisfechos son nuestra mejor carta de presentación.
+            </p>
+          </div>
+
+          <div
+            id="portfolio-filters"
+            class="flex justify-center flex-wrap gap-2 my-12"
+          >
+            <button data-filter="all" class="filter-btn active-filter">
+              Todos
+            </button>
+            <button data-filter="web" class="filter-btn">Desarrollo Web</button>
+            <button data-filter="seo" class="filter-btn">SEO Local</button>
+          </div>
+
+          <div
+            id="portfolio-grid-proyectos"
+            class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          >
+            <!-- Los proyectos del portafolio se generarán aquí dinámicamente -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <div
+      id="service-modal-web-medida"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-2xl w-full rounded-xl bg-light-card p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-4 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+          >
+            Desarrollo web a medida
+          </h3>
+          <button
+            id="close-modal-web-medida"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 space-y-4">
+          <p>
+            Creamos soluciones web desde cero, totalmente personalizadas para
+            tus necesidades. Si buscas un rendimiento superior, funcionalidades
+            únicas y un diseño que se adapte perfectamente a tu marca, esta es
+            tu solución.
+          </p>
+          <p>
+            Utilizamos las últimas tecnologías (HTML5, CSS3, JavaScript moderno)
+            para construir sitios rápidos, seguros y escalables.
+          </p>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Diseño 100% único y exclusivo para tu marca.</li>
+            <li>Optimización máxima del rendimiento y velocidad de carga.</li>
+            <li>
+              Código limpio, semántico y preparado para SEO desde el inicio.
+            </li>
+            <li>
+              Totalmente escalable para añadir nuevas funcionalidades en el
+              futuro.
+            </li>
+          </ul>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <a href="#contacto" class="cta-button modal-contact-button"
+            >Pedir Presupuesto</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="service-modal-wordpress"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-2xl w-full rounded-xl bg-light-card p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-4 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+          >
+            Desarrollo web con WordPress
+          </h3>
+          <button
+            id="close-modal-wordpress"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 space-y-4">
+          <p>
+            Aprovecha la potencia y flexibilidad del gestor de contenidos más
+            popular del mundo. WordPress es la solución ideal para quienes
+            buscan un sitio web profesional, robusto y fácil de autogestionar.
+          </p>
+          <p>
+            Te entregamos un sitio listo para usar, con un diseño personalizado
+            y las funcionalidades que necesites, dándote formación para que
+            puedas actualizar tu contenido sin depender de nadie.
+          </p>
+          <ul class="list-disc list-inside space-y-2">
+            <li>
+              Panel de administración intuitivo para gestionar tu contenido.
+            </li>
+            <li>
+              Enorme ecosistema de plugins para ampliar funcionalidades (tiendas
+              online, reservas, etc.).
+            </li>
+            <li>
+              Diseños profesionales y adaptables a partir de temas premium o
+              creados a medida.
+            </li>
+            <li>
+              Incluye nuestro plan de mantenimiento para que tu web esté siempre
+              segura y actualizada.
+            </li>
+          </ul>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <a href="#contacto" class="cta-button modal-contact-button"
+            >Pedir Presupuesto</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="service-modal-branding"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-2xl w-full rounded-xl bg-light-card p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-4 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+          >
+            Creación de marca (branding)
+          </h3>
+          <button
+            id="close-modal-branding"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 space-y-4">
+          <p>
+            Tu marca es mucho más que un logo; es la promesa que le haces a tus
+            clientes. Nos encargamos de construir una identidad de marca sólida
+            y coherente que te diferencie de la competencia y conecte
+            emocionalmente con tu público.
+          </p>
+          <p>
+            Desde la estrategia inicial hasta el diseño de cada elemento visual,
+            creamos una identidad memorable que refleja tus valores y tu visión.
+          </p>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Diseño de logotipo y variaciones.</li>
+            <li>Definición de paleta de colores y tipografías corporativas.</li>
+            <li>Creación de manual de identidad visual.</li>
+            <li>Diseño de papelería y material de marketing.</li>
+          </ul>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <a href="#contacto" class="cta-button modal-contact-button"
+            >Pedir Presupuesto</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="proyecto-modal-locutorio"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-4xl w-full rounded-xl bg-light-card p-4 sm:p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-3 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+          >
+            Tour virtual 360 - Locutorio el Pilón
+          </h3>
+          <button
+            id="close-modal-locutorio"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 h-[75vh]">
+          <iframe
+            title="Tour Virtual 360 del Locutorio el Pilón"
+            width="100%"
+            height="100%"
+            style="border: none"
+            frameborder="0"
+            allow="xr-spatial-tracking; gyroscope; accelerometer"
+            allowfullscreen
+            scrolling="no"
+            data-src="https://kuula.co/share/collection/718wd?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <div
+      id="proyecto-modal-barberia"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-4xl w-full rounded-xl bg-light-card p-4 sm:p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-3 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+          >
+            Tour virtual 360 - La Barbería de Isma
+          </h3>
+          <button
+            id="close-modal-barberia"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 h-[75vh]">
+          <iframe
+            title="Tour Virtual 360 de La Barbería de Isma"
+            width="100%"
+            height="100%"
+            style="border: none"
+            frameborder="0"
+            allow="xr-spatial-tracking; gyroscope; accelerometer"
+            allowfullscreen
+            scrolling="no"
+            data-src="https://kuula.co/share/collection/71n8D?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <div
+      id="proyecto-modal-kuula"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+    >
+      <div
+        class="m-4 max-w-4xl w-full rounded-xl bg-light-card p-4 sm:p-6 text-gray-800 dark:bg-dark-card dark:text-gray-200 shadow-2xl animate-zoom-in"
+      >
+        <div
+          class="flex items-start justify-between pb-3 border-b border-gray-200 dark:border-gray-700"
+        >
+          <h3
+            class="text-2xl font-bold text-primary-blue dark:text-primary-green"
+          >
+            Tour virtual 360 - piso en Madrid
+          </h3>
+          <button
+            id="close-modal-kuula"
+            class="text-3xl text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="mt-4 h-[75vh]">
+          <iframe
+            title="Tour Virtual 360 de un piso en Madrid"
+            width="100%"
+            height="100%"
+            style="border: none"
+            frameborder="0"
+            allow="xr-spatial-tracking; gyroscope; accelerometer"
+            allowfullscreen
+            scrolling="no"
+            data-src="https://kuula.co/share/collection/71np8?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div id="cookie-banner-placeholder"></div>
+
+    <!-- SCRIPTS PARA PRODUCCIÓN -->
+    <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
+    <script src="./bundle.min.js?v=1765628562712" defer></script>
+
+    <!-- SCRIPTS PARA DESARROLLO -->
+    <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->
+    <!--
+    <script type="module" src="./script.js"></script>
+    <script type="module" src="./darkMode.js"></script>
+    <script type="module" src="./smoothScroll.js"></script>
+    <script type="module" src="./scrollAnimations.js"></script>
+    <script type="module" src="./nav.js"></script>
+    <script type="module"
+src="./portfolio.js"></script>
+
+    <script type="module" src="./chatbot.js?v=1761980189470"></script>
+    -->
+
+    <div data-component="chatbot"></div>
+  </body>
+</html>
