@@ -21,6 +21,16 @@ Este es el repositorio del código fuente de mi página web profesional, un siti
     -   Cache-busting automático para los archivos CSS y JS.
     -   Generación automática de `sitemap.xml`.
 
+## 📂 Estructura del Proyecto
+
+-   `./`: Archivos HTML principales, `output.css`, `bundle.min.js`, `sitemap.xml`, `robots.txt` y scripts de Node.js.
+-   `src/`: Contiene los archivos fuente:
+    -   `src/input.css`: Archivo principal de Tailwind CSS.
+    -   `src/js/`: Módulos JavaScript (ej. `script.js` como punto de entrada, `componentLoader.js`, `darkMode.js`, etc.).
+-   `components/`: Archivos HTML para componentes reutilizables (navegación, pie de página, banner de cookies, chatbot).
+-   `image/`: Todas las imágenes utilizadas en el sitio web.
+-   `dist/`: Carpeta de salida para los archivos de producción después de ejecutar `npm run build:dist`.
+
 ## 🛠️ Tecnologías Utilizadas
 
 -   **HTML5:** Estructura semántica del contenido.
@@ -30,6 +40,7 @@ Este es el repositorio del código fuente de mi página web profesional, un siti
 -   **esbuild:** Bundler y minificador de JavaScript extremadamente rápido.
 -   **concurrently:** Para ejecutar múltiples scripts (watchers de JS y CSS) en paralelo durante el desarrollo.
 -   **Node.js:** Para ejecutar los scripts de construcción y el ecosistema de `npm`.
+-   **Prettier:** Para formateo de código.
 
 ---
 
@@ -89,11 +100,9 @@ Para generar la versión final del sitio, optimizada y lista para desplegar:
     npm run build:dist
     ```
 
-Este comando hará lo siguiente:
-- Construirá y minificará el CSS y el JS.
-- Aplicará cache-busting a los assets para evitar problemas de caché.
-- Generará un `sitemap.xml` actualizado.
-- Limpiará la carpeta `dist/` y copiará todos los archivos listos para producción en ella.
+Este comando realizará los siguientes pasos en secuencia:
+- Ejecutará `npm run build` que construye y minifica el CSS y el JS, aplica cache-busting a los assets y genera un `sitemap.xml`.
+- Limpiará la carpeta `dist/` y copiará todos los archivos necesarios (HTML, CSS, JS, imágenes, sitemap, robots.txt) en ella.
 
 ### Previsualizar la Versión de Producción
 
@@ -111,10 +120,10 @@ Accede a `http://localhost:8080` para ver la versión final.
 -   `npm run dev`: Inicia los watchers para JS y CSS en paralelo. Ideal para desarrollo.
 -   `npm run watch:css`: Inicia el watcher de PostCSS/Tailwind.
 -   `npm run watch:js`: Inicia el watcher de esbuild.
--   `npm run build`: Ejecuta la construcción de CSS y JS, el cache-busting y la generación del sitemap.
+-   `npm run build`: Construye y minifica el CSS y JS, aplica cache-busting y genera el sitemap.
 -   `npm run build:css`: Construye `output.css` para producción (minificado).
 -   `npm run build:js`: Construye `bundle.min.js` para producción (minificado).
--   `npm run build:dist`: Construye el proyecto y empaqueta todo en la carpeta `dist/`. **Este es el comando que debes usar para preparar el despliegue.**
+-   `npm run build:dist`: Construye el proyecto completo para despliegue en la carpeta `dist/`. **Este es el comando que debes usar para preparar el despliegue.**
 -   `npm run format`: Formatea todo el código del proyecto usando Prettier.
 -   `npm run format:check`: Comprueba si el código está formateado correctamente, sin hacer cambios.
 -   `npm run sitemap`: Genera manualmente el `sitemap.xml`.
