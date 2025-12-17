@@ -2144,6 +2144,9 @@ video {
 .pt-8 {
   padding-top: 2rem;
 }
+.pb-12 {
+  padding-bottom: 3rem;
+}
 .text-left {
   text-align: left;
 }
@@ -3162,6 +3165,9 @@ body.fade-in {
   .sm\:py-32 {
     padding-top: 8rem;
     padding-bottom: 8rem;
+  }
+  .sm\:pb-16 {
+    padding-bottom: 4rem;
   }
   .sm\:text-center {
     text-align: center;
