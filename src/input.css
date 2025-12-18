@@ -171,41 +171,6 @@
     @apply translate-x-5;
   }
 
-  /* Animación de gradiente para la sección de inicio */
-  @keyframes moveGradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  .animated-gradient-bg {
-    background-size: 200% 200%;
-    background-image: linear-gradient(
-      -45deg,
-      #e0f2fe,
-      /* sky-100 */ #dcfce7,
-      /* emerald-100 */ #bfdbfe,
-      /* blue-200 */ #a7f3d0 /* green-200 */
-    );
-    animation: moveGradient 15s ease infinite;
-  }
-
-  .dark .animated-gradient-bg {
-    background-image: linear-gradient(
-      -45deg,
-      #0c4a6e,
-      /* Tono azul oscuro */ #064e3b,
-      /* Tono verde oscuro */ #1e3a8a,
-      /* Tono índigo oscuro */ #059669 /* Tono esmeralda oscuro */
-    );
-  }
-
   /* Estilos para el botón de hamburguesa animado */
   #mobileMenuButton span {
     transition: all 0.3s ease-in-out;
@@ -250,39 +215,6 @@ main {
 }
 .sticky-header {
   @apply fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md shadow-lg transition-all duration-300;
-}
-
-/* Animación de gradiente para la sección de inicio */
-@keyframes moveGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-.animated-gradient-bg {
-  background-size: 200% 200%;
-  background-image: linear-gradient(
-    -45deg,
-    #e0f2fe,
-    /* sky-100 */ #dcfce7,
-    /* emerald-100 */ #bfdbfe,
-    /* blue-200 */ #a7f3d0 /* green-200 */
-  );
-  animation: moveGradient 15s ease infinite;
-}
-.dark .animated-gradient-bg {
-  background-image: linear-gradient(
-    -45deg,
-    #0c4a6e,
-    /* Tono azul oscuro */ #064e3b,
-    /* Tono verde oscuro */ #1e3a8a,
-    /* Tono índigo oscuro */ #059669 /* Tono esmeralda oscuro */
-  );
 }
 
 body.fade-out {
