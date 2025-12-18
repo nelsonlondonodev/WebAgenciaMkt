@@ -51,10 +51,15 @@ const loadConfigurableComponent = async (element) => {
 
     // Reemplazar placeholders como {{KEY}} con el valor de data-key
     for (const key in element.dataset) {
-      // No procesar 'component' o 'heroCustomStyles' en este bucle
-      if (key !== 'component' && key !== 'heroCustomStyles') {
-        const placeholder = key.replace(/([A-Z])/g, '_$1').toUpperCase();
-        html = html.replace(new RegExp(`{{${placeholder}}}`, 'g'), () => element.dataset[key]);
+      if (key === 'component' || key === 'heroCustomStyles') {
+        continue; // Omitir estas claves especiales
+      }
+      
+      const placeholder = `{{${key.replace(/([A-Z])/g, '_$1').replace('-', '_').toUpperCase()}}}`;
+      const value = element.dataset[key];
+      
+      if (value !== undefined) {
+        html = html.replaceAll(placeholder, value);
       }
     }
 
