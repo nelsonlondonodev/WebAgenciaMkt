@@ -1472,6 +1472,12 @@ video {
 .h-full {
   height: 100%;
 }
+.h-\[60vh\] {
+  height: 60vh;
+}
+.min-h-\[60vh\] {
+  min-height: 60vh;
+}
 .w-12 {
   width: 3rem;
 }
@@ -3215,12 +3221,6 @@ body.fade-in {
   }
   .md\:grid {
     display: grid;
-  }
-  .md\:min-h-\[calc\(70vh-5rem\)\] {
-    min-height: calc(70vh - 5rem);
-  }
-  .md\:min-h-\[calc\(90vh-5rem\)\] {
-    min-height: calc(90vh - 5rem);
   }
   .md\:w-5\/6 {
     width: 83.333333%;
