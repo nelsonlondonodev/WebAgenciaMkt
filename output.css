@@ -3058,6 +3058,12 @@ body.fade-in {
   border-color: rgb(16 185 129 / var(--tw-border-opacity, 1));
 }
 
+.dark\:focus\:shadow-\[0_0_8px_theme\(\'colors\.primary-green\'\)\]:focus:is(.dark *) {
+  --tw-shadow: 0 0 8px #10B981;
+  --tw-shadow-colored: 0 0 8px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .group:hover .dark\:group-hover\:bg-primary-blue:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));
