@@ -1,5 +1,6 @@
 import { initDarkMode } from './darkMode.js';
 import { initSmoothScroll } from './smoothScroll.js';
+import { applyAlternatingGradients } from './sectionStyler.js'; // Importar la función para gradientes alternos
 import { initScrollAnimations } from './scrollAnimations.js';
 import { initNav } from './nav.js';
 import { initPortfolioFilter } from './portfolio.js';
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Inicializar el resto de los scripts después de que los componentes estén cargados
   initDarkMode();
   initSmoothScroll();
+  applyAlternatingGradients('main', ['section-gradient-green', 'section-gradient-blue']); // Aplicar gradientes alternos a las secciones
   initScrollAnimations();
   initNav();
   initNumberAnimation();
