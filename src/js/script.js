@@ -12,6 +12,7 @@ import { initServiceCards } from './serviceRenderer.js';
 import { renderPortfolioCards } from './portfolioRenderer.js';
 import { initTestimonialCards } from './testimonialRenderer.js';
 import { initDynamicModals } from './modalRenderer.js';
+import { generateBreadcrumbs } from './breadcrumbs.js'; // Importar la función para generar migas de pan
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Cargar componentes reutilizables como el NAV y el Footer
