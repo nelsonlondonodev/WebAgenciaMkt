@@ -5,6 +5,7 @@ Este es el repositorio del código fuente de mi página web profesional, un siti
 ## ✨ Características Principales
 
 -   **Sitio Multi-página Estático:** Arquitectura optimizada para la velocidad y el SEO.
+-   **Identidad Visual Moderna:** Interfaz refinada con fondos de gradiente radial que proporcionan un look tecnológico y dinámico, tanto en modo claro como oscuro.
 -   **Componentes Reutilizables:** El `nav`, `footer`, `cookie-banner` y `chatbot` se cargan dinámicamente con JavaScript (`fetch`) para facilitar el mantenimiento y la coherencia en todo el sitio.
 -   **Diseño Adaptable (Responsive):** Interfaz que se adapta perfectamente a cualquier tamaño de pantalla.
 -   **Tema Claro y Oscuro:** Selector de tema manual que guarda la preferencia del usuario en `localStorage`.
@@ -13,8 +14,8 @@ Este es el repositorio del código fuente de mi página web profesional, un siti
     -   Portafolio filtrable.
     -   Modales para mostrar proyectos y detalles de servicios.
     -   Formulario de contacto funcional.
-    -   **Menú móvil mejorado:** Con animación CSS y un overlay para una mejor experiencia de usuario.
-    -   **Chatbot integrado:** Un asistente virtual para interactuar con los visitantes.
+    -   Menú móvil mejorado con animación CSS.
+    -   Chatbot integrado para interactuar con los visitantes.
 -   **Optimizado para Producción:**
     -   Bundling y minificación de JavaScript con `esbuild`.
     -   Procesamiento y minificación de CSS con `PostCSS` y `Tailwind CSS`.
