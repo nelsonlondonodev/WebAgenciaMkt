@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadComponents();
 
   // Inicializar el resto de los scripts después de que los componentes estén cargados
+  generateBreadcrumbs('#breadcrumbs-placeholder'); // Generar las migas de pan
   initDarkMode();
   initSmoothScroll();
   applyAlternatingGradients('main', ['section-gradient-green', 'section-gradient-blue']); // Aplicar gradientes alternos a las secciones

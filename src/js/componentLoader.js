@@ -1,5 +1,4 @@
 // src/js/componentLoader.js
-import { generateBreadcrumbs } from './breadcrumbs.js';
 
 /**
  * Carga un componente HTML estático y lo inserta en un elemento del DOM.
@@ -17,15 +16,8 @@ const loadStaticComponent = async (selector, url) => {
     const element = document.querySelector(selector);
     if (element) {
       element.innerHTML = data;
-      // Si el componente cargado es el de las migas de pan, las generamos.
-      if (selector === '#breadcrumbs-component') {
-        generateBreadcrumbs('#breadcrumbs-placeholder');
-      }
     } else {
-      // No logueamos la advertencia para el breadcrumb, ya que no está en todas las páginas
-      if (selector !== '#breadcrumbs-component') {
-        console.warn(`Selector no encontrado: ${selector}`);
-      }
+      // console.warn(`Selector no encontrado: ${selector}`);
     }
   } catch (error) {
     console.error(`No se pudo cargar componente desde ${url}:`, error);
@@ -92,10 +84,6 @@ export const loadComponents = async () => {
     loadStaticComponent(
       '#cookie-banner-placeholder',
       '/components/cookie-banner.html'
-    ),
-    loadStaticComponent(
-      '#breadcrumbs-component',
-      '/components/breadcrumbs.html'
     ),
   ];
   
