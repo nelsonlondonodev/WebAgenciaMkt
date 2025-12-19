@@ -1215,6 +1215,9 @@ video {
 .dark .section-gradient-green {
     background-image: radial-gradient(circle at 50% 50%, hsla(158, 79%, 42%, 0.15) 0%, hsla(158, 79%, 42%, 0.03) 35%, transparent 65%);
   }
+.section-gradient-blue {
+    background-image: radial-gradient(circle at 50% 50%, hsla(217, 91%, 60%, 0.1) 0%, hsla(217, 91%, 60%, 0.05) 30%, transparent 60%);
+  }
 .dark .section-gradient-blue {
     background-image: radial-gradient(circle at 50% 50%, hsla(217, 91%, 60%, 0.15) 0%, hsla(217, 91%, 60%, 0.03) 35%, transparent 65%);
   }
@@ -2107,6 +2110,10 @@ video {
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 .pb-12 {
   padding-bottom: 3rem;
@@ -3120,6 +3127,10 @@ body.fade-in {
   .sm\:py-32 {
     padding-top: 8rem;
     padding-bottom: 8rem;
+  }
+  .sm\:py-28 {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
   }
   .sm\:pb-16 {
     padding-bottom: 4rem;
