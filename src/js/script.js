@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   initFooter(); // Inicializar el footer
   initChatbot(); // Inicializar el chatbot
       initDynamicModals(); // Inicializa los modales dinámicos
-      generateBreadcrumbs('#breadcrumbs-placeholder'); // Generar las migas de pan
   
   
       initContactForm();
