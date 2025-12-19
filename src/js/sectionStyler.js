@@ -1,5 +1,5 @@
 /**
- * Aplica clases de gradiente de fondo de forma alternada a las secciones directas de un contenedor.
+ * Aplica clases de gradiente de fondo de forma alternada a las secciones de un contenedor.
  * @param {string} containerSelector - El selector del elemento contenedor (ej. 'main').
  * @param {string[]} gradientClasses - Un array con las dos clases de gradiente a alternar.
  */
@@ -14,10 +14,10 @@ export function applyAlternatingGradients(containerSelector, gradientClasses) {
     return; // No es un error, la página puede no tener este contenedor.
   }
 
-  // Seleccionamos solo los hijos directos que son <section>
-  const sections = Array.from(container.children).filter(
-    (child) => child.tagName === 'SECTION'
-  );
+  // Seleccionamos todas las <section> dentro del contenedor, sin importar la anidación
+  const sections = container.querySelectorAll('section');
+
+
 
   sections.forEach((section, index) => {
     // Eliminamos clases viejas por si acaso (buena práctica)
