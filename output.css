@@ -1213,16 +1213,16 @@ video {
         background-image: radial-gradient(circle at 50% 50%, hsla(160, 90%, 60%, 0.25) 0%, hsla(160, 90%, 60%, 0.1) 30%, transparent 60%);
       }
 .dark .section-gradient-green {
-    background-image: radial-gradient(circle at 50% 50%, hsla(158, 79%, 42%, 0.15) 0%, hsla(158, 79%, 42%, 0.03) 35%, transparent 65%);
-  }
+      background-image: radial-gradient(circle at 50% 50%, hsla(160, 90%, 65%, 0.3) 0%, hsla(160, 90%, 65%, 0.1) 35%, transparent 65%);
+    }
 .section-gradient-blue {
 
         background-image: radial-gradient(circle at 50% 50%, hsla(217, 95%, 75%, 0.35) 0%, hsla(217, 95%, 75%, 0.15) 30%, transparent 60%);
 
       }
 .dark .section-gradient-blue {
-    background-image: radial-gradient(circle at 50% 50%, hsla(217, 91%, 60%, 0.15) 0%, hsla(217, 91%, 60%, 0.03) 35%, transparent 65%);
-  }
+      background-image: radial-gradient(circle at 50% 50%, hsla(217, 95%, 75%, 0.3) 0%, hsla(217, 95%, 75%, 0.1) 35%, transparent 65%);
+    }
 /* --- FIN: Fondos de sección 'Yema y Clara' --- */
 .sr-only {
   position: absolute;
