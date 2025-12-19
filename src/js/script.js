@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   initTestimonialCards();
   initFooter(); // Inicializar el footer
   initChatbot(); // Inicializar el chatbot
-  initDynamicModals(); // Inicializa los modales dinámicos
-
-
-  initContactForm();
-  function initContactForm() {
-    const contactForm = document.querySelector('#contact-form');
+      initDynamicModals(); // Inicializa los modales dinámicos
+      generateBreadcrumbs('#breadcrumbs-placeholder'); // Generar las migas de pan
+  
+  
+      initContactForm();
+      function initContactForm() {    const contactForm = document.querySelector('#contact-form');
     if (contactForm) {
       const statusMessage = document.getElementById('form-status');
       const submitButton = contactForm.querySelector('button[type="submit"]');
