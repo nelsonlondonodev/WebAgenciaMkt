@@ -9,7 +9,8 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
 -   **Sitio Multi-página Estático:** Arquitectura optimizada para la velocidad y el SEO.
 -   **Arquitectura Modular (JavaScript):** El código JS está dividido en módulos específicos (Cookies, Contacto, Chatbot, etc.) orquestados desde un script principal.
 -   **Configuración Centralizada:** Un único archivo `config.js` controla las variables globales del entorno (APIs, claves, datos de contacto).
--   **Identidad Visual Moderna:** Interfaz refinada con fondos de gradiente radial y modos Claro/Oscuro persistentes.
+-   **Diseño Adaptable y Optimizado:** Interfaz refinada con soporte para modo Claro/Oscuro y espaciado optimizado específicamente para dispositivos móviles (UI adaptativa).
+-   **Sistema de Plantillas para Blog:** Incluye un `_template-articulo.html` optimizado para SEO, facilitando la creación de nuevos artículos sin duplicar lógica técnica.
 -   **Componentes Reutilizables:** `nav`, `footer`, `cookie-banner` y `chatbot` se cargan dinámicamente, evitando duplicidad de código HTML.
 -   **Optimizado para Producción:**
     -   **Tailwind CSS:** Configuración optimizada con `safelist` inteligente para clases dinámicas y purga de CSS no utilizado.
@@ -29,6 +30,7 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
     -   `contactForm.js`, `cookieConsent.js`, `chatbot.js`, etc.: Módulos de funcionalidad específica.
 -   **`components/`**: Fragmentos HTML reutilizables (Navbar, Footer, Modales).
 -   **`dist/`**: Directorio generado automáticamente para despliegue en producción.
+-   **`_template-articulo.html`**: Base limpia para crear nuevos contenidos en el blog.
 
 ---
 
