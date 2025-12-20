@@ -24,10 +24,8 @@ Thumbs.db
 
 # Ignorar .htaccess para despliegues específicos
 
-.htaccess
+# .htaccess
 
 
 
 # Ignorar directorio de build
-
-/dist

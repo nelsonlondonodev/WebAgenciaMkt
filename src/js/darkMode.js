@@ -1,8 +1,10 @@
+import { CONFIG } from './config.js';
+
 export function initDarkMode() {
   const darkModeToggle = document.getElementById('darkModeToggle');
   if (darkModeToggle) {
     const themes = ['auto', 'light', 'dark'];
-    let currentTheme = localStorage.getItem('theme') || 'auto';
+    let currentTheme = localStorage.getItem(CONFIG.UI.THEME_KEY) || 'auto';
     const applyTheme = (theme) => {
       if (theme === 'auto') {
         const prefersDark = window.matchMedia(
@@ -34,7 +36,7 @@ export function initDarkMode() {
       const currentThemeIndex = themes.indexOf(currentTheme);
       const nextThemeIndex = (currentThemeIndex + 1) % themes.length;
       currentTheme = themes[nextThemeIndex];
-      localStorage.setItem('theme', currentTheme);
+      localStorage.setItem(CONFIG.UI.THEME_KEY, currentTheme);
       applyTheme(currentTheme);
       updateIcon(currentTheme);
     });

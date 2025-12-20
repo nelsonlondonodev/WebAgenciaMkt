@@ -27,7 +27,7 @@ export const portfolioData = [
     description:
       'Optimización de ficha Google Business y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.',
     type: 'modal',
-    modalId: 'card-proyecto-locutorio', // Este ID es para el modal
+    tourUrl: 'https://kuula.co/share/collection/718wd?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es',
     tourType: '360° Tour'
   },
   {
@@ -44,7 +44,7 @@ export const portfolioData = [
     description:
       'Optimización de ficha Google Business y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.',
     type: 'modal',
-    modalId: 'card-proyecto-barberia',
+    tourUrl: 'https://kuula.co/share/collection/71n8D?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es',
     tourType: '360° Tour'
   },
   {
@@ -61,7 +61,7 @@ export const portfolioData = [
     description:
       'Recorrido virtual completo para inmobiliaria, permitiendo visitas inmersivas 24/7 y acelerando el proceso de alquiler.',
     type: 'modal',
-    modalId: 'card-proyecto-kuula',
+    tourUrl: 'https://kuula.co/share/collection/71np8?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es',
     tourType: '360° Tour'
   },
   {

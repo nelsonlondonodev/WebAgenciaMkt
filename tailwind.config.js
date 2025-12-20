@@ -3,7 +3,7 @@ module.exports = {
   // Añadimos esta línea para activar el modo oscuro por clase
   darkMode: 'class',
 
-  content: ['./*.html', './src/js/**/*.js', './components/**/*.html'],
+  content: ['./*.html', './src/**/*.html', './src/js/**/*.js', './components/**/*.html'],
   theme: {
     extend: {
       colors: {
@@ -53,71 +53,32 @@ module.exports = {
   },
   plugins: [],
   safelist: [
-    'fixed',
-    'bottom-5',
-    'right-5',
-    'z-[9999]',
-    'bg-blue-600',
-    'text-white',
-    'rounded-full',
-    'w-16',
-    'h-16',
-    'flex',
-    'items-center',
-    'justify-center',
-    'shadow-lg',
-    'hover:bg-blue-700',
-    'transition-colors',
+    // Estados dinámicos (JS)
+    'nav-active',
+    'is-active',
+    'is-visible',
     'hidden',
-    'bottom-24',
-    'w-full',
-    'max-w-sm',
-    'bg-gray-100',
-    'dark:bg-gray-900',
-    'rounded-lg',
-    'shadow-2xl',
-    'flex-col',
-    'p-4',
-    'rounded-t-lg',
-    'justify-between',
-    'text-lg',
-    'font-semibold',
-    'text-2xl',
-    'leading-none',
-    'flex-1',
-    'overflow-y-auto',
-    'border-t',
-    'border-gray-200',
-    'dark:border-gray-700',
-    'border',
-    'border-gray-300',
-    'dark:border-gray-600',
-    'rounded-l-lg',
-    'p-2',
-    'bg-white',
-    'dark:bg-gray-800',
-    'text-gray-900',
-    'dark:text-white',
-    'rounded-r-lg',
-    'px-4',
-    'mb-4',
-    'py-2',
-    'px-4',
-    'inline-block',
-    'max-w-xs',
-    'text-right',
-    'bg-blue-500',
-    'bg-gray-300',
-    'dark:bg-gray-600',
-    'dark:bg-gray-700',
-    'space-x-1',
-    'w-2',
-    'h-2',
-    'bg-gray-500',
-    'animate-pulse',
+    
+    // Gradientes de sección (JS)
+    'section-gradient-green',
+    'section-gradient-blue',
+    
+    // Clases aplicadas dinámicamente en Chatbot y Formularios
+    'text-red-600',
+    'text-green-600',
+    'text-gray-600',
+    'dark:text-gray-300',
     'text-blue-500',
     'underline',
-    'bg-gray-200',
-    { pattern: /bg-(primary-green|primary-blue)/, variants: ['hover'] },
+    
+    // Patrones de colores de marca
+    { 
+      pattern: /bg-(primary-green|primary-blue)/, 
+      variants: ['hover', 'dark', 'dark:hover'] 
+    },
+    { 
+      pattern: /text-(primary-green|primary-blue)/, 
+      variants: ['dark'] 
+    }
   ],
 };

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth dark">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-124QEKRXHD"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      // Google Analytics config is now managed by script.js based on user consent.
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casos de Éxito: Proyectos Web y SEO | Nelson Londono</title>
+    <link rel="canonical" href="https://nelsonlondono.es/proyectos.html" />
+    <link rel="icon" type="image/webp" href="./image/favicon.webp" />
+    <meta
+      name="description"
+      content="Descubre casos de éxito en diseño web, SEO y automatización. Transformamos negocios con tecnología y resultados medibles. ¡Hablemos!"
+    />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      />
+    </noscript>
+
+    <link href="./output.css?v=1766254990309" rel="stylesheet" />
+
+  </head>
+  <body class="bg-light-bg dark:bg-dark-bg">
+    <div id="nav-placeholder"></div>
+
+    <main class="pt-20">
+      <div 
+        data-component="hero-section"
+        data-hero-title="Nuestro Portafolio de Proyectos"
+        data-hero-subtitle-main="Casos de Éxito Reales"
+        data-hero-subtitle-secondary="Una muestra de la calidad y diversidad de nuestros trabajos. Clientes satisfechos son nuestra mejor carta de presentación."
+        data-hero-icon-1='<i class="fas fa-project-diagram absolute top-1/4 left-4 text-6xl lg:text-8xl transform -rotate-12 z-0 animate-float-up-down text-glow-green dark:text-glow-blue opacity-50 dark:opacity-30" aria-hidden="true"></i>'
+        data-hero-icon-2='<i class="fas fa-layer-group absolute bottom-1/4 right-4 text-6xl lg:text-8xl transform rotate-12 z-0 animate-float-down-up text-glow-blue dark:text-glow-green opacity-50 dark:opacity-30" aria-hidden="true"></i>'
+        data-hero-icon-3='<i class="fas fa-check-circle absolute top-1/2 left-1/3 text-5xl lg:text-7xl text-gray-400/50 dark:text-gray-500/30 transform z-0 animate-float-up-down" style="animation-duration: 10s" aria-hidden="true"></i>'
+        data-hero-custom-styles="
+          #inicio-servicio::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, #f9fafb, transparent);
+            pointer-events: none;
+          }
+          .dark #inicio-servicio::after {
+            background: linear-gradient(to top, #020202, transparent);
+          }
+        "
+      ></div>
+
+      <section id="introduccion" class="py-12 sm:py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
+            Nuestra Filosofía de Trabajo
+          </h2>
+          <p class="section-subtitle text-base sm:text-lg scroll-animate-initial">
+            Más que solo código, creamos soluciones.
+          </p>
+          <p class="mt-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed scroll-animate-initial delay-100">
+            Cada proyecto en nuestro portafolio es el resultado de una colaboración profunda con nuestros clientes. No nos limitamos a escribir código; nos sumergimos en sus objetivos para construir soluciones digitales que no solo son visualmente atractivas y técnicamente sólidas, sino que también generan resultados medibles. Creemos en la tecnología como una herramienta para potenciar negocios, y cada trabajo es un testimonio de esa convicción.
+          </p>
+        </div>
+      </section>
+
+      <section class="pb-12 sm:pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            id="portfolio-grid-proyectos"
+            class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          >
+            <!-- Los proyectos del portafolio se generarán aquí dinámicamente -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <div id="cookie-banner-placeholder"></div>
+
+    <!-- SCRIPTS PARA PRODUCCIÓN -->
+    <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
+    <script src="./bundle.min.js?v=1766254990309" defer></script>
+
+    <!-- SCRIPTS PARA DESARROLLO -->
+    <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->
+    <!--
+    <script type="module" src="./script.js"></script>
+    <script type="module" src="./darkMode.js"></script>
+    <script type="module" src="./smoothScroll.js"></script>
+    <script type="module" src="./scrollAnimations.js"></script>
+    <script type="module" src="./nav.js"></script>
+    <script type="module"
+src="./portfolio.js"></script>
+
+    <script type="module" src="./chatbot.js?v=1761980189470"></script>
+    -->
+
+    <div data-component="chatbot"></div>
+  </body>
+</html>

@@ -49,7 +49,7 @@
     @apply text-lg text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto;
   }
   .service-card {
-    @apply bg-light-card dark:bg-dark-card p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-out;
+    @apply bg-light-card/80 dark:bg-dark-card/80 backdrop-blur-lg p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-out;
   }
   .portfolio-item {
     @apply bg-light-card dark:bg-dark-card rounded-lg shadow-lg overflow-hidden transition-all duration-500 ease-out;
@@ -171,41 +171,6 @@
     @apply translate-x-5;
   }
 
-  /* Animación de gradiente para la sección de inicio */
-  @keyframes moveGradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  .animated-gradient-bg {
-    background-size: 200% 200%;
-    background-image: linear-gradient(
-      -45deg,
-      #e0f2fe,
-      /* sky-100 */ #dcfce7,
-      /* emerald-100 */ #bfdbfe,
-      /* blue-200 */ #a7f3d0 /* green-200 */
-    );
-    animation: moveGradient 15s ease infinite;
-  }
-
-  .dark .animated-gradient-bg {
-    background-image: linear-gradient(
-      -45deg,
-      #0c4a6e,
-      /* Tono azul oscuro */ #064e3b,
-      /* Tono verde oscuro */ #1e3a8a,
-      /* Tono índigo oscuro */ #059669 /* Tono esmeralda oscuro */
-    );
-  }
-
   /* Estilos para el botón de hamburguesa animado */
   #mobileMenuButton span {
     transition: all 0.3s ease-in-out;
@@ -219,6 +184,22 @@
   #mobileMenuButton.is-active span:nth-child(3) {
     transform: translateY(-0.625rem) rotate(-45deg);
   }
+
+  /* --- INICIO: Fondos de sección 'Yema y Clara' --- */
+  .section-gradient-green {
+        background-image: radial-gradient(circle at 50% 50%, hsla(160, 90%, 60%, 0.25) 0%, hsla(160, 90%, 60%, 0.1) 30%, transparent 60%);
+      }.dark .section-gradient-green {
+      background-image: radial-gradient(circle at 50% 50%, hsla(160, 90%, 65%, 0.3) 0%, hsla(160, 90%, 65%, 0.1) 35%, transparent 65%);
+    }
+
+  .section-gradient-blue {
+
+        background-image: radial-gradient(circle at 50% 50%, hsla(217, 95%, 75%, 0.35) 0%, hsla(217, 95%, 75%, 0.15) 30%, transparent 60%);
+
+      }.dark .section-gradient-blue {
+      background-image: radial-gradient(circle at 50% 50%, hsla(217, 95%, 75%, 0.3) 0%, hsla(217, 95%, 75%, 0.1) 35%, transparent 65%);
+    }
+  /* --- FIN: Fondos de sección 'Yema y Clara' --- */
 }
 
 
@@ -250,39 +231,6 @@ main {
 }
 .sticky-header {
   @apply fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md shadow-lg transition-all duration-300;
-}
-
-/* Animación de gradiente para la sección de inicio */
-@keyframes moveGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-.animated-gradient-bg {
-  background-size: 200% 200%;
-  background-image: linear-gradient(
-    -45deg,
-    #e0f2fe,
-    /* sky-100 */ #dcfce7,
-    /* emerald-100 */ #bfdbfe,
-    /* blue-200 */ #a7f3d0 /* green-200 */
-  );
-  animation: moveGradient 15s ease infinite;
-}
-.dark .animated-gradient-bg {
-  background-image: linear-gradient(
-    -45deg,
-    #0c4a6e,
-    /* Tono azul oscuro */ #064e3b,
-    /* Tono verde oscuro */ #1e3a8a,
-    /* Tono índigo oscuro */ #059669 /* Tono esmeralda oscuro */
-  );
 }
 
 body.fade-out {

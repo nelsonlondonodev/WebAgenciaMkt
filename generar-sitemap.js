@@ -19,6 +19,8 @@ async function generateSitemap() {
     { url: '/agencia-seo.html', changefreq: 'monthly', priority: 0.9 },
     { url: '/agencia-seo-local.html', changefreq: 'monthly', priority: 0.9 },
     { url: '/articulo-automatizacion-marketing.html', changefreq: 'monthly', priority: 0.7 },
+    { url: '/articulo-ia-agentica-2026.html', changefreq: 'monthly', priority: 0.7 },
+    { url: '/proyectos.html', changefreq: 'monthly', priority: 0.8 },
   ];
 
   const stream = new SitemapStream({ hostname });
