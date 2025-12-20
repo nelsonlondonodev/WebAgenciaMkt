@@ -24,7 +24,7 @@ Thumbs.db
 
 # Ignorar .htaccess para despliegues específicos
 
-.htaccess
+# .htaccess
 
 
 

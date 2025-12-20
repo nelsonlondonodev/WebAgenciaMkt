@@ -1,0 +1,60 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # ----------------------------------------------------------------------
+    # 1. FORZAR HTTPS (Seguridad)
+    # ----------------------------------------------------------------------
+    RewriteCond %{HTTP_HOST} !^nelsonlondono\.es$ [NC,OR]
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://nelsonlondono.es/$1 [L,R=301]
+
+    # ----------------------------------------------------------------------
+    # 2. LIMPIEZA DE URLS VIEJAS (Tus fantasmas del pasado)
+    # ----------------------------------------------------------------------
+    # Redirigir Portafolio antiguo -> Proyectos nuevos
+    RewriteRule ^portfolio\.html$ /proyectos.html [R=301,L]
+
+    # Redirigir el Blog antiguo (carpeta o archivo) -> blog.html
+    RewriteRule ^blog/?$ /blog.html [R=301,L]
+    RewriteRule ^blog-single\.html$ /blog.html [R=301,L]
+    
+    # Redirigir Políticas viejas -> Nuevas
+    RewriteRule ^politicas\.html$ /politica-de-cookies.html [R=301,L]
+
+    # Redirigir páginas viejas/basura al INICIO (Home) para no dar error 404
+    # Aquí metemos todas esas que mencionaste: about, contact, ingles, strength, etc.
+    RewriteRule ^(about|contact|ingles|strength|infoNel)\.html$ / [R=301,L]
+
+    # ----------------------------------------------------------------------
+    # 3. LÓGICA DE LA CARPETA DIST (¡Vital para tu despliegue actual!)
+    # ----------------------------------------------------------------------
+    # Esta sección le dice al servidor: "Busca los archivos reales dentro de /dist"
+    
+    # Si piden la raíz, cargar dist/index.html
+    RewriteRule ^$ dist/index.html [L]
+
+    # Si piden un archivo que NO existe en la raíz, buscarlo en /dist
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/dist/
+    RewriteRule ^(.*)$ dist/$1 [L]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 4. OPTIMIZACIÓN DE RENDIMIENTO (Caché - Tu configuración estaba bien)
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access 1 year"
+    ExpiresByType image/jpeg "access 1 year"
+    ExpiresByType image/gif "access 1 year"
+    ExpiresByType image/png "access 1 year"
+    ExpiresByType image/webp "access 1 year"
+    ExpiresByType image/svg+xml "access 1 year"
+    ExpiresByType text/css "access 1 month"
+    ExpiresByType text/javascript "access 1 month"
+    ExpiresByType application/javascript "access 1 month"
+    ExpiresByType application/pdf "access 1 month"
+    ExpiresDefault "access 2 days"
+</IfModule>
