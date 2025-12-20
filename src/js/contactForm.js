@@ -1,3 +1,5 @@
+import { CONFIG } from './config.js';
+
 export function initContactForm() {
   const contactForm = document.querySelector('#contact-form');
   if (!contactForm) return;
@@ -90,9 +92,9 @@ export function initContactReveal() {
       'click',
       (e) => {
         e.currentTarget.outerHTML = createLink(
-          'mailto:contacto@nelsonlondono.es',
+          `mailto:${CONFIG.CONTACT.EMAIL}`,
           'fas fa-envelope',
-          'contacto@nelsonlondono.es'
+          CONFIG.CONTACT.EMAIL
         );
       },
       { once: true }
@@ -104,9 +106,9 @@ export function initContactReveal() {
       'click',
       (e) => {
         e.currentTarget.outerHTML = createLink(
-          'tel:+34663975428',
+          `tel:${CONFIG.CONTACT.PHONE}`,
           'fas fa-phone',
-          '+34 663 97 54 28'
+          CONFIG.CONTACT.PHONE_DISPLAY
         );
       },
       { once: true }

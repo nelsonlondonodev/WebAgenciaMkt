@@ -1,5 +1,7 @@
+import { CONFIG } from './config.js';
+
 export function initCookieConsent() {
-  const COOKIE_CONSENT_KEY = 'nelson_cookie_consent';
+  const COOKIE_CONSENT_KEY = CONFIG.ANALYTICS.COOKIE_CONSENT_KEY;
   const cookieBanner = document.getElementById('cookie-banner');
   const cookieModal = document.getElementById('cookie-settings-modal');
   const analyticsToggle = document.getElementById('analytics-cookie-toggle');
@@ -20,7 +22,7 @@ export function initCookieConsent() {
 
   const enableGoogleAnalytics = () => {
     if (typeof gtag === 'function') {
-      gtag('config', 'G-124QEKRXHD');
+      gtag('config', CONFIG.ANALYTICS.GA_MEASUREMENT_ID);
       // console.log('Google Analytics activado.');
     }
   };

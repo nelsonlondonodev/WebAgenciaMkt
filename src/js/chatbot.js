@@ -1,3 +1,5 @@
+import { CONFIG } from './config.js';
+
 class Chatbot {
   constructor() {
     this.elements = {
@@ -13,9 +15,8 @@ class Chatbot {
       return;
     }
 
-    this.n8nWebhookUrl =
-      'https://n8n.srv1033442.hstgr.cloud/webhook/34b5ab96-ecf0-4195-93de-e3923c2062e5';
-    this.sessionIdKey = 'nelson_chat_session_id';
+    this.n8nWebhookUrl = CONFIG.CHATBOT.WEBHOOK_URL;
+    this.sessionIdKey = CONFIG.CHATBOT.SESSION_ID_KEY;
     this.sessionId = this.getOrCreateSessionId();
     this.historyKey = `nelson_chat_history_${this.sessionId}`;
     this.history = [];
