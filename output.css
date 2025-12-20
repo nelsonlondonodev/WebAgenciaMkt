@@ -1470,6 +1470,9 @@ video {
 .min-h-\[80vh\] {
   min-height: 80vh;
 }
+.min-h-\[60vh\] {
+  min-height: 60vh;
+}
 .w-12 {
   width: 3rem;
 }
@@ -3739,8 +3742,20 @@ body.fade-in {
   .sm\:left-auto {
     left: auto;
   }
+  .sm\:mb-8 {
+    margin-bottom: 2rem;
+  }
+  .sm\:mt-10 {
+    margin-top: 2.5rem;
+  }
+  .sm\:mt-8 {
+    margin-top: 2rem;
+  }
   .sm\:h-12 {
     height: 3rem;
+  }
+  .sm\:min-h-\[80vh\] {
+    min-height: 80vh;
   }
   .sm\:w-auto {
     width: auto;
