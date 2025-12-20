@@ -14,6 +14,8 @@ import { initTestimonialCards } from './testimonialRenderer.js';
 import { initDynamicModals } from './modalRenderer.js';
 import { generateBreadcrumbs } from './breadcrumbs.js'; // Importar la función para generar migas de pan
 
+import { initContactForm, initContactReveal } from './contactForm.js';
+
 document.addEventListener('DOMContentLoaded', async () => {
   // Cargar componentes reutilizables como el NAV y el Footer
   await loadComponents();
@@ -41,116 +43,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   
       initContactForm();
-      function initContactForm() {    const contactForm = document.querySelector('#contact-form');
-    if (contactForm) {
-      const statusMessage = document.getElementById('form-status');
-      const submitButton = contactForm.querySelector('button[type="submit"]');
-      contactForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        if (!contactForm.checkValidity()) {
-          contactForm.reportValidity();
-          if (statusMessage) {
-            statusMessage.textContent =
-              'Por favor, completa todos los campos requeridos.';
-            statusMessage.className =
-              'text-center font-semibold mt-4 text-red-600';
-            setTimeout(() => {
-              statusMessage.textContent = '';
-            }, 5e3);
-          }
-          return;
-        }
-        const formData = new FormData(contactForm);
-        if (statusMessage) {
-          statusMessage.textContent = 'Enviando...';
-          statusMessage.className =
-            'text-center font-semibold mt-4 text-gray-600 dark:text-gray-300';
-        }
-        if (submitButton) {
-          submitButton.disabled = true;
-        }
-        try {
-          const response = await fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: { Accept: 'application/json' },
-          });
-          if (response.ok) {
-            if (statusMessage) {
-              statusMessage.textContent = '¡Mensaje enviado con éxito!';
-              statusMessage.className =
-                'text-center font-semibold mt-4 text-green-600';
-              setTimeout(() => {
-                statusMessage.textContent = '';
-              }, 5e3);
-            }
-            contactForm.reset();
-          } else {
-            if (statusMessage) {
-              statusMessage.textContent =
-                'Hubo un error al enviar el mensaje. Inténtalo de nuevo.';
-              statusMessage.className =
-                'text-center font-semibold mt-4 text-red-600';
-              setTimeout(() => {
-                statusMessage.textContent = '';
-              }, 5e3);
-            }
-          }
-        } catch (error) {
-          if (statusMessage) {
-            statusMessage.textContent =
-              'Hubo un problema de conexión. Revisa tu internet.';
-            statusMessage.className =
-              'text-center font-semibold mt-4 text-red-600';
-            setTimeout(() => {
-              statusMessage.textContent = '';
-            }, 5e3);
-          }
-        } finally {
-          if (submitButton) {
-            setTimeout(() => {
-              submitButton.disabled = false;
-            }, 3e3);
-          }
-        }
-      });
-    }
-  }
 
   initContactReveal();
-  function initContactReveal() {
-    const contactContainer = document.getElementById('contact-reveal-container');
-    if (contactContainer) {
-      const revealEmailBtn = document.getElementById('reveal-email-btn');
-      const revealPhoneBtn = document.getElementById('reveal-phone-btn');
-      if (revealEmailBtn) {
-        revealEmailBtn.addEventListener(
-          'click',
-          (e) => {
-            e.currentTarget.outerHTML = `
-          <a href="mailto:contacto@nelsonlondono.es" class="text-primary-blue dark:text-primary-green font-semibold hover:underline flex items-center">
-            <i class="fas fa-envelope mr-2"></i>contacto@nelsonlondono.es
-          </a>`;
-          },
-          { once: true }
-        );
-      }
-      if (revealPhoneBtn) {
-        revealPhoneBtn.addEventListener(
-          'click',
-          (e) => {
-            e.currentTarget.outerHTML = `
-          <a href="tel:+34663975428" class="text-primary-blue dark:text-primary-green font-semibold hover:underline flex items-center">
-            <i class="fas fa-phone mr-2"></i>+34 663 97 54 28
-          </a>`;
-          },
-          { once: true }
-        );
-      }
-    }
-  }
 
   initCookieConsent();
+
   function initCookieConsent() {
     const COOKIE_CONSENT_KEY = 'nelson_cookie_consent';
     const cookieBanner = document.getElementById('cookie-banner');
