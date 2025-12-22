@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "copy:assets": "cp node_modules/@fortawesome/fontawesome-free/css/all.min.css ./fontawesome.min.css && rm -rf webfonts && cp -r node_modules/@fortawesome/fontawesome-free/webfonts ./",
     "watch:css": "postcss ./src/input.css -o output.css --watch",
     "watch:js": "esbuild src/js/script.js --bundle --outfile=bundle.min.js --watch",
-    "dev": "concurrently \"npm run watch:css\" \"npm run watch:js\"",
+    "dev": "npm run copy:assets && concurrently \"npm run watch:css\" \"npm run watch:js\"",
     "build:css": "NODE_ENV=production postcss ./src/input.css -o output.css",
     "build:js": "esbuild src/js/script.js --bundle --minify --outfile=bundle.min.js",
     "build": "npm run build:css && npm run build:js && node cache-buster.js && node generar-sitemap.js",
-    "build:dist": "npm run build && rm -rf dist && mkdir -p dist/image && cp *.html output.css bundle.min.js robots.txt sitemap.xml dist/ && cp image/* dist/image/",
+    "build:dist": "npm run build && rm -rf dist && mkdir -p dist/image dist/webfonts && cp *.html output.css bundle.min.js robots.txt sitemap.xml dist/ && cp image/* dist/image/ && cp -r node_modules/@fortawesome/fontawesome-free/webfonts/* dist/webfonts/ && cp node_modules/@fortawesome/fontawesome-free/css/all.min.css dist/fontawesome.min.css",
     "sitemap": "node generar-sitemap.js",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
@@ -20,6 +21,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^7.1.0",
     "autoprefixer": "^10.4.21",
     "concurrently": "^9.2.1",
     "cssnano": "^7.1.0",
