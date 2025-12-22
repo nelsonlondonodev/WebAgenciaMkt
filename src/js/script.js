@@ -20,7 +20,7 @@ import { initCookieConsent } from './cookieConsent.js';
 
 import { setupSocialSharing } from './socialSharing.js';
 
-import { initHeroIframe } from './heroHelper.js';
+// import { initHeroIframe } from './heroHelper.js';
 
 
 
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 
-  initHeroIframe();
+  // initHeroIframe();
 
 
 
