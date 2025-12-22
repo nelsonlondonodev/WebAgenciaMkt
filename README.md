@@ -20,6 +20,20 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
 
 ---
 
+## 🎁 Recurso Gratuito: Guía de Automatización
+
+Se ha implementado una estrategia de captación de leads (Landing Page) diseñada específicamente para tráfico proveniente de redes sociales (TikTok).
+
+-   **Página de Aterrizaje (`/guia/`)**: Ubicada en `guia/index.html`. Está integrada con el diseño global del sitio, cargando dinámicamente el `nav` y el `footer` originales.
+-   **Generador de PDF (`guia/guia-para-pdf.html`)**: Herramienta interna para maquetar la guía en formato A4.
+    -   *Uso:* Abrir en servidor local, presionar `Ctrl+P` y "Guardar como PDF".
+    -   *Nota:* Este archivo tiene la etiqueta `noindex` para no aparecer en buscadores.
+-   **Archivo de Descarga (`guia/guia-n8n.pdf`)**: El documento final que los usuarios descargan desde la landing.
+
+*Importante: Los componentes `nav.html` y `footer.html` ahora utilizan rutas absolutas (`/image/...` o `/blog.html`) para garantizar su correcta visualización desde subcarpetas como `/guia/`.*
+
+---
+
 ## 📂 Estructura del Proyecto
 
 ### Directorios Clave
