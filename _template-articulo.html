@@ -9,11 +9,19 @@
     <meta name="description" content="{{DESCRIPCION_SEO}}" />
     
     <!-- Iconos FontAwesome -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" /></noscript>
+        <!-- Carga local optimizada de Font Awesome -->
+        <link 
+          rel="preload" 
+          href="./fontawesome.min.css" 
+          as="style" 
+          onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+          <link rel="stylesheet" href="./fontawesome.min.css" />
+        </noscript>
     
     <!-- Estilos de Producción -->
-    <link href="./output.css?v=1766393386980" rel="stylesheet" />
+    <link href="./output.css?v=1766394353515" rel="stylesheet" />
 
     <!-- Datos Estructurados (JSON-LD) -->
     <script type="application/ld+json">
@@ -130,6 +138,6 @@
     <div id="cookie-banner-placeholder"></div>
     
     <!-- Scripts Modularizados -->
-    <script src="./bundle.min.js?v=1766393386980" defer></script>
+    <script src="./bundle.min.js?v=1766394353515" defer></script>
   </body>
 </html>
