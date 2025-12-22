@@ -38,38 +38,56 @@
       />
     </noscript>
 
-    <link href="./output.css?v=1766386893020" rel="stylesheet" />
+    <link href="./output.css?v=1766388193203" rel="stylesheet" />
 
   <body class="bg-light-bg dark:bg-dark-bg">
     <div id="nav-placeholder"></div>
 
     <main class="pt-20">
-      <div 
-        data-component="hero-section"
-        data-hero-title="Agencia de marketing en Fuente el Saz"
-        data-hero-subtitle-main="Transforma tu negocio con tecnología"
-        data-hero-subtitle-secondary="Creamos webs de alto rendimiento, estrategias SEO y asistentes virtuales con IA para automatizar tus procesos y multiplicar tus resultados."
-        data-hero-icon-1='<i class="fas fa-arrow-trend-up absolute top-1/4 left-4 text-6xl lg:text-8xl transform -rotate-12 z-0 animate-float-up-down text-glow-green dark:text-glow-blue opacity-50 dark:opacity-30" aria-hidden="true"></i>'
-        data-hero-icon-2='<i class="fas fa-sitemap absolute bottom-1/4 right-4 text-6xl lg:text-8xl transform rotate-12 z-0 animate-float-down-up text-glow-blue dark:text-glow-green opacity-50 dark:opacity-30" aria-hidden="true"></i>'
-        data-hero-icon-3='<i class="fas fa-brain absolute top-1/2 left-1/3 text-5xl lg:text-7xl text-gray-400/50 dark:text-gray-500/30 transform z-0 animate-float-up-down" style="animation-duration: 10s" aria-hidden="true"></i>'
-        data-hero-custom-styles="
+      <section id="inicio-servicio" class="relative overflow-hidden">
+        <!-- Estilos específicos del Hero inyectados directamente para evitar FOUC y mantener la fidelidad del diseño original -->
+        <style>
           #inicio-servicio::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            height: 100px; /* Altura del degradado */
+            height: 100px;
             background: linear-gradient(to top, #f9fafb, transparent);
-            pointer-events: none; /* Para que no interfiera con el ratón */
+            pointer-events: none;
           }
           .dark #inicio-servicio::after {
             background: linear-gradient(to top, #020202, transparent);
           }
-        "
-      ></div>
+        </style>
 
-<section id="servicios" class="py-20 sm:py-28">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center min-h-[60vh] sm:min-h-[80vh]">
+          
+          <!-- Iconos Flotantes (Antes data-hero-icon-*) -->
+          <i class="fas fa-arrow-trend-up absolute top-1/4 left-4 text-6xl lg:text-8xl transform -rotate-12 z-0 animate-float-up-down text-glow-green dark:text-glow-blue opacity-50 dark:opacity-30" aria-hidden="true"></i>
+          <i class="fas fa-sitemap absolute bottom-1/4 right-4 text-6xl lg:text-8xl transform rotate-12 z-0 animate-float-down-up text-glow-blue dark:text-glow-green opacity-50 dark:opacity-30" aria-hidden="true"></i>
+          <i class="fas fa-brain absolute top-1/2 left-1/3 text-5xl lg:text-7xl text-gray-400/50 dark:text-gray-500/30 transform z-0 animate-float-up-down" style="animation-duration: 10s" aria-hidden="true"></i>
+
+          <div class="max-w-4xl relative z-10">
+            <div id="breadcrumbs-placeholder" class="mb-4 sm:mb-8"></div>
+            
+            <h1 class="text-2xl sm:text-[26px] font-normal text-gray-900 dark:text-white opacity-0 animate-slide-in-right uppercase">
+              Agencia de marketing en Fuente el Saz
+            </h1>
+            
+            <p class="mt-4 sm:mt-8 text-3xl sm:text-6xl font-extrabold text-gray-700 dark:text-gray-200 opacity-0 animate-slide-in-left text-left sm:text-center" style="animation-delay: 0.2s">
+              Transforma tu negocio con tecnología
+            </p>
+            
+            <p class="mt-6 sm:mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center" style="animation-delay: 0.4s">
+              Creamos webs de alto rendimiento, estrategias SEO y asistentes virtuales con IA para automatizar tus procesos y multiplicar tus resultados.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicios" class="py-20 sm:py-28">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
             Nuestros Servicios Destacados
@@ -678,7 +696,7 @@
 
     <!-- SCRIPTS PARA PRODUCCIÓN -->
     <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
-    <script src="./bundle.min.js?v=1766386893020" defer></script>
+    <script src="./bundle.min.js?v=1766388193203" defer></script>
 
     <!-- SCRIPTS PARA DESARROLLO -->
     <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->
