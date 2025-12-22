@@ -10,6 +10,17 @@
     />
     <link rel="icon" type="image/webp" href="../image/favicon.webp" />
 
+    <!-- Carga local optimizada de Font Awesome -->
+    <link 
+      rel="preload" 
+      href="../fontawesome.min.css" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="../fontawesome.min.css" />
+    </noscript>
+
     <!-- Tailwind CSS (Compilado del proyecto) -->
     <link href="../output.css" rel="stylesheet" />
 
