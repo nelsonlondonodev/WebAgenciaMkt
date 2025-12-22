@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de Guía PDF - Nelson Londoño</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0f172a',
+              accent: '#f59e0b',
+            },
+            fontFamily: {
+              montserrat: ['Montserrat', 'sans-serif'],
+              opensans: ['Open Sans', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @media print {
+        body {
+          background: none;
+          padding: 0;
+          margin: 0;
+        }
+        .page-break {
+          page-break-after: always;
+        }
+        .no-print {
+          display: none;
+        }
+      }
+      .a4-page {
+        width: 210mm;
+        height: 296mm;
+        margin: 0 auto;
+        background: white;
+        position: relative;
+        overflow: hidden;
+      }
+      body {
+        background-color: #f1f5f9;
+        font-family: 'Open Sans', sans-serif;
+      }
+      h1, h2, h3 {
+        font-family: 'Montserrat', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Aviso para el usuario (No se imprime) -->
+    <div class="no-print bg-accent p-4 text-center font-bold text-primary shadow-lg">
+      PÁGINA DE GENERACIÓN: Presiona Ctrl+P (o Cmd+P) y elige "Guardar como PDF" para generar tu guía.
+    </div>
+
+    <div class="py-10">
+      
+      <!-- PÁGINA 1: PORTADA -->
+      <div class="a4-page page-break relative flex flex-col items-center justify-center bg-primary text-white text-center p-20">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="relative z-10">
+          <div class="bg-accent text-primary px-6 py-2 font-black tracking-[0.2em] uppercase mb-10 inline-block">
+            GUÍA EXCLUSIVA 2026
+          </div>
+          <h1 class="text-6xl font-black leading-none mb-6">
+            EL MAPA DE RUTA<br>
+            <span class="text-accent">AUTOMATIZACIÓN CON IA</span>
+          </h1>
+          <p class="text-2xl font-light text-slate-300 mb-20 max-w-lg mx-auto">
+            Cómo reinventarte profesionalmente después de los 40 sin ser programador experto.
+          </p>
+          
+          <div class="mt-20">
+            <img src="../image/foto-nelson-londono.webp" alt="Nelson Londoño" class="w-32 h-32 rounded-full border-4 border-accent mx-auto mb-4 object-cover shadow-2xl">
+            <h3 class="text-xl font-bold uppercase">Por Nelson Londoño</h3>
+            <p class="text-accent font-semibold tracking-widest">EL ALIADO TECNOLÓGICO</p>
+          </div>
+        </div>
+
+        <div class="absolute bottom-10 left-0 right-0 px-10 flex justify-between text-xs font-bold text-slate-500 uppercase tracking-widest">
+          <span>www.nelsonlondono.es</span>
+          <span>Documento Estratégico</span>
+        </div>
+      </div>
+
+      <!-- PÁGINA 2: LA MENTALIDAD -->
+      <div class="a4-page page-break relative p-20 flex flex-col">
+        <h2 class="text-4xl font-black text-primary border-b-8 border-accent pb-4 mb-10 inline-block self-start">
+          01. EL ESPEJO
+        </h2>
+        
+        <div class="space-y-6 text-lg text-slate-700 leading-relaxed">
+          <p class="font-bold text-primary text-2xl">¡Pónganle cuidado!</p>
+          <p>
+            Si estás leyendo esto, probablemente sientes lo mismo que yo sentí: el peso de la edad, la presión de las deudas y el miedo a quedarte obsoleto en un país nuevo.
+          </p>
+          <p>
+            Llegué a Madrid con 42 años, debiendo dinero y trabajando en lo que saliera. Pensé que el tren de la tecnología ya había pasado para mí.
+          </p>
+          <p class="font-bold text-primary">Estaba equivocado.</p>
+          <p>
+            El problema no es tu edad. El problema es que sigues pensando que para trabajar en tecnología necesitas ser un genio matemático de 20 años que escribe código en pantalla negra tipo Matrix.
+          </p>
+        </div>
+
+        <div class="bg-amber-50 border-l-8 border-accent p-8 my-10 italic text-xl font-semibold text-primary">
+          "El mercado no paga por tu código. El mercado paga por SOLUCIONES. Si ahorras tiempo o ganas dinero para un negocio, no les importa si tienes 20 o 50 años."
+        </div>
+
+        <h3 class="text-2xl font-black text-primary mb-4 uppercase">La Regla de Oro</h3>
+        <p class="text-lg text-slate-700">
+          No intentes competir con los jóvenes en programación pura. Ellos tienen más tiempo. Tu ventaja competitiva es tu <strong>EXPERIENCIA DE VIDA</strong>. Tú entiendes de negocios, de ventas, de gestión. Usa el Low-Code (n8n) para potenciar eso.
+        </p>
+
+        <div class="absolute bottom-10 left-0 right-0 px-10 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <span>TikTok: @nlagencia</span>
+          <span>Página 02</span>
+        </div>
+      </div>
+
+      <!-- PÁGINA 3: HERRAMIENTAS -->
+      <div class="a4-page page-break relative p-20 flex flex-col">
+        <h2 class="text-4xl font-black text-primary border-b-8 border-accent pb-4 mb-10 inline-block self-start">
+          02. TU SOCIO IA
+        </h2>
+        
+        <p class="text-lg mb-10">
+          Para automatizar procesos necesitamos una herramienta principal: <strong>n8n</strong>. Pero para dominarla sin saber programar, usaremos el "cerebro" de Google.
+        </p>
+        
+        <div class="bg-primary text-white p-10 rounded-2xl mb-10 text-center">
+          <h3 class="text-3xl font-black text-accent mb-2">GEMINI + n8n</h3>
+          <p class="tracking-widest uppercase font-bold text-sm">El Poder de la Ejecución</p>
+        </div>
+
+        <h3 class="text-2xl font-black text-primary mb-4">CÓMO USAR GEMINI PARA ESTUDIAR</h3>
+        <p class="text-lg mb-6">No le preguntes cosas generales. Copia y pega este "Prompt" cuando te trabes:</p>
+
+        <div class="bg-slate-900 text-emerald-400 p-8 rounded-xl font-mono text-sm leading-relaxed border-2 border-slate-700 shadow-xl mb-6">
+          "Actúa como un experto en automatización con n8n. Soy principiante. Explícame paso a paso cómo conectar un formulario de Google con un mensaje de WhatsApp usando n8n. Si necesito un script de código, escríbelo por mí y explícame dónde pegarlo."
+        </div>
+        
+        <p class="text-sm text-slate-500 italic">
+          * Gemini hará el trabajo sucio. Tú solo ensamblas las piezas como si fueran Legos.
+        </p>
+
+        <div class="absolute bottom-10 left-0 right-0 px-10 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <span>TikTok: @nlagencia</span>
+          <span>Página 03</span>
+        </div>
+      </div>
+
+      <!-- PÁGINA 4: RUTA Y CIERRE -->
+      <div class="a4-page relative p-20 flex flex-col">
+        <h2 class="text-4xl font-black text-primary border-b-8 border-accent pb-4 mb-10 inline-block self-start">
+          03. RUTA 30 DÍAS
+        </h2>
+        
+        <div class="space-y-12">
+          <div class="flex gap-6">
+            <div class="bg-primary text-accent w-14 h-14 flex-shrink-0 flex items-center justify-center text-3xl font-black rounded-full">1</div>
+            <div>
+              <h3 class="text-xl font-black text-primary uppercase">Semana 1: Fundamentos n8n</h3>
+              <p class="text-slate-600">YouTube es tu mejor universidad. Busca "Curso básico n8n". Entiende qué es un Workflow, un Trigger y un Nodo.</p>
+            </div>
+          </div>
+          
+          <div class="flex gap-6">
+            <div class="bg-primary text-accent w-14 h-14 flex-shrink-0 flex items-center justify-center text-3xl font-black rounded-full">2</div>
+            <div>
+              <h3 class="text-xl font-black text-primary uppercase">Semana 2: La IA como Motor</h3>
+              <p class="text-slate-600">Abre Gemini. Pídele ideas: "Dame 5 ideas para automatizar una inmobiliaria". Intenta construir la más sencilla.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6">
+            <div class="bg-primary text-accent w-14 h-14 flex-shrink-0 flex items-center justify-center text-3xl font-black rounded-full">3</div>
+            <div>
+              <h3 class="text-xl font-black text-primary uppercase">Semana 3: Tu Caso de Éxito</h3>
+              <p class="text-slate-600">No busques clientes aún. Automatiza algo tuyo. Un bot que te avise de tus citas o guarde tus gastos. Ese es tu portafolio.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-auto bg-primary text-white p-10 rounded-3xl text-center mb-10">
+          <h3 class="text-3xl font-black text-accent mb-4">NO ESTÁS SOLO</h3>
+          <p class="text-slate-300 mb-6">Este camino da miedo, pero la recompensa es la libertad. Sigue documentando tu proceso.</p>
+          <p class="text-2xl font-black tracking-widest">🤜 DIOS TE BENDICE 🤛</p>
+        </div>
+
+        <div class="absolute bottom-10 left-0 right-0 px-10 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <span>Nelson Londoño - 2026</span>
+          <span>Página 04</span>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
