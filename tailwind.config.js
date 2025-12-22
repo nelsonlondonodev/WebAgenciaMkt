@@ -53,32 +53,27 @@ module.exports = {
   },
   plugins: [],
   safelist: [
-    // Estados dinámicos (JS)
+    // Estados dinámicos de UI
     'nav-active',
     'is-active',
     'is-visible',
     'hidden',
     
-    // Gradientes de sección (JS)
+    // Gradientes y utilidades específicas
     'section-gradient-green',
     'section-gradient-blue',
+    'underline',
     
-    // Clases aplicadas dinámicamente en Chatbot y Formularios
+    // Colores de texto para feedback (formularios/chatbot)
     'text-red-600',
     'text-green-600',
     'text-gray-600',
-    'dark:text-gray-300',
     'text-blue-500',
-    'underline',
+    'dark:text-gray-300',
     
-    // Patrones de colores de marca
-    { 
-      pattern: /bg-(primary-green|primary-blue)/, 
-      variants: ['hover', 'dark', 'dark:hover'] 
-    },
-    { 
-      pattern: /text-(primary-green|primary-blue)/, 
-      variants: ['dark'] 
-    }
+    // Variantes de color de marca explícitas (Evita Regex costoso)
+    'bg-primary-green', 'hover:bg-primary-green', 'dark:bg-primary-green', 'dark:hover:bg-primary-green',
+    'bg-primary-blue',  'hover:bg-primary-blue',  'dark:bg-primary-blue',  'dark:hover:bg-primary-blue',
+    'dark:text-primary-green', 'dark:text-primary-blue'
   ],
 };
