@@ -15,6 +15,13 @@ fs.readdir(distPath, (err, files) => {
 
   const htmlFiles = files.filter(file => file.endsWith('.html'));
 
+  // Add files from 'guia' directory
+  const guiaPath = path.join(distPath, 'guia');
+  if (fs.existsSync(guiaPath)) {
+    const guiaFiles = fs.readdirSync(guiaPath).filter(file => file.endsWith('.html'));
+    guiaFiles.forEach(file => htmlFiles.push(path.join('guia', file)));
+  }
+
   if (htmlFiles.length === 0) {
     console.log('No HTML files found in dist directory. Nothing to do.');
     return;
@@ -30,14 +37,14 @@ fs.readdir(distPath, (err, files) => {
       }
 
       // The regex looks for src/href attributes pointing to the specific files.
-      // It handles paths like "./bundle.min.js" or "bundle.min.js".
+      // It handles paths like "./bundle.min.js", "bundle.min.js", or "../output.css".
       const regex = new RegExp(
-        '(src|href)="\\.?/?(bundle\\.min\\.js|output\\.css|fontawesome\\.min\\.css)(?:\\?v=[0-9]*)?"',
+        '(src|href)="((?:\\.\\./|\\./|/)?)(bundle\\.min\\.js|output\\.css|fontawesome\\.min\\.css)(?:\\?v=[0-9]*)?"',
         'g'
       );
 
-      const updatedData = data.replace(regex, (match, attribute, filename) => {
-        const newUrl = `${attribute}="./${filename}?v=${version}"`;
+      const updatedData = data.replace(regex, (match, attribute, prefix, filename) => {
+        const newUrl = `${attribute}="${prefix}${filename}?v=${version}"`;
         console.log(`In ${file}, updated ${filename} to ${filename}?v=${version}`);
         return newUrl;
       });
