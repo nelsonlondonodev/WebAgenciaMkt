@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Generador de Guía PDF - Nelson Londoño</title>
+    <title>Guía de Automatización - Nelson Londoño</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -12,8 +12,10 @@
         theme: {
           extend: {
             colors: {
-              primary: '#0f172a',
-              accent: '#f59e0b',
+              primary: '#0f172a', // Slate 900
+              secondary: '#334155', // Slate 700
+              accent: '#f59e0b', // Amber 500
+              light: '#f8fafc', // Slate 50
             },
             fontFamily: {
               montserrat: ['Montserrat', 'sans-serif'],
@@ -24,188 +26,275 @@
       };
     </script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
     <style>
+      /* Estilos específicos para impresión */
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      
       @media print {
         body {
-          background: none;
-          padding: 0;
           margin: 0;
+          padding: 0;
+          background: white;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
         }
+        
+        .no-print {
+          display: none !important;
+        }
+
         .page-break {
+          break-after: page;
           page-break-after: always;
         }
-        .no-print {
-          display: none;
+        
+        /* Asegurar que cada página ocupe exactamente el alto sin desbordar */
+        .a4-page {
+          height: 297mm; /* Altura exacta A4 */
+          width: 210mm;  /* Ancho exacto A4 */
+          overflow: hidden; /* Cortar cualquier desbordamiento accidental */
+          page-break-inside: avoid;
         }
       }
-      .a4-page {
-        width: 210mm;
-        height: 296mm;
-        margin: 0 auto;
-        background: white;
-        position: relative;
-        overflow: hidden;
-      }
+
+      /* Estilos para visualización en pantalla */
       body {
-        background-color: #f1f5f9;
+        background-color: #e2e8f0;
         font-family: 'Open Sans', sans-serif;
       }
-      h1, h2, h3 {
+      
+      .a4-page {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto 2rem auto;
+        background: white;
+        position: relative;
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+      }
+      
+      h1, h2, h3, h4 {
         font-family: 'Montserrat', sans-serif;
       }
     </style>
   </head>
   <body>
-    <!-- Aviso para el usuario (No se imprime) -->
-    <div class="no-print bg-accent p-4 text-center font-bold text-primary shadow-lg">
-      PÁGINA DE GENERACIÓN: Presiona Ctrl+P (o Cmd+P) y elige "Guardar como PDF" para generar tu guía.
+    <!-- Barra de herramientas (No se imprime) -->
+    <div class="no-print fixed top-0 left-0 right-0 z-50 bg-primary text-white p-4 shadow-xl flex justify-between items-center">
+      <div class="font-bold tracking-wider">NELSON LONDOÑO | AGENCIA</div>
+      <div class="flex items-center gap-4">
+        <p class="text-sm text-slate-300 hidden sm:block">Para guardar: Presiona <kbd class="bg-slate-700 px-2 py-1 rounded">Ctrl + P</kbd></p>
+        <button onclick="window.print()" class="bg-accent hover:bg-amber-600 text-primary font-bold py-2 px-6 rounded-full transition-colors shadow-lg border-2 border-transparent hover:border-white">
+          DESCARGAR PDF
+        </button>
+      </div>
     </div>
+    
+    <!-- Espaciador para la barra fija -->
+    <div class="no-print h-24"></div>
 
-    <div class="py-10">
+    <main>
       
       <!-- PÁGINA 1: PORTADA -->
-      <div class="a4-page page-break relative flex flex-col items-center justify-center bg-primary text-white text-center p-20">
-        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 30px 30px;"></div>
+      <article class="a4-page page-break relative flex flex-col items-center justify-center bg-primary text-white text-center p-16">
+        <!-- Patrón de fondo sutil -->
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#ffffff 2px, transparent 2px); background-size: 40px 40px;"></div>
         
-        <div class="relative z-10">
-          <div class="bg-accent text-primary px-6 py-2 font-black tracking-[0.2em] uppercase mb-10 inline-block">
-            GUÍA EXCLUSIVA 2026
+        <div class="relative z-10 w-full max-w-2xl">
+          <div class="bg-accent text-primary px-8 py-3 font-black tracking-[0.3em] uppercase mb-12 inline-block transform -rotate-2 shadow-lg">
+            GUÍA ESTRATÉGICA 2026
           </div>
-          <h1 class="text-6xl font-black leading-none mb-6">
-            EL MAPA DE RUTA<br>
-            <span class="text-accent">AUTOMATIZACIÓN CON IA</span>
+          
+          <h1 class="text-7xl font-black leading-tight mb-8">
+            EL MAPA DE LA<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-amber-200">AUTOMATIZACIÓN</span>
           </h1>
-          <p class="text-2xl font-light text-slate-300 mb-20 max-w-lg mx-auto">
-            Cómo reinventarte profesionalmente después de los 40 sin ser programador experto.
+          
+          <div class="w-32 h-2 bg-accent mx-auto mb-10 rounded-full"></div>
+
+          <p class="text-2xl font-light text-slate-300 mb-16 leading-relaxed">
+            Cómo empezar a crear <strong class="text-white">Agentes de IA</strong> y automatizaciones con n8n sin ser programador experto.
           </p>
           
-          <div class="mt-20">
-            <img src="../image/foto-nelson-londono.webp" alt="Nelson Londoño" class="w-32 h-32 rounded-full border-4 border-accent mx-auto mb-4 object-cover shadow-2xl">
-            <h3 class="text-xl font-bold uppercase">Por Nelson Londoño</h3>
-            <p class="text-accent font-semibold tracking-widest">EL ALIADO TECNOLÓGICO</p>
+          <div class="flex items-center justify-center gap-6 mt-10 bg-slate-800/50 p-6 rounded-2xl backdrop-blur-sm border border-slate-700">
+            <img src="../image/foto-nelson-londono.webp" alt="Nelson Londoño" class="w-24 h-24 rounded-full border-4 border-accent object-cover shadow-2xl">
+            <div class="text-left">
+              <h3 class="text-xl font-bold uppercase text-white">Por Nelson Londoño</h3>
+              <p class="text-accent font-bold text-sm tracking-widest">TU ALIADO TECNOLÓGICO</p>
+              <p class="text-slate-400 text-xs mt-1">@soy_nelson_londono</p>
+            </div>
           </div>
         </div>
 
-        <div class="absolute bottom-10 left-0 right-0 px-10 flex justify-between text-xs font-bold text-slate-500 uppercase tracking-widest">
+        <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between text-xs font-bold text-slate-500 uppercase tracking-widest border-t border-slate-800 pt-6 mx-16">
           <span>www.nelsonlondono.es</span>
-          <span>Documento Estratégico</span>
-        </div>
-      </div>
+          <span>Documento Confidencial</span>
+        </footer>
+      </article>
 
-      <!-- PÁGINA 2: LA MENTALIDAD -->
-      <div class="a4-page page-break relative p-20 flex flex-col">
-        <h2 class="text-4xl font-black text-primary border-b-8 border-accent pb-4 mb-10 inline-block self-start">
-          01. EL ESPEJO
-        </h2>
+      <!-- PÁGINA 2: MENTALIDAD Y OPORTUNIDAD -->
+      <article class="a4-page page-break relative p-16 flex flex-col bg-white">
+        <header class="flex justify-between items-end border-b-4 border-accent pb-6 mb-12">
+          <h2 class="text-5xl font-black text-primary">01. EL ESPEJO</h2>
+          <span class="text-6xl text-slate-100 font-black absolute right-16 top-12 z-0">MENTALIDAD</span>
+        </header>
         
-        <div class="space-y-6 text-lg text-slate-700 leading-relaxed">
-          <p class="font-bold text-primary text-2xl">¡Pónganle cuidado!</p>
-          <p>
-            Si estás leyendo esto, probablemente sientes lo mismo que yo sentí: el peso de la edad, la presión de las deudas y el miedo a quedarte obsoleto en un país nuevo.
+        <div class="relative z-10 space-y-8 text-lg text-secondary leading-relaxed">
+          <p class="font-bold text-2xl text-primary">
+            "¿Ya es muy tarde para mí?"
           </p>
           <p>
-            Llegué a Madrid con 42 años, debiendo dinero y trabajando en lo que saliera. Pensé que el tren de la tecnología ya había pasado para mí.
+            Si estás leyendo esto, probablemente sientes lo mismo que yo sentí: el peso de la edad y el miedo a quedarte obsoleto frente a una tecnología que avanza a la velocidad de la luz.
           </p>
-          <p class="font-bold text-primary">Estaba equivocado.</p>
           <p>
-            El problema no es tu edad. El problema es que sigues pensando que para trabajar en tecnología necesitas ser un genio matemático de 20 años que escribe código en pantalla negra tipo Matrix.
+            Llegué a Madrid con más de 40 años, debiendo dinero y reiniciando mi vida. Pensé que el tren de la tecnología era solo para "chavales" de 20 años.
+          </p>
+          
+          <div class="bg-amber-50 border-l-8 border-accent p-8 my-8 shadow-sm">
+            <p class="text-xl font-bold text-primary italic mb-2">
+              "El mercado no paga por tu código. El mercado paga por SOLUCIONES."
+            </p>
+            <p class="text-sm text-slate-600">
+              A un negocio no le importa si tienes 20 o 50 años. Le importa si puedes ahorrarles tiempo o hacerles ganar dinero.
+            </p>
+          </div>
+
+          <h3 class="text-2xl font-black text-primary uppercase mt-10 mb-4">Tu ventaja injusta</h3>
+          <p>
+            No intentes competir en programación pura. Tu ventaja es tu <strong>EXPERIENCIA DE VIDA</strong>. Tú entiendes de negocios, de ventas, de tratar con personas. 
+          </p>
+          <p>
+            Utilizaremos herramientas <strong>Low-Code (n8n)</strong> para potenciar esa experiencia. Mientras otros escriben líneas de código, tú construyes soluciones visuales.
           </p>
         </div>
 
-        <div class="bg-amber-50 border-l-8 border-accent p-8 my-10 italic text-xl font-semibold text-primary">
-          "El mercado no paga por tu código. El mercado paga por SOLUCIONES. Si ahorras tiempo o ganas dinero para un negocio, no les importa si tienes 20 o 50 años."
+        <div class="mt-auto flex justify-center pb-8">
+           <div class="bg-primary text-white px-6 py-2 rounded-full text-sm font-bold tracking-widest">
+             NO ES MAGIA, ES ESTRATEGIA
+           </div>
         </div>
 
-        <h3 class="text-2xl font-black text-primary mb-4 uppercase">La Regla de Oro</h3>
-        <p class="text-lg text-slate-700">
-          No intentes competir con los jóvenes en programación pura. Ellos tienen más tiempo. Tu ventaja competitiva es tu <strong>EXPERIENCIA DE VIDA</strong>. Tú entiendes de negocios, de ventas, de gestión. Usa el Low-Code (n8n) para potenciar eso.
-        </p>
-
-        <div class="absolute bottom-10 left-0 right-0 px-10 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
-          <span>TikTok: @soy_nelson_londono</span>
+        <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <span>Nelson Londoño</span>
           <span>Página 02</span>
-        </div>
-      </div>
+        </footer>
+      </article>
 
-      <!-- PÁGINA 3: HERRAMIENTAS -->
-      <div class="a4-page page-break relative p-20 flex flex-col">
-        <h2 class="text-4xl font-black text-primary border-b-8 border-accent pb-4 mb-10 inline-block self-start">
-          02. TU SOCIO IA
-        </h2>
+      <!-- PÁGINA 3: HERRAMIENTAS Y PROMPTING -->
+      <article class="a4-page page-break relative p-16 flex flex-col bg-white">
+        <header class="flex justify-between items-end border-b-4 border-accent pb-6 mb-12">
+          <h2 class="text-5xl font-black text-primary">02. TU SOCIO IA</h2>
+          <span class="text-6xl text-slate-100 font-black absolute right-16 top-12 z-0">HERRAMIENTAS</span>
+        </header>
         
-        <p class="text-lg mb-10">
-          Para automatizar procesos necesitamos una herramienta principal: <strong>n8n</strong>. Pero para dominarla sin saber programar, usaremos el "cerebro" de Google.
+        <p class="text-lg text-secondary mb-10">
+          Para automatizar sin saber programar, necesitamos dos piezas clave: el "Cuerpo" (n8n) y el "Cerebro" (Gemini/ChatGPT).
         </p>
         
-        <div class="bg-primary text-white p-10 rounded-2xl mb-10 text-center">
-          <h3 class="text-3xl font-black text-accent mb-2">GEMINI + n8n</h3>
-          <p class="tracking-widest uppercase font-bold text-sm">El Poder de la Ejecución</p>
+        <div class="grid grid-cols-2 gap-8 mb-12">
+          <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200">
+            <h3 class="text-xl font-black text-accent mb-2">n8n</h3>
+            <p class="text-sm text-secondary">Es la herramienta que conecta aplicaciones. Como un pegamento digital entre tu correo, Excel y calendario.</p>
+          </div>
+          <div class="bg-primary text-white p-8 rounded-2xl shadow-lg">
+            <h3 class="text-xl font-black text-accent mb-2">Google Gemini</h3>
+            <p class="text-sm text-slate-300">Es tu instructor privado. Él sabe programar por ti si se lo pides correctamente.</p>
+          </div>
         </div>
 
-        <h3 class="text-2xl font-black text-primary mb-4">CÓMO USAR GEMINI PARA ESTUDIAR</h3>
-        <p class="text-lg mb-6">No le preguntes cosas generales. Copia y pega este "Prompt" cuando te trabes:</p>
-
-        <div class="bg-slate-900 text-emerald-400 p-8 rounded-xl font-mono text-sm leading-relaxed border-2 border-slate-700 shadow-xl mb-6">
-          "Actúa como un experto en automatización con n8n. Soy principiante. Explícame paso a paso cómo conectar un formulario de Google con un mensaje de WhatsApp usando n8n. Si necesito un script de código, escríbelo por mí y explícame dónde pegarlo."
-        </div>
-        
-        <p class="text-sm text-slate-500 italic">
-          * Gemini hará el trabajo sucio. Tú solo ensamblas las piezas como si fueran Legos.
+        <h3 class="text-2xl font-black text-primary mb-6">EL "PROMPT" MAESTRO</h3>
+        <p class="text-secondary mb-4">
+          Cuando te trabes creando una automatización, copia y pega esto en Gemini. Olvida WhatsApp por ahora, empecemos con algo útil y gratis: <strong>El Correo</strong>.
         </p>
 
-        <div class="absolute bottom-10 left-0 right-0 px-10 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
-          <span>TikTok: @soy_nelson_londono</span>
+        <div class="bg-slate-800 text-emerald-400 p-8 rounded-xl font-mono text-sm leading-relaxed border-2 border-slate-600 shadow-xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-accent text-primary text-xs font-bold px-3 py-1">COPIAR ESTO</div>
+          <p>
+            "Actúa como un experto certificado en n8n. Soy principiante. <br><br>
+            Quiero crear un flujo que:<br>
+            1. Detecte cuando recibo un correo nuevo en Gmail con el asunto 'Factura'.<br>
+            2. Descargue el archivo adjunto.<br>
+            3. Lo guarde automáticamente en una carpeta de Google Drive.<br><br>
+            Explícame paso a paso qué nodos debo usar. Si necesito una función de código para transformar datos, escríbela por mí."
+          </p>
+        </div>
+        
+        <div class="mt-8 p-4 bg-amber-50 rounded-lg flex items-start gap-4">
+          <span class="text-2xl">💡</span>
+          <p class="text-sm text-secondary font-semibold">
+            Consejo: Con este simple flujo, podrías ahorrarle horas de trabajo administrativo a cualquier pequeña empresa. Eso es valor real.
+          </p>
+        </div>
+
+        <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <span>Nelson Londoño</span>
           <span>Página 03</span>
-        </div>
-      </div>
+        </footer>
+      </article>
 
-      <!-- PÁGINA 4: RUTA Y CIERRE -->
-      <div class="a4-page relative p-20 flex flex-col">
-        <h2 class="text-4xl font-black text-primary border-b-8 border-accent pb-4 mb-10 inline-block self-start">
-          03. RUTA 30 DÍAS
-        </h2>
+      <!-- PÁGINA 4: PLAN DE ACCIÓN 30 DÍAS -->
+      <article class="a4-page relative p-16 flex flex-col bg-white">
+        <header class="flex justify-between items-end border-b-4 border-accent pb-6 mb-10">
+          <h2 class="text-5xl font-black text-primary">03. RUTA 4 SEMANAS</h2>
+          <span class="text-6xl text-slate-100 font-black absolute right-16 top-12 z-0">ACCIÓN</span>
+        </header>
         
-        <div class="space-y-12">
-          <div class="flex gap-6">
-            <div class="bg-primary text-accent w-14 h-14 flex-shrink-0 flex items-center justify-center text-3xl font-black rounded-full">1</div>
+        <div class="flex-grow space-y-8">
+          <!-- SEMANA 1 -->
+          <div class="flex gap-6 items-start">
+            <div class="bg-primary text-accent w-12 h-12 flex-shrink-0 flex items-center justify-center text-2xl font-black rounded-lg shadow-md">1</div>
             <div>
-              <h3 class="text-xl font-black text-primary uppercase">Semana 1: Fundamentos n8n</h3>
-              <p class="text-slate-600">YouTube es tu mejor universidad. Busca "Curso básico n8n". Entiende qué es un Workflow, un Trigger y un Nodo.</p>
+              <h3 class="text-lg font-black text-primary uppercase mb-1">Semana 1: Fundamentos</h3>
+              <p class="text-secondary text-sm">Crea tu cuenta gratis en n8n.cloud o instálalo en tu ordenador (Docker). Entiende los conceptos básicos: <strong>Trigger</strong> (Gatillo) y <strong>Action</strong> (Acción). Haz tu primer "Hola Mundo".</p>
             </div>
           </div>
           
-          <div class="flex gap-6">
-            <div class="bg-primary text-accent w-14 h-14 flex-shrink-0 flex items-center justify-center text-3xl font-black rounded-full">2</div>
+          <!-- SEMANA 2 -->
+          <div class="flex gap-6 items-start">
+            <div class="bg-primary text-accent w-12 h-12 flex-shrink-0 flex items-center justify-center text-2xl font-black rounded-lg shadow-md">2</div>
             <div>
-              <h3 class="text-xl font-black text-primary uppercase">Semana 2: La IA como Motor</h3>
-              <p class="text-slate-600">Abre Gemini. Pídele ideas: "Dame 5 ideas para automatizar una inmobiliaria". Intenta construir la más sencilla.</p>
+              <h3 class="text-lg font-black text-primary uppercase mb-1">Semana 2: Automatización Real</h3>
+              <p class="text-secondary text-sm">Implementa el flujo del correo electrónico (Gmail a Drive). Aprende a usar el nodo de <strong>Gmail</strong> y el de <strong>Google Drive</strong>. Siente la magia de ver cómo los archivos se mueven solos.</p>
             </div>
           </div>
 
-          <div class="flex gap-6">
-            <div class="bg-primary text-accent w-14 h-14 flex-shrink-0 flex items-center justify-center text-3xl font-black rounded-full">3</div>
+          <!-- SEMANA 3 -->
+          <div class="flex gap-6 items-start">
+            <div class="bg-primary text-accent w-12 h-12 flex-shrink-0 flex items-center justify-center text-2xl font-black rounded-lg shadow-md">3</div>
             <div>
-              <h3 class="text-xl font-black text-primary uppercase">Semana 3: Tu Caso de Éxito</h3>
-              <p class="text-slate-600">No busques clientes aún. Automatiza algo tuyo. Un bot que te avise de tus citas o guarde tus gastos. Ese es tu portafolio.</p>
+              <h3 class="text-lg font-black text-primary uppercase mb-1">Semana 3: Datos y Lógica</h3>
+              <p class="text-secondary text-sm">Usa nodos condicionales (IF). Ejemplo: "Si el correo es de un cliente VIP, envíame una notificación urgente; si no, solo guárdalo". Conecta todo a <strong>Google Sheets</strong> para llevar un registro.</p>
+            </div>
+          </div>
+
+          <!-- SEMANA 4 -->
+          <div class="flex gap-6 items-start">
+            <div class="bg-primary text-accent w-12 h-12 flex-shrink-0 flex items-center justify-center text-2xl font-black rounded-lg shadow-md">4</div>
+            <div>
+              <h3 class="text-lg font-black text-primary uppercase mb-1">Semana 4: Profesionalización</h3>
+              <p class="text-secondary text-sm">Aprende sobre "Error Workflows" (qué pasa si algo falla). Configura disparadores de tiempo (Cron) para que tus bots trabajen mientras duermes (ej: reporte semanal automático).</p>
             </div>
           </div>
         </div>
 
-        <div class="mt-auto bg-primary text-white p-10 rounded-3xl text-center mb-10">
-          <h3 class="text-3xl font-black text-accent mb-4">NO ESTÁS SOLO</h3>
-          <p class="text-slate-300 mb-6">Este camino da miedo, pero la recompensa es la libertad. Sigue documentando tu proceso.</p>
-          <p class="text-2xl font-black tracking-widest">🤜 DIOS TE BENDICE 🤛</p>
+        <div class="bg-primary text-white p-8 rounded-2xl text-center mt-8 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-2 bg-accent"></div>
+          <h3 class="text-2xl font-black text-accent mb-2">EL SIGUIENTE PASO</h3>
+          <p class="text-slate-300 text-sm mb-4">La teoría no sirve sin práctica. Empieza hoy mismo.</p>
+          <p class="text-xl font-black tracking-widest uppercase">🤜 DIOS TE BENDICE 🤛</p>
         </div>
 
-        <div class="absolute bottom-10 left-0 right-0 px-10 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
+        <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
           <span>Nelson Londoño - 2026</span>
           <span>Página 04</span>
-        </div>
-      </div>
+        </footer>
+      </article>
 
-    </div>
+    </main>
   </body>
 </html>
