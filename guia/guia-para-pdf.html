@@ -60,6 +60,15 @@
           overflow: hidden;
           page-break-inside: avoid;
         }
+
+        /* FIX CRÍTICO: Evitar rectángulos negros/coloreados sobre texto gradiente en PDF */
+        .print-solid-text {
+          background: none !important;
+          background-clip: border-box !important;
+          -webkit-background-clip: border-box !important;
+          -webkit-text-fill-color: #f59e0b !important; /* Color accent */
+          color: #f59e0b !important;
+        }
       }
 
       /* Estilos para visualización en pantalla */
@@ -109,7 +118,7 @@
           
           <h1 class="text-6xl font-black leading-tight mb-8">
             EL MAPA DE LA<br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-amber-200">AUTOMATIZACIÓN</span>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-amber-200 print-solid-text">AUTOMATIZACIÓN</span>
           </h1>
           
           <div class="w-32 h-2 bg-accent mx-auto mb-10 rounded-full"></div>
