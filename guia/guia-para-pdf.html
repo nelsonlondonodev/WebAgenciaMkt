@@ -54,11 +54,10 @@
           page-break-after: always;
         }
         
-        /* Asegurar que cada página ocupe exactamente el alto sin desbordar */
         .a4-page {
-          height: 297mm; /* Altura exacta A4 */
-          width: 210mm;  /* Ancho exacto A4 */
-          overflow: hidden; /* Cortar cualquier desbordamiento accidental */
+          height: 297mm;
+          width: 210mm;
+          overflow: hidden;
           page-break-inside: avoid;
         }
       }
@@ -95,19 +94,17 @@
       </div>
     </div>
     
-    <!-- Espaciador para la barra fija -->
     <div class="no-print h-24"></div>
 
     <main>
       
       <!-- PÁGINA 1: PORTADA -->
       <article class="a4-page page-break relative flex flex-col items-center justify-center bg-primary text-white text-center p-16">
-        <!-- Patrón de fondo sutil -->
         <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#ffffff 2px, transparent 2px); background-size: 40px 40px;"></div>
         
         <div class="relative z-10 w-full max-w-2xl">
           <div class="bg-accent text-primary px-8 py-3 font-black tracking-[0.3em] uppercase mb-12 inline-block transform -rotate-2 shadow-lg">
-            GUÍA ESTRATÉGICA 2026
+            GUÍA EXCLUSIVA 2026
           </div>
           
           <h1 class="text-7xl font-black leading-tight mb-8">
@@ -118,7 +115,7 @@
           <div class="w-32 h-2 bg-accent mx-auto mb-10 rounded-full"></div>
 
           <p class="text-2xl font-light text-slate-300 mb-16 leading-relaxed">
-            Cómo empezar a crear <strong class="text-white">Agentes de IA</strong> y automatizaciones con n8n sin ser programador experto.
+            Cómo empezar desde cero con <strong class="text-white">IA y n8n</strong> sin importar tu edad o si no sabes programar.
           </p>
           
           <div class="flex items-center justify-center gap-6 mt-10 bg-slate-800/50 p-6 rounded-2xl backdrop-blur-sm border border-slate-700">
@@ -133,50 +130,44 @@
 
         <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between text-xs font-bold text-slate-500 uppercase tracking-widest border-t border-slate-800 pt-6 mx-16">
           <span>www.nelsonlondono.es</span>
-          <span>Documento Confidencial</span>
+          <span>Guía de Inicio Rápido</span>
         </footer>
       </article>
 
-      <!-- PÁGINA 2: MENTALIDAD Y OPORTUNIDAD -->
+      <!-- PÁGINA 2: MENTALIDAD -->
       <article class="a4-page page-break relative p-16 flex flex-col bg-white">
         <header class="flex justify-between items-end border-b-4 border-accent pb-6 mb-12">
           <h2 class="text-5xl font-black text-primary">01. EL ESPEJO</h2>
-          <span class="text-6xl text-slate-100 font-black absolute right-16 top-12 z-0">MENTALIDAD</span>
+          <span class="text-6xl text-slate-100 font-black absolute right-16 top-12 z-0">INICIO</span>
         </header>
         
         <div class="relative z-10 space-y-8 text-lg text-secondary leading-relaxed">
-          <p class="font-bold text-2xl text-primary">
+          <p class="font-bold text-2xl text-primary uppercase tracking-tight">
             "¿Ya es muy tarde para mí?"
           </p>
           <p>
-            Si estás leyendo esto, probablemente sientes lo mismo que yo sentí: el peso de la edad y el miedo a quedarte obsoleto frente a una tecnología que avanza a la velocidad de la luz.
+            Si estás leyendo esto, probablemente sientes lo mismo que yo sentí: el peso de los años, el desafío de estar en un país nuevo y el miedo a que la tecnología te haya dejado atrás.
           </p>
           <p>
-            Llegué a Madrid con más de 40 años, debiendo dinero y reiniciando mi vida. Pensé que el tren de la tecnología era solo para "chavales" de 20 años.
+            Llegué a Madrid con más de 40 años, empezando de cero. Pensé que este mundo era solo para <strong>jóvenes</strong> que nacieron con un móvil en la mano.
           </p>
           
           <div class="bg-amber-50 border-l-8 border-accent p-8 my-8 shadow-sm">
             <p class="text-xl font-bold text-primary italic mb-2">
-              "El mercado no paga por tu código. El mercado paga por SOLUCIONES."
+              "El mercado no paga por tu edad. El mercado paga por SOLUCIONES."
             </p>
             <p class="text-sm text-slate-600">
-              A un negocio no le importa si tienes 20 o 50 años. Le importa si puedes ahorrarles tiempo o hacerles ganar dinero.
+              A un dueño de negocio no le importa cuántos años tienes. Le importa si puedes hacer que su trabajo sea más fácil y rápido.
             </p>
           </div>
 
-          <h3 class="text-2xl font-black text-primary uppercase mt-10 mb-4">Tu ventaja injusta</h3>
+          <h3 class="text-2xl font-black text-primary uppercase mt-10 mb-4">Tu Gran Ventaja</h3>
           <p>
-            No intentes competir en programación pura. Tu ventaja es tu <strong>EXPERIENCIA DE VIDA</strong>. Tú entiendes de negocios, de ventas, de tratar con personas. 
+            No tienes que aprender a escribir miles de líneas de código. Tu ventaja es tu <strong>Experiencia de Vida</strong>. Tú sabes cómo funciona el mundo real, los negocios y el trato con la gente. 
           </p>
           <p>
-            Utilizaremos herramientas <strong>Low-Code (n8n)</strong> para potenciar esa experiencia. Mientras otros escriben líneas de código, tú construyes soluciones visuales.
+            Usaremos la <strong>IA (Inteligencia Artificial)</strong> para que haga el trabajo técnico por nosotros. Tú solo pondrás la estrategia.
           </p>
-        </div>
-
-        <div class="mt-auto flex justify-center pb-8">
-           <div class="bg-primary text-white px-6 py-2 rounded-full text-sm font-bold tracking-widest">
-             NO ES MAGIA, ES ESTRATEGIA
-           </div>
         </div>
 
         <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
@@ -185,49 +176,46 @@
         </footer>
       </article>
 
-      <!-- PÁGINA 3: HERRAMIENTAS Y PROMPTING -->
+      <!-- PÁGINA 3: HERRAMIENTAS -->
       <article class="a4-page page-break relative p-16 flex flex-col bg-white">
         <header class="flex justify-between items-end border-b-4 border-accent pb-6 mb-12">
-          <h2 class="text-5xl font-black text-primary">02. TU SOCIO IA</h2>
+          <h2 class="text-5xl font-black text-primary">02. TUS SOCIOS</h2>
           <span class="text-6xl text-slate-100 font-black absolute right-16 top-12 z-0">HERRAMIENTAS</span>
         </header>
         
         <p class="text-lg text-secondary mb-10">
-          Para automatizar sin saber programar, necesitamos dos piezas clave: el "Cuerpo" (n8n) y el "Cerebro" (Gemini/ChatGPT).
+          Para automatizar procesos usaremos <strong>n8n</strong>. Es como armar piezas de Lego: conectas una aplicación con otra sin programar.
         </p>
         
         <div class="grid grid-cols-2 gap-8 mb-12">
           <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200">
             <h3 class="text-xl font-black text-accent mb-2">n8n</h3>
-            <p class="text-sm text-secondary">Es la herramienta que conecta aplicaciones. Como un pegamento digital entre tu correo, Excel y calendario.</p>
+            <p class="text-sm text-secondary">La herramienta que conecta todo (Gmail, WhatsApp, Excel) para que trabajen por ti.</p>
           </div>
           <div class="bg-primary text-white p-8 rounded-2xl shadow-lg">
             <h3 class="text-xl font-black text-accent mb-2">Google Gemini</h3>
-            <p class="text-sm text-slate-300">Es tu instructor privado. Él sabe programar por ti si se lo pides correctamente.</p>
+            <p class="text-sm text-slate-300">Tu profesor particular. Él te explicará cómo hacer cada paso si se lo pides bien.</p>
           </div>
         </div>
 
-        <h3 class="text-2xl font-black text-primary mb-6">EL "PROMPT" MAESTRO</h3>
+        <h3 class="text-2xl font-black text-primary mb-6">EL "TRUCO" PARA APRENDER</h3>
         <p class="text-secondary mb-4">
-          Cuando te trabes creando una automatización, copia y pega esto en Gemini. Olvida WhatsApp por ahora, empecemos con algo útil y gratis: <strong>El Correo</strong>.
+          No te compliques. Cuando no sepas cómo seguir, abre Gemini y escribe este mensaje sencillo:
         </p>
 
         <div class="bg-slate-800 text-emerald-400 p-8 rounded-xl font-mono text-sm leading-relaxed border-2 border-slate-600 shadow-xl relative overflow-hidden">
           <div class="absolute top-0 right-0 bg-accent text-primary text-xs font-bold px-3 py-1">COPIAR ESTO</div>
           <p>
-            "Actúa como un experto certificado en n8n. Soy principiante. <br><br>
-            Quiero crear un flujo que:<br>
-            1. Detecte cuando recibo un correo nuevo en Gmail con el asunto 'Factura'.<br>
-            2. Descargue el archivo adjunto.<br>
-            3. Lo guarde automáticamente en una carpeta de Google Drive.<br><br>
-            Explícame paso a paso qué nodos debo usar. Si necesito una función de código para transformar datos, escríbela por mí."
+            "Actúa como un experto en n8n para principiantes. <br><br>
+            Quiero aprender a conectar mi correo de Gmail con un archivo de Excel para que cada vez que reciba un correo de un cliente, se guarde su nombre automáticamente.<br><br>
+            Explícame qué botones debo tocar paso a paso, como si fuera mi primer día."
           </p>
         </div>
         
-        <div class="mt-8 p-4 bg-amber-50 rounded-lg flex items-start gap-4">
-          <span class="text-2xl">💡</span>
-          <p class="text-sm text-secondary font-semibold">
-            Consejo: Con este simple flujo, podrías ahorrarle horas de trabajo administrativo a cualquier pequeña empresa. Eso es valor real.
+        <div class="mt-8 p-6 bg-amber-50 rounded-xl border border-amber-100">
+          <p class="text-sm text-secondary leading-relaxed">
+            <strong class="text-primary text-base block mb-1">💡 ¡IMPORTANTE!</strong>
+            No intentes entenderlo todo el primer día. Solo intenta que una sola cosa pequeña funcione. Ese éxito te dará la fuerza para seguir.
           </p>
         </div>
 
@@ -237,56 +225,56 @@
         </footer>
       </article>
 
-      <!-- PÁGINA 4: PLAN DE ACCIÓN 30 DÍAS -->
+      <!-- PÁGINA 4: RUTA 30 DÍAS -->
       <article class="a4-page relative p-16 flex flex-col bg-white">
         <header class="flex justify-between items-end border-b-4 border-accent pb-6 mb-10">
-          <h2 class="text-5xl font-black text-primary">03. RUTA 4 SEMANAS</h2>
-          <span class="text-6xl text-slate-100 font-black absolute right-16 top-12 z-0">ACCIÓN</span>
+          <h2 class="text-5:font-black text-primary uppercase">03. RUTA 4 SEMANAS</h2>
+          <span class="text-6xl text-slate-100 font-black absolute right-16 top-12 z-0 uppercase">ACCIÓN</span>
         </header>
         
-        <div class="flex-grow space-y-8">
+        <div class="flex-grow space-y-10">
           <!-- SEMANA 1 -->
           <div class="flex gap-6 items-start">
-            <div class="bg-primary text-accent w-12 h-12 flex-shrink-0 flex items-center justify-center text-2xl font-black rounded-lg shadow-md">1</div>
+            <div class="bg-primary text-accent w-14 h-14 flex-shrink-0 flex items-center justify-center text-3xl font-black rounded-xl">1</div>
             <div>
-              <h3 class="text-lg font-black text-primary uppercase mb-1">Semana 1: Fundamentos</h3>
-              <p class="text-secondary text-sm">Crea tu cuenta gratis en n8n.cloud o instálalo en tu ordenador (Docker). Entiende los conceptos básicos: <strong>Trigger</strong> (Gatillo) y <strong>Action</strong> (Acción). Haz tu primer "Hola Mundo".</p>
+              <h3 class="text-xl font-black text-primary uppercase mb-1">Semana 1: Fundamentos n8n</h3>
+              <p class="text-secondary leading-relaxed">YouTube es tu mejor universidad. Busca <strong>"Curso básico n8n"</strong>. Tu único objetivo es entender qué es un Workflow, un Trigger y un Nodo. No te agobies, solo observa.</p>
             </div>
           </div>
           
           <!-- SEMANA 2 -->
           <div class="flex gap-6 items-start">
-            <div class="bg-primary text-accent w-12 h-12 flex-shrink-0 flex items-center justify-center text-2xl font-black rounded-lg shadow-md">2</div>
+            <div class="bg-primary text-accent w-14 h-14 flex-shrink-0 flex items-center justify-center text-3xl font-black rounded-xl">2</div>
             <div>
-              <h3 class="text-lg font-black text-primary uppercase mb-1">Semana 2: Automatización Real</h3>
-              <p class="text-secondary text-sm">Implementa el flujo del correo electrónico (Gmail a Drive). Aprende a usar el nodo de <strong>Gmail</strong> y el de <strong>Google Drive</strong>. Siente la magia de ver cómo los archivos se mueven solos.</p>
+              <h3 class="text-xl font-black text-primary uppercase mb-1">Semana 2: La IA como Motor</h3>
+              <p class="text-secondary leading-relaxed">Abre Gemini. Pídele ideas: <strong>"Dame 5 ideas para automatizar una inmobiliaria"</strong> o un negocio que conozcas. Intenta construir la más sencilla que te proponga.</p>
             </div>
           </div>
 
           <!-- SEMANA 3 -->
           <div class="flex gap-6 items-start">
-            <div class="bg-primary text-accent w-12 h-12 flex-shrink-0 flex items-center justify-center text-2xl font-black rounded-lg shadow-md">3</div>
+            <div class="bg-primary text-accent w-14 h-14 flex-shrink-0 flex items-center justify-center text-3xl font-black rounded-xl">3</div>
             <div>
-              <h3 class="text-lg font-black text-primary uppercase mb-1">Semana 3: Datos y Lógica</h3>
-              <p class="text-secondary text-sm">Usa nodos condicionales (IF). Ejemplo: "Si el correo es de un cliente VIP, envíame una notificación urgente; si no, solo guárdalo". Conecta todo a <strong>Google Sheets</strong> para llevar un registro.</p>
+              <h3 class="text-xl font-black text-primary uppercase mb-1">Semana 3: Tu Caso de Éxito</h3>
+              <p class="text-secondary leading-relaxed">No busques clientes aún. Automatiza algo tuyo. Un bot que te avise de tus citas o guarde tus gastos diarios. <strong>Ese bot es tu mejor portafolio</strong> para mostrar lo que sabes hacer.</p>
             </div>
           </div>
 
           <!-- SEMANA 4 -->
           <div class="flex gap-6 items-start">
-            <div class="bg-primary text-accent w-12 h-12 flex-shrink-0 flex items-center justify-center text-2xl font-black rounded-lg shadow-md">4</div>
+            <div class="bg-primary text-accent w-14 h-14 flex-shrink-0 flex items-center justify-center text-3xl font-black rounded-xl">4</div>
             <div>
-              <h3 class="text-lg font-black text-primary uppercase mb-1">Semana 4: Profesionalización</h3>
-              <p class="text-secondary text-sm">Aprende sobre "Error Workflows" (qué pasa si algo falla). Configura disparadores de tiempo (Cron) para que tus bots trabajen mientras duermes (ej: reporte semanal automático).</p>
+              <h3 class="text-xl font-black text-primary uppercase mb-1">Semana 4: Comparte y Ayuda</h3>
+              <p class="text-secondary leading-relaxed">Busca a un amigo con un pequeño negocio o alguien que pierda tiempo en tareas manuales. Regálale una automatización simple. <strong>Ayudar a otros</strong> es donde el miedo desaparece por completo.</p>
             </div>
           </div>
         </div>
 
-        <div class="bg-primary text-white p-8 rounded-2xl text-center mt-8 relative overflow-hidden">
+        <div class="bg-primary text-white p-8 rounded-3xl text-center mt-12 relative overflow-hidden">
           <div class="absolute top-0 left-0 w-full h-2 bg-accent"></div>
-          <h3 class="text-2xl font-black text-accent mb-2">EL SIGUIENTE PASO</h3>
-          <p class="text-slate-300 text-sm mb-4">La teoría no sirve sin práctica. Empieza hoy mismo.</p>
-          <p class="text-xl font-black tracking-widest uppercase">🤜 DIOS TE BENDICE 🤛</p>
+          <h3 class="text-2xl font-black text-accent mb-2 uppercase tracking-tighter">Tu nueva vida comienza hoy</h3>
+          <p class="text-slate-300 text-sm mb-6">No importa dónde estés, importa hacia dónde caminas.</p>
+          <p class="text-2xl font-black tracking-[0.2em]">🤜 DIOS TE BENDICE 🤛</p>
         </div>
 
         <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
