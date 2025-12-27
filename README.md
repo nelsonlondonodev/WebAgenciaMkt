@@ -34,6 +34,29 @@ Se ha implementado una estrategia de captación de leads (Landing Page) diseñad
 
 ---
 
+## 🏗️ Mantenimiento y SEO Técnico (Reglas de Oro)
+
+Para mantener la integridad del despliegue y el SEO, sigue estas reglas estrictas:
+
+### 1. La Carpeta `/dist` es Sagrada (Read-Only)
+-   **NUNCA edites archivos dentro de `/dist` directamente.**
+-   Esta carpeta se borra y regenera automáticamente en cada despliegue.
+-   **Flujo de Trabajo Correcto:**
+    1.  Edita el archivo original en la raíz (ej: `blog.html`) o en `src/`.
+    2.  Ejecuta `npm run build:dist`.
+    3.  Verifica los cambios en `/dist`.
+
+### 2. URLs Canónicas
+-   Las etiquetas `<link rel="canonical" ...>` deben apuntar siempre al archivo final con extensión (ej: `https://nelsonlondono.es/blog.html`).
+-   Esto previene bucles de redirección infinitos con las reglas del `.htaccess` y evita que Google indexe URLs incorrectas.
+
+### 3. Archivo `.htaccess`
+-   Gestiona las redirecciones 301 (SEO) y el enrutamiento interno.
+-   Redirige el tráfico HTTP a HTTPS.
+-   Enruta silenciosamente las peticiones a la carpeta `/dist` sin cambiar la URL visible del navegador.
+
+---
+
 ## 📂 Estructura del Proyecto
 
 ### Directorios Clave

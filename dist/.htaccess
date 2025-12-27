@@ -3,46 +3,50 @@
     RewriteBase /
 
     # ----------------------------------------------------------------------
-    # 1. FORZAR HTTPS (Seguridad)
+    # 1. FORZAR HTTPS
     # ----------------------------------------------------------------------
-    RewriteCond %{HTTP_HOST} !^nelsonlondono\.es$ [NC,OR]
     RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://nelsonlondono.es/$1 [L,R=301]
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # ----------------------------------------------------------------------
-    # 2. LIMPIEZA DE URLS VIEJAS (Tus fantasmas del pasado)
+    # 2. REDIRECCIONES 301 LEGÍTIMAS (Solo contenido movido)
     # ----------------------------------------------------------------------
-    # Redirigir Portafolio antiguo -> Proyectos nuevos
+    # Portfolio -> Proyectos
     RewriteRule ^portfolio\.html$ /proyectos.html [R=301,L]
-
-    # Redirigir el Blog antiguo (carpeta o archivo) -> blog.html
+    # Blog antiguo -> Blog nuevo
     RewriteRule ^blog/?$ /blog.html [R=301,L]
     RewriteRule ^blog-single\.html$ /blog.html [R=301,L]
-    
-    # Redirigir Políticas viejas -> Nuevas
+    # Políticas -> Nueva política
     RewriteRule ^politicas\.html$ /politica-de-cookies.html [R=301,L]
 
-    # Redirigir páginas viejas/basura al INICIO (Home) para no dar error 404
-    # Aquí metemos todas esas que mencionaste: about, contact, ingles, strength, etc.
-    RewriteRule ^(about|contact|ingles|strength|infoNel)\.html$ / [R=301,L]
+    # NOTA: Se han ELIMINADO las redirecciones de about, contact, etc. a la Home.
+    # Ahora darán un error 404 real hasta que crees esas páginas.
 
     # ----------------------------------------------------------------------
-    # 3. LÓGICA DE LA CARPETA DIST (¡Vital para tu despliegue actual!)
+    # 3. ENRUTAMIENTO TRANSPARENTE A /DIST
     # ----------------------------------------------------------------------
-    # Esta sección le dice al servidor: "Busca los archivos reales dentro de /dist"
     
-    # Si piden la raíz, cargar dist/index.html
+    # A) Si piden la raíz, servir dist/index.html
     RewriteRule ^$ dist/index.html [L]
 
-    # Si piden un archivo que NO existe en la raíz, buscarlo en /dist
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} !^/dist/
-    RewriteRule ^(.*)$ dist/$1 [L]
+    # B) Si el archivo existe físicamente en la raíz (ej: robots.txt), SÍRVELO y para.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # C) Si NO está en raíz, buscar si existe dentro de /dist
+    # Verifica si el archivo solicitado existe dentro de la carpeta dist/
+    RewriteCond %{DOCUMENT_ROOT}/dist/$1 -f
+    RewriteRule ^(.+)$ dist/$1 [L]
+
+    # D) Si no existe ni en raíz ni en dist, Apache lanzará un 404 estándar.
+    # Definimos la página de error personalizada (que se buscará en dist/ gracias a la regla C)
+    ErrorDocument 404 /404.html
+
 </IfModule>
 
 # ----------------------------------------------------------------------
-# 4. OPTIMIZACIÓN DE RENDIMIENTO (Caché - Tu configuración estaba bien)
+# 4. CACHÉ Y RENDIMIENTO
 # ----------------------------------------------------------------------
 <IfModule mod_expires.c>
     ExpiresActive On
