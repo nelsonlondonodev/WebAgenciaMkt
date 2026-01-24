@@ -1,28 +1,32 @@
 import { CONFIG } from './config.js';
 
-export function initContactForm() {
-  const contactForm = document.querySelector('#contact-form');
+/**
+ * Attaches submission logic to a specific contact form element.
+ * @param {HTMLFormElement} contactForm 
+ */
+function attachContactFormListeners(contactForm) {
   if (!contactForm) return;
 
-  const statusMessage = document.getElementById('form-status');
+  const statusMessage = contactForm.querySelector('#form-status') || contactForm.nextElementSibling; // Fallback if status is outside
   const submitButton = contactForm.querySelector('button[type="submit"]');
 
-  // Helper para manejar el estado visual, evitando repetición de código
+  // Helper para manejar el estado visual
   const updateStatus = (message, type) => {
     if (!statusMessage) return;
 
+    // Si statusMessage no tiene estructura, solo texto (fallback simple)
     statusMessage.textContent = message;
-
-    const baseClasses = 'text-center font-semibold mt-4';
+    
+    // Classes
+    const baseClasses = 'text-center font-semibold mt-4 block';
     const typeClasses = {
       error: 'text-red-600',
       success: 'text-green-600',
       loading: 'text-gray-600 dark:text-gray-300',
     };
-
+    
     statusMessage.className = `${baseClasses} ${typeClasses[type] || ''}`;
 
-    // Limpiar mensaje automáticamente si no es estado de carga
     if (type !== 'loading') {
       setTimeout(() => {
         statusMessage.textContent = '';
@@ -54,17 +58,14 @@ export function initContactForm() {
       if (response.ok) {
         updateStatus('¡Mensaje enviado con éxito!', 'success');
         contactForm.reset();
+        
+        // Si está en un modal, cerrar después de un tiempo podría ser buena UX, 
+        // pero por ahora solo mostramos éxito.
       } else {
-        updateStatus(
-          'Hubo un error al enviar el mensaje. Inténtalo de nuevo.',
-          'error'
-        );
+        updateStatus('Hubo un error al enviar el mensaje. Inténtalo de nuevo.', 'error');
       }
     } catch (error) {
-      updateStatus(
-        'Hubo un problema de conexión. Revisa tu internet.',
-        'error'
-      );
+      updateStatus('Hubo un problema de conexión. Revisa tu internet.', 'error');
     } finally {
       if (submitButton) {
         setTimeout(() => {
@@ -73,6 +74,13 @@ export function initContactForm() {
       }
     }
   });
+}
+
+export function initContactForm() {
+  const staticForm = document.querySelector('#contact-form');
+  if (staticForm) {
+    attachContactFormListeners(staticForm);
+  }
 }
 
 export function initContactReveal() {
@@ -117,33 +125,95 @@ export function initContactReveal() {
 }
 
 /**
- * Configura botones que hacen scroll al formulario y pre-rellenan el mensaje.
- * @param {string} triggerSelector - Selector CSS de los botones que activan la acción.
- * @param {string} prefillMessage - Mensaje a insertar en el textarea.
+ * Abre un modal con el formulario de contacto.
+ * @param {string} prefillMessage - Mensaje opcional para pre-rellenar.
  */
-export function setupScrollToContact(triggerSelector, prefillMessage) {
-  const buttons = document.querySelectorAll(triggerSelector);
-  const contactForm = document.getElementById('contact-form');
-  const messageInput = document.getElementById('message');
+export async function openContactModal(prefillMessage = '') {
+  // 1. Cargar el HTML del componente
+  let componentHtml = '';
+  try {
+    const response = await fetch('/components/contact-form.html');
+    if (!response.ok) throw new Error('Error loading form component');
+    componentHtml = await response.text();
+  } catch (error) {
+    console.error('Could not load contact form component:', error);
+    return;
+  }
 
-  if (!contactForm || !messageInput || buttons.length === 0) return;
+  // 2. Construir la estructura del modal
+  // Simplificamos el contenido para el modal (quitamos títulos grandes si es necesario, 
+  // o usamos CSS para ocultarlos dentro del modal si quisiéramos).
+  // Por simplicidad, inyectamos todo el componente.
+  
+  const modalWrapper = document.createElement('div');
+  modalWrapper.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300 animate-fade-in p-4';
+  
+  modalWrapper.innerHTML = `
+    <div class="relative w-full max-w-3xl rounded-xl bg-light-card dark:bg-dark-card shadow-2xl animate-zoom-in flex flex-col max-h-[90vh] overflow-y-auto scrollbar-hide">
+       <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white text-3xl z-10 transition-colors close-modal-btn">&times;</button>
+       <div class="p-6 sm:p-8">
+         ${componentHtml}
+       </div>
+    </div>
+  `;
+
+  // 3. Insertar en el DOM
+  document.body.appendChild(modalWrapper);
+  document.body.classList.add('overflow-hidden');
+
+  // 4. Inicializar lógica del formulario dentro del modal
+  const formInModal = modalWrapper.querySelector('form');
+  if (formInModal) {
+    // Override del ID para evitar duplicados si ya existe en la página
+    formInModal.id = 'contact-form-modal'; 
+    attachContactFormListeners(formInModal);
+
+    // Pre-rellenar
+    if (prefillMessage) {
+      const msgInput = formInModal.querySelector('[name="message"]');
+      if (msgInput) msgInput.value = prefillMessage;
+    }
+  }
+
+  // 5. Lógica de cierre
+  const closeModal = () => {
+    modalWrapper.classList.add('opacity-0'); // Simple fade out effect manually or use animation class
+    setTimeout(() => {
+        if(modalWrapper.parentNode) document.body.removeChild(modalWrapper);
+        document.body.classList.remove('overflow-hidden');
+    }, 300);
+  };
+
+  modalWrapper.querySelector('.close-modal-btn').addEventListener('click', closeModal);
+  modalWrapper.addEventListener('click', (e) => {
+    if (e.target === modalWrapper) closeModal();
+  });
+  
+  // Cerrar con ESC
+  const escHandler = (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+      document.removeEventListener('keydown', escHandler);
+    }
+  };
+  document.addEventListener('keydown', escHandler);
+}
+
+
+/**
+ * Configura botones que abren el modal de contacto con mensaje predefinido.
+ * @param {string} triggerSelector - Selector CSS de los botones.
+ * @param {string} prefillMessage - Mensaje a insertar.
+ */
+export function setupContactModal(triggerSelector, prefillMessage) {
+  const buttons = document.querySelectorAll(triggerSelector);
+  
+  if (buttons.length === 0) return;
 
   buttons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      
-      // 1. Scroll suave al formulario
-      contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-      // 2. Pre-rellenar mensaje con efecto visual
-      messageInput.value = prefillMessage;
-      
-      // 3. Focus y animación visual (highlight)
-      messageInput.focus();
-      messageInput.classList.add('ring-2', 'ring-primary-green', 'dark:ring-primary-blue');
-      setTimeout(() => {
-        messageInput.classList.remove('ring-2', 'ring-primary-green', 'dark:ring-primary-blue');
-      }, 1500);
+      openContactModal(prefillMessage);
     });
   });
 }

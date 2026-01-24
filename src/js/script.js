@@ -14,7 +14,7 @@ import { initTestimonialCards } from './testimonialRenderer.js';
 import { initDynamicModals } from './modalRenderer.js';
 import { generateBreadcrumbs } from './breadcrumbs.js'; // Importar la función para generar migas de pan
 
-import { initContactForm, initContactReveal, setupScrollToContact } from './contactForm.js';
+import { initContactForm, initContactReveal, setupContactModal } from './contactForm.js';
 
 import { initCookieConsent } from './cookieConsent.js';
 
@@ -25,7 +25,6 @@ import { setupSocialSharing } from './socialSharing.js';
 
 
 document.addEventListener('DOMContentLoaded', async () => {
-
   // Cargar componentes reutilizables como el NAV y el Footer
 
   await loadComponents();
@@ -83,7 +82,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   initContactReveal();
 
   // Configuración específica para el botón de prueba gratis en SEO Local
-  setupScrollToContact(
+  // Configuración específica para el botón de prueba gratis en SEO Local
+  setupContactModal(
     '#oferta-60-dias .cta-button', 
     'Hola Nelson, me interesa solicitar la prueba gratuita de 60 días de SEO Local. ¿Podemos hablar?'
   );
