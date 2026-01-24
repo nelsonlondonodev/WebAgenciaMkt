@@ -1,0 +1,121 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <h2
+    class="section-title text-4xl sm:text-5xl scroll-animate-initial"
+  >
+    Contacta para tu proyecto web
+  </h2>
+  <p class="section-subtitle text-base sm:text-lg">
+    ¿Listo para iniciar tu próximo proyecto o tienes alguna pregunta?
+    Estamos aquí para ayudarte.
+  </p>
+  <div class="mt-12 max-w-3xl mx-auto">
+    <form
+      id="contact-form"
+      action="https://n8n.srv1033442.hstgr.cloud/webhook/webhook-formulario-web"
+      method="POST"
+      class="grid grid-cols-1 gap-y-6"
+    >
+      <!-- Campo Nombre -->
+      <div class="relative scroll-animate-initial">
+        <input
+          type="text"
+          name="name"
+          id="name"
+          autocomplete="name"
+          class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green dark:focus:shadow-[0_0_8px_theme('colors.primary-green')]"
+          placeholder="Nombre"
+          required
+        />
+        <label
+          for="name"
+          class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
+          >Nombre</label
+        >
+      </div>
+      <!-- Campo Email -->
+      <div class="relative scroll-animate-initial delay-100">
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green dark:focus:shadow-[0_0_8px_theme('colors.primary-green')]"
+          placeholder="Email"
+          required
+        />
+        <label
+          for="email"
+          class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
+          >Email</label
+        >
+      </div>
+      <!-- Campo Teléfono -->
+      <div class="relative scroll-animate-initial delay-200">
+        <input
+          type="tel"
+          name="phone"
+          id="phone"
+          autocomplete="tel"
+          class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green dark:focus:shadow-[0_0_8px_theme('colors.primary-green')]"
+          placeholder="Teléfono"
+        />
+        <label
+          for="phone"
+          class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
+          >Teléfono</label
+        >
+      </div>
+      <!-- Campo Mensaje -->
+      <div class="relative scroll-animate-initial delay-300">
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green dark:focus:shadow-[0_0_8px_theme('colors.primary-green')]"
+          placeholder="Mensaje"
+          required
+        ></textarea>
+        <label
+          for="message"
+          class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
+          >Mensaje</label
+        >
+      </div>
+      <!-- Botón Enviar -->
+      <div class="text-center scroll-animate-initial delay-400">
+        <button type="submit" class="cta-button w-full sm:w-auto">
+          Enviar Mensaje
+        </button>
+      </div>
+      <!-- Status del Formulario -->
+      <div
+        id="form-status"
+        class="text-center font-semibold mt-4"
+      ></div>
+    </form>
+    <div class="mt-10 text-center">
+      <p class="text-lg text-gray-600 dark:text-gray-300">
+        O si lo prefieres:
+      </p>
+      <div
+        id="contact-reveal-container"
+        class="mt-4 flex flex-col sm:flex-row items-center justify-center gap-4"
+      >
+        <button id="reveal-email-btn" class="contact-reveal-button">
+          <i class="fas fa-envelope mr-2"></i>
+          <span>Mostrar Email</span>
+        </button>
+        <button id="reveal-phone-btn" class="contact-reveal-button">
+          <i class="fas fa-phone mr-2"></i>
+          <span>Mostrar Teléfono</span>
+        </button>
+      </div>
+      <p class="mt-4 text-gray-600 dark:text-gray-300">
+        <i
+          class="fas fa-map-marker-alt mr-2 text-primary-blue dark:text-primary-green"
+        ></i>
+        Madrid, España
+      </p>
+    </div>
+  </div>
+</div>

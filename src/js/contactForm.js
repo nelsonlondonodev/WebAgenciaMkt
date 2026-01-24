@@ -115,3 +115,35 @@ export function initContactReveal() {
     );
   }
 }
+
+/**
+ * Configura botones que hacen scroll al formulario y pre-rellenan el mensaje.
+ * @param {string} triggerSelector - Selector CSS de los botones que activan la acción.
+ * @param {string} prefillMessage - Mensaje a insertar en el textarea.
+ */
+export function setupScrollToContact(triggerSelector, prefillMessage) {
+  const buttons = document.querySelectorAll(triggerSelector);
+  const contactForm = document.getElementById('contact-form');
+  const messageInput = document.getElementById('message');
+
+  if (!contactForm || !messageInput || buttons.length === 0) return;
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // 1. Scroll suave al formulario
+      contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // 2. Pre-rellenar mensaje con efecto visual
+      messageInput.value = prefillMessage;
+      
+      // 3. Focus y animación visual (highlight)
+      messageInput.focus();
+      messageInput.classList.add('ring-2', 'ring-primary-green', 'dark:ring-primary-blue');
+      setTimeout(() => {
+        messageInput.classList.remove('ring-2', 'ring-primary-green', 'dark:ring-primary-blue');
+      }, 1500);
+    });
+  });
+}

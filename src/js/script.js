@@ -14,7 +14,7 @@ import { initTestimonialCards } from './testimonialRenderer.js';
 import { initDynamicModals } from './modalRenderer.js';
 import { generateBreadcrumbs } from './breadcrumbs.js'; // Importar la función para generar migas de pan
 
-import { initContactForm, initContactReveal } from './contactForm.js';
+import { initContactForm, initContactReveal, setupScrollToContact } from './contactForm.js';
 
 import { initCookieConsent } from './cookieConsent.js';
 
@@ -81,6 +81,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
   initContactReveal();
+
+  // Configuración específica para el botón de prueba gratis en SEO Local
+  setupScrollToContact(
+    '#oferta-60-dias .cta-button', 
+    'Hola Nelson, me interesa solicitar la prueba gratuita de 60 días de SEO Local. ¿Podemos hablar?'
+  );
 
 
 
