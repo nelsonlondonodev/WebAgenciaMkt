@@ -140,19 +140,38 @@ export async function openContactModal(prefillMessage = '') {
     return;
   }
 
-  // 2. Construir la estructura del modal
-  // Simplificamos el contenido para el modal (quitamos títulos grandes si es necesario, 
-  // o usamos CSS para ocultarlos dentro del modal si quisiéramos).
-  // Por simplicidad, inyectamos todo el componente.
+  // 2. Procesar el HTML para el modal (limpiar estilos de animación y textos de "sección")
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = componentHtml;
+
+  // Eliminar animaciones de scroll (opacity: 0) porque el observer no las verá dentro del modal
+  tempDiv.querySelectorAll('.scroll-animate-initial').forEach(el => {
+    el.classList.remove('scroll-animate-initial', 'opacity-0', 'translate-y-20'); 
+    // Asegurar visibilidad
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+  });
+
+  // Extraer solo lo relevante: el formulario y la info de contacto
+  // Eliminamos el título y subtítulo de la sección para el modal
+  const formElement = tempDiv.querySelector('form');
+  const contactInfo = tempDiv.querySelector('.mt-10.text-center');
   
+  // Contenedor limpio
+  const cleanContent = document.createElement('div');
+  if (formElement) cleanContent.appendChild(formElement);
+  if (contactInfo) cleanContent.appendChild(contactInfo);
+
+  // 3. Construir la estructura del modal
   const modalWrapper = document.createElement('div');
   modalWrapper.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300 animate-fade-in p-4';
   
   modalWrapper.innerHTML = `
-    <div class="relative w-full max-w-3xl rounded-xl bg-light-card dark:bg-dark-card shadow-2xl animate-zoom-in flex flex-col max-h-[90vh] overflow-y-auto scrollbar-hide">
+    <div class="relative w-full max-w-2xl rounded-xl bg-light-card dark:bg-dark-card shadow-2xl animate-zoom-in flex flex-col max-h-[90vh] overflow-y-auto scrollbar-hide">
        <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white text-3xl z-10 transition-colors close-modal-btn">&times;</button>
        <div class="p-6 sm:p-8">
-         ${componentHtml}
+         <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 text-center">Solicita tu Prueba Gratuita</h3>
+         ${cleanContent.innerHTML}
        </div>
     </div>
   `;
