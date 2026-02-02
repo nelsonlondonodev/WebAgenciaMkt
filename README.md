@@ -13,10 +13,11 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
 -   **Sistema de Plantillas para Blog:** Incluye un `_template-articulo.html` optimizado para SEO, facilitando la creación de nuevos artículos sin duplicar lógica técnica.
 -   **Componentes Reutilizables:** `nav`, `footer`, `cookie-banner` y `chatbot` se cargan dinámicamente, evitando duplicidad de código HTML.
 -   **Optimizado para Producción:**
-    -   **Tailwind CSS:** Configuración optimizada con `safelist` explícita para clases dinámicas y purga agresiva de CSS no utilizado, reduciendo el tamaño del bundle.
-    -   **Optimización LCP (Largest Contentful Paint):** La sección Hero de la página de inicio está integrada directamente en el HTML (inlining) para eliminar la dependencia de JavaScript en el primer renderizado, logrando una carga instantánea.
+    -   **Tailwind CSS:** Configuración optimizada con `safelist` explícita para clases dinámicas y purga agresiva de CSS no utilizado.
+    -   **Optimización LCP (Core Web Vitals):** Eliminación de bloqueos de renderizado (opacity 0 global) y lógica de animación condicional para móviles (carga instantánea vs animación en desktop).
+    -   **CRO (Optimización de Conversión):** Modales de contacto simplificados y enfocados 100% en la captación del lead, eliminando fugas de tráfico.
     -   **Bundling:** JavaScript minificado y empaquetado con `esbuild`.
-    -   **Cache-busting:** Sistema automático de versiones para evitar problemas de caché en navegadores.
+    -   **Cache-busting:** Sistema automático de versiones para evitar problemas de caché.
 
 ---
 
