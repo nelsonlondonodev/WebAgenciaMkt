@@ -14,8 +14,11 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
 -   **Componentes Reutilizables:** `nav`, `footer`, `cookie-banner`, `chatbot` y `tech-stack-carousel` (carrusel infinito) se cargan dinámicamente, evitando duplicidad de código HTML.
 -   **Optimizado para Producción:**
     -   **Tailwind CSS:** Configuración optimizada con `safelist` explícita para clases dinámicas y purga agresiva de CSS no utilizado.
-    -   **Optimización LCP (Core Web Vitals):** Eliminación de bloqueos de renderizado (opacity 0 global) y lógica de animación condicional para móviles (carga instantánea vs animación en desktop).
-    -   **CRO (Optimización de Conversión):** Modales de contacto simplificados y enfocados 100% en la captación del lead, eliminando fugas de tráfico.
+    -   **Optimización LCP (Core Web Vitals):** Eliminación de bloqueos de renderizado (opacity 0 global) y lógica de animación condicional para móviles.
+    -   **CRO (Optimización de Conversión):** 
+        -   **Integración Cal.com:** CTAs principales redirigen a agendamiento directo (eliminando fricción de formularios).
+        -   **Tarjetas de Precios Premium:** Diseño visual estandarizado y robusto en todas las páginas de servicios.
+        -   **Modales Desactivados:** Se prioriza la acción directa sobre la interacción en modal para "Offers".
     -   **Bundling:** JavaScript minificado y empaquetado con `esbuild`.
     -   **Cache-busting:** Sistema automático de versiones para evitar problemas de caché.
 
