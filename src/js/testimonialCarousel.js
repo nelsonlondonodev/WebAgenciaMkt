@@ -1,24 +1,57 @@
 import { testimonialsData } from './data/testimonials.js';
 
-export function initTestimonialCarousel() {
-  const container = document.getElementById('testimonials-container');
-  if (!container) return;
+// --- Configuration ---
+const CAROUSEL_ANIMATION_DURATION = '150s';
+const MIN_CARDS_FOR_LOOP = 12;
 
-  // Transform container for carousel
-  container.className = "relative w-full overflow-hidden mask-gradient-sides py-4";
-  container.innerHTML = ''; // Clear existing static grid
+/**
+ * Injects the necessary CSS styles for the infinite carousel animation.
+ * This ensures the component is self-contained and styles are present.
+ */
+function injectCarouselStyles() {
+  if (document.getElementById('testimonial-carousel-styles')) return;
 
-  // Create animation track
-  // Renamed class to avoid Tailwind conflict
-  const track = document.createElement('div');
-  track.className = "flex gap-6 w-max animate-slow-carousel hover:pause-animation";
+  const style = document.createElement('style');
+  style.id = 'testimonial-carousel-styles';
+  style.textContent = `
+      @keyframes slow-carousel-scroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+      }
+      .animate-slow-carousel {
+          animation: slow-carousel-scroll ${CAROUSEL_ANIMATION_DURATION} linear infinite;
+      }
+      .hover\\:pause-animation:hover {
+          animation-play-state: paused;
+      }
+      .mask-gradient-sides {
+          mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+          -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      }
+  `;
+  document.head.appendChild(style);
+}
 
-  // Card Template Function
-  const createCard = (data) => `
+/**
+ * Generates the HTML string for the star rating.
+ * @param {number} count - Number of stars (1-5)
+ * @returns {string} HTML string of star icons
+ */
+function createStarsHtml(count) {
+  return '<i class="fas fa-star"></i>'.repeat(count);
+}
+
+/**
+ * Creates the HTML template for a single testimonial card.
+ * @param {Object} data - The testimonial data object
+ * @returns {string} HTML string for the card
+ */
+function createCardHtml(data) {
+  return `
       <div class="w-[280px] md:w-[320px] flex-shrink-0 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700 h-full flex flex-col select-none">
           <div class="flex justify-between items-start mb-3">
                <div class="flex text-yellow-400 text-xs gap-0.5">
-                  ${'<i class="fas fa-star"></i>'.repeat(data.stars)}
+                  ${createStarsHtml(data.stars)}
                </div>
                <div class="w-5 h-5 transition-all">
                   <svg viewBox="0 0 24 24" class="w-full h-full">
@@ -45,37 +78,53 @@ export function initTestimonialCarousel() {
           </div>
       </div>
   `;
+}
 
-  // Determine needed duplicates
-  let cards = [...testimonialsData];
-  while (cards.length < 12) {
-      cards = [...cards, ...testimonialsData];
-  }
-  const finalCards = [...cards, ...cards];
-
-  track.innerHTML = finalCards.map(createCard).join('');
-  container.appendChild(track);
+/**
+ * Prepares the data array for infinite looping by duplicating it enough times.
+ * @param {Array} originalData - The source data
+ * @returns {Array} The expanded data array ready for the carousel
+ */
+function prepareCarouselData(originalData) {
+  let cards = [...originalData];
   
-  // Inject component-specific styles
-  if (!document.getElementById('testimonial-carousel-styles')) {
-      const style = document.createElement('style');
-      style.id = 'testimonial-carousel-styles';
-      style.textContent = `
-          @keyframes slow-carousel-scroll {
-              from { transform: translateX(0); }
-              to { transform: translateX(-50%); }
-          }
-          .animate-slow-carousel {
-              animation: slow-carousel-scroll 150s linear infinite;
-          }
-          .hover\\:pause-animation:hover {
-              animation-play-state: paused;
-          }
-          .mask-gradient-sides {
-              mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-              -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-          }
-      `;
-      document.head.appendChild(style);
+  // Ensure we have enough cards to fill a wide screen before duplicating
+  while (cards.length < MIN_CARDS_FOR_LOOP) {
+      cards = [...cards, ...originalData];
   }
+  
+  // Double the final set to create the seamless visual loop (A + A)
+  return [...cards, ...cards];
+}
+
+/**
+ * Initializes the carousel DOM structure.
+ * @param {HTMLElement} container 
+ * @param {string} innerHtml - The HTML content of the cards
+ */
+function renderCarouselTrack(container, innerHtml) {
+  // Apply mask and layout to container
+  container.className = "relative w-full overflow-hidden mask-gradient-sides py-4";
+  container.innerHTML = '';
+  
+  // Create animated track
+  const track = document.createElement('div');
+  track.className = "flex gap-6 w-max animate-slow-carousel hover:pause-animation";
+  track.innerHTML = innerHtml;
+  
+  container.appendChild(track);
+}
+
+// --- Main Initialization Function ---
+
+export function initTestimonialCarousel() {
+  const container = document.getElementById('testimonials-container');
+  if (!container) return;
+
+  injectCarouselStyles();
+
+  const finalCardsData = prepareCarouselData(testimonialsData);
+  const carouselHtml = finalCardsData.map(createCardHtml).join('');
+  
+  renderCarouselTrack(container, carouselHtml);
 }
