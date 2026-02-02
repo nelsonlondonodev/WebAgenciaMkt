@@ -2587,6 +2587,9 @@ video {
 .opacity-75 {
   opacity: 0.75;
 }
+.opacity-100 {
+  opacity: 1;
+}
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
@@ -2790,7 +2793,6 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  opacity: 0;
 }
 
 main {
@@ -2814,16 +2816,6 @@ main {
 }
 .sticky-header:is(.dark *) {
   background-color: rgb(2 2 2 / 0.8);
-}
-
-body.fade-out {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-body.fade-in {
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .cookie-toggle-slider::before {
@@ -3387,6 +3379,49 @@ body.fade-in {
   .sm\:w-auto {
     width: auto;
   }
+  @keyframes scaleInCore {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .sm\:animate-scale-in-core {
+    animation: scaleInCore 0.8s ease-out forwards;
+  }
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .sm\:animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+  @keyframes slideInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(150px);
+    }
+    80% {
+      opacity: 1;
+      transform: translateX(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .sm\:animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
   .sm\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
@@ -3470,6 +3505,12 @@ body.fade-in {
   .sm\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+  .sm\:opacity-0 {
+    opacity: 0;
+  }
+  .sm\:animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
   }
 }
 
