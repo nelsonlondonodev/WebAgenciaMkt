@@ -152,25 +152,33 @@ export async function openContactModal(prefillMessage = '') {
     el.style.transform = 'none';
   });
 
-  // Extraer solo lo relevante: el formulario y la info de contacto
-  // Eliminamos el título y subtítulo de la sección para el modal
+  // Extraer solo lo relevante: el formulario
   const formElement = tempDiv.querySelector('form');
-  const contactInfo = tempDiv.querySelector('.mt-10.text-center');
+  // const contactInfo = tempDiv.querySelector('.mt-10.text-center'); // Eliminamos los botones de contacto del modal
+
+  // Optimización de UI para el modal: Reducir espaciados
+  if (formElement) {
+    formElement.classList.replace('gap-y-6', 'gap-y-4'); // Reducir espacio entre inputs
+    // Reducir padding interno de inputs para que sean menos altos
+    formElement.querySelectorAll('input, textarea').forEach(input => {
+      input.classList.replace('py-3', 'py-2'); 
+    });
+  }
   
-  // Contenedor limpio
+  // Contenedor limpio con SOLO el formulario
   const cleanContent = document.createElement('div');
   if (formElement) cleanContent.appendChild(formElement);
-  if (contactInfo) cleanContent.appendChild(contactInfo);
+
 
   // 3. Construir la estructura del modal
   const modalWrapper = document.createElement('div');
   modalWrapper.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300 animate-fade-in p-4';
   
   modalWrapper.innerHTML = `
-    <div class="relative w-full max-w-2xl rounded-xl bg-light-card dark:bg-dark-card shadow-2xl animate-zoom-in flex flex-col max-h-[90vh] overflow-y-auto scrollbar-hide">
-       <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white text-3xl z-10 transition-colors close-modal-btn">&times;</button>
-       <div class="p-6 sm:p-8">
-         <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 text-center">Solicita tu Prueba Gratuita</h3>
+    <div class="relative w-full max-w-lg rounded-xl bg-light-card dark:bg-dark-card shadow-2xl animate-zoom-in flex flex-col max-h-[90vh] overflow-y-auto scrollbar-hide">
+       <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white text-2xl z-10 transition-colors close-modal-btn">&times;</button>
+       <div class="p-5 sm:p-6">
+         <h3 class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-4 text-center">Solicita tu Prueba Gratuita</h3>
          ${cleanContent.innerHTML}
        </div>
     </div>
