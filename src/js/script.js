@@ -82,11 +82,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initContactReveal();
 
   // Configuración específica para el botón de prueba gratis en SEO Local
-  // Configuración específica para el botón de prueba gratis en SEO Local
-  setupContactModal(
-    '#oferta-60-dias .cta-button', 
-    'Hola Nelson, me interesa solicitar la prueba gratuita de 60 días de SEO Local. ¿Podemos hablar?'
-  );
+  // Configuración de modal eliminada para permitir enlace directo a Cal.com
 
 
 
