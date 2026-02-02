@@ -9,8 +9,9 @@ export function initTestimonialCarousel() {
   container.innerHTML = ''; // Clear existing static grid
 
   // Create animation track
+  // Renamed class to avoid Tailwind conflict
   const track = document.createElement('div');
-  track.className = "flex gap-6 w-max animate-infinite-scroll hover:pause-animation";
+  track.className = "flex gap-6 w-max animate-slow-carousel hover:pause-animation";
 
   // Card Template Function
   const createCard = (data) => `
@@ -45,13 +46,11 @@ export function initTestimonialCarousel() {
       </div>
   `;
 
-  // Determine needed duplicates to fill screen and animate smoothly
-  // We want at least 15 cards total for a smooth long loop
+  // Determine needed duplicates
   let cards = [...testimonialsData];
   while (cards.length < 12) {
       cards = [...cards, ...testimonialsData];
   }
-  // Double it once more for seamless loop
   const finalCards = [...cards, ...cards];
 
   track.innerHTML = finalCards.map(createCard).join('');
@@ -62,12 +61,12 @@ export function initTestimonialCarousel() {
       const style = document.createElement('style');
       style.id = 'testimonial-carousel-styles';
       style.textContent = `
-          @keyframes infinite-scroll {
+          @keyframes slow-carousel-scroll {
               from { transform: translateX(0); }
               to { transform: translateX(-50%); }
           }
-          .animate-infinite-scroll {
-              animation: infinite-scroll 150s linear infinite;
+          .animate-slow-carousel {
+              animation: slow-carousel-scroll 150s linear infinite;
           }
           .hover\\:pause-animation:hover {
               animation-play-state: paused;
