@@ -10,7 +10,7 @@ import { initFooter } from './footer.js'; // Importar la inicialización del foo
 import { initChatbot } from './chatbot.js';
 import { initServiceCards } from './serviceRenderer.js';
 import { renderPortfolioCards } from './portfolioRenderer.js';
-import { initTestimonialCards } from './testimonialRenderer.js';
+import { initTestimonialCarousel } from './testimonialCarousel.js';
 import { initDynamicModals } from './modalRenderer.js';
 import { generateBreadcrumbs } from './breadcrumbs.js'; // Importar la función para generar migas de pan
 
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   initPortfolioFilter(); // Inicializa los filtros para las tarjetas recién creadas
 
-  initTestimonialCards();
+  initTestimonialCarousel();
 
   initFooter(); // Inicializar el footer
 
