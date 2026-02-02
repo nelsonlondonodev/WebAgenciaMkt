@@ -67,7 +67,7 @@ export function initTestimonialCarousel() {
               to { transform: translateX(-50%); }
           }
           .animate-infinite-scroll {
-              animation: infinite-scroll 90s linear infinite;
+              animation: infinite-scroll 150s linear infinite;
           }
           .hover\\:pause-animation:hover {
               animation-play-state: paused;
