@@ -121,10 +121,28 @@ function initDesktopServicesMenu() {
   });
 }
 
+
+function initStickyHeader() {
+  const header = document.querySelector('.sticky-header');
+  if (!header) return;
+
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      header.classList.add('header-scrolled');
+    } else {
+      header.classList.remove('header-scrolled');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); 
+}
+
 export function initNav() {
   initMobileMenu();
   initMobileServicesMenu();
   initScrollSpy();
   initDesktopServicesMenu();
+  initStickyHeader();
 }
 
