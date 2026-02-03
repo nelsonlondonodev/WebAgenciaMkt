@@ -4,7 +4,7 @@ export function initDarkMode() {
   const darkModeToggle = document.getElementById('darkModeToggle');
   if (darkModeToggle) {
     const themes = ['auto', 'light', 'dark'];
-    let currentTheme = localStorage.getItem(CONFIG.UI.THEME_KEY) || 'auto';
+    let currentTheme = localStorage.getItem(CONFIG.UI.THEME_KEY) || 'dark';
     const applyTheme = (theme) => {
       if (theme === 'auto') {
         const prefersDark = window.matchMedia(
