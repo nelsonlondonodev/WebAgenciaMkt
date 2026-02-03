@@ -253,7 +253,11 @@ main {
   flex-grow: 1;
 }
 .sticky-header {
-  @apply fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#020202]/80 backdrop-blur-md shadow-lg transition-all duration-300;
+  @apply fixed top-0 left-0 right-0 z-50 transition-all duration-300;
+  /* Light Mode: Glassmorphism */
+  @apply bg-white/80 backdrop-blur-md shadow-lg;
+  /* Dark Mode: Transparent Seamless Integration (Gets background on scroll via .header-scrolled) */
+  @apply dark:bg-transparent dark:backdrop-blur-none dark:shadow-none;
 }
 
 .cookie-toggle-slider::before {
