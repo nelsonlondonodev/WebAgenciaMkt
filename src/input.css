@@ -27,9 +27,7 @@
 
 /* 3. Tus componentes y estilos personalizados. */
 @layer components {
-  .header-scrolled {
-    @apply bg-white dark:bg-dark-bg shadow-xl;
-  }
+
   .nav-link {
     @apply px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-blue dark:hover:text-primary-green transition-colors;
   }
@@ -258,6 +256,10 @@ main {
   @apply bg-white/80 backdrop-blur-md shadow-lg;
   /* Dark Mode: Transparent Seamless Integration (Gets background on scroll via .header-scrolled) */
   @apply dark:bg-transparent dark:backdrop-blur-none dark:shadow-none;
+}
+
+.header-scrolled {
+  @apply bg-white dark:bg-dark-bg/90 backdrop-blur-md shadow-xl;
 }
 
 .cookie-toggle-slider::before {
