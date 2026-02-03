@@ -202,21 +202,7 @@
   /* --- FIN: Fondos de sección 'Yema y Clara' --- */
 
   /* --- INICIO: Estilos específicos del Hero (Movidos desde HTML inline) --- */
-  #inicio-servicio::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    /* Usamos theme() para vincularlo a tus variables de Tailwind */
-    background: linear-gradient(to top, theme('colors.light-bg'), transparent);
-    pointer-events: none;
-  }
-  
-  .dark #inicio-servicio::after {
-    background: linear-gradient(to top, theme('colors.dark-bg'), transparent);
-  }
+
   /* --- FIN: Estilos específicos del Hero --- */
 }
 
