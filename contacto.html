@@ -9,7 +9,7 @@
       content="Contáctanos para impulsar tu negocio. Desarrollo web, SEO y automatizaciones. Agencia 100% online y global."
     />
     <link rel="canonical" href="https://nelsonlondono.es/contacto.html" />
-    <link href="./output.css?v=1770100421324" rel="stylesheet" />
+    <link href="./output.css?v=1770100849300" rel="stylesheet" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
@@ -25,17 +25,38 @@
     
     <div data-component="nav"></div>
 
-    <main class="pt-20 min-h-screen flex flex-col justify-center">
-        <section class="py-16 sm:py-24">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                   <h1 class="text-4xl sm:text-5xl font-bold mb-6">Hablemos de tu Proyecto</h1>
-                   <p class="text-lg text-gray-600 dark:text-gray-300">
-                      Rellena el formulario y recibe una respuesta en menos de 24h.
-                      <br>
-                      O si lo prefieres, <a href="https://cal.com/nelson-londono-dpobgm/estrategia30" target="_blank" class="text-primary-blue hover:underline font-bold dark:text-primary-green">agenda una llamada directa aquí</a>.
-                   </p>
+    <main class="pt-20">
+        <!-- Hero Section con Iconos Flotantes -->
+        <section class="relative overflow-hidden py-16 sm:py-24">
+            
+            <!-- Iconos Flotantes de Fondo -->
+            <i class="fas fa-paper-plane absolute top-10 left-10 text-6xl lg:text-8xl transform -rotate-12 z-0 animate-float-up-down text-glow-green dark:text-glow-blue opacity-30 pointer-events-none" aria-hidden="true"></i>
+            <i class="fas fa-envelope-open-text absolute bottom-20 right-10 text-6xl lg:text-8xl transform rotate-12 z-0 animate-float-down-up text-glow-blue dark:text-glow-green opacity-30 pointer-events-none" aria-hidden="true"></i>
+            <i class="fas fa-comment-dots absolute top-1/3 left-2/3 text-4xl lg:text-6xl text-gray-300 dark:text-gray-700 transform z-0 animate-float-up-down opacity-20 pointer-events-none" style="animation-duration: 8s" aria-hidden="true"></i>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 animate-fade-in-up">
+                    Hablemos de tu Proyecto
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-100">
+                    Estamos listos para escuchar tus ideas y convertirlas en realidad digital.
+                    <br class="hidden sm:block">
+                    Rellena el formulario y recibe una respuesta en <span class="font-bold text-primary-blue dark:text-primary-green">menos de 24h</span>.
+                </p>
+                
+                <div class="mt-8 animate-fade-in-up delay-200">
+                     <p class="text-sm text-gray-500 mb-2">¿Prefieres algo más rápido?</p>
+                     <a href="https://cal.com/nelson-londono-dpobgm/estrategia30" target="_blank" class="inline-flex items-center gap-2 text-primary-blue hover:text-blue-600 dark:text-primary-green dark:hover:text-emerald-400 font-bold transition-colors">
+                        <i class="fas fa-calendar-check"></i>
+                        Agenda una llamada directa aquí
+                     </a>
                 </div>
+            </div>
+        </section>
+
+        <!-- Sección Formulario -->
+        <section class="pb-24 px-4 relative z-20">
+            <div class="max-w-4xl mx-auto">
 
                 <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 sm:p-12 border border-gray-100 dark:border-gray-700 relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-primary-blue/5 rounded-bl-full -mr-8 -mt-8 pointer-events-none"></div>
@@ -91,6 +112,6 @@
 
     <div id="footer-placeholder"></div>
     <div data-component="chatbot"></div>
-    <script src="./bundle.min.js?v=1770100421324" defer></script>
+    <script src="./bundle.min.js?v=1770100849300" defer></script>
   </body>
 </html>
