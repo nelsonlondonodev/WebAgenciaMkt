@@ -24,6 +24,12 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
         -   **Modales Desactivados:** Se prioriza la acción directa sobre la interacción en modal para "Offers".
     -   **Bundling:** JavaScript minificado y empaquetado con `esbuild`.
     -   **Cache-busting:** Sistema automático de versiones para evitar problemas de caché.
+    
+### 🎨 Identidad Visual y UI (Actualización 2026)
+-   **Modo Oscuro Premium (Default):** El sitio ahora carga por defecto en un modo oscuro inmersivo con un fondo "Rich Dark" (gradiente profundo azul/verde), inspirado en temas modernos como Astra.
+-   **Header Inteligente:** La barra de navegación se integra perfectamente con el fondo (transparente) al inicio y realiza una transición suave a un fondo sólido "glassmorphism" al hacer scroll, garantizando legibilidad sin sacrificar estilo.
+-   **Hero Sections Limpios:** Se han eliminado bordes y elementos superfluos en las secciones principales para una estética más minimalista y profesional.
+-   **Modo Claro Clean:** Se mantiene la disponibilidad del modo claro con una estética tradicional (fondo blanco/gris limpio) para usuarios que lo prefieran.
 
 ---
 
