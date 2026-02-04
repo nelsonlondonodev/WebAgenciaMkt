@@ -3,7 +3,7 @@ import { CONFIG } from './config.js';
 export function initDarkMode() {
   const darkModeToggle = document.getElementById('darkModeToggle');
   if (darkModeToggle) {
-    const themes = ['auto', 'light', 'dark'];
+    const themes = ['dark', 'light'];
     let currentTheme = localStorage.getItem(CONFIG.UI.THEME_KEY) || 'dark';
     const applyTheme = (theme) => {
       if (theme === 'auto') {
