@@ -32,8 +32,9 @@ export function generateBreadcrumbs(placeholderSelector) {
   if (pageFileName.startsWith('articulo-')) {
     crumbs.push({ name: BREADCRUMB_NAMES['blog.html'], url: '/blog.html' });
 
-    // Prioridad: atributo data-breadcrumb en el placeholder, luego el H1
-    const customTitle = placeholder.getAttribute('data-breadcrumb');
+    // Prioridad: atributo data-breadcrumb en el placeholder o su contenedor, luego el H1
+    const customTitle = placeholder.getAttribute('data-breadcrumb') || 
+                        placeholder.closest('[data-breadcrumb]')?.getAttribute('data-breadcrumb');
     const articleTitle = customTitle || document.querySelector('h1')?.textContent.trim();
 
     if (articleTitle) {
