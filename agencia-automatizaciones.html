@@ -24,15 +24,15 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="./fontawesome.min.css?v=1770198334484" 
+      href="./fontawesome.min.css?v=1770198576939" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="./fontawesome.min.css?v=1770198334484" />
+      <link rel="stylesheet" href="./fontawesome.min.css?v=1770198576939" />
     </noscript>
 
-    <link href="./output.css?v=1770198334484" rel="stylesheet" />
+    <link href="./output.css?v=1770198576939" rel="stylesheet" />
 
   <body class=" ">
     <div id="nav-placeholder"></div>
@@ -47,21 +47,7 @@
         data-hero-icon-1='<i class="fas fa-robot absolute top-1/4 left-4 text-6xl lg:text-8xl transform -rotate-12 z-0 animate-float-up-down text-glow-green dark:text-glow-blue opacity-50 dark:opacity-30" aria-hidden="true"></i>'
         data-hero-icon-2='<i class="fas fa-cogs absolute bottom-1/4 right-4 text-6xl lg:text-8xl transform rotate-12 z-0 animate-float-down-up text-glow-blue dark:text-glow-green opacity-50 dark:opacity-30" aria-hidden="true"></i>'
         data-hero-icon-3='<i class="fas fa-bolt absolute top-1/2 left-1/3 text-5xl lg:text-7xl text-gray-400/50 dark:text-gray-500/30 transform z-0 animate-float-up-down" style="animation-duration: 10s;" aria-hidden="true"></i>'
-        data-hero-custom-styles="
-          #inicio-servicio::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px; /* Altura del degradado */
-            background: linear-gradient(to top, #F9FAFB, transparent);
-            pointer-events: none; /* Para que no interfiera con el ratón */
-          }
-          .dark #inicio-servicio::after {
-            background: linear-gradient(to top, #020202, transparent);
-          }
-        "
+
       ></div>
       
       <!-- Aquí irá el contenido específico de la página de servicio -->
@@ -302,7 +288,7 @@
       </section>
 
       <!-- SECCIÓN PRECIOS -->
-      <section id="precios-automatizaciones" class="py-12 sm:py-16 bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700">
+      <section id="precios-automatizaciones" class="py-12 sm:py-16 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
             <h2 class="section-title text-3xl sm:text-4xl scroll-animate-initial">
@@ -353,7 +339,7 @@
         </div>
       </section>
 
-      <section id="faq" class="py-12 sm:py-16">
+      <section id="faq" class="py-12 sm:py-16 bg-white dark:bg-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
@@ -437,7 +423,7 @@
     <!-- <script type="module" src="script.js"></script> -->
     
     <!-- Para producción -->
-    <script src="./bundle.min.js?v=1770198334484" defer></script>
+    <script src="./bundle.min.js?v=1770198576939" defer></script>
     <div id="cookie-banner-placeholder"></div>
 
     <div data-component="chatbot"></div>
