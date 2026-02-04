@@ -14,6 +14,8 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
 -   **Componentes Reutilizables:** `nav`, `footer`, `cookie-banner`, `chatbot` y `tech-stack-carousel` (carrusel infinito) se cargan dinámicamente, evitando duplicidad de código HTML.
 -   **Página 'Sobre Mí' Integral:** Nueva arquitectura que consolida Historia, Misión, Visión y Testimonios en una sola landing de autoridad (`sobre-mi.html`).
 -   **Carrusel de Testimonios Avanzado:** Componente de scroll infinito (`testimonialCarousel.js`) refactorizado con principios SOLID, optimizado para rendimiento y con integración visual de marca (Google).
+-   **Consistencia Lingüística de Alta Calidad:** Estandarización de gramática y capitalización en todo el sitio siguiendo las normas de la RAE (Sentence case), mejorando la legibilidad y el profesionalismo.
+-   **Navegación Móvil Optimizada:** Implementación de migas de pan (**breadcrumbs**) dinámicas y simplificadas (1-2 palabras clave) para maximizar el espacio en dispositivos pequeños.
 -   **Optimizado para Producción:**
     -   **Tailwind CSS:** Configuración optimizada con `safelist` explícita para clases dinámicas y purga agresiva de CSS no utilizado.
     -   **Optimización LCP (Core Web Vitals):** Eliminación de bloqueos de renderizado (opacity 0 global) y lógica de animación condicional para móviles.
@@ -29,6 +31,7 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
 -   **Modo Oscuro Premium (Default):** El sitio ahora carga por defecto en un modo oscuro inmersivo con un fondo "Rich Dark" (gradiente profundo azul/verde), inspirado en temas modernos como Astra.
 -   **Header Inteligente:** La barra de navegación se integra perfectamente con el fondo (transparente) al inicio y realiza una transición suave a un fondo sólido "glassmorphism" al hacer scroll, garantizando legibilidad sin sacrificar estilo.
 -   **Hero Sections Limpios:** Se han eliminado bordes y elementos superfluos en las secciones principales para una estética más minimalista y profesional.
+-   **Eliminación de Redundancias:** Limpieza de elementos de navegación duplicados (como botones "Volver al blog") en favor de las migas de pan, creando una UI más limpia y enfocada.
 -   **Modo Claro Clean:** Se mantiene la disponibilidad del modo claro con una estética tradicional (fondo blanco/gris limpio) para usuarios que lo prefieran.
 
 ---
