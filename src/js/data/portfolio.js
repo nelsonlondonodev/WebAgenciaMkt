@@ -25,10 +25,10 @@ export const portfolioData = [
     title: 'Locutorio El Pilón',
     tags: 'Tour virtual 360º y SEO local',
     description:
-      'Optimización de ficha Google Business y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.',
+      'Optimización de la ficha del perfil de negocio de Google y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.',
     type: 'modal',
     tourUrl: 'https://kuula.co/share/collection/718wd?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es',
-    tourType: '360° Tour'
+    tourType: 'Tour 360°'
   },
   {
     id: 'barberia',
@@ -42,10 +42,10 @@ export const portfolioData = [
     title: 'La Barbería de Isma',
     tags: 'Tour virtual 360° y SEO local',
     description:
-      'Optimización de ficha Google Business y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.',
+      'Optimización de la ficha del perfil de negocio de Google y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.',
     type: 'modal',
     tourUrl: 'https://kuula.co/share/collection/71n8D?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es',
-    tourType: '360° Tour'
+    tourType: 'Tour 360°'
   },
   {
     id: 'kuula',
@@ -56,13 +56,13 @@ export const portfolioData = [
     },
     imgSrc: 'image/piso-en-venta.webp',
     imgAlt: 'Tour 360 de un piso en Madrid',
-    title: 'Piso en alquiler - tour virtual',
+    title: 'Piso en alquiler: tour virtual',
     tags: 'Tour virtual 360°',
     description:
       'Recorrido virtual completo para inmobiliaria, permitiendo visitas inmersivas 24/7 y acelerando el proceso de alquiler.',
     type: 'modal',
     tourUrl: 'https://kuula.co/share/collection/71np8?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es',
-    tourType: '360° Tour'
+    tourType: 'Tour 360°'
   },
   {
     id: 'suavebocado',
