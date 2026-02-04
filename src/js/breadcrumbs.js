@@ -31,8 +31,11 @@ export function generateBreadcrumbs(placeholderSelector) {
   // Lógica para artículos de blog
   if (pageFileName.startsWith('articulo-')) {
     crumbs.push({ name: BREADCRUMB_NAMES['blog.html'], url: '/blog.html' });
-    // El título del artículo se toma directamente del H1 de la página
-    const articleTitle = document.querySelector('h1')?.textContent.trim();
+
+    // Prioridad: atributo data-breadcrumb en el placeholder, luego el H1
+    const customTitle = placeholder.getAttribute('data-breadcrumb');
+    const articleTitle = customTitle || document.querySelector('h1')?.textContent.trim();
+
     if (articleTitle) {
       crumbs.push({ name: articleTitle }); // La última miga no tiene enlace
     }
