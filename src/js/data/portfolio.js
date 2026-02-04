@@ -7,7 +7,7 @@ export const portfolioData = [
     imgAlt: "Página web de Narbo's Salón Spa",
     title: "Narbo's Salón Spa",
     isNew: true,
-    tags: 'Landing Page y SEO Local',
+    tags: 'Landing page y SEO local',
     description:
       'Desarrollo de landing page a medida y estrategia de SEO local para una peluquería en Colombia, con el objetivo de aumentar su visibilidad y atraer clientes en su área.',
     type: 'link', // 'link' o 'modal'
@@ -22,7 +22,7 @@ export const portfolioData = [
     },
     imgSrc: './image/foto-locutorio.webp',
     imgAlt: 'Tour 360 de Locutorio el Pilón',
-    title: 'Locutorio el Pilón',
+    title: 'Locutorio El Pilón',
     tags: 'Tour virtual 360º y SEO local',
     description:
       'Optimización de ficha Google Business y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.',
@@ -40,7 +40,7 @@ export const portfolioData = [
     imgSrc: 'image/barberia-isma.webp',
     imgAlt: 'Tour 360 de La Barbería de Isma',
     title: 'La Barbería de Isma',
-    tags: 'Tour Virtual 360° y SEO Local',
+    tags: 'Tour virtual 360° y SEO local',
     description:
       'Optimización de ficha Google Business y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.',
     type: 'modal',
@@ -57,7 +57,7 @@ export const portfolioData = [
     imgSrc: 'image/piso-en-venta.webp',
     imgAlt: 'Tour 360 de un piso en Madrid',
     title: 'Piso en alquiler - tour virtual',
-    tags: 'Tour Virtual 360°',
+    tags: 'Tour virtual 360°',
     description:
       'Recorrido virtual completo para inmobiliaria, permitiendo visitas inmersivas 24/7 y acelerando el proceso de alquiler.',
     type: 'modal',
@@ -76,7 +76,7 @@ export const portfolioData = [
     imgSrc: './image/foto-suave-bocado.webp',
     imgAlt: 'Página web de Suave Bocado Repostería',
     title: 'Suave Bocado Repostería',
-    tags: 'WordPress y SEO Local',
+    tags: 'WordPress y SEO local',
     description:
       'Landing page para repostería en Envigado, Colombia. Incluyó estrategia de SEO local que la posicionó en el top 2 de Google.',
     type: 'link',
@@ -93,7 +93,7 @@ export const portfolioData = [
     imgSrc: 'image/foto-luis-alberto-correa.webp',
     imgAlt: 'Landing page del músico Luis Alberto Correa',
     title: 'Luis Alberto Correa - Músico',
-    tags: 'WordPress y SEO Local',
+    tags: 'WordPress y SEO local',
     description:
       'Landing page para músico en Palma de Mallorca. Diseño web en WordPress y estrategia de SEO local para aumentar su visibilidad en la isla.',
     type: 'link',
@@ -110,7 +110,7 @@ export const portfolioData = [
     imgSrc: 'image/foto-barberia-mrtijeras.webp',
     imgAlt: 'Landing page de la barbería Mr. Tijeras',
     title: 'Barbería Mr. Tijeras',
-    tags: 'Landing Page y SEO Básico',
+    tags: 'Landing page y SEO básico',
     description:
       'Creación de landing page y estrategia de SEO básico para una barbería en Madrid, aumentando su visibilidad y citas online.',
     type: 'link',
