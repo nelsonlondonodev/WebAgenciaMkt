@@ -21,6 +21,7 @@ function createPortfolioCard(item) {
 
   return `
     <${tag} ${idAttr} ${dataTypeAttr} class="portfolio-item group scroll-animate-initial ${cursorClass}" data-category="${item.category}" ${hrefAttr}>
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-blue/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"></div>
       <div class="relative">
         <img
           class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"

@@ -48,8 +48,9 @@ function createStarsHtml(count) {
  */
 function createCardHtml(data) {
   return `
-      <a href="https://share.google/PklHZIWoycARf1HGP" target="_blank" rel="noopener noreferrer" class="w-[280px] md:w-[320px] flex-shrink-0 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 h-full flex flex-col select-none block no-underline hover:no-underline cursor-pointer group">
-          <div class="flex justify-between items-start mb-3">
+      <a href="https://share.google/PklHZIWoycARf1HGP" target="_blank" rel="noopener noreferrer" class="testimonial-card w-[280px] md:w-[320px] flex-shrink-0 select-none block no-underline hover:no-underline cursor-pointer group">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary-blue/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"></div>
+          <div class="flex justify-between items-start mb-3 relative z-10">
                <div class="flex text-yellow-400 text-xs gap-0.5">
                   ${createStarsHtml(data.stars)}
                </div>

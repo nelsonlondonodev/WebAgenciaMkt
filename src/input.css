@@ -47,14 +47,14 @@
     @apply text-lg text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto;
   }
   .service-card {
-    @apply bg-light-card/80 dark:bg-dark-card/80 backdrop-blur-lg p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-out;
+    @apply relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 hover:border-primary-blue/50 dark:hover:border-primary-green/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-blue/10 dark:hover:shadow-primary-green/10 transform hover:-translate-y-2 overflow-hidden p-6 sm:p-8 rounded-[2rem];
   }
   .portfolio-item {
-    @apply bg-light-card dark:bg-dark-card rounded-lg shadow-lg overflow-hidden transition-all duration-500 ease-out;
+    @apply relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 hover:border-primary-blue/50 dark:hover:border-primary-green/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-blue/10 dark:hover:shadow-primary-green/10 transform hover:-translate-y-2 overflow-hidden rounded-2xl;
   }
 
   .testimonial-card {
-    @apply bg-light-card dark:bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-out flex flex-col hover:-translate-y-4;
+    @apply relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 hover:border-primary-blue/50 dark:hover:border-primary-green/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-blue/10 dark:hover:shadow-primary-green/10 transform hover:-translate-y-2 overflow-hidden p-6 rounded-[2rem] flex flex-col;
   }
 
   .filter-btn {

@@ -8,8 +8,9 @@ function createServiceCard(service) {
       href="${service.url}"
       class="service-card group hover:-translate-y-2 scroll-animate-initial cursor-pointer flex flex-col"
     >
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-blue/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
       <div
-        class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-glow-green dark:text-glow-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
+        class="relative z-10 flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-glow-green dark:text-glow-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300"
       >
         <i class="${service.icon}"></i>
       </div>
