@@ -170,8 +170,17 @@
   }
 
   /* Estilos para el botón de hamburguesa animado */
+  #mobileMenuButton {
+    @apply focus:outline-none focus:ring-0 active:outline-none active:bg-transparent;
+    -webkit-tap-highlight-color: transparent;
+  }
   #mobileMenuButton span {
     transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 2px rgba(0,0,0,0.1);
+  }
+  #mobileMenuButton.is-active span {
+    @apply bg-primary-green !important;
+    box-shadow: 0 0 10px #10b981, 0 0 20px rgba(16, 185, 129, 0.4) !important;
   }
   #mobileMenuButton.is-active span:nth-child(1) {
     transform: translateY(0.625rem) rotate(45deg);
