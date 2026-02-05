@@ -44,8 +44,9 @@ fs.readdir(distPath, (err, files) => {
       );
 
       const updatedData = data.replace(regex, (match, attribute, prefix, filename) => {
-        const newUrl = `${attribute}="${prefix}${filename}?v=${version}"`;
-        console.log(`In ${file}, updated ${filename} to ${filename}?v=${version}`);
+        // Forzamos ruta absoluta desde la raíz (/) para evitar fallos de resolución
+        const newUrl = `${attribute}="/${filename}?v=${version}"`;
+        console.log(`In ${file}, updated ${filename} to /${filename}?v=${version}`);
         return newUrl;
       });
 

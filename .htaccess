@@ -22,6 +22,8 @@ ErrorDocument 404 /404.html
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"
     Header set X-XSS-Protection "1; mode=block"
+    # Forzar el tipo MIME para CSS para evitar errores de bloqueos de seguridad
+    AddType text/css .css
 </IfModule>
 
 # 6. Cache Control (Browser Caching for static assets)
