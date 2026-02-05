@@ -12,7 +12,7 @@
     "build:css": "NODE_ENV=production postcss ./src/input.css -o output.css",
     "build:js": "esbuild src/js/script.js --bundle --minify --outfile=bundle.min.js",
     "build": "npm run build:css && npm run build:js && node cache-buster.js && node generar-sitemap.js",
-    "build:dist": "npm run build && rm -rf dist && mkdir -p dist/image dist/webfonts dist/guia && cp *.html output.css bundle.min.js robots.txt sitemap.xml .htaccess dist/ && cp image/* dist/image/ && cp guia/* dist/guia/ && cp -r node_modules/@fortawesome/fontawesome-free/webfonts/* dist/webfonts/ && cp node_modules/@fortawesome/fontawesome-free/css/all.min.css dist/fontawesome.min.css",
+    "build:dist": "npm run build && rm -rf dist && mkdir -p dist/image dist/webfonts dist/guia dist/components && cp *.html output.css bundle.min.js robots.txt sitemap.xml .htaccess dist/ && cp image/* dist/image/ && cp guia/* dist/guia/ && cp components/* dist/components/ && cp -r node_modules/@fortawesome/fontawesome-free/webfonts/* dist/webfonts/ && cp node_modules/@fortawesome/fontawesome-free/css/all.min.css dist/fontawesome.min.css",
     "sitemap": "node generar-sitemap.js",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
