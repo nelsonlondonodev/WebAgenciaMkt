@@ -24,15 +24,15 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="./fontawesome.min.css?v=1770287535290" 
+      href="./fontawesome.min.css?v=1770287969383" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="./fontawesome.min.css?v=1770287535290" />
+      <link rel="stylesheet" href="./fontawesome.min.css?v=1770287969383" />
     </noscript>
 
-    <link href="./output.css?v=1770287535290" rel="stylesheet" />
+    <link href="./output.css?v=1770287969383" rel="stylesheet" />
 
   <body class=" ">
     <div id="nav-placeholder"></div>
@@ -339,58 +339,76 @@
         </div>
       </section>
 
-      <section id="faq" class="py-12 sm:py-16 bg-white dark:bg-transparent">
+      <section id="faq" class="py-12 sm:py-16 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            class="section-title text-4xl sm:text-5xl scroll-animate-initial"
-          >
-            Preguntas frecuentes
+          <h2 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
+            Dudas sobre automatización
           </h2>
-          <p
-            class="section-subtitle text-base sm:text-lg scroll-animate-initial"
-          >
-            Resolvemos tus dudas más comunes sobre agentes virtuales y automatizaciones.
+          <p class="section-subtitle text-base sm:text-lg scroll-animate-initial">
+            Tecnología compleja explicada de forma sencilla.
           </p>
-          <div class="mt-12 max-w-3xl mx-auto space-y-6">
-            <!-- Pregunta 1 -->
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg scroll-animate-initial transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                ¿Qué es un agente virtual y cómo puede ayudar a mi negocio?
-              </h3>
-              <p class="text-gray-600 dark:text-gray-400 scroll-animate-initial">
-                Un agente virtual es un programa de software impulsado por inteligencia artificial que puede interactuar con clientes, responder preguntas, gestionar tareas y automatizar procesos. Puede mejorar la atención al cliente, reducir la carga de trabajo de tu equipo y operar 24/7.
-              </p>
-            </div>
-            <!-- Pregunta 2 -->
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg scroll-animate-initial delay-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                ¿Qué tipo de procesos se pueden automatizar?
-              </h3>
-              <p class="text-gray-600 dark:text-gray-400 scroll-animate-initial">
-                Prácticamente cualquier proceso repetitivo y basado en reglas puede ser automatizado. Esto incluye la gestión de correos electrónicos, la entrada de datos, la programación de citas, la generación de informes, la atención al cliente, la gestión de redes sociales y mucho más.
-              </p>
-            </div>
-            <!-- Pregunta 3 -->
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg scroll-animate-initial delay-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                ¿Necesito conocimientos técnicos para implementar estas soluciones?
-              </h3>
-              <p class="text-gray-600 dark:text-gray-400 scroll-animate-initial">
-                No, nuestro equipo se encarga de todo el proceso de diseño, desarrollo e implementación. Te proporcionaremos una solución lista para usar y la formación necesaria para que tú y tu equipo puedan gestionarla fácilmente.
-              </p>
-            </div>
-            <!-- Pregunta 4 -->
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg scroll-animate-initial delay-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                ¿Cuánto tiempo tarda en verse el retorno de la inversión (ROI)?
-              </h3>
-              <p class="text-gray-600 dark:text-gray-400 scroll-animate-initial">
-                El ROI puede variar según la complejidad de las automatizaciones y el tamaño de tu negocio. Sin embargo, muchos de nuestros clientes comienzan a ver mejoras significativas en eficiencia y reducción de costos en los primeros meses después de la implementación.
-              </p>
-            </div>
+          <div class="mt-12 max-w-3xl mx-auto space-y-4">
+            <!-- FAQ Item 1 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Qué tipo de tareas se pueden automatizar en mi negocio?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                Desde la cualificación automática de leads y la sincronización de facturas entre bancos y ERP, hasta agentes de IA que responden correos o WhatsApps. Si es digital y repetitivo, podemos automatizarlo.
+              </div>
+            </details>
+
+            <!-- FAQ Item 2 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Por qué usáis n8n en lugar de Zapier o Make?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                Zapier y Make cobran por cada pequeña "acción", lo que dispara los costes al escalar. n8n es mucho más potente, permite flujos complejos de IA y tiene un coste fijo o muy bajo, lo que te ahorra miles de euros al año.
+              </div>
+            </details>
+
+            <!-- FAQ Item 3 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Es caro implementar un sistema de automatización?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                La implementación se paga sola en pocas semanas. Piensa: ¿Cuánto te cuesta pagarle a alguien por copiar datos de un Excel a otro? Nosotros eliminamos ese coste para siempre.
+              </div>
+            </details>
+
+            <!-- FAQ Item 4 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Necesito contratar a un técnico para mantener esto?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                No. Entregamos sistemas "llave en mano" que funcionan solos. Además, ofrecemos planes de mantenimiento para que tú solo te preocupes de ver crecer tu negocio, no de la tecnología.
+              </div>
+            </details>
           </div>
         </div>
-      </section>
       </section>
 
       <section id="cta-automatizaciones" class="py-12 sm:py-16 text-center">
@@ -423,7 +441,7 @@
     <!-- <script type="module" src="script.js"></script> -->
     
     <!-- Para producción -->
-    <script src="./bundle.min.js?v=1770287535290" defer></script>
+    <script src="./bundle.min.js?v=1770287969383" defer></script>
     <div id="cookie-banner-placeholder"></div>
 
     <div data-component="chatbot"></div>
