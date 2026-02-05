@@ -23,7 +23,6 @@ async function generateSitemap() {
     { url: '/proyectos.html', changefreq: 'monthly', priority: 0.8 },
     { url: '/contacto.html', changefreq: 'monthly', priority: 0.9 },
     { url: '/sobre-mi.html', changefreq: 'monthly', priority: 0.8 },
-    { url: '/politica-de-cookies.html', changefreq: 'yearly', priority: 0.5 },
   ];
 
   const stream = new SitemapStream({ hostname });
