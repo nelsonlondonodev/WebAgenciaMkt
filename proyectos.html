@@ -23,18 +23,70 @@
       name="description"
       content="Descubre casos de éxito en diseño web, SEO y automatización. Transformamos negocios con tecnología y resultados medibles. ¡Hablemos!"
     />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "¿El código del proyecto será 100% de mi propiedad?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, absolutamente. A diferencia de las agencias que te 'alquilan' la web, nosotros te entregamos la propiedad intelectual completa del código una vez finalizado el pago. Tu web es tu activo."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿Qué pasa si no me gusta el diseño inicial?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No hay riesgo. Trabajamos con fases de aprobación. Primero validamos la estructura (wireframes) y luego el diseño visual. No programamos nada hasta que estés 100% feliz con cómo se ve."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿Incluís formación para gestionar la web?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Siempre. Al entregarte el proyecto, agendamos una sesión de formación grabada donde te enseñamos a ti o a tu equipo cómo gestionar los contenidos, el blog y las métricas básicas."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿Cómo aseguráis que la web cumpla mis objetivos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No empezamos diseñando, empezamos escuchando. Definimos KPIs claros (ventas, leads, tráfico) al inicio y diseñamos toda la experiencia de usuario (UX) para cumplir esos objetivos específicos."
+        }
+      }]
+    }
+    </script>
+    <style>
+      /* Estilos específicos para el acordeón de FAQ */
+      details > summary {
+        list-style: none;
+      }
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+      details[open] summary ~ * {
+        animation: slideDown 0.3s ease-in-out;
+      }
+      @keyframes slideDown {
+        0% { opacity: 0; transform: translateY(-10px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="./fontawesome.min.css?v=1770288187373" 
+      href="./fontawesome.min.css?v=1770288450555" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="./fontawesome.min.css?v=1770288187373" />
+      <link rel="stylesheet" href="./fontawesome.min.css?v=1770288450555" />
     </noscript>
 
-    <link href="./output.css?v=1770288187373" rel="stylesheet" />
+    <link href="./output.css?v=1770288450555" rel="stylesheet" />
 
   </head>
   <body class=" ">
@@ -77,6 +129,78 @@
           </div>
         </div>
       </section>
+
+      <section id="faq-proyectos" class="py-12 sm:py-16 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
+            Preguntas sobre entregables
+          </h2>
+          <p class="section-subtitle text-base sm:text-lg scroll-animate-initial">
+            Transparencia total en nuestra forma de trabajar.
+          </p>
+          <div class="mt-12 max-w-3xl mx-auto space-y-4">
+            <!-- FAQ Item 1 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿El código del proyecto será 100% de mi propiedad?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                Sí, absolutamente. A diferencia de las agencias que te "alquilan" la web, nosotros te entregamos la propiedad intelectual completa del código una vez finalizado el pago. Tu web es tu activo.
+              </div>
+            </details>
+
+            <!-- FAQ Item 2 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Qué pasa si no me gusta el diseño inicial?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                No hay riesgo. Trabajamos con fases de aprobación. Primero validamos la estructura (wireframes) y luego el diseño visual. No programamos nada hasta que estés 100% feliz con cómo se ve.
+              </div>
+            </details>
+
+            <!-- FAQ Item 3 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Incluís formación para gestionar la web?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                Siempre. Al entregarte el proyecto, agendamos una sesión de formación grabada donde te enseñamos a ti o a tu equipo cómo gestionar los contenidos, el blog y las métricas básicas.
+              </div>
+            </details>
+
+            <!-- FAQ Item 4 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Cómo aseguráis que la web cumpla mis objetivos?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                No empezamos diseñando, empezamos escuchando. Definimos KPIs claros (ventas, leads, tráfico) al inicio y diseñamos toda la experiencia de usuario (UX) para cumplir esos objetivos específicos.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
     </main>
 
     <div id="footer-placeholder"></div>
@@ -85,7 +209,7 @@
 
     <!-- SCRIPTS PARA PRODUCCIÓN -->
     <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
-    <script src="./bundle.min.js?v=1770288187373" defer></script>
+    <script src="./bundle.min.js?v=1770288450555" defer></script>
 
     <!-- SCRIPTS PARA DESARROLLO -->
     <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->
