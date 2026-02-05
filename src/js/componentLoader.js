@@ -8,7 +8,7 @@
  */
 const loadStaticComponent = async (selector, url) => {
   try {
-    const response = await fetch(url);
+    const response = await fetch(`${url}?v=${Date.now()}`);
     if (!response.ok) {
       throw new Error(`Error al cargar ${url}: ${response.statusText}`);
     }
@@ -36,7 +36,7 @@ const loadConfigurableComponent = async (element) => {
   const url = `/components/${componentName}.html`;
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(`${url}?v=${Date.now()}`);
     if (!response.ok) {
       throw new Error(`Error al cargar ${url}: ${response.statusText}`);
     }

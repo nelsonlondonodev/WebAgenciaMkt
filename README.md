@@ -36,6 +36,15 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
 -   **Tarjetas Premium "2026 Aesthetic":** Implementación global del diseño **Glassmorphism** en todas las tarjetas interactivas (Servicios, Portafolio, Testimonios y Contacto). Incluye bordes sutiles tipo neón, sombras de color reactivas y un efecto de "resplandor interno" (glowing gradient) al pasar el cursor, elevando la percepción de calidad del sitio.
 -   **Tarjetas de Privacidad en Contacto:** Nueva funcionalidad que oculta datos sensibles (Email, Teléfono) detrás de un botón de revelado. Al hacer clic, despliega un modal animado con opciones de copiado rápido y acceso directo, mejorando la UX y protegiendo la privacidad.
 
+### 🌓 Comportamiento y Reglas UI (Estrictas)
+1.  **Iconos de Fondo (Decorativos):** Los elementos flotantes (flecha, árbol, etc.) **SOLO son visibles en Modo Oscuro**. En Modo Claro se ocultan para mantener la limpieza visual.
+2.  **Toggle Dark Mode:** El cambio de tema solo se realiza mediante el icono de la luna/sol ubicado estrictamente en la **esquina superior derecha** del Navbar, visible y accesible tanto en escritorio como en móvil.
+3.  **Comportamiento del Navbar:**
+    -   **Modo Claro:** Fondo gris muy claro (`bg-gray-100` o similar) con texto negro (`text-black`) para máximo contraste.
+    -   **Modo Oscuro:**
+        -   *Top:* Transparente (se funde con el fondo).
+        -   *Scroll:* Fondo `bg-rich-dark` con transparencia (`bg-opacity-90`) y efecto blur, texto blanco (`text-white`).
+
 ---
 
 ## 🎁 Recurso Gratuito: Guía de Automatización
