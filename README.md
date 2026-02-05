@@ -154,3 +154,17 @@ Cualquier cambio aquí se reflejará automáticamente en todo el sitio (Chatbot,
 -   `npm run format`: Formatear código con Prettier.
 -   `npm run format:check`: Verificar formato.
 -   `npm run sitemap`: Generar mapa del sitio manualmente.
+
+---
+
+## 🔍 SEO e Indexación (Actualización Feb 2026)
+
+Se ha realizado una auditoría completa para optimizar el rastreo y la visibilidad:
+
+-   **Sitemap Automático:** Generado via `npm run sitemap`, incluye todas las páginas clave (`/contacto.html`, `/sobre-mi.html`, etc.) con sus respectivas prioridades.
+-   **Exclusiones Estratégicas (`robots.txt`):**
+    -   `/guia/`: Excluido intencionalmente (Lead Magnet/Funnel).
+    -   `/_template-articulo.html`: Plantilla interna excluida.
+    -   `/politica-de-cookies.html`: Excluida por irrelevancia SEO (Noindex).
+-   **SEO Local (Prioridad):** La página de Contacto ha sido reorientada semánticamente para atacar keywords locales ("SEO Local", "Negocio Físico").
+-   **Cache Busting:** Sistema hash para CSS y JS en todos los archivos HTML para garantizar actualizaciones instantáneas en clientes (fix para iOS).
