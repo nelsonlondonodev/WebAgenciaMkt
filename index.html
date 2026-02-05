@@ -29,15 +29,15 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="./fontawesome.min.css?v=1770287969383" 
+      href="./fontawesome.min.css?v=1770288187373" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="./fontawesome.min.css?v=1770287969383" />
+      <link rel="stylesheet" href="./fontawesome.min.css?v=1770288187373" />
     </noscript>
 
-    <link href="./output.css?v=1770287969383" rel="stylesheet" />
+    <link href="./output.css?v=1770288187373" rel="stylesheet" />
 
     <script type="application/ld+json">
     {
@@ -79,7 +79,58 @@
       ],
       "priceRange": "$$"
     }
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "¿Trabajáis con pequeñas empresas y autónomos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Aunque usamos tecnología avanzada, adaptamos nuestras soluciones para que sean accesibles. Creemos que la IA y el buen diseño deben ser para todos, no solo para grandes corporaciones."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿Qué os diferencia de una agencia de marketing tradicional?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La tecnología. No solo hacemos 'webs bonitas', creamos activos digitales que funcionan solos. Usamos Inteligencia Artificial para automatizar tareas, SEO técnico avanzado y código a medida para que tu negocio sea más eficiente y visible."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿Cuánto tardáis en entregar un proyecto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depende del alcance. Una web corporativa puede estar lista en 3-4 semanas. Proyectos más complejos con automatizaciones pueden llevar 6-8 semanas. Siempre trabajamos con hitos claros y plazos garantizados."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿Ofrecéis servicios de mantenimiento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. La tecnología evoluciona rápido. Ofrecemos planes de mantenimiento para asegurar que tu web, tu SEO y tus automatizaciones sigan funcionando al 100% mes tras mes."
+        }
+      }]
+    }
     </script>
+    <style>
+      /* Estilos específicos para el acordeón de FAQ */
+      details > summary {
+        list-style: none;
+      }
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+      details[open] summary ~ * {
+        animation: slideDown 0.3s ease-in-out;
+      }
+      @keyframes slideDown {
+        0% { opacity: 0; transform: translateY(-10px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+
 
   <body class=" ">
     <div id="nav-placeholder"></div>
@@ -177,6 +228,78 @@
             <a href="proyectos.html" class="cta-button"
               >Ver todos los proyectos</a
             >
+          </div>
+        </div>
+      </section>
+
+      <section id="faq-home" class="py-12 sm:py-16 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
+            Preguntas frecuentes
+          </h2>
+          <p class="section-subtitle text-base sm:text-lg scroll-animate-initial">
+            Todo lo que necesitas saber antes de empezar a trabajar con nosotros.
+          </p>
+          <div class="mt-12 max-w-3xl mx-auto space-y-4">
+            <!-- FAQ Item 1 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Trabajáis con pequeñas empresas y autónomos?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                Sí. Aunque usamos tecnología avanzada, adaptamos nuestras soluciones para que sean accesibles. Creemos que la IA y el buen diseño deben ser para todos, no solo para grandes corporaciones.
+              </div>
+            </details>
+
+            <!-- FAQ Item 2 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Qué os diferencia de una agencia de marketing tradicional?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                La tecnología. No solo hacemos "webs bonitas", creamos activos digitales que funcionan solos. Usamos Inteligencia Artificial para automatizar tareas, SEO técnico avanzado y código a medida para que tu negocio sea más eficiente y visible.
+              </div>
+            </details>
+
+            <!-- FAQ Item 3 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Cuánto tardáis en entregar un proyecto?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                Depende del alcance. Una web corporativa puede estar lista en 3-4 semanas. Proyectos más complejos con automatizaciones pueden llevar 6-8 semanas. Siempre trabajamos con hitos claros y plazos garantizados.
+              </div>
+            </details>
+
+            <!-- FAQ Item 4 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Ofrecéis servicios de mantenimiento?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                Sí. La tecnología evoluciona rápido. Ofrecemos planes de mantenimiento para asegurar que tu web, tu SEO y tus automatizaciones sigan funcionando al 100% mes tras mes.
+              </div>
+            </details>
           </div>
         </div>
       </section>
@@ -483,7 +606,7 @@
 
     <!-- SCRIPTS PARA PRODUCCIÓN -->
     <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
-    <script src="./bundle.min.js?v=1770287969383" defer></script>
+    <script src="./bundle.min.js?v=1770288187373" defer></script>
 
     <!-- SCRIPTS PARA DESARROLLO -->
     <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->
