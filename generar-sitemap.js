@@ -24,7 +24,6 @@ async function generateSitemap() {
     { url: '/contacto.html', changefreq: 'monthly', priority: 0.9 },
     { url: '/sobre-mi.html', changefreq: 'monthly', priority: 0.8 },
     { url: '/politica-de-cookies.html', changefreq: 'yearly', priority: 0.5 },
-    { url: '/guia/', changefreq: 'monthly', priority: 0.9 },
   ];
 
   const stream = new SitemapStream({ hostname });
