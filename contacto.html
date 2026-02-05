@@ -9,7 +9,7 @@
       content="Contáctanos para impulsar tu negocio. Desarrollo web, SEO y automatizaciones. Agencia 100% online y global."
     />
     <link rel="canonical" href="https://nelsonlondono.es/contacto.html" />
-    <link href="./output.css?v=1770203641464" rel="stylesheet" />
+    <link href="./output.css?v=1770274088234" rel="stylesheet" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
@@ -105,30 +105,44 @@
                     </form>
                 </div>
                 
-                 <!-- Información Real de Contacto -->
-                 <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-gray-600 dark:text-gray-400 animate-fade-in-up delay-300">
-                    <div class="p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors">
-                        <i class="fas fa-map-marker-alt text-3xl mb-4 text-primary-green dark:text-primary-blue"></i>
-                        <h3 class="font-bold text-gray-900 dark:text-white mb-1">Ubicación</h3>
-                        <p>Fuente el Saz de Jarama,<br>Madrid, España</p>
-                    </div>
-                    <div class="p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors">
-                        <i class="fas fa-envelope text-3xl mb-4 text-primary-blue dark:text-primary-green"></i>
-                        <h3 class="font-bold text-gray-900 dark:text-white mb-1">Email</h3>
-                        <p>nelson@nelsonlondono.es</p>
-                    </div>
-                    <div class="p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors">
-                        <i class="fas fa-phone-alt text-3xl mb-4 text-primary-green dark:text-primary-blue"></i>
-                        <h3 class="font-bold text-gray-900 dark:text-white mb-1">Teléfono</h3>
-                        <p>+34 663 97 54 28</p>
-                    </div>
+
+                 <!-- Información Real de Contacto (Privacy Cards) -->
+                 <div class="mt-16 flex flex-col sm:flex-row justify-center gap-6 sm:gap-10 animate-fade-in-up delay-300 relative z-10">
+                    
+                    <!-- Tarjeta Email (Privada) -->
+                    <button id="reveal-email-btn" class="group relative flex flex-col items-center justify-center p-6 w-full sm:w-64 rounded-3xl bg-white/50 dark:bg-gray-800/40 backdrop-blur-md border border-gray-100 dark:border-gray-700 hover:border-primary-blue/50 dark:hover:border-primary-green/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary-blue/10 dark:hover:shadow-primary-green/10 transform hover:-translate-y-1">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary-blue/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        
+                        <div class="w-14 h-14 mb-4 rounded-full bg-white dark:bg-gray-700 shadow-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative z-10">
+                            <i class="fas fa-search text-xl text-primary-blue dark:text-primary-green group-hover:hidden"></i>
+                            <i class="fas fa-envelope-open text-xl text-primary-blue dark:text-primary-green hidden group-hover:block animate-pulse"></i>
+                        </div>
+                        
+                        <h3 class="font-bold text-gray-800 dark:text-white mb-1 relative z-10 group-hover:text-primary-blue dark:group-hover:text-primary-green transition-colors">Ver Email</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 relative z-10">Click para revelar</p>
+                    </button>
+
+                    <!-- Tarjeta Teléfono (Privada) -->
+                    <button id="reveal-phone-btn" class="group relative flex flex-col items-center justify-center p-6 w-full sm:w-64 rounded-3xl bg-white/50 dark:bg-gray-800/40 backdrop-blur-md border border-gray-100 dark:border-gray-700 hover:border-primary-green/50 dark:hover:border-primary-blue/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary-green/10 dark:hover:shadow-primary-blue/10 transform hover:-translate-y-1">
+                        <div class="absolute inset-0 bg-gradient-to-bl from-primary-green/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        
+                        <div class="w-14 h-14 mb-4 rounded-full bg-white dark:bg-gray-700 shadow-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative z-10">
+                            <i class="fas fa-lock text-xl text-primary-green dark:text-primary-blue group-hover:hidden"></i>
+                            <i class="fas fa-phone-alt text-xl text-primary-green dark:text-primary-blue hidden group-hover:block animate-tada"></i>
+                        </div>
+                        
+                        <h3 class="font-bold text-gray-800 dark:text-white mb-1 relative z-10 group-hover:text-primary-green dark:group-hover:text-primary-blue transition-colors">Ver Teléfono</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 relative z-10">Click para revelar</p>
+                    </button>
+                    
                 </div>
+
             </div>
         </section>
     </main>
 
     <div id="footer-placeholder"></div>
     <div data-component="chatbot"></div>
-    <script src="./bundle.min.js?v=1770203641464" defer></script>
+    <script src="./bundle.min.js?v=1770274088234" defer></script>
   </body>
 </html>

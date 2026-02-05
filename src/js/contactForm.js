@@ -83,46 +83,129 @@ export function initContactForm() {
   }
 }
 
-export function initContactReveal() {
-  const contactContainer = document.getElementById('contact-reveal-container');
-  if (!contactContainer) return;
 
+/**
+ * Abre un modal pequeño con efecto "glassmorphism" para mostrar datos sensibles.
+ * @param {string} title - Título del dato (ej: "Correo Electrónico")
+ * @param {string} value - El valor real (ej: email@dominio.com)
+ * @param {string} iconClass - Clase de FontAwesome
+ * @param {string} linkHref - Enlace para la acción principal (mailto: o tel:)
+ */
+function openPrivacyModal(title, value, iconClass, linkHref) {
+  // Crear overlay
+  const modalOverlay = document.createElement('div');
+  modalOverlay.className = 'fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in';
+
+  // Crear contenido del modal (Glassmorphism + Gradientes)
+  const modalContent = document.createElement('div');
+  modalContent.className = 'relative w-full max-w-sm bg-white/10 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300';
+  
+  // Efectos de fondo ("Wow effect")
+  modalContent.innerHTML = `
+    <!-- Decoración de fondo -->
+    <div class="absolute top-0 right-0 w-32 h-32 bg-primary-blue/20 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-primary-green/20 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
+
+    <div class="relative p-6 text-center">
+      <!-- Botón Cerrar -->
+      <button class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors close-btn">
+        <i class="fas fa-times text-lg"></i>
+      </button>
+
+      <!-- Icono Principal -->
+      <div class="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-inner mb-4 animate-float-up-down">
+        <i class="${iconClass} text-3xl text-white drop-shadow-lg"></i>
+      </div>
+
+      <!-- Título -->
+      <h3 class="text-lg font-medium text-gray-200 mb-1">${title}</h3>
+
+      <!-- Valor (Dato sensible) -->
+      <a href="${linkHref}" class="block text-xl font-bold text-white tracking-wide hover:text-primary-blue dark:hover:text-primary-green transition-colors mb-6 break-all">
+        ${value}
+      </a>
+
+      <!-- Botones de Acción -->
+      <div class="flex gap-3 justify-center">
+        <a href="${linkHref}" class="flex-1 bg-white/10 hover:bg-white/20 border border-white/10 text-white py-2 px-4 rounded-xl font-medium transition-all backdrop-blur-md flex items-center justify-center gap-2 group">
+          <i class="fas fa-external-link-alt group-hover:scale-110 transition-transform"></i> Abrir
+        </a>
+        <button class="flex-1 bg-gradient-to-r from-primary-blue to-primary-green hover:opacity-90 text-white py-2 px-4 rounded-xl font-bold shadow-lg shadow-primary-blue/20 transition-all active:scale-95 copy-btn flex items-center justify-center gap-2">
+          <i class="far fa-copy"></i> Copiar
+        </button>
+      </div>
+    </div>
+  `;
+
+  modalOverlay.appendChild(modalContent);
+  document.body.appendChild(modalOverlay);
+  // document.body.classList.add('overflow-hidden'); // Desactivado para evitar salto de layout (scrollbar shift)
+
+  // Animación de entrada
+  requestAnimationFrame(() => {
+    modalContent.classList.remove('scale-95', 'opacity-0');
+    modalContent.classList.add('scale-100', 'opacity-100');
+  });
+
+  // Lógica de cierre
+  const closeModal = () => {
+    modalContent.classList.remove('scale-100', 'opacity-100');
+    modalContent.classList.add('scale-95', 'opacity-0');
+    setTimeout(() => {
+      modalOverlay.remove();
+      // document.body.classList.remove('overflow-hidden'); // Desactivado
+    }, 300);
+  };
+
+  modalOverlay.querySelector('.close-btn').addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeModal();
+  });
+
+  // Lógica de Copiar
+  const copyBtn = modalContent.querySelector('.copy-btn');
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(value).then(() => {
+      const originalHTML = copyBtn.innerHTML;
+      copyBtn.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
+      copyBtn.classList.add('bg-green-500'); // Feedback visual
+      setTimeout(() => {
+        copyBtn.innerHTML = originalHTML;
+        copyBtn.classList.remove('bg-green-500');
+      }, 2000);
+    });
+  });
+}
+
+export function initContactReveal() {
   const revealEmailBtn = document.getElementById('reveal-email-btn');
   const revealPhoneBtn = document.getElementById('reveal-phone-btn');
 
-  const createLink = (href, iconClass, text) => `
-    <a href="${href}" class="text-primary-blue dark:text-primary-green font-semibold hover:underline flex items-center">
-        <i class="${iconClass} mr-2"></i>${text}
-    </a>`;
-
   if (revealEmailBtn) {
-    revealEmailBtn.addEventListener(
-      'click',
-      (e) => {
-        e.currentTarget.outerHTML = createLink(
-          `mailto:${CONFIG.CONTACT.EMAIL}`,
-          'fas fa-envelope',
-          CONFIG.CONTACT.EMAIL
-        );
-      },
-      { once: true }
-    );
+    revealEmailBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPrivacyModal(
+        'Correo Corporativo',
+        CONFIG.CONTACT.EMAIL,
+        'fas fa-envelope',
+        `mailto:${CONFIG.CONTACT.EMAIL}`
+      );
+    });
   }
 
   if (revealPhoneBtn) {
-    revealPhoneBtn.addEventListener(
-      'click',
-      (e) => {
-        e.currentTarget.outerHTML = createLink(
-          `tel:${CONFIG.CONTACT.PHONE}`,
-          'fas fa-phone',
-          CONFIG.CONTACT.PHONE_DISPLAY
-        );
-      },
-      { once: true }
-    );
+    revealPhoneBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPrivacyModal(
+        'Línea Directa',
+        CONFIG.CONTACT.PHONE_DISPLAY,
+        'fas fa-phone-alt', // Icono corregido
+        `tel:${CONFIG.CONTACT.PHONE}`
+      );
+    });
   }
 }
+
 
 /**
  * Abre un modal con el formulario de contacto.
