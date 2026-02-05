@@ -1,64 +1,41 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /
+RewriteEngine On
 
-    # ----------------------------------------------------------------------
-    # 1. FORZAR HTTPS
-    # ----------------------------------------------------------------------
-    RewriteCond %{HTTPS} off
-    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# 1. Force HTTPS
+# Si no es HTTPS, redirigir a HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    # ----------------------------------------------------------------------
-    # 2. REDIRECCIONES 301 LEGÍTIMAS (Solo contenido movido)
-    # ----------------------------------------------------------------------
-    # Portfolio -> Proyectos
-    RewriteRule ^portfolio\.html$ /proyectos.html [R=301,L]
-    # Blog antiguo -> Blog nuevo
-    RewriteRule ^blog/?$ /blog.html [R=301,L]
-    RewriteRule ^blog-single\.html$ /blog.html [R=301,L]
-    # Políticas -> Nueva política
-    RewriteRule ^politicas\.html$ /politica-de-cookies.html [R=301,L]
+# 2. Force non-WWW (Canonical domain: nelsonlondono.es)
+# Si empieza por www., redirigir a sin www
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://nelsonlondono.es/$1 [L,R=301]
 
-    # NOTA: Se han ELIMINADO las redirecciones de about, contact, etc. a la Home.
-    # Ahora darán un error 404 real hasta que crees esas páginas.
+# 3. Redirect /index.html to root /
+# Evitar contenido duplicado en la home
+RewriteRule ^index\.html$ / [R=301,L]
 
-    # ----------------------------------------------------------------------
-    # 3. ENRUTAMIENTO TRANSPARENTE A /DIST
-    # ----------------------------------------------------------------------
-    
-    # A) Si piden la raíz, servir dist/index.html
-    RewriteRule ^$ dist/index.html [L]
+# 4. Custom 404 Page declaration
+ErrorDocument 404 /404.html
 
-    # B) Si el archivo existe físicamente en la raíz (ej: robots.txt), SÍRVELO y para.
-    RewriteCond %{REQUEST_FILENAME} -f [OR]
-    RewriteCond %{REQUEST_FILENAME} -d
-    RewriteRule ^ - [L]
-
-    # C) Si NO está en raíz, buscar si existe dentro de /dist
-    # Verifica si el archivo solicitado existe dentro de la carpeta dist/
-    RewriteCond %{DOCUMENT_ROOT}/dist/$1 -f
-    RewriteRule ^(.+)$ dist/$1 [L]
-
-    # D) Si no existe ni en raíz ni en dist, Apache lanzará un 404 estándar.
-    # Definimos la página de error personalizada (que se buscará en dist/ gracias a la regla C)
-    ErrorDocument 404 /404.html
-
+# 5. Security Headers (Optional but Recommended for Hostinger/Apache)
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
 </IfModule>
 
-# ----------------------------------------------------------------------
-# 4. CACHÉ Y RENDIMIENTO
-# ----------------------------------------------------------------------
+# 6. Cache Control (Browser Caching for static assets)
 <IfModule mod_expires.c>
     ExpiresActive On
-    ExpiresByType image/jpg "access 1 year"
-    ExpiresByType image/jpeg "access 1 year"
-    ExpiresByType image/gif "access 1 year"
-    ExpiresByType image/png "access 1 year"
-    ExpiresByType image/webp "access 1 year"
-    ExpiresByType image/svg+xml "access 1 year"
-    ExpiresByType text/css "access 1 month"
-    ExpiresByType text/javascript "access 1 month"
-    ExpiresByType application/javascript "access 1 month"
-    ExpiresByType application/pdf "access 1 month"
-    ExpiresDefault "access 2 days"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType text/x-javascript "access plus 1 month"
+    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresDefault "access plus 2 days"
 </IfModule>

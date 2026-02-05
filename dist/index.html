@@ -29,15 +29,15 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="./fontawesome.min.css?v=1766821353192" 
+      href="./fontawesome.min.css?v=1770293182837" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="./fontawesome.min.css?v=1766821353192" />
+      <link rel="stylesheet" href="./fontawesome.min.css?v=1770293182837" />
     </noscript>
 
-    <link href="./output.css?v=1766821353192" rel="stylesheet" />
+    <link href="./output.css?v=1770293182837" rel="stylesheet" />
 
     <script type="application/ld+json">
     {
@@ -79,7 +79,58 @@
       ],
       "priceRange": "$$"
     }
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "¿Trabajáis con pequeñas empresas y autónomos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Aunque usamos tecnología avanzada, adaptamos nuestras soluciones para que sean accesibles. Creemos que la IA y el buen diseño deben ser para todos, no solo para grandes corporaciones."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿Qué os diferencia de una agencia de marketing tradicional?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La tecnología. No solo hacemos 'webs bonitas', creamos activos digitales que funcionan solos. Usamos Inteligencia Artificial para automatizar tareas, SEO técnico avanzado y código a medida para que tu negocio sea más eficiente y visible."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿Cuánto tardáis en entregar un proyecto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depende del alcance. Una web corporativa puede estar lista en 3-4 semanas. Proyectos más complejos con automatizaciones pueden llevar 6-8 semanas. Siempre trabajamos con hitos claros y plazos garantizados."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿Ofrecéis servicios de mantenimiento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. La tecnología evoluciona rápido. Ofrecemos planes de mantenimiento para asegurar que tu web, tu SEO y tus automatizaciones sigan funcionando al 100% mes tras mes."
+        }
+      }]
+    }
     </script>
+    <style>
+      /* Estilos específicos para el acordeón de FAQ */
+      details > summary {
+        list-style: none;
+      }
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+      details[open] summary ~ * {
+        animation: slideDown 0.3s ease-in-out;
+      }
+      @keyframes slideDown {
+        0% { opacity: 0; transform: translateY(-10px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+
 
   <body class=" ">
     <div id="nav-placeholder"></div>
@@ -88,7 +139,7 @@
       <section id="inicio-servicio" class="relative overflow-hidden">
         <!-- Estilos específicos del Hero migrados a input.css para mantener el HTML limpio -->
 
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center min-h-[60vh] sm:min-h-[80vh]">
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center min-h-[75vh]">
           
           <!-- Iconos Flotantes (Antes data-hero-icon-*) -->
           <i class="fas fa-arrow-trend-up absolute top-1/4 left-4 text-6xl lg:text-8xl transform -rotate-12 z-0 animate-float-up-down text-glow-green dark:text-glow-blue opacity-50 dark:opacity-30" aria-hidden="true"></i>
@@ -96,17 +147,26 @@
           <i class="fas fa-brain absolute top-1/2 left-1/3 text-5xl lg:text-7xl text-gray-400/50 dark:text-gray-500/30 transform z-0 animate-float-up-down" style="animation-duration: 10s" aria-hidden="true"></i>
 
           <div class="max-w-4xl relative z-10">
-            <div id="breadcrumbs-placeholder" class="mb-4 sm:mb-8"></div>
+
+            <!-- Badge de Oferta -->
+            <!-- Badge de Oferta -->
+            <a href="agencia-seo-local.html" class="inline-flex items-center px-4 py-1.5 rounded-full border border-primary-green/50 bg-green-50 dark:bg-green-900/20 text-primary-green dark:text-primary-green mb-6 transition-all duration-300 transform will-change-transform hover:-translate-y-1.5 hover:bg-green-100 dark:hover:bg-green-900/40 hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:border-primary-green cursor-pointer opacity-100 sm:opacity-0 sm:animate-fade-in group" style="animation-delay: 0.5s; animation-fill-mode: forwards;">
+              <span class="flex h-3 w-3 relative mr-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-green opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-primary-green"></span>
+              </span>
+              <span class="font-bold text-sm sm:text-base"> Oferta: SEO local 2 meses gratis &rarr;</span>
+            </a>
             
-            <h1 class="text-2xl sm:text-[26px] font-normal text-gray-900 dark:text-white opacity-0 animate-slide-in-right uppercase">
+            <h1 class="text-2xl sm:text-[26px] font-normal text-gray-900 dark:text-white opacity-100 sm:opacity-0 sm:animate-slide-in-right">
               Agencia de marketing en Fuente el Saz
             </h1>
             
-            <p class="mt-4 sm:mt-8 text-3xl sm:text-6xl font-extrabold text-gray-700 dark:text-gray-200 opacity-0 animate-slide-in-left text-left sm:text-center" style="animation-delay: 0.2s">
+            <p class="mt-4 sm:mt-8 text-3xl sm:text-6xl font-extrabold text-gray-700 dark:text-gray-200 opacity-100 sm:opacity-0 sm:animate-slide-in-left text-left sm:text-center" style="animation-delay: 0.2s">
               Transforma tu negocio con tecnología
             </p>
             
-            <p class="mt-6 sm:mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center" style="animation-delay: 0.4s">
+            <p class="mt-6 sm:mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-100 sm:opacity-0 sm:animate-scale-in-core text-left sm:text-center" style="animation-delay: 0.4s">
               Creamos webs de alto rendimiento, estrategias SEO y asistentes virtuales con IA para automatizar tus procesos y multiplicar tus resultados.
             </p>
           </div>
@@ -116,7 +176,7 @@
       <section id="servicios" class="py-20 sm:py-28">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
-            Nuestros Servicios Destacados
+            Nuestros servicios destacados
           </h2>
           <p class="section-subtitle text-base sm:text-lg">
             Soluciones digitales clave para impulsar tu negocio.
@@ -166,277 +226,101 @@
 
           <div class="text-center mt-12">
             <a href="proyectos.html" class="cta-button"
-              >Ver Todos Los Proyectos</a
+              >Ver todos los proyectos</a
             >
           </div>
         </div>
       </section>
 
-      <section id="sobre-mi" class="py-12 sm:py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
-            <div>
-              <h2
-                class="text-4xl sm:text-5xl font-bold text-gray-800 dark:text-white mb-6 scroll-animate-initial"
-              >
-                Conoce a Nelson Londoño
-              </h2>
-              <p
-                class="text-gray-600 dark:text-gray-300 text-lg mb-4 scroll-animate-initial"
-              >
-                Soy Nelson Londoño, un desarrollador de 43 años originario de
-                Colombia y afincado en Madrid. Mi pasión por la tecnología y el
-                desarrollo de software no es solo mi profesión, es mi vocación.
-              </p>
-              <p
-                class="text-gray-600 dark:text-gray-300 mb-4 scroll-animate-initial"
-              >
-                Con amplia experiencia en el sector, he fundado "Nelson Londoño"
-                con la misión de ofrecer soluciones digitales que no solo
-                cumplan, sino que superen las expectativas. Creemos en la
-                cercanía, la transparencia y en construir relaciones de
-                confianza a largo plazo con nuestros clientes.
-              </p>
-
-              <ul class="mt-6 space-y-5">
-                <li class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <i
-                      class="fas fa-user-tie text-primary-green dark:text-primary-blue fa-lg mr-4 mt-1"
-                    ></i>
-                  </div>
-                  <div>
-                    <h3 class="font-semibold text-gray-800 dark:text-white">
-                      Profesionalidad
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                      Compromiso total con la calidad, la comunicación
-                      transparente y la entrega puntual de cada proyecto.
-                    </p>
-                  </div>
-                </li>
-                <li class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <i
-                      class="fas fa-rocket text-primary-green dark:text-primary-blue fa-lg mr-4 mt-1"
-                    ></i>
-                  </div>
-                  <div>
-                    <h3 class="font-semibold text-gray-800 dark:text-white">
-                      Modernidad
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                      Uso de las últimas tecnologías y tendencias para crear
-                      soluciones digitales frescas e impactantes.
-                    </p>
-                  </div>
-                </li>
-                <li class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <i
-                      class="fas fa-puzzle-piece text-primary-green dark:text-primary-blue fa-lg mr-4 mt-1"
-                    ></i>
-                  </div>
-                  <div>
-                    <h3 class="font-semibold text-gray-800 dark:text-white">
-                      Adaptación
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                      Soluciones flexibles y a medida que evolucionan junto a
-                      las necesidades de tu negocio.
-                    </p>
-                  </div>
-                </li>
-              </ul>
-
-              <div class="mt-8 flex flex-col items-start gap-y-6">
-                <a href="#contacto" class="cta-button"
-                  >Hablemos de tu Proyecto</a
-                >
-                <div class="flex justify-start space-x-6">
-                  <a
-                    href="https://www.linkedin.com/in/nelson-londo%C3%B1o-dev/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Ver perfil de Nelson Londoño en LinkedIn"
-                    class="text-gray-500 dark:text-gray-400 hover:text-primary-blue dark:hover:text-primary-green transition-colors"
-                  >
-                    <i class="fab fa-linkedin fa-2x"></i>
-                  </a>
-                  <a
-                    href="https://github.com/nelsonlondonodev"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Ver perfil de Nelson Londoño en GitHub"
-                    class="text-gray-500 dark:text-gray-400 hover:text-primary-blue dark:hover:text-primary-green transition-colors"
-                  >
-                    <i class="fab fa-github fa-2x"></i>
-                  </a>
-                  <a
-                    href="https://www.tiktok.com/@soy_nelson_londono"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Ver perfil de Nelson Londoño en TikTok"
-                    class="text-gray-500 dark:text-gray-400 hover:text-primary-blue dark:hover:text-primary-green transition-colors"
-                  >
-                    <i class="fab fa-tiktok fa-2x"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div
-              class="mt-10 lg:mt-0 flex justify-center scroll-animate-initial"
-            >
-              <img
-                class="rounded-lg shadow-xl w-64 mx-auto lg:w-80"
-                src="./image/foto-nelson-londono.webp"
-                alt="Nelson Londoño, experto en SEO y desarrollo web en Fuente el Saz de Jarama"
-                loading="lazy"
-                decoding="async"
-                width="640"
-                height="640"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="testimonios" class="py-20 sm:py-28">
+      <section id="faq-home" class="py-12 sm:py-16 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
-            Lo que dicen nuestros clientes
+            Preguntas frecuentes
           </h2>
-          <p class="section-subtitle text-base sm:text-lg">
-            Nos enorgullece el impacto positivo de nuestro trabajo. Estas son
-            algunas de las experiencias de nuestros clientes.
+          <p class="section-subtitle text-base sm:text-lg scroll-animate-initial">
+            Todo lo que necesitas saber antes de empezar a trabajar con nosotros.
           </p>
-          <div id="testimonials-container" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <!-- Los testimonios se generarán aquí dinámicamente -->
+          <div class="mt-12 max-w-3xl mx-auto space-y-4">
+            <!-- FAQ Item 1 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Trabajáis con pequeñas empresas y autónomos?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                Sí. Aunque usamos tecnología avanzada, adaptamos nuestras soluciones para que sean accesibles. Creemos que la IA y el buen diseño deben ser para todos, no solo para grandes corporaciones.
+              </div>
+            </details>
+
+            <!-- FAQ Item 2 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Qué os diferencia de una agencia de marketing tradicional?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                La tecnología. No solo hacemos "webs bonitas", creamos activos digitales que funcionan solos. Usamos Inteligencia Artificial para automatizar tareas, SEO técnico avanzado y código a medida para que tu negocio sea más eficiente y visible.
+              </div>
+            </details>
+
+            <!-- FAQ Item 3 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Cuánto tardáis en entregar un proyecto?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                Depende del alcance. Una web corporativa puede estar lista en 3-4 semanas. Proyectos más complejos con automatizaciones pueden llevar 6-8 semanas. Siempre trabajamos con hitos claros y plazos garantizados.
+              </div>
+            </details>
+
+            <!-- FAQ Item 4 -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
+                  ¿Ofrecéis servicios de mantenimiento?
+                </h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-sm"></i>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                Sí. La tecnología evoluciona rápido. Ofrecemos planes de mantenimiento para asegurar que tu web, tu SEO y tus automatizaciones sigan funcionando al 100% mes tras mes.
+              </div>
+            </details>
           </div>
         </div>
       </section>
 
-      <section
-              id="contacto"
-              class="py-12 sm:py-16"
-          >        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
-            Contacta para tu proyecto web
-          </h2>
-          <p class="section-subtitle text-base sm:text-lg">
-            ¿Listo para iniciar tu próximo proyecto o tienes alguna pregunta?
-            Estamos aquí para ayudarte.
-          </p>
-          <div class="mt-12 max-w-3xl mx-auto">
-            <form
-              id="contact-form"
-              action="https://n8n.srv1033442.hstgr.cloud/webhook/webhook-formulario-web"
-              method="POST"
-              class="grid grid-cols-1 gap-y-6"
-            >
-              <!-- Campo Nombre -->
-              <div class="relative scroll-animate-initial">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  autocomplete="name"
-                  class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green dark:focus:shadow-[0_0_8px_theme('colors.primary-green')]"
-                  placeholder="Nombre"
-                  required
-                />
-                <label
-                  for="name"
-                  class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-                  >Nombre</label
-                >
-              </div>
-              <!-- Campo Email -->
-              <div class="relative scroll-animate-initial delay-100">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autocomplete="email"
-                  class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green dark:focus:shadow-[0_0_8px_theme('colors.primary-green')]"
-                  placeholder="Email"
-                  required
-                />
-                <label
-                  for="email"
-                  class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-                  >Email</label
-                >
-              </div>
-              <!-- Campo Teléfono -->
-              <div class="relative scroll-animate-initial delay-200">
-                <input
-                  type="tel"
-                  name="phone"
-                  id="phone"
-                  autocomplete="tel"
-                  class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green dark:focus:shadow-[0_0_8px_theme('colors.primary-green')]"
-                  placeholder="Teléfono"
-                />
-                <label
-                  for="phone"
-                  class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-                  >Teléfono</label
-                >
-              </div>
-              <!-- Campo Mensaje -->
-              <div class="relative scroll-animate-initial delay-300">
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  class="peer block w-full appearance-none rounded-md border border-gray-300 bg-transparent px-4 py-3 text-gray-900 placeholder-transparent transition-colors duration-300 focus:border-primary-blue focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-primary-green dark:focus:shadow-[0_0_8px_theme('colors.primary-green')]"
-                  placeholder="Mensaje"
-                  required
-                ></textarea>
-                <label
-                  for="message"
-                  class="pointer-events-none absolute left-4 top-3 origin-[0_0] -translate-y-6 scale-75 text-sm text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-                  >Mensaje</label
-                >
-              </div>
-              <!-- Botón Enviar -->
-              <div class="text-center scroll-animate-initial delay-400">
-                <button type="submit" class="cta-button w-full sm:w-auto">
-                  Enviar Mensaje
-                </button>
-              </div>
-              <!-- Status del Formulario -->
-              <div
-                id="form-status"
-                class="text-center font-semibold mt-4"
-              ></div>
-            </form>
-            <div class="mt-10 text-center">
-              <p class="text-lg text-gray-600 dark:text-gray-300">
-                O si lo prefieres:
-              </p>
-              <div
-                id="contact-reveal-container"
-                class="mt-4 flex flex-col sm:flex-row items-center justify-center gap-4"
-              >
-                <button id="reveal-email-btn" class="contact-reveal-button">
-                  <i class="fas fa-envelope mr-2"></i>
-                  <span>Mostrar Email</span>
-                </button>
-                <button id="reveal-phone-btn" class="contact-reveal-button">
-                  <i class="fas fa-phone mr-2"></i>
-                  <span>Mostrar Teléfono</span>
-                </button>
-              </div>
-              <p class="mt-4 text-gray-600 dark:text-gray-300">
-                <i
-                  class="fas fa-map-marker-alt mr-2 text-primary-blue dark:text-primary-green"
-                ></i>
-                Madrid, España
-              </p>
+      <!-- CTA Final de Navegación -->
+      <section class="py-20 bg-transparent border-t border-gray-200 dark:border-white/10">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-6 text-gray-900 dark:text-white scroll-animate-initial">
+                Tu socio en crecimiento digital
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto scroll-animate-initial delay-100">
+                Hemos ayudado a negocios como el tuyo a escalar. Ahora es tu turno. Descubre quiénes somos o agenda una consulta gratuita.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center scroll-animate-initial delay-200">
+                <a href="contacto.html" class="cta-button shadow-xl hover:scale-105 transition-transform inline-flex items-center justify-center">
+                    Contactar ahora
+                </a>
+                <a href="sobre-mi.html" class="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-900 dark:border-white bg-white dark:bg-gray-800 text-base font-bold rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors shadow-sm">
+                    Conoce nuestra historia
+                </a>
             </div>
-          </div>
         </div>
       </section>
     </main>
@@ -616,7 +500,7 @@
           <h3
             class="text-2xl font-bold text-primary-blue dark:text-primary-green"
           >
-            Tour virtual 360 - Locutorio el Pilón
+            Tour virtual 360 - Locutorio El Pilón
           </h3>
           <button
             id="close-modal-locutorio"
@@ -692,7 +576,7 @@
           <h3
             class="text-2xl font-bold text-primary-blue dark:text-primary-green"
           >
-            Tour virtual 360 - piso en Madrid
+            Tour virtual 360 - Piso en Madrid
           </h3>
           <button
             id="close-modal-kuula"
@@ -722,7 +606,7 @@
 
     <!-- SCRIPTS PARA PRODUCCIÓN -->
     <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
-    <script src="./bundle.min.js?v=1766821353192" defer></script>
+    <script src="./bundle.min.js?v=1770293182837" defer></script>
 
     <!-- SCRIPTS PARA DESARROLLO -->
     <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->
