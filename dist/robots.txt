@@ -1,8 +1,0 @@
-# Permitir a todos los bots rastrear el sitio completo.
-User-agent: *
-Allow: /
-Disallow: /guia/
-Disallow: /_template-articulo.html
-
-# Ubicación del Sitemap
-Sitemap: https://nelsonlondono.es/sitemap.xml
