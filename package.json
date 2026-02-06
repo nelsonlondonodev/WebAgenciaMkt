@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "copy:assets": "cp node_modules/@fortawesome/fontawesome-free/css/all.min.css ./fontawesome.min.css && rm -rf webfonts && cp -r node_modules/@fortawesome/fontawesome-free/webfonts ./",
+    "copy:assets": "cp node_modules/@fortawesome/fontawesome-free/css/all.min.css ./fontawesome.min.css && sed -i '' 's|../webfonts|webfonts|g' ./fontawesome.min.css && rm -rf webfonts && cp -r node_modules/@fortawesome/fontawesome-free/webfonts ./",
     "watch:css": "postcss ./src/input.css -o output.css --watch",
     "watch:js": "esbuild src/js/script.js --bundle --outfile=bundle.min.js --watch",
     "dev": "npm run copy:assets && concurrently \"npm run watch:css\" \"npm run watch:js\"",
