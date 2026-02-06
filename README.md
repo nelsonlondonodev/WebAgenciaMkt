@@ -112,59 +112,40 @@ Para mantener la integridad del despliegue y el SEO, sigue estas reglas estricta
 
 ---
 
-## 🚀 Entorno de Desarrollo
+## 🚦 Flujos de Trabajo (Guía Simplificada)
 
-### 1. Instalación
-```bash
-git clone https://github.com/nelsonlondonodev/nelson-agencia-web.git
-cd nelson-agencia-web
-npm install
-```
+### A. Para Desarrollar (Mientras trabajas)
+Usa este comando para ver tus cambios mientras programas. "Vigila" tus archivos y actualiza el CSS automáticamente.
 
-### 2. Desarrollo (Watch Mode)
-Inicia los observadores de cambios para CSS y JS en paralelo:
 ```bash
 npm run dev
 ```
-*Recomendación: Usar un servidor local como `http-server` en otra terminal para ver los cambios.*
 
-### 3. Construcción para Producción
-Genera los archivos optimizados (`bundle.min.js`, `output.css`, etc.) en la raíz:
-```bash
-npm run build
-```
+### B. Para Producción (Cuando termines)
+Este es el **ÚNICO** proceso que debes seguir para subir tu web a internet.
 
-### Previsualizar
-Simplemente abre el archivo `index.html` en tu navegador o usa un servidor local en la raíz:
-```bash
-npx http-server .
-```
+1.  **Construir (Build):**
+    Prepara tu web para salir al mundo. Optimiza imágenes, compacta el código y arregla los iconos.
+    ```bash
+    npm run build
+    ```
 
----
+2.  **Desplegar (Git Push):**
+    Envía los archivos preparados a Hostinger.
+    ```bash
+    git add .
+    git commit -m "Descripción de lo que hiciste"
+    git push
+    ```
 
-## ⚙️ Configuración Global
-
-Para cambiar variables clave del proyecto, edita **`src/js/config.js`**:
-
-```javascript
-export const CONFIG = {
-  CHATBOT: { WEBHOOK_URL: '...', ... },
-  ANALYTICS: { GA_MEASUREMENT_ID: '...', ... },
-  CONTACT: { EMAIL: '...', PHONE: '...' },
-  // ...
-};
-```
-Cualquier cambio aquí se reflejará automáticamente en todo el sitio (Chatbot, botones de contacto, Analytics, etc.).
+**¡Y listo!** Hostinger se encarga del resto. No necesitas tocar carpetas ni mover archivos manualmente.
 
 ---
 
-## 📜 Scripts de NPM
+## 📜 Diccionario de Comandos
 
--   `npm run dev`: Desarrollo (watch CSS & JS).
--   `npm run build`: **Build final para despliegue en Raíz.** (Incluye corrección de rutas FontAwesome, minificación y cache-busting).
--   `npm run format`: Formatear código con Prettier.
--   `npm run format:check`: Verificar formato.
--   `npm run sitemap`: Generar mapa del sitio manualmente.
+-   `npm run dev`: **Modo Creador.** Úsalo cuando estés diseñando o escribiendo código.
+-   `npm run build`: **Modo Fábrica.** Empaqueta todo para que esté listo para el público. Ejecútalo SIEMPRE antes de hacer `git push`.
 
 ---
 
