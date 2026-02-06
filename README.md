@@ -65,13 +65,14 @@ Se ha implementado una estrategia de captación de leads (Landing Page) diseñad
 
 Para mantener la integridad del despliegue y el SEO, sigue estas reglas estrictas:
 
-### 1. La Carpeta `/dist` es Sagrada (Read-Only)
--   **NUNCA edites archivos dentro de `/dist` directamente.**
--   Esta carpeta se borra y regenera automáticamente en cada despliegue.
+### 1. Despliegue en Raíz (Producción)
+-   **Este proyecto se despliega directamente desde la RAÍZ.**
+-   Hostinger sirve los archivos desde `public_html`.
+-   **La carpeta `/dist` NO se utiliza** para producción en este entorno (es un remanente legacy).
 -   **Flujo de Trabajo Correcto:**
-    1.  Edita el archivo original en la raíz (ej: `blog.html`) o en `src/`.
-    2.  Ejecuta `npm run build:dist`.
-    3.  Verifica los cambios en `/dist`.
+    1.  Edita el archivo original (ej: `blog.html`) o en `src/`.
+    2.  Ejecuta `npm run build` (esto actualiza los assets en la raíz).
+    3.  Sube/Empuja los cambios a la raíz de tu repositorio o hosting.
 
 ### 2. URLs Canónicas
 -   Las etiquetas `<link rel="canonical" ...>` deben apuntar siempre al archivo final con extensión (ej: `https://nelsonlondono.es/blog.html`).
@@ -93,8 +94,9 @@ Para mantener la integridad del despliegue y el SEO, sigue estas reglas estricta
     -   `config.js`: **[IMPORTANTE]** Archivo central de configuración (URLs, IDs, Contacto).
     -   `componentLoader.js`: Sistema de inyección dinámica de HTML.
     -   `contactForm.js`, `cookieConsent.js`, `chatbot.js`, etc.: Módulos de funcionalidad específica.
--   **`components/`**: Fragmentos HTML reutilizables (Navbar, Footer, Modales).
--   **`dist/`**: Directorio generado automáticamente para despliegue en producción.
+-   **`components/`**: Fragmentos HTML reutilizables (Navbar, Footer, Modales) esenciales para producción.
+-   **`output.css`**: Archivo CSS compilado final.
+-   **`bundle.min.js`**: Archivo JS empaquetado final.
 -   **`_template-articulo.html`**: Base limpia para crear nuevos contenidos en el blog.
 -   **`image/`**: Todas las imágenes utilizadas en el sitio web.
 
@@ -127,15 +129,15 @@ npm run dev
 *Recomendación: Usar un servidor local como `http-server` en otra terminal para ver los cambios.*
 
 ### 3. Construcción para Producción
-Genera la carpeta `dist/` con todos los archivos optimizados:
+Genera los archivos optimizados (`bundle.min.js`, `output.css`, etc.) en la raíz:
 ```bash
-npm run build:dist
+npm run build
 ```
 
-### Previsualizar la Versión de Producción
-Para asegurarte de que todo funciona como se espera antes de subirlo, puedes previsualizar el contenido de la carpeta `dist`:
+### Previsualizar
+Simplemente abre el archivo `index.html` en tu navegador o usa un servidor local en la raíz:
 ```bash
-npx http-server dist
+npx http-server .
 ```
 
 ---
@@ -159,7 +161,7 @@ Cualquier cambio aquí se reflejará automáticamente en todo el sitio (Chatbot,
 ## 📜 Scripts de NPM
 
 -   `npm run dev`: Desarrollo (watch CSS & JS).
--   `npm run build:dist`: **Build final para despliegue.** (Incluye minificación y cache-busting).
+-   `npm run build`: **Build final para despliegue en Raíz.** (Incluye corrección de rutas FontAwesome, minificación y cache-busting).
 -   `npm run format`: Formatear código con Prettier.
 -   `npm run format:check`: Verificar formato.
 -   `npm run sitemap`: Generar mapa del sitio manualmente.
