@@ -1,7 +1,8 @@
 # Permitir a todos los bots rastrear el sitio completo.
 User-agent: *
 Allow: /
-Disallow: /guia/
+Disallow: /guia/Jardinería_Digital_SEO_Local_2026.pdf
+Disallow: /guia/guia-n8n.pdf
 Disallow: /_template-articulo.html
 
 # Ubicación del Sitemap
