@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Guía de SEO Local - Nelson Londoño</title>
+    <!-- El título del documento será el nombre sugerido al guardar como PDF -->
+    <title>Jardinería_Digital_SEO_Local_2026</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -12,11 +13,12 @@
         theme: {
           extend: {
             colors: {
-              primary: '#0f172a', // Slate 900
-              secondary: '#334155', // Slate 700
-              accent: '#3b82f6', // Blue 500 (SEO/Google Blue)
-              accentDark: '#1d4ed8', // Blue 700
-              light: '#f8fafc', // Slate 50
+              brand: {
+                dark: '#022c22', // Emerald 950
+                primary: '#059669', // Emerald 600
+                light: '#d1fae5', // Emerald 100
+                accent: '#f59e0b', // Amber 500
+              },
             },
             fontFamily: {
               montserrat: ['Montserrat', 'sans-serif'],
@@ -30,8 +32,10 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <!-- Scripts de Iconos -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-      /* Estilos específicos para impresión */
+      /* Estilos específicos para impresión (A4) */
       @page {
         size: A4;
         margin: 0;
@@ -46,15 +50,8 @@
           print-color-adjust: exact !important;
         }
         
-        .no-print {
-          display: none !important;
-        }
-
-        .page-break {
-          break-after: page;
-          page-break-after: always;
-        }
-        
+        .no-print { display: none !important; }
+        .page-break { break-after: page; page-break-after: always; }
         .a4-page {
           height: 297mm;
           width: 210mm;
@@ -62,17 +59,14 @@
           page-break-inside: avoid;
         }
 
-        /* FIX CRÍTICO: Evitar rectángulos negros/coloreados sobre texto gradiente en PDF */
+        /* Fuerza la renderización de gradientes de texto */
         .print-solid-text {
-          background: none !important;
-          background-clip: border-box !important;
           -webkit-background-clip: border-box !important;
-          -webkit-text-fill-color: #3b82f6 !important; /* Color accent */
-          color: #3b82f6 !important;
+          -webkit-text-fill-color: #059669 !important;
+          color: #059669 !important;
         }
       }
 
-      /* Estilos para visualización en pantalla */
       body {
         background-color: #e2e8f0;
         font-family: 'Open Sans', sans-serif;
@@ -85,21 +79,23 @@
         background: white;
         position: relative;
         box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
       }
       
-      h1, h2, h3, h4 {
-        font-family: 'Montserrat', sans-serif;
-      }
+      h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
     </style>
   </head>
   <body>
-    <!-- Barra de herramientas (No se imprime) -->
-    <div class="no-print fixed top-0 left-0 right-0 z-50 bg-primary text-white p-4 shadow-xl flex justify-between items-center">
-      <div class="font-bold tracking-wider">NELSON LONDOÑO | AGENCIA</div>
+    <!-- Barra Superior Flotante -->
+    <div class="no-print fixed top-0 left-0 right-0 z-50 bg-brand-dark text-white p-4 shadow-xl flex justify-between items-center">
+      <div class="font-bold tracking-wider flex items-center gap-2">
+        <i data-lucide="sprout" class="text-brand-primary"></i>
+        <span>NELSON LONDOÑO | JARDINERÍA DIGITAL</span>
+      </div>
       <div class="flex items-center gap-4">
-        <p class="text-sm text-slate-300 hidden sm:block">Para guardar: Presiona <kbd class="bg-slate-700 px-2 py-1 rounded">Ctrl + P</kbd></p>
-        <button onclick="window.print()" class="bg-accent hover:bg-accentDark text-white font-bold py-2 px-6 rounded-full transition-colors shadow-lg border-2 border-transparent hover:border-white">
-          DESCARGAR PDF
+        <p class="text-sm text-slate-300 hidden sm:block">Guárdalo como PDF: <kbd class="bg-white/10 px-2 py-1 rounded">Ctrl + P</kbd></p>
+        <button onclick="window.print()" class="bg-brand-primary hover:bg-emerald-500 text-white font-bold py-2 px-6 rounded-full transition-colors shadow-lg border-2 border-transparent">
+          DESCARGAR GUÍA
         </button>
       </div>
     </div>
@@ -109,188 +105,363 @@
     <main>
       
       <!-- PÁGINA 1: PORTADA -->
-      <article class="a4-page page-break relative flex flex-col items-center justify-center bg-primary text-white text-center p-16">
-        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#ffffff 2px, transparent 2px); background-size: 40px 40px;"></div>
+      <article class="a4-page page-break relative flex flex-col items-center justify-center bg-brand-dark text-white text-center p-12">
+        <!-- Decoración de fondo -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#10b981 1px, transparent 1px); background-size: 30px 30px;"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-primary rounded-full blur-[100px] opacity-20 translate-x-1/3 -translate-y-1/3"></div>
         
-        <div class="relative z-10 w-full max-w-2xl">
-          <div class="bg-accent text-white px-8 py-3 font-black tracking-[0.3em] uppercase mb-12 inline-block transform -rotate-2 shadow-lg">
+        <div class="relative z-10 w-full max-w-2xl border-4 border-white/10 p-12 rounded-[3rem]">
+          <div class="bg-brand-primary text-white px-6 py-2 font-black tracking-[0.3em] uppercase mb-8 inline-block rounded-full text-xs">
             GUÍA PRÁCTICA 2026
           </div>
           
-          <h1 class="text-6xl font-black leading-tight mb-8">
-            DOMINA TU<br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-cyan-300 print-solid-text">CIUDAD</span>
+          <h1 class="text-6xl font-black leading-tight mb-2">
+            JARDINERÍA<br>
+            <span class="text-brand-primary">DIGITAL</span>
           </h1>
           
-          <div class="w-32 h-2 bg-accent mx-auto mb-10 rounded-full"></div>
-
-          <p class="text-2xl font-light text-slate-300 mb-16 leading-relaxed">
-            Estrategia de <strong class="text-white">SEO Local</strong> para que los clientes de tu barrio te encuentren a ti primero.
-          </p>
+          <p class="text-xl tracking-[0.5em] font-light text-slate-400 uppercase mb-12">SEO LOCAL PARA NO EXPERTOS</p>
           
-          <div class="flex items-center justify-center gap-6 mt-10 bg-slate-800/50 p-6 rounded-2xl backdrop-blur-sm border border-slate-700">
-            <img src="../image/foto-nelson-londono.webp" alt="Nelson Londoño" class="w-24 h-24 rounded-full border-4 border-accent object-cover shadow-2xl">
-            <div class="text-left">
-              <h3 class="text-xl font-bold uppercase text-white">Por Nelson Londoño</h3>
-              <p class="text-accent font-bold text-sm tracking-widest">TU EXPERTO LOCAL</p>
-              <p class="text-slate-400 text-xs mt-1">@soy_nelson_londono</p>
-            </div>
+          <div class="flex justify-center mb-12">
+             <div class="relative w-40 h-40 flex items-center justify-center bg-brand-primary/10 rounded-full border border-brand-primary/30">
+                <i data-lucide="sprout" class="w-20 h-20 text-brand-primary"></i>
+             </div>
           </div>
+
+          <p class="text-xl font-light text-slate-300 mb-8 leading-relaxed max-w-lg mx-auto">
+            Cómo cultivar tu ficha de Google Maps para recoger una cosecha de clientes nuevos cada mes.
+          </p>
         </div>
 
-        <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between text-xs font-bold text-slate-500 uppercase tracking-widest border-t border-slate-800 pt-6 mx-16">
+        <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between items-center text-xs font-bold text-slate-500 uppercase tracking-widest border-t border-white/5 pt-6 mx-16">
+          <div class="flex items-center gap-2">
+             <img src="../image/foto-nelson-londono.webp" alt="Nelson" class="w-8 h-8 rounded-full grayscale opacity-50">
+             <span>Por Nelson Londoño</span>
+          </div>
           <span>www.nelsonlondono.es</span>
-          <span>TikTok: @soy_nelson_londono</span>
         </footer>
       </article>
 
-      <!-- PÁGINA 2: INTRODUCCIÓN -->
-      <article class="a4-page page-break relative p-16 flex flex-col bg-white">
-        <header class="flex justify-between items-end border-b-4 border-accent pb-6 mb-12">
-          <h2 class="text-5xl font-black text-primary">01. EL MAPA</h2>
-          <span class="text-4xl text-slate-300 font-black uppercase tracking-wider opacity-60">CONTEXTO</span>
+      <!-- PÁGINA 2: LA ANALOGÍA -->
+      <article class="a4-page page-break relative p-12 flex flex-col bg-white">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-light rounded-bl-[100px] opacity-50"></div>
+        
+        <header class="relative mb-12">
+          <h2 class="text-5xl font-black text-brand-dark mb-4">EL ECOSISTEMA</h2>
+          <div class="w-20 h-2 bg-brand-primary rounded-full"></div>
         </header>
         
-        <div class="relative z-10 space-y-8 text-lg text-secondary leading-relaxed">
-          <p class="font-bold text-2xl text-primary uppercase tracking-tight">
-            "¿Por qué mi vecino vende más?"
+        <div class="flex-grow space-y-8 text-lg text-slate-600 leading-relaxed">
+          <p class="text-2xl font-bold text-brand-dark">Tu negocio en internet es un organismo vivo.</p>
+          
+          <p>
+            Muchos dueños de negocio tratan su ficha de Google como una "tarjeta de visita": la imprimen una vez y la olvidan en un cajón. <strong class="text-brand-primary">Error.</strong>
           </p>
           <p>
-            La respuesta corta: Porque cuando alguien saca el móvil y busca tu servicio, <strong>él aparece y tú no</strong>.
-          </p>
-          <p>
-            Google Maps se ha convertido en las nuevas "Páginas Amarillas". El 80% de las personas que buscan un servicio local (fontanero, dentista, panadería) visitan el negocio en las siguientes 24 horas.
+            Google Maps es un <strong>Jardín</strong>. Si no lo riegas, se seca. Si no lo abonas, no crece. Y si no quitas las malas hierbas, nadie querrá entrar.
           </p>
           
-          <div class="bg-blue-50 border-l-8 border-accent p-8 my-8 shadow-sm">
-            <p class="text-xl font-bold text-primary italic mb-2">
-              "Si no estás en el mapa, no existes."
-            </p>
-            <p class="text-sm text-slate-600">
-              Literalmente. Hoy en día, la confianza empieza por una búsqueda en el móvil.
-            </p>
+          <div class="grid grid-cols-2 gap-6 mt-8">
+            <div class="bg-brand-light p-6 rounded-2xl border border-brand-primary/20">
+              <div class="flex items-center gap-3 mb-2 text-brand-dark font-black uppercase">
+                 <i data-lucide="flower-2" class="text-brand-primary"></i>
+                 <span>Jardín Cuidado</span>
+              </div>
+              <p class="text-sm">Atrae miradas. La gente se para a verlo. Invita a entrar. <br><strong>= CLIENTES</strong></p>
+            </div>
+            <div class="bg-slate-100 p-6 rounded-2xl border border-slate-200 opacity-70">
+              <div class="flex items-center gap-3 mb-2 text-slate-500 font-black uppercase">
+                 <i data-lucide="skull" class="text-slate-400"></i>
+                 <span>Jardín Seco</span>
+              </div>
+              <p class="text-sm">Da sensación de abandono. "¿Seguirá abierto?". Genera desconfianza. <br><strong>= PÉRDIDAS</strong></p>
+            </div>
           </div>
-
-          <h3 class="text-2xl font-black text-primary uppercase mt-10 mb-4">La Buena Noticia</h3>
-          <p>
-            La mayoría de tus competidores <strong>NO saben esto</strong>. Tienen sus fichas abandonadas, sin fotos y sin reseñas. 
-          </p>
-          <p>
-            Con solo dedicarle 15 minutos a la semana, puedes superarlos y llevarte la mayor parte del pastel. En esta guía te explico cómo.
-          </p>
+          
+          <div class="flex items-center gap-4 bg-amber-50 p-6 rounded-xl border border-amber-100 mt-8">
+             <i data-lucide="sun" class="w-10 h-10 text-amber-500 flex-shrink-0"></i>
+             <p class="text-amber-800 text-sm font-semibold">
+                EL SOL DE ESTE JARDÍN ES GOOGLE. <br>
+                Él decide a quién ilumina. Si tu jardín está bonito, Google te mandará más luz (tráfico).
+             </p>
+          </div>
         </div>
 
         <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
-          <span>TikTok: @soy_nelson_londono</span>
           <span>Página 02</span>
+          <span>Nelson Londoño | Agencia</span>
         </footer>
       </article>
 
-      <!-- PÁGINA 3: LOS 3 PILARES -->
-      <article class="a4-page page-break relative p-16 flex flex-col bg-white">
-        <header class="flex justify-between items-end border-b-4 border-accent pb-6 mb-12">
-          <h2 class="text-5xl font-black text-primary">02. LA ESTRATEGIA</h2>
-          <span class="text-4xl text-slate-300 font-black uppercase tracking-wider opacity-60">CLAVES</span>
+      <!-- PÁGINA 3: PREPARAR EL TERRENO -->
+      <article class="a4-page page-break relative p-12 flex flex-col bg-white">
+        <header class="flex justify-between items-start mb-12 border-b-2 border-brand-light pb-6">
+          <div>
+            <span class="text-emerald-500 font-black tracking-widest uppercase text-sm">FASE 1</span>
+            <h2 class="text-4xl font-black text-brand-dark mt-2">LA SIEMBRA</h2>
+          </div>
+          <i data-lucide="shovel" class="w-16 h-16 text-brand-primary opacity-20"></i>
         </header>
+
+        <div class="space-y-10">
+           <!-- Step 1 -->
+           <div class="flex gap-6">
+              <div class="w-12 h-12 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xl flex-shrink-0">1</div>
+              <div>
+                 <h3 class="text-xl font-bold text-brand-dark mb-2">Reclama tu Terreno</h3>
+                 <p class="text-slate-600">No puedes plantar en tierra de nadie. Busca tu negocio en Google Maps. Si dice "¿Eres propietario de esta empresa?", es que tu tierra está baldía. Reclámala ya.</p>
+              </div>
+           </div>
+
+           <!-- Step 2 -->
+           <div class="flex gap-6">
+              <div class="w-12 h-12 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xl flex-shrink-0">2</div>
+              <div>
+                 <h3 class="text-xl font-bold text-brand-dark mb-2">El Cartel de Entrada (NAP)</h3>
+                 <p class="text-slate-600">
+                    <strong>N</strong>ame (Nombre), <strong>A</strong>ddress (Dirección), <strong>P</strong>hone (Teléfono).
+                    <br><br>
+                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm font-bold">REGLA DE ORO:</span>
+                    Debe ser IDÉNTICO en todas partes (Facebook, Instagram, Web). Si en un sitio eres "Bar Pepe" y en otro "Pepe Restaurante", Google se confunde y no te recomienda.
+                 </p>
+              </div>
+           </div>
+
+           <!-- Step 3 -->
+           <div class="flex gap-6">
+              <div class="w-12 h-12 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xl flex-shrink-0">3</div>
+              <div>
+                 <h3 class="text-xl font-bold text-brand-dark mb-2">La Categoría Principal</h3>
+                 <p class="text-slate-600">
+                    Es la semilla que defines. No intentes ser todo.
+                    <br>
+                    <em>Mal:</em> "Reformas y Fontanería y Electricidad y Venta de Pan".
+                    <br>
+                    <em>Bien:</em> "Fontanero". (Luego añades servicios secundarios).
+                 </p>
+              </div>
+           </div>
+        </div>
         
-        <p class="text-lg text-secondary mb-10">
-          Google decide quién aparece primero basándose en 3 pilares fundamentales. Ignora uno y perderás posiciones.
+        <div class="mt-auto bg-brand-dark text-white p-6 rounded-xl flex items-center gap-4">
+           <i data-lucide="corner-down-right" class="text-brand-primary"></i>
+           <p class="font-medium text-sm">ACCIÓN: Entra hoy mismo a tu Perfil de Negocio y verifica que el nombre sea exactamente el que tienes en el rótulo de tu tienda.</p>
+        </div>
+        
+        <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <span>Página 03</span>
+          <span>Nelson Londoño | Agencia</span>
+        </footer>
+      </article>
+
+      <!-- PÁGINA 4: EL RIEGO -->
+      <article class="a4-page page-break relative p-12 flex flex-col bg-white">
+        <header class="flex justify-between items-start mb-12 border-b-2 border-blue-100 pb-6">
+          <div>
+            <span class="text-blue-500 font-black tracking-widest uppercase text-sm">FASE 2</span>
+            <h2 class="text-4xl font-black text-brand-dark mt-2">EL RIEGO (AGUA)</h2>
+          </div>
+          <i data-lucide="droplets" class="w-16 h-16 text-blue-500 opacity-20"></i>
+        </header>
+
+        <p class="text-xl text-slate-700 font-medium mb-8">
+           El agua de tu negocio son las <span class="text-blue-600 font-black">RESEÑAS</span>.
+        </p>
+
+        <div class="grid grid-cols-2 gap-8 mb-12">
+            <div class="bg-blue-50 p-6 rounded-xl">
+               <h3 class="font-bold text-blue-900 mb-2">Riego Constante</h3>
+               <p class="text-sm text-blue-800">Mejor 1 reseña a la semana durante un año, que 50 reseñas en un solo día (Google pensará que son falsas/compradas).</p>
+            </div>
+            <div class="bg-blue-50 p-6 rounded-xl">
+               <h3 class="font-bold text-blue-900 mb-2">Riego de Calidad</h3>
+               <p class="text-sm text-blue-800">Una reseña con foto y texto largo nutre mucho más que solo 5 estrellas vacías.</p>
+            </div>
+        </div>
+
+        <h3 class="text-2xl font-black text-brand-dark mb-6">CÓMO RESPONDER (Manual para Jardineros)</h3>
+        
+        <div class="space-y-4">
+           <!-- Good Review -->
+           <div class="border-l-4 border-emerald-500 pl-4 py-2">
+              <p class="text-xs font-bold text-emerald-600 uppercase mb-1">Reseña Positiva (El fruto)</p>
+              <p class="text-slate-600 italic mb-2">"Me encantó el servicio."</p>
+              <p class="text-sm text-slate-800 bg-slate-100 p-3 rounded">
+                 <strong>Tu respuesta:</strong> "¡Gracias María! Nos alegra que te gustara nuestro <span class="text-brand-primary font-bold">[Servicio Clave]</span>. Esperamos verte pronto en <span class="text-brand-primary font-bold">[Tu Ciudad]</span>."
+                 <br>
+                 <span class="text-xs text-slate-500 mt-1 block">💡 Truco: Repite tus palabras clave y ciudad en la respuesta.</span>
+              </p>
+           </div>
+           
+           <!-- Bad Review -->
+           <div class="border-l-4 border-red-500 pl-4 py-2">
+              <p class="text-xs font-bold text-red-600 uppercase mb-1">Reseña Negativa (Plaga)</p>
+              <p class="text-slate-600 italic mb-2">"Muy lentos. Fatal."</p>
+              <p class="text-sm text-slate-800 bg-slate-100 p-3 rounded">
+                 <strong>Tu respuesta:</strong> "Hola Juan, lamentamos tu experiencia. Queremos solucionarlo. Por favor contáctanos al [Teléfono]." 
+                 <br>
+                 <span class="text-xs text-slate-500 mt-1 block">💡 Truco: Sé elegante. No pelees en público. La gente lee esto para ver cómo reaccionas ante problemas.</span>
+              </p>
+           </div>
+        </div>
+
+        <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <span>Página 04</span>
+          <span>Nelson Londoño | Agencia</span>
+        </footer>
+      </article>
+
+      <!-- PÁGINA 5: EL ABONO -->
+      <article class="a4-page page-break relative p-12 flex flex-col bg-white">
+        <header class="flex justify-between items-start mb-12 border-b-2 border-amber-100 pb-6">
+          <div>
+            <span class="text-amber-500 font-black tracking-widest uppercase text-sm">FASE 3</span>
+            <h2 class="text-4xl font-black text-brand-dark mt-2">EL ABONO</h2>
+          </div>
+          <i data-lucide="images" class="w-16 h-16 text-amber-500 opacity-20"></i>
+        </header>
+
+        <p class="text-lg text-slate-600 mb-8">
+           Para que el jardín crezca fuerte y colorido, necesitas nutrientes visuales: <strong class="text-brand-dark">FOTOS Y NOVEDADES</strong>.
+        </p>
+
+        <div class="relative bg-slate-900 text-white p-8 rounded-2xl mb-10 overflow-hidden">
+           <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500 rounded-full blur-[60px] opacity-30"></div>
+           <h3 class="text-2xl font-bold text-amber-500 mb-4">La Fotosíntesis Digital</h3>
+           <p class="mb-4">
+              Google "lee" tus fotos. Sabe si es una pizza, un corte de pelo o una tubería.
+           </p>
+           <ul class="space-y-3">
+              <li class="flex items-center gap-2 text-sm">
+                 <i data-lucide="check" class="text-brand-primary"></i>
+                 <span>Sube fotos del equipo (Humaniza)</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                 <i data-lucide="check" class="text-brand-primary"></i>
+                 <span>Sube fotos del antes y el después (Demuestra)</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                 <i data-lucide="check" class="text-brand-primary"></i>
+                 <span>Sube fotos de la fachada (Ubica)</span>
+              </li>
+           </ul>
+        </div>
+        
+        <h3 class="text-xl font-bold text-brand-dark mb-4">Las Actualizaciones (Posts)</h3>
+        <p class="text-slate-600 mb-6">
+           Google permite publicar "Novedades" u "Ofertas". Úsalas como si fuera Instagram, pero para vender.
         </p>
         
-        <div class="space-y-8">
-            <!-- Pilar 1 -->
-            <div class="flex items-start gap-6">
-                <div class="bg-blue-50 text-accent w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
-                <div>
-                    <h3 class="text-xl font-black text-primary uppercase mb-2">1. Proximidad y Relevancia</h3>
-                    <p class="text-secondary text-sm">Tu ficha debe decir claramente QUÉ haces y DÓNDE estás. No pongas "Servicios García". Pon "Fontanería García - Reparaciones en Madrid".</p>
-                </div>
-            </div>
-
-            <!-- Pilar 2 -->
-             <div class="flex items-start gap-6">
-                <div class="bg-blue-50 text-accent w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-                </div>
-                <div>
-                    <h3 class="text-xl font-black text-primary uppercase mb-2">2. Reseñas (La Prueba Social)</h3>
-                    <p class="text-secondary text-sm">Google ama lo que la gente ama. Necesitas reseñas constantes y DEBES responder a todas. Una reseña sin respuesta es dinero perdido.</p>
-                </div>
-            </div>
-
-            <!-- Pilar 3 -->
-             <div class="flex items-start gap-6">
-                <div class="bg-blue-50 text-accent w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
-                </div>
-                <div>
-                    <h3 class="text-xl font-black text-primary uppercase mb-2">3. Fotos y Actualizaciones</h3>
-                    <p class="text-secondary text-sm">Sube fotos reales de tu trabajo cada semana. Evita las fotos de stock. Google quiere ver que tu negocio está vivo y activo.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="mt-8 p-6 bg-slate-800 text-white rounded-xl">
-           <p class="text-center font-bold">💡 TRUCO PRO: Pide a tus clientes que mencionen el servicio exacto en su reseña. "Me encantó el <span class="text-accent">corte de pelo</span>" vale el doble que "Muy buen servicio".</p>
+        <!-- Gardening Tip -->
+        <div class="flex gap-4">
+           <div class="flex-shrink-0 w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center border-2 border-emerald-200">
+              <i data-lucide="calendar-clock" class="text-emerald-600 w-8 h-8"></i>
+           </div>
+           <div>
+              <h4 class="font-bold text-emerald-800">Abonado Semanal</h4>
+              <p class="text-sm text-slate-600">
+                 No te obsesiones. Sube <strong>2 fotos nuevas cada semana</strong>. El algoritmo detectará que tu negocio está "vivo" y activo, y empezará a mostrarlo más que al negocio de al lado que lleva 6 meses sin subir nada.
+              </p>
+           </div>
         </div>
 
         <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
-          <span>TikTok: @soy_nelson_londono</span>
-          <span>Página 03</span>
+          <span>Página 05</span>
+          <span>Nelson Londoño | Agencia</span>
         </footer>
       </article>
 
-            <!-- PÁGINA 4: CIERRE -->
-      <article class="a4-page relative p-16 flex flex-col bg-white">
-        <header class="flex justify-between items-end border-b-4 border-accent pb-6 mb-12">
-          <h2 class="text-5xl font-black text-primary uppercase">03. TU MISIÓN</h2>
-          <span class="text-4xl text-slate-300 font-black uppercase tracking-wider opacity-60">FUTURO</span>
+      <!-- PÁGINA 6: CALENDARIO -->
+      <article class="a4-page page-break relative p-12 flex flex-col bg-brand-light">
+        <header class="text-center mb-12">
+          <h2 class="text-4xl font-black text-brand-dark uppercase">Tu Rutina de Jardinero</h2>
+          <p class="text-brand-primary font-bold tracking-widest mt-2">15 MINUTOS A LA SEMANA</p>
         </header>
+
+        <div class="bg-white rounded-3xl shadow-xl p-8 border border-white">
+           <!-- Lunes -->
+           <div class="flex items-start gap-4 mb-8 border-b border-slate-100 pb-8">
+              <div class="bg-slate-100 px-4 py-2 rounded-lg font-black text-slate-400 text-xl w-24 text-center">LUN</div>
+              <div>
+                 <h3 class="font-bold text-brand-dark text-lg">Día de Riego (Respuestas)</h3>
+                 <p class="text-slate-500 text-sm">Entra y responde a todas las reseñas pendientes de la semana anterior. Agradéceles a todos.</p>
+              </div>
+           </div>
+
+           <!-- Miércoles -->
+           <div class="flex items-start gap-4 mb-8 border-b border-slate-100 pb-8">
+              <div class="bg-slate-100 px-4 py-2 rounded-lg font-black text-slate-400 text-xl w-24 text-center">MIÉ</div>
+              <div>
+                 <h3 class="font-bold text-brand-dark text-lg">Día de Abono (Fotos)</h3>
+                 <p class="text-slate-500 text-sm">Sube 2 o 3 fotos que hayas tomado con el móvil mientras trabajabas. Sin filtros, reales.</p>
+              </div>
+           </div>
+
+           <!-- Viernes -->
+           <div class="flex items-start gap-4">
+              <div class="bg-slate-100 px-4 py-2 rounded-lg font-black text-slate-400 text-xl w-24 text-center">VIE</div>
+              <div>
+                 <h3 class="font-bold text-brand-dark text-lg">Día de Siembra (Pedir)</h3>
+                 <p class="text-slate-500 text-sm">Elige a 3 clientes satisfechos de esta semana y envíales el enlace directo de tu ficha por WhatsApp pidiéndoles una reseña.</p>
+              </div>
+           </div>
+        </div>
         
-        <div class="flex-grow flex flex-col justify-center space-y-12">
-          
-          <div class="p-10 bg-blue-50 rounded-3xl border-2 border-blue-100 shadow-sm">
-            <h4 class="text-blue-800 font-black uppercase text-xl mb-4 tracking-wider">🚀 RUTINA DE 15 MINUTOS</h4>
-            <ul class="space-y-4 text-blue-900 text-lg">
-                <li class="flex items-center gap-3">
-                    <div class="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">1</div>
-                    <span>Sube <strong>2 fotos nuevas</strong> esta semana.</span>
-                </li>
-                <li class="flex items-center gap-3">
-                    <div class="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">2</div>
-                    <span>Responde a las últimas reseñas.</span>
-                </li>
-                 <li class="flex items-center gap-3">
-                    <div class="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold">3</div>
-                    <span>Pide una reseña a tu mejor cliente de hoy.</span>
-                </li>
-            </ul>
-          </div>
-
-          <div class="bg-primary text-white p-10 rounded-[2.5rem] text-center relative overflow-hidden shadow-xl mb-12">
-            <div class="absolute top-0 left-0 w-full h-3 bg-accent"></div>
-            <h3 class="text-3xl font-black text-accent mb-4 uppercase tracking-tighter">¿Necesitas Ayuda Experta?</h3>
-            <p class="text-slate-300 text-lg mb-8 leading-relaxed">
-                Si quieres ir más rápido y delegar esta parte técnica, en mi agencia nos dedicamos exactamente a esto.
-            </p>
-            
-            <div class="inline-block border-y-2 border-accent/30 py-4 px-8">
-              <p class="text-2xl sm:text-3xl font-black tracking-[0.2em] text-white whitespace-nowrap">
-                <span class="text-accent">👉</span> NELSONLONDONO.ES <span class="text-accent">👈</span>
+        <div class="mt-auto text-center">
+           <div class="inline-block bg-brand-dark text-white px-8 py-4 rounded-full shadow-lg">
+              <p class="font-bold flex items-center gap-2">
+                 <i data-lucide="trophy" class="text-yellow-400"></i>
+                 Constancia > Intensidad
               </p>
-            </div>
-          </div>
-
+           </div>
+           <p class="mt-4 text-brand-dark/60 text-sm">No intentes hacerlo todo un día. Haz un poco siempre.</p>
         </div>
 
         <footer class="absolute bottom-12 left-0 right-0 px-16 flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
-          <span>TikTok: @soy_nelson_londono</span>
-          <span>Página 04</span>
+          <span>Página 06</span>
+          <span>Nelson Londoño | Agencia</span>
         </footer>
+      </article>
+
+      <!-- PÁGINA 7: CONTRAPORTADA -->
+      <article class="a4-page relative p-12 flex flex-col justify-center items-center bg-brand-dark text-white text-center">
+        <!-- Decoración -->
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <div class="relative z-10 max-w-xl">
+           <h2 class="text-5xl font-black mb-8 leading-tight">¿NECESITAS UN <br><span class="text-brand-primary">JARDINERO EXPERTO?</span></h2>
+           
+           <p class="text-xl text-slate-300 mb-12 leading-relaxed">
+              Si prefieres dedicarte a tu negocio y dejar que nosotros cuidemos de tu jardín digital para que siempre esté floreciendo.
+           </p>
+           
+           <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 mb-12">
+              <h3 class="text-2xl font-bold mb-4">Agencia Nelson Londoño</h3>
+              <ul class="text-left space-y-4 mb-8 inline-block mx-auto text-slate-300">
+                 <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-brand-primary"></i> Optimización de Fichas</li>
+                 <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-brand-primary"></i> Gestión de Reseñas</li>
+                 <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-brand-primary"></i> Posicionamiento Local</li>
+              </ul>
+              
+              <div class="block"></div>
+              
+              <div class="text-brand-accent font-black tracking-widest text-2xl border-2 border-brand-accent px-8 py-4 rounded-lg inline-block">
+                 NELSONLONDONO.ES
+              </div>
+           </div>
+           
+           <p class="text-xs text-slate-500 uppercase tracking-widest">
+              Sígueme en TikTok para tips diarios<br>
+              <span class="text-white font-bold text-base mt-2 block">@soy_nelson_londono</span>
+           </p>
+        </div>
       </article>
 
     </main>
+
+    <script>
+      // Renderizar iconos
+      lucide.createIcons();
+    </script>
   </body>
 </html>
