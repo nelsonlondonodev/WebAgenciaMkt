@@ -1,16 +1,12 @@
 RewriteEngine On
 
-# 1. Force HTTPS
-# Si no es HTTPS, redirigir a HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# 2. Force non-WWW (Canonical domain: nelsonlondono.es)
-# Si empieza por www., redirigir a sin www
+# 1. Force HTTPS and non-WWW (Canonical domain: nelsonlondono.es)
+# Redirige todo el tráfico HTTP o www a https://nelsonlondono.es en un solo paso
+RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^(.*)$ https://nelsonlondono.es/$1 [L,R=301]
 
-# 3. Redirect /index.html to root /
+# 2. Redirect /index.html to root /
 # Evitar contenido duplicado en la home
 RewriteRule ^index\.html$ / [R=301,L]
 
