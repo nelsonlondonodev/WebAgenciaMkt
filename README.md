@@ -47,17 +47,17 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
 
 ---
 
-## 🎁 Recurso Gratuito: Guía de Automatización
+## 🎁 Recursos Gratuitos (Landing Page)
 
-Se ha implementado una estrategia de captación de leads (Landing Page) diseñada específicamente para tráfico proveniente de redes sociales (TikTok).
+Se ha implementado una estrategia de captación y entrega de valor (Landing Page multiplataforma) en el directorio `/guia/`, diseñada sin fricción (sin registros, descarga directa en PDF) enfocada en:
 
--   **Página de Aterrizaje (`/guia/`)**: Ubicada en `guia/index.html`. Está integrada con el diseño global del sitio, cargando dinámicamente el `nav` y el `footer` originales.
--   **Generador de PDF (`guia/guia-para-pdf.html`)**: Herramienta interna para maquetar la guía en formato A4.
-    -   *Uso:* Abrir en servidor local, presionar `Ctrl+P` y "Guardar como PDF".
-    -   *Nota:* Este archivo tiene la etiqueta `noindex` para no aparecer en buscadores.
--   **Archivo de Descarga (`guia/guia-n8n.pdf`)**: El documento final que los usuarios descargan desde la landing.
+-   **Página de Aterrizaje (`/guia/`)**: Ubicada en `guia/index.html`. Está integrada con el diseño global del sitio "2026 Aesthetic", cargando dinámicamente el `nav` y el `footer` originales.
+-   **Guía Principal (Hero):**: *5 Errores Fatales en Google Maps*. Apunta al documento `Google_Maps_Dominance_compressed.pdf`.
+-   **Recursos Secundarios (Grid):**
+    -   *Guía de Automatización (n8n)*: Hoja de ruta para aprender automatización (`guia-n8n.pdf`).
+    -   *Guía SEO Local (Jardinería Digital)*: Estrategias de posicionamiento (`Jardinería_Digital_SEO_Local_2026.pdf`).
 
-*Importante: Los componentes `nav.html` y `footer.html` ahora utilizan rutas absolutas (`/image/...` o `/blog.html`) para garantizar su correcta visualización desde subcarpetas como `/guia/`.*
+*Importante: Los componentes `nav.html` y `footer.html` utilizan rutas absolutas (`/image/...` o `/blog.html`) para garantizar su correcta visualización desde subcarpetas como `/guia/`. Todos los recursos están bajo estrictas políticas `noindex, nofollow` para evitar que los buscadores los listen públicamente.*
 
 ---
 
