@@ -151,12 +151,13 @@ Este es el **ÚNICO** proceso que debes seguir para subir tu web a internet.
 
 ## 🔍 SEO e Indexación (Actualización Feb 2026)
 
-Se ha realizado una auditoría completa para optimizar el rastreo y la visibilidad:
+Se ha implementado una arquitectura de SEO técnico avanzada para optimizar el rastreo:
 
--   **Sitemap Automático:** Generado via `npm run sitemap`, incluye todas las páginas clave (`/contacto.html`, `/sobre-mi.html`, etc.) con sus respectivas prioridades.
--   **Exclusiones Estratégicas (`robots.txt`):**
-    -   `/guia/`: Excluido intencionalmente (Lead Magnet/Funnel).
-    -   `/_template-articulo.html`: Plantilla interna excluida.
-    -   `/politica-de-cookies.html`: Excluida por irrelevancia SEO (Noindex).
--   **SEO Local (Prioridad):** La página de Contacto ha sido reorientada semánticamente para atacar keywords locales ("SEO Local", "Negocio Físico").
--   **Cache Busting:** Sistema hash para CSS y JS en todos los archivos HTML para garantizar actualizaciones instantáneas en clientes (fix para iOS).
+-   **Sitemap Dinámico Pro:** Generado mediante `generar-sitemap.js`. A diferencia de versiones anteriores, ahora escanea automáticamente el proyecto, detecta etiquetas `noindex` en tiempo real y asigna prioridades SEO basadas en patrones de URL.
+-   **Privacidad de Recursos (`/guia/`):** Se ha reforzado la invisibilidad de esta sección para proteger el contenido de la comunidad:
+    -   `robots.txt`: Bloqueo total del directorio.
+    -   `Meta Robots`: Implementación de `noindex, nofollow` en el HTML.
+    -   Exclusión algorítmica del sitemap.
+-   **Optimización de Redirecciones:** Refactorización del `.htaccess` para forzar HTTPS y el dominio canónico (sin www) en una sola regla, reduciendo el TTFB (Time To First Byte).
+-   **Cache Busting:** Sistema de versionado automático `?v=timestamp` para CSS y JS, garantizando que las actualizaciones sean instantáneas en dispositivos móviles (especialmente iOS).
+
