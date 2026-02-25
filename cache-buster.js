@@ -22,6 +22,14 @@ fs.readdir(distPath, (err, files) => {
     guiaFiles.forEach(file => htmlFiles.push(path.join('guia', file)));
   }
 
+
+  // Add files from 'cv' directory
+  const cvPath = path.join(distPath, 'cv');
+  if (fs.existsSync(cvPath)) {
+    const cvFiles = fs.readdirSync(cvPath).filter(file => file.endsWith('.html'));
+    cvFiles.forEach(file => htmlFiles.push(path.join('cv', file)));
+  }
+
   if (htmlFiles.length === 0) {
     console.log('No HTML files found in dist directory. Nothing to do.');
     return;
