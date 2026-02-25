@@ -22,12 +22,6 @@ fs.readdir(distPath, (err, files) => {
     guiaFiles.forEach(file => htmlFiles.push(path.join('guia', file)));
   }
 
-  // Add files from 'nelson-londono' directory
-  const nelsonPath = path.join(distPath, 'nelson-londono');
-  if (fs.existsSync(nelsonPath)) {
-    const nelsonFiles = fs.readdirSync(nelsonPath).filter(file => file.endsWith('.html'));
-    nelsonFiles.forEach(file => htmlFiles.push(path.join('nelson-londono', file)));
-  }
 
   // Add files from 'cv' directory
   const cvPath = path.join(distPath, 'cv');
