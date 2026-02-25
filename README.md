@@ -61,6 +61,16 @@ Se ha implementado una estrategia de captación y entrega de valor (Landing Page
 
 ---
 
+## 💼 Portafolio Técnico (`/cv/`)
+
+Se ha creado un subdirectorio con una "Developer Landing Page" específica en `/cv/index.html`. Esta página está separada de la agencia y enfocada exclusivamente en perfil técnico:
+
+-   **Enfoque:** Orientado a contratantes y reclutadores IT. Resalta habilidades como React, TypeScript, Tailwind, Vite, Supabase y n8n.
+-   **Diseño:** Estética "GitHub Dark", tipografías monoespaciadas y elementos neón (`#58a6ff`, `#3fb950`).
+-   **Privacidad:** Incorpora estrictamente la metaetiqueta `<meta name="robots" content="noindex">` y está excluida del sitemap general para no entrelazar la estrategia SEO local de la agencia con el CV técnico de Nelson Londoño.
+
+---
+
 ## 🏗️ Mantenimiento y SEO Técnico (Reglas de Oro)
 
 Para mantener la integridad del despliegue y el SEO, sigue estas reglas estrictas:
