@@ -213,6 +213,20 @@
   /* --- FIN: Estilos específicos del Hero --- */
 }
 
+/* Estilos específicos para el acordeón de FAQ (Globales) */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] summary ~ * {
+  animation: faqSlideDown 0.3s ease-in-out;
+}
+@keyframes faqSlideDown {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 
 .scroll-animate-initial {
   opacity: 0;
