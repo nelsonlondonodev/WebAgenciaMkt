@@ -1,40 +1,40 @@
 export const portfolioData = [
   {
-    id: 'web-performance-code',
+    id: 'nar-bos-web',
     category: 'web code',
     imgSrcSet: {
-      '480w': 'image/placeholder-inicio-nuevo2-480.webp',
-      '800w': 'image/placeholder-inicio-nuevo2-800.webp',
-      '1440w': 'image/placeholder-inicio-nuevo2.webp',
+      '480w': 'image/portfolio-narbos.webp',
+      '800w': 'image/portfolio-narbos.webp',
+      '1440w': 'image/portfolio-narbos.webp',
     },
-    imgSrc: 'image/placeholder-inicio-nuevo2.webp',
-    imgAlt: 'Web de Alto Rendimiento',
-    title: 'Web de Alto Rendimiento (Código Propio)',
-    tags: 'Desarrollo Web / Performance',
+    imgSrc: 'image/portfolio-narbos.webp',
+    imgAlt: 'Web de Narbo\'s Salón Spa',
+    title: 'Narbo\'s Salón Spa - Web de Alto Rendimiento',
+    tags: 'Código Propio / SEO Técnico / Performance',
     description: 
-      'Web construida desde cero sin constructores lentos. 100% en Core Web Vitals para garantizar la mejor experiencia y posicionamiento.',
+      'Desarrollo a medida con HTML, CSS y JS puro. Optimizada para una carga ultra rápida y un posicionamiento orgánico que domina el sector de belleza.',
     type: 'link',
-    url: '#'
+    url: 'https://narbossalon.com/'
   },
   {
-    id: 'seo-local-dominance',
+    id: 'legendary-barber-seo',
     category: 'seo local',
     imgSrcSet: {
-      '480w': 'image/foto-nelson.webp',
-      '800w': 'image/foto-nelson.webp',
-      '1440w': 'image/foto-nelson.webp',
+      '480w': 'image/portfolio-heatmap.webp',
+      '800w': 'image/portfolio-heatmap.webp',
+      '1440w': 'image/portfolio-heatmap.webp',
     },
-    imgSrc: 'image/foto-nelson.webp',
-    imgAlt: 'Caso de éxito SEO Local',
-    title: 'Dominancia en Google Maps y SEO Local',
-    tags: 'Estrategia SEO / Google Business Profile',
+    imgSrc: 'image/portfolio-heatmap.webp',
+    imgAlt: 'Mapa de calor SEO Local Legendary Barber',
+    title: 'Legendary Barber\'s Club - Dominio SEO Local',
+    tags: 'Google Business Profile / Rankings 1-3 / Local SEO',
     description: 
-      'Posicionamos negocios locales en los primeros resultados. Más llamadas, más citas y más ventas directas desde tu ubicación.',
+      'Escalamos la visibilidad de una barbería premium de la posición 9 al Top 3 de Google Maps en toda su área. Citas y llamadas reales multiplicadas.',
     type: 'link',
-    url: '#'
+    url: 'https://share.google/js4KcLIjrU6GwrDIz'
   },
   {
-    id: 'ia-automation-workflows',
+    id: 'automation-loyalty-system',
     category: 'ia automation',
     imgSrcSet: {
       '480w': 'image/flujo_n8n.webp',
@@ -42,11 +42,11 @@ export const portfolioData = [
       '1440w': 'image/flujo_n8n.webp',
     },
     imgSrc: 'image/flujo_n8n.webp',
-    imgAlt: 'Automatización con IA',
-    title: 'Automatización Inteligente con IA y n8n',
-    tags: 'Inteligencia Artificial / Automatización',
+    imgAlt: 'Sistema de Automatización con IA',
+    title: 'Sistema de Fidelización Inteligente con IA',
+    tags: 'IA / Automatización n8n / Fidelización',
     description: 
-      'Sistemas que eliminan tareas repetitivas y gestionan clientes automáticamente 24/7 usando IA avanzada.',
+      'Flujo automatizado que gestiona bonos con QR dinámicos y base de datos, eliminando procesos manuales y aumentando el retorno de clientes 24/7.',
     type: 'link',
     url: '#'
   },
