@@ -26,7 +26,13 @@ export const CONFIG = {
       MIN_PRICE: 230,
       CURRENCY: '€',
       SUFFIX: '/mes',
-      NOTE: 'Precio desde. Análisis caso por caso según estrategia.',
+      NOTE: 'Estrategia de crecimiento continuo.'
+    },
+    SEO_LOCAL_EXPRESS: {
+      MIN_PRICE: 97,
+      CURRENCY: '€',
+      SUFFIX: '',
+      NOTE: 'Pago único. Impuso inicial para tu negocio.'
     },
     SEO_GENERAL: {
       MIN_PRICE: 275,
