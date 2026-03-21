@@ -34,21 +34,21 @@ export const portfolioData = [
     url: 'https://share.google/js4KcLIjrU6GwrDIz'
   },
   {
-    id: 'automation-loyalty-system',
+    id: 'crm-loyalty-system',
     category: 'ia automation',
     imgSrcSet: {
-      '480w': 'image/flujo_n8n.webp',
-      '800w': 'image/flujo_n8n.webp',
-      '1440w': 'image/flujo_n8n.webp',
+      '480w': 'image/portfolio-crm.webp',
+      '800w': 'image/portfolio-crm.webp',
+      '1440w': 'image/portfolio-crm.webp',
     },
-    imgSrc: 'image/flujo_n8n.webp',
-    imgAlt: 'Sistema de Automatización con IA',
-    title: 'Sistema de Fidelización Inteligente con IA',
-    tags: 'IA / Automatización n8n / Fidelización',
+    imgSrc: 'image/portfolio-crm.webp',
+    imgAlt: 'CRM de Fidelización con n8n e IA',
+    title: 'CRM Inteligente - Sistema de Fidelización',
+    tags: 'IA / Automatización n8n / CRM Propio',
     description: 
-      'Flujo automatizado que gestiona bonos con QR dinámicos y base de datos, eliminando procesos manuales y aumentando el retorno de clientes 24/7.',
+      'Plataforma CRM con flujos de n8n que automatizan el envío de bonos QR, gestión de bases de datos y felicitaciones de cumpleaños 24/7.',
     type: 'link',
-    url: '#'
+    url: 'https://beauty-crm-platform.vercel.app/login'
   },
   {
     id: 'suavebocado',
