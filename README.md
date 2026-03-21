@@ -47,6 +47,14 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
 
 ---
 
+## 🚀 Últimas Mejoras (Sesión 21/03/2026)
+- **Humanización de Marca:** Rediseño integral de la Hero Section en `index.html` con un layout de 2 columnas (50/50). Integración de la imagen personal de Nelson Londoño con efectos de *glow* perimetral y máscara de degradado inferior para una fusión orgánica con el fondo.
+- **Optimización Estratégica de Copys:** Refactorización de títulos y párrafos en el inicio para reducir la carga cognitiva, enfocando el mensaje en resultados reales y tecnología.
+- **Ajustes Responsivos para Tablets:** Corrección de contenedores que se desbordaban en resoluciones intermedias (como el mapa de calor y tarjetas de métricas en `agencia-seo-local.html`). Aplicación de anchos máximos dinámicos (`max-w-2xl`) y centrado automático para mantener la elegancia visual.
+- **Nuevas Animaciones:** Ampliación de `tailwind.config.js` con los keyframes y utilidades `slide-in-up` y `bounce-slow`.
+
+---
+
 ## 🎁 Recursos Gratuitos (Landing Page)
 
 Se ha implementado una estrategia de captación y entrega de valor (Landing Page multiplataforma) en el directorio `/guia/`, diseñada sin fricción (sin registros, descarga directa en PDF) enfocada en:
