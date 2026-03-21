@@ -1,79 +1,65 @@
 export const portfolioData = [
   {
-    id: 'narbos',
-    category: 'web seo',
-    url: 'https://narbossalon.com/',
-    imgSrc: 'image/screen-narbos.webp',
-    imgAlt: "Página web de Narbo's Salón Spa",
-    title: "Narbo's Salón Spa",
-    isNew: true,
-    tags: 'Landing page y SEO local',
-    description:
-      'Desarrollo de landing page a medida y estrategia de SEO local para una peluquería en Colombia, con el objetivo de aumentar su visibilidad y atraer clientes en su área.',
-    type: 'link', // 'link' o 'modal'
+    id: 'web-performance-code',
+    category: 'web code',
+    imgSrcSet: {
+      '480w': 'image/placeholder-inicio-nuevo2-480.webp',
+      '800w': 'image/placeholder-inicio-nuevo2-800.webp',
+      '1440w': 'image/placeholder-inicio-nuevo2.webp',
+    },
+    imgSrc: 'image/placeholder-inicio-nuevo2.webp',
+    imgAlt: 'Web de Alto Rendimiento',
+    title: 'Web de Alto Rendimiento (Código Propio)',
+    tags: 'Desarrollo Web / Performance',
+    description: 
+      'Web construida desde cero sin constructores lentos. 100% en Core Web Vitals para garantizar la mejor experiencia y posicionamiento.',
+    type: 'link',
+    url: '#'
   },
   {
-    id: 'locutorio',
-    category: 'tour seo',
+    id: 'seo-local-dominance',
+    category: 'seo local',
     imgSrcSet: {
-      '480w': './image/foto-locutorio-480.webp',
-      '800w': './image/foto-locutorio-800.webp',
-      '1440w': './image/foto-locutorio.webp',
+      '480w': 'image/foto-nelson.webp',
+      '800w': 'image/foto-nelson.webp',
+      '1440w': 'image/foto-nelson.webp',
     },
-    imgSrc: './image/foto-locutorio.webp',
-    imgAlt: 'Tour 360 de Locutorio el Pilón',
-    title: 'Locutorio El Pilón',
-    tags: 'Tour virtual 360º y SEO local',
-    description:
-      'Optimización de la ficha del perfil de negocio de Google y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.',
-    type: 'modal',
-    tourUrl: 'https://kuula.co/share/collection/718wd?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es',
-    tourType: 'Tour 360°'
+    imgSrc: 'image/foto-nelson.webp',
+    imgAlt: 'Caso de éxito SEO Local',
+    title: 'Dominancia en Google Maps y SEO Local',
+    tags: 'Estrategia SEO / Google Business Profile',
+    description: 
+      'Posicionamos negocios locales en los primeros resultados. Más llamadas, más citas y más ventas directas desde tu ubicación.',
+    type: 'link',
+    url: '#'
   },
   {
-    id: 'barberia',
-    category: 'tour seo',
+    id: 'ia-automation-workflows',
+    category: 'ia automation',
     imgSrcSet: {
-      '480w': 'image/barberia-isma-480.webp',
-      '640w': 'image/barberia-isma.webp',
+      '480w': 'image/flujo_n8n.webp',
+      '800w': 'image/flujo_n8n.webp',
+      '1440w': 'image/flujo_n8n.webp',
     },
-    imgSrc: 'image/barberia-isma.webp',
-    imgAlt: 'Tour 360 de La Barbería de Isma',
-    title: 'La Barbería de Isma',
-    tags: 'Tour virtual 360° y SEO local',
-    description:
-      'Optimización de la ficha del perfil de negocio de Google y creación de un tour virtual para aumentar la visibilidad y atraer nuevos clientes en Fuente el Saz.',
-    type: 'modal',
-    tourUrl: 'https://kuula.co/share/collection/71n8D?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es',
-    tourType: 'Tour 360°'
-  },
-  {
-    id: 'kuula',
-    category: 'tour',
-    imgSrcSet: {
-        '480w': 'image/piso-en-venta-480.webp',
-        '640w': 'image/piso-en-venta.webp',
-    },
-    imgSrc: 'image/piso-en-venta.webp',
-    imgAlt: 'Tour 360 de un piso en Madrid',
-    title: 'Piso en alquiler: tour virtual',
-    tags: 'Tour virtual 360°',
-    description:
-      'Recorrido virtual completo para inmobiliaria, permitiendo visitas inmersivas 24/7 y acelerando el proceso de alquiler.',
-    type: 'modal',
-    tourUrl: 'https://kuula.co/share/collection/71np8?logo=0&info=0&fs=1&vr=1&initload=0&autop=10&thumbs=1&inst=es',
-    tourType: 'Tour 360°'
+    imgSrc: 'image/flujo_n8n.webp',
+    imgAlt: 'Automatización con IA',
+    title: 'Automatización Inteligente con IA y n8n',
+    tags: 'Inteligencia Artificial / Automatización',
+    description: 
+      'Sistemas que eliminan tareas repetitivas y gestionan clientes automáticamente 24/7 usando IA avanzada.',
+    type: 'link',
+    url: '#'
   },
   {
     id: 'suavebocado',
     category: 'web seo',
     url: 'https://suavebocado.com/',
     imgSrcSet: {
-      '480w': './image/foto-suave-bocado-480.webp',
-      '800w': './image/foto-suave-bocado-800.webp',
-      '1423w': './image/foto-suave-bocado.webp',
+      '480w': 'image/foto-suave-bocado-480.webp',
+      '800w': 'image/foto-suave-bocado-800.webp',
+      '1423w': 'image/foto-suave-bocado.webp',
     },
-    imgSrc: './image/foto-suave-bocado.webp',
+    imgSrc: 'image/foto-suave-bocado.webp',
     imgAlt: 'Página web de Suave Bocado Repostería',
     title: 'Suave Bocado Repostería',
     tags: 'WordPress y SEO local',
