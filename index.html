@@ -29,89 +29,143 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="/fontawesome.min.css?v=1774113970492" 
+      href="/fontawesome.min.css?v=1774114564362" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=1774113970492" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=1774114564362" />
     </noscript>
 
-    <link href="/output.css?v=1774113970492" rel="stylesheet" />
+    <link href="/output.css?v=1774114564362" rel="stylesheet" />
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Nelson Londoño | Diseño Web y SEO",
-      "image": "https://nelsonlondono.es/image/foto-nelson-londono.webp",
-      "url": "https://nelsonlondono.es/",
-      "telephone": "+34 663 97 54 28",
-      "description": "Agencia de marketing en Fuente el Saz. Creamos webs de alto rendimiento, estrategias SEO y asistentes virtuales con IA.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Fuente el Saz de Jarama",
-        "addressRegion": "Madrid",
-        "postalCode": "28140",
-        "addressCountry": "ES"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "40.6322",
-        "longitude": "-3.5113"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "09:00",
-        "closes": "18:00"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/in/nelson-londo%C3%B1o-dev/",
-        "https://github.com/nelsonlondonodev",
-        "https://www.tiktok.com/@soy_nelson_londono"
-      ],
-      "priceRange": "$$"
-    }
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "¿Trabajáis con pequeñas empresas y autónomos?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí. Aunque usamos tecnología avanzada, adaptamos nuestras soluciones para que sean accesibles. Creemos que la IA y el buen diseño deben ser para todos, no solo para grandes corporaciones."
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://nelsonlondono.es/#organization",
+          "name": "Nelson Londoño | Diseño Web y SEO",
+          "image": "https://nelsonlondono.es/image/foto-nelson-londono.webp",
+          "url": "https://nelsonlondono.es/",
+          "telephone": "+34 663 97 54 28",
+          "description": "Agencia de marketing en Fuente el Saz especializada en SEO Local, Diseño Web de Alto Rendimiento y Automatizaciones con IA.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Fuente el Saz de Jarama",
+            "addressRegion": "Madrid",
+            "postalCode": "28140",
+            "addressCountry": "ES"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.6322",
+            "longitude": "-3.5113"
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/nelson-londo%C3%B1o-dev/",
+            "https://github.com/nelsonlondonodev",
+            "https://www.tiktok.com/@soy_nelson_londono"
+          ],
+          "priceRange": "$$",
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+34 663 97 54 28",
+              "contactType": "customer service",
+              "areaServed": "ES",
+              "availableLanguage": "Spanish"
+            },
+            {
+              "@type": "ContactPoint",
+              "url": "https://cal.com/nelson-londono-dpobgm/estrategia30",
+              "contactType": "booking"
+            }
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Servicios de Marketing Digital y Tecnología",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "SEO Local",
+                  "description": "Optimización de presencia en Google Maps y búsquedas locales para atraer clientes cercanos."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "SEO Técnico y Orgánico",
+                  "description": "Mejora de visibilidad en buscadores mediante estrategias SEO avanzadas."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Desarrollo Web de Alto Rendimiento",
+                  "description": "Creación de sitios web rápidos y personalizados con código limpio."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Automatizaciones con IA y n8n",
+                  "description": "Implementación de flujos de trabajo inteligentes y agentes virtuales."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Trabajáis con pequeñas empresas y autónomos?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. Aunque usamos tecnología avanzada, adaptamos nuestras soluciones para que sean accesibles. Creemos que la IA y el buen diseño deben ser para todos, no solo para grandes corporaciones."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Qué os diferencia de una agencia de marketing tradicional?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La tecnología. No solo hacemos 'webs bonitas', creamos activos digitales que funcionan solos. Usamos Inteligencia Artificial para automatizar tareas, SEO técnico avanzado y código a medida para que tu negocio sea más eficiente y visible."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuánto tardáis en entregar un proyecto?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Depende del alcance. Una web corporativa puede estar lista en 3-4 semanas. Proyectos más complejos con automatizaciones pueden llevar 6-8 semanas. Siempre trabajamos con hitos claros y plazos garantizados."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Ofrecéis servicios de mantenimiento?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. La tecnología evoluciona rápido. Ofrecemos planes de mantenimiento para asegurar que tu web, tu SEO y tus automatizaciones sigan funcionando al 100% mes tras mes."
+              }
+            }
+          ]
         }
-      }, {
-        "@type": "Question",
-        "name": "¿Qué os diferencia de una agencia de marketing tradicional?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "La tecnología. No solo hacemos 'webs bonitas', creamos activos digitales que funcionan solos. Usamos Inteligencia Artificial para automatizar tareas, SEO técnico avanzado y código a medida para que tu negocio sea más eficiente y visible."
-        }
-      }, {
-        "@type": "Question",
-        "name": "¿Cuánto tardáis en entregar un proyecto?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Depende del alcance. Una web corporativa puede estar lista en 3-4 semanas. Proyectos más complejos con automatizaciones pueden llevar 6-8 semanas. Siempre trabajamos con hitos claros y plazos garantizados."
-        }
-      }, {
-        "@type": "Question",
-        "name": "¿Ofrecéis servicios de mantenimiento?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí. La tecnología evoluciona rápido. Ofrecemos planes de mantenimiento para asegurar que tu web, tu SEO y tus automatizaciones sigan funcionando al 100% mes tras mes."
-        }
-      }]
+      ]
     }
     </script>
     <style>
@@ -632,7 +686,7 @@
 
     <!-- SCRIPTS PARA PRODUCCIÓN -->
     <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
-    <script src="/bundle.min.js?v=1774113970492" defer></script>
+    <script src="/bundle.min.js?v=1774114564362" defer></script>
 
     <!-- SCRIPTS PARA DESARROLLO -->
     <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->
