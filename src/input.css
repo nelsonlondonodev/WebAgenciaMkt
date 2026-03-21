@@ -401,6 +401,7 @@ main {
 .ba-slider-container {
   @apply relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 dark:border-gray-800/50 cursor-col-resize;
   user-select: none;
+  touch-action: pan-y; /* Permite scroll vertical pero bloquea horizontal para el slider */
 }
 
 .ba-before-image, .ba-after-image {
@@ -419,19 +420,19 @@ main {
 }
 
 .ba-slider-button {
-  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center text-gray-900 border-4 border-gray-100;
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-xl flex items-center justify-center text-gray-900 border-4 border-gray-100;
 }
 
 .ba-label {
-  @apply absolute bottom-6 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest z-30 backdrop-blur-md border border-white/20 shadow-lg;
+  @apply absolute bottom-2 sm:bottom-6 px-2 sm:px-4 py-1 sm:py-1.5 rounded-full text-[9px] sm:text-xs font-bold uppercase tracking-widest z-30 backdrop-blur-md border border-white/20 shadow-lg;
 }
 
 .ba-label-before {
-  @apply left-6 bg-red-500/80 text-white;
+  @apply left-2 sm:left-6 bg-red-500/80 text-white;
 }
 
 .ba-label-after {
-  @apply right-6 bg-primary-green/80 text-white;
+  @apply right-2 sm:right-6 bg-primary-green/80 text-white;
 }
 
 /* Badge de beneficio en el Hero */
