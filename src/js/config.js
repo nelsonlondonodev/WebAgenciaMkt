@@ -20,6 +20,27 @@ export const CONFIG = {
     PHONE_DISPLAY: '+34 663 97 54 28',
   },
 
+  // Configuración de Precios (Centralizada)
+  PRICING: {
+    SEO_LOCAL: {
+      MIN_PRICE: 230,
+      CURRENCY: '€',
+      SUFFIX: '/mes',
+      NOTE: 'Estrategia de crecimiento continuo.'
+    },
+    SEO_LOCAL_EXPRESS: {
+      MIN_PRICE: 97,
+      CURRENCY: '€',
+      SUFFIX: '',
+      NOTE: 'Pago único. Impuso inicial para tu negocio.'
+    },
+    SEO_GENERAL: {
+      MIN_PRICE: 275,
+      CURRENCY: '€',
+      SUFFIX: '/mes',
+    }
+  },
+
   // Configuración general de UI
   UI: {
     THEME_KEY: 'theme',

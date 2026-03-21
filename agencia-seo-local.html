@@ -12,36 +12,63 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "¿Por qué mi negocio local no aparece en Google Maps?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Si tu ficha no aparece, suele ser por falta de verificación, inconsistencias en tu dirección (NAP) o falta de optimización. Nuestro servicio corrige todos estos errores técnicos para garantizar tu visibilidad."
+      "@graph": [
+        {
+          "@type": "Service",
+          "name": "SEO Local y Google Maps",
+          "provider": {
+            "@type": "ProfessionalService",
+            "name": "Nelson Londoño | Diseño Web y SEO",
+            "url": "https://nelsonlondono.es/"
+          },
+          "areaServed": [
+            { "@type": "Country", "name": "Spain" },
+            { "@type": "Country", "name": "Colombia" }
+          ],
+          "description": "Servicio especializado de SEO local para atraer clientes cercanos mediante la optimización de Google Maps y el Perfil de Negocio de Google (GBP).",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://nelsonlondono.es/agencia-seo-local.html"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Por qué mi negocio local no aparece en Google Maps?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Si tu ficha no aparece, suele ser por falta de verificación, inconsistencias en tu dirección (NAP) o falta de optimización. Nuestro servicio corrige todos estos errores técnicos para garantizar tu visibilidad."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuánto tiempo tarda en posicionarse una ficha de Google Business Profile?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Depende de la competencia en tu zona. Generalmente, empezamos a ver mejoras en impresiones en las primeras 4-6 semanas, y un aumento consolidado de llamadas y visitas a partir del tercer mes de trabajo constante."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Las reseñas afectan realmente a mi posición en el ranking?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutamente. Google valora la cantidad, calidad y recencia de las reseñas. No solo influyen en el algoritmo, sino que son el factor #1 de conversión para nuevos clientes. Nosotros implementamos sistemas para conseguir más reseñas 5 estrellas."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Qué diferencia hay entre vuestro SEO Local y una agencia tradicional?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nosotros no solo 'hacemos SEO', nos convertimos en tu socio estratégico. Mientras otros te envían reportes automáticos, nosotros trabajamos en tu reputación, publicamos contenido semanal en tu ficha y nos enfocamos en métricas reales de negocio: llamadas y visitas, no solo clics."
+              }
+            }
+          ]
         }
-      }, {
-        "@type": "Question",
-        "name": "¿Quanto tiempo tarda en posicionarse una ficha de Google Business Profile?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Depende de la competencia en tu zona. Generalmente, empezamos a ver mejoras en impresiones en las primeras 4-6 semanas, y un aumento consolidado de llamadas y visitas a partir del tercer mes de trabajo constante."
-        }
-      }, {
-        "@type": "Question",
-        "name": "¿Las reseñas afectan realmente a mi posición en el ranking?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutamente. Google valora la cantidad, calidad y recencia de las reseñas. No solo influyen en el algoritmo, sino que son el factor #1 de conversión para nuevos clientes. Nosotros implementamos sistemas para conseguir más reseñas 5 estrellas."
-        }
-      }, {
-        "@type": "Question",
-        "name": "¿Qué diferencia hay entre vuestro SEO Local y una agencia tradicional?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Nosotros no solo 'hacemos SEO', nos convertimos en tu socio estratégico. Mientras otros te envían reportes automáticos, nosotros trabajamos en tu reputación, publicamos contenido semanal en tu ficha y nos enfocamos en métricas reales de negocio: llamadas y visitas, no solo clics."
-        }
-      }]
+      ]
     }
     </script>
 
@@ -57,14 +84,14 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="/fontawesome.min.css?v=1772020077850" 
+      href="/fontawesome.min.css?v=1774116735292" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=1772020077850" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=1774116735292" />
     </noscript>
-    <link href="/output.css?v=1772020077850" rel="stylesheet" />
+    <link href="/output.css?v=1774116735292" rel="stylesheet" />
   <body class=" ">
     <div id="nav-placeholder"></div>
 
@@ -74,53 +101,42 @@
         data-component="hero-section"
         data-hero-title="Servicio de SEO local en Fuente el Saz"
         data-hero-subtitle-main="Conecta con los clientes de tu zona"
-        data-hero-subtitle-secondary="¡Oferta especial! Optimizamos tu presencia local con 2 meses de prueba gratis. Sin riesgos, solo pagas si ves resultados a partir del tercer mes."
+        data-hero-subtitle-secondary="Optimizamos tu presencia local para que los clientes te encuentren primero en Google Maps y búsquedas geolocalizadas."
         data-hero-icon-1='<i class="fas fa-map-marked-alt absolute top-1/4 left-4 text-6xl lg:text-8xl transform -rotate-12 z-0 animate-float-up-down text-glow-green dark:text-glow-blue opacity-50 dark:opacity-30" aria-hidden="true"></i>'
         data-hero-icon-2='<i class="fas fa-store absolute bottom-1/4 right-4 text-6xl lg:text-8xl transform rotate-12 z-0 animate-float-down-up text-glow-blue dark:text-glow-green opacity-50 dark:opacity-30" aria-hidden="true"></i>'
         data-hero-icon-3='<i class="fab fa-google absolute top-1/2 left-1/3 text-5xl lg:text-7xl text-gray-400/50 dark:text-gray-500/30 transform z-0 animate-float-up-down" style="animation-duration: 10s" aria-hidden="true"></i>'
 
       ></div>
 
-      <!-- SECCIÓN DE OFERTA IRRESISTIBLE -->
-      <section id="oferta-60-dias" class="py-12 bg-primary-green/10 dark:bg-primary-green/5 border-y border-primary-green/20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-animate-initial is-visible">
-          <span class="inline-block py-1 px-3 rounded-full bg-primary-green text-white text-xs sm:text-sm font-bold tracking-wider mb-4 shadow-sm">Propuesta de valor única</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-6">
-            0 € riesgo. <span class="text-primary-green">60 días de prueba</span> totalmente gratis.
-          </h2>
-          <p class="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-            Sabemos que funciona. Por eso eliminamos el riesgo para ti. 
-            <strong class="font-semibold text-gray-900 dark:text-white">Trabajamos gratis en tu SEO Local durante 2 meses completos.</strong> 
-            Sin cobros ocultos. Si al día 61 decides continuar con los resultados, el plan comienza <strong class="text-primary-green font-bold">desde solo 275 €/mes</strong>. Si no estás impresionado, no nos debes nada.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://cal.com/nelson-londono-dpobgm/estrategia30" target="_blank" rel="noopener noreferrer" class="cta-button scale-105 shadow-xl ring-4 ring-primary-green/20 hover:ring-primary-green/40">
-                Solicitar mi prueba gratis
-            </a>
-          </div>
-          <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
-            * Oferta limitada a nuevos clientes de servicios locales. Sin permanencia obligatoria.
-          </p>
-        </div>
-      </section>
 
-      <section id="introduccion" class="py-12 sm:py-16">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
-            ¿Qué es el SEO Local y por qué tu negocio lo necesita?
-          </h2>
-          <p
-            class="mt-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed scroll-animate-initial delay-100"
-          >
-            El SEO local es una rama del SEO enfocada en optimizar la
-            visibilidad de un negocio en las búsquedas geolocalizadas. Si tienes
-            una tienda, un restaurante, una consulta o cualquier negocio con una
-            ubicación física, el SEO local es imprescindible. Se trata de
-            aparecer en el mapa de Google, en las primeras posiciones cuando
-            alguien busca "tus servicios cerca de mí" o "tu tipo de negocio en
-            [tu ciudad]". Es la versión digital del marketing de toda la vida:
-            atraer a la gente que pasa por tu puerta.
-          </p>
+      <section id="introduccion" class="py-12 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center text-center lg:text-left">
+            <!-- Columna Texto -->
+            <div class="scroll-animate-initial">
+              <h2 class="section-title lg:text-left text-4xl sm:text-5xl mb-6">
+                ¿Qué es el SEO Local y por qué tu negocio lo necesita?
+              </h2>
+              <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                El SEO local es una rama del SEO enfocada en optimizar la visibilidad de un negocio en las búsquedas geolocalizadas. Si tienes una tienda, un restaurante, una consulta o cualquier negocio con una ubicación física, el SEO local es imprescindible. 
+              </p>
+              <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                Se trata de aparecer en el mapa de Google, en las primeras posiciones cuando alguien busca "tus servicios cerca de mí" o "tu tipo de negocio en [tu ciudad]". Es la versión digital del marketing de toda la vida: atraer a la gente que pasa por tu puerta, pero en el mundo digital.
+              </p>
+            </div>
+            
+            <!-- Columna Imagen (Visual Explainer) -->
+            <div class="scroll-animate-initial delay-200">
+               <div class="relative group mx-auto max-w-sm md:max-w-md lg:max-w-none">
+                  <div class="absolute -inset-1 bg-gradient-to-r from-primary-green to-primary-blue rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                  <img 
+                    src="./image/what-is-seo-local.webp" 
+                    alt="Infografía explicativa de SEO Local con Google Maps" 
+                    class="relative rounded-3xl shadow-2xl border border-white/10 w-full object-cover aspect-square"
+                  >
+               </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -215,61 +231,66 @@
         </div>
       </section>
 
-      <section
-        id="casos-exito"
-        class="py-12 sm:py-16  "
-      >
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
-            Resultados que puedes ver en el mapa
-          </h2>
-          <p class="section-subtitle text-base sm:text-lg scroll-animate-initial">
-            Mira cómo hemos ayudado a negocios como el tuyo a dominar su área
-            local.
-          </p>
+      <section id="casos-exito" class="py-12 sm:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="section-title text-4xl sm:text-6xl scroll-animate-initial">
+              Resultados de impacto real
+            </h2>
+            <p class="section-subtitle text-lg sm:text-xl">
+              No solo hablamos de SEO, demostramos el ROI visualmente. Mira cómo dominamos el mapa.
+            </p>
+          </div>
 
-          <div
-            class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
-          >
-            <!-- Card 1: SEO Local -->
-            <div
-              class="service-card group hover:-translate-y-2 flex flex-col items-center text-center scroll-animate-initial"
-            >
-              <img
-                src="./image/narbos-logo-caso-exito.webp"
-                alt="Logo de Narbo's Salón Spa"
-                class="w-24 h-24 mb-4 object-contain"
-                loading="lazy"
-                decoding="async"
-              />
-              <h3
-                class="text-2xl font-semibold text-gray-900 dark:text-white mb-2"
-              >
-                SEO local y fichas
-              </h3>
-              <p
-                class="text-5xl sm:text-6xl font-bold text-primary-green dark:text-primary-blue mb-2"
-              >
-                +<span class="animate-number" data-end-value="166">0</span>%
-              </p>
-              <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">
-                En llamadas directas
-              </p>
-              <p class="text-base text-gray-700 dark:text-gray-400 leading-relaxed mb-4">
-                Optimización de ficha GMB logrando duplicar la conversión de
-                clientes reales en solo 30 días.
-              </p>
-              <a
-                href="https://www.google.com/search?q=Peluquer%C3%ADa+%7C+Narbo%E2%80%99s+sal%C3%B3n+spa+%7C+Chia&stick=H4sIAAAAAAAA_-NgU1I1qLBINTEwtzQwME80TjJITDK3MqhIsjBMsjQzskg2STVPTUpKXMSqGZCaU1pYmlp0eG2iQo2CX2JRUv6jhpnFCsWJOYc35ykUF4CEnTMyEwGwVa6MVQAAAA&hl=es-419&mat=CbluZRkCcJyoElcBTVDHnjIzTUj8e4V4OZxsSk4fq0XseF28PPw7JT-D4Qmr__dIrXBbDpK5MCxC081QetUZrGAEOZvCOtC5vQ-S_vFm6Pgq2r-ky4IoHQpD8CeuNH6j5O0&authuser=0"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-primary-blue dark:text-primary-green hover:underline font-medium mt-auto"
-              >
-                Ver ficha en Google <i class="fab fa-google ml-1 text-sm"></i>
-              </a>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Columna del Slider (Visual impact) -->
+            <div class="scroll-animate-initial w-full max-w-2xl mx-auto lg:max-w-none">
+              <div class="ba-slider-container">
+                <img src="./image/seo-heatmap-before.webp" alt="SEO Local Antes - Mapa de calor pobre" class="ba-before-image">
+                <div class="ba-after-image">
+                  <img src="./image/seo-heatmap-after.webp" alt="SEO Local Después - Mapa de calor ganador" class="w-full h-full object-cover">
+                </div>
+                <div class="ba-slider-handle">
+                  <div class="ba-slider-button">
+                    <i class="fas fa-arrows-alt-h"></i>
+                  </div>
+                </div>
+                <div class="ba-label ba-label-before">Antes (Posición #14)</div>
+                <div class="ba-label ba-label-after">Después (Top 3 Dominante)</div>
+              </div>
+              <p class="mt-4 text-sm text-gray-500 text-center italic">Desliza para ver la transformación de visibilidad en Google Maps.</p>
             </div>
 
+            <!-- Columna de Métricas (Show, don't tell) -->
+            <div class="flex flex-col space-y-8 scroll-animate-initial delay-200">
+              <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 sm:p-8 rounded-3xl shadow-xl">
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="w-12 h-12 bg-primary-green/20 rounded-full flex items-center justify-center text-primary-green">
+                    <i class="fas fa-chart-line text-xl"></i>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Narbo's Salón Spa</h3>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-6 my-8">
+                  <div class="text-center p-4 bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-700">
+                    <p class="text-2xl sm:text-4xl font-black text-primary-green mb-1">+1300%</p>
+                    <p class="text-xs uppercase tracking-tighter text-gray-500">Llamadas Directas</p>
+                  </div>
+                  <div class="text-center p-4 bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-700">
+                    <p class="text-2xl sm:text-4xl font-black text-primary-blue mb-1">Top 3</p>
+                    <p class="text-xs uppercase tracking-tighter text-gray-500">Dominio en el Mapa</p>
+                  </div>
+                </div>
 
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                  Logramos que un negocio local pase de ser invisible a ser un <strong>líder en su zona</strong>. En solo 5 meses (Octubre - Febrero), multiplicamos sus llamadas directas gracias a una optimización quirúrgica de su ficha.
+                </p>
+
+                <a href="https://cal.com/nelson-londono-dpobgm/estrategia30" target="_blank" rel="noopener noreferrer" class="cta-button w-full text-center">
+                    Quiero resultados así en mi negocio
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -283,51 +304,99 @@
               Inversión transparente
             </h2>
             <p class="section-subtitle text-base sm:text-lg scroll-animate-initial">
-              Sin sorpresas. Empieza gratis y paga solo si ves valor.
+              Estrategias personalizadas para maximizar tu visibilidad y atracción de clientes.
             </p>
           </div>
-          
-          <div class="max-w-md mx-auto scroll-animate-initial hoverable-card">
-            <div class="p-8 rounded-2xl  dark:bg-gray-700/30 border border-gray-100 dark:border-gray-600 shadow-sm relative overflow-hidden group">
-               <!-- Decoración sutil -->
-               <div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-primary-green/10 rounded-full blur-2xl group-hover:bg-primary-green/20 transition-all"></div>
-               
-               <!-- Badge de Oferta -->
-               <span class="absolute top-4 right-4 bg-primary-green text-white text-xs font-bold px-2 py-1 rounded-full shadow-sm">Oferta especial</span>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
+            <!-- Plan: Optimización Express (Lavado de cara) -->
+            <div class="scroll-animate-initial hoverable-card flex flex-col h-full opacity-100 is-visible">
+              <div class="p-8 rounded-2xl dark:bg-gray-700/30 border border-gray-100 dark:border-gray-600 shadow-sm relative overflow-hidden group flex flex-col h-full bg-white">
+                <div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-primary-blue/10 rounded-full blur-2xl group-hover:bg-primary-blue/20 transition-all"></div>
+                
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Optimización Express</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Un impulso inicial e inmediato.</p>
+                
+                <div class="flex flex-col mb-8">
+                  <div class="flex items-baseline">
+                    <span class="text-4xl font-black text-gray-900 dark:text-white" data-service-price="SEO_LOCAL_EXPRESS" data-price-only="true">97€</span>
+                    <span class="ml-2 text-xl text-gray-500 dark:text-gray-400">/ Pago único</span>
+                  </div>
+                </div>
+                
+                <ul class="space-y-4 mb-8 flex-grow">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
+                    <span class="text-gray-600 dark:text-gray-300">Auditoría completa de perfil</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
+                    <span class="text-gray-600 dark:text-gray-300">Optimización de descripción y categorías</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
+                    <span class="text-gray-600 dark:text-gray-300">Carga de 10-15 imágenes optimizadas</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
+                    <span class="text-gray-600 dark:text-gray-300">Respuesta a todas las reseñas actuales</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
+                    <span class="text-gray-600 dark:text-gray-300 text-sm font-semibold">Mapa de calor inicial incluido</span>
+                  </li>
+                </ul>
+                
+                <a href="https://cal.com/nelson-londono-dpobgm/estrategia30" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 px-6 rounded-lg border-2 border-primary-blue dark:border-primary-green text-gray-900 dark:text-white font-bold hover:bg-primary-blue dark:hover:bg-primary-green hover:text-white dark:hover:text-gray-900 transition-colors duration-300">
+                  Pedir mi impulso inicial
+                </a>
+              </div>
+            </div>
 
-               <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">SEO local estratégico</h3>
-               <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Domina tu zona geográfica.</p>
-               
-               <div class="flex flex-col mb-6">
-                 <div class="flex items-baseline">
-                    <span class="text-4xl font-extrabold text-gray-900 dark:text-white">275€</span>
+            <!-- Plan: SEO Local Estratégico (Actualizado) -->
+            <div class="scroll-animate-initial hoverable-card flex flex-col h-full delay-200 opacity-100 is-visible">
+              <div class="p-8 rounded-2xl dark:bg-gray-800/40 border-2 border-primary-green shadow-xl relative overflow-hidden group flex flex-col h-full bg-white dark:bg-dark-card">
+                <div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-primary-green/20 rounded-full blur-2xl group-hover:bg-primary-green/30 transition-all"></div>
+                
+                <span class="absolute top-4 right-4 bg-primary-green text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm z-10">Recomendado</span>
+
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Plan Estratégico</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Dominio y recurrencia mensual.</p>
+                
+                <div class="flex flex-col mb-8">
+                  <div class="flex items-baseline">
+                    <span class="text-xl font-medium text-gray-500 dark:text-gray-400 mr-2">Desde</span>
+                    <span class="text-4xl font-black text-gray-900 dark:text-white" data-service-price="SEO_LOCAL" data-price-only="true" data-include-note="true">230€</span>
                     <span class="ml-2 text-xl text-gray-500 dark:text-gray-400">/mes</span>
-                 </div>
-                 <span class="text-sm font-semibold text-primary-green mt-1">¡Primeros 2 meses gratis!</span>
-               </div>
-               
-               <ul class="space-y-4 mb-8">
-                 <li class="flex items-start">
-                   <i class="fas fa-check text-primary-green mt-1 mr-3"></i>
-                   <span class="text-gray-600 dark:text-gray-300">Optimización Google Business Profile</span>
-                 </li>
-                 <li class="flex items-start">
-                   <i class="fas fa-check text-primary-green mt-1 mr-3"></i>
-                   <span class="text-gray-600 dark:text-gray-300">Gestión de Reseñas y Comentarios</span>
-                 </li>
-                 <li class="flex items-start">
-                   <i class="fas fa-check text-primary-green mt-1 mr-3"></i>
-                   <span class="text-gray-600 dark:text-gray-300">Publicaciones semanales (Google Posts)</span>
-                 </li>
-                 <li class="flex items-start">
-                   <i class="fas fa-check text-primary-green mt-1 mr-3"></i>
-                   <span class="text-gray-600 dark:text-gray-300">Informe Mensual de Rendimiento</span>
-                 </li>
-               </ul>
-               
-               <a href="https://cal.com/nelson-londono-dpobgm/estrategia30" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 px-6 rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold hover:bg-primary-blue dark:hover:bg-primary-green transition-colors duration-300">
-                 Probar 60 días gratis
-               </a>
+                  </div>
+                </div>
+                
+                <ul class="space-y-4 mb-8 flex-grow">
+                  <li class="flex items-start font-semibold text-gray-800 dark:text-white">
+                    <i class="fas fa-plus text-primary-green mt-1 mr-3"></i>
+                    <span>Todo lo del Plan Express y:</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-primary-green mt-1 mr-3"></i>
+                    <span class="text-gray-600 dark:text-gray-300">Gestión activa de reseñas</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-primary-green mt-1 mr-3"></i>
+                    <span class="text-gray-600 dark:text-gray-300">4-8 publicaciones (Google Posts) / mes</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-primary-green mt-1 mr-3"></i>
+                    <span class="text-gray-600 dark:text-gray-300">Estrategia de Citaciones Locales</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-primary-green mt-1 mr-3"></i>
+                    <span class="text-gray-600 dark:text-gray-300">Reporte mensual de rendimiento</span>
+                  </li>
+                </ul>
+                
+                <a href="https://cal.com/nelson-londono-dpobgm/estrategia30" target="_blank" rel="noopener noreferrer" class="cta-button w-full text-center">
+                  Agendar consultoría
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -397,6 +466,51 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN: ALCANCE GLOBAL (España & Colombia) -->
+      <section id="alcance-global" class="py-12 sm:py-24 bg-gray-50/50 dark:bg-transparent border-y border-gray-100 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="scroll-animate-initial">
+              <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
+                Dominio local, <span class="text-primary-green">alcance global.</span>
+              </h2>
+              <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                Nuestras estrategias de SEO local no tienen fronteras. Hemos ayudado a empresas en <strong class="text-primary-green">España</strong> y <strong class="text-primary-blue">Colombia</strong> a conquistar sus mercados regionales.
+              </p>
+              
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-primary-green/20 rounded-full flex items-center justify-center text-primary-green">
+                    <i class="fas fa-check"></i>
+                  </div>
+                  <span class="text-gray-700 dark:text-gray-200 font-medium">Casos de éxito en Madrid/España</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-primary-blue/20 rounded-full flex items-center justify-center text-primary-blue">
+                    <i class="fas fa-check"></i>
+                  </div>
+                  <span class="text-gray-700 dark:text-gray-200 font-medium">Estrategias ganadoras en Colombia</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="relative scroll-animate-initial delay-200">
+               <img src="./image/global-reach.webp" alt="Alcance Global España y Colombia" class="rounded-3xl shadow-2xl border border-white/10">
+               <!-- Overlay decorativo -->
+               <div class="absolute -bottom-6 -right-6 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
+                  <div class="flex items-center gap-3">
+                    <div class="flex -space-x-2">
+                       <span class="w-8 h-8 rounded-full bg-red-500 border-2 border-white dark:border-gray-800 flex items-center justify-center text-[10px] text-white font-bold">ES</span>
+                       <span class="w-8 h-8 rounded-full bg-yellow-500 border-2 border-white dark:border-gray-800 flex items-center justify-center text-[10px] text-white font-bold">CO</span>
+                    </div>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">Presencia verificada</p>
+                  </div>
+               </div>
             </div>
           </div>
         </div>
@@ -508,6 +622,6 @@
     <div id="cookie-banner-placeholder"></div>
 
     <div data-component="chatbot"></div>
-    <script src="/bundle.min.js?v=1772020077850" defer></script>
+    <script src="/bundle.min.js?v=1774116735292" defer></script>
   </body>
 </html>

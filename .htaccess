@@ -10,6 +10,19 @@ RewriteRule ^(.*)$ https://nelsonlondono.es/$1 [L,R=301]
 # Evitar contenido duplicado en la home
 RewriteRule ^index\.html$ / [R=301,L]
 
+# --- FIX SEO 404s (Google Search Console 2026) ---
+# 1. Redirigir antiguas rutas indexadas de /dist/ a la raíz
+RewriteRule ^dist/(.*)$ /$1 [R=301,L]
+
+# 2. Redirigir directorio antiguo /nelson-londono/ al nuevo /cv/
+RewriteRule ^nelson-londono/(.*)$ /cv/ [R=301,L]
+
+# 3. Redirigir artículos o guías antiguas/eliminadas a secciones relevantes
+RewriteRule ^articulo-ia-navidad-2025\.html$ /blog.html [R=301,L]
+RewriteRule ^guia/guia-para-pdf\.html$ /guia/ [R=301,L]
+RewriteRule ^guia/guia-seo-local-template\.html$ /guia/ [R=301,L]
+# --------------------------------------------------
+
 # 4. Custom 404 Page declaration
 ErrorDocument 404 /404.html
 

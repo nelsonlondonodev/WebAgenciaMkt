@@ -19,6 +19,8 @@ import { initContactForm, initContactReveal, setupContactModal } from './contact
 import { initCookieConsent } from './cookieConsent.js';
 
 import { setupSocialSharing } from './socialSharing.js';
+import { initPricing } from './pricing.js';
+import { initBeforeAfterSlider, initHeroBenefitBadge } from './uiInteractions.js';
 
 // import { initHeroIframe } from './heroHelper.js';
 
@@ -95,6 +97,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
   setupSocialSharing();
+  initPricing();
+  initBeforeAfterSlider();
+  initHeroBenefitBadge();
 
 });
 
