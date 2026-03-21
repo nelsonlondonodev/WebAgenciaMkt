@@ -48,10 +48,12 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
 ---
 
 ## 🚀 Últimas Mejoras (Sesión 21/03/2026)
-- **Humanización de Marca:** Rediseño integral de la Hero Section en `index.html` con un layout de 2 columnas (50/50). Integración de la imagen personal de Nelson Londoño con efectos de *glow* perimetral y máscara de degradado inferior para una fusión orgánica con el fondo.
-- **Optimización Estratégica de Copys:** Refactorización de títulos y párrafos en el inicio para reducir la carga cognitiva, enfocando el mensaje en resultados reales y tecnología.
-- **Ajustes Responsivos para Tablets:** Corrección de contenedores que se desbordaban en resoluciones intermedias (como el mapa de calor y tarjetas de métricas en `agencia-seo-local.html`). Aplicación de anchos máximos dinámicos (`max-w-2xl`) y centrado automático para mantener la elegancia visual.
-- **Nuevas Animaciones:** Ampliación de `tailwind.config.js` con los keyframes y utilidades `slide-in-up` y `bounce-slow`.
+- **Humanización de Marca:** Rediseño integral de la Hero Section en `index.html` con un layout de 2 columnas (50/50). Integración de la imagen personal de Nelson Londoño con efectos de *glow* perimetral y máscara de degradado circular para una fusión orgánica con el fondo, ocultando rastros de edición por IA.
+- **Social Proof Estratégico:** Inclusión de un Trust Badge de Google Reviews con identidad visual corporativa (colores oficiales), resaltando la calificación de 5.0 y 19 reseñas reales para aumentar la credibilidad instantánea.
+- **Optimización de Conversión (CTA):** Actualización del botón principal para dirigir a la agenda de auditorías en Cal.com, mejorando el flujo de adquisición de clientes.
+- **Simplificación del Hero (UX):** Eliminación de párrafos secundarios en el inicio para reducir la carga cognitiva, trasladando la propuesta de valor técnica a la sección de servicios destacados bajo un nuevo subtítulo.
+- **Ajustes Responsivos:** Refinado total para Tablets y Móviles, asegurando que la tipografía y los espaciados se adapten perfectamente a resoluciones verticales.
+- **Nuevas Animaciones:** Ampliación de `tailwind.config.js` con los keyframes y utilidades `slide-in-up`, `bounce-slow` y `fade-in-down`.
 
 ---
 
