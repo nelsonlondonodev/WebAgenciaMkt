@@ -23,6 +23,7 @@ module.exports = {
         'float-down-up': 'float-down-up 8s ease-in-out infinite',
         'slide-in-up': 'slideInUp 0.8s ease-out forwards',
         'bounce-slow': 'bounce 3s infinite',
+        'fade-in-down': 'fadeInDown 0.8s ease-out forwards',
       },
       keyframes: {
         zoomIn: {
@@ -31,6 +32,10 @@ module.exports = {
         },
         slideInUp: {
           '0%': { opacity: 0, transform: 'translateY(40px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+        fadeInDown: {
+          '0%': { opacity: 0, transform: 'translateY(-20px)' },
           '100%': { opacity: 1, transform: 'translateY(0)' },
         },
         slideInRight: {
