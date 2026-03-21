@@ -383,3 +383,54 @@ main {
 .hover-zigzag:hover img {
     animation: zigzag-axis 0.6s ease-in-out infinite;
 }
+/* --- Estilos para el Slider Antes/Después (UX SEO Local) --- */
+.ba-slider-container {
+  @apply relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 dark:border-gray-800/50 cursor-col-resize;
+  user-select: none;
+}
+
+.ba-before-image, .ba-after-image {
+  @apply absolute top-0 left-0 w-full h-full object-cover pointer-events-none;
+}
+
+.ba-after-image {
+  /* La imagen del "Después" se recorta dinámicamente con JS */
+  clip-path: inset(0 50% 0 0);
+}
+
+.ba-slider-handle {
+  @apply absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_15px_rgba(255,255,255,0.8)] z-20 pointer-events-auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ba-slider-button {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center text-gray-900 border-4 border-gray-100;
+}
+
+.ba-label {
+  @apply absolute bottom-6 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest z-30 backdrop-blur-md border border-white/20 shadow-lg;
+}
+
+.ba-label-before {
+  @apply left-6 bg-red-500/80 text-white;
+}
+
+.ba-label-after {
+  @apply right-6 bg-primary-green/80 text-white;
+}
+
+/* Badge de beneficio en el Hero */
+.hero-benefit-badge {
+  @apply inline-flex items-center gap-2;
+  box-shadow: 0 0 20px theme('colors.primary-green / 20%');
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
