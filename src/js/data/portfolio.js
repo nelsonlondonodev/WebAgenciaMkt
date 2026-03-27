@@ -48,7 +48,7 @@ export const portfolioData = [
     description: 
       'Plataforma CRM con flujos de n8n que automatizan el envío de bonos QR, gestión de bases de datos y felicitaciones de cumpleaños 24/7.',
     type: 'link',
-    url: 'https://beauty-crm-platform.vercel.app/login'
+    url: 'https://beauty-crm-platform.vercel.app/'
   },
   {
     id: 'suavebocado',
