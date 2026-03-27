@@ -92,6 +92,10 @@
       <link rel="stylesheet" href="/fontawesome.min.css?v=1774609424760" />
     </noscript>
     <link href="/output.css?v=1774609424760" rel="stylesheet" />
+    <style>
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
   <body class=" ">
     <div id="nav-placeholder"></div>
 
@@ -292,10 +296,10 @@
             </div>
           </div>
 
-          <!-- Caso de Éxito: Blond Bros Barber (Nuevo) -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mt-24 pt-24 border-t border-white/5">
+          <!-- Caso de Éxito: Blond Bros Barber (Refinado) -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-12 pt-12 border-t border-white/5">
             <!-- Columna de Métricas/Story -->
-            <div class="flex flex-col space-y-8 scroll-animate-initial order-2 lg:order-1">
+            <div class="flex flex-col space-y-6 scroll-animate-initial order-2 lg:order-1">
               <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 sm:p-8 rounded-3xl shadow-xl">
                 <div class="flex items-center gap-4 mb-4">
                   <div class="w-12 h-12 bg-primary-blue/20 rounded-full flex items-center justify-center text-primary-blue">
@@ -304,49 +308,62 @@
                   <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Blond Bros Barber</h3>
                 </div>
                 
-                <div class="grid grid-cols-2 gap-6 my-8">
-                  <div class="text-center p-4 bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-700">
-                    <p class="text-2xl sm:text-4xl font-black text-primary-blue mb-1">Top 1-3</p>
-                    <p class="text-xs uppercase tracking-tighter text-gray-500">Dominio Local</p>
+                <div class="grid grid-cols-2 gap-4 my-6">
+                  <div class="text-center p-4 bg-gray-50/50 dark:bg-gray-800/30 rounded-2xl border border-gray-100 dark:border-gray-700">
+                    <p class="text-2xl sm:text-3xl font-black text-primary-blue mb-1">Top 1-3</p>
+                    <p class="text-[10px] uppercase tracking-tighter text-gray-500">Posicionamiento</p>
                   </div>
-                  <div class="text-center p-4 bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-700">
-                    <p class="text-2xl sm:text-4xl font-black text-primary-green mb-1">540+</p>
-                    <p class="text-xs uppercase tracking-tighter text-gray-500">Interacciones</p>
+                  <div class="text-center p-4 bg-gray-50/50 dark:bg-gray-800/30 rounded-2xl border border-gray-100 dark:border-gray-700">
+                    <p class="text-2xl sm:text-3xl font-black text-primary-green mb-1">540+</p>
+                    <p class="text-[10px] uppercase tracking-tighter text-gray-500">Conversiones/Mes</p>
                   </div>
                 </div>
 
                 <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                  Un caso de evolución total. Iniciamos en junio de 2025 (como <strong>Barbería Isma</strong>) con una auditoría gratuita y optimización de ficha. Logramos rescatar un perfil abandonado con paredes naranjas, transformándolo en un motor de llamadas y chats.
+                  Un caso de éxito basado en la constancia estratégica. Todo comenzó con una auditoría de su ficha de Google que pasaba desapercibida para los clientes locales. Implementamos una optimización técnica que rápidamente se tradujo en un flujo constante de llamadas y citas.
                 </p>
                 <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                  En marzo de 2026, tras una reforma integral del local, relanzamos su identidad como <strong>Blond Bros Barber</strong>. Actualizamos fotos de alta calidad y contenido estratégico, consolidando su liderazgo absoluto en Fuente el Saz.
+                  Tras una espectacular <strong>remodelación</strong> de su local este año, relanzamos su identidad como <strong>Blond Bros Barber</strong>, capturando la esencia premium de su nueva imagen con fotos de alta resolución y contenido optimizado que domina Fuente el Saz.
                 </p>
 
                 <a href="https://cal.com/nelson-londono-dpobgm/estrategia30" target="_blank" rel="noopener noreferrer" class="cta-button w-full text-center">
-                    Quiero resultados así en mi zona
+                    Quiero estos resultados en mi zona
                 </a>
               </div>
             </div>
 
-            <!-- Columna Visual (Impacto) -->
+            <!-- Columna Visual (Galería Carrusel) -->
             <div class="scroll-animate-initial delay-200 order-1 lg:order-2">
                <div class="relative group">
-                  <div class="absolute -inset-1 bg-gradient-to-r from-primary-blue to-primary-green rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                  <div class="relative space-y-4">
-                    <img src="./image/blond-bros-barber-heatmap.webp" alt="Heatmap Blond Bros Barber" class="rounded-3xl shadow-2xl border border-white/10 w-full object-cover aspect-video lg:aspect-auto">
-                    <div class="grid grid-cols-2 gap-4">
-                       <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-lg">
-                          <img src="./image/blond-bros-barber-gmb.webp" alt="Perfil GMB Blond Bros" class="w-full h-full object-cover">
-                       </div>
-                       <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-lg">
-                          <img src="./image/blond-bros-barber-remodelacion.webp" alt="Remodelación Blond Bros" class="w-full h-full object-cover">
-                       </div>
+                  <!-- Contenedor Carrusel Horizontal con Scroll Snap -->
+                  <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 scrollbar-hide scroll-smooth">
+                    <!-- Item 1: Heatmap -->
+                    <div class="min-w-[85%] sm:min-w-[90%] lg:min-w-full snap-start group/item">
+                       <p class="text-xs text-gray-500 mb-2 uppercase tracking-widest font-bold">1. Mapa de Calor (Ranking)</p>
+                       <img src="./image/blond-bros-barber-heatmap.webp" alt="Heatmap Blond Bros Barber" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.02] transition-transform duration-500">
+                    </div>
+                    <!-- Item 2: Ficha GBP -->
+                    <div class="min-w-[85%] sm:min-w-[90%] lg:min-w-full snap-start group/item">
+                       <p class="text-xs text-gray-500 mb-2 uppercase tracking-widest font-bold">2. Ficha Google Business</p>
+                       <img src="./image/blond-bros-barber-gmb.webp" alt="Perfil GMB Blond Bros" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.02] transition-transform duration-500">
+                    </div>
+                    <!-- Item 3: Remodelación -->
+                    <div class="min-w-[85%] sm:min-w-[90%] lg:min-w-full snap-start group/item">
+                       <p class="text-xs text-gray-500 mb-2 uppercase tracking-widest font-bold">3. Nueva Remodelación</p>
+                       <img src="./image/blond-bros-barber-remodelacion.webp" alt="Remodelación Blond Bros" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.02] transition-transform duration-500">
                     </div>
                   </div>
+                  <!-- Indicador de Scroll (Móvil) -->
+                  <div class="flex md:hidden justify-center gap-2 -mt-2">
+                    <div class="w-8 h-1 bg-primary-blue/30 rounded-full"></div>
+                    <div class="w-8 h-1 bg-gray-300/30 rounded-full"></div>
+                    <div class="w-8 h-1 bg-gray-300/30 rounded-full"></div>
+                  </div>
                </div>
-               <p class="mt-4 text-sm text-gray-500 text-center italic">Mapa de calor que valida el liderazgo y nueva arquitectura visual del local.</p>
+               <p class="mt-2 text-xs text-gray-500 text-center italic">Desliza para ver el impacto en el mapa y la nueva imagen del local.</p>
             </div>
           </div>
+
         </div>
       </section>
 
