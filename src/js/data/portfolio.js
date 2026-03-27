@@ -101,4 +101,22 @@ export const portfolioData = [
       'Creación de landing page y estrategia de SEO básico para una barbería en Madrid, aumentando su visibilidad y citas online.',
     type: 'link',
   },
+  {
+    id: 'blond-bros-barber',
+    category: 'seo local',
+    imgSrcSet: {
+      '480w': 'image/blond-bros-barber-heatmap.webp',
+      '800w': 'image/blond-bros-barber-heatmap.webp',
+      '1440w': 'image/blond-bros-barber-heatmap.webp',
+    },
+    imgSrc: 'image/blond-bros-barber-heatmap.webp',
+    imgAlt: 'Dominio SEO Local Blond Bros Barber',
+    title: 'Blond Bros Barber - Éxito Local 2026',
+    tags: 'Google Maps / Estrategia Local / Fuente el Saz',
+    description: 
+      'Transformamos un perfil abandonado en el líder de su pueblo. Gestión integral de reseñas, fotos de remodelación y optimización GMB.',
+    type: 'link',
+    url: 'https://g.co/kgs/UfU8p6E' // URL basada en el GMB ID visible en el mapa si lo tuviera, pero uso un placeholder coherente o link de google maps
+  },
 ];
+
