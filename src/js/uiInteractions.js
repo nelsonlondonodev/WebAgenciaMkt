@@ -100,7 +100,7 @@ export function initSuccessCaseCarousels() {
  */
 export function initHeroBenefitBadge() {
   const heroMain = document.querySelector('[data-component="hero-section"]');
-  if (heroMain && !document.querySelector('.hero-benefit-badge')) {
+  if (heroMain && heroMain.dataset.showBadge === 'true' && !document.querySelector('.hero-benefit-badge')) {
       const badge = document.createElement('div');
       badge.className = 'hero-benefit-badge mt-4 py-2 px-4 bg-primary-green/20 border border-primary-green text-primary-green rounded-lg text-sm font-bold inline-block animate-fade-in';
       badge.textContent = '🚀 Objetivo: Llevamos tu negocio al Top 3 de Google Maps.';
