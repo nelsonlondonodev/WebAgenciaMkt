@@ -84,14 +84,14 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="/fontawesome.min.css?v=1774631253736" 
+      href="/fontawesome.min.css?v=1774631554172" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=1774631253736" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=1774631554172" />
     </noscript>
-    <link href="/output.css?v=1774631253736" rel="stylesheet" />
+    <link href="/output.css?v=1774631554172" rel="stylesheet" />
     <style>
       .scrollbar-hide::-webkit-scrollbar { display: none; }
       .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
@@ -334,35 +334,53 @@
 
             <!-- Columna Visual (Galería Carrusel) -->
             <div class="scroll-animate-initial delay-200 order-1 lg:order-2">
-               <div class="relative group">
-                  <!-- Contenedor Carrusel Horizontal con Scroll Snap -->
-                  <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 scrollbar-hide scroll-smooth">
+               <div class="relative group px-4 lg:px-0">
+                  <!-- Botones de Navegación (Solo escritorio/hover) -->
+                  <button 
+                    onclick="document.getElementById('blond-bros-carousel').scrollBy({left: -400, behavior: 'smooth'})"
+                    class="absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 hover:bg-primary-blue/30"
+                    aria-label="Imagen anterior"
+                  >
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button 
+                    onclick="document.getElementById('blond-bros-carousel').scrollBy({left: 400, behavior: 'smooth'})"
+                    class="absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity z-20 hover:bg-primary-blue/30"
+                    aria-label="Siguiente imagen"
+                  >
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+
+                  <!-- Contenedor Carrusel Horizontal -->
+                  <div id="blond-bros-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 scrollbar-hide scroll-smooth">
                     <!-- Item 1: Heatmap -->
-                    <div class="min-w-[85%] sm:min-w-[90%] lg:min-w-full snap-start group/item">
-                       <p class="text-xs text-gray-500 mb-2 uppercase tracking-widest font-bold">1. Mapa de Calor (Ranking)</p>
-                       <img src="./image/blond-bros-barber-heatmap.webp" alt="Heatmap Blond Bros Barber" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.02] transition-transform duration-500">
+                    <div class="min-w-full snap-start group/item">
+                       <p class="text-[10px] text-gray-500 mb-2 uppercase tracking-widest font-bold bg-white/5 inline-block px-2 py-0.5 rounded">1. Mapa de Calor (Ranking)</p>
+                       <img src="./image/blond-bros-barber-heatmap.webp" alt="Heatmap Blond Bros Barber" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.01] transition-transform duration-500">
                     </div>
                     <!-- Item 2: Ficha GBP -->
-                    <div class="min-w-[85%] sm:min-w-[90%] lg:min-w-full snap-start group/item">
-                       <p class="text-xs text-gray-500 mb-2 uppercase tracking-widest font-bold">2. Ficha Google Business</p>
-                       <img src="./image/blond-bros-barber-gmb.webp" alt="Perfil GMB Blond Bros" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.02] transition-transform duration-500">
+                    <div class="min-w-full snap-start group/item">
+                       <p class="text-[10px] text-gray-500 mb-2 uppercase tracking-widest font-bold bg-white/5 inline-block px-2 py-0.5 rounded">2. Ficha Google Business</p>
+                       <img src="./image/blond-bros-barber-gmb.webp" alt="Perfil GMB Blond Bros" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.01] transition-transform duration-500">
                     </div>
                     <!-- Item 3: Remodelación -->
-                    <div class="min-w-[85%] sm:min-w-[90%] lg:min-w-full snap-start group/item">
-                       <p class="text-xs text-gray-500 mb-2 uppercase tracking-widest font-bold">3. Nueva Remodelación</p>
-                       <img src="./image/blond-bros-barber-remodelacion.webp" alt="Remodelación Blond Bros" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.02] transition-transform duration-500">
+                    <div class="min-w-full snap-start group/item">
+                       <p class="text-[10px] text-gray-500 mb-2 uppercase tracking-widest font-bold bg-white/5 inline-block px-2 py-0.5 rounded">3. Nueva Remodelación</p>
+                       <img src="./image/blond-bros-barber-remodelacion.webp" alt="Remodelación Blond Bros" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.01] transition-transform duration-500">
                     </div>
                   </div>
-                  <!-- Indicador de Scroll (Móvil) -->
-                  <div class="flex md:hidden justify-center gap-2 -mt-2">
-                    <div class="w-8 h-1 bg-primary-blue/30 rounded-full"></div>
-                    <div class="w-8 h-1 bg-gray-300/30 rounded-full"></div>
-                    <div class="w-8 h-1 bg-gray-300/30 rounded-full"></div>
+
+                  <!-- Indicadores (Dots) -->
+                  <div class="flex justify-center gap-3 mt-2">
+                    <button onclick="document.getElementById('blond-bros-carousel').scrollTo({left: 0, behavior: 'smooth'})" class="w-2.5 h-2.5 rounded-full bg-primary-blue transition-colors" aria-label="Ir a imagen 1"></button>
+                    <button onclick="document.getElementById('blond-bros-carousel').scrollTo({left: 500, behavior: 'smooth'})" class="w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-white/40 transition-colors" aria-label="Ir a imagen 2"></button>
+                    <button onclick="document.getElementById('blond-bros-carousel').scrollTo({left: 1000, behavior: 'smooth'})" class="w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-white/40 transition-colors" aria-label="Ir a imagen 3"></button>
                   </div>
                </div>
-               <p class="mt-2 text-xs text-gray-500 text-center italic">Desliza para ver el impacto en el mapa y la nueva imagen del local.</p>
+               <p class="mt-4 text-[10px] text-gray-500 text-center italic opacity-70">Usa las flechas o desliza para ver el impacto total.</p>
             </div>
           </div>
+
 
         </div>
       </section>
@@ -695,6 +713,6 @@
     <div id="cookie-banner-placeholder"></div>
 
     <div data-component="chatbot"></div>
-    <script src="/bundle.min.js?v=1774631253736" defer></script>
+    <script src="/bundle.min.js?v=1774631554172" defer></script>
   </body>
 </html>
