@@ -38,6 +38,8 @@ function createCardImage(item, srcsetAttr, sizesAttr) {
         ${sizesAttr}
         src="${item.imgSrc}"
         alt="${item.imgAlt}"
+        width="400"
+        height="224"
         loading="lazy"
         decoding="async"
       />
