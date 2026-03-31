@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const distPath = __dirname;
-const version = Date.now();
+const now = new Date();
+const version = `${now.getFullYear()}.${(now.getMonth() + 1).toString().padStart(2, '0')}.${now.getDate().toString().padStart(2, '0')}.${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}`;
 
 console.log('Starting cache busting in root directory...');
 
