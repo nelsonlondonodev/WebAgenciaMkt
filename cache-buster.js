@@ -30,6 +30,12 @@ fs.readdir(distPath, (err, files) => {
     cvFiles.forEach(file => htmlFiles.push(path.join('cv', file)));
   }
 
+  // Add footer component specifically to update its build version
+  const footerPath = path.join(distPath, 'components', 'footer.html');
+  if (fs.existsSync(footerPath)) {
+    htmlFiles.push(path.join('components', 'footer.html'));
+  }
+
   if (htmlFiles.length === 0) {
     console.log('No HTML files found in dist directory. Nothing to do.');
     return;
@@ -44,19 +50,24 @@ fs.readdir(distPath, (err, files) => {
         return;
       }
 
-      // The regex looks for src/href attributes pointing to the specific files.
-      // It handles paths like "./bundle.min.js", "bundle.min.js", or "../output.css".
+      // 1. Regular Cache Busting (JS/CSS)
       const regex = new RegExp(
         '(src|href)="((?:\\.\\./|\\./|/)?)(bundle\\.min\\.js|output\\.css|fontawesome\\.min\\.css)(?:\\?v=[0-9]*)?"',
         'g'
       );
 
-      const updatedData = data.replace(regex, (match, attribute, prefix, filename) => {
-        // Forzamos ruta absoluta desde la raíz (/) para evitar fallos de resolución
+      let updatedData = data.replace(regex, (match, attribute, prefix, filename) => {
         const newUrl = `${attribute}="/${filename}?v=${version}"`;
         console.log(`In ${file}, updated ${filename} to /${filename}?v=${version}`);
         return newUrl;
       });
+
+      // 2. Build Version Injection (Footer only)
+      if (file.includes('footer.html')) {
+        const versionRegex = new RegExp('<span id="footer-build-version">.*?</span>', 'g');
+        updatedData = updatedData.replace(versionRegex, `<span id="footer-build-version">v.${version}</span>`);
+        console.log(`In ${file}, updated build version to v.${version}`);
+      }
 
       fs.writeFile(filePath, updatedData, 'utf8', (err) => {
         if (err) {
