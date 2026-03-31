@@ -8,6 +8,68 @@ function createSrcSet(srcset) {
     .join(', ');
 }
 
+// Helper function to create badges for the image
+function _createImageBadges(item) {
+  let badgesHtml = '';
+  if (item.type === 'link') {
+    badgesHtml += `
+      <div class="absolute top-2 right-2 p-2 bg-black/50 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true">
+        <i class="fas fa-link"></i>
+      </div>
+    `;
+  }
+  if (item.tourType) {
+    badgesHtml += `
+      <div class="absolute top-2 right-2 flex items-center space-x-1.5 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+        <i class="fas fa-vr-cardboard"></i>
+        <span>${item.tourType}</span>
+      </div>
+    `;
+  }
+  return badgesHtml;
+}
+
+function createCardImage(item, srcsetAttr, sizesAttr) {
+  return `
+    <div class="relative">
+      <img
+        class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+        ${srcsetAttr}
+        ${sizesAttr}
+        src="${item.imgSrc}"
+        alt="${item.imgAlt}"
+        width="400"
+        height="224"
+        loading="lazy"
+        decoding="async"
+      />
+      ${item.tourType ? `
+        <div class="absolute top-2 right-2 flex items-center space-x-1.5 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+          <i class="fas fa-vr-cardboard"></i>
+          <span>${item.tourType}</span>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function createCardContent(item) {
+  return `
+    <div class="p-6">
+      <div class="flex items-center gap-2 mb-2">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">${item.title}</h3>
+        ${item.isNew ? `
+          <span class="bg-primary-blue dark:bg-primary-green text-white text-xs font-bold uppercase py-1 px-2 rounded-full">
+            Nuevo
+          </span>
+        ` : ''}
+      </div>
+      <p class="text-sm text-primary-blue dark:text-primary-green mb-2">${item.tags}</p>
+      <p class="text-gray-600 dark:text-gray-400 text-base">${item.description}</p>
+    </div>
+  `;
+}
+
 function createPortfolioCard(item) {
   const isLink = item.type === 'link';
   const tag = isLink ? 'a' : 'div';
@@ -22,40 +84,8 @@ function createPortfolioCard(item) {
   return `
     <${tag} ${idAttr} ${dataTypeAttr} class="portfolio-item group scroll-animate-initial ${cursorClass}" data-category="${item.category}" ${hrefAttr}>
       <div class="absolute inset-0 bg-gradient-to-br from-primary-blue/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"></div>
-      <div class="relative">
-        <img
-          class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-          ${srcsetAttr}
-          ${sizesAttr}
-          src="${item.imgSrc}"
-          alt="${item.imgAlt}"
-          loading="lazy"
-          decoding="async"
-        />
-        ${item.type === 'link' ? `
-          <div class="absolute top-2 right-2 p-2 bg-black/50 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true">
-            <i class="fas fa-link"></i>
-          </div>
-        ` : ''}
-        ${item.tourType ? `
-          <div class="absolute top-2 right-2 flex items-center space-x-1.5 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-            <i class="fas fa-vr-cardboard"></i>
-            <span>${item.tourType}</span>
-          </div>
-        ` : ''}
-      </div>
-      <div class="p-6">
-        <div class="flex items-center gap-2 mb-2">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">${item.title}</h3>
-          ${item.isNew ? `
-            <span class="bg-primary-blue dark:bg-primary-green text-white text-xs font-bold uppercase py-1 px-2 rounded-full">
-              Nuevo
-            </span>
-          ` : ''}
-        </div>
-        <p class="text-sm text-primary-blue dark:text-primary-green mb-2">${item.tags}</p>
-        <p class="text-gray-600 dark:text-gray-400 text-base">${item.description}</p>
-      </div>
+      ${createCardImage(item, srcsetAttr, sizesAttr)}
+      ${createCardContent(item)}
     </${tag}>
   `;
 }

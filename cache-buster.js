@@ -1,70 +1,110 @@
-const fs = require('fs');
+const fs = require('fs').promises;
+const { existsSync } = require('fs');
 const path = require('path');
 
-const distPath = __dirname;
-const version = Date.now();
+/**
+ * CONFIGURACIÓN
+ * Define los directorios a escanear y los archivos que requieren versionado.
+ */
+const DIST_PATH = __dirname;
+const ASSETS_TO_VERSION = ['bundle.min.js', 'output.css', 'fontawesome.min.css'];
+const DIRECTORIES_TO_SCAN = ['', 'guia', 'cv', 'components'];
 
-console.log('Starting cache busting in root directory...');
+/**
+ * GENERACIÓN DE VERSIÓN
+ * Crea un identificador único basado en la fecha (Formato: YYYY.MM.DD.HHMM)
+ */
+function generateVersion() {
+  const now = new Date();
+  return `${now.getFullYear()}.${(now.getMonth() + 1)
+    .toString()
+    .padStart(2, '0')}.${now.getDate().toString().padStart(2, '0')}.${now
+    .getHours()
+    .toString()
+    .padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}`;
+}
 
-// Find all HTML files in the dist directory
-fs.readdir(distPath, (err, files) => {
-  if (err) {
-    console.error('Error reading dist directory:', err);
-    return;
-  }
+/**
+ * ACTUALIZACIÓN DE ASSETS
+ * Busca y actualiza las etiquetas src o href para incluir el parámetro de versión.
+ */
+function updateAssetUrls(content, version, fileName) {
+  const escapedAssets = ASSETS_TO_VERSION.map(asset => asset.replace(/\./g, '\\.'));
+  const assetsRegex = new RegExp(
+    `(src|href)="((?:\\.\\./|\\./|/)?)( ${escapedAssets.join('|')})(?:\\?v=[0-9\\.]*)?"`,
+    'g'
+  );
 
-  const htmlFiles = files.filter(file => file.endsWith('.html'));
-
-  // Add files from 'guia' directory
-  const guiaPath = path.join(distPath, 'guia');
-  if (fs.existsSync(guiaPath)) {
-    const guiaFiles = fs.readdirSync(guiaPath).filter(file => file.endsWith('.html'));
-    guiaFiles.forEach(file => htmlFiles.push(path.join('guia', file)));
-  }
-
-
-  // Add files from 'cv' directory
-  const cvPath = path.join(distPath, 'cv');
-  if (fs.existsSync(cvPath)) {
-    const cvFiles = fs.readdirSync(cvPath).filter(file => file.endsWith('.html'));
-    cvFiles.forEach(file => htmlFiles.push(path.join('cv', file)));
-  }
-
-  if (htmlFiles.length === 0) {
-    console.log('No HTML files found in dist directory. Nothing to do.');
-    return;
-  }
-
-  htmlFiles.forEach(file => {
-    const filePath = path.join(distPath, file);
-
-    fs.readFile(filePath, 'utf8', (err, data) => {
-      if (err) {
-        console.error(`Error reading ${file}:`, err);
-        return;
-      }
-
-      // The regex looks for src/href attributes pointing to the specific files.
-      // It handles paths like "./bundle.min.js", "bundle.min.js", or "../output.css".
-      const regex = new RegExp(
-        '(src|href)="((?:\\.\\./|\\./|/)?)(bundle\\.min\\.js|output\\.css|fontawesome\\.min\\.css)(?:\\?v=[0-9]*)?"',
-        'g'
-      );
-
-      const updatedData = data.replace(regex, (match, attribute, prefix, filename) => {
-        // Forzamos ruta absoluta desde la raíz (/) para evitar fallos de resolución
-        const newUrl = `${attribute}="/${filename}?v=${version}"`;
-        console.log(`In ${file}, updated ${filename} to /${filename}?v=${version}`);
-        return newUrl;
-      });
-
-      fs.writeFile(filePath, updatedData, 'utf8', (err) => {
-        if (err) {
-          console.error(`Error writing updated ${file}:`, err);
-          return;
-        }
-        console.log(`Cache busting complete for ${file}.`);
-      });
-    });
+  return content.replace(assetsRegex, (match, attr, prefix, asset) => {
+    // Forzamos ruta absoluta desde la raíz (/) para evitar fallos de resolución en subcarpetas
+    const newUrl = `${attr}="/${asset.trim()}?v=${version}"`;
+    return newUrl;
   });
-});
+}
+
+/**
+ * INYECCIÓN EN FOOTER
+ * Si el archivo es el componente de footer, inyecta la versión de forma visible.
+ */
+function injectFooterVersion(content, version, fileName) {
+  if (!fileName.includes('footer.html')) return content;
+  
+  const versionRegex = /<span id="footer-build-version">.*?<\/span>/g;
+  console.log(`[Build] Inyectando versión en footer: v.${version}`);
+  return content.replace(versionRegex, `<span id="footer-build-version">v.${version}</span>`);
+}
+
+/**
+ * PROCESAMIENTO DE ARCHIVO
+ * Lee, transforma y guarda el archivo de forma asíncrona.
+ */
+async function processFile(relativeFilePath, version) {
+  const absolutePath = path.join(DIST_PATH, relativeFilePath);
+  
+  try {
+    const data = await fs.readFile(absolutePath, 'utf8');
+    let updatedData = updateAssetUrls(data, version, relativeFilePath);
+    updatedData = injectFooterVersion(updatedData, version, relativeFilePath);
+    
+    await fs.writeFile(absolutePath, updatedData, 'utf8');
+    console.log(`[✓] Optimizado: ${relativeFilePath}`);
+  } catch (error) {
+    console.error(`[X] Error en ${relativeFilePath}:`, error.message);
+  }
+}
+
+/**
+ * ORQUESTADOR PRINCIPAL
+ */
+async function main() {
+  console.log('--- Iniciando Cache Buster (Surgery Mode) ---');
+  const version = generateVersion();
+  const htmlFiles = [];
+
+  try {
+    for (const dir of DIRECTORIES_TO_SCAN) {
+      const fullPath = path.join(DIST_PATH, dir);
+      if (!existsSync(fullPath)) continue;
+
+      const files = await fs.readdir(fullPath);
+      files
+        .filter(file => file.endsWith('.html'))
+        .forEach(file => htmlFiles.push(path.join(dir, file)));
+    }
+
+    if (htmlFiles.length === 0) {
+      console.log('No se encontraron archivos HTML para procesar.');
+      return;
+    }
+
+    // Procesamos todos los archivos en paralelo para máxima velocidad
+    await Promise.all(htmlFiles.map(file => processFile(file, version)));
+    console.log(`--- Operación Finalizada Correctamente (v.${version}) ---`);
+    
+  } catch (error) {
+    console.error('Error crítico durante la ejecución:', error);
+    process.exit(1);
+  }
+}
+
+main();
