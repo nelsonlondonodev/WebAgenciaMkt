@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "copy:assets": "cp node_modules/@fortawesome/fontawesome-free/css/all.min.css ./fontawesome.min.css && sed -i '' 's|../webfonts|webfonts|g' ./fontawesome.min.css && sed -i '' 's|font-display:block|font-display:swap|g' ./fontawesome.min.css && rm -rf webfonts && cp -r node_modules/@fortawesome/fontawesome-free/webfonts ./",
-    "watch:css": "tailwindcss -i ./src/input.css -o output.css --watch",
+    "watch:css": "tailwindcss -i ./src/input.css -o nelson-v4.css --watch",
     "watch:js": "esbuild src/js/script.js --bundle --outfile=bundle.min.js --watch",
     "dev": "npm run copy:assets && concurrently \"npm run watch:css\" \"npm run watch:js\"",
-    "build:css": "tailwindcss -i ./src/input.css -o output.css --minify",
+    "build:css": "tailwindcss -i ./src/input.css -o nelson-v4.css --minify",
     "build:js": "esbuild src/js/script.js --bundle --minify --outfile=bundle.min.js",
     "build": "npm run copy:assets && npm run build:css && npm run build:js && node cache-buster.js && node generar-sitemap.js",
     "sitemap": "node generar-sitemap.js",
