@@ -340,7 +340,7 @@ main {
   }
 
   /* Safelist manual */
-  .nav-active, .is-active, .is-visible, .hidden { @apply block; }
+  .nav-active, .is-active, .is-visible { @apply block; }
   .underline { text-decoration: underline; }
   .text-red-600 { color: #dc2626; }
   .text-green-600 { color: #16a34a; }
