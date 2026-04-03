@@ -178,7 +178,7 @@
     @apply text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white underline;
   }
   .cookie-modal-backdrop {
-    @apply fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm;
+    @apply fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm;
   }
   .cookie-modal-content {
     @apply bg-light-card dark:bg-dark-card p-8 rounded-xl shadow-2xl max-w-lg w-full;
