@@ -6,13 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "copy:assets": "cp node_modules/@fortawesome/fontawesome-free/css/all.min.css ./fontawesome.min.css && sed -i '' 's|../webfonts|webfonts|g' ./fontawesome.min.css && sed -i '' 's|font-display:block|font-display:swap|g' ./fontawesome.min.css && rm -rf webfonts && cp -r node_modules/@fortawesome/fontawesome-free/webfonts ./",
-    "watch:css": "postcss ./src/input.css -o output.css --watch",
+    "watch:css": "tailwindcss -i ./src/input.css -o nelson-v4.css --watch",
     "watch:js": "esbuild src/js/script.js --bundle --outfile=bundle.min.js --watch",
     "dev": "npm run copy:assets && concurrently \"npm run watch:css\" \"npm run watch:js\"",
-    "build:css": "NODE_ENV=production postcss ./src/input.css -o output.css",
+    "build:css": "tailwindcss -i ./src/input.css -o nelson-v4.css --minify",
     "build:js": "esbuild src/js/script.js --bundle --minify --outfile=bundle.min.js",
     "build": "npm run copy:assets && npm run build:css && npm run build:js && node cache-buster.js && node generar-sitemap.js",
-
     "sitemap": "node generar-sitemap.js",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
@@ -22,16 +21,15 @@
   "license": "ISC",
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
-    "autoprefixer": "^10.4.21",
     "concurrently": "^9.2.1",
-    "cssnano": "^7.1.0",
     "esbuild": "^0.27.0",
     "onchange": "^7.1.0",
-    "postcss": "^8.5.5",
-    "postcss-cli": "^11.0.1",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "sitemap": "^8.0.0",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^4.2.2"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.2"
   }
 }

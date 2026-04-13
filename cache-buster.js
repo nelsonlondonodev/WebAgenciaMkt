@@ -7,7 +7,7 @@ const path = require('path');
  * Define los directorios a escanear y los archivos que requieren versionado.
  */
 const DIST_PATH = __dirname;
-const ASSETS_TO_VERSION = ['bundle.min.js', 'output.css', 'fontawesome.min.css'];
+const ASSETS_TO_VERSION = ['bundle.min.js', 'output.css', 'fontawesome.min.css', 'nelson-v4.css'];
 const DIRECTORIES_TO_SCAN = ['', 'guia', 'cv', 'components'];
 
 /**

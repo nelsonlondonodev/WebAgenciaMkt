@@ -19,7 +19,14 @@
           "provider": {
             "@type": "ProfessionalService",
             "name": "Nelson Londoño | Diseño Web y SEO",
-            "url": "https://nelsonlondono.es/"
+            "url": "https://nelsonlondono.es/",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "reviewCount": "19",
+              "bestRating": "5",
+              "worstRating": "1"
+            }
           },
           "areaServed": [
             { "@type": "Country", "name": "Spain" },
@@ -84,14 +91,14 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="/fontawesome.min.css?v=2026.03.31.1338" 
+      href="/fontawesome.min.css?v=2026.04.13.1254" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.03.31.1338" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.04.13.1254" />
     </noscript>
-    <link href="/output.css?v=2026.03.31.1338" rel="stylesheet" />
+    <link href="/nelson-v4.css?v=2026.04.13.1254" rel="stylesheet" />
     <style>
       .scrollbar-hide::-webkit-scrollbar { display: none; }
       .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
@@ -118,7 +125,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center text-center lg:text-left">
             <!-- Columna Texto -->
             <div class="scroll-animate-initial">
-              <h2 class="section-title lg:text-left text-4xl sm:text-5xl mb-6">
+              <h2 class="section-title lg:section-title-left">
                 ¿Qué es el SEO Local y por qué tu negocio lo necesita?
               </h2>
               <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
@@ -701,9 +708,7 @@
 
       <section id="cta-final" class="py-12 sm:py-16 text-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-4 scroll-animate-initial"
-          >
+          <h2 class="section-title scroll-animate-initial">
             ¿Quieres ser el negocio más visible de tu zona?
           </h2>
           <p
