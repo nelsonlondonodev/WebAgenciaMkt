@@ -63,8 +63,8 @@
 }
 
 @layer utilities {
-  .bg-gradient-to-r {
-    background-image: linear-gradient(to right, var(--tw-gradient-stops)) !important;
+  .hero-gradient-text {
+    background-image: linear-gradient(to right, var(--color-primary-green), var(--color-primary-blue)) !important;
   }
   .bg-clip-text {
     background-clip: text !important;
