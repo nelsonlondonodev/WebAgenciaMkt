@@ -25,6 +25,15 @@ RewriteRule ^nelson-londono/(.*)$ /cv/ [R=301,L]
 RewriteRule ^articulo-ia-navidad-2025\.html$ /blog.html [R=301,L]
 RewriteRule ^guia/guia-para-pdf\.html$ /guia/ [R=301,L]
 RewriteRule ^guia/guia-seo-local-template\.html$ /guia/ [R=301,L]
+
+# 4. Limpieza de 404 registrados en Search Console 2026
+RewriteRule ^infoNel\.html$ /sobre-mi.html [R=301,L]
+RewriteRule ^portfolio\.html$ /proyectos.html [R=301,L]
+RewriteRule ^blog/?$ /blog.html [R=301,L]
+RewriteRule ^about\.html$ /sobre-mi.html [R=301,L]
+RewriteRule ^strength\.html$ /sobre-mi.html [R=301,L]
+RewriteRule ^ingles\.html$ /sobre-mi.html [R=301,L]
+RewriteRule ^servicios\.html$ /#servicios [R=301,L]
 # --------------------------------------------------
 
 # 4. Custom 404 Page declaration
