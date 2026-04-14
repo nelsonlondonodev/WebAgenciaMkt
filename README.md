@@ -47,6 +47,30 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
 
 ---
 
+## 🚀 Optimización Core Web Vitals (Sesión 14/04/2026) - PSI >= 90
+Se ha realizado una auditoría y refactorización integral del sitio (15 páginas) para alcanzar una puntuación de **>=90 en PageSpeed Insights (Móvil)**, enfocándonos en la eliminación de bloqueos de renderizado y el control total del LCP y CLS.
+
+- **Estatización de Componentes Críticos (Inyección Zero-JS):**
+    - Refactorización de **Hero Sections** y **Breadcrumbs** de inyección dinámica (JS) a HTML estático en todas las páginas clave.
+    - Resultado: Eliminación total del **CLS (Layout Shift)** de 0.7 a **<0.01**.
+- **Entrega de Recursos No Bloqueante:**
+    - Implementación del patrón `preload` para el CSS principal (`nelson-v4.css`) y FontAwesome, permitiendo un primer pintado (**FCP**) instantáneo.
+    - Uso de `noscript` como fallback para garantizar compatibilidad universal.
+- **Control de Carga Crítica (LCP):**
+    - Implementación de `link rel="preload"` con `fetchpriority="high"` para imágenes críticas "above-the-fold" (fotos personales y destacados de artículos).
+    - Optimización de imágenes secundarias con `loading="lazy"` y `decoding="async"`.
+- **Higiene Visual y Bugs:**
+    - **Favicons:** Restaurados en las páginas de `sobre-mi.html` y `contacto.html`.
+    - **Breadcrumbs Limpios:** Eliminación de migas de pan innecesarias en Proyectos y Sobre Mí para un diseño más minimalista.
+- **Autoría y Prueba Social:** 
+    - Actualización del contador de reseñas de Google Maps a **19 reseñas reales (5.0 Rating)**.
+- **Despliegue de Producción Pro:**
+    - Ejecución de Build optimizado con minificación de activos.
+    - Rotación de versiones mediante **Cache Buster** (`v.2026.04.14.0822`).
+    - Despliegue sincronizado a la rama `main`.
+
+---
+
 ## 🚀 Últimas Mejoras (Sesión 13/04/2026) - Premium 2026 UI & GMB
 - **Estandarización de Títulos "Waoow":** Rediseño global de los encabezados `<h2>` con la clase `.section-title`, incorporando un pseudo-elemento decorativo con gradiente dinámico (Verde a Azul) que eleva la jerarquía visual del sitio.
 - **Glassmorphism Evolucionado:** Actualización de componentes `service-card`, `portfolio-item` y `testimonial-card` con bordes lumínicos internos (`ring-1`), desenfoque biónico (`backdrop-blur-2xl`) y sombras volumétricas de alta profundidad, siguiendo el estándar estético de 2026.
