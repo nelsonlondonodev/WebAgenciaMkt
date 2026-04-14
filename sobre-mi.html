@@ -29,8 +29,32 @@
     </script>
 
     <link rel="canonical" href="https://nelsonlondono.es/sobre-mi.html" />
-    <link href="/nelson-v4.css?v=2026.04.13.1254" rel="stylesheet" />
-    <link href="/fontawesome.min.css?v=2026.04.13.1254" rel="stylesheet" />
+    <link rel="icon" type="image/webp" href="./image/favicon.webp" />
+    
+    <!-- Carga del CSS principal optimizada (No bloqueante) -->
+    <link 
+      rel="preload" 
+      href="/nelson-v4.css?v=2026.04.14.0822" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="/nelson-v4.css?v=2026.04.14.0822" />
+    </noscript>
+
+    <!-- Carga de FontAwesome optimizada -->
+    <link 
+      rel="preload" 
+      href="/fontawesome.min.css?v=2026.04.14.0822" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.04.14.0822" />
+    </noscript>
+
+    <!-- Preload de imagen crítica LCP (Marca Personal) -->
+    <link rel="preload" as="image" href="./image/foto-nelson-londono.webp" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -44,17 +68,29 @@
     <div data-component="nav"></div>
 
     <main class="pt-20">
+
       
-      <!-- Hero Standardized with Components -->
-      <div
-        data-component="hero-section"
-        data-hero-title="Sobre nosotros"
-        data-hero-subtitle-main="Trayectoria y visión"
-        data-hero-subtitle-secondary="Construyendo el puente entre la complejidad tecnológica y el éxito empresarial."
-        data-hero-icon-1='<i class="fas fa-users absolute top-1/4 left-10 text-8xl lg:text-9xl text-primary-green/20 dark:text-primary-blue/20 transform -rotate-12 animate-float-up-down"></i>'
-        data-hero-icon-2='<i class="fas fa-rocket absolute bottom-1/4 right-10 text-8xl lg:text-9xl text-primary-blue/20 dark:text-primary-green/20 transform rotate-12 animate-float-down-up"></i>'
-        data-hero-icon-3=''
-      ></div>
+      <!-- Hero Section Estático -->
+      <section id="inicio-servicio" class="relative overflow-hidden">
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center min-h-[75vh]">
+          
+          <!-- Iconos flotantes estáticos -->
+          <i class="fas fa-users absolute top-1/4 left-10 text-8xl lg:text-9xl text-primary-green/20 dark:text-primary-blue/20 transform -rotate-12 animate-float-up-down" aria-hidden="true"></i>
+          <i class="fas fa-rocket absolute bottom-1/4 right-10 text-8xl lg:text-9xl text-primary-blue/20 dark:text-primary-green/20 transform rotate-12 animate-float-down-up" aria-hidden="true"></i>
+
+          <div class="max-w-4xl relative z-10">
+            <h1 class="text-base sm:text-lg lg:text-xl font-medium text-primary-green dark:text-primary-green opacity-0 animate-slide-in-right uppercase">
+              Sobre nosotros
+            </h1>
+            <p class="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-7xl font-black bg-clip-text text-transparent hero-gradient-text opacity-0 animate-slide-in-left leading-[1.15] lg:leading-[1.1] text-left sm:text-center" style="animation-delay: 0.2s">
+              Trayectoria y visión
+            </p>
+            <p class="mt-6 sm:mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center" style="animation-delay: 0.4s">
+              Construyendo el puente entre la complejidad tecnológica y el éxito empresarial.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <!-- Sección Sobre Mí (Migrada de Index) -->
       <section id="sobre-mi" class="py-16 sm:py-24">

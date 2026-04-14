@@ -13,14 +13,26 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="/fontawesome.min.css?v=2026.04.13.1254" 
+      href="/fontawesome.min.css?v=2026.04.14.0822" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.04.13.1254" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.04.14.0822" />
     </noscript>
-    <link href="/nelson-v4.css?v=2026.04.13.1254" rel="stylesheet" />
+    <!-- Carga del CSS principal optimizada (No bloqueante) -->
+    <link 
+      rel="preload" 
+      href="/nelson-v4.css?v=2026.04.14.0822" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="/nelson-v4.css?v=2026.04.14.0822" />
+    </noscript>
+
+    <!-- Preload de la primera imagen del Blog (Candidata LCP en móvil) -->
+    <link rel="preload" as="image" href="./image/ia-agentica-google-automatizacion-marketing-2026.webp" fetchpriority="high" />
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-124QEKRXHD"
@@ -41,7 +53,18 @@
     <div id="nav-placeholder"></div>
 
     <main class="pt-20">
-      <div data-component="breadcrumbs"></div>
+      <!-- Breadcrumbs Estáticos -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+          <ol class="flex items-center space-x-2 text-sm">
+            <li class="flex items-center">
+              <a href="/" class="text-primary-blue dark:text-primary-green hover:underline">Inicio</a>
+              <span class="mx-2 text-gray-400 dark:text-gray-500" aria-hidden="true">/</span>
+            </li>
+            <li><span class="font-medium text-gray-500 dark:text-gray-400" aria-current="page">Blog</span></li>
+          </ol>
+        </nav>
+      </div>
       <section id="blog-list" class="py-16 sm:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
@@ -68,6 +91,8 @@
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                       width="640"
                       height="467"
+                      loading="eager"
+                      decoding="async"
                     />
                   </div>
                   <div class="md:col-span-3">
@@ -109,6 +134,8 @@
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                       width="640"
                       height="467"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div class="md:col-span-3">
@@ -159,6 +186,8 @@
                       src="./image/articulo-redes-sociales-publicidad-local.webp"
                       width="640"
                       height="467"
+                      loading="lazy"
+                      decoding="async"
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                     />
                   </div>
@@ -213,6 +242,8 @@
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                       width="1024"
                       height="1024"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div class="md:col-span-3">
@@ -260,6 +291,8 @@
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                       width="640"
                       height="640"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div class="md:col-span-3">

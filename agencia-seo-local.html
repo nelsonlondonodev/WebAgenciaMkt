@@ -91,14 +91,27 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="/fontawesome.min.css?v=2026.04.13.1254" 
+      href="/fontawesome.min.css?v=2026.04.14.0822" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.04.13.1254" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.04.14.0822" />
     </noscript>
-    <link href="/nelson-v4.css?v=2026.04.13.1254" rel="stylesheet" />
+    <!-- Carga del CSS principal optimizada (No bloqueante) -->
+    <link 
+      rel="preload" 
+      href="/nelson-v4.css?v=2026.04.14.0822" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="/nelson-v4.css?v=2026.04.14.0822" />
+    </noscript>
+
+    <!-- Preload de imagen crítica para LCP -->
+    <link rel="preload" as="image" href="./image/what-is-seo-local.webp" fetchpriority="high" />
+
     <style>
       .scrollbar-hide::-webkit-scrollbar { display: none; }
       .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
@@ -107,17 +120,41 @@
     <div id="nav-placeholder"></div>
 
     <main class="pt-20">
-      <div data-component="breadcrumbs"></div>
-      <div 
-        data-component="hero-section"
-        data-hero-title="Servicio de SEO local en Fuente el Saz"
-        data-hero-subtitle-main="Conecta con los clientes de tu zona"
-        data-hero-subtitle-secondary="Optimizamos tu presencia local para que los clientes te encuentren primero en Google Maps y búsquedas geolocalizadas."
-        data-hero-icon-1='<i class="fas fa-map-marked-alt absolute top-1/4 left-4 text-6xl lg:text-8xl transform -rotate-12 z-0 animate-float-up-down text-glow-green dark:text-glow-blue opacity-50 dark:opacity-30" aria-hidden="true"></i>'
-        data-hero-icon-2='<i class="fas fa-store absolute bottom-1/4 right-4 text-6xl lg:text-8xl transform rotate-12 z-0 animate-float-down-up text-glow-blue dark:text-glow-green opacity-50 dark:opacity-30" aria-hidden="true"></i>'
-        data-hero-icon-3='<i class="fab fa-google absolute top-1/2 left-1/3 text-5xl lg:text-7xl text-gray-400/50 dark:text-gray-500/30 transform z-0 animate-float-up-down" style="animation-duration: 10s" aria-hidden="true"></i>'
-        data-show-badge="true"
-      ></div>
+      <!-- Breadcrumbs Estáticos -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+          <ol class="flex items-center space-x-2 text-sm">
+            <li class="flex items-center">
+              <a href="/" class="text-primary-blue dark:text-primary-green hover:underline">Inicio</a>
+              <span class="mx-2 text-gray-400 dark:text-gray-500" aria-hidden="true">/</span>
+            </li>
+            <li><span class="font-medium text-gray-500 dark:text-gray-400" aria-current="page">SEO Local</span></li>
+          </ol>
+        </nav>
+      </div>
+
+      <!-- Hero Section Estático -->
+      <section id="inicio-servicio" class="relative overflow-hidden">
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center min-h-[75vh]">
+          
+          <!-- Iconos flotantes estáticos -->
+          <i class="fas fa-map-marked-alt absolute top-1/4 left-4 text-6xl lg:text-8xl transform -rotate-12 z-0 animate-float-up-down text-glow-green dark:text-glow-blue opacity-50 dark:opacity-30" aria-hidden="true"></i>
+          <i class="fas fa-store absolute bottom-1/4 right-4 text-6xl lg:text-8xl transform rotate-12 z-0 animate-float-down-up text-glow-blue dark:text-glow-green opacity-50 dark:opacity-30" aria-hidden="true"></i>
+          <i class="fab fa-google absolute top-1/2 left-1/3 text-5xl lg:text-7xl text-gray-400/50 dark:text-gray-500/30 transform z-0 animate-float-up-down" style="animation-duration: 10s" aria-hidden="true"></i>
+
+          <div class="max-w-4xl relative z-10">
+            <h1 class="text-base sm:text-lg lg:text-xl font-medium text-primary-green dark:text-primary-green opacity-0 animate-slide-in-right uppercase">
+              Servicio de SEO local en Fuente el Saz
+            </h1>
+            <p class="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-7xl font-black bg-clip-text text-transparent hero-gradient-text opacity-0 animate-slide-in-left leading-[1.15] lg:leading-[1.1] text-left sm:text-center" style="animation-delay: 0.2s">
+              Conecta con los clientes de tu zona
+            </p>
+            <p class="mt-6 sm:mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center" style="animation-delay: 0.4s">
+              Optimizamos tu presencia local para que los clientes te encuentren primero en Google Maps y búsquedas geolocalizadas.
+            </p>
+          </div>
+        </div>
+      </section>
 
 
       <section id="introduccion" class="py-12 sm:py-24">
@@ -144,6 +181,9 @@
                     src="./image/what-is-seo-local.webp" 
                     alt="Infografía explicativa de SEO Local con Google Maps" 
                     class="relative rounded-3xl shadow-2xl border border-white/10 w-full object-cover aspect-square"
+                    width="500"
+                    height="500"
+                    loading="lazy"
                   >
                </div>
             </div>
@@ -256,9 +296,9 @@
             <!-- Columna del Slider (Visual impact) -->
             <div class="scroll-animate-initial w-full max-w-2xl mx-auto lg:max-w-none">
               <div class="ba-slider-container">
-                <img src="./image/seo-heatmap-before.webp" alt="SEO Local Antes - Mapa de calor pobre" class="ba-before-image">
+                <img src="./image/seo-heatmap-before.webp" alt="SEO Local Antes - Mapa de calor pobre" class="ba-before-image" width="600" height="400" loading="lazy">
                 <div class="ba-after-image">
-                  <img src="./image/seo-heatmap-after.webp" alt="SEO Local Después - Mapa de calor ganador" class="w-full h-full object-cover">
+                  <img src="./image/seo-heatmap-after.webp" alt="SEO Local Después - Mapa de calor ganador" class="w-full h-full object-cover" width="600" height="400" loading="lazy">
                 </div>
                 <div class="ba-slider-handle">
                   <div class="ba-slider-button">
@@ -378,17 +418,17 @@
                     <!-- Item 1: Heatmap -->
                     <div class="min-w-full snap-start group/item">
                        <p class="text-[10px] text-gray-500 mb-2 uppercase tracking-widest font-bold bg-white/5 inline-block px-2 py-0.5 rounded">1. Mapa de Calor (Ranking)</p>
-                       <img src="./image/blond-bros-barber-heatmap.webp" alt="Heatmap Blond Bros Barber" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.01] transition-transform duration-500">
+                       <img src="./image/blond-bros-barber-heatmap.webp" alt="Heatmap Blond Bros Barber" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.01] transition-transform duration-500" width="600" height="400" loading="lazy">
                     </div>
                     <!-- Item 2: Ficha GBP -->
                     <div class="min-w-full snap-start group/item">
                        <p class="text-[10px] text-gray-500 mb-2 uppercase tracking-widest font-bold bg-white/5 inline-block px-2 py-0.5 rounded">2. Ficha Google Business</p>
-                       <img src="./image/blond-bros-barber-gmb.webp" alt="Perfil GMB Blond Bros" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.01] transition-transform duration-500">
+                       <img src="./image/blond-bros-barber-gmb.webp" alt="Perfil GMB Blond Bros" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.01] transition-transform duration-500" width="600" height="400" loading="lazy">
                     </div>
                     <!-- Item 3: Remodelación -->
                     <div class="min-w-full snap-start group/item">
                        <p class="text-[10px] text-gray-500 mb-2 uppercase tracking-widest font-bold bg-white/5 inline-block px-2 py-0.5 rounded">3. Nueva Remodelación</p>
-                       <img src="./image/blond-bros-barber-remodelacion.webp" alt="Remodelación Blond Bros" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.01] transition-transform duration-500">
+                       <img src="./image/blond-bros-barber-remodelacion.webp" alt="Remodelación Blond Bros" class="rounded-2xl shadow-xl border border-white/10 w-full hover:scale-[1.01] transition-transform duration-500" width="600" height="400" loading="lazy">
                     </div>
                   </div>
 
@@ -614,7 +654,7 @@
             </div>
             
             <div class="relative scroll-animate-initial delay-200">
-               <img src="./image/global-reach.webp" alt="Alcance Global España y Colombia" class="rounded-3xl shadow-2xl border border-white/10">
+               <img src="./image/global-reach.webp" alt="Alcance Global España y Colombia" class="rounded-3xl shadow-2xl border border-white/10" width="600" height="450" loading="lazy">
                <!-- Overlay decorativo -->
                <div class="absolute -bottom-6 -right-6 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
                   <div class="flex items-center gap-3">

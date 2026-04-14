@@ -47,6 +47,17 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
 
 ---
 
+## 🚀 Últimas Mejoras (Sesión 13/04/2026) - Premium 2026 UI & GMB
+- **Estandarización de Títulos "Waoow":** Rediseño global de los encabezados `<h2>` con la clase `.section-title`, incorporando un pseudo-elemento decorativo con gradiente dinámico (Verde a Azul) que eleva la jerarquía visual del sitio.
+- **Glassmorphism Evolucionado:** Actualización de componentes `service-card`, `portfolio-item` y `testimonial-card` con bordes lumínicos internos (`ring-1`), desenfoque biónico (`backdrop-blur-2xl`) y sombras volumétricas de alta profundidad, siguiendo el estándar estético de 2026.
+- **Integración con GMB / Business Profile:** Vinculación del Trust Badge de reseñas con la ficha oficial de Google Maps, incluyendo micro-animaciones reactivas al hover y resplandor dinámico en las estrellas.
+- **SEO de "Reloj Suizo":** 
+    - **Schema Markup:** Enriquecimiento de datos estructurados con `AggregateRating` (5.0/19 reseñas) y expansión de `areaServed` a nivel local (Fuente el Saz, Algete, Madrid).
+    - **Higiene 301:** Implementación de redirecciones masivas en `.htaccess` para capturar tráfico de URLs obsoletas (404s) detectadas en Google Search Console, preservando el Link Equity.
+- **Optimización de CTAs:** Estandarización de botones de acción con mayor peso tipográfico y espaciado optimizado para maximizar la tasa de conversión en dispositivos móviles.
+
+---
+
 ## 🚀 Últimas Mejoras (Sesión 21/03/2026)
 - **Humanización de Marca:** Rediseño integral de la Hero Section en `index.html` con un layout de 2 columnas (50/50). Integración de la imagen personal de Nelson Londoño con efectos de *glow* perimetral y máscara de degradado circular para una fusión orgánica con el fondo, ocultando rastros de edición por IA.
 - **Social Proof Estratégico:** Inclusión de un Trust Badge de Google Reviews con identidad visual corporativa (colores oficiales), resaltando la calificación de 5.0 y 19 reseñas reales para aumentar la credibilidad instantánea.
