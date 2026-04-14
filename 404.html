@@ -21,7 +21,16 @@
     <noscript>
       <link rel="stylesheet" href="/fontawesome.min.css?v=2026.04.13.1254" />
     </noscript>
-    <link href="/nelson-v4.css?v=2026.04.13.1254" rel="stylesheet" />
+    <!-- Carga del CSS principal optimizada (No bloqueante) -->
+    <link 
+      rel="preload" 
+      href="/nelson-v4.css?v=2026.04.13.1254" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="/nelson-v4.css?v=2026.04.13.1254" />
+    </noscript>
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-124QEKRXHD"
