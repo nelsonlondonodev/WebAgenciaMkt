@@ -96,60 +96,71 @@
           </div>
         </div>
       </div>
-      <div class="lg:hidden hidden bg-light-card dark:bg-dark-card z-20" id="mobileMenu">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a href="/" class="nav-link-mobile flex items-center">
-            <i class="fas fa-home w-5 text-center mr-2"></i
-            ><span class="flex-1">Inicio</span>
-          </a>
-          <div class="relative">
-            <button
-              id="mobileServicesButton"
-              class="nav-link-mobile flex items-center w-full text-left"
-            >
-              <i class="fas fa-briefcase w-5 text-center mr-2"></i>
-              <span class="flex-1">Servicios</span>
-              <i class="fas fa-chevron-down ml-2 text-xs"></i>
-            </button>
-            <div id="mobileServicesMenu" class="hidden pl-8">
-              <a
-                href="/agencia-seo-local.html"
-                class="nav-link-mobile flex items-center"
-                >SEO local</a
+      <!-- Mobile Menu Overlay (Dark background when open) -->
+      <div id="nav-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden transition-opacity duration-300"></div>
+
+      <!-- Mobile Menu Panel -->
+      <div 
+        id="mobileMenu" 
+        class="fixed inset-y-0 right-0 w-[85%] max-w-[320px] z-[100] transform translate-x-full transition-transform duration-500 ease-in-out mobile-menu-glass flex flex-col pointer-events-none"
+      >
+        <div class="p-6 border-b border-gray-100 dark:border-white/10 flex justify-between items-center bg-white dark:bg-[#0a0a0a]">
+          <span class="text-[10px] font-black uppercase tracking-[0.2em] text-primary-green">Menú Nelson Londoño</span>
+          <button id="closeMobileMenu" class="text-gray-500 dark:text-gray-400 hover:text-red-500 transition-colors">
+            <i class="fas fa-times text-2xl"></i>
+          </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto py-8">
+          <nav class="space-y-2 px-4">
+            <a href="/" class="mobile-menu-link">
+              <i class="fas fa-home w-8 text-center mr-3 text-primary-blue"></i>
+              <span>Inicio</span>
+            </a>
+            
+            <div class="relative">
+              <button
+                id="mobileServicesButton"
+                class="mobile-menu-link w-full text-left"
               >
-              <a
-                href="/agencia-seo.html"
-                class="nav-link-mobile flex items-center"
-                >SEO (optimización para buscadores)</a
-              >
-              <a
-                href="/agencia-desarrollo-web-con-codigo.html"
-                class="nav-link-mobile flex items-center"
-                >Desarrollo web a medida</a
-              >
-              <a
-                href="/agencia-automatizaciones.html"
-                class="nav-link-mobile flex items-center"
-                >Agentes virtuales y automatizaciones</a
-              >
+                <i class="fas fa-briefcase w-8 text-center mr-3 text-primary-green"></i>
+                <span class="flex-1">Servicios</span>
+                <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300"></i>
+              </button>
+              <div id="mobileServicesMenu" class="hidden mt-2 ml-12 space-y-1 border-l-2 border-primary-green/20">
+                <a href="/agencia-seo-local.html" class="block py-3 px-4 text-gray-600 dark:text-gray-400 hover:text-primary-green transition-colors">SEO local</a>
+                <a href="/agencia-seo.html" class="block py-3 px-4 text-gray-600 dark:text-gray-400 hover:text-primary-green transition-colors">SEO técnico</a>
+                <a href="/agencia-desarrollo-web-con-codigo.html" class="block py-3 px-4 text-gray-600 dark:text-gray-400 hover:text-primary-green transition-colors">Web a medida</a>
+                <a href="/agencia-automatizaciones.html" class="block py-3 px-4 text-gray-600 dark:text-gray-400 hover:text-primary-green transition-colors">IA & Automatizaciones</a>
+              </div>
             </div>
+
+            <a href="/proyectos.html" class="mobile-menu-link">
+              <i class="fas fa-folder-open w-8 text-center mr-3 text-primary-blue"></i>
+              <span>Proyectos</span>
+            </a>
+            <a href="/sobre-mi.html" class="mobile-menu-link">
+              <i class="fas fa-user w-8 text-center mr-3 text-primary-green"></i>
+              <span>Sobre mí</span>
+            </a>
+            <a href="/contacto.html" class="mobile-menu-link">
+              <i class="fas fa-envelope w-8 text-center mr-3 text-primary-blue"></i>
+              <span>Contacto</span>
+            </a>
+            <a href="/blog.html" class="mobile-menu-link">
+              <i class="fas fa-newspaper w-8 text-center mr-3 text-primary-green"></i>
+              <span>Blog</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Mobile Menu Footer -->
+        <div class="p-8 border-t border-white/10">
+          <div class="flex justify-center space-x-6">
+            <a href="https://www.linkedin.com/in/nelson-londo%C3%B1o-dev/" class="text-gray-400 hover:text-primary-blue"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="https://github.com/nelsonlondonodev" class="text-gray-400 hover:text-white"><i class="fab fa-github fa-lg"></i></a>
           </div>
-          <a href="/proyectos.html" class="nav-link-mobile flex items-center">
-            <i class="fas fa-folder-open w-5 text-center mr-2"></i
-            ><span class="flex-1">Proyectos</span>
-          </a>
-          <a href="/sobre-mi.html" class="nav-link-mobile flex items-center">
-            <i class="fas fa-user w-5 text-center mr-2"></i
-            ><span class="flex-1">Sobre mí</span>
-          </a>
-          <a href="/contacto.html" class="nav-link-mobile flex items-center">
-            <i class="fas fa-envelope w-5 text-center mr-2"></i
-            ><span class="flex-1">Contacto</span>
-          </a>
-          <a href="/blog.html" class="nav-link-mobile flex items-center">
-            <i class="fas fa-newspaper w-5 text-center mr-2"></i
-            ><span class="flex-1">Blog</span>
-          </a>
+          <p class="text-center text-[10px] text-gray-500 mt-4 uppercase tracking-widest">Nelson Londoño © 2026</p>
         </div>
       </div>
     </header>
