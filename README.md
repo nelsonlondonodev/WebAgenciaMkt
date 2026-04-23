@@ -45,6 +45,14 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
         -   *Top:* Transparente (se funde con el fondo).
         -   *Scroll:* Fondo `bg-rich-dark` con transparencia (`bg-opacity-90`) y efecto blur, texto blanco (`text-white`).
 
+## 🚀 Mejoras Estéticas y UX (Sesión 23/04/2026) - Premium Mobile Design
+- **Navegación Móvil de Próxima Generación:** Rediseño integral del menú móvil integrando un sistema de **Glassmorphism** (`backdrop-blur-2xl`) con fondo semi-transparente. Incluye animaciones fluidas de entrada lateral y una jerarquía visual mejorada con iconos de marca.
+- **Footer Visualmente Superior:**
+    *   **Borde de Marca Animado:** Implementación de una barra superior de 3px con un gradiente dinámico que recorre la paleta de colores corporativa.
+    *   **Efectos Glow en RRSS:** Los iconos sociales ahora cuentan con un efecto de resplandor (*glow*) reactivo al hover, elevando la interactividad.
+    *   **Profundidad Visual:** Inclusión de un gradiente radial sutil en el fondo del footer para mejorar la separación de secciones y la percepción de calidad.
+- **Estabilidad y Rendimiento:** Refactorización de la lógica de visibilidad para garantizar un comportamiento fluido en dispositivos móviles y compatibilidad total con el sistema de build.
+
 ---
 
 ## 🚀 Optimización Core Web Vitals (Sesión 14/04/2026) - PSI >= 90
