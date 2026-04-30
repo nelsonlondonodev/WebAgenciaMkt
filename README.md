@@ -45,6 +45,16 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
         -   *Top:* Transparente (se funde con el fondo).
         -   *Scroll:* Fondo `bg-rich-dark` con transparencia (`bg-opacity-90`) y efecto blur, texto blanco (`text-white`).
 
+## 🚀 Limpieza y Estabilización (Sesión 30/04/2026) - Conversion Focus & Bug Fixing
+- **Limpieza Quirúrgica del Menú Móvil**: Eliminación sistemática de iconos y enlaces de redes sociales en el pie del menú móvil en las 11 páginas del sitio. Esta decisión arquitectónica consolida la presencia social exclusivamente en el footer principal, eliminando puntos de fuga y maximizando el enfoque en la conversión primaria.
+- **Sincronización Global de Versiones (Cache Busting)**: Implementación de un nuevo estándar de versionado (`v.2026.04.30.0913`) sincronizado en todos los archivos HTML. Esto garantiza la invalidación de caché inmediata para CSS, FontAwesome y el bundle de JavaScript, asegurando que todos los usuarios visualicen las mejoras de UI sin necesidad de recarga manual.
+- **Corrección de Bugs Críticos en Navegación**:
+    - **Mobile Menu Height**: Ajuste de altura a `100dvh` y corrección de la lógica de bloqueo de scroll (`overflow-hidden`) para evitar el doble scrollbar y problemas de visualización en dispositivos móviles modernos.
+    - **Stacking Context (z-index)**: Resolución de conflictos de apilamiento visual, asegurando que el menú móvil y los elementos interactivos se posicionen correctamente sobre el contenido de la página.
+- **Mantenimiento de Activos**: Actualización de todas las referencias de recursos externos y locales en las plantillas estáticas para mantener la paridad técnica en todo el ecosistema de la web.
+
+---
+
 ## 🚀 Mejoras Estéticas y UX (Sesión 23/04/2026) - Premium Mobile Design
 - **Navegación Móvil de Próxima Generación:** Rediseño integral del menú móvil integrando un sistema de **Glassmorphism** (`backdrop-blur-2xl`) con fondo semi-transparente. Incluye animaciones fluidas de entrada lateral y una jerarquía visual mejorada con iconos de marca.
 - **Footer Visualmente Superior:**
