@@ -308,6 +308,9 @@
   .mobile-menu-link {
     @apply flex items-center px-6 py-4 text-lg font-bold text-gray-800 dark:text-gray-100 hover:bg-primary-green/10 hover:text-primary-green dark:hover:text-primary-green transition-all duration-300 rounded-xl mx-2;
   }
+  .mobile-link-active {
+    @apply bg-primary-green/10 text-primary-green border-r-4 border-primary-green rounded-r-none;
+  }
 
   /* Footer Enhancements */
   .footer-gradient-border {
@@ -359,6 +362,7 @@ body {
   flex-direction: column;
 }
 
+html.menu-open,
 body.menu-open {
   overflow: hidden !important;
   height: 100vh !important;
