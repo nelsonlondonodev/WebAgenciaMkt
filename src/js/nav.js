@@ -1,4 +1,3 @@
-
 function initMobileMenu() {
   const mobileMenuButton = document.getElementById('mobileMenuButton');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -12,14 +11,14 @@ function initMobileMenu() {
       overlay.classList.remove('hidden');
       document.documentElement.classList.add('menu-open');
       document.body.classList.add('menu-open');
-      
+
       // Force reflow for transition
       mobileMenu.offsetHeight;
-      
+
       mobileMenu.classList.add('mobile-menu-active');
       mobileMenu.classList.remove('translate-x-full', 'pointer-events-none');
       overlay.classList.remove('opacity-0', 'pointer-events-none');
-      
+
       mobileMenuButton.classList.add('is-active');
       mobileMenuButton.setAttribute('aria-expanded', 'true');
       mobileMenu.setAttribute('aria-hidden', 'false');
@@ -27,14 +26,14 @@ function initMobileMenu() {
       mobileMenu.classList.remove('mobile-menu-active');
       mobileMenu.classList.add('translate-x-full', 'pointer-events-none');
       overlay.classList.add('opacity-0', 'pointer-events-none');
-      
+
       mobileMenuButton.classList.remove('is-active');
       mobileMenuButton.setAttribute('aria-expanded', 'false');
       mobileMenu.setAttribute('aria-hidden', 'true');
-      
+
       document.documentElement.classList.remove('menu-open');
       document.body.classList.remove('menu-open');
-      
+
       setTimeout(() => {
         if (!mobileMenu.classList.contains('mobile-menu-active')) {
           overlay.classList.add('hidden');
@@ -49,7 +48,8 @@ function initMobileMenu() {
   mobileMenuButton.addEventListener('click', (e) => {
     e.stopPropagation();
     const isOpen = mobileMenu.classList.contains('mobile-menu-active');
-    if (isOpen) closeMobileMenu(); else openMobileMenu();
+    if (isOpen) closeMobileMenu();
+    else openMobileMenu();
   });
 
   if (closeMobileMenuBtn) {
@@ -60,7 +60,10 @@ function initMobileMenu() {
 
   // Close with Escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mobileMenu.classList.contains('mobile-menu-active')) {
+    if (
+      e.key === 'Escape' &&
+      mobileMenu.classList.contains('mobile-menu-active')
+    ) {
       closeMobileMenu();
     }
   });
@@ -99,9 +102,12 @@ function initScrollSpy() {
 
   // Highlight current page based on URL
   const currentPath = window.location.pathname;
-  mobileLinks.forEach(link => {
+  mobileLinks.forEach((link) => {
     const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === '/' && href === '/index.html')) {
+    if (
+      href === currentPath ||
+      (currentPath === '/' && href === '/index.html')
+    ) {
       link.classList.add('mobile-link-active');
     } else {
       link.classList.remove('mobile-link-active');
@@ -120,7 +126,7 @@ function initScrollSpy() {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const sectionId = entry.target.id;
-        
+
         // Update Desktop Links
         desktopLinks.forEach((link) => {
           link.classList.remove('nav-active');
@@ -148,7 +154,9 @@ function initScrollSpy() {
 
 function initDesktopServicesMenu() {
   const servicesMenuGroup = document.getElementById('services-menu-group');
-  const servicesMenuDropdown = document.getElementById('services-menu-dropdown');
+  const servicesMenuDropdown = document.getElementById(
+    'services-menu-dropdown'
+  );
   let timeoutId;
 
   if (!servicesMenuGroup || !servicesMenuDropdown) return;
@@ -165,7 +173,6 @@ function initDesktopServicesMenu() {
   });
 }
 
-
 function initStickyHeader() {
   const header = document.querySelector('.sticky-header');
   if (!header) return;
@@ -179,7 +186,7 @@ function initStickyHeader() {
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll(); 
+  handleScroll();
 }
 
 export function initNav() {
@@ -189,4 +196,3 @@ export function initNav() {
   initDesktopServicesMenu();
   initStickyHeader();
 }
-

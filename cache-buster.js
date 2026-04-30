@@ -7,7 +7,12 @@ const path = require('path');
  * Define los directorios a escanear y los archivos que requieren versionado.
  */
 const DIST_PATH = __dirname;
-const ASSETS_TO_VERSION = ['bundle.min.js', 'output.css', 'fontawesome.min.css', 'nelson-v4.css'];
+const ASSETS_TO_VERSION = [
+  'bundle.min.js',
+  'output.css',
+  'fontawesome.min.css',
+  'nelson-v4.css',
+];
 const DIRECTORIES_TO_SCAN = ['', 'guia', 'cv', 'components'];
 
 /**
@@ -29,7 +34,9 @@ function generateVersion() {
  * Busca y actualiza las etiquetas src o href para incluir el parámetro de versión.
  */
 function updateAssetUrls(content, version, fileName) {
-  const escapedAssets = ASSETS_TO_VERSION.map(asset => asset.replace(/\./g, '\\.'));
+  const escapedAssets = ASSETS_TO_VERSION.map((asset) =>
+    asset.replace(/\./g, '\\.')
+  );
   const assetsRegex = new RegExp(
     `(src|href)="((?:\\.\\./|\\./|/)?)( ${escapedAssets.join('|')})(?:\\?v=[0-9\\.]*)?"`,
     'g'
@@ -48,10 +55,13 @@ function updateAssetUrls(content, version, fileName) {
  */
 function injectFooterVersion(content, version, fileName) {
   if (!fileName.includes('footer.html')) return content;
-  
+
   const versionRegex = /<span id="footer-build-version">.*?<\/span>/g;
   console.log(`[Build] Inyectando versión en footer: v.${version}`);
-  return content.replace(versionRegex, `<span id="footer-build-version">v.${version}</span>`);
+  return content.replace(
+    versionRegex,
+    `<span id="footer-build-version">v.${version}</span>`
+  );
 }
 
 /**
@@ -60,12 +70,12 @@ function injectFooterVersion(content, version, fileName) {
  */
 async function processFile(relativeFilePath, version) {
   const absolutePath = path.join(DIST_PATH, relativeFilePath);
-  
+
   try {
     const data = await fs.readFile(absolutePath, 'utf8');
     let updatedData = updateAssetUrls(data, version, relativeFilePath);
     updatedData = injectFooterVersion(updatedData, version, relativeFilePath);
-    
+
     await fs.writeFile(absolutePath, updatedData, 'utf8');
     console.log(`[✓] Optimizado: ${relativeFilePath}`);
   } catch (error) {
@@ -88,8 +98,8 @@ async function main() {
 
       const files = await fs.readdir(fullPath);
       files
-        .filter(file => file.endsWith('.html'))
-        .forEach(file => htmlFiles.push(path.join(dir, file)));
+        .filter((file) => file.endsWith('.html'))
+        .forEach((file) => htmlFiles.push(path.join(dir, file)));
     }
 
     if (htmlFiles.length === 0) {
@@ -98,9 +108,8 @@ async function main() {
     }
 
     // Procesamos todos los archivos en paralelo para máxima velocidad
-    await Promise.all(htmlFiles.map(file => processFile(file, version)));
+    await Promise.all(htmlFiles.map((file) => processFile(file, version)));
     console.log(`--- Operación Finalizada Correctamente (v.${version}) ---`);
-    
   } catch (error) {
     console.error('Error crítico durante la ejecución:', error);
     process.exit(1);

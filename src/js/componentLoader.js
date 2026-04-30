@@ -54,10 +54,13 @@ const loadConfigurableComponent = async (element) => {
       if (key === 'component' || key === 'heroCustomStyles') {
         continue; // Omitir estas claves especiales
       }
-      
-      const placeholder = `{{${key.replace(/([A-Z])/g, '_$1').replace('-', '_').toUpperCase()}}}`;
+
+      const placeholder = `{{${key
+        .replace(/([A-Z])/g, '_$1')
+        .replace('-', '_')
+        .toUpperCase()}}}`;
       const value = element.dataset[key];
-      
+
       if (value !== undefined) {
         html = html.replaceAll(placeholder, value);
       }
@@ -68,10 +71,12 @@ const loadConfigurableComponent = async (element) => {
 
     element.innerHTML = html;
   } catch (error) {
-    console.error(`No se pudo cargar componente configurable desde ${url}:`, error);
+    console.error(
+      `No se pudo cargar componente configurable desde ${url}:`,
+      error
+    );
   }
 };
-
 
 /**
  * Carga todos los componentes de la página.
@@ -86,14 +91,16 @@ export const loadComponents = async () => {
       '/components/cookie-banner.html'
     ),
   ];
-  
+
   // Carga componentes configurables basados en data-attributes
   const configurableComponents = document.querySelectorAll('[data-component]');
-  const configurableLoaders = Array.from(configurableComponents).map(element => {
-    // Asegurarnos de no volver a procesar los que ya tienen un loader específico si es necesario,
-    // pero para este caso, 'chatbot' y 'hero-section' son únicos.
-    return loadConfigurableComponent(element);
-  });
+  const configurableLoaders = Array.from(configurableComponents).map(
+    (element) => {
+      // Asegurarnos de no volver a procesar los que ya tienen un loader específico si es necesario,
+      // pero para este caso, 'chatbot' y 'hero-section' son únicos.
+      return loadConfigurableComponent(element);
+    }
+  );
 
   // Ejecutar todos los cargadores en paralelo
   await Promise.all([...staticLoaders, ...configurableLoaders]);

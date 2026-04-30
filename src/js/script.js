@@ -14,24 +14,28 @@ import { initTestimonialCarousel } from './testimonialCarousel.js';
 import { initDynamicModals } from './modalRenderer.js';
 import { generateBreadcrumbs } from './breadcrumbs.js'; // Importar la función para generar migas de pan
 
-import { initContactForm, initContactReveal, setupContactModal } from './contactForm.js';
+import {
+  initContactForm,
+  initContactReveal,
+  setupContactModal,
+} from './contactForm.js';
 
 import { initCookieConsent } from './cookieConsent.js';
 
 import { setupSocialSharing } from './socialSharing.js';
 import { initPricing } from './pricing.js';
-import { initBeforeAfterSlider, initHeroBenefitBadge, initSuccessCaseCarousels } from './uiInteractions.js';
+import {
+  initBeforeAfterSlider,
+  initHeroBenefitBadge,
+  initSuccessCaseCarousels,
+} from './uiInteractions.js';
 
 // import { initHeroIframe } from './heroHelper.js';
-
-
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Cargar componentes reutilizables como el NAV y el Footer
 
   await loadComponents();
-
-
 
   // Inicializar el resto de los scripts después de que los componentes estén cargados
 
@@ -41,7 +45,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   initSmoothScroll();
 
-  applyAlternatingGradients('main', ['section-gradient-green', 'section-gradient-blue']); // Aplicar gradientes alternos a las secciones
+  applyAlternatingGradients('main', [
+    'section-gradient-green',
+    'section-gradient-blue',
+  ]); // Aplicar gradientes alternos a las secciones
 
   initScrollAnimations();
 
@@ -52,15 +59,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   initServiceCards();
 
   if (document.getElementById('portfolio-grid')) {
-
-      renderPortfolioCards('portfolio-grid', 3); // Para la página de inicio, limitar a 3 proyectos
-
+    renderPortfolioCards('portfolio-grid', 3); // Para la página de inicio, limitar a 3 proyectos
   }
 
   if (document.getElementById('portfolio-grid-proyectos')) {
-
-      renderPortfolioCards('portfolio-grid-proyectos'); // Para la página de proyectos, renderizar todos
-
+    renderPortfolioCards('portfolio-grid-proyectos'); // Para la página de proyectos, renderizar todos
   }
 
   initPortfolioFilter(); // Inicializa los filtros para las tarjetas recién creadas
@@ -71,37 +74,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   initChatbot(); // Inicializar el chatbot
 
-      initDynamicModals(); // Inicializa los modales dinámicos
+  initDynamicModals(); // Inicializa los modales dinámicos
 
-  
-
-  
-
-      initContactForm();
-
-
+  initContactForm();
 
   initContactReveal();
 
   // Configuración específica para el botón de prueba gratis en SEO Local
   // Configuración de modal eliminada para permitir enlace directo a Cal.com
 
-
-
   initCookieConsent();
 
-
-
   // initHeroIframe();
-
-
 
   setupSocialSharing();
   initPricing();
   initBeforeAfterSlider();
   initHeroBenefitBadge();
   initSuccessCaseCarousels();
-
 });
-
-

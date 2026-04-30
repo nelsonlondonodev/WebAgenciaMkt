@@ -7,7 +7,9 @@ export function setupSocialSharing() {
   const shareUrl = window.location.href;
   const shareTitle = document.title;
   const descriptionMeta = document.querySelector('meta[name="description"]');
-  const shareText = descriptionMeta ? descriptionMeta.getAttribute('content') : '';
+  const shareText = descriptionMeta
+    ? descriptionMeta.getAttribute('content')
+    : '';
 
   if (shareUrl && shareTitle && shareText) {
     shareLinkedin.href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(

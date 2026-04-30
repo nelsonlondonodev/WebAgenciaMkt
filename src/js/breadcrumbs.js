@@ -24,7 +24,8 @@ export function generateBreadcrumbs(placeholderSelector) {
   }
 
   const path = window.location.pathname;
-  const pageFileName = path.substring(path.lastIndexOf('/') + 1) || 'index.html'; // Handle root path
+  const pageFileName =
+    path.substring(path.lastIndexOf('/') + 1) || 'index.html'; // Handle root path
 
   let crumbs = [{ name: BREADCRUMB_NAMES['/'], url: '/' }];
 
@@ -33,9 +34,11 @@ export function generateBreadcrumbs(placeholderSelector) {
     crumbs.push({ name: BREADCRUMB_NAMES['blog.html'], url: '/blog.html' });
 
     // Prioridad: atributo data-breadcrumb en el placeholder o su contenedor, luego el H1
-    const customTitle = placeholder.getAttribute('data-breadcrumb') || 
-                        placeholder.closest('[data-breadcrumb]')?.getAttribute('data-breadcrumb');
-    const articleTitle = customTitle || document.querySelector('h1')?.textContent.trim();
+    const customTitle =
+      placeholder.getAttribute('data-breadcrumb') ||
+      placeholder.closest('[data-breadcrumb]')?.getAttribute('data-breadcrumb');
+    const articleTitle =
+      customTitle || document.querySelector('h1')?.textContent.trim();
 
     if (articleTitle) {
       crumbs.push({ name: articleTitle }); // La última miga no tiene enlace

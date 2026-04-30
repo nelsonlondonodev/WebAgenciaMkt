@@ -63,10 +63,14 @@ export function initDynamicModals() {
 
     const closeModal = () => {
       modalElement.classList.add('animate-fade-out');
-      modalElement.addEventListener('animationend', () => {
-        document.body.removeChild(modalElement);
-        document.body.classList.remove('overflow-hidden');
-      }, { once: true });
+      modalElement.addEventListener(
+        'animationend',
+        () => {
+          document.body.removeChild(modalElement);
+          document.body.classList.remove('overflow-hidden');
+        },
+        { once: true }
+      );
     };
 
     const closeButton = modalElement.querySelector('.close-modal-button');

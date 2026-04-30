@@ -3,7 +3,8 @@
 export const CONFIG = {
   // Configuración del Chatbot (n8n Webhook)
   CHATBOT: {
-    WEBHOOK_URL: 'https://n8n.srv1033442.hstgr.cloud/webhook/34b5ab96-ecf0-4195-93de-e3923c2062e5',
+    WEBHOOK_URL:
+      'https://n8n.srv1033442.hstgr.cloud/webhook/34b5ab96-ecf0-4195-93de-e3923c2062e5',
     SESSION_ID_KEY: 'nelson_chat_session_id',
   },
 
@@ -26,19 +27,19 @@ export const CONFIG = {
       MIN_PRICE: 230,
       CURRENCY: '€',
       SUFFIX: '/mes',
-      NOTE: 'Estrategia de crecimiento continuo.'
+      NOTE: 'Estrategia de crecimiento continuo.',
     },
     SEO_LOCAL_EXPRESS: {
       MIN_PRICE: 97,
       CURRENCY: '€',
       SUFFIX: '',
-      NOTE: 'Pago único. Impuso inicial para tu negocio.'
+      NOTE: 'Pago único. Impuso inicial para tu negocio.',
     },
     SEO_GENERAL: {
       MIN_PRICE: 275,
       CURRENCY: '€',
       SUFFIX: '/mes',
-    }
+    },
   },
 
   // Configuración general de UI

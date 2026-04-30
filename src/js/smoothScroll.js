@@ -8,9 +8,11 @@ export function initSmoothScroll() {
   function handleSmoothScroll(href) {
     const targetElement = document.querySelector(href);
     if (targetElement) {
-      const headerOffset = document.getElementById('mainHeader')?.offsetHeight || 80;
+      const headerOffset =
+        document.getElementById('mainHeader')?.offsetHeight || 80;
       const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
 
       window.scrollTo({
         top: offsetPosition,
@@ -57,7 +59,10 @@ export function initSmoothScroll() {
           href.split('#')[0] === window.location.pathname.split('/').pop() ||
           href.split('#')[0] === '';
 
-        if (this.hostname === window.location.hostname || href.startsWith('/')) {
+        if (
+          this.hostname === window.location.hostname ||
+          href.startsWith('/')
+        ) {
           e.preventDefault();
           handlePageTransition(href, isInternalAnchor && isSamePage);
         }

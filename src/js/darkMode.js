@@ -6,10 +6,10 @@ export function initDarkMode() {
   if (darkModeToggle) {
     darkModeToggle.style.display = 'none';
   }
-  
+
   // Limpiar cualquier configuración previa de light mode
   localStorage.removeItem(CONFIG.UI.THEME_KEY);
-  
+
   // Forzar Dark Mode siempre
   document.documentElement.classList.add('dark');
   document.documentElement.classList.remove('light');

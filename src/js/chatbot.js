@@ -39,7 +39,7 @@ class Chatbot {
     const storedHistory = sessionStorage.getItem(this.historyKey);
     if (storedHistory) {
       this.history = JSON.parse(storedHistory);
-      this.history.forEach(item => {
+      this.history.forEach((item) => {
         // Pass false to prevent re-saving history while loading
         this.appendMessage(item.message, item.sender, false);
       });
@@ -47,9 +47,15 @@ class Chatbot {
   }
 
   addEventListeners() {
-    this.elements.widgetButton.addEventListener('click', () => this.toggleWindow());
-    this.elements.closeButton.addEventListener('click', () => this.toggleWindow());
-    this.elements.sendButton.addEventListener('click', () => this.sendMessage());
+    this.elements.widgetButton.addEventListener('click', () =>
+      this.toggleWindow()
+    );
+    this.elements.closeButton.addEventListener('click', () =>
+      this.toggleWindow()
+    );
+    this.elements.sendButton.addEventListener('click', () =>
+      this.sendMessage()
+    );
     this.elements.input.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
         this.sendMessage();
@@ -113,7 +119,9 @@ class Chatbot {
         : 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-t-lg rounded-br-lg'
     }`;
     bubble.innerHTML = message;
-    bubble.querySelectorAll('a').forEach(link => link.classList.add('text-blue-500', 'underline'));
+    bubble
+      .querySelectorAll('a')
+      .forEach((link) => link.classList.add('text-blue-500', 'underline'));
     return bubble;
   }
 
@@ -176,4 +184,3 @@ class Chatbot {
 export function initChatbot() {
   new Chatbot();
 }
-
