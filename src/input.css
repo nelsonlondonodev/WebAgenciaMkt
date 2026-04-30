@@ -295,7 +295,9 @@
     @apply !translate-x-0;
   }
   .mobile-menu-glass {
-    @apply bg-white dark:bg-[#0a0a0a] border-l border-gray-200 dark:border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] z-[100];
+    @apply bg-white dark:bg-[#0a0a0a] border-l border-gray-200 dark:border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] z-[10001] h-[100dvh] min-h-[100dvh];
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
   }
   @supports (backdrop-filter: blur(1px)) {
      .mobile-menu-glass {
@@ -355,6 +357,13 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+body.menu-open {
+  overflow: hidden !important;
+  height: 100vh !important;
+  width: 100% !important;
+  position: fixed !important;
 }
 
 .dark body {

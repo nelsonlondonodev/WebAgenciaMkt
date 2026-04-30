@@ -14,6 +14,7 @@ function initMobileMenu() {
     overlay.classList.add('opacity-0');
     overlay.classList.add('pointer-events-none');
     mobileMenuButton.classList.remove('is-active');
+    document.body.classList.remove('menu-open');
     
     setTimeout(() => {
       overlay.classList.add('hidden');
@@ -22,6 +23,7 @@ function initMobileMenu() {
 
   const openMobileMenu = () => {
     overlay.classList.remove('hidden');
+    document.body.classList.add('menu-open');
     
     // Force reflow
     mobileMenu.offsetHeight;
