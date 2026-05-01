@@ -8,21 +8,25 @@ function initMobileMenu() {
 
   const setMenuState = (isOpen) => {
     if (isOpen) {
+      // Show overlay immediately but transparently
       overlay.classList.remove('hidden');
+      
+      // Prevent body scroll
       document.documentElement.classList.add('menu-open');
       document.body.classList.add('menu-open');
 
-      // Force reflow for transition
-      mobileMenu.offsetHeight;
-
-      mobileMenu.classList.add('mobile-menu-active');
-      mobileMenu.classList.remove('translate-x-full', 'pointer-events-none');
-      overlay.classList.remove('opacity-0', 'pointer-events-none');
-
-      mobileMenuButton.classList.add('is-active');
-      mobileMenuButton.setAttribute('aria-expanded', 'true');
-      mobileMenu.setAttribute('aria-hidden', 'false');
+      // Small delay to allow 'hidden' removal before animating opacity
+      requestAnimationFrame(() => {
+        mobileMenu.classList.add('mobile-menu-active');
+        mobileMenu.classList.remove('translate-x-full', 'pointer-events-none');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        
+        mobileMenuButton.classList.add('is-active');
+        mobileMenuButton.setAttribute('aria-expanded', 'true');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+      });
     } else {
+      // Close animations
       mobileMenu.classList.remove('mobile-menu-active');
       mobileMenu.classList.add('translate-x-full', 'pointer-events-none');
       overlay.classList.add('opacity-0', 'pointer-events-none');
@@ -31,12 +35,12 @@ function initMobileMenu() {
       mobileMenuButton.setAttribute('aria-expanded', 'false');
       mobileMenu.setAttribute('aria-hidden', 'true');
 
-      document.documentElement.classList.remove('menu-open');
-      document.body.classList.remove('menu-open');
-
+      // Delay cleanup until animations finish
       setTimeout(() => {
         if (!mobileMenu.classList.contains('mobile-menu-active')) {
           overlay.classList.add('hidden');
+          document.documentElement.classList.remove('menu-open');
+          document.body.classList.remove('menu-open');
         }
       }, 500);
     }
@@ -85,7 +89,8 @@ function initMobileServicesMenu() {
 
   mobileServicesButton.addEventListener('click', (e) => {
     e.stopPropagation();
-    mobileServicesMenu.classList.toggle('hidden');
+    mobileServicesMenu.classList.toggle('is-active');
+
     const icon = mobileServicesButton.querySelector('i.fa-chevron-down');
     if (icon) {
       icon.classList.toggle('rotate-180');

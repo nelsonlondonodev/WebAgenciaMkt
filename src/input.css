@@ -404,6 +404,14 @@
     @apply bg-primary-green/10 text-primary-green border-r-4 border-primary-green rounded-r-none;
   }
 
+  /* Submenu transitions */
+  .mobile-submenu {
+    @apply max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0 ml-12 border-l-2 border-transparent;
+  }
+  .mobile-submenu.is-active {
+    @apply max-h-[500px] opacity-100 mt-2 border-primary-green/20;
+  }
+
   /* Footer Enhancements */
   .footer-gradient-border {
     @apply border-t border-transparent relative;
@@ -453,6 +461,7 @@ details[open] summary ~ * {
 
 html {
   height: 100%;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -465,9 +474,6 @@ body {
 html.menu-open,
 body.menu-open {
   overflow: hidden !important;
-  height: 100vh !important;
-  width: 100% !important;
-  position: fixed !important;
 }
 
 .dark body {
