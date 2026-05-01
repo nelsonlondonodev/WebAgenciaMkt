@@ -9,6 +9,8 @@ class Chatbot {
       sendButton: document.getElementById('chat-send'),
       input: document.getElementById('chat-input'),
       messages: document.getElementById('chat-messages'),
+      badge: document.getElementById('chat-notification-badge'),
+      bubble: document.getElementById('chat-invitation-bubble'),
     };
 
     if (!this.elements.widgetButton) {
@@ -21,8 +23,12 @@ class Chatbot {
     this.historyKey = `nelson_chat_history_${this.sessionId}`;
     this.history = [];
 
+    this.alertDismissedKey = 'nelson_chat_alert_dismissed';
+    this.engagementTimer = null;
+
     this.loadHistory();
     this.addEventListeners();
+    this.initEngagementLogic();
   }
 
   getOrCreateSessionId() {
@@ -46,10 +52,45 @@ class Chatbot {
     }
   }
 
+  initEngagementLogic() {
+    const isDismissed = sessionStorage.getItem(this.alertDismissedKey);
+    const hasHistory = this.history.length > 0;
+
+    if (!isDismissed && !hasHistory) {
+      this.engagementTimer = setTimeout(() => {
+        this.showEngagementAlert();
+      }, 5000); // 5 seconds delay
+    }
+  }
+
+  showEngagementAlert() {
+    if (this.elements.badge) {
+      this.elements.badge.classList.remove('hidden');
+    }
+    if (this.elements.bubble) {
+      this.elements.bubble.style.display = 'flex';
+      this.elements.bubble.classList.add('animate-fade-in-up');
+    }
+  }
+
+  dismissEngagementAlert() {
+    if (this.engagementTimer) {
+      clearTimeout(this.engagementTimer);
+    }
+    if (this.elements.badge) {
+      this.elements.badge.classList.add('hidden');
+    }
+    if (this.elements.bubble) {
+      this.elements.bubble.style.display = 'none';
+    }
+    sessionStorage.setItem(this.alertDismissedKey, 'true');
+  }
+
   addEventListeners() {
-    this.elements.widgetButton.addEventListener('click', () =>
-      this.toggleWindow()
-    );
+    this.elements.widgetButton.addEventListener('click', () => {
+      this.toggleWindow();
+      this.dismissEngagementAlert();
+    });
     this.elements.closeButton.addEventListener('click', () =>
       this.toggleWindow()
     );

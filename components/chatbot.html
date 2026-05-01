@@ -1,11 +1,29 @@
 <!-- Chatbot Widget -->
-<div id="chat-widget-container" class="fixed bottom-5 right-5 z-[9999]">
+<div id="chat-widget-container" class="fixed bottom-5 right-5 z-[9999] flex flex-col items-end">
+  <!-- Invitation Bubble (Desktop only) -->
+  <div 
+    id="chat-invitation-bubble" 
+    class="hidden sm:flex mb-3 mr-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-white/20 dark:border-gray-700 shadow-xl p-3 rounded-2xl text-sm font-medium text-gray-800 dark:text-white max-w-[200px] animate-fade-in-up relative"
+    style="display: none;"
+  >
+    ¡Hola! 👋 Soy Aurelio, ¿en qué puedo ayudarte hoy?
+    <!-- Little arrow -->
+    <div class="absolute -bottom-2 right-6 w-4 h-4 bg-white/80 dark:bg-gray-800/80 border-r border-b border-white/20 dark:border-gray-700 rotate-45"></div>
+  </div>
+
   <button
     id="chat-widget-button"
-    class="bg-primary-blue text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:bg-primary-green transition-colors animate-bounce"
+    class="bg-primary-blue text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:bg-primary-green transition-colors animate-bounce relative"
     aria-label="Abrir chat"
   >
     <i class="fas fa-comment-dots fa-2x"></i>
+    <!-- Notification Badge -->
+    <span 
+      id="chat-notification-badge" 
+      class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-md animate-pulse hidden"
+    >
+      1
+    </span>
   </button>
 </div>
 
