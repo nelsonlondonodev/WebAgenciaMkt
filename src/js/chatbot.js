@@ -9,20 +9,37 @@ class Chatbot {
       sendButton: document.getElementById('chat-send'),
       input: document.getElementById('chat-input'),
       messages: document.getElementById('chat-messages'),
+      badge: document.getElementById('chat-notification-badge'),
+      bubble: document.getElementById('chat-invitation-bubble'),
+      closeInvitation: document.getElementById('close-chat-invitation'),
     };
 
-    if (!this.elements.widgetButton) {
-      return;
-    }
+    if (!this.elements.widgetButton) return;
 
+    this.initProperties();
+    this.init();
+  }
+
+  initProperties() {
     this.n8nWebhookUrl = CONFIG.CHATBOT.WEBHOOK_URL;
     this.sessionIdKey = CONFIG.CHATBOT.SESSION_ID_KEY;
     this.sessionId = this.getOrCreateSessionId();
     this.historyKey = `nelson_chat_history_${this.sessionId}`;
     this.history = [];
 
+    // Engagement Constants
+    this.engagement = {
+      storageKey: 'nelson_chat_alert_last_dismissed',
+      timer: null,
+      cooldown: 24 * 60 * 60 * 1000, // 24 hours
+      delay: 5000, // 5 seconds
+    };
+  }
+
+  init() {
     this.loadHistory();
     this.addEventListeners();
+    this.initEngagementLogic();
   }
 
   getOrCreateSessionId() {
@@ -39,17 +56,77 @@ class Chatbot {
     const storedHistory = sessionStorage.getItem(this.historyKey);
     if (storedHistory) {
       this.history = JSON.parse(storedHistory);
-      this.history.forEach(item => {
+      this.history.forEach((item) => {
         // Pass false to prevent re-saving history while loading
         this.appendMessage(item.message, item.sender, false);
       });
     }
   }
 
+  initEngagementLogic() {
+    if (this.shouldShowAlert()) {
+      this.engagement.timer = setTimeout(
+        () => this.showEngagementAlert(),
+        this.engagement.delay
+      );
+    }
+  }
+
+  shouldShowAlert() {
+    const hasHistory = this.history.length > 0;
+    if (hasHistory) return false;
+
+    const lastDismissed = localStorage.getItem(this.engagement.storageKey);
+    if (!lastDismissed) return true;
+
+    const elapsed = Date.now() - parseInt(lastDismissed, 10);
+    return elapsed >= this.engagement.cooldown;
+  }
+
+  showEngagementAlert() {
+    this.updateAlertVisibility(true);
+  }
+
+  dismissEngagementAlert(persist = false) {
+    if (this.engagement.timer) clearTimeout(this.engagement.timer);
+
+    this.updateAlertVisibility(false);
+
+    if (persist) {
+      localStorage.setItem(this.engagement.storageKey, Date.now().toString());
+    }
+  }
+
+  updateAlertVisibility(show) {
+    const { badge, bubble } = this.elements;
+
+    if (badge) badge.classList.toggle('hidden', !show);
+
+    if (bubble) {
+      bubble.style.display = show ? 'flex' : 'none';
+      if (show) bubble.classList.add('animate-fade-in-up');
+    }
+  }
+
   addEventListeners() {
-    this.elements.widgetButton.addEventListener('click', () => this.toggleWindow());
-    this.elements.closeButton.addEventListener('click', () => this.toggleWindow());
-    this.elements.sendButton.addEventListener('click', () => this.sendMessage());
+    this.elements.widgetButton.addEventListener('click', () => {
+      this.toggleWindow();
+      this.dismissEngagementAlert(true);
+    });
+
+    if (this.elements.closeInvitation) {
+      this.elements.closeInvitation.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.dismissEngagementAlert(true);
+      });
+    }
+
+    this.elements.closeButton.addEventListener('click', () =>
+      this.toggleWindow()
+    );
+    this.elements.sendButton.addEventListener('click', () =>
+      this.sendMessage()
+    );
     this.elements.input.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
         this.sendMessage();
@@ -107,13 +184,30 @@ class Chatbot {
 
   createBubble(message, sender) {
     const bubble = document.createElement('div');
-    bubble.className = `py-2 px-4 inline-block max-w-xs ${
-      sender === 'user'
-        ? 'bg-primary-blue text-white rounded-t-lg rounded-bl-lg'
-        : 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-t-lg rounded-br-lg'
+    const isUser = sender === 'user';
+
+    bubble.className = `py-3 px-5 inline-block max-w-[85%] text-sm leading-relaxed shadow-sm ${
+      isUser
+        ? 'bg-gradient-to-br from-primary-blue to-blue-600 text-white rounded-[1.5rem] rounded-tr-none'
+        : 'bg-white/50 dark:bg-white/10 backdrop-blur-md text-gray-800 dark:text-gray-100 border border-white/20 dark:border-white/10 rounded-[1.5rem] rounded-tl-none'
     }`;
+
     bubble.innerHTML = message;
-    bubble.querySelectorAll('a').forEach(link => link.classList.add('text-blue-500', 'underline'));
+
+    // Style links if present
+    bubble.querySelectorAll('a').forEach((link) => {
+      link.classList.add(
+        'text-primary-blue',
+        'dark:text-primary-green',
+        'font-bold',
+        'underline',
+        'decoration-2',
+        'underline-offset-2',
+        'hover:opacity-80',
+        'transition-opacity'
+      );
+    });
+
     return bubble;
   }
 
@@ -152,13 +246,13 @@ class Chatbot {
   showTypingIndicator() {
     const typingIndicator = document.createElement('div');
     typingIndicator.id = 'typing-indicator';
-    typingIndicator.className = 'mb-4';
+    typingIndicator.className = 'mb-4 flex items-start animate-chat-message-in';
     typingIndicator.innerHTML = `
-      <div class="bg-gray-200 dark:bg-gray-700 rounded-lg py-2 px-4 inline-block">
-        <div class="flex items-center space-x-1">
-          <span class="w-2 h-2 bg-gray-500 rounded-full animate-pulse"></span>
-          <span class="w-2 h-2 bg-gray-500 rounded-full animate-pulse" style="animation-delay: 0.2s;"></span>
-          <span class="w-2 h-2 bg-gray-500 rounded-full animate-pulse" style="animation-delay: 0.4s;"></span>
+      <div class="bg-white/50 dark:bg-white/10 backdrop-blur-md rounded-2xl py-3 px-5 border border-white/20 dark:border-white/10 shadow-sm">
+        <div class="flex items-center space-x-1.5">
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
         </div>
       </div>`;
     this.elements.messages.appendChild(typingIndicator);
@@ -176,4 +270,3 @@ class Chatbot {
 export function initChatbot() {
   new Chatbot();
 }
-

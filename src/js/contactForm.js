@@ -2,12 +2,13 @@ import { CONFIG } from './config.js';
 
 /**
  * Attaches submission logic to a specific contact form element.
- * @param {HTMLFormElement} contactForm 
+ * @param {HTMLFormElement} contactForm
  */
 function attachContactFormListeners(contactForm) {
   if (!contactForm) return;
 
-  const statusMessage = contactForm.querySelector('#form-status') || contactForm.nextElementSibling; // Fallback if status is outside
+  const statusMessage =
+    contactForm.querySelector('#form-status') || contactForm.nextElementSibling; // Fallback if status is outside
   const submitButton = contactForm.querySelector('button[type="submit"]');
 
   // Helper para manejar el estado visual
@@ -16,7 +17,7 @@ function attachContactFormListeners(contactForm) {
 
     // Si statusMessage no tiene estructura, solo texto (fallback simple)
     statusMessage.textContent = message;
-    
+
     // Classes
     const baseClasses = 'text-center font-semibold mt-4 block';
     const typeClasses = {
@@ -24,7 +25,7 @@ function attachContactFormListeners(contactForm) {
       success: 'text-green-600',
       loading: 'text-gray-600 dark:text-gray-300',
     };
-    
+
     statusMessage.className = `${baseClasses} ${typeClasses[type] || ''}`;
 
     if (type !== 'loading') {
@@ -58,14 +59,20 @@ function attachContactFormListeners(contactForm) {
       if (response.ok) {
         updateStatus('¡Mensaje enviado con éxito!', 'success');
         contactForm.reset();
-        
-        // Si está en un modal, cerrar después de un tiempo podría ser buena UX, 
+
+        // Si está en un modal, cerrar después de un tiempo podría ser buena UX,
         // pero por ahora solo mostramos éxito.
       } else {
-        updateStatus('Hubo un error al enviar el mensaje. Inténtalo de nuevo.', 'error');
+        updateStatus(
+          'Hubo un error al enviar el mensaje. Inténtalo de nuevo.',
+          'error'
+        );
       }
     } catch (error) {
-      updateStatus('Hubo un problema de conexión. Revisa tu internet.', 'error');
+      updateStatus(
+        'Hubo un problema de conexión. Revisa tu internet.',
+        'error'
+      );
     } finally {
       if (submitButton) {
         setTimeout(() => {
@@ -83,7 +90,6 @@ export function initContactForm() {
   }
 }
 
-
 /**
  * Abre un modal pequeño con efecto "glassmorphism" para mostrar datos sensibles.
  * @param {string} title - Título del dato (ej: "Correo Electrónico")
@@ -94,12 +100,14 @@ export function initContactForm() {
 function openPrivacyModal(title, value, iconClass, linkHref) {
   // Crear overlay
   const modalOverlay = document.createElement('div');
-  modalOverlay.className = 'fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in';
+  modalOverlay.className =
+    'fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in';
 
   // Crear contenido del modal (Glassmorphism + Gradientes)
   const modalContent = document.createElement('div');
-  modalContent.className = 'relative w-full max-w-sm bg-white/10 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300';
-  
+  modalContent.className =
+    'relative w-full max-w-sm bg-white/10 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300';
+
   // Efectos de fondo ("Wow effect")
   modalContent.innerHTML = `
     <!-- Decoración de fondo -->
@@ -157,7 +165,9 @@ function openPrivacyModal(title, value, iconClass, linkHref) {
     }, 300);
   };
 
-  modalOverlay.querySelector('.close-btn').addEventListener('click', closeModal);
+  modalOverlay
+    .querySelector('.close-btn')
+    .addEventListener('click', closeModal);
   modalOverlay.addEventListener('click', (e) => {
     if (e.target === modalOverlay) closeModal();
   });
@@ -206,7 +216,6 @@ export function initContactReveal() {
   }
 }
 
-
 /**
  * Abre un modal con el formulario de contacto.
  * @param {string} prefillMessage - Mensaje opcional para pre-rellenar.
@@ -228,8 +237,12 @@ export async function openContactModal(prefillMessage = '') {
   tempDiv.innerHTML = componentHtml;
 
   // Eliminar animaciones de scroll (opacity: 0) porque el observer no las verá dentro del modal
-  tempDiv.querySelectorAll('.scroll-animate-initial').forEach(el => {
-    el.classList.remove('scroll-animate-initial', 'opacity-0', 'translate-y-20'); 
+  tempDiv.querySelectorAll('.scroll-animate-initial').forEach((el) => {
+    el.classList.remove(
+      'scroll-animate-initial',
+      'opacity-0',
+      'translate-y-20'
+    );
     // Asegurar visibilidad
     el.style.opacity = '1';
     el.style.transform = 'none';
@@ -243,20 +256,20 @@ export async function openContactModal(prefillMessage = '') {
   if (formElement) {
     formElement.classList.replace('gap-y-6', 'gap-y-4'); // Reducir espacio entre inputs
     // Reducir padding interno de inputs para que sean menos altos
-    formElement.querySelectorAll('input, textarea').forEach(input => {
-      input.classList.replace('py-3', 'py-2'); 
+    formElement.querySelectorAll('input, textarea').forEach((input) => {
+      input.classList.replace('py-3', 'py-2');
     });
   }
-  
+
   // Contenedor limpio con SOLO el formulario
   const cleanContent = document.createElement('div');
   if (formElement) cleanContent.appendChild(formElement);
 
-
   // 3. Construir la estructura del modal
   const modalWrapper = document.createElement('div');
-  modalWrapper.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300 animate-fade-in p-4';
-  
+  modalWrapper.className =
+    'fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300 animate-fade-in p-4';
+
   modalWrapper.innerHTML = `
     <div class="relative w-full max-w-lg rounded-xl bg-light-card dark:bg-dark-card shadow-2xl animate-zoom-in flex flex-col max-h-[90vh] overflow-y-auto scrollbar-hide">
        <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white text-2xl z-10 transition-colors close-modal-btn">&times;</button>
@@ -275,7 +288,7 @@ export async function openContactModal(prefillMessage = '') {
   const formInModal = modalWrapper.querySelector('form');
   if (formInModal) {
     // Override del ID para evitar duplicados si ya existe en la página
-    formInModal.id = 'contact-form-modal'; 
+    formInModal.id = 'contact-form-modal';
     attachContactFormListeners(formInModal);
 
     // Pre-rellenar
@@ -289,16 +302,18 @@ export async function openContactModal(prefillMessage = '') {
   const closeModal = () => {
     modalWrapper.classList.add('opacity-0'); // Simple fade out effect manually or use animation class
     setTimeout(() => {
-        if(modalWrapper.parentNode) document.body.removeChild(modalWrapper);
-        document.body.classList.remove('overflow-hidden');
+      if (modalWrapper.parentNode) document.body.removeChild(modalWrapper);
+      document.body.classList.remove('overflow-hidden');
     }, 300);
   };
 
-  modalWrapper.querySelector('.close-modal-btn').addEventListener('click', closeModal);
+  modalWrapper
+    .querySelector('.close-modal-btn')
+    .addEventListener('click', closeModal);
   modalWrapper.addEventListener('click', (e) => {
     if (e.target === modalWrapper) closeModal();
   });
-  
+
   // Cerrar con ESC
   const escHandler = (e) => {
     if (e.key === 'Escape') {
@@ -309,7 +324,6 @@ export async function openContactModal(prefillMessage = '') {
   document.addEventListener('keydown', escHandler);
 }
 
-
 /**
  * Configura botones que abren el modal de contacto con mensaje predefinido.
  * @param {string} triggerSelector - Selector CSS de los botones.
@@ -317,10 +331,10 @@ export async function openContactModal(prefillMessage = '') {
  */
 export function setupContactModal(triggerSelector, prefillMessage) {
   const buttons = document.querySelectorAll(triggerSelector);
-  
+
   if (buttons.length === 0) return;
 
-  buttons.forEach(btn => {
+  buttons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       openContactModal(prefillMessage);

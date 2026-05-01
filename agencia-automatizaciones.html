@@ -24,27 +24,185 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="/fontawesome.min.css?v=2026.04.14.0822" 
+      href="/fontawesome.min.css?v=2026.05.01.11159" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.04.14.0822" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.05.01.11159" />
     </noscript>
 
     <!-- Carga del CSS principal optimizada (No bloqueante) -->
     <link 
       rel="preload" 
-      href="/nelson-v4.css?v=2026.04.14.0822" 
+      href="/nelson-v4.css?v=2026.05.01.11159" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/nelson-v4.css?v=2026.04.14.0822" />
+      <link rel="stylesheet" href="/nelson-v4.css?v=2026.05.01.11159" />
     </noscript>
 
   <body class=" ">
-    <div id="nav-placeholder"></div>
+    <header id="mainHeader" class="sticky-header">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center flex-shrink-0">
+            <a
+              href="/"
+              class="block"
+              aria-label="Nelson Londoño Agencia - Página de Inicio"
+            >
+              <img
+                src="/image/logo-nelson.webp"
+                alt="Logo de Nelson Londoño Agencia de Marketing Digital en Fuente el Saz"
+                class="h-10 sm:h-12 w-auto logo-invert-on-dark"
+                loading="lazy"
+                decoding="async"
+                width="174"
+                height="48"
+              />
+            </a>
+          </div>
+          <div class="hidden lg:block">
+            <nav class="ml-10 flex items-baseline space-x-4">
+              <a href="/" class="nav-link flex items-center">
+                <i class="fas fa-home w-5 text-center mr-2"></i
+                ><span class="flex-1">Inicio</span>
+              </a>
+              <div id="services-menu-group" class="relative group">
+                <a href="#" class="nav-link flex items-center">
+                  <i class="fas fa-briefcase w-5 text-center mr-2"></i>
+                  <span class="flex-1">Servicios</span>
+                  <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                </a>
+                <div
+                  id="services-menu-dropdown"
+                  class="absolute z-20 hidden bg-white dark:bg-gray-800 shadow-lg rounded-md mt-2 w-60"
+                >
+                  <a
+                    href="/agencia-seo-local.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >SEO local</a
+                  >
+                  <a
+                    href="/agencia-seo.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >SEO (optimización para buscadores)</a
+                  >
+                  <a
+                    href="/agencia-desarrollo-web-con-codigo.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >Desarrollo web a medida</a
+                  >
+                  <a
+                    href="/agencia-automatizaciones.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >Agentes virtuales y automatizaciones</a
+                  >
+                </div>
+              </div>
+              <a href="/proyectos.html" class="nav-link flex items-center">
+                <i class="fas fa-folder-open w-5 text-center mr-2"></i
+                ><span class="flex-1">Proyectos</span>
+              </a>
+              <a href="/sobre-mi.html" class="nav-link flex items-center">
+                <i class="fas fa-user w-5 text-center mr-2"></i
+                ><span class="flex-1">Sobre mí</span>
+              </a>
+
+              <a href="/contacto.html" class="nav-link flex items-center">
+                <i class="fas fa-envelope w-5 text-center mr-2"></i
+                ><span class="flex-1">Contacto</span>
+              </a>
+              <a href="/blog.html" class="nav-link flex items-center">
+                <i class="fas fa-newspaper w-5 text-center mr-2"></i
+                ><span class="flex-1">Blog</span>
+              </a>
+            </nav>
+          </div>
+          <div class="flex items-center">
+
+            <div class="lg:hidden ml-2">
+              <button
+                id="mobileMenuButton"
+                type="button"
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-primary-blue dark:hover:text-primary-green hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-blue"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Abrir menú principal</span>
+                <div class="w-6 h-6 flex flex-col justify-around">
+                  <span class="block h-0.5 w-full bg-current rounded-full"></span>
+                  <span class="block h-0.5 w-full bg-current rounded-full"></span>
+                  <span class="block h-0.5 w-full bg-current rounded-full"></span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="nav-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+      <div 
+        id="mobileMenu" 
+        aria-hidden="true"
+        class="fixed inset-y-0 right-0 w-[85%] max-w-[320px] z-[10001] transform translate-x-full transition-transform duration-500 ease-in-out mobile-menu-glass flex flex-col pointer-events-none"
+      >
+        <div class="p-6 border-b border-gray-100 dark:border-white/10 flex justify-between items-center bg-white dark:bg-[#0a0a0a]">
+          <span class="text-[10px] font-black uppercase tracking-[0.2em] text-primary-green">Menú Nelson Londoño</span>
+          <button id="closeMobileMenu" class="text-gray-500 dark:text-gray-400 hover:text-red-500 transition-colors">
+            <i class="fas fa-times text-2xl"></i>
+          </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto py-8">
+          <nav class="space-y-2 px-4">
+            <a href="/" class="mobile-menu-link">
+              <i class="fas fa-home w-8 text-center mr-3 text-primary-blue"></i>
+              <span>Inicio</span>
+            </a>
+            
+            <div class="relative">
+              <button
+                id="mobileServicesButton"
+                class="mobile-menu-link w-full text-left"
+              >
+                <i class="fas fa-briefcase w-8 text-center mr-3 text-primary-green"></i>
+                <span class="flex-1">Servicios</span>
+                <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300"></i>
+              </button>
+              <div id="mobileServicesMenu" class="hidden mt-2 ml-12 space-y-1 border-l-2 border-primary-green/20">
+                <a href="/agencia-seo-local.html" class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors">SEO local</a>
+                <a href="/agencia-seo.html" class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors">SEO técnico</a>
+                <a href="/agencia-desarrollo-web-con-codigo.html" class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors">Web a medida</a>
+                <a href="/agencia-automatizaciones.html" class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors">IA & Automatizaciones</a>
+              </div>
+            </div>
+
+            <a href="/proyectos.html" class="mobile-menu-link">
+              <i class="fas fa-folder-open w-8 text-center mr-3 text-primary-blue"></i>
+              <span>Proyectos</span>
+            </a>
+            <a href="/sobre-mi.html" class="mobile-menu-link">
+              <i class="fas fa-user w-8 text-center mr-3 text-primary-green"></i>
+              <span>Sobre mí</span>
+            </a>
+            <a href="/contacto.html" class="mobile-menu-link">
+              <i class="fas fa-envelope w-8 text-center mr-3 text-primary-blue"></i>
+              <span>Contacto</span>
+            </a>
+            <a href="/blog.html" class="mobile-menu-link">
+              <i class="fas fa-newspaper w-8 text-center mr-3 text-primary-green"></i>
+              <span>Blog</span>
+            </a>
+          </nav>
+        </div>
+        <!-- Mobile Menu Footer -->
+        <div class="p-8 border-t border-white/10">
+          <p class="text-center text-[10px] text-gray-500 uppercase tracking-widest">Nelson Londoño © 2026</p>
+        </div>
+      </div>
+    </header>
 
     <main class="pt-20">
       <!-- Breadcrumbs Estáticos -->
@@ -61,7 +219,7 @@
       </div>
 
       <!-- Hero Section Estático -->
-      <section id="inicio-servicio" class="relative overflow-hidden">
+      <section id="inicio-servicio" class="relative overflow-hidden section-gradient-green">
         <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center min-h-[75vh]">
           
           <!-- Iconos flotantes estáticos -->
@@ -70,13 +228,13 @@
           <i class="fas fa-bolt absolute top-1/2 left-1/3 text-5xl lg:text-7xl text-gray-400/50 dark:text-gray-500/30 transform z-0 animate-float-up-down" style="animation-duration: 10s;" aria-hidden="true"></i>
 
           <div class="max-w-4xl relative z-10">
-            <h1 class="text-base sm:text-lg lg:text-xl font-medium text-primary-green dark:text-primary-green opacity-0 animate-slide-in-right uppercase">
+            <h1 class="text-base sm:text-lg lg:text-xl font-medium text-primary-green dark:text-primary-green animate-slide-in-right uppercase">
               Asistentes virtuales en Fuente el Saz
             </h1>
-            <p class="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-7xl font-black bg-clip-text text-transparent hero-gradient-text opacity-0 animate-slide-in-left leading-[1.15] lg:leading-[1.1] text-left sm:text-center" style="animation-delay: 0.2s">
+            <p class="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-7xl font-black bg-clip-text text-transparent hero-gradient-text animate-slide-in-left leading-[1.15] lg:leading-[1.1] text-left sm:text-center" style="animation-delay: 0.2s">
               Potencia tu negocio con automatizaciones
             </p>
-            <p class="mt-6 sm:mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center" style="animation-delay: 0.4s">
+            <p class="mt-6 sm:mt-10 text-xl sm:text-4xl font-thin text-gray-700 dark:text-gray-200 animate-scale-in-core text-left sm:text-center" style="animation-delay: 0.4s">
               Implementamos soluciones de inteligencia artificial y automatización para optimizar tus operaciones, reducir costos y escalar tu crecimiento.
             </p>
           </div>
@@ -84,7 +242,7 @@
       </section>
       
       <!-- Aquí irá el contenido específico de la página de servicio -->
-      <section id="automatizaciones-populares" class="py-12 sm:py-16">
+      <section id="automatizaciones-populares" class="py-12 sm:py-16 section-gradient-blue">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
@@ -113,7 +271,7 @@
                 Asistente virtual con IA
               </h3>
               <div
-                class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
+                class="text-base text-gray-700 dark:text-gray-400 mb-4 flex-grow"
               >
                 <p>
                   Un asistente inteligente que gestiona correos, agenda citas y atiende a tus clientes 24/7, mejorando la eficiencia y la satisfacción.
@@ -135,7 +293,7 @@
                 Automatización de marketing y ventas
               </h3>
               <div
-                class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
+                class="text-base text-gray-700 dark:text-gray-400 mb-4 flex-grow"
               >
                 <p>
                   Optimiza tus embudos de venta, nutre leads automáticamente y personaliza la comunicación para convertir más clientes con menos esfuerzo.
@@ -157,7 +315,7 @@
                 Integración de sistemas y flujos de trabajo
               </h3>
               <div
-                class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow"
+                class="text-base text-gray-700 dark:text-gray-400 mb-4 flex-grow"
               >
                 <p>
                   Conectamos tus herramientas (CRM, ERP, etc.) para crear flujos de trabajo sin fricciones que eliminan tareas manuales y reducen errores.
@@ -168,7 +326,7 @@
         </div>
       </section>
 
-      <section id="beneficios-clave" class="py-12 sm:py-16">
+      <section id="beneficios-clave" class="py-12 sm:py-16 section-gradient-green">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
@@ -187,7 +345,7 @@
               </div>
               <div class="ml-4">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Aumento de la eficiencia</h3>
-                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
+                <p class="mt-2 text-base text-gray-700 dark:text-gray-400">
                   Automatiza tareas repetitivas y libera a tu equipo para que se enfoque en actividades de mayor valor.
                 </p>
               </div>
@@ -198,7 +356,7 @@
               </div>
               <div class="ml-4">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Reducción de costos</h3>
-                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
+                <p class="mt-2 text-base text-gray-700 dark:text-gray-400">
                   Minimiza errores humanos y optimiza recursos, resultando en ahorros significativos a largo plazo.
                 </p>
               </div>
@@ -209,7 +367,7 @@
               </div>
               <div class="ml-4">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Mejora la experiencia del cliente</h3>
-                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
+                <p class="mt-2 text-base text-gray-700 dark:text-gray-400">
                   Ofrece atención 24/7, respuestas rápidas y personalizadas, elevando la satisfacción del cliente.
                 </p>
               </div>
@@ -220,7 +378,7 @@
               </div>
               <div class="ml-4">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Escalabilidad y crecimiento</h3>
-                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
+                <p class="mt-2 text-base text-gray-700 dark:text-gray-400">
                   Prepara tu negocio para crecer sin limitaciones, gestionando un mayor volumen de trabajo sin aumentar proporcionalmente los costos.
                 </p>
               </div>
@@ -231,7 +389,7 @@
               </div>
               <div class="ml-4">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Mayor seguridad y cumplimiento</h3>
-                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
+                <p class="mt-2 text-base text-gray-700 dark:text-gray-400">
                   Reduce el riesgo de errores y asegura el cumplimiento de normativas mediante procesos automatizados y consistentes.
                 </p>
               </div>
@@ -242,7 +400,7 @@
               </div>
               <div class="ml-4">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Innovación constante</h3>
-                <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
+                <p class="mt-2 text-base text-gray-700 dark:text-gray-400">
                   Mantente a la vanguardia con soluciones que se adaptan y evolucionan con las últimas tecnologías de IA y automatización.
                 </p>
               </div>
@@ -251,7 +409,7 @@
         </div>
       </section>
 
-      <section id="como-trabajamos" class="py-12 sm:py-16">
+      <section id="como-trabajamos" class="py-12 sm:py-16 section-gradient-blue">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
@@ -273,7 +431,7 @@
                   <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-right transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue dark:hover:border-primary-green border-2 border-transparent">
                     <div class="absolute -left-4 md:left-auto md:-right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary-blue dark:bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">1</div>
                     <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Análisis y estrategia</h3>
-                    <p class="text-gray-600 dark:text-gray-400 scroll-animate-initial">
+                    <p class="text-gray-700 dark:text-gray-400 scroll-animate-initial">
                       Comprendemos tus necesidades, identificamos oportunidades de automatización y diseñamos una estrategia a medida.
                     </p>
                   </div>
@@ -285,7 +443,7 @@
                   <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue dark:hover:border-primary-green border-2 border-transparent">
                     <div class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary-blue dark:bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">2</div>
                     <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Diseño y desarrollo</h3>
-                    <p class="text-gray-600 dark:text-gray-400 scroll-animate-initial">
+                    <p class="text-gray-700 dark:text-gray-400 scroll-animate-initial">
                       Creamos y configuramos tus agentes virtuales y flujos de automatización utilizando las mejores herramientas.
                     </p>
                   </div>
@@ -297,7 +455,7 @@
                   <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-right transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue dark:hover:border-primary-green border-2 border-transparent">
                     <div class="absolute -left-4 md:left-auto md:-right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary-blue dark:bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">3</div>
                     <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Implementación y pruebas</h3>
-                    <p class="text-gray-600 dark:text-gray-400 scroll-animate-initial">
+                    <p class="text-gray-700 dark:text-gray-400 scroll-animate-initial">
                       Integramos las soluciones en tu sistema y realizamos pruebas exhaustivas para garantizar un funcionamiento impecable.
                     </p>
                   </div>
@@ -309,7 +467,7 @@
                   <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue dark:hover:border-primary-green border-2 border-transparent">
                     <div class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary-blue dark:bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">4</div>
                     <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Soporte y optimización</h3>
-                    <p class="text-gray-600 dark:text-gray-400 scroll-animate-initial">
+                    <p class="text-gray-700 dark:text-gray-400 scroll-animate-initial">
                       Ofrecemos soporte continuo y optimizamos tus automatizaciones para adaptarlas a la evolución de tu negocio.
                     </p>
                   </div>
@@ -321,7 +479,7 @@
       </section>
 
       <!-- SECCIÓN PRECIOS -->
-      <section id="precios-automatizaciones" class="py-12 sm:py-16 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700">
+      <section id="precios-automatizaciones" class="py-12 sm:py-16 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700 section-gradient-green">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
             <h2 class="section-title text-3xl sm:text-4xl scroll-animate-initial">
@@ -348,19 +506,19 @@
                <ul class="space-y-4 mb-8">
                  <li class="flex items-start">
                    <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
-                   <span class="text-gray-600 dark:text-gray-300">Consultoría de procesos</span>
+                   <span class="text-gray-700 dark:text-gray-200">Consultoría de procesos</span>
                  </li>
                  <li class="flex items-start">
                    <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
-                   <span class="text-gray-600 dark:text-gray-300">Desarrollo e integración de agentes AI</span>
+                   <span class="text-gray-700 dark:text-gray-200">Desarrollo e integración de agentes AI</span>
                  </li>
                  <li class="flex items-start">
                    <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
-                   <span class="text-gray-600 dark:text-gray-300">Conexión con CRM / ERP</span>
+                   <span class="text-gray-700 dark:text-gray-200">Conexión con CRM / ERP</span>
                  </li>
                  <li class="flex items-start">
                    <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
-                   <span class="text-gray-600 dark:text-gray-300">Soporte y ajustes post-lanzamiento</span>
+                   <span class="text-gray-700 dark:text-gray-200">Soporte y ajustes post-lanzamiento</span>
                  </li>
                </ul>
                
@@ -372,7 +530,7 @@
         </div>
       </section>
 
-      <section id="faq" class="py-12 sm:py-16 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700">
+      <section id="faq" class="py-12 sm:py-16 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700 section-gradient-blue">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
             Dudas sobre automatización
@@ -383,7 +541,7 @@
           <div class="mt-12 max-w-3xl mx-auto space-y-4">
             <!-- FAQ Item 1 -->
             <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
-              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+              <summary class="flex justify-between items-center px-6 py-7 cursor-pointer select-none">
                 <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
                   ¿Qué tipo de tareas se pueden automatizar en mi negocio?
                 </h3>
@@ -391,14 +549,14 @@
                   <i class="fas fa-chevron-down text-sm"></i>
                 </span>
               </summary>
-              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+              <div class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
                 Desde la cualificación automática de leads y la sincronización de facturas entre bancos y ERP, hasta agentes de IA que responden correos o WhatsApps. Si es digital y repetitivo, podemos automatizarlo.
               </div>
             </details>
 
             <!-- FAQ Item 2 -->
             <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
-              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+              <summary class="flex justify-between items-center px-6 py-7 cursor-pointer select-none">
                 <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
                   ¿Por qué usáis n8n en lugar de Zapier o Make?
                 </h3>
@@ -406,14 +564,14 @@
                   <i class="fas fa-chevron-down text-sm"></i>
                 </span>
               </summary>
-              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+              <div class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
                 Zapier y Make cobran por cada pequeña "acción", lo que dispara los costes al escalar. n8n es mucho más potente, permite flujos complejos de IA y tiene un coste fijo o muy bajo, lo que te ahorra miles de euros al año.
               </div>
             </details>
 
             <!-- FAQ Item 3 -->
             <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
-              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+              <summary class="flex justify-between items-center px-6 py-7 cursor-pointer select-none">
                 <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
                   ¿Es caro implementar un sistema de automatización?
                 </h3>
@@ -421,14 +579,14 @@
                   <i class="fas fa-chevron-down text-sm"></i>
                 </span>
               </summary>
-              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+              <div class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
                 La implementación se paga sola en pocas semanas. Piensa: ¿Cuánto te cuesta pagarle a alguien por copiar datos de un Excel a otro? Nosotros eliminamos ese coste para siempre.
               </div>
             </details>
 
             <!-- FAQ Item 4 -->
             <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
-              <summary class="flex justify-between items-center p-6 cursor-pointer select-none">
+              <summary class="flex justify-between items-center px-6 py-7 cursor-pointer select-none">
                 <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
                   ¿Necesito contratar a un técnico para mantener esto?
                 </h3>
@@ -436,7 +594,7 @@
                   <i class="fas fa-chevron-down text-sm"></i>
                 </span>
               </summary>
-              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+              <div class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
                 No. Entregamos sistemas "llave en mano" que funcionan solos. Además, ofrecemos planes de mantenimiento para que tú solo te preocupes de ver crecer tu negocio, no de la tecnología.
               </div>
             </details>
@@ -444,13 +602,13 @@
         </div>
       </section>
 
-      <section id="cta-automatizaciones" class="py-12 sm:py-16 text-center">
+      <section id="cta-automatizaciones" class="py-12 sm:py-16 text-center section-gradient-green">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 class="section-title scroll-animate-initial">
             ¿Listo para transformar tu negocio con automatización?
           </h2>
           <p
-            class="text-lg text-gray-600 dark:text-gray-300 mb-8 scroll-animate-initial delay-100"
+            class="text-lg text-gray-700 dark:text-gray-200 mb-8 scroll-animate-initial delay-100"
           >
             Contáctanos hoy mismo para una consulta gratuita y descubre cómo podemos ayudarte a escalar tu eficiencia y crecimiento.
           </p>
@@ -465,16 +623,123 @@
       </section>
     </main>
 
-    <div id="footer-placeholder"></div>
+    <footer class="footer-gradient-border bg-gray-50 dark:bg-[#020202] border-t border-gray-100 dark:border-white/5 relative z-10">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(16,185,129,0.05)_0%,transparent_50%)] pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center">
+        <!-- Logo en Footer -->
+        <div class="flex justify-center mb-10">
+          <img src="/image/logo-nelson.webp" alt="Nelson Londoño" class="h-10 w-auto opacity-80 logo-invert-on-dark shadow-2xl">
+        </div>
 
-    <!-- Scripts -->
-    <!-- Para desarrollo -->
-    <!-- <script type="module" src="script.js"></script> -->
-    
-    <!-- Para producción -->
-    <script src="/bundle.min.js?v=2026.03.31.1318" defer></script>
-    <div id="cookie-banner-placeholder"></div>
+        <!-- Social Links with Glow -->
+        <div class="flex justify-center space-x-8 mb-10">
+            <a href="https://www.linkedin.com/in/nelson-londo%C3%B1o-dev/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-blue transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]" aria-label="LinkedIn">
+                <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+            <a href="https://github.com/nelsonlondonodev" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]" aria-label="GitHub">
+                <i class="fab fa-github fa-2x"></i>
+            </a>
+            <a href="https://www.tiktok.com/@soy_nelson_londono" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#ff0050] transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(255,0,80,0.6)]" aria-label="TikTok">
+                <i class="fab fa-tiktok fa-2x"></i>
+            </a>
+        </div>
+
+        <div class="space-y-4">
+          <p class="text-gray-500 dark:text-gray-400 font-medium">
+            &copy; <span id="currentYear"></span> Nelson Londoño · Agencia de Marketing Digital
+          </p>
+          <p class="text-xs text-gray-400 mt-1 max-w-md mx-auto leading-relaxed">
+            Impulsando negocios locales con tecnología, <span class="text-primary-green">SEO técnico</span> y automatizaciones inteligentes. Diseñado con <i class="fas fa-heart text-red-500 animate-pulse"></i> en Madrid.
+          </p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-500">
+          <a href="/politica-de-cookies.html" class="hover:text-primary-blue transition-colors underline decoration-gray-700 underline-offset-4">Política de cookies</a> 
+          <span class="hidden sm:inline">|</span>
+          <button id="open-cookie-settings" class="hover:text-primary-blue transition-colors underline decoration-gray-700 underline-offset-4 pointer-events-auto">
+            Configuración de cookies
+          </button>
+        </div>
+
+        <div class="mt-10 pt-8 border-t border-gray-200 dark:border-white/5">
+          <p class="text-[10px] text-gray-500 opacity-40 font-mono tracking-widest uppercase">
+            Build Version: <span id="footer-build-version">v.2026.05.01.11153</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="cookie-banner" class="cookie-banner hidden">
+      <div class="cookie-banner-content">
+        <div class="flex items-center">
+          <i
+            class="fas fa-cookie-bite fa-2x mr-4 text-primary-blue dark:text-primary-green"
+          ></i>
+          <p class="text-sm">
+            En nelsonlondono.es utilizamos cookies propias y de terceros para analizar nuestros servicios y mostrarte publicidad relacionada con tus preferencias en base a un perfil elaborado a partir de tus hábitos de navegación (por ejemplo, páginas visitadas).
+            <br><br>
+            Puedes aceptar todas las cookies pulsando el botón “Aceptar”, rechazarlas pulsando el botón “Rechazar” o configurar su uso pulsando en “Configurar”. Para más información, consulta nuestra <a href="politica-de-cookies.html" class="underline hover:no-underline font-semibold">Política de Cookies</a>.
+          </p>
+        </div>
+        <div class="cookie-banner-actions">
+          <button id="cookie-reject" class="cookie-button-reject">
+            Rechazar
+          </button>
+          <button id="cookie-accept" class="cookie-button-accept">
+            Aceptar
+          </button>
+          <button id="cookie-settings-open" class="cookie-button-settings">
+            Configurar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="cookie-settings-modal" class="cookie-modal-backdrop hidden">
+      <div class="cookie-modal-content">
+        <h3 class="text-lg font-semibold mb-4">Configuración de cookies</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-400 mb-6">
+          En este panel puedes seleccionar qué cookies deseas aceptar y cuáles rechazar. El bloqueo de algunos tipos de cookies puede afectar a tu experiencia en el sitio.
+        </p>
+
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <h4 class="font-semibold">Cookies Necesarias</h4>
+            <span
+              class="text-xs text-primary-green dark:text-primary-blue font-bold"
+              >Siempre Activas</span
+            >
+          </div>
+          <p class="text-sm text-gray-500 mt-1">
+            Son aquellas estrictamente necesarias para el funcionamiento básico del sitio web (navegación, carrito de compra, acceso a áreas seguras). No almacenan información de identificación personal y no pueden ser desactivadas en nuestros sistemas.
+          </p>
+        </div>
+
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <h4 class="font-semibold">Cookies de Análisis</h4>
+            <label class="cookie-toggle">
+              <input
+                type="checkbox"
+                id="analytics-cookie-toggle"
+                class="cookie-toggle-input"
+              />
+              <span class="cookie-toggle-slider"></span>
+            </label>
+          </div>
+          <p class="text-sm text-gray-500 mt-1">
+            Nos permiten cuantificar el número de usuarios y realizar la medición y análisis estadístico de la utilización que hacen los usuarios del servicio ofertado (p. ej. vía Google Analytics). Si no permites estas cookies, no sabremos cuándo has visitado nuestro sitio.
+          </p>
+        </div>
+
+        <div class="mt-8 flex justify-end">
+          <button id="cookie-settings-save" class="cookie-button-accept">
+            Guardar Configuración
+          </button>
+        </div>
+      </div>
+    </div>
 
     <div data-component="chatbot"></div>
+    <script src="/bundle.min.js?v=2026.05.01.11153" defer></script>
   </body>
 </html>

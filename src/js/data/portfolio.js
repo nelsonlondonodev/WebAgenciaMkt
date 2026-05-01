@@ -8,13 +8,13 @@ export const portfolioData = [
       '1440w': 'image/portfolio-narbos.webp',
     },
     imgSrc: 'image/portfolio-narbos.webp',
-    imgAlt: 'Web de Narbo\'s Salón Spa',
-    title: 'Narbo\'s Salón Spa - Web de Alto Rendimiento',
+    imgAlt: "Web de Narbo's Salón Spa",
+    title: "Narbo's Salón Spa - Web de Alto Rendimiento",
     tags: 'Código Propio / SEO Técnico / Performance',
-    description: 
+    description:
       'Desarrollo a medida con HTML, CSS y JS puro. Optimizada para una carga ultra rápida y un posicionamiento orgánico que domina el sector de belleza.',
     type: 'link',
-    url: 'https://narbossalon.com/'
+    url: 'https://narbossalon.com/',
   },
   {
     id: 'legendary-barber-seo',
@@ -26,12 +26,12 @@ export const portfolioData = [
     },
     imgSrc: 'image/portfolio-heatmap.webp',
     imgAlt: 'Mapa de calor SEO Local Legendary Barber',
-    title: 'Legendary Barber\'s Club - Dominio SEO Local',
+    title: "Legendary Barber's Club - Dominio SEO Local",
     tags: 'Google Business Profile / Rankings 1-3 / Local SEO',
-    description: 
+    description:
       'Escalamos la visibilidad de una barbería premium de la posición 9 al Top 3 de Google Maps en toda su área. Citas y llamadas reales multiplicadas.',
     type: 'link',
-    url: 'https://share.google/js4KcLIjrU6GwrDIz'
+    url: 'https://share.google/js4KcLIjrU6GwrDIz',
   },
   {
     id: 'crm-loyalty-system',
@@ -45,10 +45,10 @@ export const portfolioData = [
     imgAlt: 'CRM de Fidelización con n8n e IA',
     title: 'CRM Inteligente - Sistema de Fidelización',
     tags: 'IA / Automatización n8n / CRM Propio',
-    description: 
+    description:
       'Plataforma CRM con flujos de n8n que automatizan el envío de bonos QR, gestión de bases de datos y felicitaciones de cumpleaños 24/7.',
     type: 'link',
-    url: 'https://beauty-crm-platform.vercel.app/'
+    url: 'https://beauty-crm-platform.vercel.app/',
   },
   {
     id: 'suavebocado',
@@ -72,9 +72,9 @@ export const portfolioData = [
     category: 'web seo',
     url: 'https://luisalbertocorrea.es/',
     imgSrcSet: {
-        '480w': 'image/foto-luis-alberto-correa-480.webp',
-        '800w': 'image/foto-luis-alberto-correa-800.webp',
-        '1422w': 'image/foto-luis-alberto-correa.webp',
+      '480w': 'image/foto-luis-alberto-correa-480.webp',
+      '800w': 'image/foto-luis-alberto-correa-800.webp',
+      '1422w': 'image/foto-luis-alberto-correa.webp',
     },
     imgSrc: 'image/foto-luis-alberto-correa.webp',
     imgAlt: 'Landing page del músico Luis Alberto Correa',
@@ -113,10 +113,9 @@ export const portfolioData = [
     imgAlt: 'Dominio SEO Local Blond Bros Barber',
     title: 'Blond Bros Barber - Éxito Local 2026',
     tags: 'Google Maps / Estrategia Local / Fuente el Saz',
-    description: 
+    description:
       'Transformamos un perfil abandonado en el líder de su pueblo. Gestión integral de reseñas, fotos de remodelación y optimización GMB.',
     type: 'link',
-    url: 'https://g.co/kgs/UfU8p6E' // URL basada en el GMB ID visible en el mapa si lo tuviera, pero uso un placeholder coherente o link de google maps
+    url: 'https://g.co/kgs/UfU8p6E', // URL basada en el GMB ID visible en el mapa si lo tuviera, pero uso un placeholder coherente o link de google maps
   },
 ];
-

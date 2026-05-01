@@ -88,31 +88,33 @@ function createCardHtml(data) {
  */
 function prepareCarouselData(originalData) {
   let cards = [...originalData];
-  
+
   // Ensure we have enough cards to fill a wide screen before duplicating
   while (cards.length < MIN_CARDS_FOR_LOOP) {
-      cards = [...cards, ...originalData];
+    cards = [...cards, ...originalData];
   }
-  
+
   // Double the final set to create the seamless visual loop (A + A)
   return [...cards, ...cards];
 }
 
 /**
  * Initializes the carousel DOM structure.
- * @param {HTMLElement} container 
+ * @param {HTMLElement} container
  * @param {string} innerHtml - The HTML content of the cards
  */
 function renderCarouselTrack(container, innerHtml) {
   // Apply mask and layout to container
-  container.className = "relative w-full overflow-hidden mask-gradient-sides py-4";
+  container.className =
+    'relative w-full overflow-hidden mask-gradient-sides py-4';
   container.innerHTML = '';
-  
+
   // Create animated track
   const track = document.createElement('div');
-  track.className = "flex gap-6 w-max animate-slow-carousel hover:pause-animation";
+  track.className =
+    'flex gap-6 w-max animate-slow-carousel hover:pause-animation';
   track.innerHTML = innerHtml;
-  
+
   container.appendChild(track);
 }
 
@@ -126,6 +128,6 @@ export function initTestimonialCarousel() {
 
   const finalCardsData = prepareCarouselData(testimonialsData);
   const carouselHtml = finalCardsData.map(createCardHtml).join('');
-  
+
   renderCarouselTrack(container, carouselHtml);
 }

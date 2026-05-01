@@ -5,7 +5,9 @@
  */
 export function applyAlternatingGradients(containerSelector, gradientClasses) {
   if (gradientClasses.length < 2) {
-    console.error('Se necesitan al menos dos clases de gradiente para alternar.');
+    console.error(
+      'Se necesitan al menos dos clases de gradiente para alternar.'
+    );
     return;
   }
 
@@ -17,12 +19,10 @@ export function applyAlternatingGradients(containerSelector, gradientClasses) {
   // Seleccionamos todas las <section> dentro del contenedor, sin importar la anidación
   const sections = container.querySelectorAll('section');
 
-
-
   sections.forEach((section, index) => {
     // Eliminamos clases viejas por si acaso (buena práctica)
     section.classList.remove(...gradientClasses);
-    
+
     // Añadimos la nueva clase
     const classToAdd = gradientClasses[index % 2];
     section.classList.add(classToAdd);

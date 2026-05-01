@@ -1,31 +1,86 @@
-<footer class="bg-gray-800 dark:bg-black">
-      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
-        <!-- Social Links (Only here) -->
-        <div class="flex justify-center space-x-6 mb-8">
-            <a href="https://www.linkedin.com/in/nelson-londo%C3%B1o-dev/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-blue dark:hover:text-primary-green transition-colors transform hover:scale-110" aria-label="LinkedIn">
-                <i class="fab fa-linkedin fa-2x"></i>
-            </a>
-            <a href="https://github.com/nelsonlondonodev" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors transform hover:scale-110" aria-label="GitHub">
-                <i class="fab fa-github fa-2x"></i>
-            </a>
-            <a href="https://www.tiktok.com/@soy_nelson_londono" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-500 transition-colors transform hover:scale-110" aria-label="TikTok">
-                <i class="fab fa-tiktok fa-2x"></i>
-            </a>
-        </div>
-        <p class="text-gray-400">
-          &copy; <span id="currentYear"></span> Nelson Londoño
-        </p>
-        <p class="text-xs text-gray-500 mt-1">
-          Diseñado con <i class="fas fa-heart text-red-500"></i> en Madrid.
-        </p>
-        <p class="text-xs text-gray-500 mt-2">
-          <a href="/politica-de-cookies.html" class="hover:underline">Política de cookies</a> | 
-          <a href="#" id="open-cookie-settings" class="hover:underline"
-            >Configuración de cookies</a
-          >
-        </p>
-        <p class="text-[10px] text-gray-500 mt-4 opacity-50 font-mono">
-          Última actualización: <span id="footer-build-version">v.2026.04.14.0822</span>
-        </p>
-      </div>
-    </footer>
+<footer
+  class="footer-gradient-border bg-gray-50 dark:bg-[#020202] border-t border-gray-100 dark:border-white/5 relative z-10"
+>
+  <div
+    class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(16,185,129,0.05)_0%,transparent_50%)] pointer-events-none"
+  ></div>
+  <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Logo en Footer -->
+    <div class="flex justify-center mb-10">
+      <img
+        src="/image/logo-nelson.webp"
+        alt="Nelson Londoño"
+        class="h-10 w-auto opacity-80 logo-invert-on-dark shadow-2xl"
+      />
+    </div>
+
+    <!-- Social Links with Glow -->
+    <div class="flex justify-center space-x-8 mb-10">
+      <a
+        href="https://www.linkedin.com/in/nelson-londo%C3%B1o-dev/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-gray-400 hover:text-primary-blue transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]"
+        aria-label="LinkedIn"
+      >
+        <i class="fab fa-linkedin fa-2x"></i>
+      </a>
+      <a
+        href="https://github.com/nelsonlondonodev"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
+        aria-label="GitHub"
+      >
+        <i class="fab fa-github fa-2x"></i>
+      </a>
+      <a
+        href="https://www.tiktok.com/@soy_nelson_londono"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-gray-400 hover:text-[#ff0050] transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(255,0,80,0.6)]"
+        aria-label="TikTok"
+      >
+        <i class="fab fa-tiktok fa-2x"></i>
+      </a>
+    </div>
+
+    <div class="space-y-4">
+      <p class="text-gray-500 dark:text-gray-400 font-medium">
+        &copy; <span id="currentYear"></span> Nelson Londoño · Agencia de
+        Marketing Digital
+      </p>
+      <p class="text-xs text-gray-400 mt-1 max-w-md mx-auto leading-relaxed">
+        Impulsando negocios locales con tecnología,
+        <span class="text-primary-green">SEO técnico</span> y automatizaciones
+        inteligentes. Diseñado con
+        <i class="fas fa-heart text-red-500 animate-pulse"></i> en Madrid.
+      </p>
+    </div>
+
+    <div
+      class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-500"
+    >
+      <a
+        href="/politica-de-cookies.html"
+        class="hover:text-primary-blue transition-colors underline decoration-gray-700 underline-offset-4"
+        >Política de cookies</a
+      >
+      <span class="hidden sm:inline">|</span>
+      <button
+        id="open-cookie-settings"
+        class="hover:text-primary-blue transition-colors underline decoration-gray-700 underline-offset-4 pointer-events-auto"
+      >
+        Configuración de cookies
+      </button>
+    </div>
+
+    <div class="mt-10 pt-8 border-t border-gray-200 dark:border-white/5">
+      <p
+        class="text-[10px] text-gray-500 opacity-40 font-mono tracking-widest uppercase"
+      >
+        Build Version: <span id="footer-build-version">v.2026.05.01.11159</span>
+      </p>
+    </div>
+  </div>
+</footer>

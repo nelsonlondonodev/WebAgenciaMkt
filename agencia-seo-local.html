@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="es" class="scroll-smooth dark">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-124QEKRXHD"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -79,8 +81,7 @@
     }
     </script>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>SEO Local y Google Maps en Fuente el Saz | Nelson Londoño</title>
     <link rel="canonical" href="https://nelsonlondono.es/agencia-seo-local.html" />
     <link rel="icon" type="image/webp" href="./image/favicon.webp" />
@@ -91,22 +92,22 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="/fontawesome.min.css?v=2026.04.14.0822" 
+      href="/fontawesome.min.css?v=2026.05.01.11159" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.04.14.0822" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.05.01.11159" />
     </noscript>
     <!-- Carga del CSS principal optimizada (No bloqueante) -->
     <link 
       rel="preload" 
-      href="/nelson-v4.css?v=2026.04.14.0822" 
+      href="/nelson-v4.css?v=2026.05.01.11159" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/nelson-v4.css?v=2026.04.14.0822" />
+      <link rel="stylesheet" href="/nelson-v4.css?v=2026.05.01.11159" />
     </noscript>
 
     <!-- Preload de imagen crítica para LCP -->
@@ -117,7 +118,169 @@
       .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
   <body class=" ">
-    <div id="nav-placeholder"></div>
+    <header id="mainHeader" class="sticky-header">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center flex-shrink-0">
+            <a
+              href="/"
+              class="block"
+              aria-label="Nelson Londoño Agencia - Página de Inicio"
+            >
+              <img
+                src="/image/logo-nelson.webp"
+                alt="Logo de Nelson Londoño Agencia de Marketing Digital en Fuente el Saz"
+                class="h-10 sm:h-12 w-auto logo-invert-on-dark"
+                loading="lazy"
+                decoding="async"
+                width="174"
+                height="48"
+              />
+            </a>
+          </div>
+          <div class="hidden lg:block">
+            <nav class="ml-10 flex items-baseline space-x-4">
+              <a href="/" class="nav-link flex items-center">
+                <i class="fas fa-home w-5 text-center mr-2"></i
+                ><span class="flex-1">Inicio</span>
+              </a>
+              <div id="services-menu-group" class="relative group">
+                <a href="#" class="nav-link flex items-center">
+                  <i class="fas fa-briefcase w-5 text-center mr-2"></i>
+                  <span class="flex-1">Servicios</span>
+                  <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                </a>
+                <div
+                  id="services-menu-dropdown"
+                  class="absolute z-20 hidden bg-white dark:bg-gray-800 shadow-lg rounded-md mt-2 w-60"
+                >
+                  <a
+                    href="/agencia-seo-local.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >SEO local</a
+                  >
+                  <a
+                    href="/agencia-seo.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >SEO (optimización para buscadores)</a
+                  >
+                  <a
+                    href="/agencia-desarrollo-web-con-codigo.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >Desarrollo web a medida</a
+                  >
+                  <a
+                    href="/agencia-automatizaciones.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >Agentes virtuales y automatizaciones</a
+                  >
+                </div>
+              </div>
+              <a href="/proyectos.html" class="nav-link flex items-center">
+                <i class="fas fa-folder-open w-5 text-center mr-2"></i
+                ><span class="flex-1">Proyectos</span>
+              </a>
+              <a href="/sobre-mi.html" class="nav-link flex items-center">
+                <i class="fas fa-user w-5 text-center mr-2"></i
+                ><span class="flex-1">Sobre mí</span>
+              </a>
+
+              <a href="/contacto.html" class="nav-link flex items-center">
+                <i class="fas fa-envelope w-5 text-center mr-2"></i
+                ><span class="flex-1">Contacto</span>
+              </a>
+              <a href="/blog.html" class="nav-link flex items-center">
+                <i class="fas fa-newspaper w-5 text-center mr-2"></i
+                ><span class="flex-1">Blog</span>
+              </a>
+            </nav>
+          </div>
+          <div class="flex items-center">
+
+            <div class="lg:hidden ml-2">
+              <button
+                id="mobileMenuButton"
+                type="button"
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-primary-blue dark:hover:text-primary-green hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-blue"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Abrir menú principal</span>
+                <div class="w-6 h-6 flex flex-col justify-around">
+                  <span class="block h-0.5 w-full bg-current rounded-full"></span>
+                  <span class="block h-0.5 w-full bg-current rounded-full"></span>
+                  <span class="block h-0.5 w-full bg-current rounded-full"></span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu Overlay (Dark background when open) -->
+      <div id="nav-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+
+      <!-- Mobile Menu Panel -->
+      <div 
+        id="mobileMenu" 
+        aria-hidden="true"
+        class="fixed inset-y-0 right-0 w-[85%] max-w-[320px] z-[10001] transform translate-x-full transition-transform duration-500 ease-in-out mobile-menu-glass flex flex-col pointer-events-none"
+      >
+        <div class="p-6 border-b border-gray-100 dark:border-white/10 flex justify-between items-center bg-white dark:bg-[#0a0a0a]">
+          <span class="text-[10px] font-black uppercase tracking-[0.2em] text-primary-green">Menú Nelson Londoño</span>
+          <button id="closeMobileMenu" class="text-gray-500 dark:text-gray-400 hover:text-red-500 transition-colors">
+            <i class="fas fa-times text-2xl"></i>
+          </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto py-8">
+          <nav class="space-y-2 px-4">
+            <a href="/" class="mobile-menu-link">
+              <i class="fas fa-home w-8 text-center mr-3 text-primary-blue"></i>
+              <span>Inicio</span>
+            </a>
+            
+            <div class="relative">
+              <button
+                id="mobileServicesButton"
+                class="mobile-menu-link w-full text-left"
+              >
+                <i class="fas fa-briefcase w-8 text-center mr-3 text-primary-green"></i>
+                <span class="flex-1">Servicios</span>
+                <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300"></i>
+              </button>
+              <div id="mobileServicesMenu" class="hidden mt-2 ml-12 space-y-1 border-l-2 border-primary-green/20">
+                <a href="/agencia-seo-local.html" class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors">SEO local</a>
+                <a href="/agencia-seo.html" class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors">SEO técnico</a>
+                <a href="/agencia-desarrollo-web-con-codigo.html" class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors">Web a medida</a>
+                <a href="/agencia-automatizaciones.html" class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors">IA & Automatizaciones</a>
+              </div>
+            </div>
+
+            <a href="/proyectos.html" class="mobile-menu-link">
+              <i class="fas fa-folder-open w-8 text-center mr-3 text-primary-blue"></i>
+              <span>Proyectos</span>
+            </a>
+            <a href="/sobre-mi.html" class="mobile-menu-link">
+              <i class="fas fa-user w-8 text-center mr-3 text-primary-green"></i>
+              <span>Sobre mí</span>
+            </a>
+            <a href="/contacto.html" class="mobile-menu-link">
+              <i class="fas fa-envelope w-8 text-center mr-3 text-primary-blue"></i>
+              <span>Contacto</span>
+            </a>
+            <a href="/blog.html" class="mobile-menu-link">
+              <i class="fas fa-newspaper w-8 text-center mr-3 text-primary-green"></i>
+              <span>Blog</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Mobile Menu Footer -->
+        <div class="p-8 border-t border-white/10">
+          <p class="text-center text-[10px] text-gray-500 uppercase tracking-widest">Nelson Londoño © 2026</p>
+        </div>
+      </div>
+    </header>
 
     <main class="pt-20">
       <!-- Breadcrumbs Estáticos -->
@@ -134,7 +297,7 @@
       </div>
 
       <!-- Hero Section Estático -->
-      <section id="inicio-servicio" class="relative overflow-hidden">
+      <section id="inicio-servicio" class="relative overflow-hidden section-gradient-green">
         <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center min-h-[75vh]">
           
           <!-- Iconos flotantes estáticos -->
@@ -149,7 +312,7 @@
             <p class="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-7xl font-black bg-clip-text text-transparent hero-gradient-text opacity-0 animate-slide-in-left leading-[1.15] lg:leading-[1.1] text-left sm:text-center" style="animation-delay: 0.2s">
               Conecta con los clientes de tu zona
             </p>
-            <p class="mt-6 sm:mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center" style="animation-delay: 0.4s">
+            <p class="mt-6 sm:mt-10 text-xl sm:text-4xl font-thin text-gray-700 dark:text-gray-200 opacity-0 animate-scale-in-core text-left sm:text-center" style="animation-delay: 0.4s">
               Optimizamos tu presencia local para que los clientes te encuentren primero en Google Maps y búsquedas geolocalizadas.
             </p>
           </div>
@@ -157,7 +320,7 @@
       </section>
 
 
-      <section id="introduccion" class="py-12 sm:py-24">
+      <section id="introduccion" class="py-12 sm:py-24 section-gradient-blue">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center text-center lg:text-left">
             <!-- Columna Texto -->
@@ -165,10 +328,10 @@
               <h2 class="section-title lg:section-title-left">
                 ¿Qué es el SEO Local y por qué tu negocio lo necesita?
               </h2>
-              <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+              <p class="text-lg text-gray-700 dark:text-gray-200 leading-relaxed mb-6">
                 El SEO local es una rama del SEO enfocada en optimizar la visibilidad de un negocio en las búsquedas geolocalizadas. Si tienes una tienda, un restaurante, una consulta o cualquier negocio con una ubicación física, el SEO local es imprescindible. 
               </p>
-              <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p class="text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
                 Se trata de aparecer en el mapa de Google, en las primeras posiciones cuando alguien busca "tus servicios cerca de mí" o "tu tipo de negocio en [tu ciudad]". Es la versión digital del marketing de toda la vida: atraer a la gente que pasa por tu puerta, pero en el mundo digital.
               </p>
             </div>
@@ -193,7 +356,7 @@
 
       <section
         id="beneficios-seo"
-        class="py-12 sm:py-16"
+        class="py-12 sm:py-16 section-gradient-green"
       >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 class="section-title text-4xl sm:text-5xl scroll-animate-initial">
@@ -219,7 +382,7 @@
                 Aumenta la visibilidad en tu área
               </h3>
               <div
-                class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow scroll-animate-initial"
+                class="text-base text-gray-700 dark:text-gray-400 mb-4 flex-grow scroll-animate-initial"
               >
                 <p>
                   Aparece prominentemente en el "map pack" de Google y en las
@@ -243,7 +406,7 @@
                 Atrae tráfico peatonal y llamadas
               </h3>
               <div
-                class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow scroll-animate-initial"
+                class="text-base text-gray-700 dark:text-gray-400 mb-4 flex-grow scroll-animate-initial"
               >
                 <p>
                   Una ficha de Google Business Profile bien optimizada facilita
@@ -267,7 +430,7 @@
                 Construye confianza y reputación local
               </h3>
               <div
-                class="text-base text-gray-600 dark:text-gray-400 mb-4 flex-grow scroll-animate-initial"
+                class="text-base text-gray-700 dark:text-gray-400 mb-4 flex-grow scroll-animate-initial"
               >
                 <p>
                   Las reseñas positivas y una presencia local sólida generan
@@ -281,7 +444,7 @@
         </div>
       </section>
 
-      <section id="casos-exito" class="py-12 sm:py-24 overflow-hidden">
+      <section id="casos-exito" class="py-12 sm:py-24 overflow-hidden section-gradient-blue">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
             <h2 class="section-title text-4xl sm:text-6xl scroll-animate-initial">
@@ -337,7 +500,7 @@
                   </div>
                 </div>
 
-                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                <p class="text-gray-700 dark:text-gray-200 leading-relaxed mb-6">
                   Como <strong>cliente recurrente</strong>, Narbo's apuesta por un crecimiento orgánico sostenido. Mes a mes, trabajamos en su autoridad para no solo estar en el mapa, sino **dominar Chía y sus alrededores**, multiplicando llamadas reales de clientes listos para comprar.
                 </p>
 
@@ -376,10 +539,10 @@
                   </div>
                 </div>
 
-                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                <p class="text-gray-700 dark:text-gray-200 leading-relaxed mb-4">
                   Realizamos un <strong>lavado de cara integral</strong> a su ficha de Google Maps. Este impulso inicial corrigió años de abandono técnico, posicionándolos rápidamente entre los mejores de su pueblo y garantizando una imagen profesional inmediata frente a la competencia.
                 </p>
-                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                <p class="text-gray-700 dark:text-gray-200 leading-relaxed mb-6">
                   Tras su espectacular <strong>remodelación</strong>, actualizamos su identidad visual como <strong>Blond Bros Barber</strong>, logrando que el perfil de negocio refleje la calidad premium de su nuevo local físico en una sola fase de trabajo intensivo.
                 </p>
 
@@ -451,7 +614,7 @@
 
 
       <!-- SECCIÓN PRECIOS -->
-      <section id="precios-seo-local" class="py-12 sm:py-16 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700">
+      <section id="precios-seo-local" class="py-12 sm:py-16 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700 section-gradient-green">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
             <h2 class="section-title text-3xl sm:text-4xl scroll-animate-initial">
@@ -480,23 +643,23 @@
                 <ul class="space-y-4 mb-8 flex-grow">
                   <li class="flex items-start">
                     <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
-                    <span class="text-gray-600 dark:text-gray-300">Auditoría completa de perfil</span>
+                    <span class="text-gray-700 dark:text-gray-200">Auditoría completa de perfil</span>
                   </li>
                   <li class="flex items-start">
                     <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
-                    <span class="text-gray-600 dark:text-gray-300">Optimización de descripción y categorías</span>
+                    <span class="text-gray-700 dark:text-gray-200">Optimización de descripción y categorías</span>
                   </li>
                   <li class="flex items-start">
                     <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
-                    <span class="text-gray-600 dark:text-gray-300">Carga de 10-15 imágenes optimizadas</span>
+                    <span class="text-gray-700 dark:text-gray-200">Carga de 10-15 imágenes optimizadas</span>
                   </li>
                   <li class="flex items-start">
                     <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
-                    <span class="text-gray-600 dark:text-gray-300">Respuesta a todas las reseñas actuales</span>
+                    <span class="text-gray-700 dark:text-gray-200">Respuesta a todas las reseñas actuales</span>
                   </li>
                   <li class="flex items-start">
                     <i class="fas fa-check text-primary-blue mt-1 mr-3"></i>
-                    <span class="text-gray-600 dark:text-gray-300 text-sm font-semibold">Mapa de calor inicial incluido</span>
+                    <span class="text-gray-700 dark:text-gray-200 text-sm font-semibold">Mapa de calor inicial incluido</span>
                   </li>
                 </ul>
                 
@@ -531,19 +694,19 @@
                   </li>
                   <li class="flex items-start">
                     <i class="fas fa-check text-primary-green mt-1 mr-3"></i>
-                    <span class="text-gray-600 dark:text-gray-300">Gestión activa de reseñas</span>
+                    <span class="text-gray-700 dark:text-gray-200">Gestión activa de reseñas</span>
                   </li>
                   <li class="flex items-start">
                     <i class="fas fa-check text-primary-green mt-1 mr-3"></i>
-                    <span class="text-gray-600 dark:text-gray-300">4-8 publicaciones (Google Posts) / mes</span>
+                    <span class="text-gray-700 dark:text-gray-200">4-8 publicaciones (Google Posts) / mes</span>
                   </li>
                   <li class="flex items-start">
                     <i class="fas fa-check text-primary-green mt-1 mr-3"></i>
-                    <span class="text-gray-600 dark:text-gray-300">Estrategia de Citaciones Locales</span>
+                    <span class="text-gray-700 dark:text-gray-200">Estrategia de Citaciones Locales</span>
                   </li>
                   <li class="flex items-start">
                     <i class="fas fa-check text-primary-green mt-1 mr-3"></i>
-                    <span class="text-gray-600 dark:text-gray-300">Reporte mensual de rendimiento</span>
+                    <span class="text-gray-700 dark:text-gray-200">Reporte mensual de rendimiento</span>
                   </li>
                 </ul>
                 
@@ -556,7 +719,7 @@
         </div>
       </section>
 
-      <section id="como-trabajamos" class="py-12 sm:py-16">
+      <section id="como-trabajamos" class="py-12 sm:py-16 section-gradient-blue">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
@@ -578,7 +741,7 @@
                   <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-right transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue dark:hover:border-primary-green border-2 border-transparent">
                     <div class="absolute -left-4 md:left-auto md:-right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary-blue dark:bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">1</div>
                     <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Auditoría local y análisis de competencia</h3>
-                    <p class="text-gray-600 dark:text-gray-400 scroll-animate-initial">
+                    <p class="text-gray-700 dark:text-gray-400 scroll-animate-initial">
                       Iniciamos con una auditoría exhaustiva de tu presencia online actual y un análisis detallado de la competencia local para identificar oportunidades.
                     </p>
                   </div>
@@ -590,7 +753,7 @@
                   <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue dark:hover:border-primary-green border-2 border-transparent">
                     <div class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary-blue dark:bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">2</div>
                     <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Optimización del perfil de negocio de Google</h3>
-                    <p class="text-gray-600 dark:text-gray-400 scroll-animate-initial">
+                    <p class="text-gray-700 dark:text-gray-400 scroll-animate-initial">
                       Optimizamos completamente tu ficha del perfil de negocio de Google (fotos, servicios, horarios, palabras clave) para maximizar tu visibilidad en Google Maps y búsquedas locales.
                     </p>
                   </div>
@@ -602,7 +765,7 @@
                   <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-right transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue dark:hover:border-primary-green border-2 border-transparent">
                     <div class="absolute -left-4 md:left-auto md:-right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary-blue dark:bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">3</div>
                     <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Gestión de reseñas y citaciones</h3>
-                    <p class="text-gray-600 dark:text-gray-400 scroll-animate-initial">
+                    <p class="text-gray-700 dark:text-gray-400 scroll-animate-initial">
                       Implementamos estrategias para fomentar reseñas positivas y las gestionamos activamente. Creamos y optimizamos "citaciones" en directorios locales relevantes para aumentar tu autoridad.
                     </p>
                   </div>
@@ -614,7 +777,7 @@
                   <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary-blue dark:hover:border-primary-green border-2 border-transparent">
                     <div class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-primary-blue dark:bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">4</div>
                     <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Optimización web para SEO local</h3>
-                    <p class="text-gray-600 dark:text-gray-400 scroll-animate-initial">
+                    <p class="text-gray-700 dark:text-gray-400 scroll-animate-initial">
                       Aseguramos que tu sitio web esté optimizado con palabras clave locales, contenido geográfico relevante y una estructura técnica adecuada para potenciar tu posicionamiento en búsquedas locales.
                     </p>
                   </div>
@@ -626,14 +789,14 @@
       </section>
 
       <!-- SECCIÓN: ALCANCE GLOBAL (España & Colombia) -->
-      <section id="alcance-global" class="py-12 sm:py-24 bg-gray-50/50 dark:bg-transparent border-y border-gray-100 dark:border-white/5">
+      <section id="alcance-global" class="py-12 sm:py-24 bg-gray-50/50 dark:bg-transparent border-y border-gray-100 dark:border-white/5 section-gradient-green">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class="scroll-animate-initial">
               <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
                 Dominio local, <span class="text-primary-green">alcance global.</span>
               </h2>
-              <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+              <p class="text-lg text-gray-700 dark:text-gray-200 leading-relaxed mb-8">
                 Nuestras estrategias de SEO local no tienen fronteras. Hemos ayudado a empresas en <strong class="text-primary-green">España</strong> y <strong class="text-primary-blue">Colombia</strong> a conquistar sus mercados regionales.
               </p>
               
@@ -670,7 +833,7 @@
         </div>
       </section>
 
-      <section id="faq" class="py-12 sm:py-16 bg-white dark:bg-transparent">
+      <section id="faq" class="py-12 sm:py-16 bg-white dark:bg-transparent section-gradient-blue">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             class="section-title text-4xl sm:text-5xl scroll-animate-initial"
@@ -693,7 +856,7 @@
                   <i class="fas fa-chevron-down text-sm"></i>
                 </span>
               </summary>
-              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+              <div class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
                 Si tu ficha no aparece, suele ser por falta de verificación, inconsistencias en tu dirección (NAP) o falta de optimización. Nuestro servicio corrige todos estos errores técnicos para garantizar tu visibilidad.
               </div>
             </details>
@@ -708,7 +871,7 @@
                   <i class="fas fa-chevron-down text-sm"></i>
                 </span>
               </summary>
-              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+              <div class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
                 Depende de la competencia en tu zona. Generalmente, empezamos a ver mejoras en impresiones en las primeras 4-6 semanas, y un aumento consolidado de llamadas y visitas a partir del tercer mes de trabajo constante.
               </div>
             </details>
@@ -723,7 +886,7 @@
                   <i class="fas fa-chevron-down text-sm"></i>
                 </span>
               </summary>
-              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+              <div class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
                 Absolutamente. Google valora la cantidad, calidad y recencia de las reseñas. No solo influyen en el algoritmo, sino que son el factor #1 de conversión para nuevos clientes. Nosotros implementamos sistemas para conseguir más reseñas 5 estrellas.
               </div>
             </details>
@@ -738,7 +901,7 @@
                   <i class="fas fa-chevron-down text-sm"></i>
                 </span>
               </summary>
-              <div class="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+              <div class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
                 Nosotros no solo "hacemos SEO", nos convertimos en tu socio estratégico. Mientras otros te envían reportes automáticos, nosotros trabajamos en tu reputación, publicamos contenido semanal en tu ficha y nos enfocamos en métricas reales de negocio: llamadas y visitas, no solo clics.
               </div>
             </details>
@@ -746,13 +909,13 @@
         </div>
       </section>
 
-      <section id="cta-final" class="py-12 sm:py-16 text-center">
+      <section id="cta-final" class="py-12 sm:py-16 text-center section-gradient-green">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 class="section-title scroll-animate-initial">
             ¿Quieres ser el negocio más visible de tu zona?
           </h2>
           <p
-            class="text-lg text-gray-600 dark:text-gray-300 mb-8 scroll-animate-initial delay-100"
+            class="text-lg text-gray-700 dark:text-gray-200 mb-8 scroll-animate-initial delay-100"
           >
             No dejes que tus competidores se lleven a los clientes que están a
             la vuelta de la esquina. Hablemos sobre cómo podemos poner tu
@@ -769,11 +932,123 @@
       </section>
     </main>
 
-    <div id="footer-placeholder"></div>
+    <footer class="footer-gradient-border bg-gray-50 dark:bg-[#020202] border-t border-gray-100 dark:border-white/5 relative z-10">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(16,185,129,0.05)_0%,transparent_50%)] pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center">
+        <!-- Logo en Footer -->
+        <div class="flex justify-center mb-10">
+          <img src="/image/logo-nelson.webp" alt="Nelson Londoño" class="h-10 w-auto opacity-80 logo-invert-on-dark shadow-2xl">
+        </div>
 
-    <div id="cookie-banner-placeholder"></div>
+        <!-- Social Links with Glow -->
+        <div class="flex justify-center space-x-8 mb-10">
+            <a href="https://www.linkedin.com/in/nelson-londo%C3%B1o-dev/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-blue transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]" aria-label="LinkedIn">
+                <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+            <a href="https://github.com/nelsonlondonodev" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]" aria-label="GitHub">
+                <i class="fab fa-github fa-2x"></i>
+            </a>
+            <a href="https://www.tiktok.com/@soy_nelson_londono" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#ff0050] transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(255,0,80,0.6)]" aria-label="TikTok">
+                <i class="fab fa-tiktok fa-2x"></i>
+            </a>
+        </div>
+
+        <div class="space-y-4">
+          <p class="text-gray-500 dark:text-gray-400 font-medium">
+            &copy; <span id="currentYear"></span> Nelson Londoño · Agencia de Marketing Digital
+          </p>
+          <p class="text-xs text-gray-400 mt-1 max-w-md mx-auto leading-relaxed">
+            Impulsando negocios locales con tecnología, <span class="text-primary-green">SEO técnico</span> y automatizaciones inteligentes. Diseñado con <i class="fas fa-heart text-red-500 animate-pulse"></i> en Madrid.
+          </p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-500">
+          <a href="/politica-de-cookies.html" class="hover:text-primary-blue transition-colors underline decoration-gray-700 underline-offset-4">Política de cookies</a> 
+          <span class="hidden sm:inline">|</span>
+          <button id="open-cookie-settings" class="hover:text-primary-blue transition-colors underline decoration-gray-700 underline-offset-4 pointer-events-auto">
+            Configuración de cookies
+          </button>
+        </div>
+
+        <div class="mt-10 pt-8 border-t border-gray-200 dark:border-white/5">
+          <p class="text-[10px] text-gray-500 opacity-40 font-mono tracking-widest uppercase">
+            Build Version: <span id="footer-build-version">v.2026.05.01.11153</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="cookie-banner" class="cookie-banner hidden">
+      <div class="cookie-banner-content">
+        <div class="flex items-center">
+          <i
+            class="fas fa-cookie-bite fa-2x mr-4 text-primary-blue dark:text-primary-green"
+          ></i>
+          <p class="text-sm">
+            En nelsonlondono.es utilizamos cookies propias y de terceros para analizar nuestros servicios y mostrarte publicidad relacionada con tus preferencias en base a un perfil elaborado a partir de tus hábitos de navegación (por ejemplo, páginas visitadas).
+            <br><br>
+            Puedes aceptar todas las cookies pulsando el botón “Aceptar”, rechazarlas pulsando el botón “Rechazar” o configurar su uso pulsando en “Configurar”. Para más información, consulta nuestra <a href="politica-de-cookies.html" class="underline hover:no-underline font-semibold">Política de Cookies</a>.
+          </p>
+        </div>
+        <div class="cookie-banner-actions">
+          <button id="cookie-reject" class="cookie-button-reject">
+            Rechazar
+          </button>
+          <button id="cookie-accept" class="cookie-button-accept">
+            Aceptar
+          </button>
+          <button id="cookie-settings-open" class="cookie-button-settings">
+            Configurar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="cookie-settings-modal" class="cookie-modal-backdrop hidden">
+      <div class="cookie-modal-content">
+        <h3 class="text-lg font-semibold mb-4">Configuración de cookies</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-400 mb-6">
+          En este panel puedes seleccionar qué cookies deseas aceptar y cuáles rechazar. El bloqueo de algunos tipos de cookies puede afectar a tu experiencia en el sitio.
+        </p>
+
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <h4 class="font-semibold">Cookies Necesarias</h4>
+            <span
+              class="text-xs text-primary-green dark:text-primary-blue font-bold"
+              >Siempre Activas</span
+            >
+          </div>
+          <p class="text-sm text-gray-500 mt-1">
+            Son aquellas estrictamente necesarias para el funcionamiento básico del sitio web (navegación, carrito de compra, acceso a áreas seguras). No almacenan información de identificación personal y no pueden ser desactivadas en nuestros sistemas.
+          </p>
+        </div>
+
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <h4 class="font-semibold">Cookies de Análisis</h4>
+            <label class="cookie-toggle">
+              <input
+                type="checkbox"
+                id="analytics-cookie-toggle"
+                class="cookie-toggle-input"
+              />
+              <span class="cookie-toggle-slider"></span>
+            </label>
+          </div>
+          <p class="text-sm text-gray-500 mt-1">
+            Nos permiten cuantificar el número de usuarios y realizar la medición y análisis estadístico de la utilización que hacen los usuarios del servicio ofertado (p. ej. vía Google Analytics). Si no permites estas cookies, no sabremos cuándo has visitado nuestro sitio.
+          </p>
+        </div>
+
+        <div class="mt-8 flex justify-end">
+          <button id="cookie-settings-save" class="cookie-button-accept">
+            Guardar Configuración
+          </button>
+        </div>
+      </div>
+    </div>
 
     <div data-component="chatbot"></div>
-    <script src="/bundle.min.js?v=2026.03.31.1318" defer></script>
+    <script src="/bundle.min.js?v=2026.05.01.11155" defer></script>
   </body>
 </html>
