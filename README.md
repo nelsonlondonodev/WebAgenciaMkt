@@ -57,6 +57,7 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
   - **Cache Busting v.2026.05.01.1115**: Actualización masiva de 20 archivos HTML con un sistema de versionado sincronizado para forzar la actualización inmediata en el navegador del cliente.
   - **Redundancia de Diseño**: Inyección de clases de utilidad Tailwind directamente en el HTML para garantizar la integridad visual incluso ante fallos de compilación CSS.
   - **Sincronización Total de Ramas**: Unificación de `main` y `develop` mediante un flujo de back-merge, garantizando paridad total entre el entorno de desarrollo y producción.
+- **Optimización Móvil (Bug Fix)**: Refactorización integral de la ventana del chat para pantallas pequeñas, eliminando desbordamientos laterales, ajustando el `transform-origin` para animaciones suaves y garantizando márgenes de seguridad para una experiencia fluida en iOS/Android.
 
 ---
 
