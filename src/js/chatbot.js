@@ -14,20 +14,29 @@ class Chatbot {
       closeInvitation: document.getElementById('close-chat-invitation'),
     };
 
-    if (!this.elements.widgetButton) {
-      return;
-    }
+    if (!this.elements.widgetButton) return;
 
+    this.initProperties();
+    this.init();
+  }
+
+  initProperties() {
     this.n8nWebhookUrl = CONFIG.CHATBOT.WEBHOOK_URL;
     this.sessionIdKey = CONFIG.CHATBOT.SESSION_ID_KEY;
     this.sessionId = this.getOrCreateSessionId();
     this.historyKey = `nelson_chat_history_${this.sessionId}`;
     this.history = [];
 
-    this.alertDismissedKey = 'nelson_chat_alert_last_dismissed';
-    this.engagementTimer = null;
-    this.COOLDOWN_24H = 24 * 60 * 60 * 1000; // 24 hours in ms
+    // Engagement Constants
+    this.engagement = {
+      storageKey: 'nelson_chat_alert_last_dismissed',
+      timer: null,
+      cooldown: 24 * 60 * 60 * 1000, // 24 hours
+      delay: 5000, // 5 seconds
+    };
+  }
 
+  init() {
     this.loadHistory();
     this.addEventListeners();
     this.initEngagementLogic();
@@ -55,58 +64,60 @@ class Chatbot {
   }
 
   initEngagementLogic() {
-    const lastDismissed = localStorage.getItem(this.alertDismissedKey);
-    const hasHistory = this.history.length > 0;
-    const now = Date.now();
-
-    // Check if cooldown has passed
-    const isUnderCooldown =
-      lastDismissed && now - parseInt(lastDismissed) < this.COOLDOWN_24H;
-
-    if (!isUnderCooldown && !hasHistory) {
-      this.engagementTimer = setTimeout(() => {
-        this.showEngagementAlert();
-      }, 5000); // 5 seconds delay
+    if (this.shouldShowAlert()) {
+      this.engagement.timer = setTimeout(
+        () => this.showEngagementAlert(),
+        this.engagement.delay
+      );
     }
+  }
+
+  shouldShowAlert() {
+    const hasHistory = this.history.length > 0;
+    if (hasHistory) return false;
+
+    const lastDismissed = localStorage.getItem(this.engagement.storageKey);
+    if (!lastDismissed) return true;
+
+    const elapsed = Date.now() - parseInt(lastDismissed, 10);
+    return elapsed >= this.engagement.cooldown;
   }
 
   showEngagementAlert() {
-    if (this.elements.badge) {
-      this.elements.badge.classList.remove('hidden');
-    }
-    if (this.elements.bubble) {
-      this.elements.bubble.style.display = 'flex';
-      this.elements.bubble.classList.add('animate-fade-in-up');
+    this.updateAlertVisibility(true);
+  }
+
+  dismissEngagementAlert(persist = false) {
+    if (this.engagement.timer) clearTimeout(this.engagement.timer);
+
+    this.updateAlertVisibility(false);
+
+    if (persist) {
+      localStorage.setItem(this.engagement.storageKey, Date.now().toString());
     }
   }
 
-  dismissEngagementAlert(forceCooldown = false) {
-    if (this.engagementTimer) {
-      clearTimeout(this.engagementTimer);
-    }
-    if (this.elements.badge) {
-      this.elements.badge.classList.add('hidden');
-    }
-    if (this.elements.bubble) {
-      this.elements.bubble.style.display = 'none';
-    }
+  updateAlertVisibility(show) {
+    const { badge, bubble } = this.elements;
 
-    // Only set cooldown if explicitly requested (closing or interacting)
-    if (forceCooldown) {
-      localStorage.setItem(this.alertDismissedKey, Date.now().toString());
+    if (badge) badge.classList.toggle('hidden', !show);
+
+    if (bubble) {
+      bubble.style.display = show ? 'flex' : 'none';
+      if (show) bubble.classList.add('animate-fade-in-up');
     }
   }
 
   addEventListeners() {
     this.elements.widgetButton.addEventListener('click', () => {
       this.toggleWindow();
-      this.dismissEngagementAlert(true); // Persist dismissal on interaction
+      this.dismissEngagementAlert(true);
     });
 
     if (this.elements.closeInvitation) {
       this.elements.closeInvitation.addEventListener('click', (e) => {
-        e.stopPropagation(); // Avoid opening the chat
-        this.dismissEngagementAlert(true); // Persist dismissal on close
+        e.stopPropagation();
+        this.dismissEngagementAlert(true);
       });
     }
 
