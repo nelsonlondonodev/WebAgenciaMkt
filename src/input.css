@@ -619,12 +619,15 @@ main {
 
 @media (max-width: 640px) {
   #chat-window {
-    right: 0 !important;
-    left: 0 !important;
-    bottom: 0 !important;
-    max-width: 100% !important;
-    height: 80vh !important;
-    border-radius: 0 !important;
+    right: 1rem !important;
+    left: 1rem !important;
+    bottom: 5.5rem !important;
+    width: auto !important;
+    max-width: calc(100% - 2rem) !important;
+    height: 75vh !important;
+    border-radius: 2rem !important;
+    /* Ajuste de la escala de animación para móviles */
+    transform-origin: bottom center !important;
   }
   #chat-widget-container {
     bottom: 1rem !important;
