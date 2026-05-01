@@ -184,15 +184,30 @@ class Chatbot {
 
   createBubble(message, sender) {
     const bubble = document.createElement('div');
-    bubble.className = `py-2 px-4 inline-block max-w-xs ${
-      sender === 'user'
-        ? 'bg-primary-blue text-white rounded-t-lg rounded-bl-lg'
-        : 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-t-lg rounded-br-lg'
+    const isUser = sender === 'user';
+
+    bubble.className = `py-3 px-5 inline-block max-w-[85%] text-sm leading-relaxed shadow-sm ${
+      isUser
+        ? 'bg-gradient-to-br from-primary-blue to-blue-600 text-white rounded-[1.5rem] rounded-tr-none'
+        : 'bg-white/50 dark:bg-white/10 backdrop-blur-md text-gray-800 dark:text-gray-100 border border-white/20 dark:border-white/10 rounded-[1.5rem] rounded-tl-none'
     }`;
+
     bubble.innerHTML = message;
-    bubble
-      .querySelectorAll('a')
-      .forEach((link) => link.classList.add('text-blue-500', 'underline'));
+
+    // Style links if present
+    bubble.querySelectorAll('a').forEach((link) => {
+      link.classList.add(
+        'text-primary-blue',
+        'dark:text-primary-green',
+        'font-bold',
+        'underline',
+        'decoration-2',
+        'underline-offset-2',
+        'hover:opacity-80',
+        'transition-opacity'
+      );
+    });
+
     return bubble;
   }
 
@@ -231,13 +246,13 @@ class Chatbot {
   showTypingIndicator() {
     const typingIndicator = document.createElement('div');
     typingIndicator.id = 'typing-indicator';
-    typingIndicator.className = 'mb-4';
+    typingIndicator.className = 'mb-4 flex items-start animate-chat-message-in';
     typingIndicator.innerHTML = `
-      <div class="bg-gray-200 dark:bg-gray-700 rounded-lg py-2 px-4 inline-block">
-        <div class="flex items-center space-x-1">
-          <span class="w-2 h-2 bg-gray-500 rounded-full animate-pulse"></span>
-          <span class="w-2 h-2 bg-gray-500 rounded-full animate-pulse" style="animation-delay: 0.2s;"></span>
-          <span class="w-2 h-2 bg-gray-500 rounded-full animate-pulse" style="animation-delay: 0.4s;"></span>
+      <div class="bg-white/50 dark:bg-white/10 backdrop-blur-md rounded-2xl py-3 px-5 border border-white/20 dark:border-white/10 shadow-sm">
+        <div class="flex items-center space-x-1.5">
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
         </div>
       </div>`;
     this.elements.messages.appendChild(typingIndicator);
