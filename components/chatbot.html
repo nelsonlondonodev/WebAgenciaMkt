@@ -3,9 +3,16 @@
   <!-- Invitation Bubble (Desktop only) -->
   <div 
     id="chat-invitation-bubble" 
-    class="hidden sm:flex mb-3 mr-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-white/20 dark:border-gray-700 shadow-xl p-3 rounded-2xl text-sm font-medium text-gray-800 dark:text-white max-w-[200px] animate-fade-in-up relative"
+    class="hidden sm:flex mb-3 mr-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-white/20 dark:border-gray-700 shadow-xl p-3 rounded-2xl text-sm font-medium text-gray-800 dark:text-white max-w-[220px] animate-fade-in-up relative group"
     style="display: none;"
   >
+    <button 
+      id="close-chat-invitation" 
+      class="absolute -top-2 -left-2 w-6 h-6 bg-white dark:bg-gray-700 rounded-full shadow-md flex items-center justify-center text-gray-500 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity border border-gray-100 dark:border-gray-600"
+      aria-label="Cerrar invitación"
+    >
+      <i class="fas fa-times text-[10px]"></i>
+    </button>
     ¡Hola! 👋 Soy Aurelio, ¿en qué puedo ayudarte hoy?
     <!-- Little arrow -->
     <div class="absolute -bottom-2 right-6 w-4 h-4 bg-white/80 dark:bg-gray-800/80 border-r border-b border-white/20 dark:border-gray-700 rotate-45"></div>

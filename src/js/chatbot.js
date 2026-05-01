@@ -11,6 +11,7 @@ class Chatbot {
       messages: document.getElementById('chat-messages'),
       badge: document.getElementById('chat-notification-badge'),
       bubble: document.getElementById('chat-invitation-bubble'),
+      closeInvitation: document.getElementById('close-chat-invitation'),
     };
 
     if (!this.elements.widgetButton) {
@@ -23,8 +24,9 @@ class Chatbot {
     this.historyKey = `nelson_chat_history_${this.sessionId}`;
     this.history = [];
 
-    this.alertDismissedKey = 'nelson_chat_alert_dismissed';
+    this.alertDismissedKey = 'nelson_chat_alert_last_dismissed';
     this.engagementTimer = null;
+    this.COOLDOWN_24H = 24 * 60 * 60 * 1000; // 24 hours in ms
 
     this.loadHistory();
     this.addEventListeners();
@@ -53,10 +55,15 @@ class Chatbot {
   }
 
   initEngagementLogic() {
-    const isDismissed = sessionStorage.getItem(this.alertDismissedKey);
+    const lastDismissed = localStorage.getItem(this.alertDismissedKey);
     const hasHistory = this.history.length > 0;
+    const now = Date.now();
 
-    if (!isDismissed && !hasHistory) {
+    // Check if cooldown has passed
+    const isUnderCooldown =
+      lastDismissed && now - parseInt(lastDismissed) < this.COOLDOWN_24H;
+
+    if (!isUnderCooldown && !hasHistory) {
       this.engagementTimer = setTimeout(() => {
         this.showEngagementAlert();
       }, 5000); // 5 seconds delay
@@ -73,7 +80,7 @@ class Chatbot {
     }
   }
 
-  dismissEngagementAlert() {
+  dismissEngagementAlert(forceCooldown = false) {
     if (this.engagementTimer) {
       clearTimeout(this.engagementTimer);
     }
@@ -83,14 +90,26 @@ class Chatbot {
     if (this.elements.bubble) {
       this.elements.bubble.style.display = 'none';
     }
-    sessionStorage.setItem(this.alertDismissedKey, 'true');
+
+    // Only set cooldown if explicitly requested (closing or interacting)
+    if (forceCooldown) {
+      localStorage.setItem(this.alertDismissedKey, Date.now().toString());
+    }
   }
 
   addEventListeners() {
     this.elements.widgetButton.addEventListener('click', () => {
       this.toggleWindow();
-      this.dismissEngagementAlert();
+      this.dismissEngagementAlert(true); // Persist dismissal on interaction
     });
+
+    if (this.elements.closeInvitation) {
+      this.elements.closeInvitation.addEventListener('click', (e) => {
+        e.stopPropagation(); // Avoid opening the chat
+        this.dismissEngagementAlert(true); // Persist dismissal on close
+      });
+    }
+
     this.elements.closeButton.addEventListener('click', () =>
       this.toggleWindow()
     );
