@@ -152,6 +152,11 @@
 .animate-infinite-scroll {
   will-change: transform;
 }
+.marquee-container {
+  @apply w-full py-4 inline-flex flex-nowrap overflow-hidden min-h-[160px];
+  mask-image: linear-gradient(to right, transparent 0, black 128px, black calc(100% - 128px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 128px, black calc(100% - 128px), transparent 100%);
+}
 .animate-float-down-up {
   animation: float-down-up 6s ease-in-out infinite;
   will-change: transform;
