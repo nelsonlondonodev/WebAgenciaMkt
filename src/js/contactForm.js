@@ -161,7 +161,7 @@ function setButtonFeedback(btn, type) {
   const original = btn.innerHTML;
   const states = {
     success: { html: '<i class="fas fa-check"></i> ¡Copiado!', class: 'bg-green-500' },
-    error: { html: '<i class="fas fa-times"></i> FALLO_X', class: 'bg-red-500' }
+    error: { html: '<i class="fas fa-times"></i> Error', class: 'bg-red-500' }
   };
   
   const state = states[type];
@@ -213,7 +213,6 @@ export function initContactReveal() {
   configs.forEach(({ id, ...data }) => {
     const btn = document.getElementById(id);
     if (btn) {
-      btn.style.border = '5px solid blue'; // DIAGNÓSTICO AZUL: Si ves esto azul, es la v2.1
       btn.onclick = (e) => {
         e.preventDefault();
         openPrivacyModal(data.title, data.value, data.icon, data.link);
