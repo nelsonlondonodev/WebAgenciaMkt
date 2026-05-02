@@ -34,23 +34,23 @@
     <!-- Carga del CSS principal optimizada (No bloqueante) -->
     <link
       rel="preload"
-      href="/nelson-v4.css?v=2026.05.02.0919"
+      href="/nelson-v4.css?v=2026.05.02.0920"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/nelson-v4.css?v=2026.05.02.0919" />
+      <link rel="stylesheet" href="/nelson-v4.css?v=2026.05.02.0920" />
     </noscript>
 
     <!-- Carga de FontAwesome optimizada -->
     <link
       rel="preload"
-      href="/fontawesome.min.css?v=2026.05.02.0919"
+      href="/fontawesome.min.css?v=2026.05.02.0920"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.05.02.0919" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.05.02.0920" />
     </noscript>
 
     <!-- Preload de imagen crítica LCP (Marca Personal) -->
@@ -102,18 +102,18 @@
 
           <div class="max-w-4xl relative z-10">
             <h1
-              class="text-base sm:text-lg lg:text-xl font-medium text-primary-green dark:text-primary-green opacity-0 animate-slide-in-right uppercase"
+              class="text-base sm:text-lg lg:text-xl font-medium text-primary-green dark:text-primary-green opacity-0 animate-slide-in-right uppercase will-change-transform"
             >
               Sobre nosotros
             </h1>
             <p
-              class="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-7xl font-black bg-clip-text text-transparent hero-gradient-text opacity-0 animate-slide-in-left leading-[1.15] lg:leading-[1.1] text-left sm:text-center"
+              class="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-7xl font-black bg-clip-text text-transparent hero-gradient-text opacity-0 animate-slide-in-left leading-[1.15] lg:leading-[1.1] text-left sm:text-center will-change-transform"
               style="animation-delay: 0.2s"
             >
               Trayectoria y visión
             </p>
             <p
-              class="mt-6 sm:mt-10 text-xl sm:text-4xl font-thin text-gray-600 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center"
+              class="mt-6 sm:mt-10 text-xl sm:text-4xl font-thin text-gray-700 dark:text-gray-300 opacity-0 animate-scale-in-core text-left sm:text-center will-change-transform"
               style="animation-delay: 0.4s"
             >
               Construyendo el puente entre la complejidad tecnológica y el éxito
@@ -246,69 +246,35 @@
       <section
         class="py-16 sm:py-24 border-t border-gray-200 dark:border-gray-800"
       >
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid md:grid-cols-2 gap-12">
+        <div class=          <div class="grid md:grid-cols-2 gap-12">
             <!-- Misión -->
-            <div class="service-card group">
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-primary-blue/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"
-              ></div>
-              <div
-                class="absolute top-0 right-0 w-32 h-32 bg-primary-green/20 dark:bg-primary-blue/20 rounded-bl-full -mr-8 -mt-8 pointer-events-none group-hover:scale-110 transition-transform duration-500"
-              ></div>
+            <div class="service-card group will-change-transform transition-all duration-300 hover:-translate-y-2">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary-blue/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"></div>
               <div class="relative z-10">
-                <div
-                  class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-glow-green dark:text-glow-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300 mb-6"
-                >
+                <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-glow-green dark:text-glow-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300 mb-6">
                   <i class="fas fa-bullseye text-3xl"></i>
                 </div>
-                <h2
-                  class="text-3xl font-bold mb-4 text-gray-900 dark:text-white"
-                >
-                  Nuestra misión
-                </h2>
-                <p
-                  class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
-                >
-                  Democratizar el acceso a tecnología de alto nivel para marcas
-                  en crecimiento. Transformamos la presencia digital de "un
-                  requisito" a un
-                  <strong class="text-gray-900 dark:text-white"
-                    >activo estratégico</strong
-                  >
-                  que impulsa ventas, automatiza procesos y fideliza clientes.
+                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Nuestra misión</h2>
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Democratizar el acceso a tecnología de alto nivel para marcas en crecimiento. Transformamos la presencia digital de "un requisito" a un <strong class="text-gray-900 dark:text-white">activo estratégico</strong> que impulsa ventas, automatiza procesos y fideliza clientes.
                 </p>
               </div>
             </div>
 
             <!-- Visión -->
-            <div class="service-card group">
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-primary-blue/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"
-              ></div>
-              <div
-                class="absolute top-0 right-0 w-32 h-32 bg-primary-blue/20 dark:bg-primary-green/20 rounded-bl-full -mr-8 -mt-8 pointer-events-none group-hover:scale-110 transition-transform duration-500"
-              ></div>
+            <div class="service-card group will-change-transform transition-all duration-300 hover:-translate-y-2">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary-blue/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"></div>
               <div class="relative z-10">
-                <div
-                  class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-glow-green dark:text-glow-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300 mb-6"
-                >
+                <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-green/20 dark:bg-primary-blue/20 text-glow-green dark:text-glow-blue group-hover:bg-primary-green dark:group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300 mb-6">
                   <i class="fas fa-binoculars text-3xl"></i>
                 </div>
-                <h2
-                  class="text-3xl font-bold mb-4 text-gray-900 dark:text-white"
-                >
-                  Nuestra visión
-                </h2>
-                <p
-                  class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
-                >
-                  Ser el socio tecnológico de referencia para empresas que
-                  buscan escalar sin límites geográficos. Construimos un futuro
-                  donde tu negocio opera con la eficiencia y el alcance de una
-                  multinacional gracias a una arquitectura digital sólida.
+                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Nuestra visión</h2>
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Ser el socio tecnológico de referencia para empresas que buscan escalar sin límites geográficos. Construimos un futuro donde tu negocio opera con la eficiencia y el alcance de una multinacional gracias a una arquitectura digital sólida.
                 </p>
               </div>
+            </div>
+          </div>          </div>
             </div>
           </div>
         </div>
@@ -332,37 +298,17 @@
             </p>
 
             <!-- Social Proof Badge -->
-            <div
-              class="flex flex-col sm:flex-row items-center bg-white dark:bg-gray-800 rounded-2xl px-8 py-3 shadow-md border border-gray-100 dark:border-gray-700 gap-4 mb-8 scroll-animate-initial delay-100"
-            >
+            <div class="flex flex-col sm:flex-row items-center bg-white dark:bg-gray-800 rounded-2xl px-8 py-3 shadow-md border border-gray-100 dark:border-gray-700 gap-4 mb-8 scroll-animate-initial delay-100 mx-auto w-fit">
               <div class="flex items-center space-x-2">
-                <span class="font-bold text-2xl text-gray-900 dark:text-white"
-                  >5.0</span
-                >
+                <span class="font-bold text-2xl text-gray-900 dark:text-white">5.0</span>
                 <div class="flex text-yellow-400 text-lg">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
               </div>
-              <div
-                class="hidden sm:block h-8 w-px bg-gray-200 dark:bg-gray-700"
-              ></div>
+              <div class="hidden sm:block h-8 w-px bg-gray-200 dark:bg-gray-700"></div>
               <div class="flex items-center space-x-2">
-                <span
-                  class="text-base font-medium text-gray-600 dark:text-gray-300"
-                  >17 reseñas en</span
-                >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
-                  alt="Google"
-                  class="h-6 w-auto"
-                  loading="lazy"
-                  width="70"
-                  height="23"
-                />
+                <span class="text-base font-medium text-gray-700 dark:text-gray-300">17 reseñas en</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-6 w-auto" loading="lazy" width="70" height="23" />
               </div>
             </div>
           </div>
