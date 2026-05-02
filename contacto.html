@@ -95,23 +95,23 @@
     <!-- Carga del CSS principal optimizada (No bloqueante) -->
     <link
       rel="preload"
-      href="/nelson-v4.css?v=2026.05.02.0931"
+      href="/nelson-v4.css?v=2026.05.02.0933"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/nelson-v4.css?v=2026.05.02.0931" />
+      <link rel="stylesheet" href="/nelson-v4.css?v=2026.05.02.0933" />
     </noscript>
 
     <!-- Carga de FontAwesome optimizada -->
     <link
       rel="preload"
-      href="/fontawesome.min.css?v=2026.05.02.0931"
+      href="/fontawesome.min.css?v=2026.05.02.0933"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.05.02.0931" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.05.02.0933" />
     </noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -125,215 +125,7 @@
   <body
     class="transition-colors duration-300 font-sans text-gray-900 dark:text-gray-100"
   >
-    <header id="mainHeader" class="sticky-header">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
-          <div class="flex items-center flex-shrink-0">
-            <a
-              href="/"
-              class="block"
-              aria-label="Nelson Londoño Agencia - Página de Inicio"
-            >
-              <img
-                src="/image/logo-nelson.webp"
-                alt="Logo de Nelson Londoño Agencia de Marketing Digital en Fuente el Saz"
-                class="h-10 sm:h-12 w-auto logo-invert-on-dark"
-                loading="lazy"
-                decoding="async"
-                width="174"
-                height="48"
-              />
-            </a>
-          </div>
-          <div class="hidden lg:block">
-            <nav class="ml-10 flex items-baseline space-x-4">
-              <a href="/" class="nav-link flex items-center">
-                <i class="fas fa-home w-5 text-center mr-2"></i
-                ><span class="flex-1">Inicio</span>
-              </a>
-              <div id="services-menu-group" class="relative group">
-                <a href="#" class="nav-link flex items-center">
-                  <i class="fas fa-briefcase w-5 text-center mr-2"></i>
-                  <span class="flex-1">Servicios</span>
-                  <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                </a>
-                <div
-                  id="services-menu-dropdown"
-                  class="absolute z-20 hidden bg-white dark:bg-gray-800 shadow-lg rounded-md mt-2 w-60"
-                >
-                  <a
-                    href="/agencia-seo-local.html"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                    >SEO local</a
-                  >
-                  <a
-                    href="/agencia-seo.html"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                    >SEO (optimización para buscadores)</a
-                  >
-                  <a
-                    href="/agencia-desarrollo-web-con-codigo.html"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                    >Desarrollo web a medida</a
-                  >
-                  <a
-                    href="/agencia-automatizaciones.html"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                    >Agentes virtuales y automatizaciones</a
-                  >
-                </div>
-              </div>
-              <a href="/proyectos.html" class="nav-link flex items-center">
-                <i class="fas fa-folder-open w-5 text-center mr-2"></i
-                ><span class="flex-1">Proyectos</span>
-              </a>
-              <a href="/sobre-mi.html" class="nav-link flex items-center">
-                <i class="fas fa-user w-5 text-center mr-2"></i
-                ><span class="flex-1">Sobre mí</span>
-              </a>
-
-              <a href="/contacto.html" class="nav-link flex items-center">
-                <i class="fas fa-envelope w-5 text-center mr-2"></i
-                ><span class="flex-1">Contacto</span>
-              </a>
-              <a href="/blog.html" class="nav-link flex items-center">
-                <i class="fas fa-newspaper w-5 text-center mr-2"></i
-                ><span class="flex-1">Blog</span>
-              </a>
-            </nav>
-          </div>
-          <div class="flex items-center">
-            <div class="lg:hidden ml-2">
-              <button
-                id="mobileMenuButton"
-                type="button"
-                class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-primary-blue dark:hover:text-primary-green hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-blue"
-                aria-controls="mobile-menu"
-                aria-expanded="false"
-              >
-                <span class="sr-only">Abrir menú principal</span>
-                <div class="w-6 h-6 flex flex-col justify-around">
-                  <span
-                    class="block h-0.5 w-full bg-current rounded-full"
-                  ></span>
-                  <span
-                    class="block h-0.5 w-full bg-current rounded-full"
-                  ></span>
-                  <span
-                    class="block h-0.5 w-full bg-current rounded-full"
-                  ></span>
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        id="nav-overlay"
-        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300 pointer-events-none"
-      ></div>
-      <div
-        id="mobileMenu"
-        aria-hidden="true"
-        class="fixed inset-y-0 right-0 w-[85%] max-w-[320px] z-[10001] transform translate-x-full transition-transform duration-500 ease-in-out mobile-menu-glass flex flex-col pointer-events-none"
-      >
-        <div
-          class="p-6 border-b border-gray-100 dark:border-white/10 flex justify-between items-center bg-white dark:bg-[#0a0a0a]"
-        >
-          <span
-            class="text-[10px] font-black uppercase tracking-[0.2em] text-primary-green"
-            >Menú Nelson Londoño</span
-          >
-          <button
-            id="closeMobileMenu"
-            class="text-gray-500 dark:text-gray-400 hover:text-red-500 transition-colors"
-          >
-            <i class="fas fa-times text-2xl"></i>
-          </button>
-        </div>
-
-        <div class="flex-1 overflow-y-auto py-8">
-          <nav class="space-y-2 px-4">
-            <a href="/" class="mobile-menu-link">
-              <i class="fas fa-home w-8 text-center mr-3 text-primary-blue"></i>
-              <span>Inicio</span>
-            </a>
-
-            <div class="relative">
-              <button
-                id="mobileServicesButton"
-                class="mobile-menu-link w-full text-left"
-              >
-                <i
-                  class="fas fa-briefcase w-8 text-center mr-3 text-primary-green"
-                ></i>
-                <span class="flex-1">Servicios</span>
-                <i
-                  class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300"
-                ></i>
-              </button>
-              <div
-                id="mobileServicesMenu"
-                class="hidden mt-2 ml-12 space-y-1 border-l-2 border-primary-green/20"
-              >
-                <a
-                  href="/agencia-seo-local.html"
-                  class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
-                  >SEO local</a
-                >
-                <a
-                  href="/agencia-seo.html"
-                  class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
-                  >SEO técnico</a
-                >
-                <a
-                  href="/agencia-desarrollo-web-con-codigo.html"
-                  class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
-                  >Web a medida</a
-                >
-                <a
-                  href="/agencia-automatizaciones.html"
-                  class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
-                  >IA & Automatizaciones</a
-                >
-              </div>
-            </div>
-
-            <a href="/proyectos.html" class="mobile-menu-link">
-              <i
-                class="fas fa-folder-open w-8 text-center mr-3 text-primary-blue"
-              ></i>
-              <span>Proyectos</span>
-            </a>
-            <a href="/sobre-mi.html" class="mobile-menu-link">
-              <i
-                class="fas fa-user w-8 text-center mr-3 text-primary-green"
-              ></i>
-              <span>Sobre mí</span>
-            </a>
-            <a href="/contacto.html" class="mobile-menu-link">
-              <i
-                class="fas fa-envelope w-8 text-center mr-3 text-primary-blue"
-              ></i>
-              <span>Contacto</span>
-            </a>
-            <a href="/blog.html" class="mobile-menu-link">
-              <i
-                class="fas fa-newspaper w-8 text-center mr-3 text-primary-green"
-              ></i>
-              <span>Blog</span>
-            </a>
-          </nav>
-        </div>
-        <!-- Mobile Menu Footer -->
-        <div class="p-8 border-t border-white/10">
-          <p
-            class="text-center text-[10px] text-gray-500 uppercase tracking-widest"
-          >
-            Nelson Londoño © 2026
-          </p>
-        </div>
-      </div>
+    <div data-component="nav"></div>
     </header>
 
     <main class="pt-20">
@@ -597,110 +389,27 @@
             Preguntas antes de escribirnos
           </h2>
           <div class="space-y-4">
-            <!-- FAQ Item 1 -->
-            <details
-              class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30"
-            >
-              <summary
-                class="flex justify-between items-center px-6 py-7 cursor-pointer select-none"
-              >
-                <h3
-                  class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors"
-                >
-                  ¿Cuál es vuestro horario de respuesta?
-                </h3>
-                <span
-                  class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180"
-                >
+            <!-- FAQ Items inyectados o simplificados -->
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center px-6 py-7 cursor-pointer select-none">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">¿Cuál es vuestro horario de respuesta?</h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
                   <i class="fas fa-chevron-down text-sm"></i>
                 </span>
               </summary>
-              <div
-                class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4"
-              >
-                Generalmente respondemos en menos de 2 horas dentro del horario
-                laboral (L-V, 9:00 - 18:00). Si escribes fuera de horario, te
-                contestaremos a primera hora del siguiente día laborable.
+              <div class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                Generalmente respondemos en menos de 2 horas dentro del horario laboral (L-V, 9:00 - 18:00).
               </div>
             </details>
-
-            <!-- FAQ Item 2 -->
-            <details
-              class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30"
-            >
-              <summary
-                class="flex justify-between items-center px-6 py-7 cursor-pointer select-none"
-              >
-                <h3
-                  class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors"
-                >
-                  ¿Hacéis reuniones por videollamada?
-                </h3>
-                <span
-                  class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180"
-                >
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+              <summary class="flex justify-between items-center px-6 py-7 cursor-pointer select-none">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">¿La primera consulta tiene coste?</h3>
+                <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
                   <i class="fas fa-chevron-down text-sm"></i>
                 </span>
               </summary>
-              <div
-                class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4"
-              >
-                Sí, el 100% de nuestra operativa es digital. Usamos Google Meet
-                o Zoom para las reuniones. Esto nos permite ser más eficientes y
-                trabajar con clientes de cualquier parte del mundo.
-              </div>
-            </details>
-
-            <!-- FAQ Item 3 -->
-            <details
-              class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30"
-            >
-              <summary
-                class="flex justify-between items-center px-6 py-7 cursor-pointer select-none"
-              >
-                <h3
-                  class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors"
-                >
-                  ¿La primera consulta tiene coste?
-                </h3>
-                <span
-                  class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180"
-                >
-                  <i class="fas fa-chevron-down text-sm"></i>
-                </span>
-              </summary>
-              <div
-                class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4"
-              >
-                No. La primera sesión de descubrimiento (30 min) es totalmente
-                gratuita. En ella analizamos si podemos ayudarte y si somos el
-                encaje adecuado para tu proyecto.
-              </div>
-            </details>
-
-            <!-- FAQ Item 4 -->
-            <details
-              class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30"
-            >
-              <summary
-                class="flex justify-between items-center px-6 py-7 cursor-pointer select-none"
-              >
-                <h3
-                  class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors"
-                >
-                  ¿Desde dónde trabajáis?
-                </h3>
-                <span
-                  class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180"
-                >
-                  <i class="fas fa-chevron-down text-sm"></i>
-                </span>
-              </summary>
-              <div
-                class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4"
-              >
-                Somos una agencia remota con base en Madrid (Fuente el Saz),
-                pero nuestro equipo y clientes son globales.
+              <div class="px-6 pb-6 text-gray-700 dark:text-gray-200 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4">
+                No. La primera sesión de descubrimiento (30 min) es totalmente gratuita.
               </div>
             </details>
           </div>
