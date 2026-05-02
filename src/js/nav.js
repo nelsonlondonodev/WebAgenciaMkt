@@ -1,15 +1,15 @@
-function initMobileMenu() {
-  const mobileMenuButton = document.getElementById('mobileMenuButton');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const closeMobileMenuBtn = document.getElementById('closeMobileMenu');
-const overlay = document.getElementById('nav-overlay');
-
 /**
  * Helper para alternar atributos de accesibilidad.
  */
 const toggleAria = (element, attr, value) => {
   if (element) element.setAttribute(attr, value);
 };
+
+function initMobileMenu() {
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMobileMenuBtn = document.getElementById('closeMobileMenu');
+  const overlay = document.getElementById('nav-overlay');
 
   if (!mobileMenuButton || !mobileMenu || !overlay) return;
 
