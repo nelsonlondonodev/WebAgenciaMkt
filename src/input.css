@@ -116,10 +116,10 @@
   }
   @keyframes scroll-infinite {
     0% {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
     }
   }
 
@@ -147,6 +147,9 @@
 
 .animate-float-up-down {
   animation: float-up-down 6s ease-in-out infinite;
+  will-change: transform;
+}
+.animate-infinite-scroll {
   will-change: transform;
 }
 .animate-float-down-up {
