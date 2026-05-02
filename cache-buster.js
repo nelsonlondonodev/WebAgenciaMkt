@@ -65,6 +65,16 @@ function injectFooterVersion(content, version, fileName) {
 }
 
 /**
+ * INYECCIÓN EN CONFIG JS
+ * Si el archivo es la configuración JS, inyecta la versión interna.
+ */
+function injectConfigVersion(content, version, fileName) {
+  if (!fileName.includes('config.js')) return content;
+  console.log(`[Build] Inyectando versión en config.js: ${version}`);
+  return content.replace('{{APP_VERSION}}', version);
+}
+
+/**
  * PROCESAMIENTO DE ARCHIVO
  * Lee, transforma y guarda el archivo de forma asíncrona.
  */
@@ -75,6 +85,7 @@ async function processFile(relativeFilePath, version) {
     const data = await fs.readFile(absolutePath, 'utf8');
     let updatedData = updateAssetUrls(data, version, relativeFilePath);
     updatedData = injectFooterVersion(updatedData, version, relativeFilePath);
+    updatedData = injectConfigVersion(updatedData, version, relativeFilePath);
 
     await fs.writeFile(absolutePath, updatedData, 'utf8');
     console.log(`[✓] Optimizado: ${relativeFilePath}`);
@@ -108,7 +119,8 @@ async function main() {
     }
 
     // Procesamos todos los archivos en paralelo para máxima velocidad
-    await Promise.all(htmlFiles.map((file) => processFile(file, version)));
+    const filesToProcess = [...htmlFiles, 'src/js/config.js'];
+    await Promise.all(filesToProcess.map((file) => processFile(file, version)));
     console.log(`--- Operación Finalizada Correctamente (v.${version}) ---`);
   } catch (error) {
     console.error('Error crítico durante la ejecución:', error);

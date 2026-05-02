@@ -2,7 +2,14 @@ function initMobileMenu() {
   const mobileMenuButton = document.getElementById('mobileMenuButton');
   const mobileMenu = document.getElementById('mobileMenu');
   const closeMobileMenuBtn = document.getElementById('closeMobileMenu');
-  const overlay = document.getElementById('nav-overlay');
+const overlay = document.getElementById('nav-overlay');
+
+/**
+ * Helper para alternar atributos de accesibilidad.
+ */
+const toggleAria = (element, attr, value) => {
+  if (element) element.setAttribute(attr, value);
+};
 
   if (!mobileMenuButton || !mobileMenu || !overlay) return;
 
@@ -22,8 +29,8 @@ function initMobileMenu() {
         overlay.classList.remove('opacity-0', 'pointer-events-none');
         
         mobileMenuButton.classList.add('is-active');
-        mobileMenuButton.setAttribute('aria-expanded', 'true');
-        mobileMenu.setAttribute('aria-hidden', 'false');
+        toggleAria(mobileMenuButton, 'aria-expanded', 'true');
+        toggleAria(mobileMenu, 'aria-hidden', 'false');
       });
     } else {
       // Close animations
@@ -32,8 +39,8 @@ function initMobileMenu() {
       overlay.classList.add('opacity-0', 'pointer-events-none');
 
       mobileMenuButton.classList.remove('is-active');
-      mobileMenuButton.setAttribute('aria-expanded', 'false');
-      mobileMenu.setAttribute('aria-hidden', 'true');
+      toggleAria(mobileMenuButton, 'aria-expanded', 'false');
+      toggleAria(mobileMenu, 'aria-hidden', 'true');
 
       // Delay cleanup until animations finish
       setTimeout(() => {
@@ -89,8 +96,8 @@ function initMobileServicesMenu() {
 
   mobileServicesButton.addEventListener('click', (e) => {
     e.stopPropagation();
-    const isOpen = mobileServicesMenu.classList.toggle('is-active');
-    mobileServicesButton.setAttribute('aria-expanded', isOpen);
+    const isActive = mobileServicesMenu.classList.toggle('is-active');
+    toggleAria(mobileServicesButton, 'aria-expanded', isActive);
 
     const icon = mobileServicesButton.querySelector('i.fa-chevron-down');
     if (icon) {

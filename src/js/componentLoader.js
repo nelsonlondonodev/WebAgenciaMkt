@@ -1,33 +1,57 @@
 // src/js/componentLoader.js
+import { CONFIG } from './config.js';
+
+const APP_VERSION = CONFIG.UI.APP_VERSION || '1.0.0';
 
 /**
- * Carga un componente HTML estático y lo inserta en un elemento del DOM.
- * @param {string} selector - El selector CSS del elemento.
- * @param {string} url - La URL del archivo HTML del componente.
- * @returns {Promise<void>}
+ * Procesa un string HTML reemplazando placeholders {{KEY}} con valores de un dataset.
+ */
+const interpolateTemplate = (html, dataset) => {
+  let processedHtml = html;
+  
+  for (const key in dataset) {
+    if (key === 'component' || key === 'heroCustomStyles') continue;
+
+    const placeholder = `{{${key
+      .replace(/([A-Z])/g, '_$1')
+      .replace('-', '_')
+      .toUpperCase()}}}`;
+    
+    const value = dataset[key];
+    if (value !== undefined) {
+      processedHtml = processedHtml.replaceAll(placeholder, value);
+    }
+  }
+
+  // Limpiar placeholders restantes
+  return processedHtml.replace(/\{\{[A-Z_]+\}\}/g, '');
+};
+
+/**
+ * Carga un componente desde el servidor con manejo de versión para caché.
+ */
+const fetchComponent = async (url) => {
+  const versionedUrl = `${url}?v=${APP_VERSION}`;
+  const response = await fetch(versionedUrl);
+  if (!response.ok) throw new Error(`HTTP Error: ${response.statusText}`);
+  return await response.text();
+};
+
+/**
+ * Carga un componente estático simple.
  */
 const loadStaticComponent = async (selector, url) => {
   try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Error al cargar ${url}: ${response.statusText}`);
-    }
-    const data = await response.text();
+    const html = await fetchComponent(url);
     const element = document.querySelector(selector);
-    if (element) {
-      element.innerHTML = data;
-    } else {
-      // console.warn(`Selector no encontrado: ${selector}`);
-    }
+    if (element) element.innerHTML = html;
   } catch (error) {
-    console.error(`No se pudo cargar componente desde ${url}:`, error);
+    console.error(`[ComponentLoader] Fallo al cargar estático ${url}:`, error);
   }
 };
 
 /**
- * Carga un componente configurable, reemplazando placeholders con data-attributes.
- * @param {HTMLElement} element - El elemento del DOM que requiere el componente.
- * @returns {Promise<void>}
+ * Carga un componente configurable con inyección de datos.
  */
 const loadConfigurableComponent = async (element) => {
   const componentName = element.dataset.component;
@@ -36,72 +60,37 @@ const loadConfigurableComponent = async (element) => {
   const url = `/components/${componentName}.html`;
 
   try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Error al cargar ${url}: ${response.statusText}`);
-    }
-    let html = await response.text();
-
-    // Manejar y cargar estilos personalizados en el head
+    // Inyectar estilos personalizados si existen
     if (element.dataset.heroCustomStyles) {
       const style = document.createElement('style');
       style.textContent = element.dataset.heroCustomStyles;
       document.head.appendChild(style);
     }
 
-    // Reemplazar placeholders como {{KEY}} con el valor de data-key
-    for (const key in element.dataset) {
-      if (key === 'component' || key === 'heroCustomStyles') {
-        continue; // Omitir estas claves especiales
-      }
-
-      const placeholder = `{{${key
-        .replace(/([A-Z])/g, '_$1')
-        .replace('-', '_')
-        .toUpperCase()}}}`;
-      const value = element.dataset[key];
-
-      if (value !== undefined) {
-        html = html.replaceAll(placeholder, value);
-      }
-    }
-
-    // Limpiar cualquier placeholder restante que no tenga un data-attribute correspondiente
-    html = html.replace(/\{\{[A-Z_]+\}\}/g, '');
-
-    element.innerHTML = html;
+    const rawHtml = await fetchComponent(url);
+    element.innerHTML = interpolateTemplate(rawHtml, element.dataset);
   } catch (error) {
-    console.error(
-      `No se pudo cargar componente configurable desde ${url}:`,
-      error
-    );
+    console.error(`[ComponentLoader] Fallo al cargar configurable ${url}:`, error);
   }
 };
 
 /**
- * Carga todos los componentes de la página.
+ * Orquestador principal de carga de componentes.
  */
 export const loadComponents = async () => {
-  // Carga componentes estáticos comunes
-  const staticLoaders = [
-    loadStaticComponent('#nav-placeholder', '/components/nav.html'),
-    loadStaticComponent('#footer-placeholder', '/components/footer.html'),
-    loadStaticComponent(
-      '#cookie-banner-placeholder',
-      '/components/cookie-banner.html'
-    ),
+  // 1. Definir cargadores estáticos
+  const staticTargets = [
+    { selector: '#nav-placeholder', url: '/components/nav.html' },
+    { selector: '#footer-placeholder', url: '/components/footer.html' },
+    { selector: '#cookie-banner-placeholder', url: '/components/cookie-banner.html' }
   ];
 
-  // Carga componentes configurables basados en data-attributes
-  const configurableComponents = document.querySelectorAll('[data-component]');
-  const configurableLoaders = Array.from(configurableComponents).map(
-    (element) => {
-      // Asegurarnos de no volver a procesar los que ya tienen un loader específico si es necesario,
-      // pero para este caso, 'chatbot' y 'hero-section' son únicos.
-      return loadConfigurableComponent(element);
-    }
-  );
+  const staticPromises = staticTargets.map(t => loadStaticComponent(t.selector, t.url));
 
-  // Ejecutar todos los cargadores en paralelo
-  await Promise.all([...staticLoaders, ...configurableLoaders]);
+  // 2. Identificar y definir cargadores configurables
+  const configurableElements = document.querySelectorAll('[data-component]');
+  const configurablePromises = Array.from(configurableElements).map(loadConfigurableComponent);
+
+  // 3. Ejecutar todo en paralelo para máxima eficiencia
+  await Promise.all([...staticPromises, ...configurablePromises]);
 };

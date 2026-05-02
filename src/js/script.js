@@ -32,39 +32,50 @@ import {
 
 // import { initHeroIframe } from './heroHelper.js';
 
+/**
+ * Programa la ejecución de tareas no críticas para cuando el hilo principal esté libre.
+ * @param {Function} task - La función a ejecutar.
+ */
+const scheduleIdleTask = (task) => {
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(() => task(), { timeout: 2000 });
+  } else {
+    setTimeout(task, 200);
+  }
+};
+
 document.addEventListener('DOMContentLoaded', async () => {
-  // 1. Inicializaciones críticas inmediatas (no dependen de componentes externos)
+  // 1. Fase Crítica: UX Inicial e Identidad
   initDarkMode();
   initSmoothScroll();
 
-  // 2. Cargar componentes reutilizables (Nav, Footer, etc.)
+  // 2. Fase de Hidratación: Carga de componentes estructurales
   await loadComponents();
 
-  // 3. Inicializaciones que dependen de los componentes cargados
+  // 3. Fase de Interactividad: Funciones del Nav y Layout
   initNav();
   initFooter();
   generateBreadcrumbs('#breadcrumbs-placeholder');
 
-  // 4. Renderizado de contenido dinámico principal
   applyAlternatingGradients('main', [
     'section-gradient-green',
     'section-gradient-blue',
   ]);
+  
   initServiceCards();
 
-  if (document.getElementById('portfolio-grid')) {
-    renderPortfolioCards('portfolio-grid', 3);
-  }
-  if (document.getElementById('portfolio-grid-proyectos')) {
-    renderPortfolioCards('portfolio-grid-proyectos');
-  }
+  // Renderizado condicional de Portfolio
+  const portfolioGrid = document.getElementById('portfolio-grid');
+  const projectsGrid = document.getElementById('portfolio-grid-proyectos');
+  
+  if (portfolioGrid) renderPortfolioCards('portfolio-grid', 3);
+  if (projectsGrid) renderPortfolioCards('portfolio-grid-proyectos');
 
   initPortfolioFilter();
   initScrollAnimations();
 
-  // 5. Inicializaciones diferidas (No críticas para el LCP o interactividad inicial)
-  // Usamos un pequeño delay para asegurar que el hilo principal esté libre
-  setTimeout(() => {
+  // 4. Fase Ociosa (Idle): Plugins y widgets secundarios
+  scheduleIdleTask(() => {
     initChatbot();
     initDynamicModals();
     initContactForm();
@@ -76,5 +87,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     initBeforeAfterSlider();
     initHeroBenefitBadge();
     initSuccessCaseCarousels();
-  }, 100);
+  });
 });

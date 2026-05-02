@@ -9,15 +9,25 @@
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-  /* Colores de marca */
-  --color-primary-green: #10b981;
+  /* Colores de marca y Contraste (WCAG AA) */
+  --color-primary-green: #059669; /* Verde optimizado para texto en modo claro */
   --color-primary-blue: #3b82f6;
+  --color-gray-500: #52525b;
+  --color-gray-400: #3f3f46;
+
+  /* Variables del Chatbot */
+  --chat--color-primary: #3b82f6;
+  --chat--color-primary-shade-50: #2563eb;
+  --chat--color-primary-shade-100: #1d4ed8;
+  --chat--color-secondary: #10b981;
 
   /* Fondos y cards */
   --color-light-bg: #f8fafc;
   --color-dark-bg: #0f172a;
   --color-light-card: #ffffff;
   --color-dark-card: #1e293b;
+
+
 
   /* Animaciones personalizadas */
   --animate-bounce-slow: bounce-slow 3s infinite;
@@ -143,27 +153,12 @@
 */
 
 @layer base {
-  /* Mejora de contraste para Accesibilidad (WCAG AA) */
-  :root:not(.dark) {
-    --color-primary-green: #059669; /* Verde más oscuro para texto en modo claro */
-    --color-gray-500: #52525b; /* Zinc-600 para mejor contraste */
-    --color-gray-400: #3f3f46; /* Zinc-700 para mejor contraste */
+  .dark {
+    --color-primary-green: #10b981;
+    --color-gray-500: #9ca3af;
+    --color-gray-400: #94a3b8;
   }
-
-  :root {
-    --chat--color-primary: #3b82f6;
-    --chat--color-primary-shade-50: #2563eb;
-    --chat--color-primary-shade-100: #1d4ed8;
-    --chat--color-secondary: #10b981;
-  }
-
-  .text-gray-500 {
-    color: var(--color-gray-500) !important;
-  }
-  
-  .text-gray-400 {
-    color: var(--color-gray-400) !important;
-  }
+  /* Estilos base adicionales si se requieren */
 }
 
 @layer utilities {
