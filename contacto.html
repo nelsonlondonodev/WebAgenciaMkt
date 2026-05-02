@@ -95,23 +95,23 @@
     <!-- Carga del CSS principal optimizada (No bloqueante) -->
     <link
       rel="preload"
-      href="/nelson-v4.css?v=2026.05.02.0925"
+      href="/nelson-v4.css?v=2026.05.02.0931"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/nelson-v4.css?v=2026.05.02.0925" />
+      <link rel="stylesheet" href="/nelson-v4.css?v=2026.05.02.0931" />
     </noscript>
 
     <!-- Carga de FontAwesome optimizada -->
     <link
       rel="preload"
-      href="/fontawesome.min.css?v=2026.05.02.0925"
+      href="/fontawesome.min.css?v=2026.05.02.0931"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.05.02.0925" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.05.02.0931" />
     </noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -119,6 +119,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Preload de imagen crítica (Logo) -->
+    <link rel="preload" as="image" href="/image/logo-nelson.webp" fetchpriority="high" />
   </head>
   <body
     class="transition-colors duration-300 font-sans text-gray-900 dark:text-gray-100"
@@ -341,16 +343,16 @@
       >
         <!-- Iconos Flotantes de Fondo -->
         <i
-          class="fas fa-paper-plane absolute top-10 left-10 text-6xl lg:text-8xl transform -rotate-12 z-0 animate-float-up-down text-glow-green dark:text-glow-blue opacity-30 pointer-events-none"
+          class="fas fa-paper-plane absolute top-10 left-10 text-6xl lg:text-8xl transform -rotate-12 z-0 animate-float-up-down text-glow-green dark:text-glow-blue opacity-30 pointer-events-none will-change-transform"
           aria-hidden="true"
         ></i>
         <!-- Icono movido hacia arriba para evitar solapamiento con formulario -->
         <i
-          class="fas fa-envelope-open-text absolute top-2/3 right-10 text-6xl lg:text-8xl transform rotate-12 z-0 animate-float-down-up text-glow-blue dark:text-glow-green opacity-30 pointer-events-none"
+          class="fas fa-envelope-open-text absolute top-2/3 right-10 text-6xl lg:text-8xl transform rotate-12 z-0 animate-float-down-up text-glow-blue dark:text-glow-green opacity-30 pointer-events-none will-change-transform"
           aria-hidden="true"
         ></i>
         <i
-          class="fas fa-comment-dots absolute top-1/3 left-2/3 text-4xl lg:text-6xl text-gray-300 dark:text-gray-700 transform z-0 animate-float-up-down opacity-20 pointer-events-none"
+          class="fas fa-comment-dots absolute top-1/3 left-2/3 text-4xl lg:text-6xl text-gray-300 dark:text-gray-700 transform z-0 animate-float-up-down opacity-20 pointer-events-none will-change-transform"
           style="animation-duration: 8s"
           aria-hidden="true"
         ></i>
@@ -425,7 +427,7 @@
                 />
                 <label
                   for="name"
-                  class="pointer-events-none absolute left-5 top-4 origin-[0_0] -translate-y-7 scale-75 text-sm font-medium text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
+                  class="pointer-events-none absolute left-5 top-4 origin-[0_0] -translate-y-7 scale-75 text-sm font-semibold text-gray-700 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-300 dark:peer-focus:text-primary-green"
                   >Nombre completo</label
                 >
               </div>
@@ -443,7 +445,7 @@
                 />
                 <label
                   for="email"
-                  class="pointer-events-none absolute left-5 top-4 origin-[0_0] -translate-y-7 scale-75 text-sm font-medium text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
+                  class="pointer-events-none absolute left-5 top-4 origin-[0_0] -translate-y-7 scale-75 text-sm font-semibold text-gray-700 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-300 dark:peer-focus:text-primary-green"
                   >Correo electrónico</label
                 >
               </div>
@@ -460,7 +462,7 @@
                 />
                 <label
                   for="phone"
-                  class="pointer-events-none absolute left-5 top-4 origin-[0_0] -translate-y-7 scale-75 text-sm font-medium text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
+                  class="pointer-events-none absolute left-5 top-4 origin-[0_0] -translate-y-7 scale-75 text-sm font-semibold text-gray-700 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-300 dark:peer-focus:text-primary-green"
                   >Teléfono (opcional)</label
                 >
               </div>
@@ -477,7 +479,7 @@
                 ></textarea>
                 <label
                   for="message"
-                  class="pointer-events-none absolute left-5 top-4 origin-[0_0] -translate-y-7 scale-75 text-sm font-medium text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
+                  class="pointer-events-none absolute left-5 top-4 origin-[0_0] -translate-y-7 scale-75 text-sm font-semibold text-gray-700 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-300 dark:peer-focus:text-primary-green"
                   >¿Cómo podemos ayudarte?</label
                 >
               </div>
@@ -706,98 +708,13 @@
       </section>
     </main>
 
-    <footer
-      class="footer-gradient-border bg-gray-50 dark:bg-[#020202] border-t border-gray-100 dark:border-white/5 relative z-10"
-    >
-      <div
-        class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(16,185,129,0.05)_0%,transparent_50%)] pointer-events-none"
-      ></div>
-      <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center">
-        <!-- Logo en Footer -->
-        <div class="flex justify-center mb-10">
-          <img
-            src="/image/logo-nelson.webp"
-            alt="Nelson Londoño"
-            class="h-10 w-auto opacity-80 logo-invert-on-dark shadow-2xl"
-          />
-        </div>
-
-        <!-- Social Links with Glow -->
-        <div class="flex justify-center space-x-8 mb-10">
-          <a
-            href="https://www.linkedin.com/in/nelson-londo%C3%B1o-dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-400 hover:text-primary-blue transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin fa-2x"></i>
-          </a>
-          <a
-            href="https://github.com/nelsonlondonodev"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github fa-2x"></i>
-          </a>
-          <a
-            href="https://www.tiktok.com/@soy_nelson_londono"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-400 hover:text-[#ff0050] transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(255,0,80,0.6)]"
-            aria-label="TikTok"
-          >
-            <i class="fab fa-tiktok fa-2x"></i>
-          </a>
-        </div>
-
-        <div class="space-y-4">
-          <p class="text-gray-500 dark:text-gray-400 font-medium">
-            &copy; <span id="currentYear"></span> Nelson Londoño · Agencia de
-            Marketing Digital
-          </p>
-          <p
-            class="text-xs text-gray-400 mt-1 max-w-md mx-auto leading-relaxed"
-          >
-            Impulsando negocios locales con tecnología,
-            <span class="text-primary-green">SEO técnico</span> y
-            automatizaciones inteligentes. Diseñado con
-            <i class="fas fa-heart text-red-500 animate-pulse"></i> en Madrid.
-          </p>
-        </div>
-
-        <div
-          class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-500"
-        >
-          <a
-            href="/politica-de-cookies.html"
-            class="hover:text-primary-blue transition-colors underline decoration-gray-700 underline-offset-4"
-            >Política de cookies</a
-          >
-          <span class="hidden sm:inline">|</span>
-          <button
-            id="open-cookie-settings"
-            class="hover:text-primary-blue transition-colors underline decoration-gray-700 underline-offset-4 pointer-events-auto"
-          >
-            Configuración de cookies
-          </button>
-        </div>
-
-        <div class="mt-10 pt-8 border-t border-gray-200 dark:border-white/5">
-          <p
-            class="text-[10px] text-gray-500 opacity-40 font-mono tracking-widest uppercase"
-          >
-            Build Version:
-            <span id="footer-build-version">v.2026.05.01.11153</span>
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <div id="cookie-banner" class="cookie-banner hidden">
-      <div class="cookie-banner-content">
+    <!-- Footer y Scripts -->
+    <div id="footer-placeholder"></div>
+    <div id="cookie-banner-placeholder"></div>
+    <div data-component="chatbot"></div>
+    <script src="/bundle.min.js?v=2026.05.02.0925" defer></script>
+  </body>
+</html>
         <div class="flex items-center">
           <i
             class="fas fa-cookie-bite fa-2x mr-4 text-primary-blue dark:text-primary-green"
