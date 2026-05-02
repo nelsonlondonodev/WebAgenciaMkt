@@ -98,29 +98,46 @@ export function initContactForm() {
  * @param {string} linkHref - Enlace para la acción principal (mailto: o tel:)
  */
 /**
- * Copia un texto al portapapeles con fallback para contextos no seguros.
+ * Copia un texto al portapapeles con fallback síncrono para asegurar el gesto del usuario.
  * @param {string} text - El texto a copiar.
- * @returns {Promise<boolean>} - Verdadero si tuvo éxito.
+ * @returns {boolean} - Verdadero si tuvo éxito.
  */
-async function copyToClipboard(text) {
-  try {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
-      return true;
-    }
+function copyToClipboard(text) {
+  // 1. Intentar método moderno (Async but wrapped in sync flow)
+  // Nota: No usamos await aquí para no romper el "User Gesture" en algunos navegadores
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).catch(err => {
+      console.error('Async clipboard failed, falling back...', err);
+    });
+    // No podemos retornar el estado real de la promesa de forma síncrona, 
+    // así que procedemos con el fallback si es necesario o asumimos éxito inicial.
+  }
 
-    // Fallback legacy
+  // 2. Fallback síncrono robusto (document.execCommand)
+  try {
     const textArea = document.createElement('textarea');
     textArea.value = text;
-    textArea.className = 'fixed -left-[9999px] -top-[9999px]';
+    
+    // El elemento debe estar en el DOM y ser "visible" para execCommand
+    textArea.style.position = 'fixed';
+    textArea.style.left = '0';
+    textArea.style.top = '0';
+    textArea.style.opacity = '0.01';
+    textArea.style.padding = '0';
+    textArea.style.border = 'none';
+    textArea.style.outline = 'none';
+    textArea.style.boxShadow = 'none';
+    textArea.style.background = 'transparent';
+    
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
+    
     const successful = document.execCommand('copy');
-    textArea.remove();
+    document.body.removeChild(textArea);
     return successful;
   } catch (err) {
-    console.error('Clipboard error:', err);
+    console.error('Fallback clipboard failed:', err);
     return false;
   }
 }
@@ -138,7 +155,7 @@ function openPrivacyModal(title, value, iconClass, linkHref) {
       <div class="absolute bottom-0 left-0 w-32 h-32 bg-primary-green/20 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
 
       <div class="relative p-6 text-center">
-        <button class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors close-btn">
+        <button class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors close-btn" aria-label="Cerrar">
           <i class="fas fa-times text-lg"></i>
         </button>
         <div class="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-inner mb-4 animate-float-up-down">
@@ -179,8 +196,8 @@ function openPrivacyModal(title, value, iconClass, linkHref) {
   modalOverlay.onclick = (e) => e.target === modalOverlay && close();
 
   const copyBtn = modalOverlay.querySelector('.copy-btn');
-  copyBtn.onclick = async () => {
-    const success = await copyToClipboard(value);
+  copyBtn.onclick = () => {
+    const success = copyToClipboard(value);
     const originalHTML = copyBtn.innerHTML;
 
     if (success) {

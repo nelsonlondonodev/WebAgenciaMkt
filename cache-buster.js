@@ -8,7 +8,7 @@ const path = require('path');
  */
 const DIST_PATH = __dirname;
 const ASSETS_TO_VERSION = [
-  'bundle.min.js',
+  'bundle-v2.min.js',
   'output.css',
   'fontawesome.min.css',
   'nelson-v4.css',
