@@ -174,16 +174,41 @@ function openPrivacyModal(title, value, iconClass, linkHref) {
 
   // Lógica de Copiar
   const copyBtn = modalContent.querySelector('.copy-btn');
-  copyBtn.addEventListener('click', () => {
-    navigator.clipboard.writeText(value).then(() => {
+  copyBtn.addEventListener('click', async () => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(value);
+      } else {
+        // Fallback para contextos no seguros o navegadores antiguos
+        const textArea = document.createElement('textarea');
+        textArea.value = value;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        const successful = document.execCommand('copy');
+        textArea.remove();
+        if (!successful) throw new Error('Copy failed');
+      }
+
       const originalHTML = copyBtn.innerHTML;
       copyBtn.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
-      copyBtn.classList.add('bg-green-500'); // Feedback visual
+      copyBtn.classList.add('bg-green-500');
       setTimeout(() => {
         copyBtn.innerHTML = originalHTML;
         copyBtn.classList.remove('bg-green-500');
       }, 2000);
-    });
+    } catch (err) {
+      console.error('Copy failed:', err);
+      copyBtn.innerHTML = '<i class="fas fa-times"></i> Error';
+      copyBtn.classList.add('bg-red-500');
+      setTimeout(() => {
+        copyBtn.innerHTML = '<i class="far fa-copy"></i> Copiar';
+        copyBtn.classList.remove('bg-red-500');
+      }, 2000);
+    }
   });
 }
 
