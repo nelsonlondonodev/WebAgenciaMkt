@@ -411,12 +411,13 @@
 
   /* Mobile Menu Enhancements */
   .mobile-menu-active {
-    @apply !translate-x-0;
+    @apply !translate-x-0 !visible;
   }
   .mobile-menu-glass {
-    @apply bg-white dark:bg-[#0a0a0a] border-l border-gray-200 dark:border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] z-[10001] h-[100dvh] min-h-[100dvh];
+    @apply bg-white dark:bg-[#0a0a0a] border-l border-gray-200 dark:border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] z-[10001] h-[100dvh] min-h-[100dvh] visible sm:invisible;
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
+    visibility: hidden; /* Oculto por defecto para lectores de pantalla */
   }
   @supports (backdrop-filter: blur(1px)) {
     .mobile-menu-glass {

@@ -15,6 +15,7 @@ function initMobileMenu() {
 
   // Estado inicial de accesibilidad
   mobileMenu.inert = true;
+  mobileMenu.style.visibility = 'hidden'; // Asegurar que sea invisible inicialmente
 
   const setMenuState = (isOpen) => {
     if (isOpen) {
@@ -27,6 +28,7 @@ function initMobileMenu() {
 
       // Small delay to allow 'hidden' removal before animating opacity
       requestAnimationFrame(() => {
+        mobileMenu.style.visibility = 'visible';
         mobileMenu.classList.add('mobile-menu-active');
         mobileMenu.classList.remove('translate-x-full', 'pointer-events-none');
         overlay.classList.remove('opacity-0', 'pointer-events-none');
@@ -50,6 +52,7 @@ function initMobileMenu() {
       // Delay cleanup until animations finish
       setTimeout(() => {
         if (!mobileMenu.classList.contains('mobile-menu-active')) {
+          mobileMenu.style.visibility = 'hidden';
           overlay.classList.add('hidden');
           document.documentElement.classList.remove('menu-open');
           document.body.classList.remove('menu-open');
