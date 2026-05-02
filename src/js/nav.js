@@ -18,44 +18,39 @@ function initMobileMenu() {
   mobileMenu.style.visibility = 'hidden'; // Asegurar que sea invisible inicialmente
 
   const setMenuState = (isOpen) => {
-    if (isOpen) {
-      // Show overlay immediately but transparently
-      overlay.classList.remove('hidden');
+    // Actualización de clases y visibilidad
+    const toggleMenuClasses = () => {
+      mobileMenu.classList.toggle('mobile-menu-active', isOpen);
+      mobileMenu.classList.toggle('translate-x-full', !isOpen);
+      mobileMenu.classList.toggle('pointer-events-none', !isOpen);
+      overlay.classList.toggle('opacity-0', !isOpen);
+      overlay.classList.toggle('pointer-events-none', !isOpen);
       
-      // Prevent body scroll
-      document.documentElement.classList.add('menu-open');
-      document.body.classList.add('menu-open');
+      mobileMenuButton.classList.toggle('is-active', isOpen);
+      toggleAria(mobileMenuButton, 'aria-expanded', isOpen);
+      toggleAria(mobileMenu, 'aria-hidden', !isOpen);
+      
+      mobileMenu.inert = !isOpen;
+    };
 
-      // Small delay to allow 'hidden' removal before animating opacity
+    if (isOpen) {
+      overlay.classList.remove('hidden');
+      document.body.classList.add('menu-open');
+      document.documentElement.classList.add('menu-open');
+      
       requestAnimationFrame(() => {
         mobileMenu.style.visibility = 'visible';
-        mobileMenu.classList.add('mobile-menu-active');
-        mobileMenu.classList.remove('translate-x-full', 'pointer-events-none');
-        overlay.classList.remove('opacity-0', 'pointer-events-none');
-        
-        mobileMenuButton.classList.add('is-active');
-        toggleAria(mobileMenuButton, 'aria-expanded', 'true');
-        toggleAria(mobileMenu, 'aria-hidden', 'false');
-        mobileMenu.inert = false; // Habilitar interactividad
+        toggleMenuClasses();
       });
     } else {
-      // Close animations
-      mobileMenu.classList.remove('mobile-menu-active');
-      mobileMenu.classList.add('translate-x-full', 'pointer-events-none');
-      overlay.classList.add('opacity-0', 'pointer-events-none');
-
-      mobileMenuButton.classList.remove('is-active');
-      toggleAria(mobileMenuButton, 'aria-expanded', 'false');
-      toggleAria(mobileMenu, 'aria-hidden', 'true');
-      mobileMenu.inert = true; // Deshabilitar interactividad para evitar errores de ARIA
-
-      // Delay cleanup until animations finish
+      toggleMenuClasses();
+      
       setTimeout(() => {
         if (!mobileMenu.classList.contains('mobile-menu-active')) {
           mobileMenu.style.visibility = 'hidden';
           overlay.classList.add('hidden');
-          document.documentElement.classList.remove('menu-open');
           document.body.classList.remove('menu-open');
+          document.documentElement.classList.remove('menu-open');
         }
       }, 500);
     }
