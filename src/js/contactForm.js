@@ -97,148 +97,122 @@ export function initContactForm() {
  * @param {string} iconClass - Clase de FontAwesome
  * @param {string} linkHref - Enlace para la acción principal (mailto: o tel:)
  */
+/**
+ * Copia un texto al portapapeles con fallback para contextos no seguros.
+ * @param {string} text - El texto a copiar.
+ * @returns {Promise<boolean>} - Verdadero si tuvo éxito.
+ */
+async function copyToClipboard(text) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+
+    // Fallback legacy
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.className = 'fixed -left-[9999px] -top-[9999px]';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    const successful = document.execCommand('copy');
+    textArea.remove();
+    return successful;
+  } catch (err) {
+    console.error('Clipboard error:', err);
+    return false;
+  }
+}
+
+/**
+ * Abre un modal pequeño con efecto "glassmorphism" para mostrar datos sensibles.
+ */
 function openPrivacyModal(title, value, iconClass, linkHref) {
-  // Crear overlay
   const modalOverlay = document.createElement('div');
-  modalOverlay.className =
-    'fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in';
+  modalOverlay.className = 'fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in';
 
-  // Crear contenido del modal (Glassmorphism + Gradientes)
-  const modalContent = document.createElement('div');
-  modalContent.className =
-    'relative w-full max-w-sm bg-white/10 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300';
+  modalOverlay.innerHTML = `
+    <div class="relative w-full max-w-sm bg-white/10 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-primary-blue/20 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-32 h-32 bg-primary-green/20 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
 
-  // Efectos de fondo ("Wow effect")
-  modalContent.innerHTML = `
-    <!-- Decoración de fondo -->
-    <div class="absolute top-0 right-0 w-32 h-32 bg-primary-blue/20 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-32 h-32 bg-primary-green/20 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
-
-    <div class="relative p-6 text-center">
-      <!-- Botón Cerrar -->
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors close-btn">
-        <i class="fas fa-times text-lg"></i>
-      </button>
-
-      <!-- Icono Principal -->
-      <div class="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-inner mb-4 animate-float-up-down">
-        <i class="${iconClass} text-3xl text-white drop-shadow-lg"></i>
-      </div>
-
-      <!-- Título -->
-      <h3 class="text-lg font-medium text-gray-200 mb-1">${title}</h3>
-
-      <!-- Valor (Dato sensible) -->
-      <a href="${linkHref}" class="block text-xl font-bold text-white tracking-wide hover:text-primary-blue dark:hover:text-primary-green transition-colors mb-6 break-all">
-        ${value}
-      </a>
-
-      <!-- Botones de Acción -->
-      <div class="flex gap-3 justify-center">
-        <a href="${linkHref}" class="flex-1 bg-white/10 hover:bg-white/20 border border-white/10 text-white py-2 px-4 rounded-xl font-medium transition-all backdrop-blur-md flex items-center justify-center gap-2 group">
-          <i class="fas fa-external-link-alt group-hover:scale-110 transition-transform"></i> Abrir
-        </a>
-        <button class="flex-1 bg-gradient-to-r from-primary-blue to-primary-green hover:opacity-90 text-white py-2 px-4 rounded-xl font-bold shadow-lg shadow-primary-blue/20 transition-all active:scale-95 copy-btn flex items-center justify-center gap-2">
-          <i class="far fa-copy"></i> Copiar
+      <div class="relative p-6 text-center">
+        <button class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors close-btn">
+          <i class="fas fa-times text-lg"></i>
         </button>
+        <div class="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-inner mb-4 animate-float-up-down">
+          <i class="${iconClass} text-3xl text-white drop-shadow-lg"></i>
+        </div>
+        <h3 class="text-lg font-medium text-gray-200 mb-1">${title}</h3>
+        <a href="${linkHref}" class="block text-xl font-bold text-white tracking-wide hover:text-primary-blue dark:hover:text-primary-green transition-colors mb-6 break-all">
+          ${value}
+        </a>
+        <div class="flex gap-3 justify-center">
+          <a href="${linkHref}" class="flex-1 bg-white/10 hover:bg-white/20 border border-white/10 text-white py-2 px-4 rounded-xl font-medium transition-all backdrop-blur-md flex items-center justify-center gap-2 group">
+            <i class="fas fa-external-link-alt group-hover:scale-110 transition-transform"></i> Abrir
+          </a>
+          <button class="flex-1 bg-gradient-to-r from-primary-blue to-primary-green hover:opacity-90 text-white py-2 px-4 rounded-xl font-bold shadow-lg shadow-primary-blue/20 transition-all active:scale-95 copy-btn flex items-center justify-center gap-2">
+            <i class="far fa-copy"></i> Copiar
+          </button>
+        </div>
       </div>
     </div>
   `;
 
-  modalOverlay.appendChild(modalContent);
+  const modalContent = modalOverlay.firstElementChild;
   document.body.appendChild(modalOverlay);
-  // document.body.classList.add('overflow-hidden'); // Desactivado para evitar salto de layout (scrollbar shift)
 
   // Animación de entrada
   requestAnimationFrame(() => {
-    modalContent.classList.remove('scale-95', 'opacity-0');
-    modalContent.classList.add('scale-100', 'opacity-100');
+    modalContent.classList.replace('scale-95', 'scale-100');
+    modalContent.classList.replace('opacity-0', 'opacity-100');
   });
 
-  // Lógica de cierre
-  const closeModal = () => {
-    modalContent.classList.remove('scale-100', 'opacity-100');
-    modalContent.classList.add('scale-95', 'opacity-0');
-    setTimeout(() => {
-      modalOverlay.remove();
-      // document.body.classList.remove('overflow-hidden'); // Desactivado
-    }, 300);
+  const close = () => {
+    modalContent.classList.replace('scale-100', 'scale-95');
+    modalContent.classList.replace('opacity-100', 'opacity-0');
+    setTimeout(() => modalOverlay.remove(), 300);
   };
 
-  modalOverlay
-    .querySelector('.close-btn')
-    .addEventListener('click', closeModal);
-  modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) closeModal();
-  });
+  modalOverlay.querySelector('.close-btn').onclick = close;
+  modalOverlay.onclick = (e) => e.target === modalOverlay && close();
 
-  // Lógica de Copiar
-  const copyBtn = modalContent.querySelector('.copy-btn');
-  copyBtn.addEventListener('click', async () => {
-    try {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(value);
-      } else {
-        // Fallback para contextos no seguros o navegadores antiguos
-        const textArea = document.createElement('textarea');
-        textArea.value = value;
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-999999px';
-        textArea.style.top = '-999999px';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        const successful = document.execCommand('copy');
-        textArea.remove();
-        if (!successful) throw new Error('Copy failed');
-      }
+  const copyBtn = modalOverlay.querySelector('.copy-btn');
+  copyBtn.onclick = async () => {
+    const success = await copyToClipboard(value);
+    const originalHTML = copyBtn.innerHTML;
 
-      const originalHTML = copyBtn.innerHTML;
+    if (success) {
       copyBtn.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
       copyBtn.classList.add('bg-green-500');
-      setTimeout(() => {
-        copyBtn.innerHTML = originalHTML;
-        copyBtn.classList.remove('bg-green-500');
-      }, 2000);
-    } catch (err) {
-      console.error('Copy failed:', err);
+    } else {
       copyBtn.innerHTML = '<i class="fas fa-times"></i> Error';
       copyBtn.classList.add('bg-red-500');
-      setTimeout(() => {
-        copyBtn.innerHTML = '<i class="far fa-copy"></i> Copiar';
-        copyBtn.classList.remove('bg-red-500');
-      }, 2000);
     }
-  });
+
+    setTimeout(() => {
+      copyBtn.innerHTML = originalHTML;
+      copyBtn.classList.remove('bg-green-500', 'bg-red-500');
+    }, 2000);
+  };
 }
 
 export function initContactReveal() {
-  const revealEmailBtn = document.getElementById('reveal-email-btn');
-  const revealPhoneBtn = document.getElementById('reveal-phone-btn');
+  const revealConfigs = [
+    { id: 'reveal-email-btn', title: 'Correo Corporativo', value: CONFIG.CONTACT.EMAIL, icon: 'fas fa-envelope', link: `mailto:${CONFIG.CONTACT.EMAIL}` },
+    { id: 'reveal-phone-btn', title: 'Línea Directa', value: CONFIG.CONTACT.PHONE_DISPLAY, icon: 'fas fa-phone-alt', link: `tel:${CONFIG.CONTACT.PHONE}` }
+  ];
 
-  if (revealEmailBtn) {
-    revealEmailBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openPrivacyModal(
-        'Correo Corporativo',
-        CONFIG.CONTACT.EMAIL,
-        'fas fa-envelope',
-        `mailto:${CONFIG.CONTACT.EMAIL}`
-      );
-    });
-  }
-
-  if (revealPhoneBtn) {
-    revealPhoneBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openPrivacyModal(
-        'Línea Directa',
-        CONFIG.CONTACT.PHONE_DISPLAY,
-        'fas fa-phone-alt', // Icono corregido
-        `tel:${CONFIG.CONTACT.PHONE}`
-      );
-    });
-  }
+  revealConfigs.forEach(conf => {
+    const btn = document.getElementById(conf.id);
+    if (btn) {
+      btn.onclick = (e) => {
+        e.preventDefault();
+        openPrivacyModal(conf.title, conf.value, conf.icon, conf.link);
+      };
+    }
+  });
 }
 
 /**
