@@ -161,7 +161,12 @@
   animation: float-down-up 6s ease-in-out infinite;
   will-change: transform;
 }
-
+.portfolio-img-container {
+  @apply relative aspect-video overflow-hidden bg-gray-100 dark:bg-gray-800 rounded-t-xl;
+}
+.portfolio-img-container img {
+  @apply w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out;
+}
 /* Base scroll animations optimized for GPU */
 .scroll-animate-initial {
   opacity: 0;
