@@ -13,6 +13,9 @@ function initMobileMenu() {
 
   if (!mobileMenuButton || !mobileMenu || !overlay) return;
 
+  // Estado inicial de accesibilidad
+  mobileMenu.inert = true;
+
   const setMenuState = (isOpen) => {
     if (isOpen) {
       // Show overlay immediately but transparently
@@ -31,6 +34,7 @@ function initMobileMenu() {
         mobileMenuButton.classList.add('is-active');
         toggleAria(mobileMenuButton, 'aria-expanded', 'true');
         toggleAria(mobileMenu, 'aria-hidden', 'false');
+        mobileMenu.inert = false; // Habilitar interactividad
       });
     } else {
       // Close animations
@@ -41,6 +45,7 @@ function initMobileMenu() {
       mobileMenuButton.classList.remove('is-active');
       toggleAria(mobileMenuButton, 'aria-expanded', 'false');
       toggleAria(mobileMenu, 'aria-hidden', 'true');
+      mobileMenu.inert = true; // Deshabilitar interactividad para evitar errores de ARIA
 
       // Delay cleanup until animations finish
       setTimeout(() => {
