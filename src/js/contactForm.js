@@ -100,20 +100,28 @@ export function initContactForm() {
 /**
  * Copia un texto al portapapeles con fallback síncrono.
  */
+/**
+ * Copia un texto al portapapeles con fallback síncrono.
+ */
 function copyToClipboard(text) {
+  // Intentar primero el método moderno si está disponible
   if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text).catch(() => {});
+    navigator.clipboard.writeText(text);
+    return true; // Asumimos éxito inicial para la UI
   }
+  
+  // Fallback síncrono
   try {
     const textArea = document.createElement('textarea');
     textArea.value = text;
-    textArea.style.cssText = 'position:fixed;left:0;top:0;opacity:0.01;padding:0;border:none;';
+    textArea.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0;';
     document.body.appendChild(textArea);
     textArea.select();
     const success = document.execCommand('copy');
     document.body.removeChild(textArea);
     return success;
-  } catch {
+  } catch (err) {
+    console.error('Copy Error:', err);
     return false;
   }
 }
@@ -153,7 +161,7 @@ function setButtonFeedback(btn, type) {
   const original = btn.innerHTML;
   const states = {
     success: { html: '<i class="fas fa-check"></i> ¡Copiado!', class: 'bg-green-500' },
-    error: { html: '<i class="fas fa-times"></i> Error', class: 'bg-red-500' }
+    error: { html: '<i class="fas fa-times"></i> FALLO_X', class: 'bg-red-500' }
   };
   
   const state = states[type];
@@ -204,10 +212,13 @@ export function initContactReveal() {
 
   configs.forEach(({ id, ...data }) => {
     const btn = document.getElementById(id);
-    if (btn) btn.onclick = (e) => {
-      e.preventDefault();
-      openPrivacyModal(data.title, data.value, data.icon, data.link);
-    };
+    if (btn) {
+      btn.style.border = '5px solid blue'; // DIAGNÓSTICO AZUL: Si ves esto azul, es la v2.1
+      btn.onclick = (e) => {
+        e.preventDefault();
+        openPrivacyModal(data.title, data.value, data.icon, data.link);
+      };
+    }
   });
 }
 
