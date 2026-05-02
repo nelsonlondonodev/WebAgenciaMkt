@@ -95,23 +95,23 @@
     <!-- Carga del CSS principal optimizada (No bloqueante) -->
     <link
       rel="preload"
-      href="/nelson-v4.css?v=2026.05.02.1010"
+      href="/nelson-v4.css?v=2026.05.02.1013"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/nelson-v4.css?v=2026.05.02.1010" />
+      <link rel="stylesheet" href="/nelson-v4.css?v=2026.05.02.1013" />
     </noscript>
 
     <!-- Carga de FontAwesome optimizada -->
     <link
       rel="preload"
-      href="/fontawesome.min.css?v=2026.05.02.1010"
+      href="/fontawesome.min.css?v=2026.05.02.1013"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.05.02.1010" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.05.02.1013" />
     </noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -187,15 +187,16 @@
       <!-- Sección Formulario (Separación y Estilo) -->
       <section class="pb-24 px-4 relative z-20 mt-8 sm:mt-12">
         <div class="max-w-4xl mx-auto">
-          <!-- Tarjeta Formulario con sombra fuerte y backdrop -->
+          <!-- Tarjeta Formulario con Glassmorphism Real -->
           <div
-            class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 sm:p-12 border border-gray-100 dark:border-gray-700 relative overflow-hidden"
+            class="bg-white/70 dark:bg-gray-900/40 backdrop-blur-xl rounded-[2.5rem] shadow-[0_32px_64px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_32px_64px_-15px_rgba(0,0,0,0.5)] p-8 sm:p-12 border border-white/40 dark:border-white/10 relative overflow-hidden"
           >
+            <!-- Decoraciones de fondo internas -->
             <div
-              class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary-blue/10 to-transparent rounded-bl-full -mr-10 -mt-10 pointer-events-none"
+              class="absolute top-0 right-0 w-64 h-64 bg-primary-blue/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"
             ></div>
             <div
-              class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-primary-green/10 to-transparent rounded-tr-full -ml-8 -mb-8 pointer-events-none"
+              class="absolute bottom-0 left-0 w-64 h-64 bg-primary-green/5 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none"
             ></div>
 
             <!-- Formulario de Contacto -->
@@ -212,13 +213,13 @@
                   name="name"
                   id="name"
                   autocomplete="name"
-                  class="peer block w-full appearance-none rounded-xl border border-gray-200 /50 px-5 py-4 text-gray-900 placeholder-transparent transition-all duration-300 focus:border-primary-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary-blue/10 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white dark:focus:border-primary-green dark:focus:bg-gray-700 dark:focus:ring-primary-green/10"
+                  class="peer block w-full appearance-none rounded-2xl border border-gray-200/50 bg-gray-50/30 dark:bg-white/5 px-6 py-5 text-gray-900 placeholder-transparent transition-all duration-300 focus:border-primary-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary-blue/5 dark:border-white/10 dark:text-white dark:focus:border-primary-green dark:focus:bg-gray-800/50 dark:focus:ring-primary-green/5"
                   placeholder="Nombre"
                   required
                 />
                 <label
                   for="name"
-                  class="pointer-events-none absolute left-5 top-4 origin-[0_0] -translate-y-7 scale-75 text-sm font-semibold text-gray-700 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-300 dark:peer-focus:text-primary-green"
+                  class="pointer-events-none absolute left-6 top-5 origin-[0_0] -translate-y-8 scale-75 text-xs font-bold uppercase tracking-wider text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-base peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
                   >Nombre completo</label
                 >
               </div>
@@ -230,13 +231,13 @@
                   name="email"
                   id="email"
                   autocomplete="email"
-                  class="peer block w-full appearance-none rounded-xl border border-gray-200 /50 px-5 py-4 text-gray-900 placeholder-transparent transition-all duration-300 focus:border-primary-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary-blue/10 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white dark:focus:border-primary-green dark:focus:bg-gray-700 dark:focus:ring-primary-green/10"
+                  class="peer block w-full appearance-none rounded-2xl border border-gray-200/50 bg-gray-50/30 dark:bg-white/5 px-6 py-5 text-gray-900 placeholder-transparent transition-all duration-300 focus:border-primary-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary-blue/5 dark:border-white/10 dark:text-white dark:focus:border-primary-green dark:focus:bg-gray-800/50 dark:focus:ring-primary-green/5"
                   placeholder="Email"
                   required
                 />
                 <label
                   for="email"
-                  class="pointer-events-none absolute left-5 top-4 origin-[0_0] -translate-y-7 scale-75 text-sm font-semibold text-gray-700 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-300 dark:peer-focus:text-primary-green"
+                  class="pointer-events-none absolute left-6 top-5 origin-[0_0] -translate-y-8 scale-75 text-xs font-bold uppercase tracking-wider text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-base peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
                   >Correo electrónico</label
                 >
               </div>
@@ -248,12 +249,12 @@
                   name="phone"
                   id="phone"
                   autocomplete="tel"
-                  class="peer block w-full appearance-none rounded-xl border border-gray-200 /50 px-5 py-4 text-gray-900 placeholder-transparent transition-all duration-300 focus:border-primary-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary-blue/10 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white dark:focus:border-primary-green dark:focus:bg-gray-700 dark:focus:ring-primary-green/10"
+                  class="peer block w-full appearance-none rounded-2xl border border-gray-200/50 bg-gray-50/30 dark:bg-white/5 px-6 py-5 text-gray-900 placeholder-transparent transition-all duration-300 focus:border-primary-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary-blue/5 dark:border-white/10 dark:text-white dark:focus:border-primary-green dark:focus:bg-gray-800/50 dark:focus:ring-primary-green/5"
                   placeholder="Teléfono"
                 />
                 <label
                   for="phone"
-                  class="pointer-events-none absolute left-5 top-4 origin-[0_0] -translate-y-7 scale-75 text-sm font-semibold text-gray-700 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-300 dark:peer-focus:text-primary-green"
+                  class="pointer-events-none absolute left-6 top-5 origin-[0_0] -translate-y-8 scale-75 text-xs font-bold uppercase tracking-wider text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-base peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
                   >Teléfono (opcional)</label
                 >
               </div>
@@ -263,30 +264,36 @@
                 <textarea
                   id="message"
                   name="message"
-                  rows="5"
-                  class="peer block w-full appearance-none rounded-xl border border-gray-200 /50 px-5 py-4 text-gray-900 placeholder-transparent transition-all duration-300 focus:border-primary-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary-blue/10 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white dark:focus:border-primary-green dark:focus:bg-gray-700 dark:focus:ring-primary-green/10 resize-none"
+                  rows="4"
+                  class="peer block w-full appearance-none rounded-2xl border border-gray-200/50 bg-gray-50/30 dark:bg-white/5 px-6 py-5 text-gray-900 placeholder-transparent transition-all duration-300 focus:border-primary-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary-blue/5 dark:border-white/10 dark:text-white dark:focus:border-primary-green dark:focus:bg-gray-800/50 dark:focus:ring-primary-green/5 resize-none"
                   placeholder="Mensaje"
                   required
                 ></textarea>
                 <label
                   for="message"
-                  class="pointer-events-none absolute left-5 top-4 origin-[0_0] -translate-y-7 scale-75 text-sm font-semibold text-gray-700 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-300 dark:peer-focus:text-primary-green"
+                  class="pointer-events-none absolute left-6 top-5 origin-[0_0] -translate-y-8 scale-75 text-xs font-bold uppercase tracking-wider text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-base peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
                   >¿Cómo podemos ayudarte?</label
                 >
               </div>
 
-              <!-- Botón Submit -->
-              <button
-                type="submit"
-                class="w-full rounded-xl bg-gray-900 px-6 py-5 text-lg font-bold text-white shadow-xl hover:bg-primary-blue hover:shadow-2xl hover:shadow-primary-blue/30 focus:outline-none focus:ring-4 focus:ring-primary-blue/50 dark:bg-white dark:text-gray-900 dark:hover:bg-primary-green dark:hover:shadow-primary-green/30 dark:focus:ring-primary-green/50 transition-all transform hover:-translate-y-1 active:scale-95 duration-300"
-              >
-                Enviar mensaje
-              </button>
+              <!-- Botón Submit con Gradiente Hero -->
+              <div class="pt-2">
+                <button
+                  type="submit"
+                  class="relative w-full group overflow-hidden rounded-2xl bg-gray-900 px-8 py-5 text-lg font-bold text-white transition-all duration-300 hover:shadow-[0_20px_40px_-10px_rgba(59,130,246,0.3)] dark:hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.3)] active:scale-[0.98]"
+                >
+                  <div class="absolute inset-0 bg-gradient-to-r from-primary-blue to-primary-green opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span class="relative z-10 flex items-center justify-center gap-3">
+                    Enviar Mensaje
+                    <i class="fas fa-paper-plane text-sm transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                  </span>
+                </button>
+              </div>
 
               <!-- Contenedor Estado -->
               <div
                 id="form-status"
-                class="mt-4 text-center hidden p-4 rounded-lg font-medium"
+                class="mt-4 text-center hidden p-4 rounded-xl font-semibold text-sm animate-fade-in"
               ></div>
             </form>
           </div>
