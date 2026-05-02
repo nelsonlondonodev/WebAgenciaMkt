@@ -89,7 +89,8 @@ function initMobileServicesMenu() {
 
   mobileServicesButton.addEventListener('click', (e) => {
     e.stopPropagation();
-    mobileServicesMenu.classList.toggle('is-active');
+    const isOpen = mobileServicesMenu.classList.toggle('is-active');
+    mobileServicesButton.setAttribute('aria-expanded', isOpen);
 
     const icon = mobileServicesButton.querySelector('i.fa-chevron-down');
     if (icon) {

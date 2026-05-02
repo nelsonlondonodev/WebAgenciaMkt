@@ -33,63 +33,48 @@ import {
 // import { initHeroIframe } from './heroHelper.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // Cargar componentes reutilizables como el NAV y el Footer
-
-  await loadComponents();
-
-  // Inicializar el resto de los scripts después de que los componentes estén cargados
-
-  generateBreadcrumbs('#breadcrumbs-placeholder'); // Generar las migas de pan
-
+  // 1. Inicializaciones críticas inmediatas (no dependen de componentes externos)
   initDarkMode();
-
   initSmoothScroll();
 
+  // 2. Cargar componentes reutilizables (Nav, Footer, etc.)
+  await loadComponents();
+
+  // 3. Inicializaciones que dependen de los componentes cargados
+  initNav();
+  initFooter();
+  generateBreadcrumbs('#breadcrumbs-placeholder');
+
+  // 4. Renderizado de contenido dinámico principal
   applyAlternatingGradients('main', [
     'section-gradient-green',
     'section-gradient-blue',
-  ]); // Aplicar gradientes alternos a las secciones
-
-  initScrollAnimations();
-
-  initNav();
-
-  initNumberAnimation();
-
+  ]);
   initServiceCards();
 
   if (document.getElementById('portfolio-grid')) {
-    renderPortfolioCards('portfolio-grid', 3); // Para la página de inicio, limitar a 3 proyectos
+    renderPortfolioCards('portfolio-grid', 3);
   }
-
   if (document.getElementById('portfolio-grid-proyectos')) {
-    renderPortfolioCards('portfolio-grid-proyectos'); // Para la página de proyectos, renderizar todos
+    renderPortfolioCards('portfolio-grid-proyectos');
   }
 
-  initPortfolioFilter(); // Inicializa los filtros para las tarjetas recién creadas
+  initPortfolioFilter();
+  initScrollAnimations();
 
-  initTestimonialCarousel();
-
-  initFooter(); // Inicializar el footer
-
-  initChatbot(); // Inicializar el chatbot
-
-  initDynamicModals(); // Inicializa los modales dinámicos
-
-  initContactForm();
-
-  initContactReveal();
-
-  // Configuración específica para el botón de prueba gratis en SEO Local
-  // Configuración de modal eliminada para permitir enlace directo a Cal.com
-
-  initCookieConsent();
-
-  // initHeroIframe();
-
-  setupSocialSharing();
-  initPricing();
-  initBeforeAfterSlider();
-  initHeroBenefitBadge();
-  initSuccessCaseCarousels();
+  // 5. Inicializaciones diferidas (No críticas para el LCP o interactividad inicial)
+  // Usamos un pequeño delay para asegurar que el hilo principal esté libre
+  setTimeout(() => {
+    initChatbot();
+    initDynamicModals();
+    initContactForm();
+    initContactReveal();
+    initCookieConsent();
+    setupSocialSharing();
+    initPricing();
+    initTestimonialCarousel();
+    initBeforeAfterSlider();
+    initHeroBenefitBadge();
+    initSuccessCaseCarousels();
+  }, 100);
 });

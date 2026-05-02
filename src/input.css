@@ -142,11 +142,28 @@
   v4 detecta automáticamente las directivas @layer base, components y utilities.
 */
 
-:root {
-  --chat--color-primary: #3b82f6;
-  --chat--color-primary-shade-50: #2563eb;
-  --chat--color-primary-shade-100: #1d4ed8;
-  --chat--color-secondary: #10b981;
+@layer base {
+  /* Mejora de contraste para Accesibilidad (WCAG AA) */
+  :root:not(.dark) {
+    --color-primary-green: #059669; /* Verde más oscuro para texto en modo claro */
+    --color-gray-500: #52525b; /* Zinc-600 para mejor contraste */
+    --color-gray-400: #3f3f46; /* Zinc-700 para mejor contraste */
+  }
+
+  :root {
+    --chat--color-primary: #3b82f6;
+    --chat--color-primary-shade-50: #2563eb;
+    --chat--color-primary-shade-100: #1d4ed8;
+    --chat--color-secondary: #10b981;
+  }
+
+  .text-gray-500 {
+    color: var(--color-gray-500) !important;
+  }
+  
+  .text-gray-400 {
+    color: var(--color-gray-400) !important;
+  }
 }
 
 @layer utilities {
@@ -185,7 +202,7 @@
     @apply block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-primary-blue dark:hover:text-primary-green transition-colors;
   }
   .cta-button {
-    @apply inline-block bg-primary-green hover:bg-emerald-500 dark:bg-primary-blue dark:hover:bg-sky-500 text-white font-bold py-4 px-10 rounded-2xl shadow-[0_10px_20px_-5px_rgba(16,185,129,0.3)] dark:shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:shadow-2xl transform hover:-translate-y-1 active:scale-95 transition-all duration-500 ease-out;
+    @apply inline-block bg-primary-green hover:bg-emerald-500 dark:bg-primary-blue dark:hover:bg-sky-500 text-white font-bold py-4 px-10 rounded-2xl shadow-[0_10px_20px_-5px_rgba(16,185,129,0.3)] dark:shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:shadow-2xl transform hover:-translate-y-1 active:scale-95 transition-[transform,shadow,background-color] duration-500 ease-out;
   }
   .section-title {
     @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center mb-8 tracking-tighter text-gray-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br dark:from-white dark:via-gray-200 dark:to-white/40 relative pb-6 leading-tight;
@@ -404,12 +421,16 @@
     @apply bg-primary-green/10 text-primary-green border-r-4 border-primary-green rounded-r-none;
   }
 
-  /* Submenu transitions */
+  /* Submenu transitions - Optimized for performance */
   .mobile-submenu {
-    @apply max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0 ml-12 border-l-2 border-transparent;
+    @apply overflow-hidden transition-all duration-300 ease-in-out opacity-0 ml-12 border-l-2 border-transparent pointer-events-none;
+    display: none;
+    transform: translateY(-10px);
   }
   .mobile-submenu.is-active {
-    @apply max-h-[500px] opacity-100 mt-2 border-primary-green/20;
+    @apply opacity-100 mt-2 border-primary-green/20 pointer-events-auto;
+    display: block;
+    transform: translateY(0);
   }
 
   /* Footer Enhancements */
