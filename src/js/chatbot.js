@@ -184,18 +184,26 @@ class Chatbot {
 
   createBubble(message, sender) {
     const bubble = document.createElement('div');
-    const isUser = sender === 'user';
-
-    bubble.className = `py-3 px-5 inline-block max-w-[85%] text-sm leading-relaxed shadow-sm break-words overflow-wrap-anywhere ${
-      isUser
-        ? 'bg-gradient-to-br from-primary-blue to-blue-600 text-white rounded-[1.5rem] rounded-tr-none'
-        : 'bg-white/50 dark:bg-white/10 backdrop-blur-md text-gray-800 dark:text-gray-100 border border-white/20 dark:border-white/10 rounded-[1.5rem] rounded-tl-none'
-    }`;
-
+    bubble.className = this.getBubbleClasses(sender);
     bubble.innerHTML = message;
 
     // Style links if present
-    bubble.querySelectorAll('a').forEach((link) => {
+    this.applyLinkStyles(bubble);
+
+    return bubble;
+  }
+
+  getBubbleClasses(sender) {
+    const isUser = sender === 'user';
+    const baseClasses = 'py-3 px-5 inline-block max-w-[85%] text-sm leading-relaxed shadow-sm break-words overflow-wrap-anywhere';
+    const userClasses = 'bg-gradient-to-br from-primary-blue to-blue-600 text-white rounded-[1.5rem] rounded-tr-none';
+    const botClasses = 'bg-white/50 dark:bg-white/10 backdrop-blur-md text-gray-800 dark:text-gray-100 border border-white/20 dark:border-white/10 rounded-[1.5rem] rounded-tl-none';
+    
+    return `${baseClasses} ${isUser ? userClasses : botClasses}`;
+  }
+
+  applyLinkStyles(container) {
+    container.querySelectorAll('a').forEach((link) => {
       link.classList.add(
         'text-primary-blue',
         'dark:text-primary-green',
@@ -207,8 +215,6 @@ class Chatbot {
         'transition-opacity'
       );
     });
-
-    return bubble;
   }
 
   createTimestamp() {

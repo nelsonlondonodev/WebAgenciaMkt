@@ -20,6 +20,9 @@
   --chat--color-primary-shade-50: #2563eb;
   --chat--color-primary-shade-100: #1d4ed8;
   --chat--color-secondary: #10b981;
+  --chat-mobile-margin: 16px;
+  --chat-mobile-radius: 1.5rem;
+  --chat-mobile-bottom: 5.5rem;
 
   /* Fondos y cards */
   --color-light-bg: #f8fafc;
@@ -677,14 +680,14 @@ main {
 
 @media (max-width: 640px) {
   #chat-window {
-    right: 16px !important;
-    left: 16px !important;
-    bottom: 5.5rem !important;
-    width: calc(100% - 32px) !important;
+    right: var(--chat-mobile-margin) !important;
+    left: var(--chat-mobile-margin) !important;
+    bottom: var(--chat-mobile-bottom) !important;
+    width: calc(100% - (var(--chat-mobile-margin) * 2)) !important;
     max-width: none !important;
     height: 75vh !important;
-    height: 75svh !important; /* Suporte para Small Viewport Height */
-    border-radius: 1.5rem !important;
+    height: 75svh !important;
+    border-radius: var(--chat-mobile-radius) !important;
     box-sizing: border-box !important;
     transform-origin: bottom center !important;
     z-index: 10000 !important;
