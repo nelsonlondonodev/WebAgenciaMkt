@@ -194,6 +194,11 @@
     --color-gray-400: #cbd5e1; /* Slate 300 para excelente contraste en fondo oscuro */
   }
   /* Estilos base adicionales si se requieren */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
 }
 
 @layer utilities {
@@ -672,15 +677,17 @@ main {
 
 @media (max-width: 640px) {
   #chat-window {
-    right: 1rem !important;
-    left: 1rem !important;
+    right: 16px !important;
+    left: 16px !important;
     bottom: 5.5rem !important;
-    width: auto !important;
-    max-width: calc(100% - 2rem) !important;
+    width: calc(100% - 32px) !important;
+    max-width: none !important;
     height: 75vh !important;
-    border-radius: 2rem !important;
-    /* Ajuste de la escala de animación para móviles */
+    height: 75svh !important; /* Suporte para Small Viewport Height */
+    border-radius: 1.5rem !important;
+    box-sizing: border-box !important;
     transform-origin: bottom center !important;
+    z-index: 10000 !important;
   }
   #chat-widget-container {
     bottom: 1rem !important;

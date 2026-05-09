@@ -186,7 +186,7 @@ class Chatbot {
     const bubble = document.createElement('div');
     const isUser = sender === 'user';
 
-    bubble.className = `py-3 px-5 inline-block max-w-[85%] text-sm leading-relaxed shadow-sm ${
+    bubble.className = `py-3 px-5 inline-block max-w-[85%] text-sm leading-relaxed shadow-sm break-words overflow-wrap-anywhere ${
       isUser
         ? 'bg-gradient-to-br from-primary-blue to-blue-600 text-white rounded-[1.5rem] rounded-tr-none'
         : 'bg-white/50 dark:bg-white/10 backdrop-blur-md text-gray-800 dark:text-gray-100 border border-white/20 dark:border-white/10 rounded-[1.5rem] rounded-tl-none'
