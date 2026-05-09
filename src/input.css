@@ -13,7 +13,7 @@
   --color-primary-green: #059669; /* Verde optimizado para texto en modo claro */
   --color-primary-blue: #3b82f6;
   --color-gray-500: #52525b;
-  --color-gray-400: #3f3f46;
+  --color-gray-400: #27272a; /* Zinc 800 para mejor contraste en fondo claro */
 
   /* Variables del Chatbot */
   --chat--color-primary: #3b82f6;
@@ -184,7 +184,7 @@
   .dark {
     --color-primary-green: #10b981;
     --color-gray-500: #9ca3af;
-    --color-gray-400: #94a3b8;
+    --color-gray-400: #cbd5e1; /* Slate 300 para excelente contraste en fondo oscuro */
   }
   /* Estilos base adicionales si se requieren */
 }
@@ -419,7 +419,7 @@
     );
   }
   .google-reviews-badge {
-    @apply inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 mb-8 px-5 py-3 sm:px-4 sm:py-2 rounded-2xl sm:rounded-full bg-white/5 border border-white/10 backdrop-blur-xl shadow-xl opacity-100 sm:opacity-0 sm:animate-fade-in-down;
+    @apply inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 mb-8 px-5 py-3 sm:px-4 sm:py-2 rounded-2xl sm:rounded-full bg-white/5 border border-white/10 backdrop-blur-xl shadow-xl;
   }
 
   /* Mobile Menu Enhancements */
