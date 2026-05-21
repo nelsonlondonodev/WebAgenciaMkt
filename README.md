@@ -47,6 +47,22 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
       - _Top:_ Transparente (se funde con el fondo).
       - _Scroll:_ Fondo `bg-rich-dark` con transparencia (`bg-opacity-90`) y efecto blur, texto blanco (`text-white`).
 
+## 🚀 Unificación de Autoridad y Estabilización Mobile (Sesión 09/05/2026)
+
+- **Estandarización de Prueba Social (Trust Badge):**
+  - **Unificación de Diseño:** Implementación global del "Google Reviews Trust Badge" premium (5.0 Estrellas + Efecto Glow) en todas las páginas de servicios y biografía, clonando el ADN visual de la Home.
+  - **Sincronización de Animaciones:** Configuración de un flujo de entrada en cascada (`animate-fade-in-down`) sincronizado en todo el sitio para una experiencia de usuario fluida y coherente.
+  - **SEO de Autoridad:** Inyección de datos estructurados `AggregateRating` en la página "Sobre Mí" para fortalecer la entidad de marca en los resultados de búsqueda.
+- **Blindaje del Chatbot (Aurelio v2.1):**
+  - **Eliminación del Auto-Zoom iOS:** Actualización del tamaño de fuente a **16px** en móviles para desactivar el zoom forzado de Safari, garantizando la estabilidad del layout.
+  - **Corrección de Desbordamientos:** Implementación de `break-words` y limpieza de márgenes negativos en el punto de estatus para eliminar el scroll horizontal en dispositivos móviles estrechos.
+  - **Arquitectura CSS Variable:** Refactorización del widget usando variables CSS (`--chat-mobile-margin`, `--chat-mobile-radius`) para un mantenimiento centralizado y profesional.
+- **Mantenimiento y Despliegue de Alta Disponibilidad:**
+  - **Build v.2026.05.09.1426:** Regeneración masiva de activos con sincronización de caché (`cache-buster`) en las 14 entradas del sitio.
+  - **Higiene del DOM:** Eliminación de clases redundantes (`opacity-0`) y optimización de accesibilidad (`aria-labels`) en todos los elementos de confianza.
+
+---
+
 ## 🚀 Optimización de Interactividad y Estabilización de Contacto (Sesión 02/05/2026)
 
 - **Cero Caché con Bundle v2**: Migración estructural de `bundle.min.js` a **`bundle-v2.min.js`**. Esta acción agresiva elimina de forma definitiva los problemas de caché persistente en navegadores móviles y de escritorio, forzando la carga del código más reciente.

@@ -12,6 +12,7 @@ import { initServiceCards } from './serviceRenderer.js';
 import { renderPortfolioCards } from './portfolioRenderer.js';
 import { initTestimonialCarousel } from './testimonialCarousel.js';
 import { initDynamicModals } from './modalRenderer.js';
+import { initAuditFilterModal } from './auditFilterModal.js';
 import { generateBreadcrumbs } from './breadcrumbs.js'; // Importar la función para generar migas de pan
 
 import {
@@ -78,6 +79,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   scheduleIdleTask(() => {
     initChatbot();
     initDynamicModals();
+    initAuditFilterModal();
     initContactForm();
     initContactReveal();
     initCookieConsent();
