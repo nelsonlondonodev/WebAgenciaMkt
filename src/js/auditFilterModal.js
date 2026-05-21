@@ -147,6 +147,9 @@ export function initAuditFilterModal() {
   document.body.addEventListener('click', (event) => {
     const link = event.target.closest('a');
     
+    // Evitar interceptar el botón de continuar del propio modal
+    if (link && link.id === 'audit-modal-btn-continue') return;
+
     // Verificar si es un enlace a la auditoría gratuita de Cal.com
     if (link && link.href && link.href.includes('cal.com/nelson-londono-dpobgm/estrategia30')) {
       event.preventDefault();
