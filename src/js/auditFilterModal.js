@@ -3,7 +3,15 @@
  * Intercepta los enlaces de Cal.com y filtra usuarios no cualificados.
  */
 
-// Estructura HTML del modal como un string de plantilla
+// Constantes de Configuración
+const AUDIT_URL_PREFIX = 'cal.com/nelson-londono-dpobgm/estrategia30';
+const MODAL_ANIMATION_DURATION = 300; // ms
+
+/**
+ * Retorna la plantilla HTML del modal.
+ * @param {string} targetUrl - La URL de destino para la redirección.
+ * @returns {string} Código HTML del modal.
+ */
 const getModalTemplate = (targetUrl) => {
   return `
     <div id="audit-filter-modal" class="fixed inset-0 z-[10005] flex items-center justify-center p-4 bg-black/70 backdrop-blur-md transition-opacity duration-300 animate-fade-in" aria-modal="true" role="dialog" aria-labelledby="modal-title">
@@ -84,10 +92,71 @@ const getModalTemplate = (targetUrl) => {
 };
 
 /**
- * Muestra el modal de pre-calificación en pantalla.
- * @param {string} targetUrl - La URL de Cal.com a la que se redirigirá.
+ * Cierra y remueve el modal del DOM aplicando animaciones.
+ * @param {HTMLElement} modalElement - Elemento del modal en el DOM.
  */
-const showModal = (targetUrl) => {
+const destroyModal = (modalElement) => {
+  modalElement.classList.add('opacity-0');
+  
+  const contentElement = modalElement.querySelector('div');
+  if (contentElement) {
+    contentElement.classList.add('scale-95');
+  }
+  
+  // Remover del DOM una vez transcurra la animación de salida (300ms)
+  setTimeout(() => {
+    if (document.body.contains(modalElement)) {
+      document.body.removeChild(modalElement);
+    }
+    document.body.classList.remove('overflow-hidden');
+  }, MODAL_ANIMATION_DURATION);
+};
+
+/**
+ * Maneja el clic en el backdrop oscuro del modal.
+ * @param {MouseEvent} event - Evento del clic.
+ * @param {HTMLElement} modalElement - Elemento del modal.
+ * @param {Function} closeCallback - Función de cierre.
+ */
+const handleBackdropClick = (event, modalElement, closeCallback) => {
+  if (event.target === modalElement) {
+    closeCallback();
+  }
+};
+
+/**
+ * Inicializa y configura los listeners de interacción del modal.
+ * @param {HTMLElement} modalElement - El modal inyectado en el DOM.
+ * @param {Function} closeCallback - Callback para cerrar y desmontar el modal.
+ */
+const setupModalListeners = (modalElement, closeCallback) => {
+  // Cierre por botones de acción y cierre
+  const closeBtn = modalElement.querySelector('#audit-modal-close');
+  const cancelBtn = modalElement.querySelector('#audit-modal-btn-cancel');
+  const continueBtn = modalElement.querySelector('#audit-modal-btn-continue');
+
+  if (closeBtn) closeBtn.addEventListener('click', closeCallback);
+  if (cancelBtn) cancelBtn.addEventListener('click', closeCallback);
+  if (continueBtn) continueBtn.addEventListener('click', closeCallback);
+
+  // Cierre por clic exterior
+  modalElement.addEventListener('click', (e) => handleBackdropClick(e, modalElement, closeCallback));
+
+  // Cierre con la tecla Escape
+  const escHandler = (e) => {
+    if (e.key === 'Escape') {
+      closeCallback();
+      document.removeEventListener('keydown', escHandler);
+    }
+  };
+  document.addEventListener('keydown', escHandler);
+};
+
+/**
+ * Crea e inyecta el modal en el DOM.
+ * @param {string} targetUrl - URL de redirección final de la agenda en Cal.com.
+ */
+const createAndInjectModal = (targetUrl) => {
   if (document.getElementById('audit-filter-modal')) return;
 
   const tempDiv = document.createElement('div');
@@ -97,47 +166,8 @@ const showModal = (targetUrl) => {
   document.body.appendChild(modalElement);
   document.body.classList.add('overflow-hidden');
 
-  // Funcionalidad de cierre del modal con animación de salida
-  const closeModal = () => {
-    modalElement.classList.add('opacity-0');
-    const content = modalElement.querySelector('div');
-    if (content) {
-      content.classList.add('scale-95');
-    }
-    
-    // Esperar a que termine la transición de CSS (300ms)
-    setTimeout(() => {
-      if (document.body.contains(modalElement)) {
-        document.body.removeChild(modalElement);
-      }
-      document.body.classList.remove('overflow-hidden');
-    }, 300);
-  };
-
-  // Event Listeners para cerrar
-  document.getElementById('audit-modal-close').addEventListener('click', closeModal);
-  document.getElementById('audit-modal-btn-cancel').addEventListener('click', closeModal);
-  
-  // Si continúa, cerramos el modal a la vez que se abre en pestaña nueva
-  document.getElementById('audit-modal-btn-continue').addEventListener('click', () => {
-    closeModal();
-  });
-
-  // Cerrar al hacer clic en el fondo oscuro
-  modalElement.addEventListener('click', (e) => {
-    if (e.target === modalElement) {
-      closeModal();
-    }
-  });
-
-  // Cerrar con tecla Escape
-  const escHandler = (e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-      document.removeEventListener('keydown', escHandler);
-    }
-  };
-  document.addEventListener('keydown', escHandler);
+  const closeCallback = () => destroyModal(modalElement);
+  setupModalListeners(modalElement, closeCallback);
 };
 
 /**
@@ -150,10 +180,10 @@ export function initAuditFilterModal() {
     // Evitar interceptar el botón de continuar del propio modal
     if (link && link.id === 'audit-modal-btn-continue') return;
 
-    // Verificar si es un enlace a la auditoría gratuita de Cal.com
-    if (link && link.href && link.href.includes('cal.com/nelson-londono-dpobgm/estrategia30')) {
+    // Interceptar cualquier enlace a la auditoría gratuita de Cal.com
+    if (link && link.href && link.href.includes(AUDIT_URL_PREFIX)) {
       event.preventDefault();
-      showModal(link.href);
+      createAndInjectModal(link.href);
     }
   });
 }
