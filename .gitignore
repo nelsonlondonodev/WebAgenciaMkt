@@ -1,8 +1,8 @@
 # Ignorar la carpeta de dependencias de Node.js
-# Esta carpeta se puede regenerar en cualquier momento ejecutando "npm install"
 node_modules/
+.pnpm-store/
 
-# Ignorar archivos de registro (logs) generados por npm
+# Ignorar archivos de registro (logs)
 npm-debug.log*
 yarn-error.log
 *.log
