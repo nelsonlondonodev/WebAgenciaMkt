@@ -47,6 +47,20 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
       - _Top:_ Transparente (se funde con el fondo).
       - _Scroll:_ Fondo `bg-rich-dark` con transparencia (`bg-opacity-90`) y efecto blur, texto blanco (`text-white`).
 
+## 🚀 Migración a PNPM y Estandarización del Footer (Sesión 28/05/2026)
+
+- **Migración Integral a PNPM**:
+  - Reemplazo completo de `npm` por `pnpm` como gestor de paquetes de la agencia (eliminando `package-lock.json` e incorporando `pnpm-lock.yaml` y `pnpm-workspace.yaml`).
+  - Configuración de `onlyBuiltDependencies` en `package.json` para autorizar dependencias nativas (`esbuild` y `@parcel/watcher`).
+- **Consistencia y Modularización del Footer**:
+  - Eliminación de la sección estática y desactualizada de `<footer>` en `proyectos.html` (líneas 851-939), reemplazándola por el placeholder modular `<div id="footer-placeholder"></div>`. Ahora el pie de página de todo el sitio se gestiona de forma centralizada y uniforme en `components/footer.html`.
+- **Cache Buster Flexible**:
+  - Refactorización de `cache-buster.js` para inyectar y actualizar la versión de forma automática en cualquier archivo HTML que contenga la etiqueta `<span id="footer-build-version">`, eliminando la restricción que limitaba el versionamiento solo al archivo `footer.html`.
+- **Compilación de Producción**:
+  - Regeneración de activos optimizados y versionamiento de caché bajo la versión `v.2026.05.28.0805`.
+
+---
+
 ## 🚀 Unificación de Autoridad y Estabilización Mobile (Sesión 09/05/2026)
 
 - **Estandarización de Prueba Social (Trust Badge):**
@@ -210,7 +224,7 @@ Para mantener la integridad del despliegue y el SEO, sigue estas reglas estricta
 - **La carpeta `/dist` NO se utiliza** para producción en este entorno (es un remanente legacy).
 - **Flujo de Trabajo Correcto:**
   1.  Edita el archivo original (ej: `blog.html`) o en `src/`.
-  2.  Ejecuta `npm run build` (esto actualiza los assets en la raíz).
+  2.  Ejecuta `pnpm build` (esto actualiza los assets en la raíz).
   3.  Sube/Empuja los cambios a la raíz de tu repositorio o hosting.
 
 ### 2. URLs Canónicas
@@ -260,7 +274,7 @@ Para mantener la integridad del despliegue y el SEO, sigue estas reglas estricta
 Usa este comando para ver tus cambios mientras programas. "Vigila" tus archivos y actualiza el CSS automáticamente.
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ### B. Para Producción (Cuando termines)
@@ -271,7 +285,7 @@ Este es el **ÚNICO** proceso que debes seguir para subir tu web a internet.
     Prepara tu web para salir al mundo. Optimiza imágenes, compacta el código y arregla los iconos.
 
     ```bash
-    npm run build
+    pnpm build
     ```
 
 2.  **Desplegar (Git Push):**
@@ -288,8 +302,8 @@ Este es el **ÚNICO** proceso que debes seguir para subir tu web a internet.
 
 ## 📜 Diccionario de Comandos
 
-- `npm run dev`: **Modo Creador.** Úsalo cuando estés diseñando o escribiendo código.
-- `npm run build`: **Modo Fábrica.** Empaqueta todo para que esté listo para el público. Ejecútalo SIEMPRE antes de hacer `git push`.
+- `pnpm dev`: **Modo Creador.** Úsalo cuando estés diseñando o escribiendo código.
+- `pnpm build`: **Modo Fábrica.** Empaqueta todo para que esté listo para el público. Ejecútalo SIEMPRE antes de hacer `git push`.
 
 ---
 
