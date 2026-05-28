@@ -49,19 +49,16 @@ function updateAssetUrls(content, version, fileName) {
   });
 }
 
-/**
- * INYECCIÓN EN FOOTER
- * Si el archivo es el componente de footer, inyecta la versión de forma visible.
- */
 function injectFooterVersion(content, version, fileName) {
-  if (!fileName.includes('footer.html')) return content;
-
   const versionRegex = /<span id="footer-build-version">.*?<\/span>/g;
-  console.log(`[Build] Inyectando versión en footer: v.${version}`);
-  return content.replace(
-    versionRegex,
-    `<span id="footer-build-version">v.${version}</span>`
-  );
+  if (versionRegex.test(content)) {
+    console.log(`[Build] Inyectando versión en footer: v.${version} (${fileName})`);
+    return content.replace(
+      versionRegex,
+      `<span id="footer-build-version">v.${version}</span>`
+    );
+  }
+  return content;
 }
 
 /**
