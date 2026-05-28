@@ -3,8 +3,8 @@ export const portfolioData = [
     id: 'nar-bos-web',
     category: 'web code',
     imgSrcSet: {
-      '480w': 'image/portfolio-narbos.webp',
-      '800w': 'image/portfolio-narbos.webp',
+      '480w': 'image/portfolio-narbos-480.webp',
+      '800w': 'image/portfolio-narbos-800.webp',
       '1440w': 'image/portfolio-narbos.webp',
     },
     imgSrc: 'image/portfolio-narbos.webp',
@@ -20,8 +20,8 @@ export const portfolioData = [
     id: 'legendary-barber-seo',
     category: 'seo local',
     imgSrcSet: {
-      '480w': 'image/portfolio-heatmap.webp',
-      '800w': 'image/portfolio-heatmap.webp',
+      '480w': 'image/portfolio-heatmap-480.webp',
+      '800w': 'image/portfolio-heatmap-800.webp',
       '1440w': 'image/portfolio-heatmap.webp',
     },
     imgSrc: 'image/portfolio-heatmap.webp',
@@ -37,8 +37,8 @@ export const portfolioData = [
     id: 'crm-loyalty-system',
     category: 'ia automation',
     imgSrcSet: {
-      '480w': 'image/portfolio-crm.webp',
-      '800w': 'image/portfolio-crm.webp',
+      '480w': 'image/portfolio-crm-480.webp',
+      '800w': 'image/portfolio-crm-800.webp',
       '1440w': 'image/portfolio-crm.webp',
     },
     imgSrc: 'image/portfolio-crm.webp',
@@ -105,8 +105,8 @@ export const portfolioData = [
     id: 'blond-bros-barber',
     category: 'seo local',
     imgSrcSet: {
-      '480w': 'image/blond-bros-barber-heatmap.webp',
-      '800w': 'image/blond-bros-barber-heatmap.webp',
+      '480w': 'image/blond-bros-barber-heatmap-480.webp',
+      '800w': 'image/blond-bros-barber-heatmap-800.webp',
       '1440w': 'image/blond-bros-barber-heatmap.webp',
     },
     imgSrc: 'image/blond-bros-barber-heatmap.webp',
