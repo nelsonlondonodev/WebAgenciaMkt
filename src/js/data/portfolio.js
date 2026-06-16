@@ -43,10 +43,10 @@ export const portfolioData = [
     },
     imgSrc: 'image/portfolio-waboce.webp',
     imgAlt: 'Waboce.app - Chatbot de WhatsApp con IA y Marca Blanca',
-    title: 'Waboce.app - Automatización de WhatsApp con IA',
-    tags: 'SaaS / WhatsApp IA / Marca Blanca',
+    title: 'Waboce.app - SaaS de WhatsApp con IA & RAG',
+    tags: 'SaaS / WhatsApp IA / RAG / Calendarios',
     description:
-      'Plataforma SaaS multi-nicho que permite crear y revender chatbots inteligentes de WhatsApp con marca blanca. Conecta bases de datos, calendarios e inventarios con sincronización en tiempo real mediante RAG.',
+      'Plataforma SaaS multi-nicho que permite crear y revender chatbots inteligentes de WhatsApp con marca blanca. Conecta bases de datos, calendarios de citas e inventarios en tiempo real mediante técnicas RAG.',
     type: 'link',
     url: 'https://waboce.app/',
   },
