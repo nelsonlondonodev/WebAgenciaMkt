@@ -47,6 +47,20 @@ El proyecto ha evolucionado hacia una **arquitectura modular profesional**, sepa
       - _Top:_ Transparente (se funde con el fondo).
       - _Scroll:_ Fondo `bg-rich-dark` con transparencia (`bg-opacity-90`) y efecto blur, texto blanco (`text-white`).
 
+## 🚀 Reemplazo de Waboce.app y Corrección Semántica Schema (Sesión 16/06/2026)
+
+- **Integración del SaaS Waboce.app en el Portafolio**:
+  - Eliminación definitiva del proyecto antiguo "CRM Inteligente" y reemplazo por el SaaS de WhatsApp con IA **Waboce.app** en la base de datos de [portfolio.js](file:///Users/nelsonlondono/Trabajo/developer/websHotinger/nelson-agencia-web/src/js/data/portfolio.js) y estáticamente en [proyectos.html](file:///Users/nelsonlondono/Trabajo/developer/websHotinger/nelson-agencia-web/proyectos.html).
+  - Optimización de imágenes responsive: Generación de 3 resoluciones WebP a partir de la captura original (`portfolio-waboce.webp`, `portfolio-waboce-800.webp`, `portfolio-waboce-480.webp`) e inyección de los atributos `srcset` y `sizes` en el HTML de fallback estático para mayor rendimiento móvil.
+  - Refinamiento de los copys técnicos destacando el uso de bases de datos, agendas de calendarios, marca blanca y métodos RAG para inventarios.
+- **Corrección de Datos Estructurados de Reseñas (Search Console)**:
+  - Solución del error crítico de tipo de objeto `<parent_node>` no válido en [sobre-mi.html](file:///Users/nelsonlondono/Trabajo/developer/websHotinger/nelson-agencia-web/sobre-mi.html).
+  - Conversión del bloque JSON-LD a formato de Grafo Semántico (`@graph`), desligando el `aggregateRating` (las 20 opiniones de 5 estrellas) de la entidad `Person` (Nelson Londoño) y vinculándolo a la entidad de negocio local `ProfessionalService`, cumpliendo a rajatabla con las políticas de resultados enriquecidos de Google.
+- **Paso a Producción Exitoso**:
+  - Compilación final con el cache-buster (versión `v.2026.06.16.0736`) y unificación de cambios en la rama `main` de producción.
+
+---
+
 ## 🚀 Migración a PNPM y Estandarización del Footer (Sesión 28/05/2026)
 
 - **Migración Integral a PNPM**:
