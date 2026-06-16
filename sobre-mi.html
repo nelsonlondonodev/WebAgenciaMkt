@@ -9,11 +9,30 @@
       content="Nelson Londoño: Consultor en Automatización web e IA. Escala tu negocio hoy con tecnología estratégica y a medida. ¡Hablemos!"
     />
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "AboutPage",
-        "mainEntity": {
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "AboutPage",
+          "@id": "https://nelsonlondono.es/sobre-mi.html",
+          "url": "https://nelsonlondono.es/sobre-mi.html",
+          "name": "Sobre mí | Nelson Londoño",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://nelsonlondono.es/#website",
+            "name": "Nelson Londoño | Diseño Web y SEO",
+            "url": "https://nelsonlondono.es/"
+          },
+          "about": {
+            "@id": "https://nelsonlondono.es/sobre-mi.html#agent"
+          },
+          "mainEntity": {
+            "@id": "https://nelsonlondono.es/sobre-mi.html#agent"
+          }
+        },
+        {
           "@type": "Person",
+          "@id": "https://nelsonlondono.es/sobre-mi.html#agent",
           "name": "Nelson Londoño",
           "jobTitle": "Consultor Tecnológico & Fundador",
           "image": "https://nelsonlondono.es/image/foto-nelson-londono.webp",
@@ -24,6 +43,25 @@
             "https://www.tiktok.com/@soy_nelson_londono"
           ],
           "description": "Consultor tecnológico especializado en transformar negocios a través de desarrollo web de alto rendimiento, SEO estratégico y automatización de procesos.",
+          "worksFor": {
+            "@id": "https://nelsonlondono.es/#organization"
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://nelsonlondono.es/#organization",
+          "name": "Nelson Londoño | Diseño Web y SEO",
+          "image": "https://nelsonlondono.es/image/foto-nelson-londono.webp",
+          "url": "https://nelsonlondono.es/",
+          "telephone": "+34 663 97 54 28",
+          "description": "Agencia de marketing en Fuente el Saz especializada en SEO Local, Diseño Web de Alto Rendimiento y Automatizaciones con IA.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Fuente el Saz de Jarama",
+            "addressRegion": "Madrid",
+            "postalCode": "28140",
+            "addressCountry": "ES"
+          },
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
@@ -32,7 +70,8 @@
             "worstRating": "1"
           }
         }
-      }
+      ]
+    }
     </script>
 
     <link rel="canonical" href="https://nelsonlondono.es/sobre-mi.html" />
@@ -41,23 +80,23 @@
     <!-- Carga del CSS principal optimizada (No bloqueante) -->
     <link
       rel="preload"
-      href="/nelson-v4.css?v=2026.05.28.0805"
+      href="/nelson-v4.css?v=2026.06.16.0736"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/nelson-v4.css?v=2026.05.28.0805" />
+      <link rel="stylesheet" href="/nelson-v4.css?v=2026.06.16.0736" />
     </noscript>
 
     <!-- Carga de FontAwesome optimizada -->
     <link
       rel="preload"
-      href="/fontawesome.min.css?v=2026.05.28.0805"
+      href="/fontawesome.min.css?v=2026.06.16.0736"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.05.28.0805" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.06.16.0736" />
     </noscript>
 
     <!-- Preload de imagen crítica LCP (Marca Personal) -->
