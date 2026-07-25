@@ -21,6 +21,13 @@ export const servicesData = [
       'Creamos soluciones web únicas y de alto rendimiento, diseñadas específicamente para tus necesidades y objetivos de negocio.',
   },
   {
+    url: 'agencia-desarrollo-software.html',
+    icon: 'fas fa-cubes fa-2x',
+    title: 'Software & SaaS a medida',
+    description:
+      'Desarrollamos aplicaciones web robustas, arquitecturas multi-tenant y soluciones SaaS personalizadas.',
+  },
+  {
     url: 'agencia-automatizaciones.html',
     icon: 'fas fa-robot fa-2x',
     title: 'Agentes virtuales y automatizaciones',
