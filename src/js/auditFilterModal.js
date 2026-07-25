@@ -1,18 +1,20 @@
 /**
  * Módulo para gestionar el modal de pre-calificación en las reservas de auditoría gratuita.
- * Intercepta los enlaces de Cal.com y filtra usuarios no cualificados.
+ * Intercepta los enlaces de auditoría/reserva y redirige a WhatsApp (Waboce AI) con el usuario pre-cualificado.
  */
+import { CONFIG } from './config.js';
 
-// Constantes de Configuración
 const AUDIT_URL_PREFIX = 'cal.com/nelson-londono-dpobgm/estrategia30';
 const MODAL_ANIMATION_DURATION = 300; // ms
 
 /**
- * Retorna la plantilla HTML del modal.
- * @param {string} targetUrl - La URL de destino para la redirección.
+ * Retorna la plantilla HTML del modal de pre-cualificación.
+ * @param {string} targetUrl - URL de WhatsApp de destino.
  * @returns {string} Código HTML del modal.
  */
 const getModalTemplate = (targetUrl) => {
+  const whatsappUrl = targetUrl || CONFIG.CONTACT.WHATSAPP_URL;
+
   return `
     <div id="audit-filter-modal" class="fixed inset-0 z-[10005] flex items-center justify-center p-4 bg-black/70 backdrop-blur-md transition-opacity duration-300 animate-fade-in" aria-modal="true" role="dialog" aria-labelledby="modal-title">
       <div class="relative w-full max-w-lg rounded-3xl bg-white/95 dark:bg-zinc-950/90 border border-gray-100 dark:border-white/10 p-6 sm:p-8 text-gray-800 dark:text-gray-200 shadow-2xl animate-scale-in-core transition-transform duration-300">
@@ -21,7 +23,7 @@ const getModalTemplate = (targetUrl) => {
         <div class="flex items-start justify-between pb-4 border-b border-gray-100 dark:border-white/10">
           <h3 id="modal-title" class="text-xl sm:text-2xl font-black tracking-tight text-gray-900 dark:text-white flex items-center gap-2.5">
             <span class="text-amber-500 text-2xl" aria-hidden="true">⚠️</span>
-            Antes de reservar tu sesión
+            Antes de agendar tu sesión
           </h3>
           <button id="audit-modal-close" class="p-1 -mr-2 text-gray-400 hover:text-gray-900 dark:hover:text-white text-3xl font-light leading-none transition-colors" aria-label="Cerrar modal">&times;</button>
         </div>
@@ -29,7 +31,7 @@ const getModalTemplate = (targetUrl) => {
         <!-- Cuerpo del Modal -->
         <div class="mt-5 space-y-4">
           <p class="text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-300">
-            Para ofrecerte el máximo valor y diseñar una hoja de ruta estratégica real en estos 30 minutos, mi equipo y yo nos enfocamos exclusivamente en perfiles que califiquen:
+            Para ofrecerte el máximo valor y diseñar una hoja de ruta estratégica real en estos 30 minutos, nos enfocamos exclusivamente en perfiles que califiquen:
           </p>
 
           <!-- Tarjeta SÍ califica -->
@@ -44,7 +46,7 @@ const getModalTemplate = (targetUrl) => {
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-emerald-500 mt-0.5">•</span>
-                <span><strong>Empresarios y directivos</strong> decididos a delegar la creación de <strong>automatizaciones con IA y agentes de WhatsApp</strong>.</span>
+                <span><strong>Empresarios y directivos</strong> decididos a delegar la creación de <strong>automatizaciones con IA y desarrollo de software/SaaS</strong>.</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-emerald-500 mt-0.5">•</span>
@@ -63,10 +65,10 @@ const getModalTemplate = (targetUrl) => {
                 <span>•</span> <span>Personas que buscan soporte técnico gratuito para sus herramientas.</span>
               </li>
               <li class="flex items-start gap-2">
-                <span>•</span> <span>Quienes quieren una clase paso a paso para aprender a programar o montar automatizaciones ellos mismos.</span>
+                <span>•</span> <span>Quienes quieren aprender a programar o montar automatizaciones por su cuenta.</span>
               </li>
               <li class="flex items-start gap-2">
-                <span>•</span> <span>Curiosos que no tienen intención de invertir en un servicio profesional.</span>
+                <span>•</span> <span>Curiosos sin intención de invertir en un servicio profesional.</span>
               </li>
             </ul>
           </div>
@@ -81,8 +83,9 @@ const getModalTemplate = (targetUrl) => {
           <button id="audit-modal-btn-cancel" class="px-5 py-3 rounded-xl border border-gray-200 dark:border-zinc-800 text-gray-700 dark:text-gray-300 font-bold hover:bg-gray-50 dark:hover:bg-zinc-900 transition-colors text-sm uppercase tracking-wider">
             No califico / Cancelar
           </button>
-          <a id="audit-modal-btn-continue" href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-primary-green hover:bg-emerald-500 dark:bg-primary-blue dark:hover:bg-sky-500 text-white text-center font-bold shadow-lg transition-colors text-sm uppercase tracking-wider">
-            Sí, califico y quiero agendar
+          <a id="audit-modal-btn-continue" href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-center font-bold shadow-lg transition-colors text-sm uppercase tracking-wider flex items-center justify-center gap-2">
+            <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
+            <span>Sí, califico y quiero agendar</span>
           </a>
         </div>
 
@@ -103,7 +106,6 @@ const destroyModal = (modalElement) => {
     contentElement.classList.add('scale-95');
   }
   
-  // Remover del DOM una vez transcurra la animación de salida (300ms)
   setTimeout(() => {
     if (document.body.contains(modalElement)) {
       document.body.removeChild(modalElement);
@@ -114,9 +116,6 @@ const destroyModal = (modalElement) => {
 
 /**
  * Maneja el clic en el backdrop oscuro del modal.
- * @param {MouseEvent} event - Evento del clic.
- * @param {HTMLElement} modalElement - Elemento del modal.
- * @param {Function} closeCallback - Función de cierre.
  */
 const handleBackdropClick = (event, modalElement, closeCallback) => {
   if (event.target === modalElement) {
@@ -126,11 +125,8 @@ const handleBackdropClick = (event, modalElement, closeCallback) => {
 
 /**
  * Inicializa y configura los listeners de interacción del modal.
- * @param {HTMLElement} modalElement - El modal inyectado en el DOM.
- * @param {Function} closeCallback - Callback para cerrar y desmontar el modal.
  */
 const setupModalListeners = (modalElement, closeCallback) => {
-  // Cierre por botones de acción y cierre
   const closeBtn = modalElement.querySelector('#audit-modal-close');
   const cancelBtn = modalElement.querySelector('#audit-modal-btn-cancel');
   const continueBtn = modalElement.querySelector('#audit-modal-btn-continue');
@@ -139,10 +135,8 @@ const setupModalListeners = (modalElement, closeCallback) => {
   if (cancelBtn) cancelBtn.addEventListener('click', closeCallback);
   if (continueBtn) continueBtn.addEventListener('click', closeCallback);
 
-  // Cierre por clic exterior
   modalElement.addEventListener('click', (e) => handleBackdropClick(e, modalElement, closeCallback));
 
-  // Cierre con la tecla Escape
   const escHandler = (e) => {
     if (e.key === 'Escape') {
       closeCallback();
@@ -154,7 +148,7 @@ const setupModalListeners = (modalElement, closeCallback) => {
 
 /**
  * Crea e inyecta el modal en el DOM.
- * @param {string} targetUrl - URL de redirección final de la agenda en Cal.com.
+ * @param {string} targetUrl - URL de redirección final de WhatsApp.
  */
 const createAndInjectModal = (targetUrl) => {
   if (document.getElementById('audit-filter-modal')) return;
@@ -171,19 +165,17 @@ const createAndInjectModal = (targetUrl) => {
 };
 
 /**
- * Inicializa los listeners globales para interceptar los clics de Cal.com.
+ * Inicializa los listeners globales para interceptar los clics de auditoría y agendamiento.
  */
 export function initAuditFilterModal() {
   document.body.addEventListener('click', (event) => {
     const link = event.target.closest('a');
     
-    // Evitar interceptar el botón de continuar del propio modal
     if (link && link.id === 'audit-modal-btn-continue') return;
 
-    // Interceptar cualquier enlace a la auditoría gratuita de Cal.com
     if (link && link.href && link.href.includes(AUDIT_URL_PREFIX)) {
       event.preventDefault();
-      createAndInjectModal(link.href);
+      createAndInjectModal(CONFIG.CONTACT.WHATSAPP_URL);
     }
   });
 }
