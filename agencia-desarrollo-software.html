@@ -24,24 +24,83 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="/fontawesome.min.css?v=2026.07.25.0925" 
+      href="/fontawesome.min.css?v=2026.07.25.0927" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.07.25.0925" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.07.25.0927" />
     </noscript>
 
     <!-- Carga del CSS principal optimizada (No bloqueante) -->
     <link 
       rel="preload" 
-      href="/nelson-v4.css?v=2026.07.25.0925" 
+      href="/nelson-v4.css?v=2026.07.25.0927" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/nelson-v4.css?v=2026.07.25.0925" />
+      <link rel="stylesheet" href="/nelson-v4.css?v=2026.07.25.0927" />
     </noscript>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": "https://nelsonlondono.es/agencia-desarrollo-software.html#service",
+          "name": "Desarrollo de Software a Medida y Soluciones SaaS",
+          "provider": {
+            "@type": "ProfessionalService",
+            "name": "Nelson Londoño Agencia Web",
+            "url": "https://nelsonlondono.es/"
+          },
+          "description": "Desarrollo de aplicaciones web a medida, arquitecturas multi-tenant, integración de APIs y soluciones SaaS avanzadas con React, TypeScript y Node.js.",
+          "areaServed": "ES",
+          "serviceType": "Software Development"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Waboce.app",
+          "operatingSystem": "Web",
+          "applicationCategory": "BusinessApplication",
+          "description": "Plataforma SaaS multi-tenant de automatización y chatbots inteligentes para WhatsApp en restaurantes, centros de estética y negocios locales.",
+          "url": "https://waboce.app/"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Cuál es la diferencia entre una web a medida y un Software SaaS?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Una web corporativa está orientada a la presentación e imagen de marca. Un Software SaaS es una aplicación funcional interactiva con usuarios, autenticación, base de datos aislada, lógica de negocio y suscripciones."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Puedo adaptar uno de tus SaaS existentes a mi negocio?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. Tanto el sistema de Chatbot de WhatsApp como la herramienta de SEO Local pueden adaptarse como soluciones personalizadas o marca blanca para tu empresa."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Qué tecnologías utilizas para el desarrollo de software?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Utilizamos TypeScript en modo estricto, React, Node.js/Express, Tailwind CSS y despliegues optimizados en servidores VPS Cloud."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-gray-50 dark:bg-[#080808] text-gray-900 dark:text-gray-100 transition-colors duration-300">
     <div id="nav-placeholder"></div>
@@ -74,7 +133,7 @@
             <a href="https://maps.app.goo.gl/Bmz7EBRjRh4uxDME8" target="_blank" rel="noopener noreferrer" class="google-reviews-badge hover:scale-105 transition-transform duration-300 group cursor-pointer inline-flex animate-fade-in-down mb-6" aria-label="Ver 20 reseñas reales de 5 estrellas en Google Maps">
               <div class="flex flex-col items-center">
                 <div class="flex text-yellow-500 text-sm gap-0.5 mb-1 group-hover:drop-shadow-[0_0_8px_rgba(251,188,5,0.6)] transition-all">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 </div>
                 <span class="text-[10px] sm:text-xs lg:text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest leading-tight sm:leading-none flex items-center gap-1.5 text-center">
                   5.0 RATING EN 
@@ -103,20 +162,20 @@
       <section id="servicio-software" class="py-20 bg-white dark:bg-[#0a0a0a]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-sm font-semibold tracking-widest text-primary-green uppercase">Servicio Especializado</span>
-            <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mt-2">
+            <span class="text-sm font-semibold tracking-widest text-primary-green uppercase scroll-animate-initial">Servicio Especializado</span>
+            <h2 class="section-title text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mt-2 scroll-animate-initial">
               Ingeniería de Software para Proyectos Exigentes
             </h2>
-            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+            <p class="section-subtitle mt-4 text-lg text-gray-600 dark:text-gray-400 scroll-animate-initial">
               No solo creamos código; diseñamos la infraestructura, la seguridad y la experiencia de usuario necesarias para validar o escalar tu modelo de negocio.
             </p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Card 1 -->
-            <div class="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800/40 border border-gray-100 dark:border-gray-700/60 hover:border-primary-green/50 transition-all duration-300 hover:shadow-xl group">
+            <div class="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800/40 border border-gray-100 dark:border-gray-700/60 hover:border-primary-green/50 transition-all duration-300 hover:shadow-xl group scroll-animate-initial">
               <div class="w-14 h-14 rounded-xl bg-primary-green/10 flex items-center justify-center text-primary-green text-2xl mb-6 group-hover:scale-110 transition-transform">
-                <i class="fas fa-network-wired"></i>
+                <i class="fas fa-network-wired" aria-hidden="true"></i>
               </div>
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Arquitectura Multi-Tenant</h3>
               <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
@@ -125,9 +184,9 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800/40 border border-gray-100 dark:border-gray-700/60 hover:border-primary-blue/50 transition-all duration-300 hover:shadow-xl group">
+            <div class="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800/40 border border-gray-100 dark:border-gray-700/60 hover:border-primary-blue/50 transition-all duration-300 hover:shadow-xl group scroll-animate-initial delay-150">
               <div class="w-14 h-14 rounded-xl bg-primary-blue/10 flex items-center justify-center text-primary-blue text-2xl mb-6 group-hover:scale-110 transition-transform">
-                <i class="fas fa-shield-alt"></i>
+                <i class="fas fa-shield-alt" aria-hidden="true"></i>
               </div>
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Autenticación & Integración</h3>
               <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
@@ -136,9 +195,9 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800/40 border border-gray-100 dark:border-gray-700/60 hover:border-primary-green/50 transition-all duration-300 hover:shadow-xl group">
+            <div class="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800/40 border border-gray-100 dark:border-gray-700/60 hover:border-primary-green/50 transition-all duration-300 hover:shadow-xl group scroll-animate-initial delay-300">
               <div class="w-14 h-14 rounded-xl bg-primary-green/10 flex items-center justify-center text-primary-green text-2xl mb-6 group-hover:scale-110 transition-transform">
-                <i class="fas fa-code"></i>
+                <i class="fas fa-code" aria-hidden="true"></i>
               </div>
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Stack Tecnológico Moderno</h3>
               <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
@@ -153,27 +212,27 @@
       <section id="nuestros-saas" class="py-20 section-gradient-green relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider bg-primary-green/10 text-primary-green dark:text-primary-green border border-primary-green/20 uppercase inline-block mb-3">
+            <span class="px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider bg-primary-green/10 text-primary-green dark:text-primary-green border border-primary-green/20 uppercase inline-block mb-3 scroll-animate-initial">
               Casos de Éxito en Producción
             </span>
-            <h2 class="text-3xl sm:text-5xl font-black text-gray-900 dark:text-white">
+            <h2 class="section-title text-3xl sm:text-5xl font-black text-gray-900 dark:text-white scroll-animate-initial">
               Nuestros Productos SaaS Creados y Operativos
             </h2>
-            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+            <p class="section-subtitle mt-4 text-lg text-gray-600 dark:text-gray-300 scroll-animate-initial">
               Prueba real de nuestra capacidad técnica: desarrollamos y mantenemos nuestras propias plataformas de software con usuarios y clientes activos.
             </p>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <!-- SaaS Card 1: Waboce Chatbot WhatsApp -->
-            <div class="bg-white dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-gray-100 dark:border-gray-700/60 shadow-2xl flex flex-col justify-between relative group hover:border-primary-green/60 transition-all duration-300">
+            <div class="bg-white dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-gray-100 dark:border-gray-700/60 shadow-2xl flex flex-col justify-between relative group hover:border-primary-green/60 transition-all duration-300 scroll-animate-initial">
               <div>
                 <div class="flex items-center justify-between mb-6">
                   <span class="px-3 py-1 rounded-md text-xs font-bold bg-green-500/10 text-green-500 uppercase tracking-wider flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-ping" aria-hidden="true"></span>
                     SaaS Activo en Producción
                   </span>
-                  <i class="fab fa-whatsapp text-4xl text-green-500"></i>
+                  <i class="fab fa-whatsapp text-4xl text-green-500" aria-hidden="true"></i>
                 </div>
                 <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mb-4">
                   Waboce.app — Chatbot & Automatización para WhatsApp
@@ -187,49 +246,49 @@
                   <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Solución adaptada por nichos:</span>
                   <div class="flex flex-wrap gap-2">
                     <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300">
-                      <i class="fas fa-utensils mr-1 text-primary-green"></i> Restaurantes & Reservas
+                      <i class="fas fa-utensils mr-1 text-primary-green" aria-hidden="true"></i> Restaurantes & Reservas
                     </span>
                     <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300">
-                      <i class="fas fa-spa mr-1 text-primary-green"></i> Centros de Estética & Citas
+                      <i class="fas fa-spa mr-1 text-primary-green" aria-hidden="true"></i> Centros de Estética & Citas
                     </span>
                     <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300">
-                      <i class="fas fa-headset mr-1 text-primary-green"></i> Soporte & Captación 24/7
+                      <i class="fas fa-headset mr-1 text-primary-green" aria-hidden="true"></i> Soporte & Captación 24/7
                     </span>
                   </div>
                 </div>
 
                 <ul class="space-y-3 mb-8 text-sm text-gray-600 dark:text-gray-300">
                   <li class="flex items-center gap-3">
-                    <i class="fas fa-check-circle text-primary-green"></i>
+                    <i class="fas fa-check-circle text-primary-green" aria-hidden="true"></i>
                     <span>Autenticación OAuth Google y arquitectura multi-usuario.</span>
                   </li>
                   <li class="flex items-center gap-3">
-                    <i class="fas fa-check-circle text-primary-green"></i>
+                    <i class="fas fa-check-circle text-primary-green" aria-hidden="true"></i>
                     <span>Integración de flujos inteligentes y respuestas inmediatas.</span>
                   </li>
                   <li class="flex items-center gap-3">
-                    <i class="fas fa-check-circle text-primary-green"></i>
+                    <i class="fas fa-check-circle text-primary-green" aria-hidden="true"></i>
                     <span>Panel de administración y métricas de conversación.</span>
                   </li>
                 </ul>
               </div>
 
               <div class="pt-6 border-t border-gray-100 dark:border-gray-700/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <a href="https://waboce.app" target="_blank" rel="noopener noreferrer" class="cta-button w-full sm:w-auto text-center py-3 px-6 text-sm">
-                  Conocer Waboce <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                <a href="https://waboce.app" target="_blank" rel="noopener noreferrer" class="cta-button w-full sm:w-auto text-center py-3 px-6 text-sm" aria-label="Visitar la web oficial de Waboce.app">
+                  Conocer Waboce <i class="fas fa-external-link-alt ml-2 text-xs" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
 
             <!-- SaaS Card 2: Mapas de Calor SEO Local -->
-            <div class="bg-white dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-gray-100 dark:border-gray-700/60 shadow-2xl flex flex-col justify-between relative group hover:border-primary-blue/60 transition-all duration-300">
+            <div class="bg-white dark:bg-gray-800/80 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-gray-100 dark:border-gray-700/60 shadow-2xl flex flex-col justify-between relative group hover:border-primary-blue/60 transition-all duration-300 scroll-animate-initial delay-150">
               <div>
                 <div class="flex items-center justify-between mb-6">
                   <span class="px-3 py-1 rounded-md text-xs font-bold bg-blue-500/10 text-blue-500 uppercase tracking-wider flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-ping"></span>
+                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-ping" aria-hidden="true"></span>
                     Software Propietario
                   </span>
-                  <i class="fas fa-map-marked-alt text-4xl text-blue-500"></i>
+                  <i class="fas fa-map-marked-alt text-4xl text-blue-500" aria-hidden="true"></i>
                 </div>
                 <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mb-4">
                   SEO Heatmap Tool — Auditoría Visual Geolocalizada
@@ -243,28 +302,28 @@
                   <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Ideal para:</span>
                   <div class="flex flex-wrap gap-2">
                     <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300">
-                      <i class="fas fa-store mr-1 text-primary-blue"></i> Negocios Físicos & Locales
+                      <i class="fas fa-store mr-1 text-primary-blue" aria-hidden="true"></i> Negocios Físicos & Locales
                     </span>
                     <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300">
-                      <i class="fas fa-bullhorn mr-1 text-primary-blue"></i> Agencias de Marketing
+                      <i class="fas fa-bullhorn mr-1 text-primary-blue" aria-hidden="true"></i> Agencias de Marketing
                     </span>
                     <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700/50 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300">
-                      <i class="fas fa-search-location mr-1 text-primary-blue"></i> Consultores SEO
+                      <i class="fas fa-search-location mr-1 text-primary-blue" aria-hidden="true"></i> Consultores SEO
                     </span>
                   </div>
                 </div>
 
                 <ul class="space-y-3 mb-8 text-sm text-gray-600 dark:text-gray-300">
                   <li class="flex items-center gap-3">
-                    <i class="fas fa-check-circle text-primary-blue"></i>
+                    <i class="fas fa-check-circle text-primary-blue" aria-hidden="true"></i>
                     <span>Rastreo preciso del Local Pack por coordenadas GPS.</span>
                   </li>
                   <li class="flex items-center gap-3">
-                    <i class="fas fa-check-circle text-primary-blue"></i>
+                    <i class="fas fa-check-circle text-primary-blue" aria-hidden="true"></i>
                     <span>Informes visuales descargables para clientes y auditorías.</span>
                   </li>
                   <li class="flex items-center gap-3">
-                    <i class="fas fa-check-circle text-primary-blue"></i>
+                    <i class="fas fa-check-circle text-primary-blue" aria-hidden="true"></i>
                     <span>Panel multi-cliente con gestión de proyectos.</span>
                   </li>
                 </ul>
@@ -272,7 +331,7 @@
 
               <div class="pt-6 border-t border-gray-100 dark:border-gray-700/50 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <a href="/agencia-seo-local.html" class="inline-flex items-center text-primary-blue hover:underline font-semibold text-sm">
-                  Ver cómo lo aplicamos en SEO Local <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                  Ver cómo lo aplicamos en SEO Local <i class="fas fa-arrow-right ml-2 text-xs" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
@@ -284,29 +343,29 @@
       <section id="metodologia" class="py-20 bg-white dark:bg-[#0a0a0a]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-sm font-semibold tracking-widest text-primary-green uppercase">Proceso de Trabajo</span>
-            <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mt-2">
+            <span class="text-sm font-semibold tracking-widest text-primary-green uppercase scroll-animate-initial">Proceso de Trabajo</span>
+            <h2 class="section-title text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mt-2 scroll-animate-initial">
               Cómo Desarrollamos tu Software o SaaS
             </h2>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="relative p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/30 border border-gray-100 dark:border-gray-700/50">
+            <div class="relative p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/30 border border-gray-100 dark:border-gray-700/50 scroll-animate-initial">
               <span class="text-4xl font-black text-primary-green/30 absolute top-4 right-4">01</span>
               <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Descubrimiento</h3>
               <p class="text-sm text-gray-600 dark:text-gray-400">Analizamos los requerimientos técnicos, flujo de usuarios y arquitectura necesaria.</p>
             </div>
-            <div class="relative p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/30 border border-gray-100 dark:border-gray-700/50">
+            <div class="relative p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/30 border border-gray-100 dark:border-gray-700/50 scroll-animate-initial delay-100">
               <span class="text-4xl font-black text-primary-green/30 absolute top-4 right-4">02</span>
               <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Diseño UX/UI</h3>
               <p class="text-sm text-gray-600 dark:text-gray-400">Prototipamos interfaces limpias, intuitivas y optimizadas para conversión.</p>
             </div>
-            <div class="relative p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/30 border border-gray-100 dark:border-gray-700/50">
+            <div class="relative p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/30 border border-gray-100 dark:border-gray-700/50 scroll-animate-initial delay-200">
               <span class="text-4xl font-black text-primary-green/30 absolute top-4 right-4">03</span>
               <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Desarrollo Clean Code</h3>
               <p class="text-sm text-gray-600 dark:text-gray-400">Escribimos código TypeScript estricto, modular y fácil de mantener.</p>
             </div>
-            <div class="relative p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/30 border border-gray-100 dark:border-gray-700/50">
+            <div class="relative p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/30 border border-gray-100 dark:border-gray-700/50 scroll-animate-initial delay-300">
               <span class="text-4xl font-black text-primary-green/30 absolute top-4 right-4">04</span>
               <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Despliegue & Escalado</h3>
               <p class="text-sm text-gray-600 dark:text-gray-400">Lanzamiento en servidores VPS dedicados con monitorización y mantenimiento.</p>
@@ -319,33 +378,33 @@
       <section id="faq-software" class="py-20 bg-gray-50 dark:bg-[#080808]">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white">
+            <h2 class="section-title text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white scroll-animate-initial">
               Preguntas Frecuentes sobre Software & SaaS
             </h2>
           </div>
 
           <div class="space-y-4">
-            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30 scroll-animate-initial">
               <summary class="flex justify-between items-center px-6 py-5 cursor-pointer select-none">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
                   ¿Cuál es la diferencia entre una web a medida y un Software SaaS?
                 </h3>
                 <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
-                  <i class="fas fa-chevron-down text-sm"></i>
+                  <i class="fas fa-chevron-down text-sm" aria-hidden="true"></i>
                 </span>
               </summary>
               <div class="px-6 pb-6 text-gray-700 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4 text-sm">
-                Una web corporativa está orientada a la presentación e inmovilización de marca. Un Software SaaS (Software as a Service) es una aplicación funcional interactiva con usuarios, autenticación, base de datos, lógica de negocio y suscripciones recurrentes.
+                Una web corporativa está orientada a la presentación e imagen de marca. Un Software SaaS (Software as a Service) es una aplicación funcional interactiva con usuarios, autenticación, base de datos aislada, lógica de negocio y suscripciones recurrentes.
               </div>
             </details>
 
-            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30 scroll-animate-initial delay-100">
               <summary class="flex justify-between items-center px-6 py-5 cursor-pointer select-none">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
                   ¿Puedo adaptar uno de tus SaaS existentes a mi negocio?
                 </h3>
                 <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
-                  <i class="fas fa-chevron-down text-sm"></i>
+                  <i class="fas fa-chevron-down text-sm" aria-hidden="true"></i>
                 </span>
               </summary>
               <div class="px-6 pb-6 text-gray-700 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4 text-sm">
@@ -353,13 +412,13 @@
               </div>
             </details>
 
-            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30">
+            <details class="group bg-white dark:bg-gray-800/40 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:border-primary-green/50 open:ring-1 open:ring-primary-green/30 scroll-animate-initial delay-200">
               <summary class="flex justify-between items-center px-6 py-5 cursor-pointer select-none">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-green transition-colors">
                   ¿Qué tecnologías utilizas para el desarrollo de software?
                 </h3>
                 <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-green/10 text-primary-green transition-transform duration-300 group-open:rotate-180">
-                  <i class="fas fa-chevron-down text-sm"></i>
+                  <i class="fas fa-chevron-down text-sm" aria-hidden="true"></i>
                 </span>
               </summary>
               <div class="px-6 pb-6 text-gray-700 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700/50 pt-4 text-sm">
@@ -395,6 +454,6 @@
     <div id="cookie-banner-placeholder"></div>
 
     <div data-component="chatbot"></div>
-    <script src="/bundle-v2.min.js?v=2026.06.16.0749" defer></script>
+    <script src="/bundle-v2.min.js?v=2026.07.25.0925" defer></script>
   </body>
 </html>
