@@ -116,16 +116,16 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link
       rel="preload"
-      href="/fontawesome.min.css?v=2026.07.25.1409"
+      href="/fontawesome.min.css?v=2026.07.25.1422"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.07.25.1409" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.07.25.1422" />
     </noscript>
 
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.07.25.1409" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.07.25.1422" />
   </head>
   <body class=" ">
     <header id="mainHeader" class="sticky-header">
@@ -346,7 +346,7 @@
         class="relative overflow-hidden section-gradient-green"
       >
         <div
-          class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center min-h-[75vh]"
+          class="max-w-7xl mx-auto pt-24 pb-12 sm:pt-28 lg:pt-32 lg:pb-20 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center relative z-10"
         >
           <!-- Iconos flotantes estáticos -->
           <i
@@ -363,25 +363,41 @@
             aria-hidden="true"
           ></i>
 
-          <div class="max-w-4xl relative z-10">
-            <h1
-              class="text-base sm:text-lg lg:text-xl font-medium text-primary-green dark:text-primary-green animate-slide-in-right uppercase"
-            >
-              Nuestro portafolio de proyectos
+          <div class="max-w-4xl relative z-10 flex flex-col items-center text-center">
+            <!-- Google Reviews Trust Badge -->
+            <a href="https://maps.app.goo.gl/Bmz7EBRjRh4uxDME8" target="_blank" rel="noopener noreferrer" class="google-reviews-badge hover:scale-105 transition-transform duration-300 group cursor-pointer inline-flex animate-fade-in-down mb-6" aria-label="Ver 20 reseñas reales de 5 estrellas en Google Maps">
+              <div class="flex flex-col items-center">
+                <div class="flex text-yellow-500 text-sm gap-0.5 mb-1 group-hover:drop-shadow-[0_0_8px_rgba(251,188,5,0.6)] transition-all">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span class="text-[10px] sm:text-xs lg:text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest leading-tight sm:leading-none flex items-center gap-1.5 text-center">
+                  5.0 RATING EN 
+                  <span class="flex gap-0.5">
+                    <span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span>
+                  </span>
+                  · 20 RESEÑAS REALES
+                </span>
+              </div>
+            </a>
+
+            <h1 class="text-base sm:text-lg lg:text-xl font-medium text-primary-green dark:text-primary-green animate-slide-in-right">
+              Portafolio de Proyectos
             </h1>
-            <p
-              class="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-7xl font-black bg-clip-text text-transparent hero-gradient-text animate-slide-in-left leading-[1.15] lg:leading-[1.1] text-left sm:text-center"
-              style="animation-delay: 0.2s"
-            >
-              Casos de éxito reales
+            
+            <h2 class="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 dark:text-white leading-[1.15] lg:leading-[1.1] animate-slide-in-left" style="animation-delay: 0.1s">
+              Casos de éxito y resultados <span class="bg-clip-text text-transparent hero-gradient-text">reales</span>
+            </h2>
+
+            <p class="mt-6 text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed text-center font-normal animate-scale-in-core" style="animation-delay: 0.2s">
+              Una muestra de la calidad y diversidad de nuestros trabajos. Clientes satisfechos son nuestra mejor carta de presentación.
             </p>
-            <p
-              class="mt-6 sm:mt-10 text-xl sm:text-4xl font-thin text-gray-700 dark:text-gray-200 animate-scale-in-core text-left sm:text-center"
-              style="animation-delay: 0.4s"
-            >
-              Una muestra de la calidad y diversidad de nuestros trabajos.
-              Clientes satisfechos son nuestra mejor carta de presentación.
-            </p>
+
+            <div class="mt-10 flex flex-wrap gap-5 justify-center animate-slide-in-up" style="animation-delay: 0.3s">
+              <a href="https://cal.com/nelson-londono-dpobgm/estrategia30" target="_blank" rel="noopener noreferrer" class="cta-button hover:scale-105 transition-transform shadow-lg shadow-primary-green/20">
+                Empezar Auditoría Gratuita
+              </a>
+              <a href="#introduccion" class="px-7 py-3.5 rounded-xl border border-gray-200 dark:border-gray-700 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-all text-sm uppercase tracking-wider">Saber más</a>
+            </div>
           </div>
         </div>
       </section>
