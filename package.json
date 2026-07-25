@@ -31,11 +31,5 @@
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.2.2"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "@parcel/watcher"
-    ]
   }
 }
