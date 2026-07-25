@@ -1,27 +1,22 @@
 // src/js/chatbot.js
 import { CONFIG } from './config.js';
 
-const STORAGE_KEY = 'nelson_whatsapp_alert_dismissed';
-const COOLDOWN_MS = 24 * 60 * 60 * 1000; // 24 horas
-const ALERT_DELAY_MS = 8000; // 8 segundos de retención previa en la web
+const DISMISS_SESSION_KEY = 'nelson_whatsapp_bubble_dismissed';
+const ALERT_DELAY_MS = 6000; // 6 segundos de retención previa en la web
 
 /**
- * Comprueba si ha transcurrido el tiempo de enfriamiento desde la última interacción.
+ * Comprueba si la burbuja fue desestimada en la sesión actual.
  * @returns {boolean}
  */
-function isAlertCooldownExpired() {
-  const lastDismissed = localStorage.getItem(STORAGE_KEY);
-  if (!lastDismissed) return true;
-
-  const elapsed = Date.now() - parseInt(lastDismissed, 10);
-  return elapsed >= COOLDOWN_MS;
+function isBubbleDismissedInSession() {
+  return sessionStorage.getItem(DISMISS_SESSION_KEY) === 'true';
 }
 
 /**
- * Guarda la marca de tiempo de desestimación en el almacenamiento local.
+ * Registra que la burbuja fue desestimada en la sesión actual.
  */
-function recordDismissalTimestamp() {
-  localStorage.setItem(STORAGE_KEY, Date.now().toString());
+function recordSessionDismissal() {
+  sessionStorage.setItem(DISMISS_SESSION_KEY, 'true');
 }
 
 /**
@@ -61,7 +56,7 @@ class WhatsAppWidget {
   }
 
   scheduleEngagementAlert() {
-    if (!isAlertCooldownExpired()) return;
+    if (isBubbleDismissedInSession()) return;
 
     this.timer = setTimeout(() => {
       this.showBubble();
@@ -86,7 +81,7 @@ class WhatsAppWidget {
     }
 
     if (persist) {
-      recordDismissalTimestamp();
+      recordSessionDismissal();
     }
   }
 
