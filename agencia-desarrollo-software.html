@@ -24,16 +24,16 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="/fontawesome.min.css?v=2026.07.25.1330" 
+      href="/fontawesome.min.css?v=2026.07.25.1338" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.07.25.1330" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.07.25.1338" />
     </noscript>
 
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.07.25.1330" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.07.25.1338" />
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -121,14 +121,14 @@
 
       <!-- Hero Section Estático -->
       <section id="inicio-servicio" class="relative overflow-hidden section-gradient-green">
-        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center min-h-[75vh]">
+        <div class="max-w-7xl mx-auto pt-24 pb-16 sm:pt-32 lg:pt-36 lg:pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center relative z-10">
           
           <!-- Iconos flotantes estáticos -->
           <i class="fas fa-code-branch absolute top-1/4 left-4 text-6xl lg:text-8xl transform -rotate-12 z-0 animate-float-up-down text-glow-green dark:text-glow-blue opacity-50 dark:opacity-30" aria-hidden="true"></i>
           <i class="fas fa-cubes absolute bottom-1/4 right-4 text-6xl lg:text-8xl transform rotate-12 z-0 animate-float-down-up text-glow-blue dark:text-glow-green opacity-50 dark:opacity-30" aria-hidden="true"></i>
           <i class="fas fa-layer-group absolute top-1/2 left-1/3 text-5xl lg:text-7xl text-gray-400/50 dark:text-gray-500/30 transform z-0 animate-float-up-down" style="animation-duration: 10s;" aria-hidden="true"></i>
 
-          <div class="max-w-4xl relative z-10">
+          <div class="max-w-4xl relative z-10 flex flex-col items-center text-center">
             <!-- Google Reviews Trust Badge -->
             <a href="https://maps.app.goo.gl/Bmz7EBRjRh4uxDME8" target="_blank" rel="noopener noreferrer" class="google-reviews-badge hover:scale-105 transition-transform duration-300 group cursor-pointer inline-flex animate-fade-in-down mb-6" aria-label="Ver 20 reseñas reales de 5 estrellas en Google Maps">
               <div class="flex flex-col items-center">
@@ -145,15 +145,24 @@
               </div>
             </a>
 
-            <h1 class="text-base sm:text-lg lg:text-xl font-medium text-primary-green dark:text-primary-green animate-slide-in-right uppercase" style="animation-delay: 0.2s">
+            <h1 class="text-base sm:text-lg lg:text-xl font-medium text-primary-green dark:text-primary-green animate-slide-in-right">
               Desarrollo de software y soluciones SaaS
             </h1>
-            <p class="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-7xl font-black bg-clip-text text-transparent hero-gradient-text animate-slide-in-left leading-[1.15] lg:leading-[1.1] text-left sm:text-center" style="animation-delay: 0.4s">
-              Construimos software robusto y productos SaaS a medida
-            </p>
-            <p class="mt-6 sm:mt-10 text-xl sm:text-4xl font-thin text-gray-700 dark:text-gray-200 animate-scale-in-core text-left sm:text-center" style="animation-delay: 0.6s">
+            
+            <h2 class="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 dark:text-white leading-[1.15] lg:leading-[1.1] animate-slide-in-left" style="animation-delay: 0.1s">
+              Construimos software robusto y productos <span class="bg-clip-text text-transparent hero-gradient-text">SaaS a medida</span>
+            </h2>
+
+            <p class="mt-6 text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed text-center font-normal animate-scale-in-core" style="animation-delay: 0.2s">
               Transformamos necesidades complejas en aplicaciones web de alto rendimiento, arquitecturas multi-tenant y productos SaaS que generan ingresos recurrentes.
             </p>
+
+            <div class="mt-10 flex flex-wrap gap-5 justify-center animate-slide-in-up" style="animation-delay: 0.3s">
+              <a href="https://cal.com/nelson-londono-dpobgm/estrategia30" target="_blank" rel="noopener noreferrer" class="cta-button hover:scale-105 transition-transform shadow-lg shadow-primary-green/20">
+                Empezar Auditoría Gratuita
+              </a>
+              <a href="#soluciones" class="px-7 py-3.5 rounded-xl border border-gray-200 dark:border-gray-700 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-all text-sm uppercase tracking-wider">Saber más</a>
+            </div>
           </div>
         </div>
       </section>
