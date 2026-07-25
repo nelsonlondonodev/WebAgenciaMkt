@@ -681,7 +681,10 @@ main {
 }
 
 #chat-widget-button {
-  background-color: #1d4ed8 !important;
+  background-color: #25D366 !important;
+}
+#chat-widget-button:hover {
+  background-color: #20bd5a !important;
 }
 #chat-window {
   background-color: var(--color-light-card) !important;

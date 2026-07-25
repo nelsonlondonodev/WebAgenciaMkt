@@ -1,9 +1,10 @@
-<!-- Chatbot Widget -->
+<!-- WhatsApp Interactive Confirmation Card & Widget -->
 <div id="chat-widget-container" class="fixed bottom-5 right-5 z-[9999] flex flex-col items-end">
-  <!-- Invitation Bubble (Desktop only) -->
+  
+  <!-- Soft Invitation Tooltip Bubble (Desplegable suave tras 6 seg) -->
   <div 
     id="chat-invitation-bubble" 
-    class="hidden sm:flex mb-3 mr-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-white/20 dark:border-gray-700 shadow-xl p-3 rounded-2xl text-sm font-medium text-gray-800 dark:text-white max-w-[220px] animate-fade-in-up relative group"
+    class="sm:flex mb-3 mr-2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-md border border-emerald-500/20 dark:border-emerald-500/30 shadow-2xl p-3.5 rounded-2xl text-sm font-medium text-gray-800 dark:text-white max-w-[250px] relative group items-center gap-3 cursor-pointer"
     style="display: none;"
   >
     <button 
@@ -11,87 +12,95 @@
       class="absolute -top-2 -left-2 w-6 h-6 bg-white dark:bg-gray-700 rounded-full shadow-md flex items-center justify-center text-gray-500 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity border border-gray-100 dark:border-gray-600"
       aria-label="Cerrar invitación"
     >
-      <i class="fas fa-times text-[10px]"></i>
+      <i class="fas fa-times text-[10px]" aria-hidden="true"></i>
     </button>
-    ¡Hola! 👋 Soy Aurelio, ¿en qué puedo ayudarte hoy?
-    <!-- Little arrow -->
-    <div class="absolute -bottom-2 right-6 w-4 h-4 bg-white/80 dark:bg-gray-800/80 border-r border-b border-white/20 dark:border-gray-700 rotate-45"></div>
-  </div>
-
-  <button
-    id="chat-widget-button"
-    class="bg-primary-blue text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:bg-primary-green transition-colors animate-bounce relative"
-    aria-label="Abrir chat"
-  >
-    <i class="fas fa-comment-dots fa-2x"></i>
-    <!-- Notification Badge -->
-    <span 
-      id="chat-notification-badge" 
-      class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-md animate-pulse hidden"
-    >
-      1
-    </span>
-  </button>
-</div>
-
-<div
-  id="chat-window"
-  class="hidden fixed bottom-24 right-5 left-5 sm:left-auto sm:right-6 sm:bottom-28 sm:w-[400px] bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-2xl border border-white/20 dark:border-white/10 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] z-[10001] flex flex-col overflow-hidden transition-all duration-500 ease-in-out origin-bottom sm:origin-bottom-right sm:h-[600px] h-[80vh] max-h-[85vh]"
->
-  <!-- Chat Header -->
-  <div class="bg-gradient-to-r from-primary-blue to-primary-green p-5 flex justify-between items-center shadow-lg relative overflow-hidden">
-    <!-- Subtle pattern or glow -->
-    <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 blur-3xl rounded-full -mr-16 -mt-16"></div>
     
-    <div class="flex items-center space-x-3 relative z-10">
-      <div class="relative">
-        <div class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/30 shadow-inner">
-          <i class="fas fa-robot text-white text-xl"></i>
+    <div class="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0 text-emerald-500 text-lg">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </div>
+    
+    <div class="text-xs leading-snug">
+      <span class="font-bold text-gray-900 dark:text-white block mb-0.5">¡Hola! 👋</span>
+      ¿Dudas sobre tu proyecto? Hablemos por WhatsApp 💬
+    </div>
+
+    <!-- Flecha hacia el botón -->
+    <div class="absolute -bottom-2 right-6 w-4 h-4 bg-white/95 dark:bg-gray-800/95 border-r border-b border-emerald-500/20 dark:border-emerald-500/30 rotate-45"></div>
+  </div>
+
+  <!-- Tarjeta Modal de Confirmación de WhatsApp -->
+  <div 
+    id="whatsapp-card-modal" 
+    class="hidden mb-4 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-gray-200 dark:border-gray-800 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] w-[320px] sm:w-[360px] overflow-hidden transition-all duration-300 transform origin-bottom-right animate-fade-in-up"
+    aria-hidden="true"
+  >
+    <!-- Card Header -->
+    <div class="bg-gradient-to-r from-[#075E54] to-[#128C7E] p-4 text-white flex items-center justify-between relative overflow-hidden">
+      <div class="flex items-center space-x-3 relative z-10">
+        <div class="relative">
+          <div class="w-12 h-12 rounded-full bg-white/20 p-0.5 border border-white/30 overflow-hidden shadow-inner flex items-center justify-center">
+            <img src="/image/favicon.webp" alt="Nelson Londoño" class="w-full h-full object-cover rounded-full" width="48" height="48" />
+          </div>
+          <!-- Status dot -->
+          <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-400 border-2 border-[#075E54] rounded-full"></span>
         </div>
-        <!-- Status dot -->
-        <span class="absolute -bottom-1 right-0 w-4 h-4 bg-green-500 border-2 border-primary-green rounded-full animate-pulse"></span>
+        <div>
+          <h3 class="font-bold text-base leading-tight">Nelson Londoño</h3>
+          <p class="text-emerald-100 text-xs flex items-center gap-1 font-medium mt-0.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            En línea en WhatsApp
+          </p>
+        </div>
       </div>
-      <div>
-        <h3 class="text-white font-bold tracking-wide">Aurelio</h3>
-        <p class="text-white/70 text-[10px] uppercase tracking-widest font-black">Asistente Virtual</p>
-      </div>
-    </div>
 
-    <button
-      id="close-chat-window"
-      class="w-10 h-10 rounded-full bg-black/10 hover:bg-black/20 text-white flex items-center justify-center transition-all duration-300 backdrop-blur-md group"
-      aria-label="Cerrar chat"
-    >
-      <i class="fas fa-times group-hover:rotate-90 transition-transform duration-500"></i>
-    </button>
-  </div>
-
-  <!-- Messages Area -->
-  <div id="chat-messages" class="flex-1 p-6 overflow-y-auto space-y-4 scroll-smooth custom-chatbot-scrollbar relative">
-    <!-- Subtle Background Brand Mark -->
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] dark:opacity-[0.05]">
-      <img src="/image/logo-nelson.webp" alt="" class="w-40 logo-invert-on-dark grayscale" width="160" height="44">
-    </div>
-    <!-- Messages will be appended here -->
-  </div>
-
-  <!-- Input Area -->
-  <div class="p-6 pt-2">
-    <div class="relative flex items-center bg-gray-100/50 dark:bg-white/5 rounded-full p-1 border border-gray-200 dark:border-white/10 shadow-sm focus-within:border-primary-green/50 focus-within:bg-white dark:focus-within:bg-white/10 transition-all duration-300">
-      <input
-        type="text"
-        id="chat-input"
-        class="flex-1 bg-transparent border-none focus:ring-0 outline-none px-5 py-3 text-base sm:text-sm text-gray-800 dark:text-white placeholder-gray-500"
-        placeholder="Escribe tu mensaje aquí..."
-      />
-      <button
-        id="chat-send"
-        class="w-11 h-11 bg-primary-blue hover:bg-primary-green text-white rounded-full transition-all duration-500 flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 group"
-        aria-label="Enviar mensaje"
+      <!-- Close Card Button -->
+      <button 
+        id="close-whatsapp-card" 
+        class="w-8 h-8 rounded-full bg-black/15 hover:bg-black/30 text-white flex items-center justify-center transition-colors border border-white/10"
+        aria-label="Cerrar ventana de WhatsApp"
       >
-        <i class="fas fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></i>
+        <i class="fas fa-times text-sm" aria-hidden="true"></i>
       </button>
     </div>
-    <p class="text-center text-[9px] text-gray-400 mt-3 uppercase tracking-[0.1em] sm:tracking-[0.2em] font-medium whitespace-nowrap overflow-hidden text-ellipsis">Powered by Nelson Londoño Agencia</p>
+
+    <!-- Card Body -->
+    <div class="p-5 space-y-4 bg-gray-50/50 dark:bg-gray-900/50">
+      <div class="bg-white dark:bg-gray-800 p-4 rounded-2xl rounded-tl-none border border-gray-100 dark:border-gray-700/60 shadow-sm text-sm text-gray-800 dark:text-gray-200 leading-relaxed">
+        <p class="font-semibold text-gray-900 dark:text-white mb-1">¡Hola! 👋</p>
+        <p>¿Tienes alguna duda sobre desarrollo web, SEO o soluciones de software? Escríbeme por WhatsApp y te respondo al instante.</p>
+        <span class="block text-[10px] text-gray-400 text-right mt-2 font-mono">Respuesta inmediata ⚡</span>
+      </div>
+
+      <!-- Botón de Confirmación Principal para Abrir WhatsApp -->
+      <a 
+        id="confirm-whatsapp-btn"
+        href="https://wa.me/34604547203?text=Hola%20Nelson%2C%20vengo%20de%20tu%20web%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20tus%20servicios." 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="w-full py-3.5 px-5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2.5 group cursor-pointer"
+        aria-label="Iniciar chat directo en WhatsApp"
+      >
+        <i class="fab fa-whatsapp text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+        <span>Iniciar Chat en WhatsApp</span>
+        <i class="fas fa-arrow-right text-xs opacity-70 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
+      </a>
+      
+      <p class="text-[10px] text-center text-gray-400 dark:text-gray-500 uppercase tracking-widest font-medium">
+        Atención Directa 24/7 vía Waboce AI
+      </p>
+    </div>
   </div>
+
+  <!-- Botón Flotante Verde Oficial Limpio -->
+  <button
+    id="chat-widget-button"
+    class="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.45)] hover:shadow-[0_12px_35px_rgba(37,211,102,0.65)] transition-all duration-300 hover:scale-110 active:scale-95 group relative cursor-pointer"
+    aria-label="Abrir opciones de contacto por WhatsApp"
+    aria-expanded="false"
+  >
+    <i class="fab fa-whatsapp text-3xl group-hover:rotate-12 transition-transform duration-300" aria-hidden="true"></i>
+    <!-- Active Status Indicator -->
+    <span class="absolute top-0 right-0 w-4 h-4 bg-emerald-400 border-2 border-white dark:border-gray-900 rounded-full animate-ping"></span>
+    <span class="absolute top-0 right-0 w-4 h-4 bg-emerald-400 border-2 border-white dark:border-gray-900 rounded-full"></span>
+  </button>
 </div>
