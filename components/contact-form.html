@@ -28,6 +28,18 @@
         method="POST"
         class="grid grid-cols-1 gap-y-8 relative z-10"
       >
+        <!-- Campo Honeypot (Trampa Anti-Bot) -->
+        <div class="hidden sr-only" aria-hidden="true">
+          <label for="b_website">No rellenar este campo</label>
+          <input
+            type="text"
+            name="b_website"
+            id="b_website"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
         <!-- Campo Nombre -->
         <div class="relative group scroll-animate-initial">
           <input
