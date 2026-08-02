@@ -1,4 +1,156 @@
-import { CONFIG } from './config.js';
+/**
+ * Verifica si el campo trampa (honeypot) fue completado por un bot.
+ * @param {FormData} formData
+ * @returns {boolean}
+ */
+export function isHoneypotTriggered(formData) {
+  const honeypotValue = formData.get('b_website');
+  return typeof honeypotValue === 'string' && honeypotValue.trim().length > 0;
+}
+
+/**
+ * Detecta caracteres cirílicos (rusos), asiáticos o enlaces sospechosos típicos de spam.
+ * @param {string} text
+ * @returns {boolean}
+ */
+export function containsSpamPatterns(text) {
+  if (!text || typeof text !== 'string') return false;
+  
+  const cyrillicRegex = /[\u0400-\u04FF]/;
+  const cjkRegex = /[\u4E00-\u9FFF]/;
+  
+  if (cyrillicRegex.test(text) || cjkRegex.test(text)) {
+    return true;
+  }
+  
+  const linkCount = (text.match(/https?:\/\//gi) || []).length;
+  return linkCount > 2;
+}
+
+/**
+ * Valida si la presentación del formulario ocurrió en menos del tiempo mínimo de llenado humano.
+ * @param {number} renderTimestamp
+ * @param {number} minSeconds
+ * @returns {boolean}
+ */
+export function isSubmittedTooFast(renderTimestamp, minSeconds = 3) {
+  if (!renderTimestamp) return false;
+  const elapsedSeconds = (Date.now() - renderTimestamp) / 1000;
+  return elapsedSeconds < minSeconds;
+}
+
+/**
+ * Muestra el modal de pre-cualificación para envíos del formulario de contacto.
+ * @param {Function} onConfirm Callback a ejecutar si el usuario califica y confirma.
+ */
+export function showContactQualificationModal(onConfirm) {
+  const modalId = 'contact-qualification-modal';
+  if (document.getElementById(modalId)) return;
+
+  const modalHtml = `
+    <div id="${modalId}" class="fixed inset-0 z-[10005] flex items-center justify-center p-4 bg-black/70 backdrop-blur-md transition-opacity duration-300 animate-fade-in" aria-modal="true" role="dialog" aria-labelledby="qual-modal-title">
+      <div class="relative w-full max-w-lg rounded-3xl bg-white/95 dark:bg-zinc-950/90 border border-gray-100 dark:border-white/10 p-6 sm:p-8 text-gray-800 dark:text-gray-200 shadow-2xl animate-scale-in-core transition-transform duration-300">
+        
+        <div class="flex items-start justify-between pb-4 border-b border-gray-100 dark:border-white/10">
+          <h3 id="qual-modal-title" class="text-xl sm:text-2xl font-black tracking-tight text-gray-900 dark:text-white flex items-center gap-2.5">
+            <span class="text-amber-500 text-2xl" aria-hidden="true">⚠️</span>
+            Verificación antes de enviar
+          </h3>
+          <button id="qual-modal-close" class="p-1 -mr-2 text-gray-400 hover:text-gray-900 dark:hover:text-white text-3xl font-light leading-none transition-colors" aria-label="Cerrar modal">&times;</button>
+        </div>
+
+        <div class="mt-5 space-y-4">
+          <p class="text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-300">
+            Para ofrecerte la mejor propuesta estratégica y respuesta prioritaria, nos enfocamos en perfiles que califiquen:
+          </p>
+
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/25">
+            <h4 class="text-sm font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-2 flex items-center gap-2">
+              <span aria-hidden="true">✅</span> ¿Quién califica?
+            </h4>
+            <ul class="text-xs sm:text-sm space-y-1.5 text-gray-700 dark:text-gray-300">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 mt-0.5">•</span>
+                <span>Empresas, autónomos y PYMEs que buscan <strong>desarrollo web profesional, SEO o software</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 mt-0.5">•</span>
+                <span>Negocios decididos a implementar <strong>automatizaciones con IA</strong> para optimizar procesos.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 mt-0.5">•</span>
+                <span>Proyectos con intención real de inversión y presupuesto asignado.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-rose-500/5 border border-rose-500/15">
+            <h4 class="text-sm font-extrabold uppercase tracking-wider text-rose-500/80 dark:text-rose-400 mb-2 flex items-center gap-2">
+              <span aria-hidden="true">❌</span> ¿Quién NO califica?
+            </h4>
+            <ul class="text-xs sm:text-sm space-y-1.5 text-gray-600 dark:text-gray-400">
+              <li class="flex items-start gap-2">
+                <span>•</span> <span>Consultas de soporte técnico gratuito para software de terceros.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span>•</span> <span>Solicitudes de empleo, spam comercial automatizado o venta de servicios.</span>
+              </li>
+            </ul>
+          </div>
+
+          <p class="text-xs text-gray-500 dark:text-gray-400 text-center italic mt-2">
+            ¿Cumples con estos requisitos y estás listo para llevar a cabo tu proyecto?
+          </p>
+        </div>
+
+        <div class="mt-6 flex flex-col-reverse sm:flex-row gap-3 justify-end border-t border-gray-100 dark:border-white/10 pt-4">
+          <button id="qual-modal-cancel" class="px-5 py-3 rounded-xl border border-gray-200 dark:border-zinc-800 text-gray-700 dark:text-gray-300 font-bold hover:bg-gray-50 dark:hover:bg-zinc-900 transition-colors text-sm uppercase tracking-wider">
+            Cancelar / Revisar
+          </button>
+          <button id="qual-modal-confirm" class="px-6 py-3 rounded-xl bg-gradient-to-r from-primary-blue to-primary-green hover:opacity-90 text-white font-bold shadow-lg transition-all active:scale-95 text-sm uppercase tracking-wider flex items-center justify-center gap-2">
+            <i class="fas fa-paper-plane text-sm" aria-hidden="true"></i>
+            <span>Sí, califico y enviar</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  `;
+
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = modalHtml.trim();
+  const modalEl = wrapper.firstChild;
+  document.body.appendChild(modalEl);
+  document.body.classList.add('overflow-hidden');
+
+  const closeModal = () => {
+    modalEl.classList.add('opacity-0');
+    setTimeout(() => {
+      if (document.body.contains(modalEl)) {
+        document.body.removeChild(modalEl);
+      }
+      document.body.classList.remove('overflow-hidden');
+    }, 300);
+  };
+
+  const closeBtn = modalEl.querySelector('#qual-modal-close');
+  const cancelBtn = modalEl.querySelector('#qual-modal-cancel');
+  const confirmBtn = modalEl.querySelector('#qual-modal-confirm');
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+  if (confirmBtn) {
+    confirmBtn.addEventListener('click', () => {
+      closeModal();
+      onConfirm();
+    });
+  }
+
+  modalEl.addEventListener('click', (e) => {
+    if (e.target === modalEl) closeModal();
+  });
+}
 
 /**
  * Attaches submission logic to a specific contact form element.
@@ -10,15 +162,14 @@ function attachContactFormListeners(contactForm) {
   const statusMessage =
     contactForm.querySelector('#form-status') || contactForm.nextElementSibling; // Fallback if status is outside
   const submitButton = contactForm.querySelector('button[type="submit"]');
+  const renderTimestamp = Date.now();
 
   // Helper para manejar el estado visual
   const updateStatus = (message, type) => {
     if (!statusMessage) return;
 
-    // Si statusMessage no tiene estructura, solo texto (fallback simple)
     statusMessage.textContent = message;
 
-    // Classes
     const baseClasses = 'text-center font-semibold mt-4 block';
     const typeClasses = {
       error: 'text-red-600',
@@ -35,18 +186,8 @@ function attachContactFormListeners(contactForm) {
     }
   };
 
-  contactForm.addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    if (!contactForm.checkValidity()) {
-      contactForm.reportValidity();
-      updateStatus('Por favor, completa todos los campos requeridos.', 'error');
-      return;
-    }
-
-    const formData = new FormData(contactForm);
+  const performActualSubmit = async (formData) => {
     updateStatus('Enviando...', 'loading');
-
     if (submitButton) submitButton.disabled = true;
 
     try {
@@ -59,9 +200,6 @@ function attachContactFormListeners(contactForm) {
       if (response.ok) {
         updateStatus('¡Mensaje enviado con éxito!', 'success');
         contactForm.reset();
-
-        // Si está en un modal, cerrar después de un tiempo podría ser buena UX,
-        // pero por ahora solo mostramos éxito.
       } else {
         updateStatus(
           'Hubo un error al enviar el mensaje. Inténtalo de nuevo.',
@@ -80,6 +218,37 @@ function attachContactFormListeners(contactForm) {
         }, 3000);
       }
     }
+  };
+
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      updateStatus('Por favor, completa todos los campos requeridos.', 'error');
+      return;
+    }
+
+    const formData = new FormData(contactForm);
+
+    // --- CAPA 1: FILTROS SILENCIOSOS ANTI-BOT ---
+    const isBot =
+      isHoneypotTriggered(formData) ||
+      containsSpamPatterns(formData.get('name')) ||
+      containsSpamPatterns(formData.get('message')) ||
+      isSubmittedTooFast(renderTimestamp, 3);
+
+    if (isBot) {
+      // Simular éxito para engatusar al bot sin enviar nada a n8n
+      updateStatus('¡Mensaje enviado con éxito!', 'success');
+      contactForm.reset();
+      return;
+    }
+
+    // --- CAPA 2: MODAL DE PRE-CUALIFICACIÓN ---
+    showContactQualificationModal(() => {
+      performActualSubmit(formData);
+    });
   });
 }
 
