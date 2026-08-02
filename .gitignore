@@ -26,6 +26,11 @@ Thumbs.db
 
 # .htaccess
 
+# Ignorar propuestas y archivos PDF temporales
+*.pdf
+propuesta*
+
+
 
 
 
