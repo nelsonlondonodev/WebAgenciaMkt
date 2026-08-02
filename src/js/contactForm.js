@@ -40,14 +40,47 @@ export function isSubmittedTooFast(renderTimestamp, minSeconds = 3) {
 }
 
 /**
- * Muestra el modal de pre-cualificación para envíos del formulario de contacto.
- * @param {Function} onConfirm Callback a ejecutar si el usuario califica y confirma.
+ * Evalúa si la solicitud pertenece a un bot automatizado (Honeypot, Spam de caracteres o Time-check).
+ * @param {FormData} formData
+ * @param {number} renderTimestamp
+ * @param {number} [minSeconds=3]
+ * @returns {boolean}
  */
-export function showContactQualificationModal(onConfirm) {
-  const modalId = 'contact-qualification-modal';
-  if (document.getElementById(modalId)) return;
+export function isBotSubmission(formData, renderTimestamp, minSeconds = 3) {
+  if (isHoneypotTriggered(formData)) return true;
+  if (isSubmittedTooFast(renderTimestamp, minSeconds)) return true;
 
-  const modalHtml = `
+  const name = formData.get('name');
+  const message = formData.get('message');
+  
+  if (typeof name === 'string' && containsSpamPatterns(name)) return true;
+  if (typeof message === 'string' && containsSpamPatterns(message)) return true;
+
+  return false;
+}
+
+/**
+ * Realiza la petición HTTP POST al endpoint del formulario.
+ * @param {string} actionUrl
+ * @param {FormData} formData
+ * @returns {Promise<boolean>}
+ */
+export async function sendContactFormData(actionUrl, formData) {
+  const response = await fetch(actionUrl, {
+    method: 'POST',
+    body: formData,
+    headers: { Accept: 'application/json' },
+  });
+  return response.ok;
+}
+
+/**
+ * Genera la plantilla HTML para el modal de pre-cualificación.
+ * @param {string} modalId
+ * @returns {string}
+ */
+function getQualificationModalTemplate(modalId) {
+  return `
     <div id="${modalId}" class="fixed inset-0 z-[10005] flex items-center justify-center p-4 bg-black/70 backdrop-blur-md transition-opacity duration-300 animate-fade-in" aria-modal="true" role="dialog" aria-labelledby="qual-modal-title">
       <div class="relative w-full max-w-lg rounded-3xl bg-white/95 dark:bg-zinc-950/90 border border-gray-100 dark:border-white/10 p-6 sm:p-8 text-gray-800 dark:text-gray-200 shadow-2xl animate-scale-in-core transition-transform duration-300">
         
@@ -116,23 +149,15 @@ export function showContactQualificationModal(onConfirm) {
       </div>
     </div>
   `;
+}
 
-  const wrapper = document.createElement('div');
-  wrapper.innerHTML = modalHtml.trim();
-  const modalEl = wrapper.firstChild;
-  document.body.appendChild(modalEl);
-  document.body.classList.add('overflow-hidden');
-
-  const closeModal = () => {
-    modalEl.classList.add('opacity-0');
-    setTimeout(() => {
-      if (document.body.contains(modalEl)) {
-        document.body.removeChild(modalEl);
-      }
-      document.body.classList.remove('overflow-hidden');
-    }, 300);
-  };
-
+/**
+ * Configura los eventos e interacciones del modal de pre-cualificación.
+ * @param {HTMLElement} modalEl
+ * @param {Function} onConfirm
+ * @param {Function} closeModal
+ */
+function setupQualificationModalEvents(modalEl, onConfirm, closeModal) {
   const closeBtn = modalEl.querySelector('#qual-modal-close');
   const cancelBtn = modalEl.querySelector('#qual-modal-cancel');
   const confirmBtn = modalEl.querySelector('#qual-modal-confirm');
@@ -153,18 +178,45 @@ export function showContactQualificationModal(onConfirm) {
 }
 
 /**
- * Attaches submission logic to a specific contact form element.
+ * Muestra el modal de pre-cualificación para envíos del formulario de contacto.
+ * @param {Function} onConfirm Callback a ejecutar si el usuario califica y confirma.
+ */
+export function showContactQualificationModal(onConfirm) {
+  const modalId = 'contact-qualification-modal';
+  if (document.getElementById(modalId)) return;
+
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = getQualificationModalTemplate(modalId).trim();
+  const modalEl = wrapper.firstChild;
+
+  document.body.appendChild(modalEl);
+  document.body.classList.add('overflow-hidden');
+
+  const closeModal = () => {
+    modalEl.classList.add('opacity-0');
+    setTimeout(() => {
+      if (document.body.contains(modalEl)) {
+        document.body.removeChild(modalEl);
+      }
+      document.body.classList.remove('overflow-hidden');
+    }, 300);
+  };
+
+  setupQualificationModalEvents(modalEl, onConfirm, closeModal);
+}
+
+/**
+ * Adjunta la lógica de validación, filtros anti-bot y envío al formulario de contacto.
  * @param {HTMLFormElement} contactForm
  */
 function attachContactFormListeners(contactForm) {
   if (!contactForm) return;
 
   const statusMessage =
-    contactForm.querySelector('#form-status') || contactForm.nextElementSibling; // Fallback if status is outside
+    contactForm.querySelector('#form-status') || contactForm.nextElementSibling;
   const submitButton = contactForm.querySelector('button[type="submit"]');
   const renderTimestamp = Date.now();
 
-  // Helper para manejar el estado visual
   const updateStatus = (message, type) => {
     if (!statusMessage) return;
 
@@ -186,18 +238,14 @@ function attachContactFormListeners(contactForm) {
     }
   };
 
-  const performActualSubmit = async (formData) => {
+  const handleFormSubmission = async (formData) => {
     updateStatus('Enviando...', 'loading');
     if (submitButton) submitButton.disabled = true;
 
     try {
-      const response = await fetch(contactForm.action, {
-        method: 'POST',
-        body: formData,
-        headers: { Accept: 'application/json' },
-      });
+      const isSuccess = await sendContactFormData(contactForm.action, formData);
 
-      if (response.ok) {
+      if (isSuccess) {
         updateStatus('¡Mensaje enviado con éxito!', 'success');
         contactForm.reset();
       } else {
@@ -231,23 +279,14 @@ function attachContactFormListeners(contactForm) {
 
     const formData = new FormData(contactForm);
 
-    // --- CAPA 1: FILTROS SILENCIOSOS ANTI-BOT ---
-    const isBot =
-      isHoneypotTriggered(formData) ||
-      containsSpamPatterns(formData.get('name')) ||
-      containsSpamPatterns(formData.get('message')) ||
-      isSubmittedTooFast(renderTimestamp, 3);
-
-    if (isBot) {
-      // Simular éxito para engatusar al bot sin enviar nada a n8n
+    if (isBotSubmission(formData, renderTimestamp, 3)) {
       updateStatus('¡Mensaje enviado con éxito!', 'success');
       contactForm.reset();
       return;
     }
 
-    // --- CAPA 2: MODAL DE PRE-CUALIFICACIÓN ---
     showContactQualificationModal(() => {
-      performActualSubmit(formData);
+      handleFormSubmission(formData);
     });
   });
 }
