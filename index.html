@@ -25,19 +25,60 @@
     </script>
     
     <!-- Carga local optimizada de Font Awesome (asíncrona para evitar bloqueo de renderizado) -->
-    <link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.06.1745" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.06.1745" /></noscript>
+    <link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.06.1748" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.06.1748" /></noscript>
 
     <!-- Preload del Hero LCP para carga instantánea -->
     <link rel="preload" as="image" href="./image/foto-nelson-londono.webp" fetchpriority="high" />
 
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.08.06.1745" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.08.06.1748" />
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://nelsonlondono.es/#website",
+          "url": "https://nelsonlondono.es/",
+          "name": "Nelson Londoño | Agencia de Marketing Digital y Desarrollo Web",
+          "description": "Diseño Web de Alto Rendimiento, SEO Local y Automatizaciones con IA en Madrid.",
+          "publisher": {
+            "@id": "https://nelsonlondono.es/#organization"
+          },
+          "inLanguage": "es-ES"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nelsonlondono.es/#webpage",
+          "url": "https://nelsonlondono.es/",
+          "name": "Diseño Web y SEO en Fuente el Saz | Nelson Londoño",
+          "isPartOf": {
+            "@id": "https://nelsonlondono.es/#website"
+          },
+          "about": {
+            "@id": "https://nelsonlondono.es/#organization"
+          },
+          "description": "Páginas ultrarápidas, SEO local y automatizaciones con IA para impulsar tu negocio en Fuente el Saz y Madrid.",
+          "inLanguage": "es-ES"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://nelsonlondono.es/#person",
+          "name": "Nelson Londoño",
+          "jobTitle": "Consultor SEO & Desarrollador Web",
+          "description": "Especialista en SEO técnico, desarrollo de software a medida y automatización de procesos con Inteligencia Artificial.",
+          "image": "https://nelsonlondono.es/image/foto-nelson-londono.webp",
+          "url": "https://nelsonlondono.es/",
+          "sameAs": [
+            "https://www.linkedin.com/in/nelson-londo%C3%B1o-dev/",
+            "https://github.com/nelsonlondonodev",
+            "https://www.instagram.com/soynelsonlondono/",
+            "https://www.tiktok.com/@soy_nelson_londono",
+            "https://www.youtube.com/channel/UCCpVyQvusmujPrE3CTURI6A"
+          ]
+        },
         {
           "@type": "ProfessionalService",
           "@id": "https://nelsonlondono.es/#organization",
@@ -45,6 +86,9 @@
           "image": "https://nelsonlondono.es/image/foto-nelson-londono.webp",
           "url": "https://nelsonlondono.es/",
           "telephone": "+34 663 97 54 28",
+          "founder": {
+            "@id": "https://nelsonlondono.es/#person"
+          },
           "description": "Agencia de marketing en Fuente el Saz especializada en SEO Local, Diseño Web de Alto Rendimiento y Automatizaciones con IA.",
           "address": {
             "@type": "PostalAddress",
@@ -149,6 +193,7 @@
         },
         {
           "@type": "FAQPage",
+          "@id": "https://nelsonlondono.es/#faq",
           "mainEntity": [
             {
               "@type": "Question",
@@ -186,6 +231,7 @@
         },
         {
           "@type": "VideoObject",
+          "@id": "https://nelsonlondono.es/#video",
           "name": "Estrategia Digital y SEO en Fuente el Saz | Nelson Londoño",
           "description": "Descubre cómo potenciar la visibilidad y ventas de tu negocio con estrategias de marketing digital, SEO de alto rendimiento y automatizaciones con IA.",
           "thumbnailUrl": [
