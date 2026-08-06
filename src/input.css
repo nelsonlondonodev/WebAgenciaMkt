@@ -252,7 +252,9 @@
     @apply block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-primary-blue dark:hover:text-primary-green transition-colors;
   }
   .cta-button {
-    @apply inline-block bg-primary-green hover:bg-emerald-500 dark:bg-primary-blue dark:hover:bg-sky-500 text-white font-bold py-4 px-10 rounded-2xl shadow-[0_10px_20px_-5px_rgba(16,185,129,0.3)] dark:shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:shadow-2xl transform hover:-translate-y-1 active:scale-95 transition-[transform,shadow,background-color] duration-500 ease-out;
+    /* Fondos oscurecidos para cumplir el 4.5:1 de WCAG AA con texto blanco:
+       emerald-700 = 5.48:1 y blue-600 = 5.17:1 (antes 2.54:1 y 3.68:1). */
+    @apply inline-block bg-emerald-700 hover:bg-emerald-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-2xl shadow-[0_10px_20px_-5px_rgba(16,185,129,0.3)] dark:shadow-[0_10px_20px_-5px_rgba(37,99,235,0.3)] hover:shadow-2xl transform hover:-translate-y-1 active:scale-95 transition-[transform,shadow,background-color] duration-500 ease-out;
   }
   .section-title {
     @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center mb-8 tracking-tighter text-gray-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br dark:from-white dark:via-gray-200 dark:to-white/40 relative pb-6 leading-tight;
@@ -340,7 +342,8 @@
     @apply flex flex-col;
   }
   .cookie-banner-actions {
-    @apply flex items-center space-x-4 mt-4 justify-end;
+    /* gap en lugar de space-x para que el espaciado se mantenga al envolver en móvil */
+    @apply mt-4 flex flex-wrap items-center justify-end gap-3;
   }
   .cookie-button-accept {
     @apply bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out;
@@ -349,7 +352,8 @@
     @apply bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out;
   }
   .cookie-button-settings {
-    @apply text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white underline;
+    /* min-h y padding para que sea un objetivo táctil real (>=24px), no solo texto */
+    @apply inline-flex min-h-[44px] items-center justify-center px-3 py-2 text-gray-600 underline hover:text-gray-800 dark:text-gray-300 dark:hover:text-white;
   }
   .cookie-modal-backdrop {
     @apply fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm;
