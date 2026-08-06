@@ -13,8 +13,6 @@ export function initBeforeAfterSlider() {
 
     if (!handle || !afterImage) return;
 
-    let isResizing = false;
-
     const updateSlider = (x) => {
       const rect = slider.getBoundingClientRect();
       let position = ((x - rect.left) / rect.width) * 100;
@@ -27,24 +25,28 @@ export function initBeforeAfterSlider() {
     };
 
     const onMove = (e) => {
-      if (!isResizing) return;
       const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
       updateSlider(x);
     };
 
-    const startResizing = () => {
-      isResizing = true;
-    };
+    // Los listeners globales solo viven mientras dura el arrastre,
+    // evitando que se acumulen en window por cada slider de la página.
     const stopResizing = () => {
-      isResizing = false;
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('touchmove', onMove);
+      window.removeEventListener('mouseup', stopResizing);
+      window.removeEventListener('touchend', stopResizing);
+    };
+
+    const startResizing = () => {
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('touchmove', onMove);
+      window.addEventListener('mouseup', stopResizing);
+      window.addEventListener('touchend', stopResizing);
     };
 
     handle.addEventListener('mousedown', startResizing);
     handle.addEventListener('touchstart', startResizing);
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('touchmove', onMove);
-    window.addEventListener('mouseup', stopResizing);
-    window.addEventListener('touchend', stopResizing);
 
     // Posición inicial al 50%
     updateSlider(

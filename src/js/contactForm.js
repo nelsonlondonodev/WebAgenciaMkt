@@ -1,3 +1,6 @@
+// src/js/contactForm.js
+import { CONFIG } from './config.js';
+
 /**
  * Verifica si el campo trampa (honeypot) fue completado por un bot.
  * @param {FormData} formData
@@ -15,14 +18,14 @@ export function isHoneypotTriggered(formData) {
  */
 export function containsSpamPatterns(text) {
   if (!text || typeof text !== 'string') return false;
-  
+
   const cyrillicRegex = /[\u0400-\u04FF]/;
   const cjkRegex = /[\u4E00-\u9FFF]/;
-  
+
   if (cyrillicRegex.test(text) || cjkRegex.test(text)) {
     return true;
   }
-  
+
   const linkCount = (text.match(/https?:\/\//gi) || []).length;
   return linkCount > 2;
 }
@@ -52,7 +55,7 @@ export function isBotSubmission(formData, renderTimestamp, minSeconds = 3) {
 
   const name = formData.get('name');
   const message = formData.get('message');
-  
+
   if (typeof name === 'string' && containsSpamPatterns(name)) return true;
   if (typeof message === 'string' && containsSpamPatterns(message)) return true;
 
@@ -317,12 +320,13 @@ function copyToClipboard(text) {
     navigator.clipboard.writeText(text);
     return true; // Asumimos éxito inicial para la UI
   }
-  
+
   // Fallback síncrono
   try {
     const textArea = document.createElement('textarea');
     textArea.value = text;
-    textArea.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0;';
+    textArea.style.cssText =
+      'position:fixed;left:-9999px;top:-9999px;opacity:0;';
     document.body.appendChild(textArea);
     textArea.select();
     const success = document.execCommand('copy');
@@ -368,14 +372,17 @@ const getPrivacyModalTemplate = (title, value, icon, link) => `
 function setButtonFeedback(btn, type) {
   const original = btn.innerHTML;
   const states = {
-    success: { html: '<i class="fas fa-check"></i> ¡Copiado!', class: 'bg-green-500' },
-    error: { html: '<i class="fas fa-times"></i> Error', class: 'bg-red-500' }
+    success: {
+      html: '<i class="fas fa-check"></i> ¡Copiado!',
+      class: 'bg-green-500',
+    },
+    error: { html: '<i class="fas fa-times"></i> Error', class: 'bg-red-500' },
   };
-  
+
   const state = states[type];
   btn.innerHTML = state.html;
   btn.classList.add(state.class);
-  
+
   setTimeout(() => {
     btn.innerHTML = original;
     btn.classList.remove(state.class);
@@ -387,7 +394,8 @@ function setButtonFeedback(btn, type) {
  */
 function openPrivacyModal(title, value, icon, link) {
   const overlay = document.createElement('div');
-  overlay.className = 'fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in';
+  overlay.className =
+    'fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in';
   overlay.innerHTML = getPrivacyModalTemplate(title, value, icon, link);
 
   const content = overlay.firstElementChild;
@@ -404,8 +412,9 @@ function openPrivacyModal(title, value, icon, link) {
     setTimeout(() => overlay.remove(), 300);
   };
 
-  overlay.onclick = (e) => (e.target === overlay || e.target.closest('.close-btn')) && close();
-  
+  overlay.onclick = (e) =>
+    (e.target === overlay || e.target.closest('.close-btn')) && close();
+
   overlay.querySelector('.copy-btn').onclick = (e) => {
     const success = copyToClipboard(value);
     setButtonFeedback(e.currentTarget, success ? 'success' : 'error');
@@ -414,8 +423,20 @@ function openPrivacyModal(title, value, icon, link) {
 
 export function initContactReveal() {
   const configs = [
-    { id: 'reveal-email-btn', title: 'Correo Corporativo', value: CONFIG.CONTACT.EMAIL, icon: 'fas fa-envelope', link: `mailto:${CONFIG.CONTACT.EMAIL}` },
-    { id: 'reveal-phone-btn', title: 'Línea Directa', value: CONFIG.CONTACT.PHONE_DISPLAY, icon: 'fas fa-phone-alt', link: `tel:${CONFIG.CONTACT.PHONE}` }
+    {
+      id: 'reveal-email-btn',
+      title: 'Correo Corporativo',
+      value: CONFIG.CONTACT.EMAIL,
+      icon: 'fas fa-envelope',
+      link: `mailto:${CONFIG.CONTACT.EMAIL}`,
+    },
+    {
+      id: 'reveal-phone-btn',
+      title: 'Línea Directa',
+      value: CONFIG.CONTACT.PHONE_DISPLAY,
+      icon: 'fas fa-phone-alt',
+      link: `tel:${CONFIG.CONTACT.PHONE}`,
+    },
   ];
 
   configs.forEach(({ id, ...data }) => {

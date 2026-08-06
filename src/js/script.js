@@ -45,6 +45,20 @@ const scheduleIdleTask = (task) => {
   }
 };
 
+/**
+ * Ejecuta una inicialización aislando sus fallos. Los widgets secundarios son
+ * independientes entre sí: un error en uno no debe impedir que arranquen el resto.
+ * @param {string} name - Nombre del módulo, para identificarlo en consola.
+ * @param {Function} init - La función de inicialización a ejecutar.
+ */
+const runIsolated = (name, init) => {
+  try {
+    init();
+  } catch (error) {
+    console.error(`[Init] Fallo al inicializar "${name}":`, error);
+  }
+};
+
 document.addEventListener('DOMContentLoaded', async () => {
   // 1. Fase Crítica: UX Inicial e Identidad
   initDarkMode();
@@ -62,32 +76,40 @@ document.addEventListener('DOMContentLoaded', async () => {
     'section-gradient-green',
     'section-gradient-blue',
   ]);
-  
+
   initServiceCards();
 
   // Renderizado condicional de Portfolio
   const portfolioGrid = document.getElementById('portfolio-grid');
   const projectsGrid = document.getElementById('portfolio-grid-proyectos');
-  
+
   if (portfolioGrid) renderPortfolioCards('portfolio-grid', 3);
   if (projectsGrid) renderPortfolioCards('portfolio-grid-proyectos');
 
   initPortfolioFilter();
   initScrollAnimations();
 
-  // 4. Fase Ociosa (Idle): Plugins y widgets secundarios
+  // 4. Fase Ociosa (Idle): Plugins y widgets secundarios.
+  // Se declaran como claves de objeto porque el minificador no las renombra:
+  // así el módulo que falle sigue siendo identificable en el log de producción.
   scheduleIdleTask(() => {
-    initChatbot();
-    initDynamicModals();
-    initAuditFilterModal();
-    initContactForm();
-    initContactReveal();
-    initCookieConsent();
-    setupSocialSharing();
-    initPricing();
-    initTestimonialCarousel();
-    initBeforeAfterSlider();
-    initHeroBenefitBadge();
-    initSuccessCaseCarousels();
+    const idleWidgets = {
+      initChatbot,
+      initDynamicModals,
+      initAuditFilterModal,
+      initContactForm,
+      initContactReveal,
+      initCookieConsent,
+      setupSocialSharing,
+      initPricing,
+      initTestimonialCarousel,
+      initBeforeAfterSlider,
+      initHeroBenefitBadge,
+      initSuccessCaseCarousels,
+    };
+
+    Object.entries(idleWidgets).forEach(([name, init]) =>
+      runIsolated(name, init)
+    );
   });
 });
