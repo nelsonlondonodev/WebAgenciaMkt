@@ -75,6 +75,26 @@
               }
             }
           ]
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Tienen más 2300 reseñas en Google Maps pero NO VENDEN (Auditoría Técnica)",
+          "description": "Auditoría técnica de una ficha de Google Business Profile con más de 2.300 reseñas que no genera ventas: dónde se rompe el embudo de conversión y qué corregir en una estrategia de SEO local.",
+          "thumbnailUrl": "https://nelsonlondono.es/image/auditoria-google-maps-poster.webp",
+          "uploadDate": "2026-08-02T09:52:32-07:00",
+          "duration": "PT15M29S",
+          "contentUrl": "https://www.youtube.com/watch?v=qYoHj_nrq-I",
+          "embedUrl": "https://www.youtube.com/embed/qYoHj_nrq-I",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Nelson Londoño | Diseño Web y SEO",
+            "url": "https://nelsonlondono.es/"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Nelson Londoño"
+          },
+          "inLanguage": "es-ES"
         }
       ]
     }
@@ -91,15 +111,15 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="/fontawesome.min.css?v=2026.08.06.1932" 
+      href="/fontawesome.min.css?v=2026.08.06.1957" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.06.1932" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.06.1957" />
     </noscript>
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.08.06.1932" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.08.06.1957" />
 
     <!-- Preload de imagen crítica para LCP -->
     <link rel="preload" as="image" href="./image/what-is-seo-local.webp" fetchpriority="high" />
@@ -469,6 +489,60 @@
 
 
 
+      <!-- SECCIÓN AUDITORÍA EN VÍDEO (prueba de autoridad antes del precio) -->
+      <section id="auditoria-video" class="py-12 sm:py-24 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700 section-gradient-green">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-10">
+            <p class="text-sm font-extrabold uppercase tracking-widest text-primary-green mb-3 scroll-animate-initial">
+              Auditoría técnica en vídeo
+            </p>
+            <h2 class="section-title text-3xl sm:text-4xl scroll-animate-initial">
+              Tener reseñas no es lo mismo que vender
+            </h2>
+            <p class="section-subtitle text-base sm:text-lg scroll-animate-initial">
+              Analizo una ficha real con más de 2.300 reseñas en Google Maps que
+              aun así no convierte. Verás exactamente dónde se rompe el embudo y
+              qué se corrige en una estrategia de SEO local.
+            </p>
+          </div>
+
+          <!-- max-w-3xl: el vídeo es prueba de apoyo, no debe comerse el viewport (768x432 en escritorio) -->
+          <div class="scroll-animate-initial mx-auto max-w-3xl">
+            <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900">
+              <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
+              <button
+                type="button"
+                class="video-facade relative z-10 w-full h-full block border-0 rounded-2xl cursor-pointer group/facade"
+                data-video-src="https://www.youtube-nocookie.com/embed/qYoHj_nrq-I?autoplay=1&rel=0&modestbranding=1"
+                data-video-title="Auditoría técnica: más de 2300 reseñas en Google Maps que no venden"
+                aria-label="Reproducir la auditoría técnica en vídeo"
+              >
+                <img
+                  src="/image/auditoria-google-maps-poster.webp"
+                  alt=""
+                  width="960"
+                  height="540"
+                  loading="lazy"
+                  class="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                />
+                <span class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover/facade:bg-black/10 transition-colors rounded-2xl">
+                  <span class="flex items-center justify-center w-20 h-20 rounded-full bg-red-600 shadow-2xl group-hover/facade:scale-110 transition-transform">
+                    <i class="fas fa-play text-white text-3xl ml-1" aria-hidden="true"></i>
+                  </span>
+                </span>
+              </button>
+            </div>
+
+            <p class="mt-5 text-center text-sm text-gray-600 dark:text-gray-400">
+              ¿Quieres el mismo análisis sobre tu ficha?
+              <a href="#precios-seo-local" class="font-bold text-primary-green underline underline-offset-4 hover:opacity-80">
+                Mira los planes
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- SECCIÓN PRECIOS -->
       <section id="precios-seo-local" class="py-12 sm:py-16 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700 section-gradient-green">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -792,6 +866,6 @@
     <div id="cookie-banner-placeholder"></div>
 
     <div data-component="chatbot"></div>
-    <script src="/bundle-v2.min.js?v=2026.08.06.1932" defer></script>
+    <script src="/bundle-v2.min.js?v=2026.08.06.1957" defer></script>
   </body>
 </html>
