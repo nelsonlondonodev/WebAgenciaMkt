@@ -38,7 +38,7 @@ function updateAssetUrls(content, version, fileName) {
     asset.replace(/\./g, '\\.')
   );
   const assetsRegex = new RegExp(
-    `(src|href)="((?:\\.\\./|\\./|/)?)( ${escapedAssets.join('|')})(?:\\?v=[0-9\\.]*)?"`,
+    `(src|href)="((?:\\.\\./|\\./|/)?)(${escapedAssets.join('|')})(?:\\?v=[0-9\\.]*)?"`,
     'g'
   );
 
