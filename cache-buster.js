@@ -52,7 +52,9 @@ function updateAssetUrls(content, version, fileName) {
 function injectFooterVersion(content, version, fileName) {
   const versionRegex = /<span id="footer-build-version">.*?<\/span>/g;
   if (versionRegex.test(content)) {
-    console.log(`[Build] Inyectando versión en footer: v.${version} (${fileName})`);
+    console.log(
+      `[Build] Inyectando versión en footer: v.${version} (${fileName})`
+    );
     return content.replace(
       versionRegex,
       `<span id="footer-build-version">v.${version}</span>`
@@ -68,7 +70,10 @@ function injectFooterVersion(content, version, fileName) {
 function injectConfigVersion(content, version, fileName) {
   if (!fileName.includes('config.js')) return content;
   console.log(`[Build] Inyectando versión en config.js: ${version}`);
-  return content.replace('{{APP_VERSION}}', version);
+  // Se reemplaza el valor completo en lugar de un placeholder: el marcador solo
+  // existe en la primera compilación, así que buscarlo dejaba la inyección
+  // congelada para siempre en la versión inicial.
+  return content.replace(/APP_VERSION:\s*'[^']*'/, `APP_VERSION: '${version}'`);
 }
 
 /**
