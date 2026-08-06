@@ -21,14 +21,14 @@
     </script>
     
     <!-- Carga local optimizada de Font Awesome (asíncrona para evitar bloqueo de renderizado) -->
-    <link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.06.1901" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.06.1901" /></noscript>
+    <link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.06.1911" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.06.1911" /></noscript>
 
     <!-- Preload del Hero LCP para carga instantánea -->
     <link rel="preload" as="image" href="./image/foto-nelson-londono.webp" fetchpriority="high" />
 
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.08.06.1901" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.08.06.1911" />
 
     <script type="application/ld+json">
     {
@@ -592,15 +592,32 @@
                 <!-- Glow decorativo de fondo -->
                 <div class="absolute -inset-4 bg-gradient-to-r from-red-500/20 to-primary-blue/20 rounded-3xl blur-xl opacity-50 group-hover:opacity-80 transition-opacity duration-500 pointer-events-none"></div>
 
-                <iframe
-                  src="https://www.youtube.com/embed/6hEDQJNyA80?autoplay=0&rel=0&modestbranding=1"
-                  title="YouTube Short Nelson Londoño - Estrategia Digital y SEO"
-                  class="relative z-10 w-full h-full border-0 rounded-2xl"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                  loading="lazy"
-                  fetchpriority="low"
-                ></iframe>
+                <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
+                <button
+                  type="button"
+                  class="video-facade relative z-10 w-full h-full block border-0 rounded-2xl cursor-pointer group/facade"
+                  data-video-src="https://www.youtube-nocookie.com/embed/6hEDQJNyA80?autoplay=1&rel=0&modestbranding=1"
+                  data-video-title="YouTube Short Nelson Londoño - Estrategia Digital y SEO"
+                  aria-label="Reproducir el vídeo: Estrategia Digital y SEO"
+                >
+                  <img
+                    src="/image/youtube-short-poster.webp"
+                    alt=""
+                    width="640"
+                    height="1138"
+                    loading="lazy"
+                    class="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                  />
+                  <span
+                    class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover/facade:bg-black/10 transition-colors rounded-2xl"
+                  >
+                    <span
+                      class="flex items-center justify-center w-16 h-16 rounded-full bg-red-600 shadow-2xl group-hover/facade:scale-110 transition-transform"
+                    >
+                      <i class="fas fa-play text-white text-2xl ml-1" aria-hidden="true"></i>
+                    </span>
+                  </span>
+                </button>
               </div>
             </div>
 
@@ -757,7 +774,7 @@
 
     <!-- SCRIPTS PARA PRODUCCIÓN -->
     <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
-    <script src="/bundle-v2.min.js?v=2026.08.06.1901" defer></script>
+    <script src="/bundle-v2.min.js?v=2026.08.06.1911" defer></script>
 
     <!-- SCRIPTS PARA DESARROLLO -->
     <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->
