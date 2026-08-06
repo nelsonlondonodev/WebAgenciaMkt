@@ -31,7 +31,7 @@ import {
   initSuccessCaseCarousels,
 } from './uiInteractions.js';
 
-// import { initHeroIframe } from './heroHelper.js';
+import { initVideoFacades } from './videoFacade.js';
 
 /**
  * Programa la ejecución de tareas no críticas para cuando el hilo principal esté libre.
@@ -106,6 +106,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       initBeforeAfterSlider,
       initHeroBenefitBadge,
       initSuccessCaseCarousels,
+      initVideoFacades,
     };
 
     Object.entries(idleWidgets).forEach(([name, init]) =>
