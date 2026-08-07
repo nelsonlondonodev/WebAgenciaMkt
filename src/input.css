@@ -667,6 +667,15 @@ main {
     @apply mt-3 px-5 py-2.5 bg-primary-blue/10 border border-primary-blue/20 rounded-xl text-[11px] font-bold text-primary-blue hover:bg-primary-blue hover:text-white transition-all duration-300 flex items-center gap-2 w-max shadow-sm active:scale-95;
   }
 
+  /* Carrusel horizontal sin barra visible (tira de Shorts en la home) */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Safelist manual */
   .nav-active,
   .is-active {
