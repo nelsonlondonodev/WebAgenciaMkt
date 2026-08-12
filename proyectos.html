@@ -112,16 +112,16 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link
       rel="preload"
-      href="/fontawesome.min.css?v=2026.08.12.0740"
+      href="/fontawesome.min.css?v=2026.08.12.0746"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.12.0740" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.12.0746" />
     </noscript>
 
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.08.12.0740" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.08.12.0746" />
   </head>
   <body class=" ">
     <header id="mainHeader" class="sticky-header">
@@ -854,93 +854,12 @@
 
     <div id="footer-placeholder"></div>
 
-    <div id="cookie-banner" class="cookie-banner hidden">
-      <div class="cookie-banner-content">
-        <div class="flex items-center">
-          <i
-            class="fas fa-cookie-bite fa-2x mr-4 text-primary-blue dark:text-primary-green"
-          ></i>
-          <!-- Copia inline del componente components/cookie-banner.html.
-               Mantener ambos textos sincronizados. -->
-          <p class="text-sm">
-            Usamos cookies propias y de terceros para analizar el uso del sitio
-            y mostrarte publicidad según tus hábitos de navegación. Puedes
-            aceptarlas, rechazarlas o configurarlas. Más detalles en nuestra
-            <a
-              href="politica-de-cookies.html"
-              class="underline hover:no-underline font-semibold"
-              >Política de Cookies</a
-            >.
-          </p>
-        </div>
-        <div class="cookie-banner-actions">
-          <button id="cookie-reject" class="cookie-button-reject">
-            Rechazar
-          </button>
-          <button id="cookie-accept" class="cookie-button-accept">
-            Aceptar
-          </button>
-          <button id="cookie-settings-open" class="cookie-button-settings">
-            Configurar
-          </button>
-        </div>
-      </div>
-    </div>
-    <div id="cookie-settings-modal" class="cookie-modal-backdrop hidden">
-      <div class="cookie-modal-content">
-        <h3 class="text-lg font-semibold mb-4">Configuración de cookies</h3>
-        <p class="text-sm text-gray-700 dark:text-gray-400 mb-6">
-          En este panel puedes seleccionar qué cookies deseas aceptar y cuáles
-          rechazar. El bloqueo de algunos tipos de cookies puede afectar a tu
-          experiencia en el sitio.
-        </p>
+    <!-- Banner y modal de cookies: una única fuente en components/cookie-banner.html.
+         Estaban duplicados inline solo en esta página y los textos ya habían
+         divergido del componente. -->
+    <div id="cookie-banner-placeholder"></div>
 
-        <div class="cookie-category">
-          <div class="cookie-category-header">
-            <h4 class="font-semibold">Cookies Necesarias</h4>
-            <span
-              class="text-xs text-primary-green dark:text-primary-blue font-bold"
-              >Siempre Activas</span
-            >
-          </div>
-          <p class="text-sm text-gray-500 mt-1">
-            Son aquellas estrictamente necesarias para el funcionamiento básico
-            del sitio web (navegación, carrito de compra, acceso a áreas
-            seguras). No almacenan información de identificación personal y no
-            pueden ser desactivadas en nuestros sistemas.
-          </p>
-        </div>
-
-        <div class="cookie-category">
-          <div class="cookie-category-header">
-            <h4 class="font-semibold">Cookies de Análisis</h4>
-            <label class="cookie-toggle">
-              <input
-                type="checkbox"
-                id="analytics-cookie-toggle"
-                class="cookie-toggle-input"
-              />
-              <span class="cookie-toggle-slider"></span>
-            </label>
-          </div>
-          <p class="text-sm text-gray-500 mt-1">
-            Nos permiten cuantificar el number de usuarios y realizar la
-            medición y análisis estadístico de la utilización que hacen los
-            usuarios del servicio ofertado (p. ej. vía Google Analytics). Si no
-            permites estas cookies, no sabremos cuándo has visitado nuestro
-            sitio.
-          </p>
-        </div>
-
-        <div class="mt-8 flex justify-end">
-          <button id="cookie-settings-save" class="cookie-button-accept">
-            Guardar Configuración
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <script src="/bundle-v2.min.js?v=2026.08.12.0740" defer></script>
+    <script src="/bundle-v2.min.js?v=2026.08.12.0746" defer></script>
     <div data-component="chatbot"></div>
   </body>
 </html>
