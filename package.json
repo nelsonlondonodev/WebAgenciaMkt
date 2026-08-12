@@ -11,10 +11,11 @@
     "dev": "pnpm copy:assets && concurrently \"pnpm watch:css\" \"pnpm watch:js\"",
     "build:css": "tailwindcss -i ./src/input.css -o nelson-v4.css --minify",
     "build:js": "esbuild src/js/script.js --bundle --minify --outfile=bundle-v2.min.js",
-    "build": "pnpm copy:assets && pnpm build:css && node cache-buster.js && pnpm build:js && node generar-sitemap.js",
+    "build": "pnpm copy:assets && pnpm build:css && node cache-buster.js && pnpm build:js && node generar-sitemap.js && node validate-schema.js",
     "sitemap": "node generar-sitemap.js",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "validate:schema": "node validate-schema.js"
   },
   "keywords": [],
   "author": "",

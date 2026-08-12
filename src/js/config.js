@@ -48,6 +48,6 @@ export const CONFIG = {
   // Configuración general de UI
   UI: {
     THEME_KEY: 'theme',
-    APP_VERSION: '2026.08.07.2220',
+    APP_VERSION: '2026.08.12.0746',
   },
 };
