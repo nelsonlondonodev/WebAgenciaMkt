@@ -49,8 +49,13 @@ function walk(node, file, jsonPath) {
   const types = [].concat(node['@type'] || []);
   if (types.includes('VideoObject')) checkVideoObject(node, file, jsonPath);
 
+  // Se recorren también las claves con @, porque @graph es un array de nodos
+  // y es justo donde vive el grafo de index.html y agencia-seo-local.html.
+  // Saltarlas dejaba sin revisar precisamente las páginas que motivaron este
+  // validador. Las que son strings (@context, @id, @type) las descarta la
+  // guarda de arriba al no ser objetos.
   for (const [key, value] of Object.entries(node)) {
-    if (key.startsWith('@')) continue;
+    if (key === '@type') continue;
     walk(value, file, `${jsonPath}/${key}`);
   }
 }
