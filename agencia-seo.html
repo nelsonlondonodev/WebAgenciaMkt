@@ -51,6 +51,32 @@
         ]
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "@id": "https://nelsonlondono.es/agencia-seo.html#video-auditoria-tecnica",
+        "name": "Auditoría SEO en vivo: Errores técnicos que hunden tu web (Caso Real)",
+        "description": "Auditoría SEO técnica en vivo sobre la web real de un entrenador personal: etiquetas semánticas y errores de idioma (H1, canonical), optimización de imágenes con WebP frente a PNG y JPG, problemas de renderizado de frameworks como Angular ante los bots de Google, y análisis de velocidad con PageSpeed Insights bajo criterio mobile first.",
+        "thumbnailUrl": [
+          "https://nelsonlondono.es/image/auditoria-seo-tecnico-poster.webp",
+          "https://i.ytimg.com/vi/aAbTycmhhY0/hqdefault.jpg"
+        ],
+        "uploadDate": "2026-08-09T13:33:16-07:00",
+        "duration": "PT7M21S",
+        "embedUrl": "https://www.youtube.com/embed/aAbTycmhhY0",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Nelson Londoño | Diseño Web y SEO",
+          "url": "https://nelsonlondono.es/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Nelson Londoño"
+        },
+        "inLanguage": "es-ES"
+      }
+    </script>
     <link rel="canonical" href="https://nelsonlondono.es/agencia-seo.html" />
     <link rel="icon" type="image/webp" href="./image/favicon.webp" />
     <meta
@@ -60,16 +86,16 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link
       rel="preload"
-      href="/fontawesome.min.css?v=2026.08.07.2220"
+      href="/fontawesome.min.css?v=2026.08.12.0654"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.07.2220" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.12.0654" />
     </noscript>
 
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.08.07.2220" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.08.12.0654" />
   </head>
   <body class=" ">
     <!-- cache bust force update -->
@@ -332,6 +358,76 @@
         </div>
       </section>
 
+      <!-- SECCIÓN AUDITORÍA EN VÍDEO: prueba de expertise entre los casos de éxito y el precio -->
+      <section
+        id="auditoria-video"
+        class="py-12 sm:py-24 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-700"
+      >
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-10">
+            <p
+              class="text-sm font-extrabold uppercase tracking-widest text-primary-green mb-3 scroll-animate-initial"
+            >
+              Auditoría SEO en vídeo
+            </p>
+            <h2 class="section-title text-3xl sm:text-4xl scroll-animate-initial">
+              Los errores técnicos que hunden una web real
+            </h2>
+            <p class="section-subtitle text-base sm:text-lg scroll-animate-initial">
+              Audito en directo la web de un entrenador personal: etiquetas mal
+              puestas, imágenes sin optimizar, frameworks como Angular que los
+              bots de Google no llegan a renderizar y qué dice de verdad
+              PageSpeed en móvil. El mismo análisis que hacemos antes de tocar
+              una sola línea de tu proyecto.
+            </p>
+          </div>
+
+          <!-- max-w-3xl: el vídeo es prueba de apoyo, no debe comerse el viewport (768x432 en escritorio) -->
+          <div class="scroll-animate-initial mx-auto max-w-3xl">
+            <div
+              class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900"
+            >
+              <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
+              <button
+                type="button"
+                class="video-facade relative z-10 w-full h-full block border-0 rounded-2xl cursor-pointer group/facade"
+                data-video-src="https://www.youtube-nocookie.com/embed/aAbTycmhhY0?autoplay=1&rel=0&modestbranding=1"
+                data-video-title="Auditoría SEO en vivo: errores técnicos que hunden tu web"
+                aria-label="Reproducir la auditoría SEO técnica en vídeo"
+              >
+                <img
+                  src="/image/auditoria-seo-tecnico-poster.webp"
+                  alt=""
+                  width="960"
+                  height="540"
+                  loading="lazy"
+                  class="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                />
+                <span
+                  class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover/facade:bg-black/10 transition-colors rounded-2xl"
+                >
+                  <span
+                    class="flex items-center justify-center w-20 h-20 rounded-full bg-red-600 shadow-2xl group-hover/facade:scale-110 transition-transform"
+                  >
+                    <i class="fas fa-play text-white text-3xl ml-1" aria-hidden="true"></i>
+                  </span>
+                </span>
+              </button>
+            </div>
+
+            <p class="mt-5 text-center text-sm text-gray-600 dark:text-gray-400">
+              ¿Quieres esta auditoría sobre tu web?
+              <a
+                href="#precios-seo"
+                class="font-bold text-primary-green underline underline-offset-4 hover:opacity-80"
+              >
+                Mira los planes
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- SECCIÓN PRECIOS -->
       <section
         id="precios-seo"
@@ -574,6 +670,6 @@
     <div id="cookie-banner-placeholder"></div>
 
     <div data-component="chatbot"></div>
-    <script src="/bundle-v2.min.js?v=2026.08.07.2220" defer></script>
+    <script src="/bundle-v2.min.js?v=2026.08.12.0654" defer></script>
   </body>
 </html>
