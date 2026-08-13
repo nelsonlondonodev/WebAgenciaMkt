@@ -51,6 +51,35 @@
         ]
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "@id": "https://nelsonlondono.es/agencia-desarrollo-web-con-codigo.html#video-tecnologia-angular",
+        "name": "Cuidado si tu página web usa esta tecnología",
+        "description": "Por qué el framework con el que está construida una web puede frenar su crecimiento: analizamos con Wappalyzer una web real hecha con Angular y los inconvenientes técnicos que una single page application arrastra ante los bots de Google.",
+        "thumbnailUrl": [
+          "https://nelsonlondono.es/image/short-tecnologia-angular-poster.webp",
+          "https://i.ytimg.com/vi/9hEdVVkgMOY/hqdefault.jpg"
+        ],
+        "uploadDate": "2026-08-12T21:42:10-07:00",
+        "duration": "PT35S",
+        "embedUrl": "https://www.youtube.com/embed/9hEdVVkgMOY",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Nelson Londoño | Diseño Web y SEO",
+          "url": "https://nelsonlondono.es/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Nelson Londoño"
+        },
+        "inLanguage": "es-ES",
+        "isPartOf": {
+          "@id": "https://nelsonlondono.es/agencia-seo.html#video-auditoria-tecnica"
+        }
+      }
+    </script>
     <link
       rel="canonical"
       href="https://nelsonlondono.es/agencia-desarrollo-web-con-codigo.html"
@@ -63,16 +92,16 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link
       rel="preload"
-      href="/fontawesome.min.css?v=2026.08.12.0755"
+      href="/fontawesome.min.css?v=2026.08.13.0703"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.12.0755" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.08.13.0703" />
     </noscript>
 
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.08.12.0755" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.08.13.0703" />
   </head>
   <body class=" ">
     <div id="nav-placeholder"></div>
@@ -623,18 +652,93 @@
               motores de búsqueda, asegurando que tu negocio no solo se vea
               bien, sino que funcione a la velocidad de la luz.
             </p>
-            <p
-              class="mt-4 text-gray-700 dark:text-gray-200 text-sm sm:text-base leading-relaxed scroll-animate-initial"
+          </div>
+
+          <!-- El Short es el gancho del mismo argumento que sostiene la sección:
+               elegir mal el framework se paga en visibilidad. El enlace lleva a la
+               auditoría larga, que vive en agencia-seo.html y no se duplica aquí. -->
+          <div
+            id="tecnologia-video"
+            class="mt-12 mx-auto max-w-4xl rounded-3xl border border-gray-200 dark:border-white/10 bg-gray-50/70 dark:bg-white/[0.03] p-6 sm:p-8 scroll-animate-initial"
+          >
+            <div
+              class="flex flex-col items-center gap-8 sm:flex-row sm:items-center sm:gap-10"
             >
-              Elegir mal el framework se paga en visibilidad: en esta
-              <a
-                href="/agencia-seo.html#auditoria-video"
-                class="font-bold text-primary-blue dark:text-primary-green underline underline-offset-4 hover:opacity-80"
-                >auditoría SEO en vídeo</a
-              >
-              analizamos una web construida con Angular y por qué los bots de
-              Google no llegan a renderizar su contenido.
-            </p>
+              <!-- Reproductor 9:16: el Short no debe competir en tamaño con el contenido -->
+              <div class="w-[250px] shrink-0 sm:w-[240px]">
+                <div
+                  class="relative w-full aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900"
+                >
+                  <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
+                  <button
+                    type="button"
+                    class="video-facade relative z-10 w-full h-full block border-0 rounded-2xl cursor-pointer group/facade"
+                    data-video-src="https://www.youtube-nocookie.com/embed/9hEdVVkgMOY?autoplay=1&rel=0&modestbranding=1"
+                    data-video-title="Cuidado si tu página web usa esta tecnología"
+                    aria-label="Reproducir el vídeo: Cuidado si tu página web usa esta tecnología"
+                  >
+                    <img
+                      src="/image/short-tecnologia-angular-poster.webp"
+                      alt=""
+                      width="640"
+                      height="1137"
+                      loading="lazy"
+                      class="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                    />
+                    <span
+                      class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover/facade:bg-black/10 transition-colors rounded-2xl"
+                    >
+                      <span
+                        class="flex items-center justify-center w-16 h-16 rounded-full bg-red-600 shadow-2xl group-hover/facade:scale-110 transition-transform"
+                      >
+                        <i
+                          class="fas fa-play text-white text-2xl ml-1"
+                          aria-hidden="true"
+                        ></i>
+                      </span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="text-center sm:text-left">
+                <p
+                  class="text-sm font-extrabold uppercase tracking-widest text-primary-green mb-3"
+                >
+                  Elegir mal el framework se paga en visibilidad
+                </p>
+                <h3
+                  class="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white leading-tight"
+                >
+                  <a
+                    href="https://youtube.com/shorts/9hEdVVkgMOY"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:text-primary-blue dark:hover:text-primary-green transition-colors"
+                    >Cuidado si tu página web usa esta tecnología</a
+                  >
+                </h3>
+                <p
+                  class="mt-4 text-gray-700 dark:text-gray-200 text-sm sm:text-base leading-relaxed"
+                >
+                  El diseño puede ser impecable y aun así frenar el crecimiento.
+                  En 35 segundos verás qué revela Wappalyzer sobre una web real
+                  construida con Angular y por qué una single page application se
+                  lo pone difícil a los bots de Google.
+                </p>
+                <p
+                  class="mt-4 text-gray-700 dark:text-gray-200 text-sm sm:text-base leading-relaxed"
+                >
+                  El caso completo está en la
+                  <a
+                    href="/agencia-seo.html#auditoria-video"
+                    class="font-bold text-primary-blue dark:text-primary-green underline underline-offset-4 hover:opacity-80"
+                    >auditoría SEO en vídeo</a
+                  >: siete minutos sobre esa misma web, con las etiquetas, las
+                  imágenes y el PageSpeed móvil.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1197,6 +1301,6 @@
     <div id="cookie-banner-placeholder"></div>
 
     <div data-component="chatbot"></div>
-    <script src="/bundle-v2.min.js?v=2026.08.12.0755" defer></script>
+    <script src="/bundle-v2.min.js?v=2026.08.13.0703" defer></script>
   </body>
 </html>
