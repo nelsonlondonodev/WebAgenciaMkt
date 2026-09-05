@@ -175,3 +175,69 @@ export function initGeoTabs() {
   });
 }
 
+/**
+ * Inicializa el modal/lightbox accesible para inspeccionar las capturas de pantalla reales.
+ */
+export function initGeoEvidenceModal() {
+  const modal = document.getElementById('geoEvidenceModal');
+  const modalImage = document.getElementById('geoEvidenceModalImg');
+  const modalCaption = document.getElementById('geoEvidenceModalCaption');
+  const closeBtn = document.getElementById('closeGeoEvidenceModal');
+  const triggerBtns = document.querySelectorAll('[data-open-evidence]');
+
+  if (!modal || !modalImage || triggerBtns.length === 0) return;
+
+  const openModal = (src, caption) => {
+    modalImage.src = src;
+    modalImage.alt = caption || 'Captura de pantalla de la auditoría IA';
+    if (modalCaption) modalCaption.textContent = caption || '';
+    if (typeof modal.showModal === 'function') {
+      modal.showModal();
+    } else {
+      modal.classList.remove('hidden');
+    }
+    document.body.classList.add('overflow-hidden');
+  };
+
+  const closeModal = () => {
+    if (typeof modal.close === 'function') {
+      modal.close();
+    } else {
+      modal.classList.add('hidden');
+    }
+    document.body.classList.remove('overflow-hidden');
+  };
+
+  triggerBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const src = btn.getAttribute('data-evidence-src');
+      const caption = btn.getAttribute('data-evidence-caption');
+      if (src) openModal(src, caption);
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  modal.addEventListener('click', (e) => {
+    // Cerrar si se hace clic en el backdrop
+    const rect = modal.getBoundingClientRect();
+    const isInDialog = (
+      rect.top <= e.clientY &&
+      e.clientY <= rect.top + rect.height &&
+      rect.left <= e.clientX &&
+      e.clientX <= rect.left + rect.width
+    );
+    if (!isInDialog) {
+      closeModal();
+    }
+  });
+
+  modal.addEventListener('cancel', () => {
+    document.body.classList.remove('overflow-hidden');
+  });
+}
+
+

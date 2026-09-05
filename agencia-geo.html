@@ -120,16 +120,16 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="/fontawesome.min.css?v=2026.09.05.1155" 
+      href="/fontawesome.min.css?v=2026.09.05.1202" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.09.05.1155" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.09.05.1202" />
     </noscript>
 
     <!-- Carga del CSS principal -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.09.05.1155" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.09.05.1202" />
 
     <style>
       .scrollbar-hide::-webkit-scrollbar { display: none; }
@@ -285,6 +285,22 @@
                         <span>Precios Transparentes: <strong>Sí</strong></span>
                       </div>
                     </div>
+
+                    <!-- Botón para ver captura real de ChatGPT -->
+                    <div class="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700/60 flex items-center justify-between flex-wrap gap-2">
+                      <button
+                        type="button"
+                        data-open-evidence
+                        data-evidence-src="/image/evidencia-chatgpt-geo.webp"
+                        data-evidence-caption="Auditoría real en vivo de ChatGPT: Narbo's clasificado #1 y citado con su web oficial por encima de competidores con miles de reseñas."
+                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold transition-all border border-emerald-500/30 cursor-pointer shadow-sm hover:scale-105"
+                      >
+                        <i class="fas fa-camera text-emerald-500"></i>
+                        <span>Ver captura de pantalla original de ChatGPT</span>
+                        <i class="fas fa-expand text-[10px] ml-1 opacity-70"></i>
+                      </button>
+                      <span class="text-[11px] text-gray-500 dark:text-gray-400 font-mono">Búsqueda directa web sin caché</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -346,6 +362,22 @@
                         <i class="fas fa-check-double text-primary-green"></i>
                         <span>Oferta Dual: <strong>Peluquería + Spa</strong></span>
                       </div>
+                    </div>
+
+                    <!-- Botón para ver captura real de Gemini -->
+                    <div class="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700/60 flex items-center justify-between flex-wrap gap-2">
+                      <button
+                        type="button"
+                        data-open-evidence
+                        data-evidence-src="/image/evidencia-gemini-geo.webp"
+                        data-evidence-caption="Auditoría real en vivo de Google Gemini: Narbo's Salón Spa con 5.0 estrellas, integración directa de Google Maps y Edificio Quantum."
+                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-700 dark:text-blue-300 text-xs font-bold transition-all border border-blue-500/30 cursor-pointer shadow-sm hover:scale-105"
+                      >
+                        <i class="fas fa-camera text-blue-500"></i>
+                        <span>Ver captura de pantalla original de Gemini</span>
+                        <i class="fas fa-expand text-[10px] ml-1 opacity-70"></i>
+                      </button>
+                      <span class="text-[11px] text-gray-500 dark:text-gray-400 font-mono">Google Maps Live Search</span>
                     </div>
                   </div>
                 </div>
@@ -566,6 +598,117 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          <!-- Bloque de Evidencia Visual Directa (Capturas de Auditoría) -->
+          <div class="mt-16 pt-12 border-t border-gray-200 dark:border-gray-800">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-green/10 text-primary-green text-xs font-bold uppercase tracking-wider mb-3">
+                <i class="fas fa-camera"></i> Evidencia Gráfica Sin Filtros
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white">
+                Las Pruebas en Vivo: Así Responden ChatGPT y Gemini
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                Haz clic en cualquiera de las capturas para ampliarlas e inspeccionar los datos oficiales, mapas y citas textuales.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <!-- Evidencia 1: Google Gemini -->
+              <div class="group bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-5 sm:p-6 border border-gray-200 dark:border-gray-700/70 hover:border-blue-500/50 transition-all shadow-sm hover:shadow-xl flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-3.5">
+                    <div class="flex items-center gap-2">
+                      <i class="fab fa-google text-blue-500 text-lg"></i>
+                      <span class="font-bold text-sm text-gray-900 dark:text-white">Google Gemini + Google Maps</span>
+                    </div>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">5.0 ★ Calificación Máxima</span>
+                  </div>
+                  
+                  <div
+                    role="button"
+                    tabindex="0"
+                    data-open-evidence
+                    data-evidence-src="/image/evidencia-gemini-geo.webp"
+                    data-evidence-caption="Auditoría real en vivo de Google Gemini: Narbo's Salón Spa con 5.0 estrellas, integración directa de Google Maps y Edificio Quantum."
+                    class="relative rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700/80 cursor-pointer aspect-video bg-gray-950 flex items-center justify-center group-hover:ring-2 group-hover:ring-blue-500/50 transition-all"
+                  >
+                    <img
+                      src="/image/evidencia-gemini-geo.webp"
+                      alt="Captura real de Google Gemini auditando a Narbo's Salón Spa"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      width="1024"
+                      height="554"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                      <span class="text-xs text-white font-medium flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg">
+                        <i class="fas fa-search-plus text-blue-400"></i> Clic para ampliar captura real
+                      </span>
+                    </div>
+                  </div>
+
+                  <p class="mt-4 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Google Gemini sincroniza la búsqueda en vivo con <strong>Google Maps</strong>, destacando a Narbo's con <strong>5.0 estrellas</strong> en Edificio Quantum y desglosando el mercado por las categorías clave (colorimetría, barbería, keratina y spa).
+                  </p>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700/60 flex items-center justify-between text-xs text-gray-500">
+                  <span>Fuente: Google Gemini Live</span>
+                  <span class="text-blue-500 font-semibold flex items-center gap-1">
+                    Verificada <i class="fas fa-check-circle"></i>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Evidencia 2: ChatGPT -->
+              <div class="group bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-5 sm:p-6 border border-gray-200 dark:border-gray-700/70 hover:border-emerald-500/50 transition-all shadow-sm hover:shadow-xl flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-3.5">
+                    <div class="flex items-center gap-2">
+                      <i class="fas fa-sparkles text-emerald-500 text-lg"></i>
+                      <span class="font-bold text-sm text-gray-900 dark:text-white">ChatGPT (OpenAI Search)</span>
+                    </div>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">#1 Top Pick (9.5/10)</span>
+                  </div>
+                  
+                  <div
+                    role="button"
+                    tabindex="0"
+                    data-open-evidence
+                    data-evidence-src="/image/evidencia-chatgpt-geo.webp"
+                    data-evidence-caption="Auditoría real en vivo de ChatGPT: Narbo's clasificado #1 y citado con su web oficial por encima de competidores con miles de reseñas."
+                    class="relative rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700/80 cursor-pointer aspect-video bg-gray-950 flex items-center justify-center group-hover:ring-2 group-hover:ring-emerald-500/50 transition-all"
+                  >
+                    <img
+                      src="/image/evidencia-chatgpt-geo.webp"
+                      alt="Captura real de ChatGPT auditando a Narbo's Salón Spa"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      width="1024"
+                      height="560"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                      <span class="text-xs text-white font-medium flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg">
+                        <i class="fas fa-search-plus text-emerald-400"></i> Clic para ampliar captura real
+                      </span>
+                    </div>
+                  </div>
+
+                  <p class="mt-4 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    ChatGPT ejecuta una consulta objetiva en tiempo real y coloca a Narbo's como su <strong>primera recomendación (#1)</strong> por combinación de calificación y cantidad de reseñas, citando explícitamente su web oficial y trayectoria desde 2013.
+                  </p>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700/60 flex items-center justify-between text-xs text-gray-500">
+                  <span>Fuente: ChatGPT OpenAI Web Search</span>
+                  <span class="text-emerald-500 font-semibold flex items-center gap-1">
+                    Verificada <i class="fas fa-check-circle"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -860,7 +1003,44 @@
     <div id="footer-placeholder"></div>
     <div id="cookie-banner-placeholder"></div>
 
+    <!-- Modal Lightbox Accesible para Evidencias Reales -->
+    <dialog
+      id="geoEvidenceModal"
+      class="backdrop:bg-black/85 backdrop:backdrop-blur-md bg-transparent max-w-5xl w-[94vw] p-0 border-0 rounded-2xl shadow-2xl overflow-hidden focus:outline-none"
+      aria-label="Captura de pantalla de la auditoría"
+    >
+      <div class="bg-gray-900 border border-gray-700/80 rounded-2xl overflow-hidden flex flex-col text-white">
+        <div class="px-5 py-3.5 bg-gray-800/90 border-b border-gray-700 flex items-center justify-between">
+          <div class="flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-400">
+            <i class="fas fa-shield-alt"></i>
+            <span>Evidencia Real No Modificada (Auditoría en Vivo)</span>
+          </div>
+          <button
+            id="closeGeoEvidenceModal"
+            type="button"
+            class="text-gray-400 hover:text-white p-1 rounded-lg transition-colors cursor-pointer"
+            aria-label="Cerrar vista previa"
+          >
+            <i class="fas fa-times text-lg"></i>
+          </button>
+        </div>
+        <div class="p-3 sm:p-5 bg-black/50 flex items-center justify-center max-h-[78vh] overflow-auto">
+          <img
+            id="geoEvidenceModalImg"
+            src=""
+            alt="Captura de auditoría de IA"
+            class="max-w-full h-auto rounded-lg shadow-lg object-contain"
+            loading="lazy"
+          />
+        </div>
+        <div class="px-5 py-3 bg-gray-800/80 border-t border-gray-700/70 text-xs text-gray-300 flex items-center justify-between flex-wrap gap-2">
+          <p id="geoEvidenceModalCaption" class="italic"></p>
+          <span class="text-[11px] text-gray-400 font-mono">Presiona Esc o clic fuera para cerrar</span>
+        </div>
+      </div>
+    </dialog>
+
     <div data-component="chatbot"></div>
-    <script src="/bundle-v2.min.js?v=2026.09.05.1155" defer></script>
+    <script src="/bundle-v2.min.js?v=2026.09.05.1202" defer></script>
   </body>
 </html>
