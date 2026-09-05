@@ -122,7 +122,7 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link
       rel="preload"
-      href="/fontawesome.min.css?v=2026.09.05.1207"
+      href="/fontawesome.min.css?v=2026.09.05.1216"
       as="style"
       onload="
         this.onload = null;
@@ -130,11 +130,11 @@
       "
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.09.05.1207" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.09.05.1216" />
     </noscript>
 
     <!-- Carga del CSS principal -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.09.05.1207" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.09.05.1216" />
 
     <style>
       .scrollbar-hide::-webkit-scrollbar {
@@ -289,6 +289,8 @@
                   <button
                     type="button"
                     role="tab"
+                    id="geo-tab-chatgpt"
+                    aria-controls="geo-panel-chatgpt"
                     aria-selected="true"
                     data-geo-tab="chatgpt"
                     class="px-3.5 py-1.5 rounded-lg transition-all duration-200 flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm cursor-pointer"
@@ -303,6 +305,8 @@
                   <button
                     type="button"
                     role="tab"
+                    id="geo-tab-gemini"
+                    aria-controls="geo-panel-gemini"
                     aria-selected="false"
                     data-geo-tab="gemini"
                     class="px-3.5 py-1.5 rounded-lg transition-all duration-200 flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer"
@@ -319,6 +323,9 @@
 
               <!-- PANEL 1: ChatGPT -->
               <div
+                id="geo-panel-chatgpt"
+                role="tabpanel"
+                aria-labelledby="geo-tab-chatgpt"
                 data-geo-panel="chatgpt"
                 class="p-6 sm:p-8 space-y-6 text-sm sm:text-base"
               >
@@ -438,6 +445,9 @@
 
               <!-- PANEL 2: Google Gemini (Oculto por defecto) -->
               <div
+                id="geo-panel-gemini"
+                role="tabpanel"
+                aria-labelledby="geo-tab-gemini"
                 data-geo-panel="gemini"
                 class="p-6 sm:p-8 space-y-6 text-sm sm:text-base hidden"
               >
@@ -1666,6 +1676,6 @@
     </dialog>
 
     <div data-component="chatbot"></div>
-    <script src="/bundle-v2.min.js?v=2026.09.05.1207" defer></script>
+    <script src="/bundle-v2.min.js?v=2026.09.05.1216" defer></script>
   </body>
 </html>
