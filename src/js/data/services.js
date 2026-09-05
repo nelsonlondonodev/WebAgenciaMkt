@@ -34,4 +34,11 @@ export const servicesData = [
     description:
       'Implementamos IA y automatizaciones para optimizar tus operaciones, reducir costos y escalar el crecimiento de tu negocio.',
   },
+  {
+    url: 'agencia-geo.html',
+    icon: 'fas fa-brain fa-2x',
+    title: 'Posicionamiento en IA (GEO)',
+    description:
+      'Haz que ChatGPT, Gemini y Perplexity recomienden tu negocio en la posición #1 con una arquitectura semántica avanzada.',
+  },
 ];

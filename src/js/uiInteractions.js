@@ -137,3 +137,160 @@ export function initHeroBenefitBadge() {
     }, 500);
   }
 }
+
+/**
+ * Actualiza el estado visual y de accesibilidad entre pestañas GEO.
+ * @param {string} target - Identificador de la pestaña seleccionada ('chatgpt' | 'gemini').
+ * @param {NodeListOf<Element>} buttons - Lista de botones tab.
+ * @param {NodeListOf<Element>} panels - Lista de paneles de contenido.
+ */
+const applyGeoTabState = (target, buttons, panels) => {
+  buttons.forEach((btn) => {
+    const isActive = btn.getAttribute('data-geo-tab') === target;
+    btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    btn.setAttribute('tabindex', isActive ? '0' : '-1');
+
+    if (isActive) {
+      btn.classList.add(
+        'bg-white',
+        'dark:bg-gray-800',
+        'text-gray-900',
+        'dark:text-white',
+        'shadow-sm'
+      );
+      btn.classList.remove('text-gray-500', 'dark:text-gray-400');
+    } else {
+      btn.classList.remove(
+        'bg-white',
+        'dark:bg-gray-800',
+        'text-gray-900',
+        'dark:text-white',
+        'shadow-sm'
+      );
+      btn.classList.add('text-gray-500', 'dark:text-gray-400');
+    }
+  });
+
+  panels.forEach((panel) => {
+    const shouldShow = panel.getAttribute('data-geo-panel') === target;
+    panel.classList.toggle('hidden', !shouldShow);
+  });
+};
+
+/**
+ * Inicializa el selector de pestañas interactivas (ChatGPT / Gemini) en la página GEO.
+ * Añade soporte de teclado según las directrices WAI-ARIA (flechas izquierda/derecha).
+ */
+export function initGeoTabs() {
+  const tabButtons = Array.from(document.querySelectorAll('[data-geo-tab]'));
+  const tabPanels = document.querySelectorAll('[data-geo-panel]');
+
+  if (tabButtons.length === 0 || tabPanels.length === 0) return;
+
+  tabButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-geo-tab');
+      if (target) applyGeoTabState(target, tabButtons, tabPanels);
+    });
+
+    // Navegación por teclado accesible (WAI-ARIA TabList pattern)
+    button.addEventListener('keydown', (e) => {
+      let nextIndex = null;
+      if (e.key === 'ArrowRight') {
+        nextIndex = (index + 1) % tabButtons.length;
+      } else if (e.key === 'ArrowLeft') {
+        nextIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+      } else if (e.key === 'Home') {
+        nextIndex = 0;
+      } else if (e.key === 'End') {
+        nextIndex = tabButtons.length - 1;
+      }
+
+      if (nextIndex !== null) {
+        e.preventDefault();
+        const nextButton = tabButtons[nextIndex];
+        nextButton.focus();
+        const target = nextButton.getAttribute('data-geo-tab');
+        if (target) applyGeoTabState(target, tabButtons, tabPanels);
+      }
+    });
+  });
+}
+
+/**
+ * Inicializa el modal/lightbox accesible para inspeccionar las capturas de pantalla reales.
+ * Gestiona el bloqueo de scroll y devuelve el foco al elemento disparador al cerrar.
+ */
+export function initGeoEvidenceModal() {
+  const modal = document.getElementById('geoEvidenceModal');
+  const modalImage = document.getElementById('geoEvidenceModalImg');
+  const modalCaption = document.getElementById('geoEvidenceModalCaption');
+  const closeBtn = document.getElementById('closeGeoEvidenceModal');
+  const triggerBtns = document.querySelectorAll('[data-open-evidence]');
+
+  if (!modal || !modalImage || triggerBtns.length === 0) return;
+
+  let lastActiveTrigger = null;
+
+  const openModal = (src, caption, trigger) => {
+    lastActiveTrigger = trigger || document.activeElement;
+    modalImage.src = src;
+    modalImage.alt = caption || 'Captura de pantalla de la auditoría IA';
+    if (modalCaption) modalCaption.textContent = caption || '';
+
+    if (typeof modal.showModal === 'function') {
+      modal.showModal();
+    } else {
+      modal.classList.remove('hidden');
+    }
+    document.body.classList.add('overflow-hidden');
+  };
+
+  const closeModal = () => {
+    if (typeof modal.close === 'function') {
+      modal.close();
+    } else {
+      modal.classList.add('hidden');
+    }
+    document.body.classList.remove('overflow-hidden');
+
+    // Restaurar foco al elemento que abrió el modal (Accesibilidad WCAG)
+    if (lastActiveTrigger && typeof lastActiveTrigger.focus === 'function') {
+      lastActiveTrigger.focus();
+    }
+  };
+
+  triggerBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const src = btn.getAttribute('data-evidence-src');
+      const caption = btn.getAttribute('data-evidence-caption');
+      if (src) openModal(src, caption, btn);
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  // Cerrar al hacer clic en el backdrop exterior del diálogo
+  modal.addEventListener('click', (e) => {
+    const rect = modal.getBoundingClientRect();
+    const isInDialog =
+      rect.top <= e.clientY &&
+      e.clientY <= rect.top + rect.height &&
+      rect.left <= e.clientX &&
+      e.clientX <= rect.left + rect.width;
+
+    if (!isInDialog) {
+      closeModal();
+    }
+  });
+
+  modal.addEventListener('cancel', () => {
+    document.body.classList.remove('overflow-hidden');
+    if (lastActiveTrigger && typeof lastActiveTrigger.focus === 'function') {
+      lastActiveTrigger.focus();
+    }
+  });
+}
