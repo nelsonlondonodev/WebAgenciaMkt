@@ -29,6 +29,7 @@ import {
   initBeforeAfterSlider,
   initHeroBenefitBadge,
   initSuccessCaseCarousels,
+  initGeoTabs,
 } from './uiInteractions.js';
 
 import { initVideoFacades } from './videoFacade.js';
@@ -88,6 +89,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   initPortfolioFilter();
   initScrollAnimations();
+  initGeoTabs();
 
   // 4. Fase Ociosa (Idle): Plugins y widgets secundarios.
   // Se declaran como claves de objeto porque el minificador no las renombra:

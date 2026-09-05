@@ -137,3 +137,41 @@ export function initHeroBenefitBadge() {
     }, 500);
   }
 }
+
+/**
+ * Inicializa el selector de pestañas interactivas (ChatGPT / Gemini) en la página GEO.
+ * Permite comparar en tiempo real las respuestas de ambos motores de IA.
+ */
+export function initGeoTabs() {
+  const tabButtons = document.querySelectorAll('[data-geo-tab]');
+  const tabPanels = document.querySelectorAll('[data-geo-panel]');
+
+  if (tabButtons.length === 0 || tabPanels.length === 0) return;
+
+  tabButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-geo-tab');
+
+      tabButtons.forEach((btn) => {
+        const isActive = btn.getAttribute('data-geo-tab') === target;
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        if (isActive) {
+          btn.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-900', 'dark:text-white', 'shadow-sm');
+          btn.classList.remove('text-gray-500', 'dark:text-gray-400');
+        } else {
+          btn.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-900', 'dark:text-white', 'shadow-sm');
+          btn.classList.add('text-gray-500', 'dark:text-gray-400');
+        }
+      });
+
+      tabPanels.forEach((panel) => {
+        if (panel.getAttribute('data-geo-panel') === target) {
+          panel.classList.remove('hidden');
+        } else {
+          panel.classList.add('hidden');
+        }
+      });
+    });
+  });
+}
+

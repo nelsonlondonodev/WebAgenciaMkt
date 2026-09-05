@@ -120,16 +120,16 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link 
       rel="preload" 
-      href="/fontawesome.min.css?v=2026.09.05.1148" 
+      href="/fontawesome.min.css?v=2026.09.05.1155" 
       as="style" 
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.09.05.1148" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.09.05.1155" />
     </noscript>
 
     <!-- Carga del CSS principal -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.09.05.1148" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.09.05.1155" />
 
     <style>
       .scrollbar-hide::-webkit-scrollbar { display: none; }
@@ -199,24 +199,47 @@
             </div>
           </div>
 
-          <!-- Mockup Interactivo / Captura Estilizada de ChatGPT -->
+          <!-- Mockup Interactivo / Captura Multimodelo (ChatGPT vs Google Gemini) -->
           <div class="mt-14 w-full max-w-4xl animate-fade-in-up" style="animation-delay: 0.4s">
             <div class="rounded-2xl bg-white/80 dark:bg-gray-900/90 border border-gray-200 dark:border-gray-800 shadow-2xl backdrop-blur-xl overflow-hidden text-left">
-              <!-- Barra superior de la ventana del chatbot -->
-              <div class="px-5 py-3.5 bg-gray-100/90 dark:bg-gray-800/80 border-b border-gray-200 dark:border-gray-700/60 flex items-center justify-between">
+              <!-- Barra superior de la ventana del chatbot con Tabs -->
+              <div class="px-5 py-3 bg-gray-100/90 dark:bg-gray-800/80 border-b border-gray-200 dark:border-gray-700/60 flex flex-wrap items-center justify-between gap-3">
                 <div class="flex items-center gap-2">
                   <span class="w-3 h-3 rounded-full bg-red-400"></span>
                   <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
                   <span class="w-3 h-3 rounded-full bg-green-400"></span>
-                  <span class="ml-2 text-xs font-mono text-gray-500 dark:text-gray-400">chatgpt.com/audit-geo</span>
+                  <span class="ml-2 text-xs font-mono text-gray-500 dark:text-gray-400 hidden sm:inline">audit-multimodelo-geo</span>
                 </div>
-                <div class="flex items-center gap-2 text-xs font-semibold text-primary-green bg-primary-green/10 px-2.5 py-1 rounded-full">
-                  <i class="fas fa-check-circle"></i> Búsqueda en Vivo Sin Caché
+
+                <!-- Selector de Pestañas Interactivas -->
+                <div class="inline-flex p-1 bg-gray-200/80 dark:bg-gray-950/70 rounded-xl text-xs font-semibold" role="tablist" aria-label="Comparativa de Motores IA">
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    data-geo-tab="chatgpt"
+                    class="px-3.5 py-1.5 rounded-lg transition-all duration-200 flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm cursor-pointer"
+                  >
+                    <i class="fas fa-sparkles text-emerald-500"></i>
+                    <span>ChatGPT (OpenAI)</span>
+                    <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">#1 (9.5/10)</span>
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    data-geo-tab="gemini"
+                    class="px-3.5 py-1.5 rounded-lg transition-all duration-200 flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer"
+                  >
+                    <i class="fab fa-google text-blue-500"></i>
+                    <span>Google Gemini</span>
+                    <span class="text-[10px] px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-bold">5.0 ★ Top</span>
+                  </button>
                 </div>
               </div>
 
-              <!-- Contenido de la consulta y respuesta de la IA -->
-              <div class="p-6 sm:p-8 space-y-6 text-sm sm:text-base">
+              <!-- PANEL 1: ChatGPT -->
+              <div data-geo-panel="chatgpt" class="p-6 sm:p-8 space-y-6 text-sm sm:text-base">
                 <!-- Prompt del usuario -->
                 <div class="flex items-start gap-3.5">
                   <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
@@ -240,7 +263,7 @@
                         <span class="font-bold text-emerald-600 dark:text-primary-green text-lg">🥇 #1 Narbo's Salón Spa</span>
                         <span class="px-2 py-0.5 rounded text-xs font-black bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">Nota: 9.5 / 10</span>
                       </div>
-                      <span class="text-xs font-medium text-gray-500 dark:text-gray-400">Evaluación algorítmica profunda</span>
+                      <span class="text-xs font-medium text-gray-500 dark:text-gray-400">Auditoría algorítmica profunda</span>
                     </div>
 
                     <p class="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -265,6 +288,74 @@
                   </div>
                 </div>
               </div>
+
+              <!-- PANEL 2: Google Gemini (Oculto por defecto) -->
+              <div data-geo-panel="gemini" class="p-6 sm:p-8 space-y-6 text-sm sm:text-base hidden">
+                <!-- Prompt del usuario -->
+                <div class="flex items-start gap-3.5">
+                  <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
+                    JL
+                  </div>
+                  <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl px-4 py-3 text-gray-800 dark:text-gray-200 max-w-2xl">
+                    <p class="font-medium">
+                      «Dime una información objetiva, sin tomarla de caché. Quiero saber cuál es la respuesta hoy: Dame el nombre de las mejores peluquerías en Chía, Cundinamarca.»
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Respuesta de Gemini -->
+                <div class="flex items-start gap-3.5">
+                  <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fab fa-google"></i>
+                  </div>
+                  <div class="flex-1 bg-blue-500/5 dark:bg-gray-800/60 border border-blue-500/20 rounded-2xl p-5 sm:p-6 text-gray-800 dark:text-gray-200">
+                    <div class="flex items-center justify-between flex-wrap gap-2 pb-3 border-b border-gray-200 dark:border-gray-700">
+                      <div class="flex items-center gap-2">
+                        <span class="font-bold text-blue-600 dark:text-blue-400 text-lg">⭐ Narbo’s Salón Spa</span>
+                        <span class="px-2 py-0.5 rounded text-xs font-black bg-yellow-100 dark:bg-yellow-950 text-yellow-800 dark:text-yellow-300">5.0 ★ Calificación Máxima</span>
+                      </div>
+                      <span class="text-xs font-medium text-gray-500 dark:text-gray-400">Google Gemini Live Search</span>
+                    </div>
+
+                    <p class="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                      «<strong>Peluquería | Narbo’s Salón Spa | Chía (Calificación de 5.0 estrellas)</strong>: Un centro que combina servicios de peluquería profesional con tratamientos de spa y cuidado personal. Amplia oferta en corte, color, peinado y estética capilar. Ubicado en el Km 2 vía Chía - Cajicá (Edificio Quantum).»
+                    </p>
+
+                    <!-- Resaltado de la pregunta de intención de Gemini -->
+                    <div class="mt-4 p-3.5 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/60 text-xs text-blue-900 dark:text-blue-200 flex items-start gap-2.5">
+                      <i class="fas fa-lightbulb text-blue-500 mt-0.5 text-sm flex-shrink-0"></i>
+                      <div>
+                        <strong>Pregunta de cierre de Gemini:</strong> <em>«¿Buscas algún servicio o tratamiento capilar en específico (colorimetría, barbería, keratina o spa)?»</em>
+                        <p class="mt-1 text-gray-600 dark:text-gray-400">
+                          <strong>La clave técnica:</strong> Gemini desglosa el mercado por las <strong>mismas categorías semánticas</strong> que Nelson Londoño estructuró en la web de Narbo's, asegurando que la IA siempre tenga una landing de aterrizaje relevante que recomendar.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Métricas de Gemini -->
+                    <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-gray-200 dark:border-gray-700/60 text-xs">
+                      <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <span>Puntuación: <strong>5.0 / 5.0</strong></span>
+                      </div>
+                      <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-building text-blue-500"></i>
+                        <span>Ubicación validada: <strong>Quantum</strong></span>
+                      </div>
+                      <div class="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-check-double text-primary-green"></i>
+                        <span>Oferta Dual: <strong>Peluquería + Spa</strong></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nota de Consenso Multi-Modelo -->
+            <div class="mt-4 flex items-center justify-center gap-2 text-xs text-gray-500 dark:text-gray-400 text-center">
+              <i class="fas fa-check-circle text-primary-green"></i>
+              <span><strong>Consenso Multi-Modelo:</strong> Los algoritmos de OpenAI y Google coinciden independientemente en la superioridad de la marca.</span>
             </div>
           </div>
         </div>
@@ -373,7 +464,7 @@
               Caso Real: Narbo's Salón Spa
             </h2>
             <p class="mt-4 text-base sm:text-lg text-gray-600 dark:text-gray-300">
-              Cómo la estrategia técnica implementada por <strong>Nelson Londoño</strong> superó a competidores con más de 4.000 reseñas para alcanzar el #1 en ChatGPT.
+              Cómo la estrategia técnica implementada por <strong>Nelson Londoño</strong> superó a competidores con más de 4.000 reseñas para alcanzar el <strong>#1 en ChatGPT (Nota 9.5/10)</strong> y la <strong>máxima valoración de 5.0 estrellas en Google Gemini</strong>.
             </p>
           </div>
 
@@ -417,12 +508,12 @@
               <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-xl mb-6">
                 <i class="fas fa-award"></i>
               </div>
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">3. El Veredicto de la IA</h3>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">3. El Consenso de la IA</h3>
               <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                ChatGPT sitúa a Narbo's en <strong>1ª posición global con nota de 9.5/10</strong>, descartando al competidor de 4.000 reseñas por falta de consistencia cualitativa.
+                <strong>ChatGPT</strong> lo califica con 9.5/10 como el rival digital más fuerte y <strong>Google Gemini</strong> lo destaca con 5.0 estrellas perfectas por su propuesta integral de peluquería y spa.
               </p>
               <div class="p-3 bg-white dark:bg-gray-900 rounded-lg text-xs italic text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800">
-                «Narbo's es la mejor opción porque su arquitectura semántica responde con precisión quirúrgica a lo que busca el usuario.»
+                «Narbo's destaca por encima de negocios con miles de reseñas porque su arquitectura semántica responde con precisión quirúrgica a lo que busca el usuario.»
               </div>
             </div>
           </div>
@@ -770,6 +861,6 @@
     <div id="cookie-banner-placeholder"></div>
 
     <div data-component="chatbot"></div>
-    <script src="/bundle-v2.min.js?v=2026.09.05.1148" defer></script>
+    <script src="/bundle-v2.min.js?v=2026.09.05.1155" defer></script>
   </body>
 </html>
