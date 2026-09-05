@@ -100,5 +100,17 @@ ErrorDocument 404 /404.html
     ExpiresByType application/x-font-ttf "access plus 1 year"
     ExpiresByType application/x-font-otf "access plus 1 year"
     
+    # HTML: siempre revalidar. El ?v= del cache-buster viaja DENTRO del HTML,
+    # así que si la página se cachea, el visitante recurrente tampoco recibe
+    # el CSS ni el JS nuevos. Revalidar es barato: si no cambió, responde 304.
+    ExpiresByType text/html "access plus 0 seconds"
+
     ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# 8. Revalidación del HTML y del sitemap (complementa el bloque anterior)
+<IfModule mod_headers.c>
+    <FilesMatch "\.(html|xml)$">
+        Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+    </FilesMatch>
 </IfModule>
