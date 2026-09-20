@@ -30,7 +30,5 @@ Thumbs.db
 *.pdf
 propuesta*
 
-
-
-
-
+# Archivos de contenido y bitácora de redes sociales locales
+redes-sociales-contenido.md
