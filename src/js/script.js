@@ -4,12 +4,12 @@ import { applyAlternatingGradients } from './sectionStyler.js'; // Importar la f
 import { initScrollAnimations } from './scrollAnimations.js';
 import { initNav } from './nav.js';
 import { initPortfolioFilter } from './portfolio.js';
+import { renderPortfolioHtml } from './portfolioCards.js';
 import { initNumberAnimation } from './numberAnimation.js';
 import { loadComponents } from './componentLoader.js'; // Importar el cargador de componentes
 import { initFooter } from './footer.js'; // Importar la inicialización del footer
 import { initChatbot } from './chatbot.js';
 import { initServiceCards } from './serviceRenderer.js';
-import { renderPortfolioCards } from './portfolioRenderer.js';
 import { initTestimonialCarousel } from './testimonialCarousel.js';
 import { initDynamicModals } from './modalRenderer.js';
 import { initAuditFilterModal } from './auditFilterModal.js';
@@ -81,12 +81,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   initServiceCards();
 
-  // Renderizado condicional de Portfolio
+  // Proyectos trae las tarjetas en el HTML; la home pinta aquí las 3 primeras.
   const portfolioGrid = document.getElementById('portfolio-grid');
-  const projectsGrid = document.getElementById('portfolio-grid-proyectos');
-
-  if (portfolioGrid) renderPortfolioCards('portfolio-grid', 3);
-  if (projectsGrid) renderPortfolioCards('portfolio-grid-proyectos');
+  if (portfolioGrid) portfolioGrid.innerHTML = renderPortfolioHtml({ limit: 3 });
 
   initPortfolioFilter();
   initScrollAnimations();
