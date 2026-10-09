@@ -286,6 +286,7 @@
 
   <body class=" ">
     <!-- Navbar Inlined para eliminar FOUC y mejorar CLS -->
+    <!-- nav:start (generado desde components/nav.html por inyectar-componentes.js; no editar aquí) -->
     <header id="mainHeader" class="sticky-header">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
@@ -393,7 +394,7 @@
           </div>
         </div>
       </div>
-      <!-- Mobile Menu Overlay -->
+      <!-- Mobile Menu Overlay (Dark background when open) -->
       <div
         id="nav-overlay"
         class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300 pointer-events-none"
@@ -413,7 +414,7 @@
           >
           <button
             id="closeMobileMenu"
-            class="p-3 -mr-3 text-gray-500 dark:text-gray-400 hover:text-red-500 transition-colors"
+            class="text-gray-500 dark:text-gray-400 hover:text-red-500 transition-colors"
             aria-label="Cerrar menú principal"
           >
             <i class="fas fa-times text-2xl"></i>
@@ -502,6 +503,7 @@
           </nav>
         </div>
 
+        <!-- Mobile Menu Footer -->
         <div class="p-8 border-t border-white/10">
           <p
             class="text-center text-[10px] text-gray-500 uppercase tracking-widest"
@@ -511,6 +513,7 @@
         </div>
       </div>
     </header>
+    <!-- nav:end -->
 
     <main class="pt-20">
       <section id="inicio-servicio" class="relative overflow-hidden">

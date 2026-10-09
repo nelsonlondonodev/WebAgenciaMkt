@@ -12,6 +12,8 @@
  * la v1.4.0 seis páginas divergían (casi siempre por comillas simples en el
  * marcado y dobles en pantalla), cada una arreglada a mano.
  *
+ * Y que el navbar en línea coincida con components/nav.html.
+ *
  * Falla el build si encuentra un problema. Referenciar una entidad ya
  * declarada en otro sitio con { "@id": "..." } (sin "@type") es la forma
  * correcta y no dispara ninguna validación.
@@ -19,6 +21,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { inject: checkInlineNav } = require('./inyectar-componentes');
 
 const LD_JSON = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
 
@@ -149,6 +152,11 @@ for (const file of files) {
     walk(data, rel, jsonPath, visible);
   }
 }
+
+// El navbar en línea de index, proyectos y sobre-mi debe ser idéntico al
+// componente: una edición a mano dentro de los marcadores rompería la única
+// fuente que evita que las copias se queden atrás.
+errors.push(...checkInlineNav({ check: true }));
 
 if (errors.length > 0) {
   console.error(`\n❌ Datos estructurados inválidos (${errors.length}):\n`);

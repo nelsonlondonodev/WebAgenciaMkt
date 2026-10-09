@@ -124,6 +124,7 @@
     <link rel="stylesheet" href="/nelson-v4.css?v=2026.10.07.1053" />
   </head>
   <body class=" ">
+    <!-- nav:start (generado desde components/nav.html por inyectar-componentes.js; no editar aquí) -->
     <header id="mainHeader" class="sticky-header">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
@@ -137,7 +138,7 @@
                 src="/image/logo-nelson.webp"
                 alt="Logo de Nelson Londoño"
                 class="h-10 sm:h-12 w-auto logo-invert-on-dark"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 width="174"
                 height="48"
@@ -162,23 +163,33 @@
                 >
                   <a
                     href="/agencia-seo-local.html"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                     >SEO local</a
                   >
                   <a
                     href="/agencia-seo.html"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                     >SEO (optimización para buscadores)</a
                   >
                   <a
                     href="/agencia-desarrollo-web-con-codigo.html"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                     >Desarrollo web a medida</a
                   >
                   <a
+                    href="/agencia-desarrollo-software.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >Software & SaaS a medida</a
+                  >
+                  <a
                     href="/agencia-automatizaciones.html"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                     >Agentes virtuales y automatizaciones</a
+                  >
+                  <a
+                    href="/agencia-geo.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >Posicionamiento en IA (GEO)</a
                   >
                 </div>
               </div>
@@ -212,28 +223,24 @@
               >
                 <span class="sr-only">Abrir menú principal</span>
                 <div class="w-6 h-6 flex flex-col justify-around">
-                  <span
-                    class="block h-0.5 w-full bg-current rounded-full"
-                  ></span>
-                  <span
-                    class="block h-0.5 w-full bg-current rounded-full"
-                  ></span>
-                  <span
-                    class="block h-0.5 w-full bg-current rounded-full"
-                  ></span>
+                  <span class="block h-0.5 w-full bg-current rounded-full"></span>
+                  <span class="block h-0.5 w-full bg-current rounded-full"></span>
+                  <span class="block h-0.5 w-full bg-current rounded-full"></span>
                 </div>
               </button>
             </div>
           </div>
         </div>
       </div>
+      <!-- Mobile Menu Overlay (Dark background when open) -->
       <div
         id="nav-overlay"
         class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300 pointer-events-none"
       ></div>
+
+      <!-- Mobile Menu Panel -->
       <div
         id="mobileMenu"
-        aria-hidden="true"
         class="fixed inset-y-0 right-0 w-[85%] max-w-[320px] z-[10001] transform translate-x-full transition-transform duration-500 ease-in-out mobile-menu-glass flex flex-col pointer-events-none"
       >
         <div
@@ -246,6 +253,7 @@
           <button
             id="closeMobileMenu"
             class="text-gray-500 dark:text-gray-400 hover:text-red-500 transition-colors"
+            aria-label="Cerrar menú principal"
           >
             <i class="fas fa-times text-2xl"></i>
           </button>
@@ -262,6 +270,8 @@
               <button
                 id="mobileServicesButton"
                 class="mobile-menu-link w-full text-left"
+                aria-label="Desplegar menú de servicios"
+                aria-expanded="false"
               >
                 <i
                   class="fas fa-briefcase w-8 text-center mr-3 text-primary-green"
@@ -273,7 +283,7 @@
               </button>
               <div
                 id="mobileServicesMenu"
-                class="hidden mt-2 ml-12 space-y-1 border-l-2 border-primary-green/20"
+                class="mobile-submenu"
               >
                 <a
                   href="/agencia-seo-local.html"
@@ -291,9 +301,19 @@
                   >Web a medida</a
                 >
                 <a
+                  href="/agencia-desarrollo-software.html"
+                  class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
+                  >Software & SaaS</a
+                >
+                <a
                   href="/agencia-automatizaciones.html"
                   class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
                   >IA & Automatizaciones</a
+                >
+                <a
+                  href="/agencia-geo.html"
+                  class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
+                  >Posicionamiento en IA (GEO)</a
                 >
               </div>
             </div>
@@ -305,15 +325,11 @@
               <span>Proyectos</span>
             </a>
             <a href="/sobre-mi.html" class="mobile-menu-link">
-              <i
-                class="fas fa-user w-8 text-center mr-3 text-primary-green"
-              ></i>
+              <i class="fas fa-user w-8 text-center mr-3 text-primary-green"></i>
               <span>Sobre mí</span>
             </a>
             <a href="/contacto.html" class="mobile-menu-link">
-              <i
-                class="fas fa-envelope w-8 text-center mr-3 text-primary-blue"
-              ></i>
+              <i class="fas fa-envelope w-8 text-center mr-3 text-primary-blue"></i>
               <span>Contacto</span>
             </a>
             <a href="/blog.html" class="mobile-menu-link">
@@ -324,6 +340,7 @@
             </a>
           </nav>
         </div>
+
         <!-- Mobile Menu Footer -->
         <div class="p-8 border-t border-white/10">
           <p
@@ -334,6 +351,7 @@
         </div>
       </div>
     </header>
+    <!-- nav:end -->
 
     <main class="pt-20">
       <!-- Hero Section Estático -->
