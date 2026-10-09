@@ -3,7 +3,6 @@ import { initSmoothScroll } from './smoothScroll.js';
 import { applyAlternatingGradients } from './sectionStyler.js'; // Importar la función para gradientes alternos
 import { initScrollAnimations } from './scrollAnimations.js';
 import { initNav } from './nav.js';
-import { initPortfolioFilter } from './portfolio.js';
 import { renderPortfolioHtml } from './portfolioCards.js';
 import { initNumberAnimation } from './numberAnimation.js';
 import { loadComponents } from './componentLoader.js'; // Importar el cargador de componentes
@@ -85,7 +84,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const portfolioGrid = document.getElementById('portfolio-grid');
   if (portfolioGrid) portfolioGrid.innerHTML = renderPortfolioHtml({ limit: 3 });
 
-  initPortfolioFilter();
   initScrollAnimations();
   initGeoTabs();
   initGeoEvidenceModal();
