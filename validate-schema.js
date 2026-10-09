@@ -7,6 +7,11 @@
  * no solo los de primer nivel, así que un nodo incompleto en cualquier
  * profundidad rompe los resultados enriquecidos de la página entera.
  *
+ * También comprueba que cada pregunta y respuesta de un FAQPage aparezca
+ * literal en el texto visible de la página: Google lo exige, y en el lote de
+ * la v1.4.0 seis páginas divergían (casi siempre por comillas simples en el
+ * marcado y dobles en pantalla), cada una arreglada a mano.
+ *
  * Falla el build si encuentra un problema. Referenciar una entidad ya
  * declarada en otro sitio con { "@id": "..." } (sin "@type") es la forma
  * correcta y no dispara ninguna validación.
@@ -39,15 +44,66 @@ function checkVideoObject(node, file, jsonPath) {
   );
 }
 
-function walk(node, file, jsonPath) {
+// Las etiquetas en línea se quitan sin dejar hueco ("GEO (<em>Generative</em>)"
+// debe leerse igual que en el marcado); las de bloque separan palabras.
+const INLINE_TAG = /<\/?(a|abbr|b|code|em|i|mark|small|span|strong|sub|sup)\b[^>]*>/gi;
+
+const ENTITIES = { nbsp: ' ', amp: '&', lt: '<', gt: '>', quot: '"', apos: "'" };
+
+// Texto plano comparable: sin etiquetas, con entidades decodificadas y los
+// espacios colapsados. Las comillas NO se normalizan: que difieran es
+// precisamente el fallo que se quiere detectar.
+function plainText(html) {
+  return html
+    .replace(INLINE_TAG, '')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(Number(dec)))
+    .replace(/&([a-z]+);/gi, (m, name) => ENTITIES[name.toLowerCase()] ?? m)
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function visibleText(html) {
+  return plainText(
+    html
+      .replace(/<head[\s\S]*?<\/head>/i, ' ')
+      .replace(/<!--[\s\S]*?-->/g, ' ')
+      .replace(/<(script|style|noscript|template)\b[\s\S]*?<\/\1>/gi, ' ')
+  );
+}
+
+function checkFaqPage(node, file, jsonPath, visible) {
+  [].concat(node.mainEntity || []).forEach((question, i) => {
+    const answer = question.acceptedAnswer || {};
+    const parts = [
+      ['pregunta', question.name],
+      ['respuesta', answer.text],
+    ];
+    for (const [label, raw] of parts) {
+      if (typeof raw !== 'string') continue;
+      const text = plainText(raw);
+      if (visible.includes(text)) continue;
+      errors.push(
+        `${file} → ${jsonPath}/mainEntity[${i}]\n` +
+          `    FAQPage: la ${label} no aparece literal en la página\n` +
+          `    "${text}"\n` +
+          `    Google exige que el FAQPage sea idéntico a lo visible (ojo a las comillas).`
+      );
+    }
+  });
+}
+
+function walk(node, file, jsonPath, visible) {
   if (Array.isArray(node)) {
-    node.forEach((item, i) => walk(item, file, `${jsonPath}[${i}]`));
+    node.forEach((item, i) => walk(item, file, `${jsonPath}[${i}]`, visible));
     return;
   }
   if (!node || typeof node !== 'object') return;
 
   const types = [].concat(node['@type'] || []);
   if (types.includes('VideoObject')) checkVideoObject(node, file, jsonPath);
+  if (types.includes('FAQPage')) checkFaqPage(node, file, jsonPath, visible);
 
   // Se recorren también las claves con @, porque @graph es un array de nodos
   // y es justo donde vive el grafo de index.html y agencia-seo-local.html.
@@ -56,7 +112,7 @@ function walk(node, file, jsonPath) {
   // guarda de arriba al no ser objetos.
   for (const [key, value] of Object.entries(node)) {
     if (key === '@type') continue;
-    walk(value, file, `${jsonPath}/${key}`);
+    walk(value, file, `${jsonPath}/${key}`, visible);
   }
 }
 
@@ -76,6 +132,7 @@ let blocks = 0;
 for (const file of files) {
   const rel = path.relative(process.cwd(), file);
   const html = fs.readFileSync(file, 'utf8');
+  const visible = visibleText(html);
   let match;
   let index = 0;
 
@@ -89,7 +146,7 @@ for (const file of files) {
       errors.push(`${rel} → ${jsonPath}\n    JSON inválido: ${err.message}`);
       continue;
     }
-    walk(data, rel, jsonPath);
+    walk(data, rel, jsonPath, visible);
   }
 }
 
