@@ -7,27 +7,6 @@ export const servicesData = [
       'Atrae clientes cercanos a tu negocio físico. Optimiza tu presencia en Google Maps y búsquedas locales.',
   },
   {
-    url: 'agencia-seo.html',
-    icon: 'fas fa-search fa-2x',
-    title: 'SEO (optimización para buscadores)',
-    description:
-      'Mejora la visibilidad de tu sitio web en los resultados de búsqueda orgánica de Google y otros buscadores.',
-  },
-  {
-    url: 'agencia-desarrollo-web-con-codigo.html',
-    icon: 'fas fa-code fa-2x',
-    title: 'Desarrollo web a medida',
-    description:
-      'Creamos soluciones web únicas y de alto rendimiento, diseñadas específicamente para tus necesidades y objetivos de negocio.',
-  },
-  {
-    url: 'agencia-desarrollo-software.html',
-    icon: 'fas fa-cubes fa-2x',
-    title: 'Software & SaaS a medida',
-    description:
-      'Desarrollamos aplicaciones web robustas, arquitecturas multi-tenant y soluciones SaaS personalizadas.',
-  },
-  {
     url: 'agencia-automatizaciones.html',
     icon: 'fas fa-robot fa-2x',
     title: 'Agentes virtuales y automatizaciones',
@@ -40,5 +19,26 @@ export const servicesData = [
     title: 'Posicionamiento en IA (GEO)',
     description:
       'Haz que ChatGPT, Gemini y Perplexity recomienden tu negocio en la posición #1 con una arquitectura semántica avanzada.',
+  },
+  {
+    url: 'agencia-seo.html',
+    icon: 'fas fa-search fa-2x',
+    title: 'SEO (optimización para buscadores)',
+    description:
+      'Mejora la visibilidad de tu sitio web en los resultados de búsqueda orgánica de Google y otros buscadores.',
+  },
+  {
+    url: 'agencia-desarrollo-software.html',
+    icon: 'fas fa-cubes fa-2x',
+    title: 'Software & SaaS a medida',
+    description:
+      'Desarrollamos aplicaciones web robustas, arquitecturas multi-tenant y soluciones SaaS personalizadas.',
+  },
+  {
+    url: 'agencia-desarrollo-web-con-codigo.html',
+    icon: 'fas fa-code fa-2x',
+    title: 'Desarrollo web a medida',
+    description:
+      'Creamos soluciones web únicas y de alto rendimiento, diseñadas específicamente para tus necesidades y objetivos de negocio.',
   },
 ];

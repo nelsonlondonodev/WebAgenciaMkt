@@ -21,14 +21,14 @@
     </script>
     
     <!-- Carga local optimizada de Font Awesome (asíncrona para evitar bloqueo de renderizado) -->
-    <link rel="stylesheet" href="/fontawesome.min.css?v=2026.10.07.1053" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="/fontawesome.min.css?v=2026.10.07.1053" /></noscript>
+    <link rel="stylesheet" href="/fontawesome.min.css?v=2026.10.09.0930" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/fontawesome.min.css?v=2026.10.09.0930" /></noscript>
 
     <!-- Preload del Hero LCP para carga instantánea -->
     <link rel="preload" as="image" href="./image/foto-nelson-londono.webp" fetchpriority="high" />
 
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.10.07.1053" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.10.09.0930" />
 
     <script type="application/ld+json">
     {
@@ -286,6 +286,7 @@
 
   <body class=" ">
     <!-- Navbar Inlined para eliminar FOUC y mejorar CLS -->
+    <!-- nav:start (generado desde components/nav.html por inyectar-componentes.js; no editar aquí) -->
     <header id="mainHeader" class="sticky-header">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
@@ -328,21 +329,6 @@
                     >SEO local</a
                   >
                   <a
-                    href="/agencia-seo.html"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                    >SEO (optimización para buscadores)</a
-                  >
-                  <a
-                    href="/agencia-desarrollo-web-con-codigo.html"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                    >Desarrollo web a medida</a
-                  >
-                  <a
-                    href="/agencia-desarrollo-software.html"
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                    >Software & SaaS a medida</a
-                  >
-                  <a
                     href="/agencia-automatizaciones.html"
                     class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                     >Agentes virtuales y automatizaciones</a
@@ -351,6 +337,21 @@
                     href="/agencia-geo.html"
                     class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                     >Posicionamiento en IA (GEO)</a
+                  >
+                  <a
+                    href="/agencia-seo.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >SEO (optimización para buscadores)</a
+                  >
+                  <a
+                    href="/agencia-desarrollo-software.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >Software & SaaS a medida</a
+                  >
+                  <a
+                    href="/agencia-desarrollo-web-con-codigo.html"
+                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    >Desarrollo web a medida</a
                   >
                 </div>
               </div>
@@ -393,7 +394,7 @@
           </div>
         </div>
       </div>
-      <!-- Mobile Menu Overlay -->
+      <!-- Mobile Menu Overlay (Dark background when open) -->
       <div
         id="nav-overlay"
         class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300 pointer-events-none"
@@ -413,7 +414,7 @@
           >
           <button
             id="closeMobileMenu"
-            class="p-3 -mr-3 text-gray-500 dark:text-gray-400 hover:text-red-500 transition-colors"
+            class="text-gray-500 dark:text-gray-400 hover:text-red-500 transition-colors"
             aria-label="Cerrar menú principal"
           >
             <i class="fas fa-times text-2xl"></i>
@@ -452,21 +453,6 @@
                   >SEO local</a
                 >
                 <a
-                  href="/agencia-seo.html"
-                  class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
-                  >SEO técnico</a
-                >
-                <a
-                  href="/agencia-desarrollo-web-con-codigo.html"
-                  class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
-                  >Web a medida</a
-                >
-                <a
-                  href="/agencia-desarrollo-software.html"
-                  class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
-                  >Software & SaaS</a
-                >
-                <a
                   href="/agencia-automatizaciones.html"
                   class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
                   >IA & Automatizaciones</a
@@ -475,6 +461,21 @@
                   href="/agencia-geo.html"
                   class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
                   >Posicionamiento en IA (GEO)</a
+                >
+                <a
+                  href="/agencia-seo.html"
+                  class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
+                  >SEO técnico</a
+                >
+                <a
+                  href="/agencia-desarrollo-software.html"
+                  class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
+                  >Software & SaaS</a
+                >
+                <a
+                  href="/agencia-desarrollo-web-con-codigo.html"
+                  class="block py-3 px-4 text-gray-700 dark:text-gray-400 hover:text-primary-green transition-colors"
+                  >Web a medida</a
                 >
               </div>
             </div>
@@ -502,6 +503,7 @@
           </nav>
         </div>
 
+        <!-- Mobile Menu Footer -->
         <div class="p-8 border-t border-white/10">
           <p
             class="text-center text-[10px] text-gray-500 uppercase tracking-widest"
@@ -511,6 +513,7 @@
         </div>
       </div>
     </header>
+    <!-- nav:end -->
 
     <main class="pt-20">
       <section id="inicio-servicio" class="relative overflow-hidden">
@@ -891,7 +894,7 @@
 
     <!-- SCRIPTS PARA PRODUCCIÓN -->
     <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
-    <script src="/bundle-v2.min.js?v=2026.10.07.1053" defer></script>
+    <script src="/bundle-v2.min.js?v=2026.10.09.0930" defer></script>
 
     <!-- SCRIPTS PARA DESARROLLO -->
     <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->
