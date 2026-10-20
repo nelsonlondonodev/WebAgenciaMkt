@@ -43,11 +43,38 @@ export const CONFIG = {
       CURRENCY: '€',
       SUFFIX: '/mes',
     },
+    // Web + SEO local + SEO + GEO, con la web incluida y 6 meses de
+    // permanencia: el modelo de Narbo's trasladado a España.
+    PACK_VISIBILIDAD: {
+      MIN_PRICE: 590,
+      CURRENCY: '€',
+      SUFFIX: '/mes',
+    },
+    WEB_LANDING: {
+      MIN_PRICE: 575,
+      CURRENCY: '€',
+      SUFFIX: '',
+    },
+    WEB_CORPORATIVA: {
+      MIN_PRICE: 1150,
+      CURRENCY: '€',
+      SUFFIX: '',
+    },
+    WEB_AVANZADA: {
+      MIN_PRICE: 1725,
+      CURRENCY: '€',
+      SUFFIX: '',
+    },
+    WEB_ECOMMERCE: {
+      MIN_PRICE: 1935,
+      CURRENCY: '€',
+      SUFFIX: '',
+    },
   },
 
   // Configuración general de UI
   UI: {
     THEME_KEY: 'theme',
-    APP_VERSION: '2026.10.09.0943',
+    APP_VERSION: '2026.10.20.0755',
   },
 };
