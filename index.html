@@ -21,14 +21,14 @@
     </script>
     
     <!-- Carga local optimizada de Font Awesome (asíncrona para evitar bloqueo de renderizado) -->
-    <link rel="stylesheet" href="/fontawesome.min.css?v=2026.10.09.0930" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="/fontawesome.min.css?v=2026.10.09.0930" /></noscript>
+    <link rel="stylesheet" href="/fontawesome.min.css?v=2026.10.20.0859" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/fontawesome.min.css?v=2026.10.20.0859" /></noscript>
 
     <!-- Preload del Hero LCP para carga instantánea -->
     <link rel="preload" as="image" href="./image/foto-nelson-londono.webp" fetchpriority="high" />
 
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.10.09.0930" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.10.20.0859" />
 
     <script type="application/ld+json">
     {
@@ -363,7 +363,6 @@
                 <i class="fas fa-user w-5 text-center mr-2"></i
                 ><span class="flex-1">Sobre mí</span>
               </a>
-
               <a href="/contacto.html" class="nav-link flex items-center">
                 <i class="fas fa-envelope w-5 text-center mr-2"></i
                 ><span class="flex-1">Contacto</span>
@@ -399,7 +398,6 @@
         id="nav-overlay"
         class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300 pointer-events-none"
       ></div>
-
       <!-- Mobile Menu Panel -->
       <div
         id="mobileMenu"
@@ -420,14 +418,12 @@
             <i class="fas fa-times text-2xl"></i>
           </button>
         </div>
-
         <div class="flex-1 overflow-y-auto py-8">
           <nav class="space-y-2 px-4">
             <a href="/" class="mobile-menu-link">
               <i class="fas fa-home w-8 text-center mr-3 text-primary-blue"></i>
               <span>Inicio</span>
             </a>
-
             <div class="relative">
               <button
                 id="mobileServicesButton"
@@ -479,7 +475,6 @@
                 >
               </div>
             </div>
-
             <a href="/proyectos.html" class="mobile-menu-link">
               <i
                 class="fas fa-folder-open w-8 text-center mr-3 text-primary-blue"
@@ -502,7 +497,6 @@
             </a>
           </nav>
         </div>
-
         <!-- Mobile Menu Footer -->
         <div class="p-8 border-t border-white/10">
           <p
@@ -782,7 +776,7 @@
             id="portfolio-grid"
             class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
           >
-            <!-- Los proyectos del portafolio se generarán aquí dinámicamente -->
+            <!-- Las 3 primeras tarjetas las pinta script.js desde src/js/portfolioCards.js -->
           </div>
 
           <div class="text-center mt-12">
@@ -894,7 +888,7 @@
 
     <!-- SCRIPTS PARA PRODUCCIÓN -->
     <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
-    <script src="/bundle-v2.min.js?v=2026.10.09.0930" defer></script>
+    <script src="/bundle-v2.min.js?v=2026.10.20.0859" defer></script>
 
     <!-- SCRIPTS PARA DESARROLLO -->
     <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->

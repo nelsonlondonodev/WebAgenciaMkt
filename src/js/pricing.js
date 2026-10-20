@@ -1,6 +1,10 @@
 // src/js/pricing.js
 import { CONFIG } from './config.js';
 
+// es-ES no agrupa los números de cuatro cifras por defecto ("1150"); el
+// HTML estático escribe "1.150", así que se fuerza el punto de miles.
+const priceFormatter = new Intl.NumberFormat('es-ES', { useGrouping: 'always' });
+
 /**
  * Inyecta los precios configurados en el archivo central de configuración
  * en los elementos HTML que tengan el atributo [data-service-price].
@@ -16,11 +20,12 @@ export function initPricing() {
       // Inyectar el precio formateado: e.g. "Desde 230 €/mes"
       // Si el elemento tiene data-price-only="true", solo inyecta el número
       const onlyNumber = element.getAttribute('data-price-only') === 'true';
+      const price = priceFormatter.format(pricingData.MIN_PRICE);
 
       if (onlyNumber) {
-        element.textContent = `${pricingData.MIN_PRICE}${pricingData.CURRENCY}`;
+        element.textContent = `${price}${pricingData.CURRENCY}`;
       } else {
-        element.textContent = `desde ${pricingData.MIN_PRICE} ${pricingData.CURRENCY}${pricingData.SUFFIX}`;
+        element.textContent = `desde ${price} ${pricingData.CURRENCY}${pricingData.SUFFIX}`;
       }
 
       // Si el elemento tiene data-include-note="true", inyectar la nota

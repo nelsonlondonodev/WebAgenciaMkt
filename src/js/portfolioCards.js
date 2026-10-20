@@ -1,5 +1,16 @@
+/**
+ * Plantilla de las tarjetas del portafolio, sin DOM.
+ *
+ * La usa inyectar-componentes.js en el build para escribir las tarjetas
+ * dentro del HTML de proyectos.html, y script.js para pintar las 3 primeras
+ * en la home al cargar. En la home van por JS a propósito: están lejos de la
+ * primera pantalla y, metidas en el HTML, sus imágenes competían con la foto
+ * del hero y subían el LCP de 4,7 s a 5,0 s.
+ * Antes había dos copias: las tarjetas estáticas, puestas para evitar CLS,
+ * y las que el JS generaba desde portfolio.js y sobrescribían a las
+ * estáticas al cargar. Ahora src/js/data/portfolio.js es la única fuente.
+ */
 import { portfolioData } from './data/portfolio.js';
-import { observeAnimatedElements } from './scrollAnimations.js';
 
 function createSrcSet(srcset) {
   if (!srcset) return '';
@@ -8,28 +19,7 @@ function createSrcSet(srcset) {
     .join(', ');
 }
 
-// Helper function to create badges for the image
-function _createImageBadges(item) {
-  let badgesHtml = '';
-  if (item.type === 'link') {
-    badgesHtml += `
-      <div class="absolute top-2 right-2 p-2 bg-black/50 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true">
-        <i class="fas fa-link"></i>
-      </div>
-    `;
-  }
-  if (item.tourType) {
-    badgesHtml += `
-      <div class="absolute top-2 right-2 flex items-center space-x-1.5 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-        <i class="fas fa-vr-cardboard"></i>
-        <span>${item.tourType}</span>
-      </div>
-    `;
-  }
-  return badgesHtml;
-}
-
-function createCardImage(item, srcsetAttr, sizesAttr) {
+function createCardImage(item, srcsetAttr, sizesAttr, priority) {
   return `
     <div class="relative">
       <img
@@ -40,7 +30,7 @@ function createCardImage(item, srcsetAttr, sizesAttr) {
         alt="${item.imgAlt}"
         width="400"
         height="224"
-        loading="lazy"
+        ${priority ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'}
         decoding="async"
       />
       ${
@@ -78,7 +68,7 @@ function createCardContent(item) {
   `;
 }
 
-function createPortfolioCard(item) {
+function createPortfolioCard(item, priority = false) {
   const isLink = item.type === 'link';
   const tag = isLink ? 'a' : 'div';
   const hrefAttr = isLink
@@ -91,37 +81,27 @@ function createPortfolioCard(item) {
   const srcsetAttr = item.imgSrcSet
     ? `srcset="${createSrcSet(item.imgSrcSet)}"`
     : '';
+  // Ancho real de la tarjeta en la rejilla (1 columna en móvil, 2 en md y 3
+  // en lg dentro de max-w-7xl). El sizes anterior hacía que el móvil bajara
+  // la imagen de 1440px en vez de la de 800px.
   const sizesAttr = item.imgSrcSet
-    ? `sizes="(max-width: 640px) 480px, (max-width: 1024px) 800px, 1440px"`
+    ? `sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 400px"`
     : '';
 
   return `
     <${tag} ${idAttr} ${dataTypeAttr} class="portfolio-item group scroll-animate-initial ${cursorClass}" data-category="${item.category}" ${hrefAttr}>
       <div class="absolute inset-0 bg-gradient-to-br from-primary-blue/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"></div>
-      ${createCardImage(item, srcsetAttr, sizesAttr)}
+      ${createCardImage(item, srcsetAttr, sizesAttr, priority)}
       ${createCardContent(item)}
     </${tag}>
   `;
 }
 
-export function renderPortfolioCards(containerId, limit = null) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-
-  const itemsToRender = limit ? portfolioData.slice(0, limit) : portfolioData;
-
-  const cardsHtml = itemsToRender.map(createPortfolioCard).join('');
-  container.innerHTML = cardsHtml;
-
-  const newCards = container.querySelectorAll('.scroll-animate-initial');
-  observeAnimatedElements(newCards);
-}
-
-// La función initPortfolioCards ya no se usará directamente, su lógica
-// se manejará desde script.js llamando a renderPortfolioCards con los
-// argumentos apropiados para cada página.
-export function initPortfolioCards() {
-  console.warn(
-    'initPortfolioCards está obsoleta. Usa renderPortfolioCards(containerId, limit) en su lugar.'
-  );
+/**
+ * HTML de las tarjetas. Con priority, la primera se carga sin lazy y con
+ * fetchpriority alto, porque en proyectos.html es candidata a LCP.
+ */
+export function renderPortfolioHtml({ limit = null, priority = false } = {}) {
+  const items = limit ? portfolioData.slice(0, limit) : portfolioData;
+  return items.map((item, i) => createPortfolioCard(item, priority && i === 0)).join('');
 }

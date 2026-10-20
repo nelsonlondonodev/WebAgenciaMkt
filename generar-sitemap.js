@@ -10,6 +10,7 @@
 const { SitemapStream, streamToPromise } = require('sitemap');
 const { createWriteStream } = require('fs');
 const { readdir, readFile, stat } = require('fs/promises');
+const { execFileSync } = require('child_process');
 const path = require('path');
 
 // --- CONFIGURACIÓN CENTRALIZADA ---
@@ -25,8 +26,7 @@ const EXCLUDED_PATHS = [
   '/404',             // Página de error
   '/google',          // Archivos de verificación
   '/guia-para-pdf',   // Herramienta interna de maquetación
-  '/politica-de-cookies', // Excluida por Noindex
-  '/propuesta'          // Propuestas a clientes: locales y fuera de git, nunca se publican
+  '/politica-de-cookies' // Excluida por Noindex
 ];
 
 /** @description Directorios del sistema a ignorar durante el escaneo */
@@ -98,6 +98,31 @@ const calculatePriority = (url) => {
   return PRIORITY_MAP.DEFAULT;
 };
 
+/**
+ * Quita los archivos que ignora git: no llegan a main ni a Hostinger, así que
+ * en el sitemap serían URLs rotas (propuestas a clientes, landings de prueba…).
+ * @param {string[]} files rutas relativas a la raíz del repo
+ * @returns {string[]}
+ */
+function withoutGitIgnored(files) {
+  if (files.length === 0) return files;
+  let output;
+  try {
+    output = execFileSync('git', ['check-ignore', '--stdin'], {
+      cwd: __dirname,
+      input: files.join('\n'),
+      encoding: 'utf-8',
+    });
+  } catch (error) {
+    // check-ignore sale con 1 cuando ningún archivo está ignorado
+    if (error.status === 1) return files;
+    throw error;
+  }
+  const ignored = new Set(output.split('\n').filter(Boolean));
+  ignored.forEach((file) => console.log(`  - Ignorado (git): ${normalizeUrl(file)}`));
+  return files.filter((file) => !ignored.has(file));
+}
+
 // --- LÓGICA DE ESCANEO ---
 
 /**
@@ -134,7 +159,7 @@ async function runGenerator() {
   console.log('🚀 [SEO Master] Iniciando análisis del proyecto...');
   
   try {
-    const files = await getIndexableFiles(__dirname);
+    const files = withoutGitIgnored(await getIndexableFiles(__dirname));
     const sitemapLinks = [];
 
     for (const file of files) {

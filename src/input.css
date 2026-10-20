@@ -281,12 +281,6 @@
   .testimonial-card {
     @apply relative bg-white/40 dark:bg-gray-900/40 backdrop-blur-2xl border border-white/40 dark:border-white/5 hover:border-primary-blue/30 dark:hover:border-primary-green/30 transition-all duration-700 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.5)] transform hover:-translate-y-2 overflow-hidden p-8 rounded-[2.5rem] flex flex-col;
   }
-  .filter-btn {
-    @apply px-6 py-2 text-sm font-bold text-gray-700 dark:text-gray-300 bg-white/10 dark:bg-gray-800/10 backdrop-blur-md rounded-full border border-gray-200 dark:border-white/10 hover:bg-primary-blue hover:text-white dark:hover:bg-primary-green dark:hover:text-gray-900 transition-all duration-300;
-  }
-  .active-filter {
-    @apply bg-primary-blue text-white dark:bg-primary-green dark:text-gray-900;
-  }
   .contact-reveal-button {
     @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-primary-green hover:bg-emerald-600 dark:bg-primary-blue dark:hover:bg-sky-600 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out;
   }
