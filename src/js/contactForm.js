@@ -430,13 +430,6 @@ export function initContactReveal() {
       icon: 'fas fa-envelope',
       link: `mailto:${CONFIG.CONTACT.EMAIL}`,
     },
-    {
-      id: 'reveal-phone-btn',
-      title: 'Línea Directa',
-      value: CONFIG.CONTACT.PHONE_DISPLAY,
-      icon: 'fas fa-phone-alt',
-      link: `tel:${CONFIG.CONTACT.PHONE}`,
-    },
   ];
 
   configs.forEach(({ id, ...data }) => {
