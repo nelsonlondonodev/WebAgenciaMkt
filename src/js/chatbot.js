@@ -1,6 +1,4 @@
 // src/js/chatbot.js
-import { CONFIG } from './config.js';
-
 const DISMISS_SESSION_KEY = 'nelson_whatsapp_bubble_dismissed';
 const ALERT_DELAY_MS = 6000; // 6 segundos de retención previa en la web
 
@@ -21,7 +19,7 @@ function recordSessionDismissal() {
 
 /**
  * Envía el evento de analítica a Google Analytics 4.
- * @param {string} label 
+ * @param {string} label
  */
 function sendAnalyticsEvent(label) {
   if (typeof window.gtag === 'function') {
@@ -34,19 +32,17 @@ function sendAnalyticsEvent(label) {
 }
 
 /**
- * Controla la interacción del Widget y la Tarjeta Modal de WhatsApp.
+ * Controla el botón flotante de WhatsApp y su burbuja de invitación.
+ * El botón es un enlace a wa.me: un toque abre el chat, sin tarjeta intermedia.
  */
 class WhatsAppWidget {
   constructor() {
     this.button = document.getElementById('chat-widget-button');
-    this.modal = document.getElementById('whatsapp-card-modal');
     this.bubble = document.getElementById('chat-invitation-bubble');
     this.closeBubbleButton = document.getElementById('close-chat-invitation');
-    this.closeModalButton = document.getElementById('close-whatsapp-card');
-    this.confirmButton = document.getElementById('confirm-whatsapp-btn');
     this.timer = null;
 
-    if (!this.button || !this.modal) return;
+    if (!this.button) return;
     this.init();
   }
 
@@ -85,53 +81,18 @@ class WhatsAppWidget {
     }
   }
 
-  toggleModal() {
-    this.hideBubble(true);
-    const isHidden = this.modal.classList.contains('hidden');
-    if (isHidden) {
-      this.openModal();
-    } else {
-      this.closeModal();
-    }
-  }
-
-  openModal() {
-    this.modal.classList.remove('hidden');
-    this.button.setAttribute('aria-expanded', 'true');
-    this.modal.setAttribute('aria-hidden', 'false');
-  }
-
-  closeModal() {
-    this.modal.classList.add('hidden');
-    this.button.setAttribute('aria-expanded', 'false');
-    this.modal.setAttribute('aria-hidden', 'true');
-  }
-
-  handleConfirmClick() {
-    sendAnalyticsEvent('Card Confirm Button Click');
-    this.closeModal();
-  }
-
-  handleOutsideClick(event) {
-    const isClickInside = this.modal.contains(event.target) || this.button.contains(event.target);
-    if (!isClickInside && !this.modal.classList.contains('hidden')) {
-      this.closeModal();
-    }
-  }
-
   bindEvents() {
-    // Alternar visibilidad de la tarjeta al pulsar el botón flotante
-    this.button.addEventListener('click', (e) => {
-      e.stopPropagation();
-      this.toggleModal();
+    // El enlace abre WhatsApp por sí solo; aquí solo se mide y se oculta la burbuja
+    this.button.addEventListener('click', () => {
+      sendAnalyticsEvent('Floating Button Click');
+      this.hideBubble(true);
     });
 
-    // Clic en la burbuja de invitación suave
+    // La burbuja de invitación hace lo mismo que el botón
     if (this.bubble) {
       this.bubble.addEventListener('click', (e) => {
         if (e.target.closest('#close-chat-invitation')) return;
-        this.openModal();
-        this.hideBubble(true);
+        this.button.click();
       });
     }
 
@@ -142,29 +103,6 @@ class WhatsAppWidget {
         this.hideBubble(true);
       });
     }
-
-    // Cerrar la tarjeta modal con el botón X
-    if (this.closeModalButton) {
-      this.closeModalButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        this.closeModal();
-      });
-    }
-
-    // Confirmación al hacer clic en "Iniciar Chat en WhatsApp"
-    if (this.confirmButton) {
-      this.confirmButton.addEventListener('click', () => this.handleConfirmClick());
-    }
-
-    // Cerrar si se hace clic fuera de la tarjeta
-    document.addEventListener('click', (e) => this.handleOutsideClick(e));
-
-    // Cerrar con la tecla Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !this.modal.classList.contains('hidden')) {
-        this.closeModal();
-      }
-    });
   }
 }
 

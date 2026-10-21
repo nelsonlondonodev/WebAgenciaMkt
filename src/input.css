@@ -15,15 +15,6 @@
   --color-gray-500: #52525b;
   --color-gray-400: #27272a; /* Zinc 800 para mejor contraste en fondo claro */
 
-  /* Variables del Chatbot */
-  --chat--color-primary: #3b82f6;
-  --chat--color-primary-shade-50: #2563eb;
-  --chat--color-primary-shade-100: #1d4ed8;
-  --chat--color-secondary: #10b981;
-  --chat-mobile-margin: 16px;
-  --chat-mobile-radius: 1.5rem;
-  --chat-mobile-bottom: 5.5rem;
-
   /* Fondos y cards */
   --color-light-bg: #f8fafc;
   --color-dark-bg: #0f172a;
@@ -693,27 +684,7 @@ main {
 #chat-widget-button:hover {
   background-color: #20bd5a !important;
 }
-#chat-window {
-  background-color: var(--color-light-card) !important;
-}
-.dark #chat-window {
-  background-color: var(--color-dark-card) !important;
-}
-
 @media (max-width: 640px) {
-  #chat-window {
-    right: var(--chat-mobile-margin) !important;
-    left: var(--chat-mobile-margin) !important;
-    bottom: var(--chat-mobile-bottom) !important;
-    width: calc(100% - (var(--chat-mobile-margin) * 2)) !important;
-    max-width: none !important;
-    height: 75vh !important;
-    height: 75svh !important;
-    border-radius: var(--chat-mobile-radius) !important;
-    box-sizing: border-box !important;
-    transform-origin: bottom center !important;
-    z-index: 10000 !important;
-  }
   #chat-widget-container {
     bottom: 1rem !important;
     right: 1rem !important;
