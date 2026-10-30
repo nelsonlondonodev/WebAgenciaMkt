@@ -69,7 +69,7 @@ export const portfolioData = [
   },
   {
     id: 'suavebocado',
-    category: 'web seo',
+    category: 'web',
     url: 'https://suavebocado.com/',
     imgSrcSet: {
       '480w': 'image/foto-suave-bocado-480.webp',
@@ -77,11 +77,11 @@ export const portfolioData = [
       '1423w': 'image/foto-suave-bocado.webp',
     },
     imgSrc: 'image/foto-suave-bocado.webp',
-    imgAlt: 'Página web de Suave Bocado Repostería',
+    imgAlt: 'Web a medida de Suave Bocado Repostería: portada con una torta de chocolate',
     title: 'Suave Bocado Repostería',
-    tags: 'WordPress y SEO local',
+    tags: 'Web a medida · Next.js · Pedidos por WhatsApp',
     description:
-      'Landing page para repostería en Envigado, Colombia. Incluyó estrategia de SEO local que la posicionó en el top 2 de Google.',
+      'Repostería en Envigado (Colombia). Cambié su web de plantilla por una a medida: el formulario deja el pedido escrito en WhatsApp y la galería cotiza con foto. PageSpeed 95 en móvil y 100 en ordenador; el primer pedido llegó a los dos días.',
     type: 'link',
   },
 ];
