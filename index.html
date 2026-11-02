@@ -21,14 +21,14 @@
     </script>
     
     <!-- Carga local optimizada de Font Awesome (asíncrona para evitar bloqueo de renderizado) -->
-    <link rel="stylesheet" href="/fontawesome.min.css?v=2026.10.31.2013" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="/fontawesome.min.css?v=2026.10.31.2013" /></noscript>
+    <link rel="stylesheet" href="/fontawesome.min.css?v=2026.11.02.1954" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/fontawesome.min.css?v=2026.11.02.1954" /></noscript>
 
     <!-- Preload del Hero LCP para carga instantánea -->
     <link rel="preload" as="image" href="./image/foto-nelson-londono.webp" fetchpriority="high" />
 
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.10.31.2013" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.11.02.1954" />
 
     <script type="application/ld+json">
     {
@@ -59,7 +59,8 @@
           "description": "Páginas ultrarápidas, SEO local y automatizaciones con IA para impulsar tu negocio en Fuente el Saz y Madrid.",
           "video": [
             { "@id": "https://nelsonlondono.es/#video" },
-            { "@id": "https://nelsonlondono.es/#video-2" }
+            { "@id": "https://nelsonlondono.es/#video-2" },
+            { "@id": "https://nelsonlondono.es/#video-3" }
           ],
           "inLanguage": "es-ES"
         },
@@ -252,6 +253,26 @@
           },
           "author": {
             "@id": "https://nelsonlondono.es/#person"
+          },
+          "inLanguage": "es-ES"
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://nelsonlondono.es/#video-3",
+          "name": "Le cambiaron la dirección en Google Maps y no puede recuperar su ficha",
+          "description": "Si tu ficha de Google no está reclamada, cualquiera puede cambiarte la dirección, y el código para recuperarla llega por carta a la dirección falsa. Te explico el orden correcto: primero corregir la dirección con una foto del rótulo y después reclamar la ficha desde el local.",
+          "thumbnailUrl": [
+            "https://nelsonlondono.es/image/youtube-short-3-poster.webp",
+            "https://i.ytimg.com/vi/ryeaU4Gz6HU/hqdefault.jpg"
+          ],
+          "uploadDate": "2026-11-02T10:20:09-08:00",
+          "duration": "PT1M2S",
+          "embedUrl": "https://www.youtube.com/embed/ryeaU4Gz6HU",
+          "isPartOf": {
+            "@id": "https://nelsonlondono.es/agencia-seo-local.html#video-auditoria"
+          },
+          "publisher": {
+            "@id": "https://nelsonlondono.es/#organization"
           },
           "inLanguage": "es-ES"
         },
@@ -595,24 +616,24 @@
       <!-- Sección Autoridad en Vídeo (YouTube Short con Carga Diferida WPO y UX Armonizado) -->
       <section id="autoridad-video" class="py-16 sm:py-24 relative overflow-hidden bg-transparent border-t border-gray-100 dark:border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="flex flex-col items-center gap-12">
             
-            <!-- Columna Texto / Copy E-E-A-T -->
-            <div class="lg:col-span-5 text-center lg:text-left scroll-animate-initial">
+            <!-- Texto / Copy E-E-A-T (arriba y centrado: con 3 Shorts no caben en una columna lateral) -->
+            <div class="max-w-3xl mx-auto text-center scroll-animate-initial">
               <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-sm">
                 <i class="fab fa-youtube text-base text-red-500"></i>
-                <span>Serie: SEO Local en 30 Segundos</span>
+                <span>Serie: SEO Local en 1 minuto</span>
               </div>
 
               <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight leading-tight mb-6">
                 Errores en Google Maps que <span class="bg-clip-text text-transparent hero-gradient-text">te cuestan clientes</span>
               </h2>
 
-              <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6 max-w-2xl mx-auto lg:mx-0">
+              <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6 max-w-2xl mx-auto">
                 Cada semana publico fragmentos de mis auditorías reales de fichas de Google Business Profile: qué falla, por qué frena las ventas y cómo se corrige. Dale al play y llévate una idea aplicable hoy mismo.
               </p>
 
-              <p class="text-sm text-gray-500 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
+              <p class="text-sm text-gray-500 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
                 Estos cortes salen de mi
                 <a
                   href="/agencia-seo-local#autoridad-video"
@@ -620,7 +641,7 @@
                 >auditoría técnica completa de una ficha con más de 2.300 reseñas</a>.
               </p>
 
-              <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+              <div class="flex flex-wrap items-center justify-center gap-4">
                 <a
                   href="https://cal.com/nelson-londono-dpobgm/estrategia30"
                   target="_blank"
@@ -644,18 +665,55 @@
               </div>
             </div>
 
-            <!-- Columna Reproductores Short 9:16 (tira deslizable en móvil, rejilla en escritorio) -->
-            <div class="lg:col-span-7 scroll-animate-initial">
+            <!-- Reproductores Short 9:16 (tira deslizable en móvil, fila de 3 en escritorio) -->
+            <div class="w-full scroll-animate-initial">
               <ul
                 class="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto px-1 pb-2 sm:gap-8 lg:justify-center lg:overflow-x-visible"
               >
-                <!-- Short 2 (el más reciente, primero) -->
+                <!-- shorts:start · generado desde src/js/data/shorts.js con pnpm build; no editar a mano -->
                 <li class="w-[250px] shrink-0 snap-center sm:w-[280px]">
                   <div class="relative w-full aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900">
                     <span class="pointer-events-none absolute top-3 left-3 z-20 rounded-full bg-primary-green px-3 py-1 text-[10px] font-black uppercase tracking-widest text-white shadow-lg">
                       Nuevo
                     </span>
-
+                    <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
+                    <button
+                      type="button"
+                      class="video-facade relative z-10 w-full h-full block border-0 rounded-2xl cursor-pointer group/facade"
+                      data-video-src="https://www.youtube-nocookie.com/embed/ryeaU4Gz6HU?autoplay=1&rel=0&modestbranding=1"
+                      data-video-title="Le cambiaron la dirección en Google Maps y no puede recuperar su ficha"
+                      aria-label="Reproducir el vídeo: Le cambiaron la dirección en Google Maps y no puede recuperar su ficha"
+                    >
+                      <img
+                        src="/image/youtube-short-3-poster.webp"
+                        alt=""
+                        width="640"
+                        height="1138"
+                        loading="lazy"
+                        class="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                      />
+                      <span
+                        class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover/facade:bg-black/10 transition-colors rounded-2xl"
+                      >
+                        <span
+                          class="flex items-center justify-center w-16 h-16 rounded-full bg-red-600 shadow-2xl group-hover/facade:scale-110 transition-transform"
+                        >
+                          <i class="fas fa-play text-white text-2xl ml-1" aria-hidden="true"></i>
+                        </span>
+                      </span>
+                    </button>
+                  </div>
+                  <p class="mt-4 text-sm font-semibold leading-snug text-gray-700 dark:text-gray-200">
+                    <a
+                      href="https://youtube.com/shorts/ryeaU4Gz6HU"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="hover:text-primary-blue transition-colors"
+                    >Le cambiaron la dirección en Google Maps y no puede recuperar su ficha</a>
+                  </p>
+                </li>
+                <li class="w-[250px] shrink-0 snap-center sm:w-[280px]">
+                  <div class="relative w-full aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900">
                     <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
                     <button
                       type="button"
@@ -692,8 +750,6 @@
                     >Tu negocio en Google Maps corre peligro si no haces esto</a>
                   </p>
                 </li>
-
-                <!-- Short 1 -->
                 <li class="w-[250px] shrink-0 snap-center sm:w-[280px]">
                   <div class="relative w-full aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900">
                     <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
@@ -732,6 +788,7 @@
                     >¿Subes 20 fotos de golpe a Google Maps? Estás perdiendo clientes</a>
                   </p>
                 </li>
+                <!-- shorts:end -->
               </ul>
             </div>
 
@@ -888,7 +945,7 @@
 
     <!-- SCRIPTS PARA PRODUCCIÓN -->
     <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
-    <script src="/bundle-v2.min.js?v=2026.10.31.2013" defer></script>
+    <script src="/bundle-v2.min.js?v=2026.11.02.1954" defer></script>
 
     <!-- SCRIPTS PARA DESARROLLO -->
     <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->

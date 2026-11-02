@@ -9,6 +9,8 @@
  * - portfolio: las tarjetas de src/js/data/portfolio.js en proyectos. Antes
  *   había tarjetas estáticas y además el JS las regeneraba al cargar. La
  *   home pinta las suyas con JS desde la misma plantilla (portfolioCards.js).
+ * - shorts: las tarjetas de src/js/data/shorts.js en el carrusel de la home
+ *   (shortCards.js). Antes cada Short eran ~45 líneas copiadas a mano.
  *
  * Así el contenido sigue en el HTML (sin fetch ni JS) con una sola fuente.
  *
@@ -22,6 +24,7 @@ const path = require('path');
 
 const ROOT = __dirname;
 const { renderPortfolioHtml } = require('./src/js/portfolioCards.js');
+const { renderShortsHtml } = require('./src/js/shortCards.js');
 
 function component(name) {
   return () => fs.readFileSync(path.join(ROOT, 'components', `${name}.html`), 'utf8');
@@ -36,6 +39,9 @@ const BLOCKS = {
   },
   portfolio: {
     'proyectos.html': () => renderPortfolioHtml({ priority: true }),
+  },
+  shorts: {
+    'index.html': () => renderShortsHtml(),
   },
 };
 
@@ -91,5 +97,5 @@ if (require.main === module) {
     problems.forEach((p) => console.error(`  ${p}`));
     process.exit(1);
   }
-  console.log('✅ Bloques generados sincronizados (nav y portfolio).');
+  console.log('✅ Bloques generados sincronizados (nav, portfolio y shorts).');
 }
