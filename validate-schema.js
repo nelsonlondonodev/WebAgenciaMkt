@@ -23,6 +23,7 @@
 const fs = require('fs');
 const path = require('path');
 const { inject: checkGeneratedBlocks } = require('./inyectar-componentes');
+const { shorts } = require('./src/js/data/shorts.js');
 
 const LD_JSON = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
 
@@ -153,6 +154,45 @@ for (const file of files) {
     walk(data, rel, jsonPath, visible);
   }
 }
+
+// Cada Short del carrusel de la home (src/js/data/shorts.js) necesita su
+// VideoObject en el JSON-LD de index.html con el mismo título, embedUrl y
+// póster: las tarjetas se generan, pero el JSON-LD se escribe a mano.
+function videoObjects(node, found = []) {
+  if (Array.isArray(node)) node.forEach((n) => videoObjects(n, found));
+  else if (node && typeof node === 'object') {
+    if ([].concat(node['@type'] || []).includes('VideoObject')) found.push(node);
+    Object.values(node).forEach((v) => videoObjects(v, found));
+  }
+  return found;
+}
+
+function checkShorts() {
+  const html = fs.readFileSync(path.join(process.cwd(), 'index.html'), 'utf8');
+  const videos = [...html.matchAll(LD_JSON)].flatMap((m) => {
+    try {
+      return videoObjects(JSON.parse(m[1]));
+    } catch {
+      return []; // el JSON inválido ya lo ha contado el bucle de arriba
+    }
+  });
+  for (const short of shorts) {
+    const embedUrl = `https://www.youtube.com/embed/${short.id}`;
+    const video = videos.find((v) => v.embedUrl === embedUrl);
+    const problems = [];
+    if (!video) problems.push(`falta su VideoObject (embedUrl ${embedUrl})`);
+    else {
+      const name = short.tituloYoutube || short.titulo;
+      if (video.name !== name) problems.push(`name "${video.name}" ≠ "${name}"`);
+      const poster = `https://nelsonlondono.es${short.poster}`;
+      if (![].concat(video.thumbnailUrl || []).includes(poster)) problems.push(`thumbnailUrl sin ${poster}`);
+    }
+    if (problems.length) {
+      errors.push(`index.html → Short ${short.id} (src/js/data/shorts.js)\n    ${problems.join('\n    ')}`);
+    }
+  }
+}
+checkShorts();
 
 // Los bloques generados (navbar en línea y tarjetas del portafolio) deben
 // coincidir con su fuente: una edición a mano dentro de los marcadores
