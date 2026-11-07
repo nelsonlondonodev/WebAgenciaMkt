@@ -11,6 +11,7 @@ export const CONFIG = {
   // Configuración de Analytics y Cookies
   ANALYTICS: {
     GA_MEASUREMENT_ID: 'G-124QEKRXHD',
+    CLARITY_PROJECT_ID: 'z9wmxkbuoc',
     // Solo se mide aquí: abrir la web en local mezclaba las visitas propias con las reales.
     PRODUCTION_HOSTS: ['nelsonlondono.es', 'www.nelsonlondono.es'],
     COOKIE_CONSENT_KEY: 'nelson_cookie_consent',
@@ -75,6 +76,6 @@ export const CONFIG = {
   // Configuración general de UI
   UI: {
     THEME_KEY: 'theme',
-    APP_VERSION: '2026.11.07.1214',
+    APP_VERSION: '2026.11.07.1240',
   },
 };

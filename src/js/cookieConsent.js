@@ -1,6 +1,7 @@
 import { CONFIG } from './config.js';
 
 const GA_LIBRARY_SCRIPT_ID = 'ga-library';
+const CLARITY_SCRIPT_ID = 'clarity-library';
 
 export function initCookieConsent() {
   const COOKIE_CONSENT_KEY = CONFIG.ANALYTICS.COOKIE_CONSENT_KEY;
@@ -37,7 +38,30 @@ export function initCookieConsent() {
     document.head.appendChild(script);
   };
 
-  const enableGoogleAnalytics = () => {
+  /**
+   * Inserta Clarity una sola vez. El stub encola las llamadas hasta que carga la
+   * librería, y Clarity exige la señal de consentimiento en el EEE: sin ella no
+   * guarda cookies. No se piden las de publicidad porque no se usan.
+   */
+  const loadClarity = () => {
+    if (document.getElementById(CLARITY_SCRIPT_ID)) return;
+
+    window.clarity =
+      window.clarity ||
+      function clarity() {
+        (window.clarity.q = window.clarity.q || []).push(arguments);
+      };
+
+    const script = document.createElement('script');
+    script.id = CLARITY_SCRIPT_ID;
+    script.async = true;
+    script.src = `https://www.clarity.ms/tag/${CONFIG.ANALYTICS.CLARITY_PROJECT_ID}`;
+    document.head.appendChild(script);
+
+    window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
+  };
+
+  const enableAnalytics = () => {
     if (!CONFIG.ANALYTICS.PRODUCTION_HOSTS.includes(window.location.hostname)) return;
 
     // El stub gtag() del HTML encola las llamadas en dataLayer; la librería
@@ -46,13 +70,21 @@ export function initCookieConsent() {
     if (typeof gtag === 'function') {
       gtag('config', CONFIG.ANALYTICS.GA_MEASUREMENT_ID);
     }
+    loadClarity();
+  };
+
+  // Quien retira el permiso desde la configuración deja de medirse sin recargar.
+  const disableClarity = () => {
+    if (typeof window.clarity === 'function') {
+      window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
+    }
   };
 
   const handleInitialConsent = () => {
     const consent = getConsent();
     if (consent) {
       if (consent.analytics) {
-        enableGoogleAnalytics();
+        enableAnalytics();
       }
       if (cookieBanner) {
         cookieBanner.classList.add('hidden');
@@ -88,7 +120,7 @@ export function initCookieConsent() {
     acceptBtn.addEventListener('click', () => {
       const consent = { necessary: true, analytics: true };
       setConsent(consent);
-      enableGoogleAnalytics();
+      enableAnalytics();
       if (cookieBanner) {
         cookieBanner.classList.add('hidden');
       }
@@ -119,7 +151,9 @@ export function initCookieConsent() {
       };
       setConsent(consent);
       if (consent.analytics) {
-        enableGoogleAnalytics();
+        enableAnalytics();
+      } else {
+        disableClarity();
       }
       toggleModal(false);
       if (cookieBanner) {
