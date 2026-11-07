@@ -38,6 +38,8 @@ export function initCookieConsent() {
   };
 
   const enableGoogleAnalytics = () => {
+    if (!CONFIG.ANALYTICS.PRODUCTION_HOSTS.includes(window.location.hostname)) return;
+
     // El stub gtag() del HTML encola las llamadas en dataLayer; la librería
     // las procesa al terminar de cargar, así que el orden aquí es indiferente.
     loadGoogleAnalyticsLibrary();
