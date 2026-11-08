@@ -12,6 +12,8 @@
  * la v1.4.0 seis páginas divergían (casi siempre por comillas simples en el
  * marcado y dobles en pantalla), cada una arreglada a mano.
  *
+ * Que cada página del sitemap lleve max-image-preview:large (Discover).
+ *
  * Y que los bloques generados por inyectar-componentes.js (navbar en línea y
  * tarjetas del portafolio) coincidan con su fuente.
  *
@@ -222,6 +224,24 @@ function checkPageVideos() {
   }
 }
 checkPageVideos();
+
+// Cada página del sitemap debe permitir la vista previa grande de imágenes:
+// sin max-image-preview:large Google no usa imágenes grandes en Discover, y
+// en la v1.6.7 ninguna de las 16 páginas la tenía. El sitemap lo acaba de
+// generar generar-sitemap.js, así que son exactamente las páginas indexables.
+function checkImagePreview() {
+  const sitemap = fs.readFileSync(path.join(process.cwd(), 'sitemap.xml'), 'utf8');
+  const pages = [...sitemap.matchAll(/<loc>https:\/\/nelsonlondono\.es\/([^<]*)<\/loc>/g)].map(
+    (m) => m[1] || 'index.html',
+  );
+  for (const page of pages) {
+    const html = fs.readFileSync(path.join(process.cwd(), page), 'utf8');
+    if (!/<meta name="robots" content="[^"]*max-image-preview:large/.test(html)) {
+      errors.push(`${page} → falta <meta name="robots" content="max-image-preview:large" /> (Discover)`);
+    }
+  }
+}
+checkImagePreview();
 
 // Los bloques generados (navbar en línea y tarjetas del portafolio) deben
 // coincidir con su fuente: una edición a mano dentro de los marcadores
