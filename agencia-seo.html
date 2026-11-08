@@ -87,16 +87,16 @@
     <!-- Carga local optimizada de Font Awesome -->
     <link
       rel="preload"
-      href="/fontawesome.min.css?v=2026.11.07.1240"
+      href="/fontawesome.min.css?v=2026.11.08.1618"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.11.07.1240" />
+      <link rel="stylesheet" href="/fontawesome.min.css?v=2026.11.08.1618" />
     </noscript>
 
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=2026.11.07.1240" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=2026.11.08.1618" />
   </head>
   <body class=" ">
     <!-- cache bust force update -->
@@ -389,6 +389,7 @@
               class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900"
             >
               <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
+              <!-- video:start aAbTycmhhY0 -->
               <button
                 type="button"
                 class="video-facade relative z-10 w-full h-full block border-0 rounded-2xl cursor-pointer group/facade"
@@ -414,6 +415,7 @@
                   </span>
                 </span>
               </button>
+              <!-- video:end -->
             </div>
 
             <!-- Cualifica antes de pedir la auditoría: el modal de pre-filtro se dispara
@@ -689,6 +691,6 @@
     <div id="cookie-banner-placeholder"></div>
 
     <div data-component="chatbot"></div>
-    <script src="/bundle-v2.min.js?v=2026.11.07.1240" defer></script>
+    <script src="/bundle-v2.min.js?v=2026.11.08.1618" defer></script>
   </body>
 </html>
