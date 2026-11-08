@@ -24,6 +24,7 @@ const fs = require('fs');
 const path = require('path');
 const { inject: checkGeneratedBlocks } = require('./inyectar-componentes');
 const { shorts } = require('./src/js/data/shorts.js');
+const { videos } = require('./src/js/data/videos.js');
 
 const LD_JSON = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
 
@@ -167,15 +168,19 @@ function videoObjects(node, found = []) {
   return found;
 }
 
-function checkShorts() {
-  const html = fs.readFileSync(path.join(process.cwd(), 'index.html'), 'utf8');
-  const videos = [...html.matchAll(LD_JSON)].flatMap((m) => {
+function pageVideoObjects(html) {
+  return [...html.matchAll(LD_JSON)].flatMap((m) => {
     try {
       return videoObjects(JSON.parse(m[1]));
     } catch {
       return []; // el JSON inválido ya lo ha contado el bucle de arriba
     }
   });
+}
+
+function checkShorts() {
+  const html = fs.readFileSync(path.join(process.cwd(), 'index.html'), 'utf8');
+  const videos = pageVideoObjects(html);
   for (const short of shorts) {
     const embedUrl = `https://www.youtube.com/embed/${short.id}`;
     const video = videos.find((v) => v.embedUrl === embedUrl);
@@ -193,6 +198,30 @@ function checkShorts() {
   }
 }
 checkShorts();
+
+// Cada vídeo incrustado en una página (<!-- video:start ID -->, datos en
+// src/js/data/videos.js) necesita su VideoObject en el JSON-LD de esa misma
+// página, con el mismo embedUrl y el póster en thumbnailUrl.
+function checkPageVideos() {
+  for (const page of fs.readdirSync(process.cwd()).filter((f) => f.endsWith('.html'))) {
+    const html = fs.readFileSync(path.join(process.cwd(), page), 'utf8');
+    const ids = [...html.matchAll(/<!-- video:start ([\w-]+) -->/g)].map((m) => m[1]);
+    if (ids.length === 0) continue;
+    const objects = pageVideoObjects(html);
+    for (const id of ids) {
+      const embedUrl = `https://www.youtube.com/embed/${id}`;
+      const video = objects.find((v) => v.embedUrl === embedUrl);
+      const problems = [];
+      if (!video) problems.push(`falta su VideoObject (embedUrl ${embedUrl})`);
+      else if (videos[id]) {
+        const poster = `https://nelsonlondono.es${videos[id].poster}`;
+        if (![].concat(video.thumbnailUrl || []).includes(poster)) problems.push(`thumbnailUrl sin ${poster}`);
+      }
+      if (problems.length) errors.push(`${page} → vídeo ${id} (src/js/data/videos.js)\n    ${problems.join('\n    ')}`);
+    }
+  }
+}
+checkPageVideos();
 
 // Los bloques generados (navbar en línea y tarjetas del portafolio) deben
 // coincidir con su fuente: una edición a mano dentro de los marcadores

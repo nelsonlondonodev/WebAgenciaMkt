@@ -11,6 +11,9 @@
  *   home pinta las suyas con JS desde la misma plantilla (portfolioCards.js).
  * - shorts: las tarjetas de src/js/data/shorts.js en el carrusel de la home
  *   (shortCards.js). Antes cada Short eran ~45 líneas copiadas a mano.
+ * - video: el botón-fachada de cada vídeo incrustado en una página, entre
+ *   <!-- video:start ID --> y <!-- video:end -->, desde src/js/data/videos.js
+ *   (videoFacadeTemplate.js). Antes estaba copiado a mano en cada página.
  *
  * Así el contenido sigue en el HTML (sin fetch ni JS) con una sola fuente.
  *
@@ -25,6 +28,8 @@ const path = require('path');
 const ROOT = __dirname;
 const { renderPortfolioHtml } = require('./src/js/portfolioCards.js');
 const { renderShortsHtml } = require('./src/js/shortCards.js');
+const { renderVideoFacade } = require('./src/js/videoFacadeTemplate.js');
+const { videos } = require('./src/js/data/videos.js');
 
 function component(name) {
   return () => fs.readFileSync(path.join(ROOT, 'components', `${name}.html`), 'utf8');
@@ -79,6 +84,22 @@ function inject({ check = false } = {}) {
     }
   }
 
+  // Vídeos de las páginas: un marcador por vídeo, con su id en el de apertura.
+  const video = /([ \t]*)(<!-- video:start ([\w-]+) -->)[\s\S]*?(<!-- video:end -->)/g;
+  for (const page of fs.readdirSync(ROOT).filter((f) => f.endsWith('.html'))) {
+    const html = read(page);
+    pages.set(
+      page,
+      html.replace(video, (whole, pad, start, id, end) => {
+        if (!videos[id]) {
+          problems.push(`${page}: el vídeo ${id} no está en src/js/data/videos.js`);
+          return whole;
+        }
+        return `${pad}${start}\n${indent(renderVideoFacade({ id, ...videos[id] }), pad)}\n${pad}${end}`;
+      })
+    );
+  }
+
   for (const [page, updated] of pages) {
     const file = path.join(ROOT, page);
     if (updated === fs.readFileSync(file, 'utf8')) continue;
@@ -97,5 +118,5 @@ if (require.main === module) {
     problems.forEach((p) => console.error(`  ${p}`));
     process.exit(1);
   }
-  console.log('✅ Bloques generados sincronizados (nav, portfolio y shorts).');
+  console.log('✅ Bloques generados sincronizados (nav, portfolio, shorts y vídeos).');
 }
