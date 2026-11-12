@@ -9,8 +9,9 @@
  * - portfolio: las tarjetas de src/js/data/portfolio.js en proyectos. Antes
  *   había tarjetas estáticas y además el JS las regeneraba al cargar. La
  *   home pinta las suyas con JS desde la misma plantilla (portfolioCards.js).
- * - shorts: las tarjetas de src/js/data/shorts.js en el carrusel de la home
- *   (shortCards.js). Antes cada Short eran ~45 líneas copiadas a mano.
+ * - shorts: las tarjetas del carrusel de la home (carruselHome en
+ *   src/js/data/videos.js, shortCards.js). Antes cada Short eran ~45 líneas
+ *   copiadas a mano.
  * - video: el botón-fachada de cada vídeo incrustado en una página, entre
  *   <!-- video:start ID --> y <!-- video:end -->, desde src/js/data/videos.js
  *   (videoFacadeTemplate.js). Antes estaba copiado a mano en cada página.
@@ -95,7 +96,7 @@ function inject({ check = false } = {}) {
           problems.push(`${page}: el vídeo ${id} no está en src/js/data/videos.js`);
           return whole;
         }
-        return `${pad}${start}\n${indent(renderVideoFacade({ id, ...videos[id] }), pad)}\n${pad}${end}`;
+        return `${pad}${start}\n${indent(renderVideoFacade(id, videos[id]), pad)}\n${pad}${end}`;
       })
     );
   }
