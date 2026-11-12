@@ -29,7 +29,7 @@
     <link rel="preload" as="image" href="./image/foto-nelson-londono.webp" fetchpriority="high" />
 
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=b7f68c71" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=bcec1fea" />
 
     <script type="application/ld+json">
     {
@@ -246,6 +246,29 @@
           "uploadDate": "2026-08-06T06:46:53-07:00",
           "duration": "PT24S",
           "embedUrl": "https://www.youtube.com/embed/6hEDQJNyA80",
+          "isPartOf": {
+            "@id": "https://nelsonlondono.es/agencia-seo-local.html#video-auditoria"
+          },
+          "publisher": {
+            "@id": "https://nelsonlondono.es/#organization"
+          },
+          "author": {
+            "@id": "https://nelsonlondono.es/#person"
+          },
+          "inLanguage": "es-ES"
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://nelsonlondono.es/#video-4",
+          "name": "Cómo marcar tu negocio como cerrado en Google Maps (horario especial)",
+          "description": "Si cierras un día y no lo marcas en tu ficha de Google, Google sigue diciendo «Abierto» y llegan las reseñas de una estrella. Te enseño a poner un horario especial desde el móvil: editar perfil, horario, horario especial y marcar el día como cerrado.",
+          "thumbnailUrl": [
+            "https://nelsonlondono.es/image/youtube-short-4-poster.webp",
+            "https://i.ytimg.com/vi/WZMDWeJs6Pc/hqdefault.jpg"
+          ],
+          "uploadDate": "2026-11-11T21:00:00+01:00",
+          "duration": "PT52S",
+          "embedUrl": "https://www.youtube.com/embed/WZMDWeJs6Pc",
           "isPartOf": {
             "@id": "https://nelsonlondono.es/agencia-seo-local.html#video-auditoria"
           },
@@ -666,10 +689,10 @@
               </div>
             </div>
 
-            <!-- Reproductores Short 9:16 (tira deslizable en móvil, fila de 3 en escritorio) -->
+            <!-- Reproductores Short 9:16 (tira deslizable hasta 1280 px; fila de 4 desde xl, que mide justo el ancho útil del contenedor) -->
             <div class="w-full scroll-animate-initial">
               <ul
-                class="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto px-1 pb-2 sm:gap-8 lg:justify-center lg:overflow-x-visible"
+                class="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto px-1 pb-2 sm:gap-8 xl:justify-center xl:overflow-x-visible"
               >
                 <!-- shorts:start · generado desde src/js/data/shorts.js con pnpm build; no editar a mano -->
                 <li class="w-[250px] shrink-0 snap-center sm:w-[280px]">
@@ -677,6 +700,44 @@
                     <span class="pointer-events-none absolute top-3 left-3 z-20 rounded-full bg-primary-green px-3 py-1 text-[10px] font-black uppercase tracking-widest text-white shadow-lg">
                       Nuevo
                     </span>
+                    <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
+                <button
+                  type="button"
+                  class="video-facade relative z-10 w-full h-full block border-0 rounded-2xl cursor-pointer group/facade"
+                  data-video-src="https://www.youtube-nocookie.com/embed/WZMDWeJs6Pc?autoplay=1&rel=0&modestbranding=1"
+                  data-video-title="Cómo marcar tu negocio como cerrado en Google Maps (horario especial)"
+                  aria-label="Reproducir el vídeo: Cómo marcar tu negocio como cerrado en Google Maps (horario especial)"
+                >
+                  <img
+                    src="/image/youtube-short-4-poster.webp"
+                    alt=""
+                    width="640"
+                    height="1138"
+                    loading="lazy"
+                    class="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                  />
+                  <span
+                    class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover/facade:bg-black/10 transition-colors rounded-2xl"
+                  >
+                    <span
+                      class="flex items-center justify-center w-16 h-16 rounded-full bg-red-600 shadow-2xl group-hover/facade:scale-110 transition-transform"
+                    >
+                      <i class="fas fa-play text-white text-2xl ml-1" aria-hidden="true"></i>
+                    </span>
+                  </span>
+                </button>
+                  </div>
+                  <p class="mt-4 text-sm font-semibold leading-snug text-gray-700 dark:text-gray-200">
+                    <a
+                      href="https://youtube.com/shorts/WZMDWeJs6Pc"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="hover:text-primary-blue transition-colors"
+                    >Cómo marcar tu negocio como cerrado en Google Maps (horario especial)</a>
+                  </p>
+                </li>
+                <li class="w-[250px] shrink-0 snap-center sm:w-[280px]">
+                  <div class="relative w-full aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900">
                     <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
                 <button
                   type="button"
@@ -946,7 +1007,7 @@
 
     <!-- SCRIPTS PARA PRODUCCIÓN -->
     <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
-    <script src="/bundle-v2.min.js?v=67de7af1" defer></script>
+    <script src="/bundle-v2.min.js?v=bf368303" defer></script>
 
     <!-- SCRIPTS PARA DESARROLLO -->
     <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->

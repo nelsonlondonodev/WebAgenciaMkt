@@ -12,6 +12,11 @@
  */
 export const shorts = [
   {
+    id: 'WZMDWeJs6Pc',
+    titulo: 'Cómo marcar tu negocio como cerrado en Google Maps (horario especial)',
+    poster: '/image/youtube-short-4-poster.webp',
+  },
+  {
     id: 'ryeaU4Gz6HU',
     titulo: 'Le cambiaron la dirección en Google Maps y no puede recuperar su ficha',
     poster: '/image/youtube-short-3-poster.webp',
