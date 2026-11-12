@@ -4,16 +4,18 @@
  * videoFacade.js).
  *
  * Una sola plantilla para las tarjetas de Shorts de la home (shortCards.js) y
- * los vídeos de las páginas (data/videos.js, inyectados por
- * inyectar-componentes.js entre <!-- video:start ID --> y <!-- video:end -->).
- * Antes el botón estaba copiado a mano en seis sitios.
+ * los vídeos de las páginas (inyectados por inyectar-componentes.js entre
+ * <!-- video:start ID --> y <!-- video:end -->). Antes el botón estaba copiado
+ * a mano en seis sitios.
  *
- * - titulo: el de YouTube; va en data-video-title.
- * - aria: texto del aria-label (por defecto «Reproducir el vídeo: <titulo>»).
- * - ancho × alto: tamaño del póster. Un vídeo horizontal lleva el botón de
- *   play más grande.
+ * Recibe la ficha del vídeo tal cual está en data/videos.js: el título de
+ * YouTube va en data-video-title y un vídeo horizontal lleva el botón de play
+ * más grande.
  */
-export function renderVideoFacade({ id, titulo, aria, poster, ancho, alto }) {
+export function renderVideoFacade(id, video) {
+  const { poster, ancho, alto } = video;
+  const titulo = video.tituloYoutube || video.titulo;
+  const aria = video.aria || `Reproducir el vídeo: ${video.titulo}`;
   const horizontal = ancho > alto;
   const play = horizontal ? 'w-20 h-20' : 'w-16 h-16';
   const icono = horizontal ? 'text-3xl' : 'text-2xl';
@@ -23,7 +25,7 @@ export function renderVideoFacade({ id, titulo, aria, poster, ancho, alto }) {
   class="video-facade relative z-10 w-full h-full block border-0 rounded-2xl cursor-pointer group/facade"
   data-video-src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1"
   data-video-title="${titulo}"
-  aria-label="${aria || `Reproducir el vídeo: ${titulo}`}"
+  aria-label="${aria}"
 >
   <img
     src="${poster}"

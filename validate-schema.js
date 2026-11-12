@@ -25,8 +25,7 @@
 const fs = require('fs');
 const path = require('path');
 const { inject: checkGeneratedBlocks } = require('./inyectar-componentes');
-const { shorts } = require('./src/js/data/shorts.js');
-const { videos } = require('./src/js/data/videos.js');
+const { videos, carruselHome } = require('./src/js/data/videos.js');
 
 const LD_JSON = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
 
@@ -158,9 +157,10 @@ for (const file of files) {
   }
 }
 
-// Cada Short del carrusel de la home (src/js/data/shorts.js) necesita su
-// VideoObject en el JSON-LD de index.html con el mismo título, embedUrl y
-// póster: las tarjetas se generan, pero el JSON-LD se escribe a mano.
+// Cada vídeo de src/js/data/videos.js que sale en una página (en el carrusel
+// de la home o entre <!-- video:start ID --> y <!-- video:end -->) necesita su
+// VideoObject en el JSON-LD de esa misma página con el mismo embedUrl, título
+// y póster: los botones se generan, pero el JSON-LD se escribe a mano.
 function videoObjects(node, found = []) {
   if (Array.isArray(node)) node.forEach((n) => videoObjects(n, found));
   else if (node && typeof node === 'object') {
@@ -180,50 +180,31 @@ function pageVideoObjects(html) {
   });
 }
 
-function checkShorts() {
-  const html = fs.readFileSync(path.join(process.cwd(), 'index.html'), 'utf8');
-  const videos = pageVideoObjects(html);
-  for (const short of shorts) {
-    const embedUrl = `https://www.youtube.com/embed/${short.id}`;
-    const video = videos.find((v) => v.embedUrl === embedUrl);
-    const problems = [];
-    if (!video) problems.push(`falta su VideoObject (embedUrl ${embedUrl})`);
-    else {
-      const name = short.tituloYoutube || short.titulo;
-      if (video.name !== name) problems.push(`name "${video.name}" ≠ "${name}"`);
-      const poster = `https://nelsonlondono.es${short.poster}`;
-      if (![].concat(video.thumbnailUrl || []).includes(poster)) problems.push(`thumbnailUrl sin ${poster}`);
-    }
-    if (problems.length) {
-      errors.push(`index.html → Short ${short.id} (src/js/data/shorts.js)\n    ${problems.join('\n    ')}`);
-    }
-  }
-}
-checkShorts();
-
-// Cada vídeo incrustado en una página (<!-- video:start ID -->, datos en
-// src/js/data/videos.js) necesita su VideoObject en el JSON-LD de esa misma
-// página, con el mismo embedUrl y el póster en thumbnailUrl.
-function checkPageVideos() {
+function checkVideos() {
   for (const page of fs.readdirSync(process.cwd()).filter((f) => f.endsWith('.html'))) {
     const html = fs.readFileSync(path.join(process.cwd(), page), 'utf8');
     const ids = [...html.matchAll(/<!-- video:start ([\w-]+) -->/g)].map((m) => m[1]);
+    if (page === 'index.html') ids.push(...carruselHome);
     if (ids.length === 0) continue;
     const objects = pageVideoObjects(html);
     for (const id of ids) {
       const embedUrl = `https://www.youtube.com/embed/${id}`;
-      const video = objects.find((v) => v.embedUrl === embedUrl);
+      const object = objects.find((v) => v.embedUrl === embedUrl);
+      const video = videos[id];
       const problems = [];
-      if (!video) problems.push(`falta su VideoObject (embedUrl ${embedUrl})`);
-      else if (videos[id]) {
-        const poster = `https://nelsonlondono.es${videos[id].poster}`;
-        if (![].concat(video.thumbnailUrl || []).includes(poster)) problems.push(`thumbnailUrl sin ${poster}`);
+      if (!video) problems.push('no está en src/js/data/videos.js');
+      else if (!object) problems.push(`falta su VideoObject (embedUrl ${embedUrl})`);
+      else {
+        const name = video.tituloYoutube || video.titulo;
+        if (object.name !== name) problems.push(`name "${object.name}" ≠ "${name}"`);
+        const poster = `https://nelsonlondono.es${video.poster}`;
+        if (![].concat(object.thumbnailUrl || []).includes(poster)) problems.push(`thumbnailUrl sin ${poster}`);
       }
       if (problems.length) errors.push(`${page} → vídeo ${id} (src/js/data/videos.js)\n    ${problems.join('\n    ')}`);
     }
   }
 }
-checkPageVideos();
+checkVideos();
 
 // Cada página del sitemap debe permitir la vista previa grande de imágenes:
 // sin max-image-preview:large Google no usa imágenes grandes en Discover, y
