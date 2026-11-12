@@ -1,12 +1,22 @@
 const fs = require('fs').promises;
 const { existsSync } = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 /**
- * CONFIGURACIÓN
- * Define los directorios a escanear y los archivos que requieren versionado.
+ * CACHE BUSTER POR CONTENIDO
+ *
+ * Las versiones salen del hash del contenido, no de la hora del build: así un
+ * build sin cambios no reescribe nada y una página solo cambia cuando cambia
+ * de verdad el recurso que enlaza.
+ *
+ * Va en dos pasos porque el bundle incluye APP_VERSION:
+ *   node cache-buster.js componentes  → antes de build:js
+ *     Footer con la versión de package.json y APP_VERSION = hash de components/.
+ *   node cache-buster.js assets       → después de build:js
+ *     ?v= de cada recurso = hash de su propio contenido.
  */
-const DIST_PATH = __dirname;
+const ROOT = __dirname;
 const ASSETS_TO_VERSION = [
   'bundle-v2.min.js',
   'output.css',
@@ -14,120 +24,125 @@ const ASSETS_TO_VERSION = [
   'nelson-v4.css',
 ];
 const DIRECTORIES_TO_SCAN = ['', 'guia', 'cv', 'components'];
+const COMPONENTS_DIR = 'components';
+const CONFIG_FILE = 'src/js/config.js';
 
-/**
- * GENERACIÓN DE VERSIÓN
- * Crea un identificador único basado en la fecha (Formato: YYYY.MM.DD.HHMM)
- */
-function generateVersion() {
-  const now = new Date();
-  return `${now.getFullYear()}.${(now.getMonth() + 1)
-    .toString()
-    .padStart(2, '0')}.${now.getDate().toString().padStart(2, '0')}.${now
-    .getHours()
-    .toString()
-    .padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}`;
+const shortHash = (content) =>
+  crypto.createHash('sha256').update(content).digest('hex').slice(0, 8);
+
+async function listHtmlFiles() {
+  const htmlFiles = [];
+  for (const dir of DIRECTORIES_TO_SCAN) {
+    const fullPath = path.join(ROOT, dir);
+    if (!existsSync(fullPath)) continue;
+    const files = await fs.readdir(fullPath);
+    files
+      .filter((file) => file.endsWith('.html'))
+      .sort()
+      .forEach((file) => htmlFiles.push(path.join(dir, file)));
+  }
+  return htmlFiles;
+}
+
+/** Aplica `transform` y solo escribe si el contenido ha cambiado. */
+async function rewriteFile(relativePath, transform) {
+  const absolutePath = path.join(ROOT, relativePath);
+  const data = await fs.readFile(absolutePath, 'utf8');
+  const updated = transform(data);
+  if (updated === data) return false;
+  await fs.writeFile(absolutePath, updated, 'utf8');
+  console.log(`[✓] Actualizado: ${relativePath}`);
+  return true;
 }
 
 /**
- * ACTUALIZACIÓN DE ASSETS
- * Busca y actualiza las etiquetas src o href para incluir el parámetro de versión.
+ * PASO 1: COMPONENTES
+ * El footer muestra la versión de package.json; después se calcula el hash de
+ * components/ (ya con ese footer) y se guarda en APP_VERSION, que
+ * componentLoader.js usa como ?v= al pedir cada componente.
  */
-function updateAssetUrls(content, version, fileName) {
-  const escapedAssets = ASSETS_TO_VERSION.map((asset) =>
+async function versionComponents() {
+  const { version } = JSON.parse(
+    await fs.readFile(path.join(ROOT, 'package.json'), 'utf8')
+  );
+  const footerRegex = /<span id="footer-build-version">.*?<\/span>/g;
+  const footerSpan = `<span id="footer-build-version">v${version}</span>`;
+
+  for (const file of await listHtmlFiles()) {
+    await rewriteFile(file, (content) =>
+      content.replace(footerRegex, footerSpan)
+    );
+  }
+
+  const componentsPath = path.join(ROOT, COMPONENTS_DIR);
+  const componentFiles = (await fs.readdir(componentsPath))
+    .filter((file) => file.endsWith('.html'))
+    .sort();
+  const hash = crypto.createHash('sha256');
+  for (const file of componentFiles) {
+    hash.update(file);
+    hash.update(await fs.readFile(path.join(componentsPath, file)));
+  }
+  const appVersion = hash.digest('hex').slice(0, 8);
+
+  await rewriteFile(CONFIG_FILE, (content) =>
+    content.replace(/APP_VERSION:\s*'[^']*'/, `APP_VERSION: '${appVersion}'`)
+  );
+  console.log(
+    `--- Componentes: footer v${version}, APP_VERSION ${appVersion} ---`
+  );
+}
+
+/**
+ * PASO 2: ASSETS
+ * Cada src/href a un recurso versionado pasa a /recurso?v=<hash del recurso>.
+ * Se fuerza la ruta absoluta para que funcione en subcarpetas (guia/, cv/).
+ */
+async function versionAssets() {
+  const versions = {};
+  for (const asset of ASSETS_TO_VERSION) {
+    const assetPath = path.join(ROOT, asset);
+    if (!existsSync(assetPath)) continue;
+    versions[asset] = shortHash(await fs.readFile(assetPath));
+  }
+
+  const escaped = Object.keys(versions).map((asset) =>
     asset.replace(/\./g, '\\.')
   );
   const assetsRegex = new RegExp(
-    `(src|href)="((?:\\.\\./|\\./|/)?)(${escapedAssets.join('|')})(?:\\?v=[0-9\\.]*)?"`,
+    `(src|href)="(?:\\.\\./|\\./|/)?(${escaped.join('|')})(?:\\?v=[0-9a-z.]*)?"`,
     'g'
   );
 
-  return content.replace(assetsRegex, (match, attr, prefix, asset) => {
-    // Forzamos ruta absoluta desde la raíz (/) para evitar fallos de resolución en subcarpetas
-    const newUrl = `${attr}="/${asset.trim()}?v=${version}"`;
-    return newUrl;
-  });
-}
-
-function injectFooterVersion(content, version, fileName) {
-  const versionRegex = /<span id="footer-build-version">.*?<\/span>/g;
-  if (versionRegex.test(content)) {
-    console.log(
-      `[Build] Inyectando versión en footer: v.${version} (${fileName})`
-    );
-    return content.replace(
-      versionRegex,
-      `<span id="footer-build-version">v.${version}</span>`
+  for (const file of await listHtmlFiles()) {
+    await rewriteFile(file, (content) =>
+      content.replace(
+        assetsRegex,
+        (match, attr, asset) => `${attr}="/${asset}?v=${versions[asset]}"`
+      )
     );
   }
-  return content;
+  console.log(
+    `--- Assets: ${Object.entries(versions)
+      .map(([asset, v]) => `${asset}?v=${v}`)
+      .join(', ')} ---`
+  );
 }
 
-/**
- * INYECCIÓN EN CONFIG JS
- * Si el archivo es la configuración JS, inyecta la versión interna.
- */
-function injectConfigVersion(content, version, fileName) {
-  if (!fileName.includes('config.js')) return content;
-  console.log(`[Build] Inyectando versión en config.js: ${version}`);
-  // Se reemplaza el valor completo en lugar de un placeholder: el marcador solo
-  // existe en la primera compilación, así que buscarlo dejaba la inyección
-  // congelada para siempre en la versión inicial.
-  return content.replace(/APP_VERSION:\s*'[^']*'/, `APP_VERSION: '${version}'`);
-}
+const STEPS = { componentes: versionComponents, assets: versionAssets };
 
-/**
- * PROCESAMIENTO DE ARCHIVO
- * Lee, transforma y guarda el archivo de forma asíncrona.
- */
-async function processFile(relativeFilePath, version) {
-  const absolutePath = path.join(DIST_PATH, relativeFilePath);
-
-  try {
-    const data = await fs.readFile(absolutePath, 'utf8');
-    let updatedData = updateAssetUrls(data, version, relativeFilePath);
-    updatedData = injectFooterVersion(updatedData, version, relativeFilePath);
-    updatedData = injectConfigVersion(updatedData, version, relativeFilePath);
-
-    await fs.writeFile(absolutePath, updatedData, 'utf8');
-    console.log(`[✓] Optimizado: ${relativeFilePath}`);
-  } catch (error) {
-    console.error(`[X] Error en ${relativeFilePath}:`, error.message);
-  }
-}
-
-/**
- * ORQUESTADOR PRINCIPAL
- */
 async function main() {
-  console.log('--- Iniciando Cache Buster (Surgery Mode) ---');
-  const version = generateVersion();
-  const htmlFiles = [];
-
-  try {
-    for (const dir of DIRECTORIES_TO_SCAN) {
-      const fullPath = path.join(DIST_PATH, dir);
-      if (!existsSync(fullPath)) continue;
-
-      const files = await fs.readdir(fullPath);
-      files
-        .filter((file) => file.endsWith('.html'))
-        .forEach((file) => htmlFiles.push(path.join(dir, file)));
-    }
-
-    if (htmlFiles.length === 0) {
-      console.log('No se encontraron archivos HTML para procesar.');
-      return;
-    }
-
-    // Procesamos todos los archivos en paralelo para máxima velocidad
-    const filesToProcess = [...htmlFiles, 'src/js/config.js'];
-    await Promise.all(filesToProcess.map((file) => processFile(file, version)));
-    console.log(`--- Operación Finalizada Correctamente (v.${version}) ---`);
-  } catch (error) {
-    console.error('Error crítico durante la ejecución:', error);
+  const step = STEPS[process.argv[2]];
+  if (!step) {
+    console.error(
+      `Uso: node cache-buster.js <${Object.keys(STEPS).join('|')}>`
+    );
     process.exit(1);
   }
+  await step();
 }
 
-main();
+main().catch((error) => {
+  console.error('Error crítico en cache-buster:', error);
+  process.exit(1);
+});
