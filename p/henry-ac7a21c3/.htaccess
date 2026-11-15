@@ -1,0 +1,5 @@
+# Propuesta privada: que ningún buscador la indexe ni la guarde en caché.
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow, noarchive"
+</IfModule>
+Options -Indexes
