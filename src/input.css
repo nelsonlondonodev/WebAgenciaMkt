@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @source "../**/*.html";
+@source not "../propuesta-*.html";
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
