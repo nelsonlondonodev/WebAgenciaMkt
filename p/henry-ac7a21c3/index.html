@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow, noarchive">
+<title>Propuesta Mudanzas Henry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Documento de una sola columna con banda azul noche arriba; las fases se leen como una ruta de mudanza. */
+  :root {
+    --ink: #0b1b2b;          /* azul noche de la agencia */
+    --ink-2: #132a40;
+    --paper: #f4f7f6;        /* neutro con un punto de verde */
+    --surface: #ffffff;
+    --line: #dbe4e0;
+    --muted: #546570;
+    --green: #10b981;        /* verde de la agencia */
+    --green-text: #047857;   /* verde legible sobre claro */
+    --green-soft: #e6f7f0;
+    --kraft: #e4c99c;        /* etiqueta de caja de mudanza */
+    --kraft-ink: #3f2f17;
+    --on-ink: #e9f1ee;
+    --on-ink-muted: #9fb3bf;
+    --font-display: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius: 14px;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+  h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; }
+  p { max-width: 68ch; }
+  strong { font-weight: 600; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--green); outline-offset: 3px; border-radius: 6px; }
+
+  /* ── Barra superior ───────────────────────────── */
+  .topbar {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--ink) 92%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .topbar .wrap { display: flex; align-items: center; gap: 24px; padding-block: 12px; }
+  .brand { font-family: var(--font-display); font-weight: 800; color: var(--on-ink); font-size: 15px; letter-spacing: .01em; white-space: nowrap; }
+  .brand span { color: var(--green); }
+  .brand img { height: 30px; width: auto; display: block; filter: invert(1); }
+  .foot-logo { height: 34px; width: auto; display: block; }
+  footer .wrap { align-items: center; }
+  footer .tagline { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .topnav { display: flex; gap: 4px; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+  .topnav::-webkit-scrollbar { display: none; }
+  .topnav a {
+    color: var(--on-ink-muted); text-decoration: none; font-size: 13.5px; font-weight: 500;
+    padding: 6px 10px; border-radius: 8px; white-space: nowrap; transition: color .2s, background .2s;
+  }
+  .topnav a:hover { color: var(--on-ink); background: rgba(255,255,255,.07); }
+  .btn-pdf {
+    display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+    background: var(--green); color: var(--ink); border: 0; cursor: pointer;
+    font: 700 13.5px/1 var(--font-body); padding: 10px 16px; border-radius: 10px;
+    transition: transform .15s, box-shadow .2s;
+  }
+  .btn-pdf:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(16,185,129,.35); }
+  .btn-pdf svg { width: 16px; height: 16px; }
+
+  /* ── Portada ──────────────────────────────────── */
+  .hero { background: var(--ink); color: var(--on-ink); position: relative; overflow: hidden; }
+  .hero::after {
+    content: ""; position: absolute; inset: auto -10% -60% auto; width: 620px; height: 620px;
+    background: radial-gradient(closest-side, rgba(16,185,129,.22), transparent);
+    pointer-events: none;
+  }
+  .hero .wrap {
+    display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 48px; align-items: center; padding-block: 72px 64px; position: relative; z-index: 1;
+  }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--green);
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--green); }
+  .hero h1 { font-size: clamp(32px, 4.6vw, 52px); font-weight: 800; margin: 18px 0 18px; letter-spacing: -.02em; }
+  .hero h1 em { font-style: normal; color: var(--green); }
+  .hero .lead { color: var(--on-ink-muted); font-size: 18px; max-width: 46ch; }
+
+  /* Etiqueta de caja */
+  .label {
+    background: var(--kraft); color: var(--kraft-ink);
+    border-radius: 6px; padding: 22px 22px 18px; transform: rotate(-2.2deg);
+    box-shadow: 0 24px 50px rgba(0,0,0,.35);
+    font-size: 14px; position: relative;
+  }
+  .label::before {
+    content: ""; position: absolute; left: 50%; top: -14px; width: 120px; height: 28px; transform: translateX(-50%) rotate(1.5deg);
+    background: rgba(255,255,255,.45); border-left: 1px dashed rgba(63,47,23,.25); border-right: 1px dashed rgba(63,47,23,.25);
+  }
+  .label-head {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    border-bottom: 2px solid var(--kraft-ink); padding-bottom: 10px; margin-bottom: 12px;
+    font-family: var(--font-display); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: 13px;
+  }
+  .label-head .arrows { font-size: 20px; line-height: 1; letter-spacing: 0; }
+  .label dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 14px; }
+  .label dt { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; opacity: .75; padding-top: 2px; }
+  .label dd { font-weight: 600; line-height: 1.4; }
+  .label-foot {
+    margin-top: 14px; border: 2px solid var(--kraft-ink); border-radius: 4px; text-align: center;
+    font-family: var(--font-display); font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-size: 12px; padding: 6px;
+  }
+
+  /* ── Secciones ────────────────────────────────── */
+  section { padding-block: 72px 8px; }
+  .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; }
+  .sec-num { font-family: var(--font-display); font-weight: 800; color: var(--green-text); font-size: 14px; letter-spacing: .1em; }
+  .sec-head h2 { font-size: clamp(26px, 3.2vw, 36px); font-weight: 800; letter-spacing: -.015em; }
+  .intro { font-size: 18px; color: var(--muted); margin-bottom: 32px; }
+  .intro strong { color: var(--ink); }
+
+  /* Cifras */
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 36px; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  .stat b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 56px; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .stat span { display: block; margin-top: 10px; color: var(--muted); font-size: 15px; }
+
+  /* Diagnóstico */
+  .issues { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; border-top: 1px solid var(--line); }
+  .issue { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 14px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .tag {
+    font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 6px; height: fit-content; margin-top: 3px;
+    background: var(--ink); color: var(--on-ink);
+  }
+  .tag.ficha { background: var(--green-soft); color: var(--green-text); }
+  .issue h3 { font-family: var(--font-body); font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .issue p { color: var(--muted); font-size: 15px; }
+  .note-good {
+    margin-top: 28px; display: flex; gap: 14px; align-items: flex-start;
+    background: var(--green-soft); color: var(--ink); border-radius: var(--radius); padding: 18px 20px;
+  }
+  .note-good svg { flex: none; width: 22px; height: 22px; color: var(--green-text); margin-top: 2px; }
+
+  /* Analogía */
+  .analogy { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .an { background: var(--ink); color: var(--on-ink); border-radius: var(--radius); padding: 26px 24px; }
+  .an svg { width: 34px; height: 34px; color: var(--green); }
+  .an small { display: block; margin-top: 18px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--on-ink-muted); }
+  .an h3 { font-size: 22px; font-weight: 800; margin: 4px 0 8px; }
+  .an p { color: var(--on-ink-muted); font-size: 15px; }
+  .quote { margin-top: 22px; font-size: 17px; color: var(--muted); }
+  .quote strong { color: var(--ink); }
+
+  /* Ruta de fases */
+  .route { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 28px 8px; }
+  .route svg.road { width: 100%; height: auto; display: block; }
+  .road .dash { stroke: var(--line); stroke-width: 4; stroke-dasharray: 2 12; stroke-linecap: round; fill: none; }
+  .road .done { stroke: var(--green); stroke-width: 4; stroke-linecap: round; fill: none; stroke-dasharray: 720; stroke-dashoffset: 720; animation: draw 2.6s .4s ease-in-out forwards; }
+  .road .stop { fill: var(--surface); stroke: var(--ink); stroke-width: 3; }
+  .road .stop-in { fill: var(--green); }
+  .road .stop-label { font: 700 13px var(--font-body); fill: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+  .truck { animation: drive 2.6s .4s ease-in-out forwards; }
+  .truck .body { fill: var(--ink); }
+  .truck .cab { fill: var(--green); }
+  .truck .win { fill: var(--on-ink); }
+  .truck .wheel { fill: var(--ink); stroke: var(--surface); stroke-width: 3; }
+  @keyframes drive { from { transform: translateX(0); } to { transform: translateX(720px); } }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  .phases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+  .phase { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; }
+  .phase-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .phase-num { font-family: var(--font-display); font-weight: 800; font-size: 13px; letter-spacing: .12em; color: var(--green-text); text-transform: uppercase; }
+  .when { font-size: 12px; font-weight: 700; background: var(--ink); color: var(--on-ink); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+  .phase h3 { font-size: 21px; font-weight: 800; margin-bottom: 6px; }
+  .phase .why { color: var(--muted); font-size: 14.5px; margin-bottom: 16px; }
+  .checks { list-style: none; display: grid; gap: 10px; font-size: 14.5px; }
+  .checks li { display: grid; grid-template-columns: 18px minmax(0,1fr); gap: 10px; }
+  .checks li::before {
+    content: ""; width: 18px; height: 18px; margin-top: 3px; border-radius: 50%;
+    background: var(--green-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23047857' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/12px no-repeat;
+  }
+  .checks b { font-weight: 600; }
+
+  /* Plus de vídeo */
+  .plus {
+    margin-top: 16px; background: var(--ink); color: var(--on-ink); border-radius: var(--radius);
+    padding: 28px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 22px; align-items: start;
+  }
+  .plus-icon { width: 56px; height: 56px; border-radius: 14px; background: var(--green); color: var(--ink); display: grid; place-items: center; }
+  .plus-icon svg { width: 28px; height: 28px; }
+  .plus small { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green); }
+  .plus h3 { font-size: 22px; font-weight: 800; margin: 4px 0 8px; }
+  .plus p { color: var(--on-ink-muted); font-size: 15px; }
+  .plus .checks { margin-top: 14px; color: var(--on-ink); }
+  .plus .checks li::before { background-color: rgba(16,185,129,.18); }
+
+  /* App frente a canal propio */
+  .compare { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .cmp-row { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1fr) minmax(0, 1fr); border-bottom: 1px solid var(--line); }
+  .cmp-row:last-child { border-bottom: 0; }
+  .cmp-row > div { padding: 16px 20px; font-size: 15px; min-width: 0; }
+  .cmp-row .k { font-weight: 700; }
+  .cmp-row .app { color: var(--muted); }
+  .cmp-row .own { background: var(--green-soft); color: var(--ink); }
+  .cmp-head > div { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding-block: 12px; }
+  .cmp-head .own { color: var(--green-text); }
+  .ads-note { margin-top: 18px; color: var(--muted); font-size: 16px; }
+  .ads-note strong { color: var(--ink); }
+
+  .calc { margin-top: 28px; background: var(--ink); color: var(--on-ink); border-radius: 20px; padding: 32px; }
+  .calc h3 { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+  .calc > p { color: var(--on-ink-muted); font-size: 15px; margin-bottom: 22px; }
+  .fields { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  .field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .field label { font-size: 13px; font-weight: 600; color: var(--on-ink-muted); line-height: 1.35; }
+  .field .box { display: flex; align-items: center; background: var(--ink-2); border: 1px solid rgba(255,255,255,.14); border-radius: 10px; padding: 0 12px; transition: border-color .2s; }
+  .field .box:focus-within { border-color: var(--green); }
+  .field input { width: 100%; min-width: 0; background: transparent; border: 0; color: var(--on-ink); font: 700 20px var(--font-display); padding: 12px 0; font-variant-numeric: tabular-nums; }
+  .field input:focus { outline: none; }
+  .field input::placeholder { color: rgba(233,241,238,.3); }
+  .field .unit { color: var(--on-ink-muted); font-weight: 600; font-size: 14px; padding-left: 6px; }
+  .field small { font-size: 12px; color: var(--on-ink-muted); opacity: .8; }
+  .results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+  .res { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 18px; }
+  .res span { display: block; font-size: 13px; color: var(--on-ink-muted); }
+  .res b { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 800; margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .res.hl b { color: var(--green); }
+  .verdict { margin-top: 18px; padding: 16px 18px; border-radius: 12px; background: rgba(16,185,129,.12); color: var(--on-ink); font-size: 15px; }
+  .verdict.warn { background: rgba(255,255,255,.06); color: var(--on-ink-muted); }
+
+  /* Google frente a redes */
+  .vs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .vs > div { border-radius: var(--radius); padding: 24px; border: 1px solid var(--line); background: var(--surface); }
+  .vs .g { border-color: var(--green); box-shadow: inset 0 0 0 1px var(--green); }
+  .vs small { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .vs h3 { font-size: 20px; font-weight: 800; margin: 6px 0; }
+  .vs p { color: var(--muted); font-size: 15px; }
+  .steps { list-style: none; counter-reset: s; display: grid; gap: 14px; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 34px minmax(0,1fr); gap: 14px; align-items: start; }
+  .steps li::before {
+    content: counter(s); width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--ink); color: var(--on-ink); font: 800 14px var(--font-display);
+  }
+  .steps li div { padding-top: 5px; }
+  .steps li span { color: var(--muted); }
+
+  /* Precios */
+  .plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+  .plan { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 30px 28px; display: flex; flex-direction: column; position: relative; }
+  .plan.rec { background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+  .ribbon {
+    position: absolute; top: -13px; right: 24px; background: var(--green); color: var(--ink);
+    font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px;
+  }
+  .plan small { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .plan.rec small { color: var(--green); }
+  .plan h3 { font-size: 24px; font-weight: 800; margin: 6px 0 4px; }
+  .plan .sub { color: var(--muted); font-size: 15px; margin-bottom: 22px; }
+  .plan.rec .sub { color: var(--on-ink-muted); }
+  .lines { list-style: none; border-top: 1px solid var(--line); margin-bottom: 18px; }
+  .lines li { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
+  .lines li span:first-child { min-width: 0; }
+  .lines li em { font-style: normal; display: block; color: var(--muted); font-size: 13px; }
+  .lines li b { white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 700; }
+  .price { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+  .price b { font-family: var(--font-display); font-size: 60px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+  .price span { color: var(--on-ink-muted); font-size: 16px; }
+  .zero { display: inline-block; background: rgba(16,185,129,.16); color: var(--green); font-weight: 700; font-size: 14px; padding: 4px 10px; border-radius: 8px; margin-bottom: 20px; }
+  .plan.rec .checks li::before { background-color: rgba(16,185,129,.18); }
+  .plan.rec .checks { color: var(--on-ink); margin-bottom: 18px; }
+  .plan .foot { margin-top: auto; font-size: 13.5px; color: var(--muted); padding-top: 14px; }
+  .plan.rec .foot { color: var(--on-ink-muted); border-top: 1px solid rgba(255,255,255,.12); }
+  .pick { margin-top: 24px; font-size: 17px; color: var(--muted); }
+  .pick strong { color: var(--ink); }
+
+  /* Condiciones */
+  .terms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .term { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; }
+  .term h3 { font-family: var(--font-body); font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .term p { color: var(--muted); font-size: 15px; }
+  .term.wide { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+  .term.wide div b { display: block; font-family: var(--font-display); font-size: 34px; font-weight: 800; color: var(--green); line-height: 1.1; }
+  .term.wide div span { color: var(--on-ink-muted); font-size: 15px; }
+
+  /* Próximos pasos */
+  .next { background: var(--ink); color: var(--on-ink); border-radius: 20px; padding: 40px; margin-top: 8px; }
+  .next h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; margin-bottom: 24px; }
+  .next .steps li::before { background: var(--green); color: var(--ink); }
+  .next .steps li span { color: var(--on-ink-muted); }
+
+  footer { padding-block: 48px; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 24px; }
+  footer b { color: var(--ink); font-family: var(--font-display); }
+
+  /* ── Móvil ────────────────────────────────────── */
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns: 1fr; padding-block: 48px; gap: 40px; }
+    .label { max-width: 420px; }
+    .topnav { display: none; }
+    .brand { margin-right: auto; }
+    .stats, .analogy, .phases, .plans, .vs, .results { grid-template-columns: 1fr; }
+    .fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cmp-row { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+    .cmp-row .k { grid-column: 1 / -1; padding-bottom: 0; }
+    .cmp-head .k { display: none; }
+    .calc { padding: 24px 18px; }
+    .issues, .terms, .term.wide { grid-template-columns: 1fr; }
+    .stat b { font-size: 44px; }
+    .next { padding: 28px 22px; }
+    section { padding-block: 56px 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .truck { animation: none; transform: translateX(720px); }
+    .road .done { animation: none; stroke-dashoffset: 0; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ── PDF ──────────────────────────────────────── */
+  @page { size: A4; margin: 12mm 0; }
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { font-size: 14px; background: var(--surface); }
+    .topbar { display: none; }
+    .hero .wrap { padding-block: 40px; grid-template-columns: minmax(0,1.35fr) minmax(0,1fr); }
+    .hero h1 { font-size: 36px; }
+    .truck { animation: none; transform: translateX(720px); }
+    .road .done { animation: none; stroke-dashoffset: 0; }
+    section { padding-block: 32px 0; }
+    .stat, .issue, .an, .phase, .vs > div, .plan, .term, .next, .route, .note-good, .plus, .compare, .calc { break-inside: avoid; }
+    .sec-head { break-after: avoid; }
+    #inversion, #siguiente { break-before: page; }
+    .stats, .analogy, .phases, .plans, .vs { grid-template-columns: repeat(var(--cols, 3), minmax(0,1fr)); }
+    .plans, .vs { --cols: 2; }
+    .issues, .terms { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .term.wide { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .topnav { display: none; }
+    footer { padding-block: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><img src="/image/logo-nelson.webp" alt="Nelson Londoño" width="110" height="30"></div>
+    <nav class="topnav" aria-label="Secciones">
+      <a href="#hoy">Hoy</a>
+      <a href="#metodo">Método</a>
+      <a href="#fases">Fases</a>
+      <a href="#redes">Redes</a>
+      <a href="#canal">Tu canal</a>
+      <a href="#inversion">Inversión</a>
+      <a href="#condiciones">Condiciones</a>
+    </nav>
+    <button class="btn-pdf" id="btn-pdf" type="button" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+      Descargar PDF
+    </button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Propuesta · 16 de noviembre de 2026</span>
+      <h1>Que quien busque una mudanza en Madrid encuentre a <em>Mudanzas&nbsp;Henry</em>.</h1>
+      <p class="lead">Un plan en tres fases: la ficha de Google Maps, una web nueva y el posicionamiento en Google y en la IA. Paso a paso y medido desde el primer día.</p>
+    </div>
+    <div class="label" aria-label="Datos de la propuesta">
+      <div class="label-head"><span>Mudanza digital</span><span class="arrows" aria-hidden="true">↑↑</span></div>
+      <dl>
+        <dt>Para</dt><dd>Jessica Alejandra Lozada García<br>Mudanzas Henry · Madrid</dd>
+        <dt>De</dt><dd>Nelson Londoño<br>nelsonlondono.es</dd>
+        <dt>Contenido</dt><dd>Plan en 3 fases</dd>
+        <dt>Fecha</dt><dd>16/11/2026</dd>
+      </dl>
+      <div class="label-foot">Manipular con cuidado · paso a paso</div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- 1 -->
+  <section id="hoy">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">01</span><h2>Dónde está Mudanzas Henry hoy</h2></div>
+      <p class="intro">Hoy los clientes te llegan por recomendación y por una app de mudanzas. Ninguno de los dos canales es tuyo: uno depende de que alguien se acuerde de ti y el otro te cobra por cada contacto. <strong>Quien busca «mudanzas en Madrid» en Google todavía no te encuentra</strong>, y ahí está la gente que necesita mudarse ya.</p>
+
+      <div class="stats">
+        <div class="stat"><b>2</b><span>canales de captación hoy, y ninguno es tuyo: el boca a boca y la app</span></div>
+        <div class="stat"><b>4</b><span>servicios sin página propia en la web</span></div>
+        <div class="stat"><b>0</b><span>fotos reales del equipo y los camiones en la web</span></div>
+      </div>
+
+      <div class="issues">
+        <div class="issue"><span class="tag">Web</span><div><h3>Atrapada en el constructor de Hostinger</h3><p>No se puede exportar ni mejorar a fondo. Hay que hacerla de nuevo.</p></div></div>
+        <div class="issue"><span class="tag">Web</span><div><h3>Una sola página para todo</h3><p>Google no sabe que haces mudanzas internacionales o servicio de punto limpio, así que no te enseña cuando alguien lo busca.</p></div></div>
+        <div class="issue"><span class="tag">Web</span><div><h3>Una estructura que Google no entiende</h3><p>Varios títulos principales en la portada, títulos desordenados y etiquetas incompletas. Sin análisis de palabras clave ni de la competencia.</p></div></div>
+        <div class="issue"><span class="tag">Web</span><div><h3>Imágenes hechas con IA</h3><p>En una mudanza el cliente necesita ver a quién mete en su casa. Las fotos reales dan confianza, y Google puede retirar de la ficha las que no lo parecen.</p></div></div>
+        <div class="issue"><span class="tag ficha">Ficha</span><div><h3>Una ficha con potencial sin usar</h3><p>Falta optimizar la descripción, los servicios y las palabras clave, y publicar con constancia.</p></div></div>
+        <div class="issue"><span class="tag ficha">Barrio</span><div><h3>Competencia nueva, pero alcanzable</h3><p>Están apareciendo empresas en tu zona. Quien se posicione primero se queda con el sitio.</p></div></div>
+      </div>
+
+      <div class="note-good">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <p><strong>Lo que ya haces bien:</strong> estás pidiendo reseñas a tus clientes. Es la base de todo lo que viene.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="metodo">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">02</span><h2>Cómo vamos a trabajar: paso a paso</h2></div>
+      <p class="intro">Me contaste que ya has invertido antes y no salió bien. Por eso esto va por fases: <strong>cada una se mide antes de pasar a la siguiente</strong>, y en todo momento sabrás qué se ha hecho y qué ha dado.</p>
+
+      <div class="analogy">
+        <div class="an">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M6 21V4a1 1 0 011-1h10a1 1 0 011 1v17"/><circle cx="14.5" cy="12" r="1"/></svg>
+          <small>Ficha de Google Maps</small>
+          <h3>La puerta</h3>
+          <p>Te pone en una calle con tráfico. Sin ella, estás en una calle cerrada.</p>
+        </div>
+        <div class="an">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15l2-5a2 2 0 012-1.4h10A2 2 0 0119 10l2 5v3H3z"/><circle cx="7.5" cy="18" r="2"/><circle cx="16.5" cy="18" r="2"/></svg>
+          <small>Web nueva</small>
+          <h3>El Ferrari</h3>
+          <p>Rápida, clara y hecha para convertir visitas en presupuestos.</p>
+        </div>
+        <div class="an">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 012-2h6a2 2 0 012 2v16M3 21h12M14 9h2.5a1.5 1.5 0 011.5 1.5V17a1.5 1.5 0 003 0V8l-3-3M7 8h4"/></svg>
+          <small>SEO y GEO</small>
+          <h3>La gasolina</h3>
+          <p>Lo que hace que la web y la ficha suban mes a mes.</p>
+        </div>
+      </div>
+      <p class="quote">Si la puerta da a una calle cerrada, <strong>da igual el coche que tengas</strong>. Por eso empezamos por la ficha. Y un Ferrari sin gasolina no se mueve: por eso <strong>la web y el SEO arrancan juntos</strong>.</p>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="fases">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">03</span><h2>La ruta: tres fases</h2></div>
+
+      <div class="route" aria-hidden="true">
+        <svg class="road" viewBox="0 0 900 110">
+          <path class="dash" d="M90 70 H810"/>
+          <path class="done" d="M90 70 H810"/>
+          <circle class="stop" cx="90" cy="70" r="11"/><circle class="stop-in" cx="90" cy="70" r="5"/>
+          <circle class="stop" cx="450" cy="70" r="11"/><circle class="stop-in" cx="450" cy="70" r="5"/>
+          <circle class="stop" cx="810" cy="70" r="11"/><circle class="stop-in" cx="810" cy="70" r="5"/>
+          <text class="stop-label" x="70" y="104" text-anchor="start">MES 1 · FICHA</text>
+          <text class="stop-label" x="450" y="104" text-anchor="middle">MES 2 · WEB + SEO</text>
+          <text class="stop-label" x="830" y="104" text-anchor="end">+6 MESES · OBJETIVOS</text>
+          <g class="truck">
+            <rect class="body" x="44" y="22" width="58" height="34" rx="4"/>
+            <path class="cab" d="M102 32h18l10 12v12h-28z"/>
+            <path class="win" d="M106 36h12l6 8h-18z"/>
+            <circle class="wheel" cx="60" cy="58" r="7"/>
+            <circle class="wheel" cx="116" cy="58" r="7"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="phases">
+        <article class="phase">
+          <div class="phase-top"><span class="phase-num">Fase 1</span><span class="when">Mes 1</span></div>
+          <h3>Ficha de Google Maps</h3>
+          <p class="why">Lo primero, porque es lo que antes da resultados: en el móvil, el mapa sale arriba.</p>
+          <ul class="checks">
+            <li><span><b>Auditoría y mapa de calor:</b> dónde apareces hoy en Madrid y dónde no.</span></li>
+            <li><span><b>Descripción, categorías y servicios</b> con las palabras con las que te buscan.</span></li>
+            <li><span><b>De 10 a 15 fotos reales</b> optimizadas: camiones, equipo y servicios. Te paso una lista de qué fotografiar.</span></li>
+            <li><span><b>4 publicaciones</b> en la ficha con tus fotos reales.</span></li>
+            <li><span><b>Todas las reseñas contestadas:</b> las pendientes y las que entren ese mes, con una respuesta pensada para Google.</span></li>
+          </ul>
+        </article>
+        <article class="phase">
+          <div class="phase-top"><span class="phase-num">Fase 2</span><span class="when">Mes 2</span></div>
+          <h3>Web nueva a medida</h3>
+          <p class="why">Fuera del constructor y en código propio: rápida en el móvil y hecha para que Google la entienda. Sale publicada con el SEO ya en marcha.</p>
+          <ul class="checks">
+            <li><span><b>Una página por servicio:</b> local, nacional, internacional y punto limpio, más inicio y contacto.</span></li>
+            <li><span><b>Estructura correcta</b> y datos de empresa de mudanzas que Google lee.</span></li>
+            <li><span><b>Rápida y en cualquier pantalla:</b> móvil, tablet y ordenador. La web de Suave Bocado, hecha así, saca 95/100 en PageSpeed.</span></li>
+            <li><span><b>Legal desde el primer día:</b> privacidad, aviso legal y banner de cookies. Si quieres, lo revisa luego un abogado.</span></li>
+            <li><span><b>WhatsApp y formulario de presupuesto,</b> con cada contacto medido.</span></li>
+          </ul>
+        </article>
+        <article class="phase">
+          <div class="phase-top"><span class="phase-num">Fase 3</span><span class="when">Desde el lanzamiento</span></div>
+          <h3>Google y la IA</h3>
+          <p class="why">La gasolina. Arranca el mismo día que la web, para que a los 6 meses del lanzamiento midamos objetivos reales.</p>
+          <ul class="checks">
+            <li><span><b>Palabras clave y competencia</b> en Madrid.</span></li>
+            <li><span><b>Contenido para búsquedas concretas:</b> «mudanza internacional desde Madrid», «llevar muebles al punto limpio»…</span></li>
+            <li><span><b>GEO:</b> que ChatGPT, Gemini y Perplexity te recomienden cuando alguien les pregunta por una mudanza en Madrid.</span></li>
+            <li><span><b>Informe mensual</b> con números reales de Google.</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="plus">
+        <div class="plus-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.5"/><path d="M15.5 10.5l6-3.5v10l-6-3.5z"/></svg>
+        </div>
+        <div>
+          <small>Plus incluido en el pack</small>
+          <h3>Un vídeo editado cada semana</h3>
+          <p>Tú y tu padre grabáis con el móvil, sin complicaros: te digo qué grabar y cómo. Te creo el canal de YouTube, edito cada vídeo y lo subo.</p>
+          <ul class="checks">
+            <li><span><b>Una web dinámica y ligera:</b> los vídeos solo se cargan cuando alguien pulsa para verlos.</span></li>
+            <li><span><b>Caras reales:</b> quien va a contratar una mudanza ve quién le va a atender.</span></li>
+            <li><span><b>Un vídeo, cuatro usos:</b> la web, la ficha de Google, tus redes y tus anuncios.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="redes">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">04</span><h2>Redes sociales y anuncios en Meta</h2></div>
+      <div class="vs">
+        <div class="g">
+          <small>Google</small>
+          <h3>Quien ya necesita mudarse</h3>
+          <p>Busca, compara y llama. Es el cliente con más intención de contratar.</p>
+        </div>
+        <div>
+          <small>Instagram y Facebook</small>
+          <h3>Quien todavía no lo sabe</h3>
+          <p>Te descubre y te recuerda. Sirve para dar visibilidad y construir marca.</p>
+        </div>
+      </div>
+      <ol class="steps">
+        <li><div><strong>Lanza los anuncios cuando la ficha esté lista.</strong> <span>Quien te vea en Instagram te buscará en Google. Si encuentra una ficha completa, con fotos reales y reseñas respondidas, el anuncio rinde más y cada contacto sale más barato.</span></div></li>
+        <li><div><strong>Mide aparte los formularios de Meta.</strong> <span>Así sabremos qué canal te trae los clientes que de verdad contratan.</span></div></li>
+        <li><div><strong>Pon caras.</strong> <span>Enseña al equipo y documenta servicios reales, como la mudanza en Las Rosas, contados con tu voz.</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="canal">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">05</span><h2>Tu propio canal frente a la app</h2></div>
+      <p class="intro">La app te trae mudanzas, pero con letra pequeña: <strong>pagas por cada contacto, compites por precio con otras empresas por el mismo cliente</strong> y, el día que dejas de pagar, deja de llegar trabajo.</p>
+
+      <div class="compare" role="table" aria-label="La app frente a tu ficha y tu web">
+        <div class="cmp-row cmp-head" role="row"><div class="k" role="columnheader"></div><div class="app" role="columnheader">La app</div><div class="own" role="columnheader">Tu ficha y tu web</div></div>
+        <div class="cmp-row" role="row"><div class="k" role="rowheader">Lo que pagas</div><div class="app" role="cell">Por cada contacto o comisión. Cuantos más clientes, más pagas.</div><div class="own" role="cell">Una cuota fija. No sube con cada cliente.</div></div>
+        <div class="cmp-row" role="row"><div class="k" role="rowheader">Con quién compites</div><div class="app" role="cell">Con otras empresas por el mismo cliente, a ver quién baja más el precio.</div><div class="own" role="cell">El cliente te busca a ti y compara menos.</div></div>
+        <div class="cmp-row" role="row"><div class="k" role="rowheader">Tus reseñas</div><div class="app" role="cell">Se quedan en la app.</div><div class="own" role="cell">Son tuyas, en Google, y las ve todo el que te busca.</div></div>
+        <div class="cmp-row" role="row"><div class="k" role="rowheader">Si dejas de pagar</div><div class="app" role="cell">Dejan de llegar mudanzas al día siguiente.</div><div class="own" role="cell">El posicionamiento se queda con tu dominio.</div></div>
+      </div>
+      <p class="ads-note">Y si inviertes en anuncios, <strong>convierten más</strong>: quien llega desde Instagram encuentra una ficha y una web que convencen.</p>
+
+      <div class="calc">
+        <h3>¿Cuánto te cuesta hoy un cliente de la app?</h3>
+        <p>Rellénalo con tus números. Nada sale de esta página.</p>
+        <div class="fields">
+          <div class="field">
+            <label for="calc-precio">Lo que pagas por cada contacto</label>
+            <div class="box"><input id="calc-precio" type="number" inputmode="decimal" min="0" step="0.5" placeholder="0"><span class="unit">€</span></div>
+          </div>
+          <div class="field">
+            <label for="calc-contactos">Contactos que recibes al mes</label>
+            <div class="box"><input id="calc-contactos" type="number" inputmode="numeric" min="0" step="1" placeholder="0"></div>
+          </div>
+          <div class="field">
+            <label for="calc-cierres">Mudanzas que acabas haciendo</label>
+            <div class="box"><input id="calc-cierres" type="number" inputmode="numeric" min="0" step="1" placeholder="0"></div>
+            <small>de esos contactos, al mes</small>
+          </div>
+          <div class="field">
+            <label for="calc-comision">Comisión por mudanza hecha</label>
+            <div class="box"><input id="calc-comision" type="number" inputmode="decimal" min="0" step="1" placeholder="0"><span class="unit">€</span></div>
+            <small>si la app cobra comisión</small>
+          </div>
+        </div>
+        <div class="results" aria-live="polite">
+          <div class="res"><span>Pagas a la app al mes</span><b id="out-mes">—</b></div>
+          <div class="res hl"><span>Te cuesta cada cliente</span><b id="out-cliente">—</b></div>
+          <div class="res"><span>En un año</span><b id="out-anual">—</b></div>
+        </div>
+        <p class="verdict warn" id="out-verdict">Pon tus números y te digo cuánto saldría cada cliente con tu propio canal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="inversion">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">06</span><h2>Inversión: dos formas de hacerlo</h2></div>
+      <div class="plans">
+        <div class="plan">
+          <small>Opción A</small>
+          <h3>Paso a paso</h3>
+          <p class="sub">Pagas cada fase cuando la empiezas.</p>
+          <ul class="lines">
+            <li><span>Ficha Express<em>Fase 1 · pago único · todo lo de la Fase 1</em></span><b>97 €</b></li>
+            <li><span>Gestión mensual de la ficha (opcional)<em>2 publicaciones por semana, reseñas contestadas al día, directorios e informe</em></span><b>desde 230 €/mes</b></li>
+            <li><span>Web corporativa a medida<em>Fase 2 · hasta 5 páginas · pago único</em></span><b>desde 1.150 €</b></li>
+            <li><span>SEO, desde el lanzamiento de la web<em>Fase 3 · contenidos, enlaces e informe · mínimo 6 meses</em></span><b>desde 275 €/mes</b></li>
+          </ul>
+          <p class="foot">La web y el SEO se contratan juntos. Con todo en marcha: <strong>505 €/mes</strong> más <strong>1.247 €</strong> en pagos únicos.</p>
+        </div>
+        <div class="plan rec">
+          <span class="ribbon">Recomendado</span>
+          <small>Opción B</small>
+          <h3>Pack completo</h3>
+          <p class="sub">Las mismas tres fases, en el mismo orden.</p>
+          <div class="price"><b>590 €</b><span>/ mes</span></div>
+          <span class="zero">0 € de entrada: la Express y la web van incluidas</span>
+          <ul class="checks">
+            <li><span>Mes 1: la ficha Express completa</span></li>
+            <li><span>Web a medida de hasta 6 páginas: inicio, tus 4 servicios y contacto</span></li>
+            <li><span>SEO local: 2 publicaciones por semana, reseñas contestadas al día y directorios</span></li>
+            <li><span>SEO: contenido y posicionamiento en Google</span></li>
+            <li><span>GEO: preparación para aparecer en ChatGPT y Gemini</span></li>
+            <li><span>Seguimiento de llamadas, WhatsApp y formularios</span></li>
+            <li><span>Hosting y mantenimiento de la web</span></li>
+            <li><span><b>Plus: un vídeo editado cada semana</b></span></li>
+          </ul>
+          <p class="foot"><strong>Permanencia: 6 meses desde que se publica la web.</strong> Con el mes de la ficha, son 7 cuotas como mínimo.</p>
+        </div>
+      </div>
+      <p class="pick">Te recomiendo el <strong>pack</strong>: no pagas ni la Express ni la web por adelantado, cabe una página para cada uno de tus 4 servicios, incluye el vídeo semanal y sigue yendo paso a paso. Si prefieres empezar sin compromiso, la <strong>opción A</strong> te deja probar primero con la ficha por 97&nbsp;€.</p>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="condiciones">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">07</span><h2>Plazos y condiciones</h2></div>
+      <div class="terms">
+        <div class="term wide">
+          <div><b>30-45 días</b><span>primeros cambios visibles en Google Maps</span></div>
+          <div><b>60 días</b><span>resultados en la web y en los motores de IA</span></div>
+        </div>
+        <div class="term"><h3>Objetivos reales a 6 meses</h3><p>Al lanzar la web fijamos juntos objetivos alcanzables, y a los 6 meses los medimos con datos de Google. Sin promesas de cifras mágicas.</p></div>
+        <div class="term"><h3>Hosting incluido</h3><p>La web vive en mi hosting mientras trabajemos juntos, sin coste aparte.</p></div>
+        <div class="term"><h3>La web y el dominio son tuyos</h3><p>El dominio nunca cambia de dueño: solo apuntamos sus DNS a mi hosting. La web pasa a ser tuya en cuanto la pagas (opción A) o al cumplir 6 meses desde el lanzamiento (pack). Si quieres llevarla a otro hosting, te entrego todos los archivos e instrucciones para moverla. El posicionamiento ganado se queda con tu dominio, y la ficha, Search Console y Analytics están a tu nombre desde el primer día.</p></div>
+        <div class="term"><h3>Fotos reales</h3><p>Las haces tú con el móvil, siguiendo la lista que te paso. Las publicaciones salen de esas fotos: cuantas más mandes, mejor. Nada de imágenes de banco ni de IA.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section id="siguiente">
+    <div class="wrap">
+      <div class="next">
+        <h2>Próximos pasos</h2>
+        <ol class="steps">
+          <li><div><strong>Eliges la opción:</strong> <span>A (paso a paso) o B (pack).</span></div></li>
+          <li><div><strong>Accesos:</strong> <span>me añades como administrador de la ficha de Google y me das acceso al panel donde tienes el dominio para apuntar los DNS. Si el correo de la empresa va con tu dominio, lo mantenemos funcionando en el cambio.</span></div></li>
+          <li><div><strong>Primeras fotos reales:</strong> <span>camiones, equipo y un servicio en marcha.</span></div></li>
+          <li><div><strong>Arranca la Fase 1:</strong> <span>optimización de la ficha de Google Maps.</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="tagline"><img class="foot-logo" src="/image/logo-nelson.webp" alt="Nelson Londoño" width="124" height="34"><span>SEO local, desarrollo web y automatizaciones</span></span>
+    <a href="https://nelsonlondono.es" target="_blank" rel="noopener">nelsonlondono.es</a>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var PACK = 590;
+    var eur = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+    var ids = ['calc-precio', 'calc-contactos', 'calc-cierres', 'calc-comision'];
+    var el = {};
+    ids.forEach(function (id) { el[id] = document.getElementById(id); });
+    var out = {
+      mes: document.getElementById('out-mes'),
+      cliente: document.getElementById('out-cliente'),
+      anual: document.getElementById('out-anual'),
+      verdict: document.getElementById('out-verdict')
+    };
+    function num(id) {
+      var v = parseFloat(String(el[id].value).replace(',', '.'));
+      return isFinite(v) && v > 0 ? v : 0;
+    }
+    function render() {
+      var precio = num('calc-precio'), contactos = num('calc-contactos');
+      var cierres = num('calc-cierres'), comision = num('calc-comision');
+      var gasto = precio * contactos + comision * cierres;
+      out.mes.textContent = gasto > 0 ? eur.format(gasto) : '—';
+      out.anual.textContent = gasto > 0 ? eur.format(gasto * 12) : '—';
+      if (cierres > contactos && contactos > 0) {
+        out.cliente.textContent = '—';
+        out.verdict.className = 'verdict warn';
+        out.verdict.textContent = 'Las mudanzas hechas no pueden ser más que los contactos recibidos. Revisa esas dos casillas.';
+        return;
+      }
+      if (gasto > 0 && cierres > 0) {
+        var porCliente = gasto / cierres;
+        var propio = PACK / cierres;
+        var empate = Math.ceil(PACK / porCliente);
+        out.cliente.textContent = eur.format(porCliente);
+        out.verdict.className = 'verdict';
+        if (propio <= porCliente) {
+          out.verdict.textContent = 'Con tu propio canal pagas ' + eur.format(PACK) + ' al mes, lleguen los clientes que lleguen. Cuando te traiga esas mismas ' +
+            cierres + (cierres === 1 ? ' mudanza' : ' mudanzas') + ' al mes, cada una te saldrá a ' + eur.format(propio) +
+            ', sin pagar por cada contacto, y cada cliente de más te costará menos.';
+        } else {
+          out.verdict.textContent = 'Hoy cada cliente de la app te cuesta ' + eur.format(porCliente) + '. Tu propio canal se iguala cuando te traiga ' +
+            empate + ' mudanzas al mes. A partir de ahí, cada cliente de más te sale más barato que en la app, sin pagar por cada contacto y con las reseñas a tu nombre.';
+        }
+      } else {
+        out.cliente.textContent = '—';
+        out.verdict.className = 'verdict warn';
+        out.verdict.textContent = 'Pon tus números y te digo cuánto saldría cada cliente con tu propio canal.';
+      }
+    }
+    ids.forEach(function (id) { el[id].addEventListener('input', render); });
+    render();
+  })();
+</script>
+</body>
+</html>

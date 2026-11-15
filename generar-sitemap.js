@@ -26,7 +26,8 @@ const EXCLUDED_PATHS = [
   '/404',             // Página de error
   '/google',          // Archivos de verificación
   '/guia-para-pdf',   // Herramienta interna de maquetación
-  '/politica-de-cookies' // Excluida por Noindex
+  '/politica-de-cookies', // Excluida por Noindex
+  '/p/'               // Propuestas privadas a clientes (noindex)
 ];
 
 /** @description Directorios del sistema a ignorar durante el escaneo */
