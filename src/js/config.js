@@ -25,6 +25,16 @@ export const CONFIG = {
     WHATSAPP_URL: 'https://wa.me/34604547203?text=Hola%20Nelson%2C%20vengo%20de%20tu%20web%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20tus%20servicios.',
   },
 
+  // Entrada de leads de Waboce. No lleva claves: `SITE` es público.
+  // PRIVACY_VERSION es la versión de politica-de-privacidad.html que acepta la persona.
+  LEADS: {
+    ENDPOINT: 'https://api.waboce.app/public/leads',
+    SITE: 'nelsonlondono',
+    PRIVACY_VERSION: '2026-11',
+    TIMEOUT_MS: 15000,
+    WHATSAPP_TEXT: 'Hola, acabo de enviar el formulario de tu web.',
+  },
+
   // Configuración de Precios (Centralizada)
   PRICING: {
     SEO_LOCAL: {
@@ -76,6 +86,6 @@ export const CONFIG = {
   // Configuración general de UI
   UI: {
     THEME_KEY: 'theme',
-    APP_VERSION: '435604ff',
+    APP_VERSION: '2a7a4079',
   },
 };
