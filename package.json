@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test src/js/*.test.mjs",
     "copy:assets": "cp node_modules/@fortawesome/fontawesome-free/css/all.min.css ./fontawesome.min.css && sed -i '' 's|../webfonts|webfonts|g' ./fontawesome.min.css && sed -i '' 's|font-display:block|font-display:swap|g' ./fontawesome.min.css && rm -rf webfonts && cp -r node_modules/@fortawesome/fontawesome-free/webfonts ./",
     "watch:css": "tailwindcss -i ./src/input.css -o nelson-v4.css --minify --watch",
     "watch:js": "esbuild src/js/script.js --bundle --minify --outfile=bundle-v2.min.js --watch",

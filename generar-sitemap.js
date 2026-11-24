@@ -27,6 +27,7 @@ const EXCLUDED_PATHS = [
   '/google',          // Archivos de verificación
   '/guia-para-pdf',   // Herramienta interna de maquetación
   '/politica-de-cookies', // Excluida por Noindex
+  '/politica-de-privacidad', // Excluida por Noindex
   '/p/'               // Propuestas privadas a clientes (noindex)
 ];
 
