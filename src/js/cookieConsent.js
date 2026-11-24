@@ -39,6 +39,20 @@ export function initCookieConsent() {
   };
 
   /**
+   * Varias páginas traen el stub en su HTML, pero contacto, sobre-mi, cv y cookies no:
+   * sin él no se configuraba GA y no se medían.
+   */
+  const ensureGtagStub = () => {
+    if (typeof window.gtag === 'function') return;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag('js', new Date());
+  };
+
+  /**
    * Inserta Clarity una sola vez. El stub encola las llamadas hasta que carga la
    * librería, y Clarity exige la señal de consentimiento en el EEE: sin ella no
    * guarda cookies. No se piden las de publicidad porque no se usan.
@@ -64,12 +78,11 @@ export function initCookieConsent() {
   const enableAnalytics = () => {
     if (!CONFIG.ANALYTICS.PRODUCTION_HOSTS.includes(window.location.hostname)) return;
 
-    // El stub gtag() del HTML encola las llamadas en dataLayer; la librería
-    // las procesa al terminar de cargar, así que el orden aquí es indiferente.
+    // El stub gtag() encola las llamadas en dataLayer; la librería las procesa
+    // al terminar de cargar, así que el orden aquí es indiferente.
+    ensureGtagStub();
     loadGoogleAnalyticsLibrary();
-    if (typeof gtag === 'function') {
-      gtag('config', CONFIG.ANALYTICS.GA_MEASUREMENT_ID);
-    }
+    window.gtag('config', CONFIG.ANALYTICS.GA_MEASUREMENT_ID);
     loadClarity();
   };
 
