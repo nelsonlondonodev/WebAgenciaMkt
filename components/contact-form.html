@@ -21,118 +21,89 @@
         class="absolute bottom-0 left-0 w-64 h-64 bg-primary-green/5 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none"
       ></div>
 
-      <form
-        id="contact-form"
-        action="https://n8n.srv1033442.hstgr.cloud/webhook/webhook-formulario-web"
-        method="POST"
-        class="grid grid-cols-1 gap-y-8 relative z-10"
-      >
-        <!-- Campo Honeypot (Trampa Anti-Bot) -->
-        <div class="hidden sr-only" aria-hidden="true">
-          <label for="b_website">No rellenar este campo</label>
-          <input
-            type="text"
-            name="b_website"
-            id="b_website"
-            tabindex="-1"
-            autocomplete="off"
-          />
+      <!-- data-clarity-mask: lo que escribe la persona no sale en las grabaciones de Clarity -->
+      <div data-lead-form data-clarity-mask="true" class="relative z-10">
+      <form id="contact-form" method="post" novalidate class="grid grid-cols-1 gap-y-6">
+        <!-- Trampa anti-bot: fuera de pantalla, no oculta -->
+        <div class="absolute -left-[9999px] top-0 h-px w-px overflow-hidden" aria-hidden="true">
+          <label for="website">No rellenar este campo</label>
+          <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
         </div>
 
-        <!-- Campo Nombre -->
-        <div class="relative group scroll-animate-initial">
-          <input
-            type="text"
-            name="name"
-            id="name"
-            autocomplete="name"
-            class="peer block w-full appearance-none rounded-2xl border border-gray-200/50 bg-gray-50/30 dark:bg-white/5 px-6 py-5 text-gray-900 placeholder-transparent transition-all duration-300 focus:border-primary-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary-blue/5 dark:border-white/10 dark:text-white dark:focus:border-primary-green dark:focus:bg-gray-800/50 dark:focus:ring-primary-green/5"
-            placeholder="Nombre"
-            required
-          />
-          <label
-            for="name"
-            class="pointer-events-none absolute left-6 top-5 origin-[0_0] -translate-y-8 scale-75 text-xs font-bold uppercase tracking-wider text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-base peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-            >Nombre completo</label
-          >
+        <div>
+          <label for="name" class="mb-2 block text-sm font-semibold text-gray-800 dark:text-gray-200">Nombre</label>
+          <input type="text" name="name" id="name" autocomplete="name" maxlength="120" required aria-describedby="name-error" class="block w-full scroll-mt-32 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-base text-gray-900 transition-colors focus:border-primary-blue focus:outline-none focus:ring-4 focus:ring-primary-blue/15 aria-invalid:border-red-600 dark:border-white/20 dark:bg-gray-800/60 dark:text-white dark:focus:border-primary-green dark:focus:ring-primary-green/15 dark:aria-invalid:border-red-400" />
+          <p id="name-error" data-error-for="name" class="mt-2 text-sm font-semibold text-red-700 dark:text-red-300" hidden></p>
         </div>
 
-        <!-- Campo Email -->
-        <div class="relative group scroll-animate-initial delay-100">
-          <input
-            id="email"
-            name="email"
-            type="email"
-            autocomplete="email"
-            class="peer block w-full appearance-none rounded-2xl border border-gray-200/50 bg-gray-50/30 dark:bg-white/5 px-6 py-5 text-gray-900 placeholder-transparent transition-all duration-300 focus:border-primary-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary-blue/5 dark:border-white/10 dark:text-white dark:focus:border-primary-green dark:focus:bg-gray-800/50 dark:focus:ring-primary-green/5"
-            placeholder="Email"
-            required
-          />
-          <label
-            for="email"
-            class="pointer-events-none absolute left-6 top-5 origin-[0_0] -translate-y-8 scale-75 text-xs font-bold uppercase tracking-wider text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-base peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-            >Correo electrónico</label
-          >
+        <div>
+          <label for="phone" class="mb-2 block text-sm font-semibold text-gray-800 dark:text-gray-200">Tu WhatsApp</label>
+          <input type="tel" name="phone" id="phone" inputmode="tel" autocomplete="tel" placeholder="600 111 222" required aria-describedby="phone-hint phone-preview phone-error" class="block w-full scroll-mt-32 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-base text-gray-900 transition-colors focus:border-primary-blue focus:outline-none focus:ring-4 focus:ring-primary-blue/15 aria-invalid:border-red-600 dark:border-white/20 dark:bg-gray-800/60 dark:text-white dark:focus:border-primary-green dark:focus:ring-primary-green/15 dark:aria-invalid:border-red-400" />
+          <p id="phone-hint" class="mt-2 text-sm text-gray-600 dark:text-gray-400">Si no es un móvil español, escríbelo con su prefijo.</p>
+          <p id="phone-preview" data-phone-preview aria-live="polite" class="mt-1 text-sm font-semibold text-gray-800 dark:text-gray-200"></p>
+          <p id="phone-error" data-error-for="phone" class="mt-2 text-sm font-semibold text-red-700 dark:text-red-300" hidden></p>
         </div>
 
-        <!-- Campo Teléfono -->
-        <div class="relative group scroll-animate-initial delay-200">
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            autocomplete="tel"
-            class="peer block w-full appearance-none rounded-2xl border border-gray-200/50 bg-gray-50/30 dark:bg-white/5 px-6 py-5 text-gray-900 placeholder-transparent transition-all duration-300 focus:border-primary-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary-blue/5 dark:border-white/10 dark:text-white dark:focus:border-primary-green dark:focus:bg-gray-800/50 dark:focus:ring-primary-green/5"
-            placeholder="Teléfono"
-          />
-          <label
-            for="phone"
-            class="pointer-events-none absolute left-6 top-5 origin-[0_0] -translate-y-8 scale-75 text-xs font-bold uppercase tracking-wider text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-base peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-            >Teléfono (opcional)</label
-          >
+        <fieldset>
+          <legend class="mb-2 block text-sm font-semibold text-gray-800 dark:text-gray-200">¿Qué necesitas?</legend>
+          <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <label class="cursor-pointer">
+              <input type="radio" name="service" value="seo_local" class="peer sr-only" aria-describedby="service-error" />
+              <span class="flex min-h-12 items-center justify-center rounded-2xl border border-gray-300 bg-white px-4 py-3 text-center text-sm font-semibold text-gray-800 transition-colors peer-checked:border-primary-green peer-checked:bg-primary-green/10 peer-checked:ring-2 peer-checked:ring-primary-green peer-focus-visible:ring-4 peer-focus-visible:ring-primary-blue/40 dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">Google Maps y SEO local</span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="service" value="web" class="peer sr-only" aria-describedby="service-error" />
+              <span class="flex min-h-12 items-center justify-center rounded-2xl border border-gray-300 bg-white px-4 py-3 text-center text-sm font-semibold text-gray-800 transition-colors peer-checked:border-primary-green peer-checked:bg-primary-green/10 peer-checked:ring-2 peer-checked:ring-primary-green peer-focus-visible:ring-4 peer-focus-visible:ring-primary-blue/40 dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">Página web</span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="service" value="automatizacion" class="peer sr-only" aria-describedby="service-error" />
+              <span class="flex min-h-12 items-center justify-center rounded-2xl border border-gray-300 bg-white px-4 py-3 text-center text-sm font-semibold text-gray-800 transition-colors peer-checked:border-primary-green peer-checked:bg-primary-green/10 peer-checked:ring-2 peer-checked:ring-primary-green peer-focus-visible:ring-4 peer-focus-visible:ring-primary-blue/40 dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">Automatización</span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="service" value="no_lo_se" class="peer sr-only" aria-describedby="service-error" />
+              <span class="flex min-h-12 items-center justify-center rounded-2xl border border-gray-300 bg-white px-4 py-3 text-center text-sm font-semibold text-gray-800 transition-colors peer-checked:border-primary-green peer-checked:bg-primary-green/10 peer-checked:ring-2 peer-checked:ring-primary-green peer-focus-visible:ring-4 peer-focus-visible:ring-primary-blue/40 dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">No lo sé aún</span>
+            </label>
+          </div>
+          <p id="service-error" data-error-for="service" class="mt-2 text-sm font-semibold text-red-700 dark:text-red-300" hidden></p>
+        </fieldset>
+
+        <div>
+          <label for="message" class="mb-2 block text-sm font-semibold text-gray-800 dark:text-gray-200">Cuéntame algo más <span class="font-normal text-gray-600 dark:text-gray-400">(opcional)</span></label>
+          <textarea id="message" name="message" rows="3" maxlength="1000" aria-describedby="message-error" class="block w-full scroll-mt-32 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-base text-gray-900 transition-colors focus:border-primary-blue focus:outline-none focus:ring-4 focus:ring-primary-blue/15 aria-invalid:border-red-600 dark:border-white/20 dark:bg-gray-800/60 dark:text-white dark:focus:border-primary-green dark:focus:ring-primary-green/15 dark:aria-invalid:border-red-400 resize-none"></textarea>
+          <p id="message-error" data-error-for="message" class="mt-2 text-sm font-semibold text-red-700 dark:text-red-300" hidden></p>
         </div>
 
-        <!-- Campo Mensaje -->
-        <div class="relative group scroll-animate-initial delay-300">
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            class="peer block w-full appearance-none rounded-2xl border border-gray-200/50 bg-gray-50/30 dark:bg-white/5 px-6 py-5 text-gray-900 placeholder-transparent transition-all duration-300 focus:border-primary-blue focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary-blue/5 dark:border-white/10 dark:text-white dark:focus:border-primary-green dark:focus:bg-gray-800/50 dark:focus:ring-primary-green/5 resize-none"
-            placeholder="Mensaje"
-            required
-          ></textarea>
-          <label
-            for="message"
-            class="pointer-events-none absolute left-6 top-5 origin-[0_0] -translate-y-8 scale-75 text-xs font-bold uppercase tracking-wider text-gray-500 transition-all duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-base peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-primary-blue dark:text-gray-400 dark:peer-focus:text-primary-green"
-            >¿Cómo puedo ayudarte?</label
-          >
+        <div>
+          <p class="mb-3 text-xs leading-relaxed text-gray-600 dark:text-gray-400">
+            <strong>Responsable:</strong> Nelson Londoño. <strong>Finalidad:</strong> contestar a tu solicitud. <strong>Base legal:</strong> atender lo que pides antes de contratar. <strong>Destinatarios:</strong> los proveedores técnicos necesarios para gestionarla. <strong>Derechos:</strong> acceder, rectificar, suprimir y los demás que explica la política de privacidad.
+          </p>
+          <div class="flex items-start gap-3">
+            <input type="checkbox" name="privacy_accepted" id="privacy_accepted" value="si" required aria-describedby="privacy_accepted-error" class="mt-0.5 h-6 w-6 shrink-0 accent-primary-green" />
+            <label for="privacy_accepted" class="text-sm text-gray-800 dark:text-gray-200">He leído la <a href="/politica-de-privacidad.html" target="_blank" rel="noopener" class="font-semibold underline underline-offset-4">política de privacidad<span class="sr-only"> (se abre en otra pestaña)</span></a>.</label>
+          </div>
+          <p id="privacy_accepted-error" data-error-for="privacy_accepted" class="mt-2 text-sm font-semibold text-red-700 dark:text-red-300" hidden></p>
         </div>
 
-        <!-- Botón Submit con Gradiente Hero -->
-        <div class="pt-2 scroll-animate-initial delay-400">
-          <button
-            type="submit"
-            class="relative w-full group overflow-hidden rounded-2xl bg-gray-900 px-8 py-5 text-lg font-bold text-white transition-all duration-300 hover:shadow-[0_20px_40px_-10px_rgba(59,130,246,0.3)] dark:hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.3)] active:scale-[0.98]"
-          >
-            <div
-              class="absolute inset-0 bg-gradient-to-r from-primary-blue to-primary-green opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            ></div>
-            <span class="relative z-10 flex items-center justify-center gap-3">
-              Enviar Mensaje
-              <i
-                class="fas fa-paper-plane text-sm transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-              ></i>
-            </span>
-          </button>
-        </div>
+        <button type="submit" disabled class="w-full rounded-2xl bg-emerald-700 px-8 py-5 text-lg font-bold text-white transition-all duration-300 hover:bg-emerald-800 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/60 disabled:opacity-60">
+          <span class="flex items-center justify-center gap-3">
+            <span data-submit-label>Enviar solicitud</span>
+            <i class="fas fa-paper-plane text-sm" aria-hidden="true"></i>
+          </span>
+        </button>
 
-        <!-- Status del Formulario -->
-        <div
-          id="form-status"
-          class="mt-4 text-center hidden p-4 rounded-xl font-semibold text-sm animate-fade-in"
-        ></div>
+        <div data-form-status role="alert" tabindex="-1" hidden class="scroll-mt-32 rounded-2xl border border-red-600/40 bg-red-50 p-5 text-center dark:border-red-400/40 dark:bg-red-950/40">
+          <p data-form-status-text class="mb-4 text-sm font-semibold text-red-800 dark:text-red-200"></p>
+          <a data-lead-whatsapp="failed" href="https://wa.me/34604547203" target="_blank" rel="noopener" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#128C7E] px-6 py-3 font-bold text-white transition-colors hover:bg-[#075E54]"><i class="fab fa-whatsapp" aria-hidden="true"></i> Escribirme por WhatsApp</a>
+        </div>
+        <noscript><p class="text-center text-sm text-gray-800 dark:text-gray-200">El formulario necesita JavaScript. Puedes escribirme por <a href="https://wa.me/34604547203" class="underline">WhatsApp</a>.</p></noscript>
       </form>
+
+      <div data-form-success hidden class="py-6 text-center">
+        <h3 data-success-title tabindex="-1" class="scroll-mt-32 text-2xl font-black text-gray-900 focus:outline-none dark:text-white">Solicitud enviada</h3>
+        <p class="mx-auto mt-3 mb-6 max-w-md text-gray-700 dark:text-gray-300">Gracias por escribir. Si quieres adelantar, sigue por WhatsApp desde el mismo número.</p>
+        <a data-lead-whatsapp="sent" href="https://wa.me/34604547203" target="_blank" rel="noopener" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#128C7E] px-6 py-3 font-bold text-white transition-colors hover:bg-[#075E54]"><i class="fab fa-whatsapp" aria-hidden="true"></i> Seguir por WhatsApp</a>
+      </div>
+      </div>
 
       <div class="mt-12 pt-8 border-t border-gray-200/30 dark:border-white/10 text-center">
         <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">O si lo prefieres:</p>

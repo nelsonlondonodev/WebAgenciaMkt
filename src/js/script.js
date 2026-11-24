@@ -14,11 +14,8 @@ import { initDynamicModals } from './modalRenderer.js';
 import { initAuditFilterModal } from './auditFilterModal.js';
 import { generateBreadcrumbs } from './breadcrumbs.js'; // Importar la función para generar migas de pan
 
-import {
-  initContactForm,
-  initContactReveal,
-  setupContactModal,
-} from './contactForm.js';
+import { initLeadForm } from './leadForm.js';
+import { initContactReveal } from './contactReveal.js';
 
 import { initCookieConsent } from './cookieConsent.js';
 
@@ -96,7 +93,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       initChatbot,
       initDynamicModals,
       initAuditFilterModal,
-      initContactForm,
+      initLeadForm,
       initContactReveal,
       initCookieConsent,
       setupSocialSharing,
