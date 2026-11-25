@@ -30,6 +30,7 @@ import {
 } from './uiInteractions.js';
 
 import { initVideoFacades } from './videoFacade.js';
+import { initShortsCarousel } from './shortsCarousel.js';
 
 /**
  * Programa la ejecución de tareas no críticas para cuando el hilo principal esté libre.
@@ -103,6 +104,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       initHeroBenefitBadge,
       initSuccessCaseCarousels,
       initVideoFacades,
+      initShortsCarousel,
     };
 
     Object.entries(idleWidgets).forEach(([name, init]) =>

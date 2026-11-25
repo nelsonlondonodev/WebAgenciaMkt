@@ -29,7 +29,7 @@
     <link rel="preload" as="image" href="./image/foto-nelson-londono.webp" fetchpriority="high" />
 
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=7e84236c" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=734418c0" />
 
     <script type="application/ld+json">
     {
@@ -62,7 +62,8 @@
             { "@id": "https://nelsonlondono.es/#video-5" },
             { "@id": "https://nelsonlondono.es/#video-4" },
             { "@id": "https://nelsonlondono.es/#video-3" },
-            { "@id": "https://nelsonlondono.es/#video-2" }
+            { "@id": "https://nelsonlondono.es/#video-2" },
+            { "@id": "https://nelsonlondono.es/#video" }
           ],
           "inLanguage": "es-ES"
         },
@@ -234,6 +235,29 @@
               }
             }
           ]
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://nelsonlondono.es/#video",
+          "name": "¿Subes 20 fotos de golpe a Google Maps? Estás perdiendo clientes",
+          "description": "Subir todas las fotos de tu negocio de golpe a Google Business Profile es un error de SEO local. Te explico por qué la constancia gana a los picos de actividad y cómo planificar las publicaciones de tu ficha de Google Maps.",
+          "thumbnailUrl": [
+            "https://nelsonlondono.es/image/youtube-short-poster.webp",
+            "https://i.ytimg.com/vi/6hEDQJNyA80/hqdefault.jpg"
+          ],
+          "uploadDate": "2026-08-06T06:46:53-07:00",
+          "duration": "PT24S",
+          "embedUrl": "https://www.youtube.com/embed/6hEDQJNyA80",
+          "isPartOf": {
+            "@id": "https://nelsonlondono.es/agencia-seo-local.html#video-auditoria"
+          },
+          "publisher": {
+            "@id": "https://nelsonlondono.es/#organization"
+          },
+          "author": {
+            "@id": "https://nelsonlondono.es/#person"
+          },
+          "inLanguage": "es-ES"
         },
         {
           "@type": "VideoObject",
@@ -690,13 +714,33 @@
               </div>
             </div>
 
-            <!-- Reproductores Short 9:16 (tira deslizable hasta 1280 px; fila de 4 desde xl, que mide justo el ancho útil del contenedor) -->
-            <div class="w-full scroll-animate-initial">
+            <!-- Reproductores Short 9:16: tira deslizable en todos los tamaños, con flechas desde md (shortsCarousel.js). Crece con cada Short. -->
+            <div class="relative w-full scroll-animate-initial" data-shorts-carousel>
+              <button
+                type="button"
+                data-shorts-prev
+                disabled
+                aria-label="Ver Shorts anteriores"
+                class="absolute -left-2 top-[249px] z-30 hidden h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-900 shadow-2xl transition-all duration-300 hover:scale-110 hover:bg-primary-green hover:text-white disabled:pointer-events-none disabled:opacity-0 md:flex"
+              >
+                <i class="fas fa-chevron-left text-xl" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                data-shorts-next
+                disabled
+                aria-label="Ver más Shorts"
+                class="absolute -right-2 top-[249px] z-30 hidden h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-900 shadow-2xl transition-all duration-300 hover:scale-110 hover:bg-primary-green hover:text-white disabled:pointer-events-none disabled:opacity-0 md:flex"
+              >
+                <i class="fas fa-chevron-right text-xl" aria-hidden="true"></i>
+              </button>
               <ul
-                class="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto px-1 pb-2 sm:gap-8 xl:justify-center xl:overflow-x-visible"
+                class="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-1 px-1 pb-2 sm:gap-8"
+                tabindex="0"
+                aria-label="Shorts de la serie SEO Local en 1 minuto"
               >
                 <!-- shorts:start · generado desde src/js/data/shorts.js con pnpm build; no editar a mano -->
-                <li class="w-[250px] shrink-0 snap-center sm:w-[280px]">
+                <li class="w-[250px] shrink-0 snap-center sm:w-[280px] md:snap-start">
                   <div class="relative w-full aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900">
                     <span class="pointer-events-none absolute top-3 left-3 z-20 rounded-full bg-primary-green px-3 py-1 text-[10px] font-black uppercase tracking-widest text-white shadow-lg">
                       Nuevo
@@ -737,7 +781,7 @@
                     >Cómo saber si tu ficha de Google es tuya y cómo reclamarla</a>
                   </p>
                 </li>
-                <li class="w-[250px] shrink-0 snap-center sm:w-[280px]">
+                <li class="w-[250px] shrink-0 snap-center sm:w-[280px] md:snap-start">
                   <div class="relative w-full aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900">
                     <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
                 <button
@@ -775,7 +819,7 @@
                     >Cómo marcar tu negocio como cerrado en Google Maps (horario especial)</a>
                   </p>
                 </li>
-                <li class="w-[250px] shrink-0 snap-center sm:w-[280px]">
+                <li class="w-[250px] shrink-0 snap-center sm:w-[280px] md:snap-start">
                   <div class="relative w-full aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900">
                     <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
                 <button
@@ -813,7 +857,7 @@
                     >Le cambiaron la dirección en Google Maps y no puede recuperar su ficha</a>
                   </p>
                 </li>
-                <li class="w-[250px] shrink-0 snap-center sm:w-[280px]">
+                <li class="w-[250px] shrink-0 snap-center sm:w-[280px] md:snap-start">
                   <div class="relative w-full aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900">
                     <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
                 <button
@@ -849,6 +893,44 @@
                       rel="noopener noreferrer"
                       class="hover:text-primary-blue transition-colors"
                     >Tu negocio en Google Maps corre peligro si no haces esto</a>
+                  </p>
+                </li>
+                <li class="w-[250px] shrink-0 snap-center sm:w-[280px] md:snap-start">
+                  <div class="relative w-full aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900">
+                    <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
+                <button
+                  type="button"
+                  class="video-facade relative z-10 w-full h-full block border-0 rounded-2xl cursor-pointer group/facade"
+                  data-video-src="https://www.youtube-nocookie.com/embed/6hEDQJNyA80?autoplay=1&rel=0&modestbranding=1"
+                  data-video-title="¿Subes 20 fotos de golpe a Google Maps? Estás perdiendo clientes"
+                  aria-label="Reproducir el vídeo: ¿Subes 20 fotos de golpe a Google Maps? Estás perdiendo clientes"
+                >
+                  <img
+                    src="/image/youtube-short-poster.webp"
+                    alt=""
+                    width="640"
+                    height="1138"
+                    loading="lazy"
+                    class="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                  />
+                  <span
+                    class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover/facade:bg-black/10 transition-colors rounded-2xl"
+                  >
+                    <span
+                      class="flex items-center justify-center w-16 h-16 rounded-full bg-red-600 shadow-2xl group-hover/facade:scale-110 transition-transform"
+                    >
+                      <i class="fas fa-play text-white text-2xl ml-1" aria-hidden="true"></i>
+                    </span>
+                  </span>
+                </button>
+                  </div>
+                  <p class="mt-4 text-sm font-semibold leading-snug text-gray-700 dark:text-gray-200">
+                    <a
+                      href="https://youtube.com/shorts/6hEDQJNyA80"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="hover:text-primary-blue transition-colors"
+                    >¿Subes 20 fotos de golpe a Google Maps? Estás perdiendo clientes</a>
                   </p>
                 </li>
                 <!-- shorts:end -->
@@ -1008,7 +1090,7 @@
 
     <!-- SCRIPTS PARA PRODUCCIÓN -->
     <!-- Descomenta este bloque y comenta el de desarrollo antes de pasar a producción -->
-    <script src="/bundle-v2.min.js?v=daac9c55" defer></script>
+    <script src="/bundle-v2.min.js?v=b02c319c" defer></script>
 
     <!-- SCRIPTS PARA DESARROLLO -->
     <!-- Comenta este bloque y descomenta el de producción antes de pasar a producción -->

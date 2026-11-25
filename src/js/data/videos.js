@@ -40,6 +40,12 @@ export const videos = {
     ancho: 640,
     alto: 1138,
   },
+  '6hEDQJNyA80': {
+    titulo: '¿Subes 20 fotos de golpe a Google Maps? Estás perdiendo clientes',
+    poster: '/image/youtube-short-poster.webp',
+    ancho: 640,
+    alto: 1138,
+  },
   'qYoHj_nrq-I': {
     titulo: 'Auditoría técnica: más de 2300 reseñas en Google Maps que no venden',
     tituloYoutube: 'Tienen más 2300 reseñas en Google Maps pero NO VENDEN (Auditoría Técnica)',
@@ -80,6 +86,13 @@ export const videos = {
 
 /**
  * Carrusel «SEO Local en 1 minuto» de la home (shortCards.js), del más reciente
- * al más antiguo: el primero lleva la etiqueta «Nuevo».
+ * al más antiguo: el primero lleva la etiqueta «Nuevo». Solo crece: al añadir
+ * uno no se quita ninguno, la tira se desliza (shortsCarousel.js).
  */
-export const carruselHome = ['G-uFaOOFleM', 'WZMDWeJs6Pc', 'ryeaU4Gz6HU', 'oNMGUX9e-9U'];
+export const carruselHome = [
+  'G-uFaOOFleM',
+  'WZMDWeJs6Pc',
+  'ryeaU4Gz6HU',
+  'oNMGUX9e-9U',
+  '6hEDQJNyA80',
+];

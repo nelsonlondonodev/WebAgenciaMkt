@@ -19,7 +19,7 @@ function createShortCard(id, nuevo) {
   const video = videos[id];
   if (!video) throw new Error(`carruselHome: el vídeo ${id} no está en src/js/data/videos.js`);
   return `
-<li class="w-[250px] shrink-0 snap-center sm:w-[280px]">
+<li class="w-[250px] shrink-0 snap-center sm:w-[280px] md:snap-start">
   <div class="relative w-full aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-white/10 group bg-gray-900">${nuevo ? NUEVO : ''}
     <!-- Fachada: no se contacta con YouTube hasta que el usuario pulsa -->
     ${renderVideoFacade(id, video)}
