@@ -15,6 +15,12 @@
  * thumbnailUrl: validate-schema.js hace fallar el build si no coincide.
  */
 export const videos = {
+  'G-uFaOOFleM': {
+    titulo: 'Cómo saber si tu ficha de Google es tuya y cómo reclamarla',
+    poster: '/image/youtube-short-5-poster.webp',
+    ancho: 640,
+    alto: 1138,
+  },
   WZMDWeJs6Pc: {
     titulo: 'Cómo marcar tu negocio como cerrado en Google Maps (horario especial)',
     poster: '/image/youtube-short-4-poster.webp',
@@ -31,12 +37,6 @@ export const videos = {
     titulo: 'Tu negocio en Google Maps corre peligro si no haces esto',
     tituloYoutube: 'Tu negocio en Google Maps corre PELIGRO si no haces esto',
     poster: '/image/youtube-short-2-poster.webp',
-    ancho: 640,
-    alto: 1138,
-  },
-  '6hEDQJNyA80': {
-    titulo: '¿Subes 20 fotos de golpe a Google Maps? Estás perdiendo clientes',
-    poster: '/image/youtube-short-poster.webp',
     ancho: 640,
     alto: 1138,
   },
@@ -82,4 +82,4 @@ export const videos = {
  * Carrusel «SEO Local en 1 minuto» de la home (shortCards.js), del más reciente
  * al más antiguo: el primero lleva la etiqueta «Nuevo».
  */
-export const carruselHome = ['WZMDWeJs6Pc', 'ryeaU4Gz6HU', 'oNMGUX9e-9U', '6hEDQJNyA80'];
+export const carruselHome = ['G-uFaOOFleM', 'WZMDWeJs6Pc', 'ryeaU4Gz6HU', 'oNMGUX9e-9U'];
