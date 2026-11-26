@@ -324,7 +324,7 @@
     overflow: auto;
     max-inline-size: 100%;
     container-type: inline-size;
-    @apply my-8 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/60 shadow-sm;
+    @apply my-8 rounded-2xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800/40;
   }
   .article-table-wrapper:focus-visible {
     @apply outline-2 outline-offset-2 outline-primary-blue dark:outline-primary-green;
@@ -367,7 +367,7 @@
       display: none;
     }
     .article-table tbody tr {
-      @apply m-3 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden bg-white dark:bg-gray-900/80;
+      @apply m-3 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden bg-white dark:bg-gray-800/40;
     }
     .article-table tbody th {
       position: sticky;
@@ -391,61 +391,6 @@
     }
   }
 
-  /* Acordeón FAQ nativo en artículos (modern-web-guidance: accordion) */
-  .article-faq {
-    @apply space-y-3 my-8;
-  }
-  .article-faq details {
-    @apply rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/60 overflow-hidden;
-  }
-  .article-faq summary {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    cursor: pointer;
-    @apply px-5 py-4 text-lg font-semibold text-gray-900 dark:text-white select-none hover:bg-gray-50 dark:hover:bg-gray-800/70 transition-colors;
-  }
-  .article-faq summary::-webkit-details-marker {
-    display: none;
-  }
-  .article-faq summary::before {
-    content: '';
-    inline-size: 0.65rem;
-    block-size: 0.65rem;
-    flex-shrink: 0;
-    border-inline-end: 2px solid currentColor;
-    border-block-end: 2px solid currentColor;
-    transform: rotate(-45deg);
-    @apply text-primary-blue dark:text-primary-green;
-  }
-  .article-faq details[open] > summary::before {
-    transform: rotate(45deg);
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .article-faq summary::before {
-      transition: transform 0.2s ease;
-    }
-  }
-  .article-faq details::details-content {
-    interpolate-size: allow-keywords;
-    overflow: clip;
-    contain: layout;
-  }
-  .article-faq details:not([open])::details-content {
-    block-size: 0;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .article-faq details::details-content {
-      transition: block-size, content-visibility, display;
-      transition-duration: 0.3s;
-      transition-timing-function: ease-in-out;
-      transition-behavior: allow-discrete;
-    }
-  }
-  .article-faq .faq-answer {
-    @apply px-5 pb-5 pt-1 text-base text-gray-700 dark:text-gray-300 leading-relaxed;
-  }
   .social-share-btn {
     @apply w-12 h-12 text-white rounded-full flex items-center justify-center text-xl transition-all duration-300 ease-in-out transform hover:scale-110;
   }
