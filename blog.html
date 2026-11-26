@@ -16,19 +16,24 @@
       rel="preload"
       href="/fontawesome.min.css?v=cbfded81"
       as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
     <noscript>
       <link rel="stylesheet" href="/fontawesome.min.css?v=cbfded81" />
     </noscript>
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=734418c0" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=21f384aa" />
 
     <!-- Preload de la primera imagen del Blog (Candidata LCP en móvil) -->
     <link
       rel="preload"
       as="image"
-      href="./image/ia-agentica-google-automatizacion-marketing-2026.webp"
+      href="./image/caso-real-seo-local-google-maps-800.webp"
+      imagesrcset="./image/caso-real-seo-local-google-maps-480.webp 480w, ./image/caso-real-seo-local-google-maps-800.webp 800w, ./image/caso-real-seo-local-google-maps.webp 1200w"
+      imagesizes="(max-width: 768px) 100vw, 350px"
       fetchpriority="high"
     />
     <script>
@@ -92,6 +97,63 @@
           <div class="max-w-4xl mx-auto mt-16 space-y-16">
             <!-- Article Card Start (New) -->
             <article class="group scroll-animate-initial">
+              <a
+                href="articulo-caso-real-seo-local-google-maps.html"
+                class="block"
+              >
+                <div
+                  class="grid md:grid-cols-5 gap-8 items-center p-6 bg-light-card dark:bg-dark-card rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <div class="md:col-span-2 overflow-hidden rounded-lg">
+                    <img
+                      srcset="
+                        ./image/caso-real-seo-local-google-maps-480.webp  480w,
+                        ./image/caso-real-seo-local-google-maps-800.webp  800w,
+                        ./image/caso-real-seo-local-google-maps.webp     1200w
+                      "
+                      sizes="(max-width: 768px) 100vw, 350px"
+                      src="./image/caso-real-seo-local-google-maps-800.webp"
+                      alt="Smartphone con pin destacado y cinco estrellas en un mapa urbano junto a un café de especialidad en una cafetería"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                      width="800"
+                      height="450"
+                      fetchpriority="high"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="md:col-span-3">
+                    <div
+                      class="flex justify-between items-center text-sm text-gray-500 mb-2"
+                    >
+                      <span
+                        class="font-semibold text-primary-blue dark:text-primary-green"
+                        >SEO local</span
+                      >
+                      <time datetime="2026-11-26">26 de noviembre de 2026</time>
+                    </div>
+                    <h3
+                      class="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100 group-hover:text-primary-blue dark:group-hover:text-primary-green transition-colors"
+                    >
+                      Caso real de SEO local: cómo optimizar una ficha de Google
+                      Maps desde cero
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-base mb-4">
+                      Fusión sin perder reseñas, ajuste de categorías, 54 platos
+                      cargados y gestión real de reseñas: el paso a paso de una
+                      cafetería en Carabanchel (Madrid).
+                    </p>
+                    <span
+                      class="font-semibold text-primary-blue dark:text-primary-green hover:underline"
+                      >Leer más &rarr;</span
+                    >
+                  </div>
+                </div>
+              </a>
+            </article>
+            <!-- Article Card End -->
+
+            <!-- Article Card Start -->
+            <article class="group scroll-animate-initial">
               <a href="articulo-ia-agentica-2026.html" class="block">
                 <div
                   class="grid md:grid-cols-5 gap-8 items-center p-6 bg-light-card dark:bg-dark-card rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
@@ -103,7 +165,7 @@
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                       width="640"
                       height="467"
-                      loading="eager"
+                      loading="lazy"
                       decoding="async"
                     />
                   </div>

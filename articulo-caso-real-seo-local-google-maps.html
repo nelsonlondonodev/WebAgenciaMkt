@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="max-image-preview:large" />
+    <title>Caso real de SEO local en Google Maps | Nelson Londoño</title>
+    <link
+      rel="canonical"
+      href="https://nelsonlondono.es/articulo-caso-real-seo-local-google-maps.html"
+    />
+    <link rel="icon" type="image/webp" href="./image/favicon.webp" />
+    <meta
+      name="description"
+      content="Cómo optimizamos desde cero la ficha de Google Maps de una cafetería en Carabanchel (Madrid): categorías, fusión, 54 platos, reseñas y datos reales."
+    />
+
+    <!-- Carga local optimizada de Font Awesome -->
+    <link
+      rel="preload"
+      href="/fontawesome.min.css?v=cbfded81"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link rel="stylesheet" href="/fontawesome.min.css?v=cbfded81" />
+    </noscript>
+
+    <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
+    <link rel="stylesheet" href="/nelson-v4.css?v=21f384aa" />
+
+    <!-- Preload de imagen crítica LCP -->
+    <link
+      rel="preload"
+      as="image"
+      href="./image/caso-real-seo-local-google-maps-800.webp"
+      imagesrcset="./image/caso-real-seo-local-google-maps-480.webp 480w, ./image/caso-real-seo-local-google-maps-800.webp 800w, ./image/caso-real-seo-local-google-maps.webp 1200w"
+      imagesizes="(max-width: 640px) 100vw, 768px"
+      fetchpriority="high"
+    />
+
+    <!-- Datos Estructurados: Article -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Caso real de SEO local: cómo optimizar una ficha de Google Maps desde cero",
+        "description": "Cómo optimizamos desde cero la ficha de Google Maps de una cafetería en Carabanchel (Madrid): categorías, fusión, 54 platos, reseñas y datos reales.",
+        "image": "https://nelsonlondono.es/image/caso-real-seo-local-google-maps.webp",
+        "author": {
+          "@type": "Person",
+          "name": "Nelson Londoño",
+          "url": "https://nelsonlondono.es/#sobre-mi"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://nelsonlondono.es/#organization",
+          "name": "Nelson Londoño",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nelsonlondono.es/image/logo-nelson.webp"
+          }
+        },
+        "datePublished": "2026-11-26",
+        "dateModified": "2026-11-26",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://nelsonlondono.es/articulo-caso-real-seo-local-google-maps.html"
+        }
+      }
+    </script>
+
+    <!-- Datos Estructurados: FAQPage (literal respecto al contenido visible) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Necesito tener página web para empezar a posicionar en Google Maps?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No es obligatorio para arrancar: una ficha bien verificada, con categorías exactas, carta o servicios completos, fotos reales y reseñas respondidas ya empieza a captar llamadas y visitas. Sin embargo, para competir por búsquedas amplias del barrio o de toda la ciudad, una web rápida enlazada a la ficha multiplica la autoridad local."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tarda en notarse una optimización real de Google Business Profile?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Los cambios técnicos como categorías, carta, fusión de duplicados y publicaciones se reflejan en días y suelen mover primero las búsquedas de nicho cerca del local. Para dominar términos genéricos muy competidos hacen falta meses de reseñas constantes con texto real y señales externas coherentes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Sirve darle al botón Me gusta en las reseñas de Google Maps?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Darle Me gusta desde la cuenta del propietario no mejora el ranking de la ficha en Google Maps. Su única utilidad práctica es aportar una señal leve en el orden Más relevantes, por lo que conviene usarlo solo en reseñas de cinco estrellas con texto detallado o fotos reales, y nunca en reseñas sin texto."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Por qué conviene responder las reseñas desde Google Maps y no desde el panel de empresa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En Google Maps ves las fotografías que subió el cliente y las subcalificaciones de comida, servicio y ambiente, mientras que en el administrador de perfiles esa información no se muestra igual. Responder usando esos detalles reales evita respuestas genéricas y mejora la confianza de quien lee la ficha."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Google Analytics: la librería se carga bajo demanda tras el consentimiento (src/js/cookieConsent.js) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+    </script>
+  </head>
+  <body class=" ">
+    <!-- Navbar Dinámico -->
+    <div id="nav-placeholder"></div>
+
+    <main class="pt-20">
+      <!-- Breadcrumbs Estáticos -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+          <ol class="flex items-center space-x-2 text-sm">
+            <li class="flex items-center">
+              <a
+                href="/"
+                class="text-primary-blue dark:text-primary-green hover:underline"
+                >Inicio</a
+              >
+              <span
+                class="mx-2 text-gray-400 dark:text-gray-500"
+                aria-hidden="true"
+                >/</span
+              >
+            </li>
+            <li class="flex items-center">
+              <a
+                href="/blog.html"
+                class="text-primary-blue dark:text-primary-green hover:underline"
+                >Blog</a
+              >
+              <span
+                class="mx-2 text-gray-400 dark:text-gray-500"
+                aria-hidden="true"
+                >/</span
+              >
+            </li>
+            <li>
+              <span
+                class="font-medium text-gray-500 dark:text-gray-400"
+                aria-current="page"
+                >Caso real de SEO local</span
+              >
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <article>
+        <!-- Encabezado del Artículo -->
+        <header
+          class="py-16 sm:py-24 dark:bg-gray-800/50 text-center scroll-animate-initial"
+        >
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p
+              class="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-blue dark:text-primary-green"
+            >
+              Caso real · SEO local en Madrid
+            </p>
+            <h1
+              class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6"
+            >
+              Caso real de SEO local: cómo optimizar una ficha de Google Maps
+              desde cero
+            </h1>
+            <div
+              class="flex items-center justify-center space-x-4 text-gray-600 dark:text-gray-400"
+            >
+              <img
+                class="w-12 h-12 rounded-full border-2 border-primary-blue"
+                src="./image/foto-nelson-londono.webp"
+                alt="Nelson Londoño"
+                loading="lazy"
+                width="64"
+                height="64"
+              />
+              <div class="text-left">
+                <p class="font-semibold">Por Nelson Londoño</p>
+                <time datetime="2026-11-26">26 de noviembre de 2026</time>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Imagen Destacada (LCP) -->
+        <div
+          class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 scroll-animate-initial"
+        >
+          <div
+            class="aspect-[16/9] w-full rounded-xl shadow-2xl overflow-hidden bg-gray-200 dark:bg-gray-800"
+          >
+            <img
+              srcset="
+                ./image/caso-real-seo-local-google-maps-480.webp  480w,
+                ./image/caso-real-seo-local-google-maps-800.webp  800w,
+                ./image/caso-real-seo-local-google-maps.webp     1200w
+              "
+              sizes="(max-width: 640px) 100vw, 768px"
+              src="./image/caso-real-seo-local-google-maps-800.webp"
+              alt="Smartphone mostrando un pin destacado con cinco estrellas en un mapa urbano junto a una taza de café de especialidad sobre una mesa de cafetería"
+              class="w-full h-full object-cover"
+              width="800"
+              height="450"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+
+        <!-- Contenido del Artículo -->
+        <div
+          class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 scroll-animate-initial"
+        >
+          <div class="article-content space-y-8">
+            <p
+              class="text-xl leading-relaxed text-gray-700 dark:text-gray-300 italic border-l-4 border-primary-blue pl-4"
+            >
+              Cuando un negocio físico abre local nuevo y todavía no tiene
+              página web, su escaparate más rentable no es una campaña de pago:
+              es su ficha de Google Maps. Aquí te enseño, paso a paso y con
+              datos reales, cómo reestructuramos la ficha de
+              <strong>Hecho en mi pueblo</strong> en Carabanchel (Madrid), qué
+              se movió en los primeros días y qué todavía requiere tiempo.
+            </p>
+
+            <h2>
+              El punto de partida: un problema muy común en negocios locales
+            </h2>
+            <p>
+              <strong>Hecho en mi pueblo</strong> es una cafetería y obrador
+              colombiano en Carabanchel (Calle de Ramón Serrano, 34, Madrid).
+              Cuando empezamos el trabajo de
+              <a href="agencia-seo-local.html">SEO local</a> el 8 de noviembre,
+              no partíamos de cero limpio, sino de un escenario más complejo y
+              muy habitual:
+            </p>
+            <ul>
+              <li>
+                <strong>Ficha heredada de otra ciudad:</strong> su perfil
+                anterior seguía configurado como «Comida a domicilio» en
+                Torrejón de Ardoz, sin dirección visible al público y con una
+                descripción desactualizada.
+              </li>
+              <li>
+                <strong>Ficha duplicada sin reclamar:</strong> en el local nuevo
+                de Carabanchel ya existía una segunda ficha creada de forma
+                espontánea con reseñas separadas.
+              </li>
+              <li>
+                <strong>Sin página web propia todavía:</strong> toda la
+                captación orgánica en Google dependía al 100 % de la ficha de
+                Google Business Profile y del enlace directo a WhatsApp y redes.
+              </li>
+            </ul>
+
+            <h2>Paso 1: medir una línea base antes de tocar un solo campo</h2>
+            <p>
+              El primer error al optimizar Google Maps es editar todo a ciegas y
+              no saber luego qué funcionó. Antes de ejecutar cambios,
+              registramos una foto completa de la ficha (categorías, zonas,
+              horarios, atributos, enlaces y fotos) y fijamos una línea base de
+              visibilidad en Maps tanto en búsqueda manual como en una
+              cuadrícula geográfica de 49 puntos alrededor del local.
+            </p>
+            <p>
+              También definimos una regla innegociable:
+              <strong>nombre exacto del rótulo</strong>, sin rellenarlo con
+              palabras clave artificiales. Google aprobó el nombre el mismo día
+              y evitamos suspensiones innecesarias.
+            </p>
+
+            <h2>
+              Paso 2: traslado, doble verificación por vídeo y fusión sin perder
+              reseñas
+            </h2>
+            <p>
+              Al añadir la dirección física en Vista Alegre / Carabanchel,
+              Google disparó la verificación por vídeo. Con la colaboración de
+              los dueños grabamos el recorrido real del local y, tras una
+              segunda verificación por vídeo el 18 de noviembre, conseguimos
+              <strong>fusionar la ficha duplicada</strong>.
+            </p>
+            <p>
+              El resultado inmediato fue clave: en lugar de empezar con 0
+              reseñas, Google sumó las valoraciones de ambas fichas y el negocio
+              arrancó consolidado con
+              <strong>34 reseñas y un 4,9 sobre 5</strong>, recuperando
+              teléfono, WhatsApp, Instagram y TikTok.
+            </p>
+
+            <h2>
+              Paso 3: el detalle de las categorías en inglés (y los 5 ajustes de
+              fondo)
+            </h2>
+            <p>
+              Las categorías son una de las señales de relevancia más fuertes de
+              Google Maps, y aquí aparece un fallo muy poco documentado: en
+              español, el panel de Google Business Profile muestra hasta cuatro
+              opciones llamadas exactamente <em>«Cafetería»</em> que en realidad
+              corresponden a categorías internas distintas.
+            </p>
+            <blockquote>
+              Truco práctico: si cambias temporalmente el idioma del panel a
+              inglés, ves el nombre real de cada categoría y evitas elegir una
+              equivalencia equivocada.
+            </blockquote>
+            <p>
+              Haciendo eso seleccionamos con precisión
+              <strong>Cafe</strong> como categoría principal y seis secundarias
+              exactas: <em>Colombian restaurant</em>, <em>Bakery</em>,
+              <em>Breakfast restaurant</em>, <em>Brunch restaurant</em>,
+              <em>Meal delivery</em> y <em>Caterer</em>. Ese mismo día cerramos
+              otros cuatro frentes:
+            </p>
+            <ul>
+              <li>
+                <strong>Zonas de servicio reales:</strong> sustituimos las zonas
+                antiguas de Torrejón por las 15 zonas reales de reparto en
+                Madrid.
+              </li>
+              <li>
+                <strong>Descripción nueva (683 de 750 caracteres):</strong>
+                enfocada en obrador propio, desayunos, café de especialidad y
+                Carabanchel.
+              </li>
+              <li>
+                <strong>Atributos y pagos revisados:</strong> eliminamos el
+                aviso heredado de «Solo se acepta efectivo» y activamos tarjetas
+                y pago con móvil.
+              </li>
+              <li>
+                <strong>Limpieza posfusión:</strong> revisamos los atributos que
+                Google inyectó automáticamente al unir las dos fichas para que
+                no quedaran horarios ni servicios falsos (como cenas que el
+                local no ofrece).
+              </li>
+            </ul>
+
+            <h2>
+              Paso 4: carta completa (54 platos), fotos reales y publicación a
+              WhatsApp
+            </h2>
+            <p>
+              Una ficha con texto bonito pero sin oferta concreta pierde
+              búsquedas específicas de producto. Entre el 19 y el 20 de
+              noviembre cargamos la <strong>carta completa en la ficha</strong>:
+              54 elementos organizados en 6 secciones (arepas, antojos, postres,
+              bebidas calientes, refrescantes y con alcohol).
+            </p>
+            <p>
+              A eso sumamos 6 fotografías reales del producto y del local
+              (desayuno colombiano, café de especialidad, canastas de patacón,
+              tarta de zanahoria, arepa con queso e inauguración con rostros de
+              clientes difuminados), 2 imágenes legibles de la carta y una
+              primera publicación del <em>Desayuno Campesino</em> con botón
+              directo a WhatsApp y mensaje prellenado.
+            </p>
+
+            <h2>
+              Paso 5: el sistema de reseñas (3 detalles que casi ningún negocio
+              aplica)
+            </h2>
+            <p>
+              Conseguir reseñas es solo la mitad del trabajo; la otra mitad es
+              cómo se gestionan para que convenzan al siguiente cliente que mira
+              la ficha:
+            </p>
+            <ul>
+              <li>
+                <strong
+                  >Responder siempre desde Google Maps, no desde el panel de
+                  empresa:</strong
+                >
+                en Maps aparecen las fotografías que subió el cliente y sus
+                subcalificaciones de comida, servicio y ambiente. Eso permite
+                responder con contexto real en vez de copiar un «gracias por tu
+                visita» genérico.
+              </li>
+              <li>
+                <strong>Guía de tono propia y variedad real:</strong> definimos
+                reglas claras para responder con cercanía colombiana respetuosa
+                (sin jerga forzada), variando aperturas, sin inventar platos que
+                el cliente no nombró y con protocolo específico para reseñas de
+                3 estrellas o menos.
+              </li>
+              <li>
+                <strong>Uso selectivo del botón «Me gusta»:</strong> darle «Me
+                gusta» desde la cuenta del dueño no sube posiciones en Maps.
+                Solo lo marcamos en reseñas de 5 estrellas con texto detallado o
+                fotos reales para reforzar su visibilidad en el orden «Más
+                relevantes», y nunca en reseñas sin texto.
+              </li>
+            </ul>
+
+            <h2>
+              Resultados iniciales (y qué todavía NO ocurre en una semana)
+            </h2>
+            <p>
+              En SEO local conviene desconfiar de quien promete el puesto 1 en
+              48 horas. Estos son los datos reales observados durante los
+              primeros 8 días tras la fusión y la puesta a punto:
+            </p>
+            <ul>
+              <li>
+                <strong>Reseñas activas:</strong> de 34 reseñas (4,9 ★) el 18 de
+                noviembre a <strong>49 reseñas (4,9 ★)</strong> el 26 de
+                noviembre (+15 reseñas en 8 días, el 100 % respondidas desde
+                Google Maps).
+              </li>
+              <li>
+                <strong>Primeras señales en búsquedas de nicho:</strong> en solo
+                4 días tras cargar carta, fotos y primeras respuestas,
+                <em>«arepas carabanchel»</em> pasó del puesto 32 al 28 en
+                búsqueda manual (media de 17,3 en los puntos visibles del
+                entorno) y la ficha asomó en puestos 2 y 3 junto al local para
+                <em>«panadería colombiana madrid»</em> y
+                <em>«cafetería colombiana madrid»</em>.
+              </li>
+              <li>
+                <strong>Lo que aún requiere recorrido (sin humo):</strong> en
+                términos mucho más competidos como
+                <em>«desayunos carabanchel»</em> o <em>«brunch carabanchel»</em>
+                todavía no entra en el radar de 49 puntos. Expandir ese radio
+                depende ahora de mantener el ritmo mensual de reseñas con texto
+                y dar el siguiente paso lógico: lanzar una
+                <a href="agencia-desarrollo-web-con-codigo.html"
+                  >web rápida a medida</a
+                >
+                enlazada a la ficha.
+              </li>
+            </ul>
+
+            <h2>
+              Resumen práctico: qué sí mueve la ficha y qué hace perder tiempo
+            </h2>
+            <div
+              tabindex="0"
+              role="region"
+              aria-labelledby="tabla-seo-local-caption"
+              class="article-table-wrapper"
+            >
+              <table
+                class="article-table"
+                style="
+                  --label-2: 'Impacto real';
+                  --label-3: 'Qué hacer en la práctica';
+                "
+              >
+                <caption id="tabla-seo-local-caption">
+                  Prioridades reales al optimizar una ficha de Google Business
+                  Profile
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Acción en la ficha</th>
+                    <th scope="col">Impacto real</th>
+                    <th scope="col">Qué hacer en la práctica</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Categoría principal y secundarias</th>
+                    <td>Muy alto (ranking)</td>
+                    <td>
+                      Revisarlas con el panel en inglés si hay duplicados
+                      ambiguos en español.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Fusión de fichas duplicadas</th>
+                    <td>Alto (autoridad)</td>
+                    <td>
+                      Unificar en una sola ficha verificada para concentrar
+                      reseñas y evitar competencia interna.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Carta / servicios + fotos reales</th>
+                    <td>Alto (relevancia y clics)</td>
+                    <td>
+                      Cargar oferta completa por secciones y subir fotos propias
+                      sin bancos de imágenes.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Respuestas desde Google Maps</th>
+                    <td>Medio-alto (conversión)</td>
+                    <td>
+                      Contestar mirando fotos y subnotas del cliente, con tono
+                      natural y sin plantillas repetidas.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Botón «Me gusta» en reseñas</th>
+                    <td>Nulo en ranking / leve en orden</td>
+                    <td>
+                      Usarlo solo en 5★ con buen texto o fotos para apoyar la
+                      vista «Más relevantes».
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Rellenar el nombre con keywords</th>
+                    <td>Riesgo alto</td>
+                    <td>
+                      Evitarlo: usar el nombre exacto del rótulo para prevenir
+                      suspensiones de ficha.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Preguntas frecuentes -->
+            <section class="article-faq" aria-labelledby="faq-seo-local">
+              <h2 id="faq-seo-local">Preguntas frecuentes sobre SEO local</h2>
+              <details>
+                <summary>
+                  ¿Necesito tener página web para empezar a posicionar en Google
+                  Maps?
+                </summary>
+                <div class="faq-answer">
+                  <p>
+                    No es obligatorio para arrancar: una ficha bien verificada,
+                    con categorías exactas, carta o servicios completos, fotos
+                    reales y reseñas respondidas ya empieza a captar llamadas y
+                    visitas. Sin embargo, para competir por búsquedas amplias
+                    del barrio o de toda la ciudad, una web rápida enlazada a la
+                    ficha multiplica la autoridad local.
+                  </p>
+                </div>
+              </details>
+              <details>
+                <summary>
+                  ¿Cuánto tarda en notarse una optimización real de Google
+                  Business Profile?
+                </summary>
+                <div class="faq-answer">
+                  <p>
+                    Los cambios técnicos como categorías, carta, fusión de
+                    duplicados y publicaciones se reflejan en días y suelen
+                    mover primero las búsquedas de nicho cerca del local. Para
+                    dominar términos genéricos muy competidos hacen falta meses
+                    de reseñas constantes con texto real y señales externas
+                    coherentes.
+                  </p>
+                </div>
+              </details>
+              <details>
+                <summary>
+                  ¿Sirve darle al botón Me gusta en las reseñas de Google Maps?
+                </summary>
+                <div class="faq-answer">
+                  <p>
+                    Darle Me gusta desde la cuenta del propietario no mejora el
+                    ranking de la ficha en Google Maps. Su única utilidad
+                    práctica es aportar una señal leve en el orden Más
+                    relevantes, por lo que conviene usarlo solo en reseñas de
+                    cinco estrellas con texto detallado o fotos reales, y nunca
+                    en reseñas sin texto.
+                  </p>
+                </div>
+              </details>
+              <details>
+                <summary>
+                  ¿Por qué conviene responder las reseñas desde Google Maps y no
+                  desde el panel de empresa?
+                </summary>
+                <div class="faq-answer">
+                  <p>
+                    En Google Maps ves las fotografías que subió el cliente y
+                    las subcalificaciones de comida, servicio y ambiente,
+                    mientras que en el administrador de perfiles esa información
+                    no se muestra igual. Responder usando esos detalles reales
+                    evita respuestas genéricas y mejora la confianza de quien
+                    lee la ficha.
+                  </p>
+                </div>
+              </details>
+            </section>
+
+            <!-- Sección de Compartir -->
+            <div class="text-center pt-8 border-t dark:border-gray-700 mt-12">
+              <p
+                class="text-lg font-semibold text-gray-800 dark:text-white mb-4"
+              >
+                ¿Te ha parecido útil este caso real? ¡Compártelo!
+              </p>
+              <div class="flex justify-center space-x-4">
+                <a
+                  href="#"
+                  id="share-linkedin"
+                  class="social-share-btn linkedin"
+                  aria-label="Compartir en LinkedIn"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="https://wa.me/34604547203?text=He%20leido%20tu%20caso%20real%20de%20SEO%20local%20en%20Google%20Maps%20y%20quiero%20revisar%20mi%20ficha"
+                  id="share-whatsapp"
+                  class="social-share-btn whatsapp"
+                  aria-label="Compartir en WhatsApp"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Final -->
+        <section class="dark:bg-gray-800/50 py-16 scroll-animate-initial">
+          <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-3xl font-bold mb-4">
+              ¿Quieres que revisemos tu ficha de Google Maps con datos reales?
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+              Analizamos tus categorías, posibles duplicados, reseñas y
+              visibilidad real en tu barrio para decirte exactamente qué tocar
+              primero.
+            </p>
+            <a href="/#contacto" class="cta-button"
+              >Solicita tu diagnóstico de SEO local</a
+            >
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <!-- Footer y Componentes Dinámicos -->
+    <div id="footer-placeholder"></div>
+    <div id="cookie-banner-placeholder"></div>
+
+    <!-- Scripts Modularizados -->
+    <script src="/bundle-v2.min.js?v=b02c319c" defer></script>
+  </body>
+</html>
