@@ -311,10 +311,16 @@
   .article-content a {
     @apply text-primary-blue dark:text-primary-green font-semibold underline decoration-primary-blue/50 dark:decoration-primary-green/50 hover:decoration-primary-blue dark:hover:decoration-primary-green transition;
   }
-  .article-content ul {
-    @apply list-disc list-inside space-y-2 pl-4;
+  .article-content :is(ul, ol) {
+    @apply list-inside space-y-2 pl-4;
   }
-  .article-content ul li {
+  .article-content ul {
+    @apply list-disc;
+  }
+  .article-content ol {
+    @apply list-decimal;
+  }
+  .article-content :is(ul, ol) li {
     @apply text-lg text-gray-700 dark:text-gray-300 leading-relaxed;
   }
   .article-content blockquote {
