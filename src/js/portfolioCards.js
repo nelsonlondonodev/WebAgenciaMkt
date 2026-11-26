@@ -55,7 +55,7 @@ function createCardContent(item) {
         ${
           item.isNew
             ? `
-          <span class="bg-primary-blue dark:bg-primary-green text-white text-xs font-bold uppercase py-1 px-2 rounded-full">
+          <span class="bg-blue-600 dark:bg-primary-green-solid text-white text-xs font-bold uppercase py-1 px-2 rounded-full">
             Nuevo
           </span>
         `
