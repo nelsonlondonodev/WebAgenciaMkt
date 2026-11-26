@@ -19,6 +19,7 @@ RewriteRule ^nelson-londono/(.*)$ /cv/ [R=301,L]
 
 # 3. Redirigir artículos o guías antiguas/eliminadas a secciones relevantes
 RewriteRule ^articulo-ia-navidad-2025\.html$ /blog.html [R=301,L]
+RewriteRule ^articulo-ejemplo\.html$ /articulo-posicionamiento-web-seo-getafe.html [R=301,L]
 RewriteRule ^guia/guia-para-pdf\.html$ /guia/ [R=301,L]
 RewriteRule ^guia/guia-seo-local-template\.html$ /guia/ [R=301,L]
 
