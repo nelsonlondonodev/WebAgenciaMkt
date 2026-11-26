@@ -9,7 +9,9 @@ const observer =
             }
           });
         },
-        { threshold: 0.1 }
+        // threshold 0: un bloque más alto que diez pantallas (el cuerpo de un artículo
+        // largo en móvil) nunca llega al 10 % visible y se quedaba en opacity 0.
+        { threshold: 0, rootMargin: '0px 0px -10% 0px' }
       )
     : null;
 
