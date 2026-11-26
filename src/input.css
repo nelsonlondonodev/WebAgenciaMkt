@@ -366,6 +366,10 @@
     .article-table thead {
       display: none;
     }
+    .article-table caption {
+      display: block;
+      width: 100%;
+    }
     .article-table tbody tr {
       @apply m-3 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden bg-white dark:bg-gray-800/40;
     }
@@ -381,13 +385,19 @@
     .article-table tbody td:last-child {
       border-bottom: 0;
     }
+    .article-table tbody td::before {
+      @apply font-semibold text-gray-900;
+    }
+    /* El modo oscuro va a mano: `dark:` en un ::before se compila como
+       `::before:where()`, un selector inválido que el navegador descarta. */
+    .dark .article-table tbody td::before {
+      color: var(--color-white);
+    }
     .article-table tbody td:nth-child(2)::before {
       content: var(--label-2) ': ';
-      @apply font-semibold text-gray-900 dark:text-white;
     }
     .article-table tbody td:nth-child(3)::before {
       content: var(--label-3) ': ';
-      @apply font-semibold text-gray-900 dark:text-white;
     }
   }
 
