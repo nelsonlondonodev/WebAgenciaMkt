@@ -26,9 +26,7 @@ const EXCLUDED_PATHS = [
   '/404',             // Página de error
   '/google',          // Archivos de verificación
   '/guia-para-pdf',   // Herramienta interna de maquetación
-  '/politica-de-cookies', // Excluida por Noindex
-  '/politica-de-privacidad', // Excluida por Noindex
-  '/p/'               // Propuestas privadas a clientes (noindex)
+  '/p/'             // Propuestas privadas a clientes (noindex)
 ];
 
 /** @description Directorios del sistema a ignorar durante el escaneo */
@@ -60,15 +58,19 @@ const isInternalFile = (filename) => {
   return ['404.html', '_template', 'guia-para-pdf'].some(p => filename.includes(p));
 };
 
+/** @description Cualquier <meta name="robots"> (o googlebot), con los atributos en cualquier orden */
+const ROBOTS_META = /<meta\b(?=[^>]*\bname=["'](?:robots|googlebot)["'])[^>]*>/gi;
+
 /**
- * Verifica si el archivo tiene la etiqueta meta noindex
- * @param {string} filePath 
+ * Verifica si el archivo lleva noindex en su meta robots, solo o combinado
+ * ("noindex, nofollow", "noindex,follow"…)
+ * @param {string} filePath
  * @returns {Promise<boolean>}
  */
 async function hasNoIndexTag(filePath) {
   try {
     const content = await readFile(filePath, 'utf-8');
-    return content.includes('content="noindex"');
+    return (content.match(ROBOTS_META) ?? []).some((tag) => /\bnoindex\b/i.test(tag));
   } catch (error) {
     return true; // Ante error, protegemos la indexación
   }
