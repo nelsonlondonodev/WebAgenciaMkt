@@ -11,7 +11,7 @@ import { videos, carruselHome } from './data/videos.js';
 import { renderVideoFacade } from './videoFacadeTemplate.js';
 
 const NUEVO = `
-    <span class="pointer-events-none absolute top-3 left-3 z-20 rounded-full bg-primary-green px-3 py-1 text-[10px] font-black uppercase tracking-widest text-white shadow-lg">
+    <span class="pointer-events-none absolute top-3 left-3 z-20 rounded-full bg-primary-green-solid px-3 py-1 text-[10px] font-black uppercase tracking-widest text-white shadow-lg">
       Nuevo
     </span>`;
 
