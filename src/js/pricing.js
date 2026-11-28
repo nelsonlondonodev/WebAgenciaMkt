@@ -5,6 +5,9 @@ import { CONFIG } from './config.js';
 // HTML estático escribe "1.150", así que se fuerza el punto de miles.
 const priceFormatter = new Intl.NumberFormat('es-ES', { useGrouping: 'always' });
 
+/** @param {number} amount */
+export const formatPrice = (amount) => priceFormatter.format(amount);
+
 /**
  * Inyecta los precios configurados en el archivo central de configuración
  * en los elementos HTML que tengan el atributo [data-service-price].
@@ -20,7 +23,7 @@ export function initPricing() {
       // Inyectar el precio formateado: e.g. "Desde 230 €/mes"
       // Si el elemento tiene data-price-only="true", solo inyecta el número
       const onlyNumber = element.getAttribute('data-price-only') === 'true';
-      const price = priceFormatter.format(pricingData.MIN_PRICE);
+      const price = formatPrice(pricingData.MIN_PRICE);
 
       if (onlyNumber) {
         element.textContent = `${price}${pricingData.CURRENCY}`;
@@ -29,7 +32,6 @@ export function initPricing() {
       }
 
       // Si el elemento tiene data-include-note="true", inyectar la nota
-      // Buscamos un contenedor de nota adjunto si existe
       if (
         pricingData.NOTE &&
         element.getAttribute('data-include-note') === 'true'
@@ -50,11 +52,9 @@ function renderPriceNote(anchorElement, noteText) {
   if (!noteElement) {
     noteElement = document.createElement('p');
     noteElement.id = noteId;
-    noteElement.className = 'text-xs italic text-gray-500 mt-2 font-light';
-    anchorElement.parentNode.insertBefore(
-      noteElement,
-      anchorElement.nextSibling
-    );
+    noteElement.className = 'text-xs italic text-gray-500 dark:text-gray-400 mt-2 font-light';
+    // Al final del bloque del precio: dentro de su fila se colaba entre el importe y «/mes».
+    anchorElement.parentElement.parentElement.append(noteElement);
   }
 
   noteElement.textContent = `* ${noteText}`;

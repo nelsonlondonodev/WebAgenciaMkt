@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="max-image-preview:large" />
+    <title>Calculadora de presupuesto web y SEO | Nelson Londoño</title>
+    <meta
+      name="description"
+      content="Responde unas preguntas y mira desde cuánto sale tu web, tu SEO o tu ficha de Google. Precio orientativo al momento, sin dejar tus datos."
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://nelsonlondono.es/presupuesto.html",
+        "url": "https://nelsonlondono.es/presupuesto.html",
+        "name": "Calculadora de presupuesto web y SEO",
+        "inLanguage": "es",
+        "publisher": { "@id": "https://nelsonlondono.es/#organization" }
+      }
+    </script>
+
+    <link rel="canonical" href="https://nelsonlondono.es/presupuesto.html" />
+    <link rel="icon" type="image/webp" href="./image/favicon.webp" />
+    <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
+    <link rel="stylesheet" href="/nelson-v4.css?v=00c1bb72" />
+
+    <!-- Carga de FontAwesome optimizada -->
+    <link
+      rel="preload"
+      href="/fontawesome.min.css?v=cbfded81"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="/fontawesome.min.css?v=cbfded81" />
+    </noscript>
+    <!-- Preload de imagen crítica (Logo) -->
+    <link rel="preload" as="image" href="/image/logo-nelson.webp" fetchpriority="high" />
+  </head>
+  <body
+    class="transition-colors duration-300 font-sans text-gray-900 dark:text-gray-100"
+  >
+    <div data-component="nav"></div>
+
+    <main class="pt-20">
+      <div id="breadcrumbs-placeholder"></div>
+
+      <section id="calculadora" class="px-4 py-12 sm:py-16 section-gradient-green">
+        <div class="mx-auto max-w-3xl">
+          <div class="mb-10 text-center">
+            <h1 class="section-title text-4xl sm:text-5xl">¿Cuánto cuesta lo que necesita tu negocio?</h1>
+            <p class="section-subtitle mx-auto max-w-2xl text-base sm:text-lg">
+              Responde unas preguntas y verás desde cuánto sale. Sin dejar tus datos.
+            </p>
+          </div>
+
+          <div data-budget class="rounded-3xl border border-gray-200 bg-white/70 p-6 backdrop-blur-xl sm:p-10 dark:border-white/10 dark:bg-gray-900/40">
+            <p data-progress aria-live="polite" class="mb-3 text-sm font-semibold text-gray-600 dark:text-gray-400">Pregunta 1 de 3</p>
+
+            <div data-step="web" role="group" aria-labelledby="paso-web">
+              <h2 id="paso-web" tabindex="-1" class="mb-6 scroll-mt-32 text-2xl font-black text-gray-900 focus:outline-none dark:text-white">¿Qué web necesitas?</h2>
+              <div class="grid grid-cols-1 gap-3">
+                <button type="button" data-answer="web" value="tengo" aria-pressed="false" class="flex min-h-16 w-full items-center gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-left text-base font-semibold text-gray-800 transition-colors hover:border-primary-green hover:bg-primary-green/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/40 aria-pressed:border-primary-green aria-pressed:bg-primary-green/10 aria-pressed:ring-2 aria-pressed:ring-primary-green dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">
+                  <i class="fas fa-check-circle w-6 shrink-0 text-center text-lg text-primary-green" aria-hidden="true"></i>
+                  <span>Ya tengo web y me sirve</span>
+                </button>
+                <button type="button" data-answer="web" value="landing" aria-pressed="false" class="flex min-h-16 w-full items-center gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-left text-base font-semibold text-gray-800 transition-colors hover:border-primary-green hover:bg-primary-green/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/40 aria-pressed:border-primary-green aria-pressed:bg-primary-green/10 aria-pressed:ring-2 aria-pressed:ring-primary-green dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">
+                  <i class="fas fa-file w-6 shrink-0 text-center text-lg text-primary-green" aria-hidden="true"></i>
+                  <span>Una sola página para que me contacten</span>
+                </button>
+                <button type="button" data-answer="web" value="corporativa" aria-pressed="false" class="flex min-h-16 w-full items-center gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-left text-base font-semibold text-gray-800 transition-colors hover:border-primary-green hover:bg-primary-green/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/40 aria-pressed:border-primary-green aria-pressed:bg-primary-green/10 aria-pressed:ring-2 aria-pressed:ring-primary-green dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">
+                  <i class="fas fa-copy w-6 shrink-0 text-center text-lg text-primary-green" aria-hidden="true"></i>
+                  <span>Varias secciones: servicios, blog y contacto (hasta 5)</span>
+                </button>
+                <button type="button" data-answer="web" value="avanzada" aria-pressed="false" class="flex min-h-16 w-full items-center gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-left text-base font-semibold text-gray-800 transition-colors hover:border-primary-green hover:bg-primary-green/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/40 aria-pressed:border-primary-green aria-pressed:bg-primary-green/10 aria-pressed:ring-2 aria-pressed:ring-primary-green dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">
+                  <i class="fas fa-sitemap w-6 shrink-0 text-center text-lg text-primary-green" aria-hidden="true"></i>
+                  <span>Una web grande o con funciones a medida (6 a 10 páginas)</span>
+                </button>
+                <button type="button" data-answer="web" value="tienda" aria-pressed="false" class="flex min-h-16 w-full items-center gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-left text-base font-semibold text-gray-800 transition-colors hover:border-primary-green hover:bg-primary-green/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/40 aria-pressed:border-primary-green aria-pressed:bg-primary-green/10 aria-pressed:ring-2 aria-pressed:ring-primary-green dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">
+                  <i class="fas fa-shopping-cart w-6 shrink-0 text-center text-lg text-primary-green" aria-hidden="true"></i>
+                  <span>Una tienda online</span>
+                </button>
+                <button type="button" data-answer="web" value="no" aria-pressed="false" class="flex min-h-16 w-full items-center gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-left text-base font-semibold text-gray-800 transition-colors hover:border-primary-green hover:bg-primary-green/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/40 aria-pressed:border-primary-green aria-pressed:bg-primary-green/10 aria-pressed:ring-2 aria-pressed:ring-primary-green dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">
+                  <i class="fas fa-ban w-6 shrink-0 text-center text-lg text-primary-green" aria-hidden="true"></i>
+                  <span>No necesito web</span>
+                </button>
+              </div>
+            </div>
+
+            <div data-step="seo" role="group" aria-labelledby="paso-seo" hidden>
+              <h2 id="paso-seo" tabindex="-1" class="mb-6 scroll-mt-32 text-2xl font-black text-gray-900 focus:outline-none dark:text-white">¿Quieres que te encuentren en Google con tu web?</h2>
+              <div class="grid grid-cols-1 gap-3">
+                <button type="button" data-answer="seo" value="si" aria-pressed="false" class="flex min-h-16 w-full items-center gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-left text-base font-semibold text-gray-800 transition-colors hover:border-primary-green hover:bg-primary-green/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/40 aria-pressed:border-primary-green aria-pressed:bg-primary-green/10 aria-pressed:ring-2 aria-pressed:ring-primary-green dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">
+                  <i class="fas fa-search w-6 shrink-0 text-center text-lg text-primary-green" aria-hidden="true"></i>
+                  <span>Sí, quiero aparecer cuando busquen lo que ofrezco</span>
+                </button>
+                <button type="button" data-answer="seo" value="no" aria-pressed="false" class="flex min-h-16 w-full items-center gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-left text-base font-semibold text-gray-800 transition-colors hover:border-primary-green hover:bg-primary-green/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/40 aria-pressed:border-primary-green aria-pressed:bg-primary-green/10 aria-pressed:ring-2 aria-pressed:ring-primary-green dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">
+                  <i class="fas fa-ban w-6 shrink-0 text-center text-lg text-primary-green" aria-hidden="true"></i>
+                  <span>No, por ahora</span>
+                </button>
+              </div>
+            </div>
+
+            <div data-step="maps" role="group" aria-labelledby="paso-maps" hidden>
+              <h2 id="paso-maps" tabindex="-1" class="mb-6 scroll-mt-32 text-2xl font-black text-gray-900 focus:outline-none dark:text-white">¿Quieres que te encuentren en Google Maps?</h2>
+              <div class="grid grid-cols-1 gap-3">
+                <button type="button" data-answer="maps" value="mensual" aria-pressed="false" class="flex min-h-16 w-full items-center gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-left text-base font-semibold text-gray-800 transition-colors hover:border-primary-green hover:bg-primary-green/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/40 aria-pressed:border-primary-green aria-pressed:bg-primary-green/10 aria-pressed:ring-2 aria-pressed:ring-primary-green dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">
+                  <i class="fas fa-map-marker-alt w-6 shrink-0 text-center text-lg text-primary-green" aria-hidden="true"></i>
+                  <span>Sí, y que alguien trabaje mi ficha cada mes</span>
+                </button>
+                <button type="button" data-answer="maps" value="puesta_a_punto" aria-pressed="false" class="flex min-h-16 w-full items-center gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-left text-base font-semibold text-gray-800 transition-colors hover:border-primary-green hover:bg-primary-green/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/40 aria-pressed:border-primary-green aria-pressed:bg-primary-green/10 aria-pressed:ring-2 aria-pressed:ring-primary-green dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">
+                  <i class="fas fa-tools w-6 shrink-0 text-center text-lg text-primary-green" aria-hidden="true"></i>
+                  <span>Solo dejar la ficha bien puesta, una vez</span>
+                </button>
+                <button type="button" data-answer="maps" value="no" aria-pressed="false" class="flex min-h-16 w-full items-center gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-left text-base font-semibold text-gray-800 transition-colors hover:border-primary-green hover:bg-primary-green/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/40 aria-pressed:border-primary-green aria-pressed:bg-primary-green/10 aria-pressed:ring-2 aria-pressed:ring-primary-green dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">
+                  <i class="fas fa-ban w-6 shrink-0 text-center text-lg text-primary-green" aria-hidden="true"></i>
+                  <span>No, por ahora</span>
+                </button>
+              </div>
+            </div>
+
+            <div data-step="automatizar" role="group" aria-labelledby="paso-automatizar" hidden>
+              <h2 id="paso-automatizar" tabindex="-1" class="mb-6 scroll-mt-32 text-2xl font-black text-gray-900 focus:outline-none dark:text-white">¿Hay tareas repetidas que quieras automatizar?</h2>
+              <div class="grid grid-cols-1 gap-3">
+                <button type="button" data-answer="automatizar" value="si" aria-pressed="false" class="flex min-h-16 w-full items-center gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-left text-base font-semibold text-gray-800 transition-colors hover:border-primary-green hover:bg-primary-green/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/40 aria-pressed:border-primary-green aria-pressed:bg-primary-green/10 aria-pressed:ring-2 aria-pressed:ring-primary-green dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">
+                  <i class="fas fa-robot w-6 shrink-0 text-center text-lg text-primary-green" aria-hidden="true"></i>
+                  <span>Sí: respuestas, citas, avisos o tareas parecidas</span>
+                </button>
+                <button type="button" data-answer="automatizar" value="no" aria-pressed="false" class="flex min-h-16 w-full items-center gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-left text-base font-semibold text-gray-800 transition-colors hover:border-primary-green hover:bg-primary-green/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/40 aria-pressed:border-primary-green aria-pressed:bg-primary-green/10 aria-pressed:ring-2 aria-pressed:ring-primary-green dark:border-white/20 dark:bg-gray-800/60 dark:text-gray-100">
+                  <i class="fas fa-ban w-6 shrink-0 text-center text-lg text-primary-green" aria-hidden="true"></i>
+                  <span>No, por ahora</span>
+                </button>
+              </div>
+            </div>
+
+            <div data-result hidden>
+              <h2 data-result-title tabindex="-1" class="mb-6 scroll-mt-32 text-2xl font-black text-gray-900 focus:outline-none dark:text-white">Tu precio de partida</h2>
+
+              <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div data-total-once class="rounded-2xl border border-primary-green/40 bg-primary-green/10 p-5 text-center">
+                  <p class="text-sm font-semibold text-gray-700 dark:text-gray-300">Pago único</p>
+                  <p data-total-value class="mt-1 text-2xl sm:text-3xl font-black text-gray-900 dark:text-white"></p>
+                </div>
+                <div data-total-monthly class="rounded-2xl border border-primary-green/40 bg-primary-green/10 p-5 text-center">
+                  <p class="text-sm font-semibold text-gray-700 dark:text-gray-300">Cuota mensual</p>
+                  <p data-total-value class="mt-1 text-2xl sm:text-3xl font-black text-gray-900 dark:text-white"></p>
+                </div>
+              </div>
+
+              <ul data-lines class="mt-6 space-y-4"></ul>
+              <template data-line-template>
+                <li class="border-b border-gray-200 pb-4 dark:border-white/10">
+                  <div class="flex flex-wrap items-baseline justify-between gap-2">
+                    <span data-line-label class="font-semibold text-gray-900 dark:text-white"></span>
+                    <span data-line-amount class="text-sm font-bold text-gray-900 dark:text-white"></span>
+                  </div>
+                  <p data-line-note class="mt-1 text-sm text-gray-600 dark:text-gray-400"></p>
+                </li>
+              </template>
+
+              <p data-empty hidden class="text-gray-700 dark:text-gray-300">Con lo que has marcado no sale ningún precio. Déjame tus datos y lo vemos.</p>
+
+              <p class="mt-6 text-sm text-gray-600 dark:text-gray-400">Es un precio de partida, con IVA incluido, para que sepas qué presupuestar. El definitivo te lo doy después de ver tu caso.</p>
+
+              <!-- data-clarity-mask: lo que escribe la persona no sale en las grabaciones de Clarity -->
+              <div data-lead-form data-clarity-mask="true" class="mt-8 border-t border-gray-200 pt-8 dark:border-white/10">
+                <form id="contact-form" method="post" novalidate class="grid grid-cols-1 gap-y-5">
+                  <div>
+                    <h3 class="text-xl font-black text-gray-900 dark:text-white">¿Lo revisamos? Te escribo por WhatsApp</h3>
+                    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Tus respuestas me llegan con el mensaje: no tienes que repetirlas.</p>
+                  </div>
+
+                  <!-- Trampa anti-bot: fuera de pantalla, no oculta -->
+                  <div class="absolute -left-[9999px] top-0 h-px w-px overflow-hidden" aria-hidden="true">
+                    <label for="website">No rellenar este campo</label>
+                    <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
+                  </div>
+                  <!-- Los rellena budgetCalculator.js con las respuestas -->
+                  <input type="hidden" name="service" value="no_lo_se" />
+                  <input type="hidden" name="message" value="" />
+
+                  <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                    <div>
+                      <label for="name" class="mb-2 block text-sm font-semibold text-gray-800 dark:text-gray-200">Nombre</label>
+                      <input type="text" name="name" id="name" autocomplete="name" maxlength="120" required aria-describedby="name-error" class="block w-full scroll-mt-32 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-base text-gray-900 transition-colors focus:border-primary-blue focus:outline-none focus:ring-4 focus:ring-primary-blue/15 aria-invalid:border-red-600 dark:border-white/20 dark:bg-gray-800/60 dark:text-white dark:focus:border-primary-green dark:focus:ring-primary-green/15 dark:aria-invalid:border-red-400" />
+                      <p id="name-error" data-error-for="name" class="mt-2 text-sm font-semibold text-red-700 dark:text-red-300" hidden></p>
+                    </div>
+                    <div>
+                      <label for="phone" class="mb-2 block text-sm font-semibold text-gray-800 dark:text-gray-200">Tu WhatsApp</label>
+                      <input type="tel" name="phone" id="phone" inputmode="tel" autocomplete="tel" placeholder="600 111 222" required aria-describedby="phone-preview phone-error" class="block w-full scroll-mt-32 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-base text-gray-900 transition-colors focus:border-primary-blue focus:outline-none focus:ring-4 focus:ring-primary-blue/15 aria-invalid:border-red-600 dark:border-white/20 dark:bg-gray-800/60 dark:text-white dark:focus:border-primary-green dark:focus:ring-primary-green/15 dark:aria-invalid:border-red-400" />
+                      <p id="phone-preview" data-phone-preview aria-live="polite" class="mt-1 text-sm font-semibold text-gray-800 dark:text-gray-200"></p>
+                      <p id="phone-error" data-error-for="phone" class="mt-2 text-sm font-semibold text-red-700 dark:text-red-300" hidden></p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <p class="mb-3 text-xs leading-relaxed text-gray-600 dark:text-gray-400">
+                      <strong>Responsable:</strong> Nelson Londoño. <strong>Finalidad:</strong> contestar a tu solicitud. <strong>Base legal:</strong> atender lo que pides antes de contratar. <strong>Destinatarios:</strong> los proveedores técnicos necesarios para gestionarla. <strong>Derechos:</strong> acceder, rectificar, suprimir y los demás que explica la política de privacidad.
+                    </p>
+                    <div class="flex items-start gap-3">
+                      <input type="checkbox" name="privacy_accepted" id="privacy_accepted" value="si" required aria-describedby="privacy_accepted-error" class="mt-0.5 h-6 w-6 shrink-0 accent-primary-green" />
+                      <label for="privacy_accepted" class="text-sm text-gray-800 dark:text-gray-200">He leído la <a href="/politica-de-privacidad.html" target="_blank" rel="noopener" class="font-semibold underline underline-offset-4">política de privacidad<span class="sr-only"> (se abre en otra pestaña)</span></a>.</label>
+                    </div>
+                    <p id="privacy_accepted-error" data-error-for="privacy_accepted" class="mt-2 text-sm font-semibold text-red-700 dark:text-red-300" hidden></p>
+                  </div>
+
+                  <button type="submit" disabled class="w-full rounded-2xl bg-emerald-700 px-8 py-5 text-lg font-bold text-white transition-colors hover:bg-emerald-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-blue/60 disabled:opacity-60">
+                    <span data-submit-label>Quiero que me escribas</span>
+                  </button>
+
+                  <div data-form-status role="alert" tabindex="-1" hidden class="scroll-mt-32 rounded-2xl border border-red-600/40 bg-red-50 p-5 text-center dark:border-red-400/40 dark:bg-red-950/40">
+                    <p data-form-status-text class="text-sm font-semibold text-red-800 dark:text-red-200"></p>
+                  </div>
+
+                  <a data-budget-whatsapp href="https://wa.me/34604547203" target="_blank" rel="noopener" class="inline-flex min-h-12 items-center justify-center gap-2 text-sm font-semibold text-gray-800 underline underline-offset-4 dark:text-gray-200"><i class="fab fa-whatsapp text-lg text-primary-green" aria-hidden="true"></i> O escríbeme tú por WhatsApp</a>
+                </form>
+
+                <div data-form-success hidden class="py-4 text-center">
+                  <h3 data-success-title tabindex="-1" class="scroll-mt-32 text-2xl font-black text-gray-900 focus:outline-none dark:text-white">Solicitud enviada</h3>
+                  <p class="mx-auto mt-3 mb-6 max-w-md text-gray-700 dark:text-gray-300">Gracias por escribir. Si quieres adelantar, sigue por WhatsApp desde el mismo número.</p>
+                  <a data-lead-whatsapp="sent" href="https://wa.me/34604547203" target="_blank" rel="noopener" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#128C7E] px-6 py-3 font-bold text-white transition-colors hover:bg-[#075E54]"><i class="fab fa-whatsapp" aria-hidden="true"></i> Seguir por WhatsApp</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 flex justify-between gap-4">
+              <button type="button" data-budget-back hidden class="min-h-12 text-sm font-semibold text-gray-700 underline underline-offset-4 dark:text-gray-300">Volver atrás</button>
+              <button type="button" data-budget-restart hidden class="ml-auto min-h-12 text-sm font-semibold text-gray-700 underline underline-offset-4 dark:text-gray-300">Empezar de nuevo</button>
+            </div>
+            <noscript><p class="mt-4 text-center text-sm">La calculadora necesita JavaScript. Puedes escribirme por <a href="https://wa.me/34604547203" class="underline">WhatsApp</a>.</p></noscript>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer y Scripts -->
+    <div id="footer-placeholder"></div>
+    <div id="cookie-banner-placeholder"></div>
+    <div data-component="chatbot"></div>
+    <script src="/bundle-v2.min.js?v=b07ca4ab" defer></script>
+  </body>
+</html>

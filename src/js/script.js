@@ -16,6 +16,7 @@ import { generateBreadcrumbs } from './breadcrumbs.js'; // Importar la función 
 
 import { initLeadForm } from './leadForm.js';
 import { initContactReveal } from './contactReveal.js';
+import { initBudgetCalculator } from './budgetCalculator.js';
 
 import { initCookieConsent } from './cookieConsent.js';
 
@@ -62,6 +63,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   // 1. Fase Crítica: UX Inicial e Identidad
   initDarkMode();
   initSmoothScroll();
+  // Antes de pedir componentes: las preguntas ya están en el HTML y deben responder.
+  runIsolated('initBudgetCalculator', initBudgetCalculator);
 
   // 2. Fase de Hidratación: Carga de componentes estructurales
   await loadComponents();
