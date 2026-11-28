@@ -24,7 +24,7 @@
     <link rel="canonical" href="https://nelsonlondono.es/presupuesto.html" />
     <link rel="icon" type="image/webp" href="./image/favicon.webp" />
     <!-- Carga del CSS principal SÍNCRONA para evitar FOUC -->
-    <link rel="stylesheet" href="/nelson-v4.css?v=00c1bb72" />
+    <link rel="stylesheet" href="/nelson-v4.css?v=78300561" />
 
     <!-- Carga de FontAwesome optimizada -->
     <link
@@ -181,7 +181,7 @@
                   <input type="hidden" name="service" value="no_lo_se" />
                   <input type="hidden" name="message" value="" />
 
-                  <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <div class="grid grid-cols-1 gap-5">
                     <div>
                       <label for="name" class="mb-2 block text-sm font-semibold text-gray-800 dark:text-gray-200">Nombre</label>
                       <input type="text" name="name" id="name" autocomplete="name" maxlength="120" required aria-describedby="name-error" class="block w-full scroll-mt-32 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-base text-gray-900 transition-colors focus:border-primary-blue focus:outline-none focus:ring-4 focus:ring-primary-blue/15 aria-invalid:border-red-600 dark:border-white/20 dark:bg-gray-800/60 dark:text-white dark:focus:border-primary-green dark:focus:ring-primary-green/15 dark:aria-invalid:border-red-400" />
@@ -189,7 +189,12 @@
                     </div>
                     <div>
                       <label for="phone" class="mb-2 block text-sm font-semibold text-gray-800 dark:text-gray-200">Tu WhatsApp</label>
-                      <input type="tel" name="phone" id="phone" inputmode="tel" autocomplete="tel" placeholder="600 111 222" required aria-describedby="phone-preview phone-error" class="block w-full scroll-mt-32 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-base text-gray-900 transition-colors focus:border-primary-blue focus:outline-none focus:ring-4 focus:ring-primary-blue/15 aria-invalid:border-red-600 dark:border-white/20 dark:bg-gray-800/60 dark:text-white dark:focus:border-primary-green dark:focus:ring-primary-green/15 dark:aria-invalid:border-red-400" />
+                      <div class="flex flex-col gap-2 sm:flex-row">
+                        <select name="prefix" aria-label="Prefijo del país" autocomplete="tel-country-code" class="w-full shrink-0 scroll-mt-32 rounded-2xl border border-gray-300 bg-white px-3 py-4 text-base text-gray-900 focus:border-primary-blue focus:outline-none focus:ring-4 focus:ring-primary-blue/15 sm:w-52 dark:border-white/20 dark:bg-gray-800 dark:text-white dark:[color-scheme:dark] dark:focus:border-primary-green dark:focus:ring-primary-green/15">
+                          <option value="+34" selected>+34 España</option>
+                        </select>
+                        <input type="tel" name="phone" id="phone" inputmode="tel" autocomplete="tel" placeholder="600 111 222" required aria-describedby="phone-preview phone-error" class="block w-full min-w-0 sm:flex-1 scroll-mt-32 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-base text-gray-900 transition-colors focus:border-primary-blue focus:outline-none focus:ring-4 focus:ring-primary-blue/15 aria-invalid:border-red-600 dark:border-white/20 dark:bg-gray-800/60 dark:text-white dark:focus:border-primary-green dark:focus:ring-primary-green/15 dark:aria-invalid:border-red-400" />
+                      </div>
                       <p id="phone-preview" data-phone-preview aria-live="polite" class="mt-1 text-sm font-semibold text-gray-800 dark:text-gray-200"></p>
                       <p id="phone-error" data-error-for="phone" class="mt-2 text-sm font-semibold text-red-700 dark:text-red-300" hidden></p>
                     </div>
@@ -239,6 +244,6 @@
     <div id="footer-placeholder"></div>
     <div id="cookie-banner-placeholder"></div>
     <div data-component="chatbot"></div>
-    <script src="/bundle-v2.min.js?v=b07ca4ab" defer></script>
+    <script src="/bundle-v2.min.js?v=d07a781d" defer></script>
   </body>
 </html>
