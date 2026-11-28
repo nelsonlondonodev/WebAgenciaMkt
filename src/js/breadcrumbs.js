@@ -10,6 +10,7 @@ const BREADCRUMB_NAMES = {
   'agencia-desarrollo-web-con-codigo.html': 'Desarrollo a Medida',
   'agencia-seo-local.html': 'SEO Local',
   'agencia-seo.html': 'SEO General',
+  'presupuesto.html': 'Calculadora de presupuesto',
 };
 
 /**

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
-import { buildLeadPayload, interpretResponse, normalizePhone, validateLead } from './leadData.js';
+import { buildLeadPayload, interpretResponse, normalizePhone, validateLead, withPrefix } from './leadData.js';
 
 const valid = { name: 'Ana', phone: '600 111 222', service: 'web', message: '', website: '', privacyAccepted: true };
 
@@ -54,3 +54,20 @@ test('la versión enviada es la de la política publicada', () => {
   const page = readFileSync(new URL('../../politica-de-privacidad.html', import.meta.url), 'utf8');
   assert.ok(page.includes(`data-privacy-version="${version}"`));
 });
+
+test('el prefijo del desplegable completa el número', () => {
+  const sent = (prefix, raw) => normalizePhone(withPrefix(prefix, raw));
+  assert.equal(sent('+57', '300 123 4567'), '+573001234567');
+  assert.equal(sent('+44', '07911 123456'), '+447911123456');
+  assert.equal(sent('+34', '600 111 222'), '+34600111222');
+  // Si ya trae código, no se duplica ni se pisa.
+  assert.equal(sent('+34', '+57 300 123 4567'), '+573001234567');
+  assert.equal(sent('+57', '0049 1512 3456789'), '+4915123456789');
+  // «Otro país»: el código va en el número, con o sin +.
+  assert.equal(sent('+', '61 412 345 678'), '+61412345678');
+  // España sigue pidiendo un móvil; sin desplegable no cambia nada.
+  assert.equal(sent('+34', '911 222 333'), null);
+  assert.equal(sent(null, '600 111 222'), '+34600111222');
+  assert.equal(withPrefix('+57', ''), '');
+});
+

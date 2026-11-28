@@ -38,8 +38,12 @@
 
         <div>
           <label for="phone" class="mb-2 block text-sm font-semibold text-gray-800 dark:text-gray-200">Tu WhatsApp</label>
-          <input type="tel" name="phone" id="phone" inputmode="tel" autocomplete="tel" placeholder="600 111 222" required aria-describedby="phone-hint phone-preview phone-error" class="block w-full scroll-mt-32 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-base text-gray-900 transition-colors focus:border-primary-blue focus:outline-none focus:ring-4 focus:ring-primary-blue/15 aria-invalid:border-red-600 dark:border-white/20 dark:bg-gray-800/60 dark:text-white dark:focus:border-primary-green dark:focus:ring-primary-green/15 dark:aria-invalid:border-red-400" />
-          <p id="phone-hint" class="mt-2 text-sm text-gray-600 dark:text-gray-400">Si no es un móvil español, escríbelo con su prefijo.</p>
+          <div class="flex flex-col gap-2 sm:flex-row">
+            <select name="prefix" aria-label="Prefijo del país" autocomplete="tel-country-code" class="w-full shrink-0 scroll-mt-32 rounded-2xl border border-gray-300 bg-white px-3 py-4 text-base text-gray-900 focus:border-primary-blue focus:outline-none focus:ring-4 focus:ring-primary-blue/15 sm:w-52 dark:border-white/20 dark:bg-gray-800 dark:text-white dark:[color-scheme:dark] dark:focus:border-primary-green dark:focus:ring-primary-green/15">
+              <option value="+34" selected>+34 España</option>
+            </select>
+            <input type="tel" name="phone" id="phone" inputmode="tel" autocomplete="tel" placeholder="600 111 222" required aria-describedby="phone-preview phone-error" class="block w-full min-w-0 sm:flex-1 scroll-mt-32 rounded-2xl border border-gray-300 bg-white px-5 py-4 text-base text-gray-900 transition-colors focus:border-primary-blue focus:outline-none focus:ring-4 focus:ring-primary-blue/15 aria-invalid:border-red-600 dark:border-white/20 dark:bg-gray-800/60 dark:text-white dark:focus:border-primary-green dark:focus:ring-primary-green/15 dark:aria-invalid:border-red-400" />
+          </div>
           <p id="phone-preview" data-phone-preview aria-live="polite" class="mt-1 text-sm font-semibold text-gray-800 dark:text-gray-200"></p>
           <p id="phone-error" data-error-for="phone" class="mt-2 text-sm font-semibold text-red-700 dark:text-red-300" hidden></p>
         </div>

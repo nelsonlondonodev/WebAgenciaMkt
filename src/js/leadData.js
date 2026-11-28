@@ -15,7 +15,7 @@ const MESSAGES = {
   },
   phone: {
     required: 'Escribe tu número de WhatsApp.',
-    invalid: 'Revisa el número. Si no es un móvil español, escríbelo con su prefijo: +57, +34…',
+    invalid: 'Revisa el número. Si no es un móvil español, comprueba el prefijo de tu país (+57, +49…).',
   },
   service: {
     required: 'Elige una opción. Si dudas, «No lo sé aún».',
@@ -51,6 +51,20 @@ export function normalizePhone(raw) {
 
   const international = compact.replace(/^00/, '+');
   return /^\+[1-9]\d{7,14}$/.test(international) ? international : null;
+}
+
+/**
+ * Une el prefijo del desplegable con lo que se escribe. España se deja a `normalizePhone`,
+ * y si el número ya trae + o 00 manda lo escrito.
+ * @param {string|null} prefix - «+57», «+» en «Otro país», o null si no hay desplegable.
+ * @param {string} raw
+ * @returns {string}
+ */
+export function withPrefix(prefix, raw) {
+  const number = String(raw ?? '').trim();
+  if (!number || !prefix || prefix === '+34' || /^(\+|00)/.test(number)) return number;
+  // El 0 inicial solo se marca dentro del país.
+  return `${prefix}${number.replace(/^0+/, '')}`;
 }
 
 /**

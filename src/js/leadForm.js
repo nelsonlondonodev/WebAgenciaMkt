@@ -1,5 +1,6 @@
 // src/js/leadForm.js
 import { CONFIG } from './config.js';
+import { PHONE_PREFIXES } from './data/phonePrefixes.js';
 import { submitLead } from './leadApi.js';
 import {
   VISIBLE_FIELDS,
@@ -8,12 +9,15 @@ import {
   formatPhone,
   normalizePhone,
   validateLead,
+  withPrefix,
 } from './leadData.js';
 
 const FAILURES = {
   rate_limited: 'Has enviado varios mensajes seguidos. Espera un poco o escríbeme por WhatsApp.',
   failed: 'No hemos podido enviarlo. Lo que has escrito sigue aquí: inténtalo otra vez o escríbeme por WhatsApp.',
 };
+
+const DEFAULT_PREFIX = '+34';
 
 /** Solo cuenta la conversión: nada de lo que escribe la persona llega a la analítica. */
 function trackLead() {
@@ -26,7 +30,7 @@ function readValues(form) {
   const text = (name) => String(data.get(name) ?? '').trim();
   return {
     name: text('name'),
-    phone: text('phone'),
+    phone: withPrefix(data.get('prefix'), text('phone')),
     service: text('service'),
     message: text('message'),
     website: String(data.get('website') ?? ''),
@@ -64,6 +68,7 @@ function attachLeadForm(form) {
   const statusText = form.querySelector('[data-form-status-text]');
   const phoneInput = form.querySelector('[name="phone"]');
   const phonePreview = form.querySelector('[data-phone-preview]');
+  const prefixSelect = form.querySelector('[name="prefix"]');
   const success = root.querySelector('[data-form-success]');
   const idleLabel = submitLabel.textContent;
   // No se pone a cero al fallar: Waboce descarta en silencio lo enviado en menos de 2 s.
@@ -83,7 +88,7 @@ function attachLeadForm(form) {
   };
 
   const updatePhonePreview = () => {
-    const phone = normalizePhone(phoneInput.value);
+    const phone = normalizePhone(readValues(form).phone);
     phonePreview.textContent = phone ? `Se enviará este número: ${formatPhone(phone)}` : '';
   };
 
@@ -93,6 +98,14 @@ function attachLeadForm(form) {
   });
 
   phoneInput.addEventListener('input', updatePhonePreview);
+  prefixSelect.replaceChildren(
+    // El tercer argumento marca la opción a la que vuelve form.reset().
+    ...PHONE_PREFIXES.map(([value, label]) => new Option(label, value, value === DEFAULT_PREFIX))
+  );
+  prefixSelect.addEventListener('change', () => {
+    setFieldError(form, 'phone', null);
+    updatePhonePreview();
+  });
   form.addEventListener('input', (event) => {
     if (event.target.getAttribute('aria-invalid')) setFieldError(form, event.target.name, null);
   });

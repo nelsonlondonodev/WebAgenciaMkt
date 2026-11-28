@@ -31,6 +31,7 @@ RewriteRule ^about\.html$ /sobre-mi.html [R=301,L]
 RewriteRule ^strength\.html$ /sobre-mi.html [R=301,L]
 RewriteRule ^ingles\.html$ /sobre-mi.html [R=301,L]
 RewriteRule ^servicios\.html$ /#servicios [R=301,L]
+RewriteRule ^agencia-seo-local/?$ /agencia-seo-local.html [R=301,L]
 # --------------------------------------------------
 
 # 4. Custom 404 Page declaration
